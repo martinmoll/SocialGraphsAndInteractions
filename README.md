@@ -4,7 +4,7 @@ Group site and workspace for 02805 Social Graphs and Interactions, DTU, autumn 2
 
 **→ [Read the site](https://martinmoll.github.io/SocialGraphsAndInteractions/)**
 
-Anas Mir · Martin Møllenhus · Diego Ledezma
+Anas Mir · Martin Møllenhus · Diego Mijares
 
 ## Posts
 
