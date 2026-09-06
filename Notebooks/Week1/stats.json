@@ -1,0 +1,46 @@
+{
+  "n": 303,
+  "m_directed": 1784,
+  "m_undirected": 1434,
+  "isolates": 17,
+  "mean_degree_undirected": 9.47,
+  "mean_degree_directed": 5.89,
+  "reciprocity": 0.392,
+  "reciprocal_pairs": 350,
+  "fits": {
+    "in-degree": {
+      "n": 245,
+      "gamma": 1.52,
+      "loglik_powerlaw": -760.7,
+      "loglik_geometric": -713.8,
+      "vuong": -2.89,
+      "p": 0.0038,
+      "verdict": "exponential"
+    },
+    "out-degree": {
+      "n": 283,
+      "gamma": 1.5,
+      "loglik_powerlaw": -917.6,
+      "loglik_geometric": -780.3,
+      "vuong": -13.89,
+      "p": 0.0,
+      "verdict": "exponential"
+    }
+  },
+  "spearman_rho": 0.702,
+  "spearman_p": 2.4e-46,
+  "distinct_scatter_positions": 139,
+  "top10_share_of_inlinks": 0.251,
+  "giant_weak": 277,
+  "giant_strong": 229,
+  "one_way": 48,
+  "pure_sources": 41,
+  "pure_sinks": 3,
+  "diameter_undirected": 6,
+  "mean_path_undirected": 2.67,
+  "island_size": 9,
+  "island_directed_edges": 22,
+  "island_reciprocal_pairs": 9,
+  "island_external_edges": 0,
+  "components": 19
+}

@@ -1,0 +1,275 @@
+/* 02805 group site — shared stylesheet.
+   Palette is lifted from the figures on purpose: the in-degree blue, out-degree
+   orange and island purple below are the same hex values matplotlib plots with,
+   so charts sit on the page as part of it rather than as pasted-in rectangles. */
+
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap");
+
+:root {
+  --ground:      #121316;
+  --surface:     #1a1c21;
+  --surface-2:   #22252c;
+  --ink:         #e9ebef;
+  --muted:       #949cab;
+  --line:        #2b2f38;
+  --line-strong: #3b414d;
+
+  --in:     #4f7fd4;   /* in-degree, and the site accent */
+  --out:    #e0913c;   /* out-degree */
+  --island: #c678dd;   /* the disconnected components */
+
+  --measure: 34rem;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* ---------- type ---------- */
+
+h1, h2, h3, .ui { font-family: Archivo, system-ui, -apple-system, sans-serif; }
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  font-weight: 700;
+  letter-spacing: -.03em;
+  line-height: 1.05;
+  margin: 0;
+  text-wrap: balance;
+}
+
+h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: -.01em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+h3 { font-size: 1.05rem; font-weight: 600; margin: 0; }
+
+p { margin: 0; max-width: var(--measure); }
+
+a { color: var(--in); text-underline-offset: .15em; }
+a:hover { color: var(--ink); }
+:focus-visible { outline: 2px solid var(--in); outline-offset: 3px; border-radius: 2px; }
+
+.eyebrow {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: .72rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.lede { font-size: 1.16rem; color: var(--muted); max-width: 36rem; }
+
+code, .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: .85em; }
+code { background: var(--surface-2); padding: .12em .38em; border-radius: 3px; }
+
+/* ---------- header ---------- */
+
+.masthead {
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.rule-dots { display: flex; gap: .32rem; align-items: center; }
+.rule-dots i {
+  display: block;
+  border-radius: 50%;
+  background: var(--in);
+}
+/* sized like a degree sequence, because that is what it is */
+.rule-dots i:nth-child(1) { width: 13px; height: 13px; }
+.rule-dots i:nth-child(2) { width: 9px;  height: 9px;  opacity: .85; }
+.rule-dots i:nth-child(3) { width: 7px;  height: 7px;  opacity: .7; }
+.rule-dots i:nth-child(4) { width: 5px;  height: 5px;  opacity: .55; }
+.rule-dots i:nth-child(5) { width: 4px;  height: 4px;  opacity: .45; }
+.rule-dots i:nth-child(6) { width: 4px;  height: 4px;  background: var(--island); opacity: .8; margin-left: .55rem; }
+
+/* ---------- sections ---------- */
+
+section { display: flex; flex-direction: column; gap: 1.1rem; }
+.section-head { display: flex; flex-direction: column; gap: .35rem; }
+
+/* ---------- post list ---------- */
+
+.posts { display: flex; flex-direction: column; gap: 0; }
+
+.post-link {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: .3rem 1.4rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--line);
+  text-decoration: none;
+  color: inherit;
+}
+.post-link:last-child { border-bottom: 1px solid var(--line); }
+.post-link:hover { background: var(--surface); }
+.post-link .wk {
+  font-family: "JetBrains Mono", monospace;
+  font-size: .74rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: .35rem;
+}
+.post-link .title { font-family: Archivo, sans-serif; font-weight: 600; font-size: 1.18rem; letter-spacing: -.01em; }
+.post-link .blurb { color: var(--muted); font-size: .95rem; grid-column: 2; }
+
+/* ---------- people ---------- */
+
+.people { display: flex; flex-wrap: wrap; gap: .55rem; }
+.person {
+  font-family: Archivo, sans-serif;
+  font-size: .93rem;
+  font-weight: 500;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: .38rem .95rem;
+}
+
+/* ---------- article ---------- */
+
+article { display: flex; flex-direction: column; gap: 1.6rem; }
+article p + p { margin-top: -.35rem; }
+
+figure {
+  margin: .6rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #161616;
+}
+figcaption {
+  font-family: Archivo, sans-serif;
+  font-size: .86rem;
+  color: var(--muted);
+  max-width: var(--measure);
+}
+figcaption b { color: var(--ink); font-weight: 600; }
+
+blockquote {
+  margin: .4rem 0;
+  padding: 1rem 0 1rem 1.35rem;
+  border-left: 3px solid var(--island);
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: var(--ink);
+  max-width: var(--measure);
+}
+
+/* stat strip */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  overflow: hidden;
+}
+.stat { background: var(--surface); padding: .9rem 1rem; display: flex; flex-direction: column; gap: .15rem; }
+.stat .v {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.45rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.02em;
+}
+.stat .l { font-family: Archivo, sans-serif; font-size: .8rem; color: var(--muted); line-height: 1.35; }
+.stat.in  .v { color: var(--in); }
+.stat.out .v { color: var(--out); }
+.stat.isl .v { color: var(--island); }
+
+/* comparison table */
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 30rem; font-family: Archivo, sans-serif; font-size: .93rem; }
+th {
+  text-align: left;
+  font-family: "JetBrains Mono", monospace;
+  font-size: .68rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+  padding: .7rem .9rem;
+  border-bottom: 1px solid var(--line-strong);
+  white-space: nowrap;
+}
+td { padding: .55rem .9rem; border-bottom: 1px solid var(--line); }
+tr:last-child td { border-bottom: none; }
+td.num { font-family: "JetBrains Mono", monospace; font-variant-numeric: tabular-nums; text-align: right; }
+td.i { color: var(--in); }
+td.o { color: var(--out); }
+
+/* choices list — the Builder rule: every modelling decision surfaced */
+.choices { display: flex; flex-direction: column; gap: .9rem; margin: 0; padding: 0; list-style: none; }
+.choices li {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--in);
+  border-radius: 0 6px 6px 0;
+  padding: .85rem 1.05rem;
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+.choices .what { font-family: Archivo, sans-serif; font-weight: 600; font-size: .97rem; }
+.choices .then { color: var(--muted); font-size: .92rem; max-width: var(--measure); }
+
+ul.plain { margin: 0; padding-left: 1.15rem; display: flex; flex-direction: column; gap: .5rem; max-width: var(--measure); }
+ul.plain li::marker { color: var(--line-strong); }
+
+/* ---------- footer ---------- */
+
+footer {
+  border-top: 1px solid var(--line);
+  padding-top: 1.4rem;
+  color: var(--muted);
+  font-family: Archivo, sans-serif;
+  font-size: .86rem;
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+}
+
+.backlink {
+  font-family: Archivo, sans-serif;
+  font-size: .88rem;
+  text-decoration: none;
+  color: var(--muted);
+}
+.backlink:hover { color: var(--in); }
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }

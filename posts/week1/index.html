@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Superstardom is received, not earned — Marvel Superstars</title>
+<meta name="description" content="Week 1 of DTU 02805: Spider-Man ranks 1st at being linked to and 75th at linking out, neither degree distribution is a power law, and nine characters live on an island of their own.">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <a class="backlink" href="../../">← Marvel Superstars</a>
+    <div class="eyebrow">Week 1 · Networks · 303 Marvel characters</div>
+    <h1>Superstardom is received, not earned</h1>
+    <p class="lede">Spider-Man is the most linked-to character in the Marvel Wikipedia network. At linking out, he ranks 75th. Here's why those are different people, and why we don't think this network is scale-free.</p>
+  </header>
+
+  <article>
+
+    <section>
+      <div class="section-head"><h2>What we asked</h2></div>
+      <p>The dataset is directed. An edge goes from A to B when A's Wikipedia article links to B's. That's a one-way statement — Abomination's article mentions Hulk, but Hulk's article doesn't mention Abomination back.</p>
+      <p>So every character has two numbers: how many articles point at them, and how many they point out to. <strong>Our question: are those the same people?</strong> If a superstar is someone others talk about, does being talked about go with doing the talking?</p>
+
+      <div class="stats">
+        <div class="stat"><span class="v">303</span><span class="l">characters</span></div>
+        <div class="stat"><span class="v">1,784</span><span class="l">directed links</span></div>
+        <div class="stat in"><span class="v">350</span><span class="l">pairs that link to each other</span></div>
+        <div class="stat isl"><span class="v">17</span><span class="l">characters with no links at all</span></div>
+      </div>
+      <p style="font-size:.93rem;color:var(--muted)">39% of links are one half of a mutual pair. Ignore direction and 1,784 becomes 1,434, because those 350 pairs get counted twice one way and once the other.</p>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>What we did</h2></div>
+      <p>We loaded the snapshot as a directed graph, taking the character list from the roster file rather than the edge list. This matters more than it sounds. 17 characters never appear in the edge list, so building from edges alone gives you 286 characters instead of 303 — silently, with no error. It also pushes the mean degree from 9.47 up to 10.03.</p>
+      <p>Then: degree distributions with log binning, a test of which distribution family fits, the in/out comparison, a robustness experiment, and the components.</p>
+
+      <figure>
+        <img src="../../Figures/Week1/fig1_degree_distributions.png" alt="Four panels: in-degree and out-degree distributions on linear and log–log axes, with raw points in colour and a logarithmically binned curve overlaid in white.">
+        <figcaption><b>Figure 1.</b> P(k) plotted against k + 1, so the zero-degree characters stay visible on a log axis. Coloured dots are the raw data; the white line is the log-binned version — width-1 bins up to k + 1 = 7, then doubling, each divided by its bin width. Below 7 the two must match exactly, and we assert that in code. If they don't, the normalisation is wrong.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Neither distribution is a power law</h2></div>
+      <p>A log–log plot invites you to draw a straight line through it. Don't. Fitting a line to unbinned log-frequency points is exactly the thing binning exists to replace, and it will happily report a power law in data that isn't one.</p>
+      <p>We made the case three ways instead. Each stands on its own.</p>
+      <ol class="plain" style="padding-left:1.3rem">
+        <li><strong>Which model fits better?</strong> Fit both by maximum likelihood and compare log-likelihoods. The exponential wins by 47 units for in-degree and 137 for out-degree. No test needed — this is just "which curve is closer", as a number.</li>
+        <li><strong>Is the power law even possible?</strong> Both fitted exponents come out below 2. A power law with γ &lt; 2 has an infinite mean. Our characters average 5.89 links, so that's ruled out with no statistics at all.</li>
+        <li><strong>Is the gap real or just noise?</strong> Only this needs a test. The Vuong test compares two non-nested models and asks if the difference is bigger than sampling noise. It matters for in-degree; for out-degree the gap is so large it doesn't.</li>
+      </ol>
+
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th></th><th class="num">n</th><th class="num">log-lik. power law</th><th class="num">log-lik. exponential</th><th class="num">Vuong</th><th class="num">p</th><th>Verdict</th></tr></thead>
+          <tbody>
+            <tr><td class="i">in-degree</td><td class="num">245</td><td class="num">−760.7</td><td class="num">−713.8</td><td class="num">−2.89</td><td class="num">0.004</td><td>exponential</td></tr>
+            <tr><td class="o">out-degree</td><td class="num">283</td><td class="num">−917.6</td><td class="num">−780.3</td><td class="num">−13.89</td><td class="num">&lt;10⁻⁴³</td><td>exponential</td></tr>
+            <tr><td colspan="7" style="color:var(--muted);font-size:.87rem">Higher (less negative) log-likelihood wins. "Exponential" here is the geometric distribution — the discrete version, which is the right one for whole-number degrees.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure>
+        <img src="../../Figures/Week1/fig2_model_test.png" alt="Two panels showing binned in-degree and out-degree against fitted power-law and exponential curves. The exponential tracks the data; the power law does not.">
+        <figcaption><b>Figure 2.</b> The binned data against both fitted curves. The exponential tracks it; the power law doesn't.</figcaption>
+      </figure>
+      <p>We expect this to be the most contested thing here, so one caveat of our own: above k = 30 there are only five characters. The tail is where these two families actually differ, and ours is nearly empty.</p>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Two different populations</h2></div>
+      <p>Plot in-degree against out-degree and the split is obvious. In-degree runs to 106, out-degree stops at 28, so each axis needs its own range — force them to share one and the whole picture collapses into the left edge.</p>
+
+      <figure>
+        <img src="../../Figures/Week1/fig3_rank_movement.png" alt="Left: scatter of in-degree against out-degree, blue above the diagonal and orange below. Right: dumbbell chart running from each character's in-degree rank to their out-degree rank.">
+        <figcaption><b>Figure 3.</b> <b>Left:</b> every character. Blue = linked to more than they link out; orange = the reverse. <b>Right:</b> the ten most linked-to characters, and where the same character sits on the out-degree list.</figcaption>
+      </figure>
+
+      <p>We kept both panels because they answer different questions. The scatter shows you <em>where</em> Spider-Man sits — 9 links out. The right panel shows what 9 links out actually means: <strong>75th out of 303</strong>. You need the whole distribution to know that, and it's the number that makes the point.</p>
+
+      <h3>So why are they different people?</h3>
+      <p>Our first guess was that the big out-linkers just have longer articles. That's wrong: the blurb length in the roster correlates with neither degree (ρ = 0.02). It's a weak proxy, but the answer is a clean zero.</p>
+      <p>The second guess is more tempting and also wrong — that 28 is about the most links one author can write. But <strong>both</strong> degrees are capped at 302 here, because we only count links landing on another character in the roster. A real article links to hundreds of pages: villains, teams, cities. None of those count. Betsy Braddock's 28 is the limit of her article <em>within our dataset</em>, not of her article. Calling it editorial stamina would mistake our own sampling for a fact about people.</p>
+      <p>What's actually going on is simpler. <strong>Out-degree is one article's decisions. In-degree is 302 articles' decisions.</strong> No single article has a reason to list the whole roster, but 106 separate articles each had a reason to mention Spider-Man. Both distributions are forced to the same mean of 5.89 — every link adds one to somebody's out-degree and one to somebody's in-degree — so all the difference is in the spread, and in-degree's is 3.9× larger.</p>
+      <blockquote>The clearest evidence isn't the maxima. <strong>41 characters link out and never get linked back. Only 3 get linked to and never link out.</strong> Attention flows one way, and it pools.</blockquote>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>You can't walk this network backwards</h2></div>
+      <p>Ignore direction and 277 characters form one connected blob. Respect it and the largest group where everyone can reach everyone else drops to <strong>229</strong>.</p>
+      <p>The 48 in between sit inside the giant component but outside its core: you can click your way to them, but not back. Worth noting — a few write-ups of this dataset say component sizes come in exactly three flavours, 277 / 9 / seventeen 1s, nothing in between. True if you ignore direction. Once you don't, there are 66 strongly connected components with plenty in between.</p>
+
+      <figure>
+        <img src="../../Figures/Week1/fig4_network.png" alt="The full 303-character network. A dense central mass with Spider-Man as a large bright node, green edges marking mutual links, the nine-character island at lower left and the 17 isolates in a grid at lower right.">
+        <figcaption><b>Figure 4.</b> All 303 characters. <span style="color:var(--island)">Green edges are mutual</span> — both articles link to each other. A plain undirected drawing throws all 350 of those away. The isolates sit on a grid rather than wherever the force layout flings them, since a disconnected node has no real position.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>How much does the network depend on them?</h2></div>
+      <p>Not being scale-free is supposed to mean not being hub-fragile, so we checked rather than assumed. Delete characters highest-degree-first, and compare against deleting the same number at random.</p>
+      <figure>
+        <img src="../../Figures/Week1/fig6_robustness.png" alt="Line chart: giant component size against percentage of characters removed, for targeted highest-degree-first removal versus random removal. The targeted curve collapses far faster.">
+        <figcaption><b>Figure 5.</b> Remove 40% of characters by degree and the giant component drops from 277 to <b>27</b>. Remove 40% at random and 157 survive.</figcaption>
+      </figure>
+      <p>So hub-dependence doesn't need a power law. If we'd stopped at "it's not scale-free" we'd have concluded the opposite of what's true.</p>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>What surprised us</h2></div>
+      <p>We expected the isolates. We didn't expect the island.</p>
+      <p>There are 19 components: the giant one, seventeen single characters, and one cluster of exactly nine — densely linked to each other, connected to the rest of Marvel by nothing at all. 22 links inside, zero going out.</p>
+
+      <blockquote>Radian, Scatterbrain, Snapdragon, Blackthorn, Shear, Vyking, Scaredycat, Backhand and Toxyn. All nine come from <em>Strikeforce: Morituri</em>, a Marvel series from 1986.</blockquote>
+
+      <figure>
+        <img src="../../Figures/Week1/fig5_island.png" alt="The nine-character island drawn as a ring with directional arrows: nine labelled nodes and 22 directed links among them, none leaving.">
+        <figcaption><b>Figure 6.</b> The island on a ring, so the names sit outside their nodes and the arcs stay countable. Green is mutual (9 pairs), purple one-way (4 links).</figcaption>
+      </figure>
+
+      <p>Nothing in the comics stops these characters crossing over. This is about Wikipedia's editors, not Marvel: whoever wrote up <em>Strikeforce: Morituri</em> linked its cast together, and nobody working on any other article ever had a reason to link back.</p>
+      <p>That changes how we read the whole thing. We'd been treating this as a map of the Marvel universe. It's a map of what a group of volunteers chose to write about. The island is where those two stop matching — the same mechanism as the in/out split, seen from the other end. Both come from who was writing, not from the fiction.</p>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Choices we made</h2>
+        <p style="font-size:.93rem;color:var(--muted)">Each could have gone the other way and changed a number above.</p>
+      </div>
+      <ul class="choices">
+        <li>
+          <span class="what">Character list from the roster, not the edge list</span>
+          <span class="then">Building from edges gives 286 characters, drops the 17 isolates with no error, and raises the mean degree from 9.47 to 10.03.</span>
+        </li>
+        <li>
+          <span class="what">Likelihood comparison instead of a line through a log–log plot</span>
+          <span class="then">An R² measured in log–log space can't be compared with one measured in linear–log space. They're different coordinate systems, so the comparison that looks like a verdict isn't one.</span>
+        </li>
+        <li>
+          <span class="what">Separate ranges for the two axes in Figure 3</span>
+          <span class="then">In-degree reaches 106 and out-degree stops at 28. Sharing one range would leave four fifths of the panel empty and squash every real point into the corner.</span>
+        </li>
+        <li>
+          <span class="what">Isolates on a grid; mutual edges drawn separately</span>
+          <span class="then">A force layout gives disconnected nodes coordinates that mean nothing, and an undirected drawing hides all 350 mutual pairs.</span>
+        </li>
+        <li>
+          <span class="what">Blurb length as a stand-in for article length</span>
+          <span class="then">A one-line description is a weak proxy. The result is a clean null, but we'll redo it against the real article text in week 5.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Reproducing this</h2></div>
+      <p>Everything comes from the frozen week-1 release, committed unchanged to <code>Data/Week1/</code>. The notebook in <code>Notebooks/Week1/</code> regenerates every figure and writes <code>stats.json</code> — every number on this page is read from that file, so the text and figures can't drift apart. It ends with a check pinning all sixteen headline numbers, so if the data changes it fails loudly instead of leaving this page quietly wrong.</p>
+      <p>Two gotchas when loading: the edge file's header row is commented out, so you supply the column names yourself, and the node blurbs contain unescaped quote marks, so quote handling has to be off or rows get mangled.</p>
+    </section>
+
+  </article>
+
+  <footer>
+    <span>DTU 02805 Social Graphs and Interactions · Week 1 · Marvel Superstars</span>
+    <span>Data: frozen Marvel snapshot, 26 August 2026, from the course data page. Edges come from article body text rather than Wikipedia's link index, and redirects are resolved on both ends — both decisions belong to the dataset, not to us.</span>
+  </footer>
+
+</div>
+</body>
+</html>
