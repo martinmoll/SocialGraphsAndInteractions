@@ -217,10 +217,7 @@ job if all three of us compute on identical bytes — gitignoring `Data/` would 
 that. *Revisit at week 5*: the raw wiki-source release comes from DTU storage and will likely
 be too large to commit, at which point we need a download script instead.
 
-**The site's internal structure is not settled yet.** We have not chosen between plain static
-HTML, Jekyll, and an nbconvert pipeline that turns notebooks into posts. Until that decision
-is made, the only fixed convention is that posts live under `posts/`, one directory per week.
-Do not invent further site structure before the choice is made — record it here when it is.
+Site structure (settled week 1): plain static HTML, no build step. index.html and style.css at the repo root; one post per week at posts/week{N}/index.html; figures at Figures/Week{N}/. All paths inside posts are relative (../../style.css), because a project Pages site serves from /SocialGraphsAndInteractions/ and absolute paths 404.
 
 ---
 
