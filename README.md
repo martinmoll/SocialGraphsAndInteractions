@@ -11,6 +11,7 @@ Anas Mir · Martin Møllenhus · Diego Mijares
 | Week | Post |
 | --- | --- |
 | 1 | [Superstardom is received, not earned](https://martinmoll.github.io/SocialGraphsAndInteractions/posts/week1/) |
+| 2 | [The paradox is in the degrees, the triangles are in the wiring](https://martinmoll.github.io/SocialGraphsAndInteractions/posts/week2/) |
 
 ## Layout
 

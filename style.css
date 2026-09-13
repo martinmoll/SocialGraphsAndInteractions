@@ -113,31 +113,88 @@ code { background: var(--surface-2); padding: .12em .38em; border-radius: 3px; }
 section { display: flex; flex-direction: column; gap: 1.1rem; }
 .section-head { display: flex; flex-direction: column; gap: .35rem; }
 
-/* ---------- post list ---------- */
+/* ---------- week overview ----------
+   Published weeks are links in the in-degree blue, the week being written is out-degree
+   orange, and locked weeks are dashed outlines with nothing to click. */
 
-.posts { display: flex; flex-direction: column; gap: 0; }
-
-.post-link {
-  display: grid;
-  grid-template-columns: 5.5rem 1fr;
-  gap: .3rem 1.4rem;
-  padding: 1.25rem 0;
-  border-top: 1px solid var(--line);
-  text-decoration: none;
-  color: inherit;
+.weeks-head { flex-direction: row; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem 1.5rem; }
+.progress { display: flex; align-items: center; gap: .7rem; }
+.pips { display: flex; gap: .3rem; }
+.pips i {
+  display: block;
+  width: .62rem;
+  height: .62rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--line-strong);
 }
-.post-link:last-child { border-bottom: 1px solid var(--line); }
-.post-link:hover { background: var(--surface); }
-.post-link .wk {
+.pips i.done  { background: var(--in); border-color: var(--in); }
+.pips i.doing { border-color: var(--out); background: linear-gradient(90deg, var(--out) 50%, transparent 50%); }
+.progress-label,
+.half-label,
+.week-top {
   font-family: "JetBrains Mono", monospace;
-  font-size: .74rem;
-  letter-spacing: .1em;
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--muted);
-  padding-top: .35rem;
 }
-.post-link .title { font-family: Archivo, sans-serif; font-weight: 600; font-size: 1.18rem; letter-spacing: -.01em; }
-.post-link .blurb { color: var(--muted); font-size: .95rem; grid-column: 2; }
+.section-note { color: var(--muted); font-size: .95rem; margin-top: -.4rem; }
+
+.half { display: flex; flex-direction: column; gap: .75rem; }
+.half + .half { margin-top: .9rem; }
+.half-label { display: flex; align-items: center; gap: .8rem; letter-spacing: .16em; }
+.half-label::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+.weeks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+  gap: .8rem;
+}
+.weeks > li { display: flex; }
+
+.week {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  padding: 1rem 1.15rem 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: inherit;
+  text-decoration: none;
+}
+.week-top { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: .2rem; }
+.week .state { display: inline-flex; align-items: center; gap: .4rem; }
+.week .state::before { content: ""; width: .5rem; height: .5rem; border-radius: 50%; background: currentColor; }
+.week .topic { font-family: Archivo, sans-serif; font-weight: 600; font-size: 1.12rem; letter-spacing: -.01em; line-height: 1.3; }
+.week .post { font-size: 1rem; line-height: 1.4; }
+.week .blurb { color: var(--muted); font-size: .9rem; line-height: 1.55; }
+.week .go { margin-top: auto; padding-top: .55rem; font-family: Archivo, sans-serif; font-size: .88rem; font-weight: 600; color: var(--in); }
+
+.week.is-live { border-color: var(--line-strong); box-shadow: inset 0 3px 0 var(--in); }
+.week.is-live .state { color: var(--in); }
+.week.is-live .post { font-style: italic; }
+.week.is-live:hover { background: var(--surface-2); border-color: var(--in); }
+.week.is-live:hover .go { color: var(--ink); }
+
+.week.is-progress { box-shadow: inset 0 3px 0 var(--out); }
+.week.is-progress .state { color: var(--out); }
+.week.is-progress .post { color: var(--muted); }
+
+.week.is-locked { background: transparent; border-style: dashed; border-color: var(--line-strong); color: var(--muted); cursor: not-allowed; }
+.week.is-locked .topic { font-weight: 500; }
+.week.is-locked .state::before {
+  width: .7rem;
+  height: .75rem;
+  border-radius: 0;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 15'%3E%3Cpath d='M4 6.5V4.5a3 3 0 0 1 6 0v2' fill='none' stroke='black' stroke-width='1.6'/%3E%3Crect x='1.5' y='6.5' width='11' height='8' rx='1.6'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 15'%3E%3Cpath d='M4 6.5V4.5a3 3 0 0 1 6 0v2' fill='none' stroke='black' stroke-width='1.6'/%3E%3Crect x='1.5' y='6.5' width='11' height='8' rx='1.6'/%3E%3C/svg%3E") center / contain no-repeat;
+}
 
 /* ---------- people ---------- */
 
@@ -211,6 +268,48 @@ blockquote {
 .stat.in  .v { color: var(--in); }
 .stat.out .v { color: var(--out); }
 .stat.isl .v { color: var(--island); }
+.stat.dim .v { color: var(--muted); }
+/* verdict cards: the same strip, with the measurement named above the verdict */
+.stat .k {
+  font-family: "JetBrains Mono", monospace;
+  font-size: .66rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: .1rem;
+}
+
+/* summary box: the answers first, the working after */
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.15rem 1.3rem 1.3rem;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  box-shadow: inset 3px 0 0 var(--in);
+}
+.summary .eyebrow { color: var(--in); }
+.findings {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: 1.1rem 2rem;
+}
+.findings li { display: flex; flex-direction: column; gap: .2rem; }
+.findings .n {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -.03em;
+  font-variant-numeric: tabular-nums;
+}
+.findings .t { font-family: Archivo, sans-serif; font-size: .92rem; line-height: 1.45; color: var(--muted); }
+.findings .t b { color: var(--ink); font-weight: 600; }
 
 /* comparison table */
 .tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); }

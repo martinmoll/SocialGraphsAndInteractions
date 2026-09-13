@@ -19,14 +19,88 @@
     <p class="lede">Three of us, thirteen weeks, and one network of 303 Marvel characters that we will not be allowed to get bored of. We post what we find here each week.</p>
   </header>
 
-  <section>
-    <div class="section-head"><h2>Posts</h2></div>
-    <div class="posts">
-      <a class="post-link" href="posts/week1/">
-        <span class="wk">Week 1</span>
-        <span class="title">Superstardom is received, not earned</span>
-        <span class="blurb">Spider-Man ranks 1st at being linked to and 75th at linking out. Neither degree distribution is a power law. And nine characters live on an island of their own.</span>
-      </a>
+  <!-- The weeks. One <li> per course week, in three states:
+         is-live      <a class="week is-live" href="posts/weekN/">  (title, blurb, "Read the post")
+         is-progress  <div class="week is-progress">                (post being written)
+         is-locked    <div class="week is-locked">                  (not started)
+       To publish week N: turn its <div> into an <a> like week 1's, then update the
+       progress pips and the "published" count in the section head. -->
+  <section aria-labelledby="weeks-heading">
+    <div class="section-head weeks-head">
+      <h2 id="weeks-heading">The weeks</h2>
+      <div class="progress">
+        <span class="pips" aria-hidden="true">
+          <i class="done"></i><i class="done"></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </span>
+        <span class="progress-label">2 of 8 published</span>
+      </div>
+    </div>
+    <p class="section-note">One post per course week, each using that week's tools on the same 303 characters. A week unlocks when its post goes up.</p>
+
+    <div class="half">
+      <h3 class="half-label">The networks half · weeks 1–4</h3>
+      <ol class="weeks">
+        <li>
+          <a class="week is-live" href="posts/week1/">
+            <span class="week-top"><span>Week 1 · Wed 2 Sep</span><span class="state">Published</span></span>
+            <span class="topic">Networks</span>
+            <span class="post">Superstardom is received, not earned</span>
+            <span class="blurb">Spider-Man ranks 1st at being linked to and 75th at linking out. Neither degree distribution is a power law. And nine characters live on an island of their own.</span>
+            <span class="go">Read the post →</span>
+          </a>
+        </li>
+        <li>
+          <a class="week is-live" href="posts/week2/">
+            <span class="week-top"><span>Week 2 · Wed 9 Sep</span><span class="state">Published</span></span>
+            <span class="topic">Models &amp; null models</span>
+            <span class="post">The paradox is in the degrees, the triangles are in the wiring</span>
+            <span class="blurb">Marvel against three classic models and a shuffled copy of itself. No model gets everything, the friendship paradox is all degrees, and 58% of the extra clustering comes from who links to whom.</span>
+            <span class="go">Read the post →</span>
+          </a>
+        </li>
+        <li>
+          <div class="week is-locked">
+            <span class="week-top"><span>Week 3 · Wed 16 Sep</span><span class="state">Locked</span></span>
+            <span class="topic">Who matters, and why</span>
+          </div>
+        </li>
+        <li>
+          <div class="week is-locked">
+            <span class="week-top"><span>Week 4 · Wed 23 Sep</span><span class="state">Locked</span></span>
+            <span class="topic">Communities &amp; backbones</span>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <div class="half">
+      <h3 class="half-label">The language half · weeks 5–8</h3>
+      <ol class="weeks" start="5">
+        <li>
+          <div class="week is-locked">
+            <span class="week-top"><span>Week 5 · Wed 30 Sep</span><span class="state">Locked</span></span>
+            <span class="topic">NLP I</span>
+          </div>
+        </li>
+        <li>
+          <div class="week is-locked">
+            <span class="week-top"><span>Week 6 · Wed 7 Oct</span><span class="state">Locked</span></span>
+            <span class="topic">NLP II</span>
+          </div>
+        </li>
+        <li>
+          <div class="week is-locked">
+            <span class="week-top"><span>Week 7 · Wed 21 Oct</span><span class="state">Locked</span></span>
+            <span class="topic">NLP III</span>
+          </div>
+        </li>
+        <li>
+          <div class="week is-locked">
+            <span class="week-top"><span>Week 8 · Wed 28 Oct</span><span class="state">Locked</span></span>
+            <span class="topic">Networks × language</span>
+          </div>
+        </li>
+      </ol>
     </div>
   </section>
 

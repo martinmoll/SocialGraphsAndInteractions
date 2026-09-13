@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The paradox is in the degrees, the triangles are in the wiring — Marvel Superstars</title>
+<meta name="description" content="Week 2 of DTU 02805: Marvel next to three classic network models and a shuffled copy of itself — which properties are just its degrees, and which are real structure.">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <a class="backlink" href="../../">← Marvel Superstars</a>
+    <div class="eyebrow">Week 2 · Models &amp; null models · 277 Marvel characters</div>
+    <h1>The paradox is in the degrees, the triangles are in the wiring</h1>
+    <p class="lede">We put Marvel next to three classic network models and a shuffled copy of itself. The shuffle shows which of Marvel's properties come from how many links each character has, and which come from who they link to.</p>
+  </header>
+
+  <article>
+
+    <section class="summary" aria-label="In short">
+      <div class="eyebrow">In short</div>
+      <ul class="findings">
+        <li><span class="n">8.6×</span><span class="t"><b>Marvel is a small world.</b> It is 8.6 times as clustered as a random network, at the same distance.</span></li>
+        <li><span class="n">0 of 3</span><span class="t"><b>No classic model gets everything.</b> Random gets the distance, Watts–Strogatz the clustering, Barabási–Albert the hubs.</span></li>
+        <li><span class="n">16×</span><span class="t"><b>Your random friend is a hub.</b> Spider-Man turns up as a random friend 16 times as often as his fair share.</span></li>
+        <li><span class="n">58%</span><span class="t"><b>of Marvel's extra clustering is in the wiring.</b> The friendship paradox is entirely in the degrees.</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>What we asked</h2></div>
+      <p><strong>Which classic model looks most like Marvel?</strong> And <strong>which of Marvel's properties survive a shuffle</strong> that keeps every character's number of links but scrambles who they link to?</p>
+      <div class="stats">
+        <div class="stat in"><span class="v">277</span><span class="l">characters (the giant component)</span></div>
+        <div class="stat"><span class="v">1,421</span><span class="l">links, ignoring direction</span></div>
+        <div class="stat out"><span class="v">4</span><span class="l">comparison networks</span></div>
+        <div class="stat isl"><span class="v">50</span><span class="l">runs of each</span></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>What we did</h2></div>
+      <p>Every comparison network has Marvel's 277 characters and about its 1,421 links.</p>
+      <ul class="plain">
+        <li><strong>Random network</strong>: links between random pairs.</li>
+        <li><strong>Watts–Strogatz</strong>: a ring of 10 neighbours each, with 20% of links rewired.</li>
+        <li><strong>Barabási–Albert</strong>: grown one character at a time; each newcomer brings 5 links and prefers popular characters.</li>
+        <li><strong>Shuffled Marvel</strong>: Marvel's own links, swapped around until scrambled. Everyone keeps their number of links. This is the null model.</li>
+      </ul>
+      <p>On each we measured clustering, average distance, the biggest hub, and the friendship paradox (a random friend's links ÷ a random character's links).</p>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>No model gets everything</h2></div>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Network</th><th class="num">clustering</th><th class="num">avg. distance</th><th class="num">biggest hub</th><th class="num">friendship paradox</th></tr></thead>
+          <tbody>
+            <tr><td class="i"><b>Marvel</b></td><td class="num i"><b>0.320</b></td><td class="num i"><b>2.67</b></td><td class="num i"><b>106</b></td><td class="num i"><b>2.43</b></td></tr>
+            <tr><td style="white-space:nowrap">Random network</td><td class="num">0.037 ± 0.003</td><td class="num"><b>2.66 ± 0.00</b></td><td class="num">20 ± 2</td><td class="num">1.09 ± 0.01</td></tr>
+            <tr><td style="white-space:nowrap">Watts–Strogatz</td><td class="num"><b>0.353 ± 0.015</b></td><td class="num">3.10 ± 0.03</td><td class="num">14 ± 1</td><td class="num">1.02 ± 0.00</td></tr>
+            <tr><td style="white-space:nowrap">Barabási–Albert</td><td class="num">0.099 ± 0.008</td><td class="num">2.58 ± 0.02</td><td class="num"><b>65 ± 7</b></td><td class="num"><b>1.82 ± 0.09</b></td></tr>
+            <tr><td colspan="5" style="color:var(--muted);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;padding-top:.9rem">Null model</td></tr>
+            <tr><td style="white-space:nowrap">Shuffled Marvel</td><td class="num">0.155 ± 0.009</td><td class="num">2.60 ± 0.01</td><td class="num">106 ± 0</td><td class="num">2.36 ± 0.05</td></tr>
+            <tr><td colspan="5" style="color:var(--muted);font-size:.87rem">Mean ± standard deviation over 50 networks. <b>Bold</b>: the model closest to Marvel in that column.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="plain">
+        <li><strong>Random network</strong>: gets the distance, nothing else.</li>
+        <li><strong>Watts–Strogatz</strong>: gets the clustering (we tuned it to), but has no hubs and almost no paradox.</li>
+        <li><strong>Barabási–Albert</strong>: the only one with hubs and a real paradox, but about a third of Marvel's clustering.</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Only one model makes hubs</h2></div>
+      <figure>
+        <img src="../../Figures/Week2/fig1_degree_ccdf.png" alt="Log–log plot of the share of characters with at least k links. The random and Watts–Strogatz curves drop steeply before 25 links. The Barabási–Albert curve keeps pace with Marvel's out to about 50 links. Marvel's reaches Spider-Man at 106.">
+        <figcaption><b>Figure 1.</b> <b>How to read it:</b> each curve shows the share of characters with at least <i>k</i> links. The further right a curve reaches, the bigger its hubs. Model curves combine all 50 runs.</figcaption>
+      </figure>
+      <p>The random network and Watts–Strogatz never get past 25 links. Only Barabási–Albert keeps up with Marvel's tail. It misses the other end: every newcomer brings 5 links, but 33% of Marvel's characters have fewer.</p>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Your random friend is probably a hub</h2></div>
+      <figure>
+        <img src="../../Figures/Week2/fig2_popular_friends.png" alt="Bar chart of the ten characters most often picked as a random friend. Spider-Man leads at 5.8 percent, 16 times the fair share of 1 in 277 marked by a dashed line; Hulk, Wolverine and Doctor Strange follow at 7 to 8 times.">
+        <figcaption><b>Figure 2.</b> <b>How to read it:</b> each bar is a character's chance of being the random friend. The dashed line is the chance of being the random <i>person</i>, which is the same for everyone. Links in brackets.</figcaption>
+      </figure>
+      <p>Hubs are friends to many, so they keep coming up as "the friend". Spider-Man alone is 5.8% of all picks, and the top ten are 22%. He is also the only character in our network with no friend who has more links. (Across all 303, Radian would join him: he tops the nine-character island we left out.)</p>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Shuffle Marvel and half the triangles disappear</h2></div>
+      <p>The shuffle keeps each character's number of links and scrambles the rest. If a property survives, the degrees explain it. If it dies, it's in who links to whom.</p>
+      <div class="stats">
+        <div class="stat in"><span class="k">Clustering</span><span class="v">dies</span><span class="l">0.320 vs 0.155 shuffled<br>z = +18</span></div>
+        <div class="stat isl"><span class="k">Friendship paradox</span><span class="v">survives</span><span class="l">2.43 vs 2.36 shuffled<br>z = +1.3</span></div>
+        <div class="stat dim"><span class="k">Biggest hub</span><span class="v">fixed</span><span class="l">106 in every shuffle<br>kept by design</span></div>
+        <div class="stat dim"><span class="k">Avg. distance</span><span class="v">≈ same</span><span class="l">2.67 vs 2.60 shuffled<br>z = +5, only 0.07 hops</span></div>
+      </div>
+      <figure>
+        <img src="../../Figures/Week2/fig3_shuffle_test.png" alt="Two histograms. Left: clustering of 50 random networks near 0.04 and 50 shuffled Marvels near 0.15, with real Marvel far to the right at 0.32. Right: friendship paradox of random networks near 1.1 and shuffled Marvels near 2.36, with real Marvel at 2.43 among the shuffles.">
+        <figcaption><b>Figure 3.</b> <b>How to read it:</b> each histogram is 50 networks; the blue line is real Marvel. If the line is far from the purple shuffles, the degrees can't explain the property.</figcaption>
+      </figure>
+      <p>Hubs create some triangles by chance, which is why the shuffle still has four times a random network's clustering. But the degrees explain only 42% of Marvel's extra clustering. <strong>The other 58% is in who links to whom.</strong></p>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>What surprised us</h2></div>
+      <ul class="plain">
+        <li><strong>Chance gets the distance right.</strong> A random network is 2.66 hops across on average, Marvel 2.67. Short paths alone prove nothing.</li>
+        <li><strong>Watts–Strogatz has almost no friendship paradox</strong> (1.02). It matches Marvel's clustering, but everyone starts with ten neighbours.</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Choices we made</h2>
+        <p style="font-size:.93rem;color:var(--muted)">Each could have gone the other way and changed a number above.</p>
+      </div>
+      <ul class="choices">
+        <li>
+          <span class="what">Undirected giant component (277 of 303)</span>
+          <span class="then">Distance needs a connected network, and the models are undirected. The other 26 characters are week 1's isolates and island.</span>
+        </li>
+        <li>
+          <span class="what">Watts–Strogatz rewiring q = 0.2</span>
+          <span class="then">The small-world range (0.001–0.1) leaves clustering at 0.49 or more; q = 0.2 matches Marvel. So this model's clustering is fitted, not predicted.</span>
+        </li>
+        <li>
+          <span class="what">5 links per Barabási–Albert newcomer</span>
+          <span class="then">1,360 links, 4% short of Marvel. 6 would overshoot by 14%.</span>
+        </li>
+        <li>
+          <span class="what">Edge swaps, not the configuration model</span>
+          <span class="then">Swaps keep every degree exactly. The configuration model loses links, mostly from the hubs.</span>
+        </li>
+        <li>
+          <span class="what">Exact averages, not samples</span>
+          <span class="then">The friendship paradox and friend chances are computed over every character, so there's no sampling noise.</span>
+        </li>
+        <li>
+          <span class="what">50 runs, two-sided test, p &lt; 0.05</span>
+          <span class="then">Set before looking. With 50 shuffles the smallest possible p is 0.02, so the z-score shows the strength.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>What we can't conclude</h2></div>
+      <ul class="plain">
+        <li>That Marvel <strong>grew by preferential attachment</strong>. The model can make hubs like Marvel's; that doesn't show it did.</li>
+        <li>That the degrees follow a <strong>power law</strong>. The tail is heavy, but week 1's test favoured an exponential.</li>
+        <li><strong>Why</strong> the triangles are there. The shuffle rules out the degrees, nothing more. Teams and shared storylines are our guess, and a question for week 4.</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Reproducing this</h2></div>
+      <p><code>Notebooks/Week2/SGI-2.11.ipynb</code> runs on the frozen week 1 data in <code>Data/Week1/</code> in about 30 seconds. It makes all three figures and writes <code>stats.json</code>, which every number on this page comes from, and it fails loudly if the data-derived numbers change.</p>
+    </section>
+
+  </article>
+
+  <footer>
+    <span>DTU 02805 Social Graphs and Interactions · Week 2 · Marvel Superstars</span>
+    <span>Data: frozen Marvel snapshot, 26 August 2026, from the course data page — the same release as week 1.</span>
+  </footer>
+
+</div>
+</body>
+</html>
