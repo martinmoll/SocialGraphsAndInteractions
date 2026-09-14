@@ -3,6 +3,7 @@
   "m": 1421,
   "mean_degree": 10.26,
   "left_out": 26,
+  "density_full": 0.031,
   "links": {
     "random G(n,m)": 1421,
     "Watts–Strogatz": 1385,
@@ -10,6 +11,10 @@
     "shuffled Marvel": 1421
   },
   "ws_scan": {
+    "0": {
+      "C": 0.67,
+      "d": 14.3
+    },
     "0.001": {
       "C": 0.66,
       "d": 11.9
@@ -109,7 +114,47 @@
   },
   "theory": {
     "p": 0.037,
-    "d_estimate": 2.42
+    "d_estimate": 2.42,
+    "ln_n": 5.62,
+    "poisson_sd": 3.2,
+    "expected_isolates": 0.01,
+    "poisson_95": [
+      5,
+      17
+    ]
+  },
+  "degrees": {
+    "mean": 10.26,
+    "var": 123.0,
+    "sd": 11.1,
+    "friend_formula": 22.25,
+    "friend_exact": 24.9
+  },
+  "clustering_example": {
+    "spiderman_Ci": 0.08,
+    "spiderman_pairs": 5565,
+    "spiderman_linked": 462,
+    "mean_Ci_degree_3_to_5": 0.44
+  },
+  "scorecard": {
+    "random G(n,m)": {
+      "C": false,
+      "d": true,
+      "hub": false,
+      "paradox": false
+    },
+    "Watts–Strogatz": {
+      "C": true,
+      "d": true,
+      "hub": false,
+      "paradox": false
+    },
+    "Barabási–Albert": {
+      "C": false,
+      "d": true,
+      "hub": true,
+      "paradox": true
+    }
   },
   "top_hubs": [
     [
@@ -134,6 +179,7 @@
     ]
   ],
   "share_below_ba_minimum": 0.33,
+  "ba_share_below_minimum": 0.001,
   "popular_friends": [
     [
       "Spider-Man",

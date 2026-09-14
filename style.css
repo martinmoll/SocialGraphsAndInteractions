@@ -279,6 +279,30 @@ blockquote {
   margin-bottom: .1rem;
 }
 
+/* formula strip: the stat strip's grid, holding the week's equations instead of numbers */
+.eqs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  overflow: hidden;
+}
+.eq { background: var(--surface); padding: .85rem 1rem .9rem; display: flex; flex-direction: column; gap: .35rem; min-width: 0; }
+.eq.wide { grid-column: 1 / -1; }
+.eq .f { color: var(--ink); overflow-x: auto; overflow-y: hidden; padding: .1rem 0; }
+.eq .l { font-family: Archivo, sans-serif; font-size: .84rem; color: var(--muted); line-height: 1.45; }
+.eq .l b { color: var(--ink); font-weight: 600; }
+.katex { font-size: 1.06em; white-space: nowrap; }   /* never split "q = 1" across lines */
+
+/* scorecard marks: a fixed-width slot after each number, so the ticks line up in a column */
+.mark { display: inline-block; width: 1.1em; margin-left: .5rem; text-align: center; font-family: Archivo, sans-serif; font-weight: 700; }
+.mark.yes { color: #6fc3a0; }
+.mark.no  { color: #e5707a; }
+td .mark:empty { margin-left: .5rem; }
+@media (min-width: 48rem) { .score td.num { white-space: nowrap; } }   /* one line per cell where there is room */
+
 /* summary box: the answers first, the working after */
 .summary {
   display: flex;
