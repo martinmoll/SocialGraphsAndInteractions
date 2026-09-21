@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add("js")</script> <!-- without it, the concept list stays a plain in-page list -->
 <title>Spider-Man's vote, not his roads — Marvel Superstars</title>
 <meta name="description" content="Week 3 of DTU 02805: every Marvel character scored on four centralities against shuffles that keep their links. The most surprising is Black Cat, and both of her surprises come from Spider-Man.">
 <!-- bump ?v= whenever style.css changes: GitHub Pages lets browsers cache each file for 10 minutes -->
@@ -11,16 +12,161 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
         onload="renderMathInElement(document.body, {delimiters: [{left: '\\(', right: '\\)', display: false}]})"></script>
+<style>
+  /* versus panel: this post only, so style.css (and its cache token) stays untouched */
+  html:not(.js) .versus { display: none; }                        /* without JS the panel would be an empty shell */
+  .versus { display: flex; flex-direction: column; gap: .9rem; margin-top: 1.4rem; padding: 1.15rem 1.2rem 1rem;
+            background: var(--surface); border: 1px solid var(--line-strong); border-radius: 8px;
+            box-shadow: inset 3px 0 0 var(--out); }
+  .versus .eyebrow { color: var(--out); }
+  .versus h3 { margin: .2rem 0 .3rem; font-size: 1.08rem; }
+  .vs-note, .vs-credit { margin: 0; font-family: Archivo, sans-serif; font-size: .84rem; color: var(--muted); line-height: 1.45; }
+  .vs-credit { font-size: .76rem; }
+  .vs-tabs { display: flex; gap: .4rem; flex-wrap: wrap; }
+  .vs-tabs button, .vs-shuffle, .vs-pick select {
+    font-family: Archivo, sans-serif; font-size: .86rem; color: var(--ink); background: var(--surface-2);
+    border: 1px solid var(--line-strong); border-radius: 999px; padding: .38rem .85rem; cursor: pointer; }
+  .vs-tabs button[aria-pressed="true"] { background: var(--out); border-color: var(--out); color: #161616; font-weight: 600; }
+  .vs-pick { display: grid; grid-template-columns: 1fr auto 1fr; gap: .5rem; align-items: center; }
+  .vs-pick select { width: 100%; border-radius: 7px; padding: .4rem .5rem; }
+  .vs-shuffle:hover, .vs-tabs button:hover { border-color: var(--out); }
+  .vs-arena { display: grid; grid-template-columns: 1fr auto 1fr; gap: .6rem; align-items: stretch; }
+  .vs-vs { align-self: center; font-family: "JetBrains Mono", monospace; font-weight: 500; font-size: 1.1rem; color: var(--out); }
+  .vs-card { display: flex; flex-direction: column; align-items: center; gap: .45rem; padding: .8rem .7rem .7rem;
+             background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; min-width: 0; }
+  .vs-card.win { border-color: var(--out); box-shadow: 0 0 0 1px var(--out); }
+  .vs-card svg { width: 92px; height: 92px; }
+  .vs-name { font-family: Archivo, sans-serif; font-weight: 600; font-size: .98rem; text-align: center; line-height: 1.25; }
+  .vs-tag { font-family: "JetBrains Mono", monospace; font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); min-height: 1em; }
+  .vs-card.win .vs-tag { color: var(--out); }
+  .vs-stats { width: 100%; min-width: 0; border-collapse: collapse; font-size: .8rem; }   /* style.css gives tables min-width 30rem */
+  .vs-stats td { padding: .22rem 0; border-top: 1px solid var(--line); border-bottom: none; vertical-align: top; }
+  .vs-stats td:first-child { font-family: Archivo, sans-serif; color: var(--muted); padding-right: .4rem; }
+  .vs-stats td:last-child { font-family: "JetBrains Mono", monospace; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .vs-stats .lead td:last-child { color: var(--out); font-weight: 500; }
+  .vs-verdict { display: grid; gap: .3rem; padding: .75rem .9rem; background: var(--surface-2); border-radius: 7px;
+                font-family: Archivo, sans-serif; font-size: .9rem; line-height: 1.45; }
+  .vs-verdict b { color: var(--ink); }
+  .vs-verdict .upset { color: var(--out); font-weight: 700; }
+  .vs-verdict .calm { color: var(--muted); }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  /* concept sidebar, concept cards and "On the test" notes: this post only, in the island purple */
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  a.cref { color: inherit; text-decoration: underline dotted var(--island); text-decoration-thickness: 1.5px; text-underline-offset: .2em; }
+  a.cref:hover { color: inherit; text-decoration-style: solid; }
+  .clist { list-style: none; margin: 0; padding: 0; }
+  .clist a { display: block; padding: .2rem .55rem; border-radius: 5px; color: var(--muted); text-decoration: none;
+             font-family: Archivo, sans-serif; font-size: .84rem; line-height: 1.3; }
+  .clist a:hover { color: var(--ink); background: var(--surface-2); }
+  .cgroup { margin: .9rem .55rem .3rem; font-family: "JetBrains Mono", monospace; font-size: .64rem; letter-spacing: .12em;
+            text-transform: uppercase; color: var(--island); }
+  .cgroup:first-child { margin-top: 0; }
+  .cside { display: none; }
+  .cdrawer summary { cursor: pointer; list-style: none; font-family: Archivo, sans-serif; font-size: .9rem; color: var(--island); }
+  .cdrawer summary::-webkit-details-marker { display: none; }
+  .cdrawer-panel { margin-top: .6rem; padding: .8rem .35rem; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+  .js .cdrawer { position: fixed; left: 1rem; bottom: 1rem; z-index: 50; transition: opacity .2s, transform .2s; }   /* with JS: a floating toggle */
+  .js .cdrawer.tucked { opacity: 0; transform: translateY(.8rem); pointer-events: none; }   /* out of the way of the versus panel */
+  .js .cdrawer summary { padding: .45rem .95rem; color: var(--ink); background: var(--surface-2); border: 1px solid var(--island);
+                         border-radius: 999px; box-shadow: 0 4px 14px rgba(0, 0, 0, .45); }
+  .js .cdrawer-panel { position: absolute; left: 0; bottom: 2.9rem; width: min(17rem, calc(100vw - 2rem)); max-height: 70vh;
+                       overflow-y: auto; margin: 0; box-shadow: 0 8px 28px rgba(0, 0, 0, .55); }
+  @media (min-width: 82rem) {                                     /* room in the left margin: a sidebar that stays put */
+    .cside { display: block; position: fixed; top: 6rem; left: max(1rem, calc(50% - 40rem)); width: 12.5rem;
+             max-height: calc(100vh - 8rem); overflow-y: auto; padding-right: .6rem; border-right: 1px solid var(--line); }
+    .cdrawer { display: none; }
+  }
+  .cgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: .7rem; }
+  .ccard { display: flex; flex-direction: column; gap: .35rem; padding: .85rem 1rem .8rem; background: var(--surface);
+           border: 1px solid var(--line); border-radius: 8px; scroll-margin-top: 1.5rem; }
+  .ccard:target { border-color: var(--island); box-shadow: 0 0 0 1px var(--island); }
+  .ccard h3 { font-size: .98rem; }
+  .ccard p { font-family: Archivo, sans-serif; font-size: .87rem; line-height: 1.5; color: var(--muted); }
+  .ccard .back { margin-top: auto; padding-top: .2rem; font-family: Archivo, sans-serif; font-size: .8rem; color: var(--island); text-decoration: none; }
+  .ccard .back:hover { text-decoration: underline; }
+  .concepts-sub { margin-top: .4rem; font-family: "JetBrains Mono", monospace; font-size: .7rem; font-weight: 500; letter-spacing: .12em;
+                  text-transform: uppercase; color: var(--island); }
+  .testnote { padding: .7rem 1rem .75rem; background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--island);
+              border-radius: 0 7px 7px 0; font-family: Archivo, sans-serif; font-size: .9rem; line-height: 1.5; max-width: var(--measure); }
+  .testnote .tag { display: block; margin-bottom: .15rem; font-family: "JetBrains Mono", monospace; font-size: .64rem;
+                   letter-spacing: .12em; text-transform: uppercase; color: var(--island); }
+  .versus .sh { display: none; }
+  @media (max-width: 34rem) {
+    .versus .lg { display: none; }
+    .versus .sh { display: inline; }
+    .versus { padding: 1rem .8rem .9rem; }
+    .vs-card { padding: .6rem .45rem; }
+    .vs-card svg { width: 68px; height: 68px; }
+    .vs-stats { font-size: .72rem; }
+    .vs-pick select, .vs-shuffle { font-size: .78rem; padding: .35rem .45rem; }
+  }
+</style>
 </head>
 <body>
 <div class="wrap">
 
-  <header class="masthead">
+  <header class="masthead" id="top">
     <a class="backlink" href="../../">← Marvel Superstars</a>
     <div class="eyebrow">Week 3 · Who matters, and why · 277 Marvel characters</div>
     <h1>Spider-Man's vote, not his roads</h1>
     <p class="lede">Week 3 gave four answers to "who matters?" and one habit for all of them: compared to what? We scored every Marvel character against shuffles that keep their links. The most surprising one is Black Cat, and both of her surprises come from Spider-Man.</p>
   </header>
+
+  <!-- Concept navigation: one list, two presentations. Wide screens: a fixed sidebar in the left margin.
+       Narrow screens: a <details> toggle (a floating button with JS, a plain list under the headline without). -->
+  <nav class="cside" aria-label="Concepts">
+    <div class="cgroup">Used here</div>
+    <ul class="clist">
+      <li><a href="#c-degree">Degree (in / out)</a></li>
+      <li><a href="#c-distance">Shortest path &amp; distance</a></li>
+      <li><a href="#c-closeness">Closeness</a></li>
+      <li><a href="#c-betweenness">Betweenness</a></li>
+      <li><a href="#c-pagerank">PageRank</a></li>
+      <li><a href="#c-giant">Giant component</a></li>
+      <li><a href="#c-rankcorr">Rank correlation</a></li>
+      <li><a href="#c-shuffle">Degree-preserving shuffle</a></li>
+      <li><a href="#c-zscore">z-score &amp; excess</a></li>
+      <li><a href="#c-assortativity">Degree assortativity</a></li>
+      <li><a href="#c-homophily">Homophily</a></li>
+    </ul>
+    <div class="cgroup">Also this week</div>
+    <ul class="clist">
+      <li><a href="#c-bfs">Breadth-first search</a></li>
+      <li><a href="#c-diameter">Diameter &amp; eccentricity</a></li>
+      <li><a href="#c-harmonic">Harmonic centrality</a></li>
+      <li><a href="#c-eigenvector">Eigenvector centrality</a></li>
+      <li><a href="#c-cliques">Cliques</a></li>
+    </ul>
+  </nav>
+  <details class="cdrawer">
+    <summary>☰ Concepts</summary>
+    <nav class="cdrawer-panel" aria-label="Concepts">
+      <div class="cgroup">Used here</div>
+      <ul class="clist">
+        <li><a href="#c-degree">Degree (in / out)</a></li>
+        <li><a href="#c-distance">Shortest path &amp; distance</a></li>
+        <li><a href="#c-closeness">Closeness</a></li>
+        <li><a href="#c-betweenness">Betweenness</a></li>
+        <li><a href="#c-pagerank">PageRank</a></li>
+        <li><a href="#c-giant">Giant component</a></li>
+        <li><a href="#c-rankcorr">Rank correlation</a></li>
+        <li><a href="#c-shuffle">Degree-preserving shuffle</a></li>
+        <li><a href="#c-zscore">z-score &amp; excess</a></li>
+        <li><a href="#c-assortativity">Degree assortativity</a></li>
+        <li><a href="#c-homophily">Homophily</a></li>
+      </ul>
+      <div class="cgroup">Also this week</div>
+      <ul class="clist">
+        <li><a href="#c-bfs">Breadth-first search</a></li>
+        <li><a href="#c-diameter">Diameter &amp; eccentricity</a></li>
+        <li><a href="#c-harmonic">Harmonic centrality</a></li>
+        <li><a href="#c-eigenvector">Eigenvector centrality</a></li>
+        <li><a href="#c-cliques">Cliques</a></li>
+      </ul>
+    </nav>
+  </details>
 
   <article>
 
@@ -48,28 +194,52 @@
     <section>
       <div class="section-head"><div class="eyebrow">The measures</div><h2>Four questions, four answers</h2></div>
       <div class="eqs">
-        <div class="eq"><span class="f">\(k_i\)</span><span class="l"><b>Degree: popularity.</b> How many links? The baseline every other measure is compared with.</span></div>
-        <div class="eq"><span class="f">\(C_i = \dfrac{n-1}{\sum_{j} d_{ij}}\)</span><span class="l"><b>Closeness: reach.</b> The inverse of the mean distance to everyone. 0.5 means two steps from everyone on average.</span></div>
-        <div class="eq"><span class="f">\(b_i = \sum_{s \ne i \ne t} \dfrac{\sigma_{st}(i)}{\sigma_{st}}\)</span><span class="l"><b>Betweenness: control.</b> For every other pair, the fraction of their shortest paths that pass through \(i\). Divided by the number of pairs, it is the share of all shortest paths that run through \(i\).</span></div>
-        <div class="eq"><span class="f">\(\mathrm{PR}_i = \dfrac{1-\alpha}{n} + \alpha \sum_{j \to i} \dfrac{\mathrm{PR}_j}{k^{\text{out}}_j}\)</span><span class="l"><b>PageRank: prestige.</b> The share of time a random walker spends on \(i\). Each page splits its vote among its out-links; with probability \(1-\alpha = 0.15\) the walker jumps to a random page.</span></div>
+        <div class="eq"><span class="f">\(k_i\)</span><span class="l"><b><a class="cref" id="m-degree" href="#c-degree">Degree</a>: popularity.</b> How many links? The baseline every other measure is compared with.</span></div>
+        <div class="eq"><span class="f">\(C_i = \dfrac{n-1}{\sum_{j} d_{ij}}\)</span><span class="l"><b><a class="cref" id="m-closeness" href="#c-closeness">Closeness</a>: reach.</b> The inverse of the mean <a class="cref" id="m-distance" href="#c-distance">distance</a> to everyone. 0.5 means two steps from everyone on average.</span></div>
+        <div class="eq"><span class="f">\(b_i = \sum_{s \ne i \ne t} \dfrac{\sigma_{st}(i)}{\sigma_{st}}\)</span><span class="l"><b><a class="cref" id="m-betweenness" href="#c-betweenness">Betweenness</a>: control.</b> For every other pair, the fraction of their shortest paths that pass through \(i\). Divided by the number of pairs, it is the share of all shortest paths that run through \(i\).</span></div>
+        <div class="eq"><span class="f">\(\mathrm{PR}_i = \dfrac{1-\alpha}{n} + \alpha \sum_{j \to i} \dfrac{\mathrm{PR}_j}{k^{\text{out}}_j}\)</span><span class="l"><b><a class="cref" id="m-pagerank" href="#c-pagerank">PageRank</a>: prestige.</b> The share of time a random walker spends on \(i\). Each page splits its vote among its out-links; with probability \(1-\alpha = 0.15\) the walker jumps to a random page.</span></div>
       </div>
-      <p>Closeness and betweenness are built from distances, so they use the 277 connected characters with direction ignored. PageRank follows the arrows, so it uses all 303. The four mostly agree: their rank correlations with degree are 0.85, 0.91 and 0.94. A high score is not a finding until we know what the character's links alone would have given them.</p>
+      <p>Closeness and betweenness are built from distances, so they use the <a class="cref" id="m-giant" href="#c-giant">277 connected characters</a> with direction ignored. PageRank follows the arrows, so it uses all 303. The four mostly agree: their <a class="cref" id="m-rankcorr" href="#c-rankcorr">rank correlations</a> with degree are 0.85 for closeness, 0.91 for betweenness and 0.94 for PageRank (against in-links). A high score is not a finding until we know what the character's links alone would have given them.</p>
+      <aside class="testnote" aria-label="On the test"><span class="tag">On the test</span>Closeness breaks when some characters are unreachable: a single infinite distance sends it to zero, which is why it uses only the 277 connected characters. <a class="cref" id="m-harmonic" href="#c-harmonic">Harmonic centrality</a>, which averages 1/distance and counts unreachable pairs as 0, is the standard fix.</aside>
     </section>
 
     <section>
       <div class="section-head"><div class="eyebrow">The null models</div><h2>Compared to what: one shuffle per measure</h2></div>
       <ul class="plain">
-        <li><strong>Closeness and betweenness:</strong> week 2's shuffle. Swap A–B, C–D into A–D, C–B, ten times per link. Every character keeps their number of links; who they link to is scrambled.</li>
+        <li><strong>Closeness and betweenness:</strong> <a class="cref" id="m-shuffle" href="#c-shuffle">week 2's shuffle</a>. Swap A–B, C–D into A–D, C–B, ten times per link. Every character keeps their number of links; who they link to is scrambled.</li>
         <li><strong>PageRank:</strong> the directed version. Every character keeps both their in-links and their out-links, because what you receive depends on how many pages link to you, and what each of those pages can give depends on how many others it links to.</li>
       </ul>
       <div class="eqs">
-        <div class="eq"><span class="f">\(z = \dfrac{x - \mu}{\sigma}\)</span><span class="l"><b>Whether.</b> How many standard deviations the real value \(x\) sits from 200 shuffles. \(|z| \ge 3\) counts as a surprise, fixed before looking.</span></div>
-        <div class="eq"><span class="f">\(\text{excess} = x - \mu\)</span><span class="l"><b>How much.</b> The difference, in the measure's own units. The surprises are ranked by this, not by \(z\), for a reason Rockman will show.</span></div>
+        <div class="eq"><span class="f">\(z = \dfrac{x - \mu}{\sigma}\)</span><span class="l"><b>Whether: the <a class="cref" id="m-zscore" href="#c-zscore">z-score</a>.</b> How many standard deviations the real value \(x\) sits from 200 shuffles. \(|z| \ge 3\) counts as a surprise, fixed before looking.</span></div>
+        <div class="eq"><span class="f">\(\text{excess} = x - \mu\)</span><span class="l"><b>How much: the excess.</b> The difference, in the measure's own units. The surprises are ranked by this, not by \(z\), for a reason Rockman will show.</span></div>
       </div>
       <figure>
         <img src="../../Figures/Week3/fig1_surprise_map.png" alt="Three scatter plots of excess against degree, one per measure. Betweenness: Hercules, Black Widow and U.S. Agent sit highest in orange; Rockman lower; Black Cat alone below, in blue. Closeness: six blue characters below the line, none above. PageRank: eight orange characters above, led by Black Cat and Mayday Parker.">
         <figcaption><b>Figure 1.</b> <b>How to read it:</b> one dot per character. Height is the excess: how much more (or less) of the measure they have than shuffles that keep their links. Orange and blue dots pass \(|z| \ge 3\). Black Cat is ringed: below the line in one panel, at the top of another.</figcaption>
       </figure>
+
+      <div class="versus" id="versus">
+        <div class="vs-head">
+          <div class="eyebrow">Versus</div>
+          <h3>Pick two named characters: who should win, and who does?</h3>
+          <p class="vs-note">"Should win" is whoever the 200 <a class="cref" href="#c-shuffle">shuffles</a> give more, which is what their links alone predict. "Wins" is the real value. When those differ, it's an upset, and the upset is the finding.</p>
+        </div>
+        <div class="vs-tabs" role="group" aria-label="Measure">
+          <button type="button" data-m="betweenness" aria-pressed="true">Betweenness</button>
+          <button type="button" data-m="closeness" aria-pressed="false">Closeness</button>
+          <button type="button" data-m="PageRank" aria-pressed="false">PageRank</button>
+        </div>
+        <div class="vs-pick">
+          <label><span class="sr">First character</span><select id="vs-a"></select></label>
+          <button type="button" class="vs-shuffle" id="vs-shuffle" title="Random matchup">🔀 Shuffle</button>
+          <label><span class="sr">Second character</span><select id="vs-b"></select></label>
+        </div>
+        <div class="vs-arena" id="vs-arena"></div>
+        <div class="vs-verdict" id="vs-verdict" aria-live="polite"></div>
+        <p class="vs-credit">Avatars are our own quick sketches in costume-inspired colours, not official art.</p>
+        <!-- a copy of STATS["versus"] from Notebooks/Week3/stats.json; the notebook's final check fails if it drifts -->
+        <script type="application/json" id="versus-data">{"betweenness":{"Hercules":{"k":26,"real":0.0374,"shuffled":0.0182,"excess":0.0192,"z":4.1},"Black Widow":{"k":25,"real":0.0351,"shuffled":0.0167,"excess":0.0184,"z":4.1},"U.S. Agent":{"k":21,"real":0.0255,"shuffled":0.0123,"excess":0.0132,"z":3.2},"Rockman":{"k":2,"real":0.0072,"shuffled":0.0001,"excess":0.0071,"z":13.4},"Black Cat":{"k":28,"real":0.0071,"shuffled":0.0201,"excess":-0.013,"z":-3.1}},"closeness":{"Jeffrey Mace":{"k":8,"real":0.3278,"shuffled":0.3951,"excess":-0.0673,"z":-3.8},"Blue Diamond":{"k":9,"real":0.337,"shuffled":0.4004,"excess":-0.0634,"z":-3.5},"Bucky":{"k":12,"real":0.3589,"shuffled":0.417,"excess":-0.0581,"z":-3.7},"Cyclops":{"k":26,"real":0.4107,"shuffled":0.463,"excess":-0.0523,"z":-4.8},"Quasar":{"k":24,"real":0.4083,"shuffled":0.4572,"excess":-0.0489,"z":-4.4},"Human Torch (android)":{"k":17,"real":0.3876,"shuffled":0.4358,"excess":-0.0481,"z":-3.4}},"PageRank":{"Black Cat":{"k":21,"real":0.0176,"shuffled":0.0101,"excess":0.0075,"z":3.8},"Mayday Parker":{"k":14,"real":0.0143,"shuffled":0.0071,"excess":0.0072,"z":3.6},"Venom":{"k":17,"real":0.0137,"shuffled":0.0083,"excess":0.0053,"z":3.3},"Spider-Man Noir":{"k":7,"real":0.009,"shuffled":0.0038,"excess":0.0052,"z":3.9},"Spider-UK":{"k":2,"real":0.0061,"shuffled":0.0014,"excess":0.0048,"z":10.4},"Scarlet Spider":{"k":8,"real":0.0086,"shuffled":0.0042,"excess":0.0045,"z":3.4},"Marvel Boy (Robert Grayson)":{"k":2,"real":0.0048,"shuffled":0.0014,"excess":0.0034,"z":4.5},"Devil Hulk":{"k":1,"real":0.0029,"shuffled":0.001,"excess":0.0019,"z":4.6}}}</script>
+      </div>
     </section>
 
     <section>
@@ -77,6 +247,7 @@
       <p><strong>The brokers.</strong> Hercules, Black Widow and U.S. Agent carry about twice the shortest paths their links predict: Hercules has 3.74% of all shortest paths against 1.82% in the shuffles. They connect parts of Marvel that don't otherwise touch.</p>
       <p><strong>The doors.</strong> Rockman has the biggest \(z\) in the network, +13.4, and 73× his shuffled value. But his only other neighbour, The Witness, has one link, so all 275 of The Witness's shortest paths go through Rockman. That is his whole score. The shuffles usually attach The Witness to a hub instead, so Rockman's baseline is almost zero, and dividing by almost zero is what inflates his \(z\) and his ratio. By excess, he carries 0.71 percentage points extra against Hercules's 1.92. Four more small "doors" (Nightmask, Turbo, Guardsman, Genis-Vell) work the same way.</p>
       <p><strong>The one below.</strong> Black Cat has 28 links and a third of the betweenness they predict (\(z = -3.1\)). She is the only character in Marvel whose position is worth <em>less</em> than their links.</p>
+      <aside class="testnote" aria-label="On the test"><span class="tag">On the test</span>Betweenness is not degree. It can be high at low degree, when a character is the only door to part of the network (Rockman), and low at high degree, when their neighbours can reach each other without them (Black Cat).</aside>
     </section>
 
     <section>
@@ -87,6 +258,7 @@
     <section>
       <div class="section-head"><div class="eyebrow">PageRank</div><h2>Prestige is one vote from the right page</h2></div>
       <p>Eight characters have more PageRank than their links predict, and none has less. <strong>Six of the eight are on Spider-Man's list.</strong> His page links to only nine characters, so each link carries a ninth of the biggest PageRank in the network: 0.0047, the most valuable single link in Marvel. It makes up 27–77% of these six characters' scores. The other two work the same way, with a vote from a page that links to very few others: Marvel Boy's from Quasar (3 out-links), Devil Hulk's from the Hulk (10).</p>
+      <aside class="testnote" aria-label="On the test"><span class="tag">On the test</span>PageRank splits each page's vote among its out-links, which is why each of Spider-Man's links carries a ninth. That split is the difference from <a class="cref" id="m-eigenvector" href="#c-eigenvector">eigenvector centrality</a>, where a link passes on its page's full score however many others the page also links to.</aside>
       <p>The directed shuffle keeps how many links each page gives and receives, but not <em>which</em> page links to whom. In PageRank, that is the whole point.</p>
     </section>
 
@@ -113,9 +285,10 @@
       <div class="section-head"><div class="eyebrow">Mixing</div><h2>The far ones live in their own decade</h2></div>
       <p>Why are the six closeness surprises so far out? Part 7's mixing measures ask who links to whom, and we test them the same way, compared to what:</p>
       <div class="eqs">
-        <div class="eq"><span class="f">\(r = -0.105\)</span><span class="l"><b>Degree assortativity:</b> the correlation between the degrees at the two ends of a link. The shuffles give −0.121 ± 0.010 (\(z = +1.5\)): hubs link to small characters because there aren't enough hubs to go around. That comes from the degrees alone, so it says nothing about Marvel.</span></div>
-        <div class="eq"><span class="f">\(+0.072\)</span><span class="l"><b>Homophily by debut decade:</b> the same correlation, for the decade of each character's first comic. Shuffling the decade labels gives −0.007 ± 0.011 (\(z = +7.1\)), and shuffling only among characters with similar numbers of links still gives \(z = +6.9\). Characters link to their own era.</span></div>
+        <div class="eq"><span class="f">\(r = -0.105\)</span><span class="l"><b><a class="cref" id="m-assortativity" href="#c-assortativity">Degree assortativity</a>:</b> the correlation between the degrees at the two ends of a link. The shuffles give −0.121 ± 0.010 (\(z = +1.5\)): hubs link to small characters because there aren't enough hubs to go around. That comes from the degrees alone, so it says nothing about Marvel.</span></div>
+        <div class="eq"><span class="f">\(+0.072\)</span><span class="l"><b><a class="cref" id="m-homophily" href="#c-homophily">Homophily</a> by debut decade:</b> the same correlation, for the decade of each character's first comic. Shuffling the decade labels gives −0.007 ± 0.011 (\(z = +7.1\)), and shuffling only among characters with similar numbers of links still gives \(z = +6.9\). Characters link to their own era.</span></div>
       </div>
+      <aside class="testnote" aria-label="On the test"><span class="tag">On the test</span>A heavy-tailed network is disassortative by structure alone: its biggest hubs must link mostly to small characters, because there aren't enough hubs to go around. That's why Marvel's \(r = -0.105\) sits next to the shuffles' −0.121. Compare \(r\) with the degree-preserving null before calling a network disassortative.</aside>
       <p>That explains four of the six. Jeffrey Mace, Blue Diamond, Bucky and the android Human Torch debuted in 1939–41, and <strong>52% of their neighbours come from the 1930s–40s</strong>, against 8% of all characters. They live in a closed wartime corner of the network.</p>
       <p>It isn't simply that they miss Spider-Man. None of the six links to him, while the shuffles link them to him 38–68% of the time, yet even in the shuffles where they miss him too, their closeness drops only 16–28% of the way to the real value. The rest is where their neighbours sit. For Cyclops and Quasar, the decade can't say where that is.</p>
     </section>
@@ -123,6 +296,7 @@
     <section>
       <div class="section-head"><h2>Putting it together</h2></div>
       <p>Most of Marvel's centrality is just links: the four measures agree with degree, and Spider-Man's 23% of all shortest paths is what 106 links buy in the shuffles too (\(z = +0.5\)). The surprises are about <em>who</em> the links connect, and in Marvel that mostly means Spider-Man. His vote makes prestige, and his neighbourhood makes other characters' roads unnecessary. Black Cat gets both.</p>
+      <aside class="testnote" aria-label="On the test"><span class="tag">On the test</span>A top score is not automatically a finding. Spider-Man's 23% of all shortest paths is the kind of "finding" that is only what his degree predicts: the degree-preserving shuffles give him about as much (\(z = +0.5\)).</aside>
       <blockquote>Black Cat has Spider-Man's vote, not his roads.</blockquote>
     </section>
 
@@ -177,6 +351,35 @@
       <p><code>Notebooks/Week3/SGI-3.12.ipynb</code> runs on the frozen week 1 data in <code>Data/Week1/</code> in about 70 seconds, plus seven calls to the Wikipedia API for the debut years. It makes both figures and writes <code>stats.json</code>, which every number on this page comes from, and a final check pins 24 of them so it fails loudly if anything drifts.</p>
     </section>
 
+    <section class="concepts" id="concepts" aria-labelledby="concepts-h">
+      <div class="section-head">
+        <h2 id="concepts-h">Concepts</h2>
+        <p style="font-size:.93rem;color:var(--muted)">Quick reminders of the week's ideas, grouped as in the concept list. The ↩ link on each card takes you back to where you were reading.</p>
+      </div>
+      <h3 class="concepts-sub">Used here</h3>
+      <div class="cgrid">
+        <div class="ccard" id="c-degree"><h3>Degree (in / out)</h3><p>A character's number of links. With arrows, in-degree counts the pages that link to you and out-degree the pages you link to. Here degree is the baseline every other measure is judged against.</p><a class="back" href="#m-degree">↩ Back to where you were</a></div>
+        <div class="ccard" id="c-distance"><h3>Shortest path &amp; distance</h3><p>A shortest path joins two characters with the fewest links, and its length is their distance. Closeness and betweenness are both built from these paths, which is why they need a connected network.</p><a class="back" href="#m-distance">↩ Back to where you were</a></div>
+        <div class="ccard" id="c-closeness"><h3>Closeness</h3><p>One over a character's mean distance to everyone: high means everything is near. On this page nobody is surprisingly close, because a character's links already settle most of their distances.</p><a class="back" href="#m-closeness">↩ Back to where you were</a></div>
+        <div class="ccard" id="c-betweenness"><h3>Betweenness</h3><p>The share of all shortest paths between other characters that pass through you: a measure of control. It singles out brokers like Hercules, and characters nobody's path needs, like Black Cat.</p><a class="back" href="#m-betweenness">↩ Back to where you were</a></div>
+        <div class="ccard" id="c-pagerank"><h3>PageRank</h3><p>A random walker follows out-links and sometimes teleports to a random page, so it never gets stuck. PageRank is the share of time it spends on you; links count most from important pages with few out-links.</p><a class="back" href="#m-pagerank">↩ Back to where you were</a></div>
+        <div class="ccard" id="c-giant"><h3>Giant component</h3><p>The largest group of characters that can all reach each other: 277 of the 303 when direction is ignored. Closeness and betweenness use it because distance is undefined between separate groups.</p><a class="back" href="#m-giant">↩ Back to where you were</a></div>
+        <div class="ccard" id="c-rankcorr"><h3>Rank correlation</h3><p>How similarly two measures order the characters, from −1 to 1, where 1 is the same ranking. Every measure here ranks close to degree, which is why a high score alone isn't a finding.</p><a class="back" href="#m-rankcorr">↩ Back to where you were</a></div>
+        <div class="ccard" id="c-shuffle"><h3>Degree-preserving shuffle</h3><p>A null model: rewire the network at random while every character keeps their number of links (for PageRank, their in- and out-links). What survives the shuffle is explained by degree; what doesn't is real structure.</p><a class="back" href="#m-shuffle">↩ Back to where you were</a></div>
+        <div class="ccard" id="c-zscore"><h3>z-score &amp; excess</h3><p>The z-score counts how many standard deviations the real value sits from the shuffles, which says whether a difference is real. The excess, real minus shuffled, says how big it is. Rockman is why we need both.</p><a class="back" href="#m-zscore">↩ Back to where you were</a></div>
+        <div class="ccard" id="c-assortativity"><h3>Degree assortativity</h3><p>The correlation between the degrees at the two ends of each link: positive when hubs link to hubs, negative when hubs link to small characters. Marvel is negative, but so are its shuffles.</p><a class="back" href="#m-assortativity">↩ Back to where you were</a></div>
+        <div class="ccard" id="c-homophily"><h3>Homophily</h3><p>Like linking to like on some attribute, here the decade of a character's first comic. It's tested by shuffling the labels and keeping the links, and it explains why the WWII-era characters sit far out.</p><a class="back" href="#m-homophily">↩ Back to where you were</a></div>
+      </div>
+      <h3 class="concepts-sub">Also this week</h3>
+      <div class="cgrid">
+        <div class="ccard" id="c-bfs"><h3>Breadth-first search</h3><p>The ring-by-ring algorithm that finds every shortest path, so it computes all the distances behind closeness and betweenness.</p><a class="back" href="#top">↩ Back to where you were</a></div>
+        <div class="ccard" id="c-diameter"><h3>Diameter &amp; eccentricity</h3><p>A character's eccentricity is their distance to the farthest character, and the diameter is the largest one: the same distances as closeness, summarised by the maximum instead of the mean.</p><a class="back" href="#top">↩ Back to where you were</a></div>
+        <div class="ccard" id="c-harmonic"><h3>Harmonic centrality</h3><p>Closeness built from 1/distance, so unreachable characters count as 0 instead of breaking it. It would let closeness use all 303 characters.</p><a class="back" href="#m-harmonic">↩ Back to where you were</a></div>
+        <div class="ccard" id="c-eigenvector"><h3>Eigenvector centrality</h3><p>PageRank's ancestor: your score is the sum of your neighbours' scores, with no vote-splitting and no teleport. PageRank adds both to cope with directed links.</p><a class="back" href="#m-eigenvector">↩ Back to where you were</a></div>
+        <div class="ccard" id="c-cliques"><h3>Cliques</h3><p>Groups where every pair is linked, the strictest definition of a group. Week 4's communities relax it, and may name the tight groups the closeness surprises live in.</p><a class="back" href="#top">↩ Back to where you were</a></div>
+      </div>
+    </section>
+
   </article>
 
   <footer>
@@ -185,5 +388,201 @@
   </footer>
 
 </div>
+
+<script>
+/* Concept links. Plain anchors do the jumping (and work without JS); this only remembers the exact
+   reading position so a card's "back" link can return to it, and closes the phone toggle after a pick. */
+(function () {
+  let from = null;
+  document.addEventListener("click", (e) => {
+    const go = e.target.closest('a[href^="#c-"]');
+    if (go) {
+      if (!go.closest("#concepts")) from = window.scrollY;        // a jump between cards keeps the reading spot
+      const drawer = go.closest(".cdrawer");
+      if (drawer) drawer.open = false;
+      return;
+    }
+    const back = e.target.closest("a.back");
+    if (back && from !== null) {                                 // no remembered spot: the href's first mention
+      e.preventDefault();
+      window.scrollTo({ top: from });
+      history.replaceState(null, "", location.pathname + location.search);
+      from = null;
+    }
+  });
+
+  // on narrow screens the floating toggle could sit on the versus panel's tabs and dropdowns:
+  // tuck it away while that panel is on screen (the panel's own text links to the concept cards)
+  const drawer = document.querySelector(".cdrawer"), versus = document.getElementById("versus");
+  if (drawer && versus && "IntersectionObserver" in window) {
+    new IntersectionObserver(([entry]) => {
+      const tuck = entry.isIntersecting && !drawer.open;
+      drawer.classList.toggle("tucked", tuck);
+      drawer.querySelector("summary").tabIndex = tuck ? -1 : 0;
+    }).observe(versus);
+  }
+})();
+</script>
+
+<script>
+/* Versus panel. Numbers are the notebook's STATS["versus"], embedded as the versus-data JSON block,
+   never typed in by hand; the notebook's final check fails if that copy drifts from stats.json. */
+(function () {
+  // ---- avatars: one simple 2D bust, drawn per character from a costume-inspired palette ----
+  const SKIN = "#f0c8a8";
+  const AV = {
+    "Hercules":              { skin: "#c98f5e", hair: "#3b2616", beard: true, suit: "#c9a227", trim: "#7a4b1c" },
+    "Black Widow":           { hair: "#b8321f", long: true, suit: "#1d1f24", trim: "#5a5f69", emblem: "hourglass", ec: "#d62b2b" },
+    "U.S. Agent":            { skin: "#e9b98f", mask: "cowl", mc: "#1d1f24", suit: "#1d1f24", trim: "#c62828", emblem: "star", ec: "#f2f2f2" },
+    "Rockman":               { skin: "#d9a47c", hair: "#2b2b2b", suit: "#7d7466", trim: "#4e4a42", emblem: "letter", letter: "R", ec: "#e0913c" },
+    "Black Cat":             { hair: "#eef0f3", long: true, mask: "domino", mc: "#111214", suit: "#15161a", trim: "#eef0f3" },
+    "Jeffrey Mace":          { skin: "#e9b98f", mask: "cowl", mc: "#2046a8", suit: "#2046a8", trim: "#c62828", emblem: "star", ec: "#f2f2f2" },
+    "Blue Diamond":          { skin: "#9fd3f0", hair: "#5aa9d6", suit: "#1f5fae", trim: "#9fd3f0", emblem: "diamond", ec: "#e8f6ff" },
+    "Bucky":                 { hair: "#5a3a22", mask: "domino", mc: "#2046a8", suit: "#2046a8", trim: "#c62828" },
+    "Cyclops":               { mask: "cowl", mc: "#1f3f8f", visor: "#e53935", suit: "#1f3f8f", trim: "#f2c230", emblem: "x", ec: "#f2c230" },
+    "Quasar":                { hair: "#e6c35c", suit: "#1f3f8f", trim: "#f2c230", emblem: "star", ec: "#f2c230" },
+    "Human Torch (android)": { flame: true, skin: "#f57c1f", suit: "#e0451b", trim: "#ffb74d" },
+    "Mayday Parker":         { mask: "full", mc: "#c62828", lens: "#f5f5f5", suit: "#c62828", trim: "#15161a", emblem: "spider", ec: "#15161a" },
+    "Venom":                 { mask: "full", mc: "#101114", lens: "#f5f5f5", big: true, suit: "#101114", trim: "#2a2d33", emblem: "spider", ec: "#f5f5f5" },
+    "Spider-Man Noir":       { mask: "full", mc: "#1b1c20", lens: "#b9bec7", suit: "#2a2c31", trim: "#6b707a", emblem: "spider", ec: "#6b707a" },
+    "Spider-UK":             { mask: "full", mc: "#c62828", lens: "#f5f5f5", suit: "#1f3f8f", trim: "#c62828", emblem: "spider", ec: "#f5f5f5" },
+    "Scarlet Spider":        { mask: "full", mc: "#c62828", lens: "#f5f5f5", suit: "#1f3f8f", trim: "#c62828", emblem: "spider", ec: "#c62828" },
+    "Marvel Boy (Robert Grayson)": { hair: "#e6c35c", suit: "#1f5fae", trim: "#f2c230", emblem: "bolt", ec: "#f2c230" },
+    "Devil Hulk":            { skin: "#3f7d3a", hair: "#15161a", suit: "#3f7d3a", trim: "#2c5a28", eyes: "#ff3b30" },
+  };
+
+  function emblem(kind, c, letter) {
+    const at = (s) => `<g transform="translate(60 103)">${s}</g>`;
+    switch (kind) {
+      case "star": return at(`<polygon points="0,-8 2.4,-2.5 8,-2.5 3.5,1 5.2,7 0,3.4 -5.2,7 -3.5,1 -8,-2.5 -2.4,-2.5" fill="${c}"/>`);
+      case "diamond": return at(`<polygon points="0,-9 7,0 0,9 -7,0" fill="${c}"/>`);
+      case "x": return at(`<circle r="8" fill="none" stroke="${c}" stroke-width="2"/><path d="M-5,-5 L5,5 M5,-5 L-5,5" stroke="${c}" stroke-width="2.4"/>`);
+      case "hourglass": return at(`<polygon points="-6,-7 6,-7 0,0" fill="${c}"/><polygon points="-6,7 6,7 0,0" fill="${c}"/>`);
+      case "bolt": return at(`<polygon points="2,-10 -6,2 -1,2 -3,10 6,-3 1,-3" fill="${c}"/>`);
+      case "letter": return at(`<text y="5" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="700" font-size="14" fill="${c}">${letter}</text>`);
+      case "spider": return at(`<g stroke="${c}" stroke-width="1.6" fill="none">` +
+        [-1, 1].map(s => `<path d="M0,-2 L${9 * s},-8 M0,0 L${10 * s},-2 M0,1 L${10 * s},5 M0,3 L${8 * s},10"/>`).join("") +
+        `</g><ellipse rx="3" ry="6" fill="${c}"/>`);
+      default: return "";
+    }
+  }
+
+  function avatar(name) {
+    const a = Object.assign({ skin: SKIN }, AV[name] || { suit: "#5d6370", trim: "#8a8f99", hair: "#3b3b3b" });
+    const head = a.mask === "full" || a.mask === "cowl" ? a.mc : a.skin;
+    const id = "c" + Math.random().toString(36).slice(2, 8);
+    let s = `<svg viewBox="0 0 120 120" role="img" aria-label="${name}, our sketch"><defs><clipPath id="${id}"><circle cx="60" cy="60" r="58"/></clipPath></defs>`;
+    s += `<circle cx="60" cy="60" r="58" fill="#2b2f38"/><g clip-path="url(#${id})">`;
+    if (a.long) s += `<path d="M33 52 C33 18, 87 18, 87 52 L92 92 L28 92 Z" fill="${a.hair}"/>`;
+    s += `<path d="M12 122 C14 92, 36 82, 60 82 C84 82, 106 92, 108 122 Z" fill="${a.suit}"/>`;
+    s += `<path d="M40 84 L60 99 L80 84" fill="none" stroke="${a.trim}" stroke-width="5" stroke-linejoin="round"/>`;
+    s += `<rect x="52" y="68" width="16" height="16" fill="${head}"/>`;
+    if (a.flame) s += `<path d="M36 50 L38 22 L47 36 L52 10 L60 30 L67 12 L72 34 L82 20 L84 50 Z" fill="${a.trim}"/>`;
+    s += `<ellipse cx="60" cy="50" rx="21" ry="24" fill="${head}"/>`;
+    if (a.mask === "cowl") s += `<ellipse cx="60" cy="63" rx="14" ry="10" fill="${a.skin}"/>`;
+    if (a.hair && !a.mask && !a.flame) s += `<path d="M38 48 C38 20, 82 20, 82 48 C75 35, 45 35, 38 48 Z" fill="${a.hair}"/>`;
+    if (a.hair && a.mask === "domino") s += `<path d="M38 46 C38 20, 82 20, 82 46 C75 34, 45 34, 38 46 Z" fill="${a.hair}"/>`;
+    if (a.beard) s += `<path d="M41 56 C43 78, 77 78, 79 56 C71 67, 49 67, 41 56 Z" fill="${a.hair}"/>`;
+    if (a.mask === "full") {
+      const rx = a.big ? 9.5 : 7, ry = a.big ? 6.5 : 5;
+      s += `<ellipse cx="50" cy="48" rx="${rx}" ry="${ry}" transform="rotate(22 50 48)" fill="${a.lens}"/>`;
+      s += `<ellipse cx="70" cy="48" rx="${rx}" ry="${ry}" transform="rotate(-22 70 48)" fill="${a.lens}"/>`;
+    } else if (a.visor) {
+      s += `<rect x="39" y="44" width="42" height="9" rx="4.5" fill="${a.visor}"/>`;
+    } else {
+      if (a.mask === "domino") s += `<rect x="39" y="42" width="42" height="13" rx="6.5" fill="${a.mc}"/>`;
+      const eye = a.mask === "domino" || a.mask === "cowl" ? "#f5f5f5" : (a.eyes || "#1b1b1b");
+      s += `<circle cx="52" cy="49" r="2.5" fill="${eye}"/><circle cx="68" cy="49" r="2.5" fill="${eye}"/>`;
+    }
+    if (a.mask !== "full" && !a.beard) s += `<path d="M54 63 Q60 66.5 66 63" fill="none" stroke="${a.flame ? "#7a2a0c" : "#6b4332"}" stroke-width="1.6" stroke-linecap="round"/>`;
+    s += emblem(a.emblem, a.ec, a.letter) + `</g></svg>`;
+    return s;
+  }
+
+  // ---- the matchup ----
+  const pct = (v) => (100 * v).toFixed(2) + "%";
+  const pts = (v) => (v >= 0 ? "+" : "−") + (100 * Math.abs(v)).toFixed(2) + " pts";
+  const sgn = (v, d) => (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(d);
+  const both = (long, short) => `<span class="lg">${long}</span><span class="sh">${short}</span>`;   // short form on phones
+  const MEASURES = {
+    betweenness: { links: "links", value: both("share of all shortest paths", "paths"), fmt: pct, dfmt: pts, pair: ["Hercules", "Black Cat"] },
+    closeness:   { links: "links", value: "closeness", fmt: (v) => v.toFixed(3), dfmt: (v) => sgn(v, 3), pair: ["Cyclops", "Quasar"],
+                   extra: (c) => [both("mean distance", "distance"), (1 / c.real).toFixed(2) + both(" steps", "")] },
+    PageRank:    { links: "in-links", value: both("share of the walker's time", "walker's time"), fmt: pct, dfmt: pts, pair: ["Mayday Parker", "Venom"] },
+  };
+  const $ = (id) => document.getElementById(id);
+  const short = (n) => n.replace(" (Robert Grayson)", "");
+  let data, m = "betweenness";
+
+  function card(name, c, other, tag, win) {
+    const M = MEASURES[m];
+    const rows = [[M.links, c.k, c.k > other.k],
+                  [M.value, M.fmt(c.real), c.real > other.real],
+                  ...(M.extra ? [[...M.extra(c), false]] : []),
+                  [both("their links predict", "predicted"), M.fmt(c.shuffled), c.shuffled > other.shuffled],
+                  ["excess", M.dfmt(c.excess), Math.abs(c.excess) > Math.abs(other.excess)],
+                  ["z", sgn(c.z, 1), false]];
+    return `<div class="vs-card${win ? " win" : ""}">${avatar(name)}<div class="vs-name">${short(name)}</div>` +
+           `<div class="vs-tag">${tag}</div><table class="vs-stats">` +
+           rows.map(([l, v, lead]) => `<tr${lead ? ' class="lead"' : ""}><td>${l}</td><td>${v}</td></tr>`).join("") +
+           `</table></div>`;
+  }
+
+  function render() {
+    const a = $("vs-a").value, b = $("vs-b").value, A = data[m][a], B = data[m][b];
+    const should = A.shuffled >= B.shuffled ? a : b, wins = A.real >= B.real ? a : b;
+    const bigger = Math.abs(A.excess) >= Math.abs(B.excess) ? a : b, X = data[m][bigger];
+    const tag = (n) => n === wins ? (n === should ? both("wins · as predicted", "wins ✓") : "wins")
+                                  : (n === should ? both("predicted to win", "predicted") : "");
+    $("vs-arena").innerHTML = card(a, A, B, tag(a), a === wins) + `<div class="vs-vs">VS</div>` + card(b, B, A, tag(b), b === wins);
+    const upset = should !== wins;
+    $("vs-verdict").innerHTML =
+      `<div>Their links say <b>${short(should)}</b> should win: ${MEASURES[m].fmt(data[m][should].shuffled)} in the shuffles.</div>` +
+      `<div><b>${short(wins)}</b> wins, ${MEASURES[m].fmt(data[m][wins].real)} to ${MEASURES[m].fmt(data[m][wins === a ? b : a].real)}. ` +
+      (upset ? `<span class="upset">Upset!</span>` : `<span class="calm">As the links predicted.</span>`) + `</div>` +
+      `<div>Bigger surprise: <b>${short(bigger)}</b>, ${MEASURES[m].dfmt(X.excess)} ${X.excess >= 0 ? "above" : "below"} what their links predict (z ${sgn(X.z, 1)}).</div>`;
+  }
+
+  function fill(pair) {
+    const names = Object.keys(data[m]);
+    for (const [sel, pick] of [["vs-a", pair[0]], ["vs-b", pair[1]]]) {
+      $(sel).innerHTML = names.map((n) => `<option value="${n}">${short(n)}</option>`).join("");
+      $(sel).value = pick;
+    }
+    render();
+  }
+
+  function onPick(changed, other) {
+    if ($(changed).value === $(other).value) {        // never the same character twice: move the other one
+      const names = Object.keys(data[m]);
+      $(other).value = names[(names.indexOf($(changed).value) + 1) % names.length];
+    }
+    render();
+  }
+
+  // the numbers travel inside this page (the versus-data block), so the panel needs no other file:
+  // it works in a local preview, and never meets a stats.json that GitHub Pages is still caching
+  try {
+    data = JSON.parse($("versus-data").textContent);
+  } catch (e) {
+    $("vs-arena").innerHTML = `<p class="vs-note">The matchup numbers could not be read, so the panel is switched off.</p>`;
+    return;
+  }
+  document.querySelectorAll(".vs-tabs button").forEach((btn) => btn.addEventListener("click", () => {
+    m = btn.dataset.m;
+    document.querySelectorAll(".vs-tabs button").forEach((x) => x.setAttribute("aria-pressed", x === btn));
+    fill(MEASURES[m].pair);
+  }));
+  $("vs-a").addEventListener("change", () => onPick("vs-a", "vs-b"));
+  $("vs-b").addEventListener("change", () => onPick("vs-b", "vs-a"));
+  $("vs-shuffle").addEventListener("click", () => {
+    const names = Object.keys(data[m]);
+    const i = Math.floor(Math.random() * names.length);
+    const j = (i + 1 + Math.floor(Math.random() * (names.length - 1))) % names.length;
+    fill([names[i], names[j]]);
+  });
+  fill(MEASURES[m].pair);
+})();
+</script>
 </body>
 </html>

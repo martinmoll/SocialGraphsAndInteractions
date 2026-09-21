@@ -305,6 +305,147 @@
       ]
     ]
   },
+  "versus": {
+    "betweenness": {
+      "Hercules": {
+        "k": 26,
+        "real": 0.0374,
+        "shuffled": 0.0182,
+        "excess": 0.0192,
+        "z": 4.1
+      },
+      "Black Widow": {
+        "k": 25,
+        "real": 0.0351,
+        "shuffled": 0.0167,
+        "excess": 0.0184,
+        "z": 4.1
+      },
+      "U.S. Agent": {
+        "k": 21,
+        "real": 0.0255,
+        "shuffled": 0.0123,
+        "excess": 0.0132,
+        "z": 3.2
+      },
+      "Rockman": {
+        "k": 2,
+        "real": 0.0072,
+        "shuffled": 0.0001,
+        "excess": 0.0071,
+        "z": 13.4
+      },
+      "Black Cat": {
+        "k": 28,
+        "real": 0.0071,
+        "shuffled": 0.0201,
+        "excess": -0.013,
+        "z": -3.1
+      }
+    },
+    "closeness": {
+      "Jeffrey Mace": {
+        "k": 8,
+        "real": 0.3278,
+        "shuffled": 0.3951,
+        "excess": -0.0673,
+        "z": -3.8
+      },
+      "Blue Diamond": {
+        "k": 9,
+        "real": 0.337,
+        "shuffled": 0.4004,
+        "excess": -0.0634,
+        "z": -3.5
+      },
+      "Bucky": {
+        "k": 12,
+        "real": 0.3589,
+        "shuffled": 0.417,
+        "excess": -0.0581,
+        "z": -3.7
+      },
+      "Cyclops": {
+        "k": 26,
+        "real": 0.4107,
+        "shuffled": 0.463,
+        "excess": -0.0523,
+        "z": -4.8
+      },
+      "Quasar": {
+        "k": 24,
+        "real": 0.4083,
+        "shuffled": 0.4572,
+        "excess": -0.0489,
+        "z": -4.4
+      },
+      "Human Torch (android)": {
+        "k": 17,
+        "real": 0.3876,
+        "shuffled": 0.4358,
+        "excess": -0.0481,
+        "z": -3.4
+      }
+    },
+    "PageRank": {
+      "Black Cat": {
+        "k": 21,
+        "real": 0.0176,
+        "shuffled": 0.0101,
+        "excess": 0.0075,
+        "z": 3.8
+      },
+      "Mayday Parker": {
+        "k": 14,
+        "real": 0.0143,
+        "shuffled": 0.0071,
+        "excess": 0.0072,
+        "z": 3.6
+      },
+      "Venom": {
+        "k": 17,
+        "real": 0.0137,
+        "shuffled": 0.0083,
+        "excess": 0.0053,
+        "z": 3.3
+      },
+      "Spider-Man Noir": {
+        "k": 7,
+        "real": 0.009,
+        "shuffled": 0.0038,
+        "excess": 0.0052,
+        "z": 3.9
+      },
+      "Spider-UK": {
+        "k": 2,
+        "real": 0.0061,
+        "shuffled": 0.0014,
+        "excess": 0.0048,
+        "z": 10.4
+      },
+      "Scarlet Spider": {
+        "k": 8,
+        "real": 0.0086,
+        "shuffled": 0.0042,
+        "excess": 0.0045,
+        "z": 3.4
+      },
+      "Marvel Boy (Robert Grayson)": {
+        "k": 2,
+        "real": 0.0048,
+        "shuffled": 0.0014,
+        "excess": 0.0034,
+        "z": 4.5
+      },
+      "Devil Hulk": {
+        "k": 1,
+        "real": 0.0029,
+        "shuffled": 0.001,
+        "excess": 0.0019,
+        "z": 4.6
+      }
+    }
+  },
   "hero": {
     "k": 28,
     "kin": 21,
