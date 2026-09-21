@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spider-Man's vote, not his roads — Marvel Superstars</title>
+<meta name="description" content="Week 3 of DTU 02805: every Marvel character scored on four centralities against shuffles that keep their links. The most surprising is Black Cat, and both of her surprises come from Spider-Man.">
+<!-- bump ?v= whenever style.css changes: GitHub Pages lets browsers cache each file for 10 minutes -->
+<link rel="stylesheet" href="../../style.css?v=2026-09-14">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {delimiters: [{left: '\\(', right: '\\)', display: false}]})"></script>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <a class="backlink" href="../../">← Marvel Superstars</a>
+    <div class="eyebrow">Week 3 · Who matters, and why · 277 Marvel characters</div>
+    <h1>Spider-Man's vote, not his roads</h1>
+    <p class="lede">Week 3 gave four answers to "who matters?" and one habit for all of them: compared to what? We scored every Marvel character against shuffles that keep their links. The most surprising one is Black Cat, and both of her surprises come from Spider-Man.</p>
+  </header>
+
+  <article>
+
+    <section class="summary" aria-label="In short">
+      <div class="eyebrow">In short</div>
+      <ul class="findings">
+        <li><span class="n">1.75×</span><span class="t"><b>Black Cat's prestige is borrowed.</b> Her PageRank is 1.75× what her links predict, and Spider-Man's one link is 27% of it.</span></li>
+        <li><span class="n">0.36×</span><span class="t"><b>But nobody's path runs through her.</b> She has a third of the betweenness her degree predicts: 24 of her 28 friends are Spider-Man's too.</span></li>
+        <li><span class="n">6 of 8</span><span class="t"><b>Spider-Man's vote is what prestige is made of.</b> Six of the eight PageRank surprises are among the nine characters his page links to.</span></li>
+        <li><span class="n">0</span><span class="t"><b>Nobody is surprisingly close to everyone.</b> Six are surprisingly far, four of them from the same wartime years.</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>What we asked</h2></div>
+      <p>Spider-Man tops every centrality in Marvel. That isn't news: a character with 106 links is bound to sit near everyone and on everyone's paths. The course's habit is to ask <strong>compared to what?</strong> So we asked: <strong>who is the most surprising character by any centrality, once their links are accounted for?</strong></p>
+      <div class="stats">
+        <div class="stat in"><span class="v">4</span><span class="l">centralities, one question each</span></div>
+        <div class="stat"><span class="v">200 + 200</span><span class="l">shuffles: one null for paths, one for PageRank</span></div>
+        <div class="stat out"><span class="v">23</span><span class="l">surprises, from 22 characters</span></div>
+        <div class="stat isl"><span class="v">1</span><span class="l">character surprising twice: Black Cat</span></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><div class="eyebrow">The measures</div><h2>Four questions, four answers</h2></div>
+      <div class="eqs">
+        <div class="eq"><span class="f">\(k_i\)</span><span class="l"><b>Degree: popularity.</b> How many links? The baseline every other measure is compared with.</span></div>
+        <div class="eq"><span class="f">\(C_i = \dfrac{n-1}{\sum_{j} d_{ij}}\)</span><span class="l"><b>Closeness: reach.</b> The inverse of the mean distance to everyone. 0.5 means two steps from everyone on average.</span></div>
+        <div class="eq"><span class="f">\(b_i = \sum_{s \ne i \ne t} \dfrac{\sigma_{st}(i)}{\sigma_{st}}\)</span><span class="l"><b>Betweenness: control.</b> For every other pair, the fraction of their shortest paths that pass through \(i\). Divided by the number of pairs, it is the share of all shortest paths that run through \(i\).</span></div>
+        <div class="eq"><span class="f">\(\mathrm{PR}_i = \dfrac{1-\alpha}{n} + \alpha \sum_{j \to i} \dfrac{\mathrm{PR}_j}{k^{\text{out}}_j}\)</span><span class="l"><b>PageRank: prestige.</b> The share of time a random walker spends on \(i\). Each page splits its vote among its out-links; with probability \(1-\alpha = 0.15\) the walker jumps to a random page.</span></div>
+      </div>
+      <p>Closeness and betweenness are built from distances, so they use the 277 connected characters with direction ignored. PageRank follows the arrows, so it uses all 303. The four mostly agree: their rank correlations with degree are 0.85, 0.91 and 0.94. A high score is not a finding until we know what the character's links alone would have given them.</p>
+    </section>
+
+    <section>
+      <div class="section-head"><div class="eyebrow">The null models</div><h2>Compared to what: one shuffle per measure</h2></div>
+      <ul class="plain">
+        <li><strong>Closeness and betweenness:</strong> week 2's shuffle. Swap A–B, C–D into A–D, C–B, ten times per link. Every character keeps their number of links; who they link to is scrambled.</li>
+        <li><strong>PageRank:</strong> the directed version. Every character keeps both their in-links and their out-links, because what you receive depends on how many pages link to you, and what each of those pages can give depends on how many others it links to.</li>
+      </ul>
+      <div class="eqs">
+        <div class="eq"><span class="f">\(z = \dfrac{x - \mu}{\sigma}\)</span><span class="l"><b>Whether.</b> How many standard deviations the real value \(x\) sits from 200 shuffles. \(|z| \ge 3\) counts as a surprise, fixed before looking.</span></div>
+        <div class="eq"><span class="f">\(\text{excess} = x - \mu\)</span><span class="l"><b>How much.</b> The difference, in the measure's own units. The surprises are ranked by this, not by \(z\), for a reason Rockman will show.</span></div>
+      </div>
+      <figure>
+        <img src="../../Figures/Week3/fig1_surprise_map.png" alt="Three scatter plots of excess against degree, one per measure. Betweenness: Hercules, Black Widow and U.S. Agent sit highest in orange; Rockman lower; Black Cat alone below, in blue. Closeness: six blue characters below the line, none above. PageRank: eight orange characters above, led by Black Cat and Mayday Parker.">
+        <figcaption><b>Figure 1.</b> <b>How to read it:</b> one dot per character. Height is the excess: how much more (or less) of the measure they have than shuffles that keep their links. Orange and blue dots pass \(|z| \ge 3\). Black Cat is ringed: below the line in one panel, at the top of another.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <div class="section-head"><div class="eyebrow">Betweenness</div><h2>Brokers, doors, and one character nobody needs</h2></div>
+      <p><strong>The brokers.</strong> Hercules, Black Widow and U.S. Agent carry about twice the shortest paths their links predict: Hercules has 3.74% of all shortest paths against 1.82% in the shuffles. They connect parts of Marvel that don't otherwise touch.</p>
+      <p><strong>The doors.</strong> Rockman has the biggest \(z\) in the network, +13.4, and 73× his shuffled value. But his only other neighbour, The Witness, has one link, so all 275 of The Witness's shortest paths go through Rockman. That is his whole score. The shuffles usually attach The Witness to a hub instead, so Rockman's baseline is almost zero, and dividing by almost zero is what inflates his \(z\) and his ratio. By excess, he carries 0.71 percentage points extra against Hercules's 1.92. Four more small "doors" (Nightmask, Turbo, Guardsman, Genis-Vell) work the same way.</p>
+      <p><strong>The one below.</strong> Black Cat has 28 links and a third of the betweenness they predict (\(z = -3.1\)). She is the only character in Marvel whose position is worth <em>less</em> than their links.</p>
+    </section>
+
+    <section>
+      <div class="section-head"><div class="eyebrow">Closeness</div><h2>Nobody is surprisingly close</h2></div>
+      <p>Six characters are surprising, and all six are <em>further</em> from everyone than their links predict: Jeffrey Mace, Blue Diamond, Bucky, Cyclops, Quasar and the android Human Torch. Closeness is hard to be surprising at. It averages 276 distances, and the number of links mostly settles them, so even these six sit at 0.83–0.89× their shuffled value. Why these six? We come back to that at the end.</p>
+    </section>
+
+    <section>
+      <div class="section-head"><div class="eyebrow">PageRank</div><h2>Prestige is one vote from the right page</h2></div>
+      <p>Eight characters have more PageRank than their links predict, and none has less. <strong>Six of the eight are on Spider-Man's list.</strong> His page links to only nine characters, so each link carries a ninth of the biggest PageRank in the network: 0.0047, the most valuable single link in Marvel. It makes up 27–77% of these six characters' scores. The other two work the same way, with a vote from a page that links to very few others: Marvel Boy's from Quasar (3 out-links), Devil Hulk's from the Hulk (10).</p>
+      <p>The directed shuffle keeps how many links each page gives and receives, but not <em>which</em> page links to whom. In PageRank, that is the whole point.</p>
+    </section>
+
+    <section>
+      <div class="section-head"><div class="eyebrow">The most surprising character</div><h2>Black Cat: two verdicts, one cause</h2></div>
+      <p>Black Cat is the only character on two lists, and in opposite directions:</p>
+      <div class="stats">
+        <div class="stat out"><span class="k">PageRank</span><span class="v">1.75×</span><span class="l">what her links predict, z = +3.8<br>5th in Marvel, 17th by in-links</span></div>
+        <div class="stat in"><span class="k">Betweenness</span><span class="v">0.36×</span><span class="l">what her links predict, z = −3.1<br>0.71% of paths vs 2.01% shuffled</span></div>
+      </div>
+      <p>Each measure has a mechanism we can look at directly. Betweenness counts the paths that <em>need</em> you: remove the character and see how far apart their friends end up. PageRank counts votes: split her score into the vote of every page that links to her, plus the walker's random jumps.</p>
+      <figure>
+        <img src="../../Figures/Week3/fig2_black_cat.png" alt="Left: stacked bars. Without Hercules, 43 percent of his friend pairs are three or more steps apart; without Black Cat, only 4 percent. Right: bars of Black Cat's PageRank by source. Spider-Man gives 27 percent, and six characters on his nine-link list give most of the rest, 73 percent together; her other 14 in-links give 24 percent.">
+        <figcaption><b>Figure 2.</b> <b>How to read it:</b> left, the share of a character's friend pairs at each distance once the character is removed; orange pairs had to go through them. Right, Black Cat's PageRank split exactly into the vote of each page linking to her; orange bars are Spider-Man and the characters his page links to.</figcaption>
+      </figure>
+      <ul class="plain">
+        <li><strong>No roads.</strong> 24 of her 28 friends are also Spider-Man's, so they reach each other through him. Remove her and only 4% of her friend pairs are three or more steps apart, against 43% for Hercules.</li>
+        <li><strong>The vote.</strong> Spider-Man's single link is 27% of her PageRank, twice the next-biggest vote, and the next votes come from his list too. Spider-Man and six of the characters he links to give her 73% of her score, from 7 of her 21 in-links.</li>
+      </ul>
+      <p>Spider-Man's neighbourhood makes her redundant as a road; his page makes her prestigious.</p>
+    </section>
+
+    <section>
+      <div class="section-head"><div class="eyebrow">Mixing</div><h2>The far ones live in their own decade</h2></div>
+      <p>Why are the six closeness surprises so far out? Part 7's mixing measures ask who links to whom, and we test them the same way, compared to what:</p>
+      <div class="eqs">
+        <div class="eq"><span class="f">\(r = -0.105\)</span><span class="l"><b>Degree assortativity:</b> the correlation between the degrees at the two ends of a link. The shuffles give −0.121 ± 0.010 (\(z = +1.5\)): hubs link to small characters because there aren't enough hubs to go around. That comes from the degrees alone, so it says nothing about Marvel.</span></div>
+        <div class="eq"><span class="f">\(+0.072\)</span><span class="l"><b>Homophily by debut decade:</b> the same correlation, for the decade of each character's first comic. Shuffling the decade labels gives −0.007 ± 0.011 (\(z = +7.1\)), and shuffling only among characters with similar numbers of links still gives \(z = +6.9\). Characters link to their own era.</span></div>
+      </div>
+      <p>That explains four of the six. Jeffrey Mace, Blue Diamond, Bucky and the android Human Torch debuted in 1939–41, and <strong>52% of their neighbours come from the 1930s–40s</strong>, against 8% of all characters. They live in a closed wartime corner of the network.</p>
+      <p>It isn't simply that they miss Spider-Man. None of the six links to him, while the shuffles link them to him 38–68% of the time, yet even in the shuffles where they miss him too, their closeness drops only 16–28% of the way to the real value. The rest is where their neighbours sit. For Cyclops and Quasar, the decade can't say where that is.</p>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Putting it together</h2></div>
+      <p>Most of Marvel's centrality is just links: the four measures agree with degree, and Spider-Man's 23% of all shortest paths is what 106 links buy in the shuffles too (\(z = +0.5\)). The surprises are about <em>who</em> the links connect, and in Marvel that mostly means Spider-Man. His vote makes prestige, and his neighbourhood makes other characters' roads unnecessary. Black Cat gets both.</p>
+      <blockquote>Black Cat has Spider-Man's vote, not his roads.</blockquote>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>What surprised us</h2></div>
+      <ul class="plain">
+        <li><strong>The biggest \(z\) was the least interesting result.</strong> Rockman's +13.4 is one leaf's paths. Without the excess, he would have been our headline.</li>
+        <li><strong>Every PageRank surprise has the same cause:</strong> one vote from a page that links to few others. We expected several stories and found one.</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Choices we made</h2>
+        <p style="font-size:.93rem;color:var(--muted)">Each could have gone the other way and changed a number above.</p>
+      </div>
+      <ul class="choices">
+        <li>
+          <span class="what">|z| ≥ 3 for whether, excess for how much</span>
+          <span class="then">Ranking by z, or by real ÷ shuffled, would have crowned Rockman (73×): a near-zero baseline inflates both.</span>
+        </li>
+        <li>
+          <span class="what">One null per measure</span>
+          <span class="then">Undirected swaps for the path measures, directed swaps keeping in- and out-links for PageRank, which lives on the arrows.</span>
+        </li>
+        <li>
+          <span class="what">277 connected characters for paths, all 303 for PageRank</span>
+          <span class="then">Distance is undefined between components; PageRank's random jumps handle the unreachable pages.</span>
+        </li>
+        <li>
+          <span class="what">200 shuffles each, fixed seeds</span>
+          <span class="then">The undirected set reuses exercise 3.8's seeds and reproduces its z-scores exactly; the directed set has its own.</span>
+        </li>
+        <li>
+          <span class="what">Debut decade from the live Wikipedia infoboxes</span>
+          <span class="then">Found for 284 of 303 characters. Pages that have since become redirects count as unknown, so no character inherits a team page's debut.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>What we can't conclude</h2></div>
+      <ul class="plain">
+        <li>That Black Cat <strong>matters less in the comics</strong>. This is a map of how Wikipedia's editors link articles, not of the stories (week 1).</li>
+        <li>That her prestige is <strong>undeserved</strong>. PageRank is built to reward exactly this kind of vote.</li>
+        <li><strong>Why Cyclops and Quasar</strong> are far. The decade can't see their groups; finding groups is what week 4 is for.</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Reproducing this</h2></div>
+      <p><code>Notebooks/Week3/SGI-3.12.ipynb</code> runs on the frozen week 1 data in <code>Data/Week1/</code> in about 70 seconds, plus seven calls to the Wikipedia API for the debut years. It makes both figures and writes <code>stats.json</code>, which every number on this page comes from, and a final check pins 24 of them so it fails loudly if anything drifts.</p>
+    </section>
+
+  </article>
+
+  <footer>
+    <span>DTU 02805 Social Graphs and Interactions · Week 3 · Marvel Superstars</span>
+    <span>Data: frozen Marvel snapshot, 26 August 2026, from the course data page (the same release as weeks 1 and 2), plus debut years from live Wikipedia infoboxes.</span>
+  </footer>
+
+</div>
+</body>
+</html>
