@@ -13,6 +13,7 @@ Anas Mir · Martin Møllenhus · Diego Mijares
 | 1 | [Superstardom is received, not earned](https://martinmoll.github.io/SocialGraphsAndInteractions/posts/week1/) |
 | 2 | [The paradox is in the degrees, the triangles are in the wiring](https://martinmoll.github.io/SocialGraphsAndInteractions/posts/week2/) |
 | 3 | [Spider-Man's vote, not his roads](https://martinmoll.github.io/SocialGraphsAndInteractions/posts/week3/) |
+| 4 | [What holds philosophy together?](https://martinmoll.github.io/SocialGraphsAndInteractions/posts/week4/) |
 
 ## Layout
 

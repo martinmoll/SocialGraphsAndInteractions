@@ -1,0 +1,1052 @@
+{
+  "n": 1374,
+  "m": 9139,
+  "w1": 5899,
+  "w_max": 24,
+  "heaviest": [
+    "Erasmus",
+    "Thomas More"
+  ],
+  "rho_k_s": 0.96,
+  "diogenes": {
+    "k": 91,
+    "s": 230,
+    "rank_k": 15,
+    "rank_s": 5
+  },
+  "aristotle_k_s": [
+    300,
+    521
+  ],
+  "traditions": {
+    "count": 9,
+    "Q": 0.503,
+    "names": [
+      "Immanuel Kant & co.",
+      "Thomas Aquinas & co.",
+      "John Locke & co.",
+      "Aristotle & co.",
+      "Bertrand Russell & co.",
+      "René Descartes & co.",
+      "The Buddha & co.",
+      "Avicenna & co.",
+      "Confucius & co."
+    ],
+    "sizes": [
+      238,
+      215,
+      196,
+      191,
+      154,
+      114,
+      107,
+      84,
+      75
+    ],
+    "null_mean": 0.222,
+    "null_sd": 0.002,
+    "z": 136,
+    "greedy_count": 15,
+    "greedy_Q": 0.416,
+    "greedy_top3": [
+      550,
+      481,
+      262
+    ]
+  },
+  "roads": {
+    "eb_pass_seconds": 4.2,
+    "gn_hours": 10.7,
+    "cross_all": 0.347,
+    "cross_top20": 18,
+    "cross_top100": 75,
+    "w1_top20": 16,
+    "top": [
+      {
+        "link": [
+          "Ramanuja",
+          "Thomas Aquinas"
+        ],
+        "eb": 13497,
+        "ebw": 22308,
+        "w": 1,
+        "groups": [
+          "The Buddha & co.",
+          "Thomas Aquinas & co."
+        ],
+        "cross": true
+      },
+      {
+        "link": [
+          "Immanuel Kant",
+          "Nagarjuna"
+        ],
+        "eb": 9708,
+        "ebw": 2510,
+        "w": 1,
+        "groups": [
+          "Immanuel Kant & co.",
+          "The Buddha & co."
+        ],
+        "cross": true
+      },
+      {
+        "link": [
+          "Aristotle",
+          "Immanuel Kant"
+        ],
+        "eb": 8241,
+        "ebw": 0,
+        "w": 1,
+        "groups": [
+          "Aristotle & co.",
+          "Immanuel Kant & co."
+        ],
+        "cross": true
+      },
+      {
+        "link": [
+          "David Hume",
+          "Mencius"
+        ],
+        "eb": 8217,
+        "ebw": 0,
+        "w": 1,
+        "groups": [
+          "John Locke & co.",
+          "Confucius & co."
+        ],
+        "cross": true
+      },
+      {
+        "link": [
+          "Aristotle",
+          "Sun Tzu"
+        ],
+        "eb": 7047,
+        "ebw": 1790,
+        "w": 1,
+        "groups": [
+          "Aristotle & co.",
+          "Confucius & co."
+        ],
+        "cross": true
+      },
+      {
+        "link": [
+          "Bertrand Russell",
+          "The Buddha"
+        ],
+        "eb": 5783,
+        "ebw": 0,
+        "w": 1,
+        "groups": [
+          "Bertrand Russell & co.",
+          "The Buddha & co."
+        ],
+        "cross": true
+      },
+      {
+        "link": [
+          "Aristotle",
+          "Wang Chong"
+        ],
+        "eb": 5726,
+        "ebw": 1516,
+        "w": 1,
+        "groups": [
+          "Aristotle & co.",
+          "Confucius & co."
+        ],
+        "cross": true
+      },
+      {
+        "link": [
+          "Immanuel Kant",
+          "Thomas Aquinas"
+        ],
+        "eb": 5326,
+        "ebw": 0,
+        "w": 1,
+        "groups": [
+          "Immanuel Kant & co.",
+          "Thomas Aquinas & co."
+        ],
+        "cross": true
+      },
+      {
+        "link": [
+          "Jesus",
+          "The Buddha"
+        ],
+        "eb": 5165,
+        "ebw": 4510,
+        "w": 2,
+        "groups": [
+          "Thomas Aquinas & co.",
+          "The Buddha & co."
+        ],
+        "cross": true
+      },
+      {
+        "link": [
+          "Adi Shankara",
+          "Meister Eckhart"
+        ],
+        "eb": 5155,
+        "ebw": 893,
+        "w": 1,
+        "groups": [
+          "The Buddha & co.",
+          "Thomas Aquinas & co."
+        ],
+        "cross": true
+      }
+    ],
+    "weighted_cross_top20": 14,
+    "weighted_top": [
+      {
+        "link": [
+          "Aristotle",
+          "Heraclitus"
+        ],
+        "eb": 730,
+        "ebw": 61742,
+        "w": 13,
+        "groups": [
+          "Aristotle & co.",
+          "Aristotle & co."
+        ],
+        "cross": false
+      },
+      {
+        "link": [
+          "Aristotle",
+          "Thomas Aquinas"
+        ],
+        "eb": 3698,
+        "ebw": 60592,
+        "w": 6,
+        "groups": [
+          "Aristotle & co.",
+          "Thomas Aquinas & co."
+        ],
+        "cross": true
+      },
+      {
+        "link": [
+          "Confucius",
+          "Voltaire"
+        ],
+        "eb": 2827,
+        "ebw": 50392,
+        "w": 3,
+        "groups": [
+          "Confucius & co.",
+          "John Locke & co."
+        ],
+        "cross": true
+      },
+      {
+        "link": [
+          "Edmund Husserl",
+          "Martin Heidegger"
+        ],
+        "eb": 122,
+        "ebw": 38680,
+        "w": 9,
+        "groups": [
+          "Bertrand Russell & co.",
+          "Immanuel Kant & co."
+        ],
+        "cross": true
+      },
+      {
+        "link": [
+          "Georg Wilhelm Friedrich Hegel",
+          "Karl Marx"
+        ],
+        "eb": 649,
+        "ebw": 36348,
+        "w": 10,
+        "groups": [
+          "Immanuel Kant & co.",
+          "John Locke & co."
+        ],
+        "cross": true
+      },
+      {
+        "link": [
+          "Heraclitus",
+          "Plutarch"
+        ],
+        "eb": 257,
+        "ebw": 33598,
+        "w": 17,
+        "groups": [
+          "Aristotle & co.",
+          "Aristotle & co."
+        ],
+        "cross": false
+      },
+      {
+        "link": [
+          "Aristotle",
+          "Georg Wilhelm Friedrich Hegel"
+        ],
+        "eb": 4900,
+        "ebw": 31178,
+        "w": 3,
+        "groups": [
+          "Aristotle & co.",
+          "Immanuel Kant & co."
+        ],
+        "cross": true
+      },
+      {
+        "link": [
+          "Averroes",
+          "Thomas Aquinas"
+        ],
+        "eb": 763,
+        "ebw": 30183,
+        "w": 9,
+        "groups": [
+          "Avicenna & co.",
+          "Thomas Aquinas & co."
+        ],
+        "cross": true
+      },
+      {
+        "link": [
+          "Georg Wilhelm Friedrich Hegel",
+          "Immanuel Kant"
+        ],
+        "eb": 983,
+        "ebw": 27872,
+        "w": 7,
+        "groups": [
+          "Immanuel Kant & co.",
+          "Immanuel Kant & co."
+        ],
+        "cross": false
+      },
+      {
+        "link": [
+          "David Hume",
+          "Immanuel Kant"
+        ],
+        "eb": 1431,
+        "ebw": 26772,
+        "w": 7,
+        "groups": [
+          "John Locke & co.",
+          "Immanuel Kant & co."
+        ],
+        "cross": true
+      }
+    ],
+    "cv_rank_weighted": 3
+  },
+  "stability": {
+    "runs": 30,
+    "count_range": [
+      7,
+      10
+    ],
+    "nmi_range": [
+      0.61,
+      0.85
+    ],
+    "nmi_median": 0.72,
+    "median_keep": 0.65,
+    "least_settled": [
+      [
+        "Alexandre Koyré",
+        19,
+        0.23
+      ],
+      [
+        "Emanuel Swedenborg",
+        27,
+        0.23
+      ],
+      [
+        "Paracelsus",
+        21,
+        0.25
+      ],
+      [
+        "Galileo Galilei",
+        52,
+        0.26
+      ],
+      [
+        "Lucretius",
+        19,
+        0.26
+      ],
+      [
+        "Marin Mersenne",
+        24,
+        0.26
+      ],
+      [
+        "Johannes Kepler",
+        28,
+        0.27
+      ],
+      [
+        "Giordano Bruno",
+        30,
+        0.27
+      ]
+    ],
+    "aristotle_keep": 0.45,
+    "aristotle_with_plato": 16,
+    "aristotle_with_aquinas": 13,
+    "cross_top20_range": [
+      17,
+      18
+    ],
+    "w_inside_range": [
+      1.81,
+      1.86
+    ],
+    "w_across_range": [
+      1.45,
+      1.54
+    ]
+  },
+  "weights": {
+    "share_links_across": 0.347,
+    "share_weight_across": 0.301,
+    "mean_w_inside": 1.85,
+    "mean_w_across": 1.49,
+    "w1_inside": 0.6,
+    "w1_across": 0.73,
+    "heavy_inside": 0.057,
+    "heavy_across": 0.026,
+    "weighted_louvain": {
+      "count": 9,
+      "Q_weighted": 0.55
+    }
+  },
+  "overlap": {
+    "aristotle_links_by_tradition": {
+      "Immanuel Kant & co.": 28,
+      "Thomas Aquinas & co.": 74,
+      "John Locke & co.": 22,
+      "Aristotle & co.": 103,
+      "Bertrand Russell & co.": 18,
+      "René Descartes & co.": 29,
+      "The Buddha & co.": 0,
+      "Avicenna & co.": 24,
+      "Confucius & co.": 2
+    },
+    "aristotle_home": 103,
+    "aristotle_k5": 6,
+    "k5_count": 40,
+    "k5_top": [
+      [
+        "Aristotle",
+        6
+      ],
+      [
+        "Augustine of Hippo",
+        5
+      ],
+      [
+        "Friedrich Nietzsche",
+        5
+      ],
+      [
+        "Thomas Aquinas",
+        5
+      ]
+    ],
+    "aristotle_lc": 23,
+    "lc_count": 444,
+    "lc_D": 0.054,
+    "lc_overlap": 693
+  },
+  "skeleton": {
+    "table": [
+      {
+        "filter": "threshold w ≥ 3",
+        "links": 1572,
+        "attached": 863,
+        "connected": 747,
+        "crossing": 0.224,
+        "busiest_20_kept": 2
+      },
+      {
+        "filter": "disparity α = 0.1",
+        "links": 649,
+        "attached": 607,
+        "connected": 419,
+        "crossing": 0.217,
+        "busiest_20_kept": 0
+      },
+      {
+        "filter": "disparity α = 0.2",
+        "links": 1540,
+        "attached": 950,
+        "connected": 816,
+        "crossing": 0.244,
+        "busiest_20_kept": 2
+      },
+      {
+        "filter": "disparity α = 0.3",
+        "links": 2549,
+        "attached": 1111,
+        "connected": 1052,
+        "crossing": 0.262,
+        "busiest_20_kept": 4
+      }
+    ],
+    "only_filter": 112,
+    "only_threshold": 25,
+    "min_alpha_w1": 0.381
+  },
+  "dial": {
+    "steps": [
+      {
+        "alpha": 0.02,
+        "links": 105,
+        "attached": 156,
+        "connected": 17,
+        "share": [
+          0.0,
+          0.0,
+          0.0,
+          0.073,
+          0.0,
+          0.0,
+          0.0,
+          0.036,
+          0.0
+        ]
+      },
+      {
+        "alpha": 0.04,
+        "links": 240,
+        "attached": 297,
+        "connected": 57,
+        "share": [
+          0.004,
+          0.07,
+          0.0,
+          0.173,
+          0.0,
+          0.009,
+          0.0,
+          0.083,
+          0.0
+        ]
+      },
+      {
+        "alpha": 0.06,
+        "links": 354,
+        "attached": 395,
+        "connected": 209,
+        "share": [
+          0.176,
+          0.144,
+          0.209,
+          0.304,
+          0.078,
+          0.14,
+          0.009,
+          0.095,
+          0.0
+        ]
+      },
+      {
+        "alpha": 0.08,
+        "links": 482,
+        "attached": 511,
+        "connected": 293,
+        "share": [
+          0.261,
+          0.223,
+          0.25,
+          0.408,
+          0.104,
+          0.219,
+          0.019,
+          0.155,
+          0.0
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "links": 649,
+        "attached": 607,
+        "connected": 419,
+        "share": [
+          0.382,
+          0.288,
+          0.383,
+          0.476,
+          0.305,
+          0.316,
+          0.028,
+          0.167,
+          0.0
+        ]
+      },
+      {
+        "alpha": 0.12,
+        "links": 801,
+        "attached": 703,
+        "connected": 522,
+        "share": [
+          0.479,
+          0.363,
+          0.459,
+          0.592,
+          0.383,
+          0.368,
+          0.037,
+          0.262,
+          0.0
+        ]
+      },
+      {
+        "alpha": 0.14,
+        "links": 938,
+        "attached": 762,
+        "connected": 562,
+        "share": [
+          0.517,
+          0.4,
+          0.485,
+          0.618,
+          0.442,
+          0.386,
+          0.037,
+          0.286,
+          0.0
+        ]
+      },
+      {
+        "alpha": 0.16,
+        "links": 1090,
+        "attached": 795,
+        "connected": 632,
+        "share": [
+          0.576,
+          0.423,
+          0.546,
+          0.639,
+          0.481,
+          0.404,
+          0.14,
+          0.476,
+          0.0
+        ]
+      },
+      {
+        "alpha": 0.18,
+        "links": 1343,
+        "attached": 871,
+        "connected": 743,
+        "share": [
+          0.655,
+          0.46,
+          0.592,
+          0.723,
+          0.571,
+          0.465,
+          0.159,
+          0.56,
+          0.387
+        ]
+      },
+      {
+        "alpha": 0.2,
+        "links": 1540,
+        "attached": 950,
+        "connected": 816,
+        "share": [
+          0.697,
+          0.526,
+          0.658,
+          0.77,
+          0.617,
+          0.544,
+          0.168,
+          0.607,
+          0.467
+        ]
+      },
+      {
+        "alpha": 0.22,
+        "links": 1729,
+        "attached": 1008,
+        "connected": 879,
+        "share": [
+          0.756,
+          0.586,
+          0.699,
+          0.791,
+          0.643,
+          0.632,
+          0.168,
+          0.643,
+          0.56
+        ]
+      },
+      {
+        "alpha": 0.24,
+        "links": 1922,
+        "attached": 1042,
+        "connected": 938,
+        "share": [
+          0.786,
+          0.637,
+          0.74,
+          0.832,
+          0.669,
+          0.684,
+          0.224,
+          0.726,
+          0.587
+        ]
+      },
+      {
+        "alpha": 0.26,
+        "links": 2115,
+        "attached": 1087,
+        "connected": 966,
+        "share": [
+          0.803,
+          0.665,
+          0.745,
+          0.838,
+          0.701,
+          0.711,
+          0.243,
+          0.75,
+          0.64
+        ]
+      },
+      {
+        "alpha": 0.28,
+        "links": 2323,
+        "attached": 1103,
+        "connected": 992,
+        "share": [
+          0.828,
+          0.698,
+          0.76,
+          0.864,
+          0.727,
+          0.719,
+          0.243,
+          0.75,
+          0.64
+        ]
+      },
+      {
+        "alpha": 0.3,
+        "links": 2549,
+        "attached": 1111,
+        "connected": 1052,
+        "share": [
+          0.832,
+          0.74,
+          0.77,
+          0.864,
+          0.76,
+          0.737,
+          0.617,
+          0.75,
+          0.653
+        ]
+      },
+      {
+        "alpha": 0.32,
+        "links": 2835,
+        "attached": 1120,
+        "connected": 1063,
+        "share": [
+          0.836,
+          0.744,
+          0.781,
+          0.874,
+          0.76,
+          0.737,
+          0.664,
+          0.75,
+          0.653
+        ]
+      },
+      {
+        "alpha": 0.34,
+        "links": 2981,
+        "attached": 1134,
+        "connected": 1077,
+        "share": [
+          0.853,
+          0.749,
+          0.781,
+          0.895,
+          0.76,
+          0.754,
+          0.664,
+          0.762,
+          0.68
+        ]
+      },
+      {
+        "alpha": 0.36,
+        "links": 3066,
+        "attached": 1134,
+        "connected": 1077,
+        "share": [
+          0.853,
+          0.749,
+          0.781,
+          0.895,
+          0.76,
+          0.754,
+          0.664,
+          0.762,
+          0.68
+        ]
+      },
+      {
+        "alpha": 0.38,
+        "links": 3134,
+        "attached": 1134,
+        "connected": 1081,
+        "share": [
+          0.853,
+          0.749,
+          0.781,
+          0.895,
+          0.76,
+          0.754,
+          0.682,
+          0.762,
+          0.707
+        ]
+      },
+      {
+        "alpha": 0.4,
+        "links": 3334,
+        "attached": 1157,
+        "connected": 1108,
+        "share": [
+          0.882,
+          0.791,
+          0.806,
+          0.895,
+          0.766,
+          0.772,
+          0.701,
+          0.774,
+          0.707
+        ]
+      },
+      {
+        "alpha": 0.42,
+        "links": 3742,
+        "attached": 1209,
+        "connected": 1177,
+        "share": [
+          0.899,
+          0.823,
+          0.862,
+          0.948,
+          0.844,
+          0.833,
+          0.785,
+          0.821,
+          0.773
+        ]
+      },
+      {
+        "alpha": 0.44,
+        "links": 4075,
+        "attached": 1228,
+        "connected": 1202,
+        "share": [
+          0.903,
+          0.837,
+          0.903,
+          0.958,
+          0.864,
+          0.842,
+          0.804,
+          0.845,
+          0.813
+        ]
+      },
+      {
+        "alpha": 0.46,
+        "links": 4604,
+        "attached": 1266,
+        "connected": 1244,
+        "share": [
+          0.92,
+          0.879,
+          0.918,
+          0.974,
+          0.916,
+          0.904,
+          0.822,
+          0.881,
+          0.853
+        ]
+      },
+      {
+        "alpha": 0.48,
+        "links": 5112,
+        "attached": 1273,
+        "connected": 1257,
+        "share": [
+          0.929,
+          0.888,
+          0.929,
+          0.984,
+          0.922,
+          0.93,
+          0.822,
+          0.881,
+          0.867
+        ]
+      },
+      {
+        "alpha": 0.5,
+        "links": 5641,
+        "attached": 1284,
+        "connected": 1270,
+        "share": [
+          0.929,
+          0.912,
+          0.944,
+          0.984,
+          0.929,
+          0.947,
+          0.832,
+          0.893,
+          0.867
+        ]
+      }
+    ],
+    "bridges": [
+      {
+        "alpha": 0.1696,
+        "link": [
+          "Confucius",
+          "Voltaire"
+        ],
+        "w": 3,
+        "block": 22,
+        "tradition": "Confucius & co.",
+        "ends": {
+          "Confucius": [
+            36,
+            65,
+            0.191
+          ],
+          "Voltaire": [
+            77,
+            130,
+            0.17
+          ]
+        },
+        "ebw_rank": 3
+      },
+      {
+        "alpha": 0.2972,
+        "link": [
+          "Gaudapada",
+          "The Buddha"
+        ],
+        "w": 2,
+        "block": 24,
+        "tradition": "The Buddha & co.",
+        "ends": {
+          "Gaudapada": [
+            8,
+            14,
+            0.34
+          ],
+          "The Buddha": [
+            38,
+            62,
+            0.297
+          ]
+        },
+        "ebw_rank": 73
+      }
+    ],
+    "first_half": {
+      "Immanuel Kant & co.": 0.14,
+      "Thomas Aquinas & co.": 0.2,
+      "John Locke & co.": 0.16,
+      "Aristotle & co.": 0.12,
+      "Bertrand Russell & co.": 0.18,
+      "René Descartes & co.": 0.2,
+      "The Buddha & co.": 0.3,
+      "Avicenna & co.": 0.18,
+      "Confucius & co.": 0.22
+    },
+    "traditions": [
+      "Immanuel Kant & co.",
+      "Thomas Aquinas & co.",
+      "John Locke & co.",
+      "Aristotle & co.",
+      "Bertrand Russell & co.",
+      "René Descartes & co.",
+      "The Buddha & co.",
+      "Avicenna & co.",
+      "Confucius & co."
+    ]
+  },
+  "map": {
+    "alpha": 0.3,
+    "links": 2549,
+    "connected": 1052,
+    "no_link": 263,
+    "small_pieces": 27,
+    "in_small_pieces": 59,
+    "roads_drawn": 5
+  },
+  "validation": [
+    [
+      "Ramanuja – Thomas Aquinas",
+      "a modern comparison",
+      "scholars compare Ramanuja's importance in Hinduism to Aquinas's in Christianity; the two never met in any text"
+    ],
+    [
+      "Immanuel Kant – Nagarjuna",
+      "a modern comparison",
+      "a 20th-century reading (Murti) of Nagarjuna as a neo-Kantian, and the standard view that rejects it"
+    ],
+    [
+      "Aristotle – Immanuel Kant",
+      "engagement",
+      "Kant wrote that with Aristotle, logic reached its completion"
+    ],
+    [
+      "David Hume – Mencius",
+      "a cross-reference",
+      "a bare entry in the See also list of Hume's article"
+    ],
+    [
+      "Confucius – Voltaire",
+      "engagement",
+      "Voltaire is among the Western thinkers Confucius influenced; Voltaire's article has a section on Confucianism"
+    ],
+    [
+      "Gaudapada – The Buddha",
+      "engagement",
+      "Gaudapada's Karika quotes the Buddha on consciousness and the dharmas"
+    ]
+  ]
+}

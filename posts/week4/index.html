@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What holds philosophy together? — Marvel Superstars</title>
+<meta name="description" content="Week 4 of DTU 02805 on 1,374 philosophers: strong ties build the traditions of philosophy, weak ties join them, and the busiest of those are analogies drawn by modern writers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {delimiters: [{left: '\\(', right: '\\)', display: false}]})"></script>
+<style>
+  /* week 4 only: its own light look, so the site's style.css (and its cache token) stays untouched */
+  :root { --ink: #111316; --mid: #5B6068; --rule: #E3E5E8; --um: #2438E8; --tint: #EEF0FE; --bg: #FFFFFF;
+          --sans: "Archivo", Helvetica, Arial, sans-serif; --mono: "JetBrains Mono", ui-monospace, monospace; }
+  * { box-sizing: border-box; }
+  html { color-scheme: light; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 18px; line-height: 1.6; }
+  a { color: var(--um); text-underline-offset: .18em; }
+  a:focus-visible, input:focus-visible { outline: 2px solid var(--um); outline-offset: 3px; }
+  .bar { display: flex; justify-content: space-between; gap: 1rem; padding: .9rem clamp(16px, 5vw, 64px); border-bottom: 2px solid var(--ink);
+         font-family: var(--mono); font-size: .8rem; }
+  .bar a { color: var(--ink); text-decoration: none; }
+  .bar a:hover { color: var(--um); }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 clamp(16px, 5vw, 64px) 4rem; }
+  .grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; }
+  header { padding: 3.5rem 0 2.5rem; row-gap: 1.1rem; }
+  .kicker { grid-column: 1 / -1; font-family: var(--mono); font-size: .8rem; color: var(--um); letter-spacing: .02em; }
+  h1 { grid-column: 1 / span 11; margin: 0; font-stretch: 116%; font-weight: 850; font-size: clamp(2.6rem, 7.4vw, 6.2rem);
+       line-height: .93; letter-spacing: -.035em; text-wrap: balance; }
+  .dek { grid-column: 1 / span 8; margin: 0; font-size: 1.3rem; line-height: 1.5; color: #2C3036; }
+  .byline { grid-column: 1 / -1; font-family: var(--mono); font-size: .75rem; color: var(--mid); }
+  .short { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; border-top: 2px solid var(--ink); padding: 1.2rem 0 1rem; }
+  .stat { display: flex; flex-direction: column; gap: .4rem; }
+  .stat b { font-stretch: 112%; font-weight: 800; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1; font-variant-numeric: tabular-nums; }
+  .stat:last-child b { color: var(--um); }
+  .stat span { font-size: .88rem; line-height: 1.45; color: #2C3036; }
+  .sec { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; row-gap: 1.4rem; border-top: 2px solid var(--ink);
+         padding-top: 1.3rem; margin-top: 3.5rem; align-items: start; }
+  .sec h2 { grid-column: 1 / -1; margin: 0; display: flex; align-items: baseline; gap: 1rem; font-stretch: 110%; font-weight: 800;
+            font-size: clamp(1.7rem, 3.2vw, 2.5rem); line-height: 1.05; letter-spacing: -.01em; text-wrap: balance; }
+  .num { font-family: var(--mono); font-size: .85rem; font-weight: 600; color: var(--um); letter-spacing: 0; }
+  .text { grid-column: 1 / span 7; display: flex; flex-direction: column; gap: 1.1rem; }
+  .text p { margin: 0; max-width: 40em; }
+  .text h3 { margin: .6rem 0 0; font-size: 1.05rem; font-weight: 800; }
+  .text ul { margin: 0; padding-left: 1.2rem; display: flex; flex-direction: column; gap: .35rem; }
+  .notes { grid-column: 9 / span 4; display: flex; flex-direction: column; gap: 1.1rem; }
+  .note { font-family: var(--mono); font-size: .78rem; line-height: 1.6; color: var(--mid); }
+  .note.test { border-top: 2px solid var(--um); padding-top: .6rem; color: var(--ink); }
+  .note-k { display: block; color: var(--um); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .25rem; }
+  .formula { background: var(--tint); padding: .9rem 1.1rem; font-size: 1.15rem; }
+  .choice { grid-column: 1 / span 7; margin: 0; }
+  .fig { grid-column: 1 / span 8; margin: .4rem 0 0; display: flex; flex-direction: column; gap: .6rem; }
+  .fig.wide { grid-column: 1 / -1; }
+  .fig img { display: block; width: 100%; height: auto; }
+  .fig figcaption { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 24px; font-size: .85rem; line-height: 1.5; color: var(--mid); }
+  .fig figcaption strong { color: var(--ink); font-size: 1rem; }
+  table.mini { width: 100%; border-collapse: collapse; font-size: .85rem; font-variant-numeric: tabular-nums; }
+  table.mini th { text-align: left; font-family: var(--mono); font-weight: 400; font-size: .7rem; text-transform: uppercase; color: var(--mid); padding: .35rem .5rem .35rem 0; }
+  table.mini td { padding: .45rem .5rem .45rem 0; border-top: 1px solid var(--rule); vertical-align: top; }
+  table.mini tbody tr:first-child td { border-top: 2px solid var(--ink); }
+  table.mini td:not(:first-child), table.mini th:not(:first-child) { text-align: right; }
+  table.val td:not(:first-child), table.val th:not(:first-child) { text-align: left; }
+  table.val td:nth-child(2) { white-space: nowrap; }
+  table.val td.eng { color: var(--um); font-weight: 700; }
+  .tablewrap { overflow-x: auto; }
+  .dial { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; row-gap: 1rem;
+          background: var(--tint); padding: 1.3rem clamp(16px, 2vw, 28px); }
+  .dial-head { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: baseline; }
+  .dial-head label { font-weight: 800; font-size: 1.1rem; }
+  .dial-head output { font-family: var(--mono); font-size: 1.6rem; font-weight: 600; color: var(--um); }
+  .dial input { grid-column: 1 / -1; width: 100%; accent-color: var(--um); height: 44px; }
+  .dial-stats { grid-column: 1 / span 4; display: flex; flex-direction: column; gap: .8rem; }
+  .dial-stats b { display: block; font-stretch: 112%; font-weight: 800; font-size: 2rem; line-height: 1; font-variant-numeric: tabular-nums; }
+  .dial-stats span { font-size: .82rem; color: var(--mid); }
+  .dial-bars { grid-column: 5 / span 8; display: flex; flex-direction: column; gap: .35rem; }
+  .dbar { display: grid; grid-template-columns: 11rem minmax(0, 1fr) 3rem; gap: .6rem; align-items: center; font-size: .82rem; }
+  .dbar i { display: block; height: 12px; background: var(--rule); position: relative; }
+  .dbar i s { position: absolute; inset: 0 auto 0 0; background: var(--ink); text-decoration: none; }
+  .dbar.focus i s { background: var(--um); }
+  .dbar em { font-style: normal; font-family: var(--mono); font-size: .75rem; text-align: right; }
+  .dial-event { grid-column: 1 / -1; margin: 0; font-size: .92rem; min-height: 1.5em; }
+  .dial-event b { color: var(--um); }
+  footer { margin-top: 4rem; border-top: 2px solid var(--ink); padding-top: 1rem; font-family: var(--mono); font-size: .75rem; color: var(--mid); }
+  @media (max-width: 900px) {
+    .text, .notes, .fig, .choice, h1, .dek { grid-column: 1 / -1; }
+    .notes { border-left: 2px solid var(--rule); padding-left: 1rem; }
+    .short { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .fig figcaption { grid-template-columns: 1fr; gap: .2rem; }
+    .dial-stats, .dial-bars { grid-column: 1 / -1; }
+    .dial-stats { flex-direction: row; justify-content: space-between; }
+    .dbar { grid-template-columns: 8.5rem minmax(0, 1fr) 2.6rem; }
+  }
+</style>
+</head>
+<body>
+<div class="bar"><a href="../../">← Marvel Superstars</a><span>Week 4 · communities, weights &amp; backbones</span></div>
+<main class="wrap">
+  <header class="grid">
+    <div class="kicker">WEEK 4 · 1,374 PHILOSOPHERS · 9,139 LINKS · BORN BEFORE 1900</div>
+    <h1>What holds philosophy together?</h1>
+    <p class="dek">Strong ties build its traditions. Weak ties join them, and the busiest of those turn out to be analogies drawn by modern writers.</p>
+    <div class="byline">MARVEL SUPERSTARS · ANAS MIR, MARTIN MØLLENHUS, DIEGO A. MIJARES · DTU 02805</div>
+  </header>
+  <section class="short" aria-label="In short"><div class="stat"><b>0.503</b><span>modularity of the nine traditions, against 0.222 for shuffled networks</span></div><div class="stat"><b>18 of 20</b><span>busiest links cross between traditions, and most are a single mention</span></div><div class="stat"><b>73%</b><span>of links between traditions are a single mention, against 60% inside</span></div><div class="stat"><b>2 links</b><span>bring Chinese and Indian philosophy into the skeleton: Confucius – Voltaire and Gaudapada – The Buddha</span></div></section>
+
+  <section class="sec" id="s1">
+    <h2><span class="num">01</span>A map of philosophy</h2>
+    <div class="text">
+      <p>Every philosopher born before 1900 on Wikipedia's lists, 1,374 of them in one connected piece, joined by
+      9,139 links. A link means one article links to the other; its <em>weight</em> counts how many times, summed over
+      both directions. 5,899 links are a single mention. The heaviest, Erasmus – Thomas More, has 24.</p>
+      <p>The map below shows the traditions of philosophy as regions: antiquity, the scholastics, the Germans, the
+      Enlightenment, Indian and Chinese thought. It is a <em>skeleton</em> of the network, and section 7 explains how it was
+      drawn and what it leaves out. Everything in between is measured on the full network.</p></div>
+    <div class="notes"><aside class="note">Colour: Louvain communities of the full network, each named after its highest-degree member. The names are our labels.</aside><aside class="note">Size: <em>strength</em>, the total weight of a philosopher's links, \(s_i = \sum_j w_{ij}\). Aristotle leads with 521 over 300 links.</aside></div>
+      <figure class="fig wide">
+        <img src="../../Figures/Week4/fig1_map.png" alt="The backbone of the philosophers&#x27; network at alpha 0.3, coloured by nine traditions; two black lines mark the bridge links Confucius–Voltaire and Gaudapada–The Buddha." loading="lazy">
+        <figcaption><strong>The skeleton of philosophy, α = 0.3</strong><span>2,549 of 9,139 links kept by the disparity filter. Shown: the 1,052 philosophers in its connected part; not shown: 263 with no surviving link and 59 in 27 small pieces. Black: the two bridges of section 7.</span></figcaption>
+      </figure>
+  </section>
+  <section class="sec" id="s2">
+    <h2><span class="num">02</span>Are there traditions at all?</h2>
+    <div class="text">
+      <p>A <em>community</em> is a group of nodes more densely linked among themselves than to the rest. Louvain finds one by
+      climbing <em>modularity</em>: the fraction of links inside communities, minus the fraction you would expect if the links
+      were shuffled with everyone's degree kept. It finds 9 traditions with \(Q = 0.503\).</p>
+      <p>Is that a lot? A random network has communities too, because an optimiser always finds some borders that cross fewer
+      links than expected. The same algorithm on 20 shuffled copies of the network finds \(Q = 0.222 \pm 0.002\).
+      Our traditions are 136 standard deviations above that. They are real.</p></div>
+    <div class="notes"><aside class="note">\(Q = \sum_c \left[\frac{\ell_c}{m} - \left(\frac{d_c}{2m}\right)^2\right]\), with \(\ell_c\) the links inside community \(c\) and \(d_c\) its summed degree.</aside><aside class="note">Newman's greedy merging, the older method, finds 15 groups with \(Q = 0.416\). A merge is never undone, so early merges snowball into blobs of 550, 481, 262.</aside><aside class="note test"><span class="note-k">On the test</span>Modularity scores how grouped a partition is, not how right. Report it against its null, as a difference or a z-score.</aside></div>
+      <figure class="fig">
+        <img src="../../Figures/Week4/fig2_null.png" alt="Modularity of the philosophers&#x27; Louvain partition, 0.503, far to the right of 20 shuffled networks at about 0.222." loading="lazy">
+        <figcaption><strong>Compared to what?</strong><span>Louvain's modularity on the real network and on 20 shuffles that keep every philosopher's number of links.</span></figcaption>
+      </figure>
+  </section>
+  <section class="sec" id="s3">
+    <h2><span class="num">03</span>Where do the traditions meet?</h2>
+    <div class="text">
+      <p>Girvan and Newman's idea: a link between two groups carries every shortest path between them, so it has a high
+      <em>edge betweenness</em>. Their algorithm cuts the busiest link, recomputes and repeats. One pass takes
+      about 4 seconds here, so a full run would take about 10 hours. One pass is enough for our question.</p>
+      <p>The busiest links do cross between traditions: 18 of the top 20, against 35% of all links.
+      And 16 of those 20 are a single passing mention. The busiest of all is Ramanuja – Thomas Aquinas, weight 1.</p>
+      <div class="tablewrap"><table class="mini"><thead><tr><th>busiest links, counting hops</th><th>shortest paths</th><th>weight</th></tr></thead><tbody><tr><td>Ramanuja – Thomas Aquinas</td><td>13,497</td><td>1</td></tr><tr><td>Immanuel Kant – Nagarjuna</td><td>9,708</td><td>1</td></tr><tr><td>Aristotle – Immanuel Kant</td><td>8,241</td><td>1</td></tr><tr><td>David Hume – Mencius</td><td>8,217</td><td>1</td></tr><tr><td>Aristotle – Sun Tzu</td><td>7,047</td><td>1</td></tr></tbody></table></div>
+      <p>Now count a strong tie as a short step, length \(1/w\). The busiest roads become strong ties, and the one between
+      Chinese philosophy and the rest is Confucius – Voltaire, weight 3, ranked #3 of 9,139.
+      Keep that link in mind.</p></div>
+    <div class="notes"><aside class="note">Edge betweenness: the number of shortest paths that run along a link. Girvan–Newman costs \(O(m^2 n)\): one full recomputation per removed link.</aside><aside class="note">Weighted distance: link length \(1/w_{ij}\), shortest paths by Dijkstra's algorithm instead of breadth-first search.</aside><aside class="note test"><span class="note-k">On the test</span>Girvan–Newman recomputes after every cut because a removal reroutes the traffic onto the remaining bridges.</aside></div>
+      <figure class="fig wide">
+        <img src="../../Figures/Week4/fig3_roads.png" alt="Two bar charts of the twelve links with the most shortest paths: counting hops, almost all cross between traditions and have weight 1; counting 1/w, strong ties dominate and Confucius–Voltaire is third." loading="lazy">
+        <figcaption><strong>The busiest roads, two ways</strong><span>Left: counting hops. Right: counting 1/w, so strong ties are short. Blue: the link joins two traditions.</span></figcaption>
+      </figure>
+  </section>
+  <section class="sec" id="s4">
+    <h2><span class="num">04</span>How sure are we of the borders?</h2>
+    <div class="text">
+      <p>Louvain visits philosophers in a random order, so another seed draws slightly different borders. Across
+      30 seeds it finds 7 to 10 traditions, and any two runs agree at a
+      normalized mutual information of 0.61 to 0.85.</p>
+      <p>The large picture holds and the borders move, and the same philosophers keep moving. A typical philosopher keeps
+      65% of their community-mates from run to run. The least settled are the Scientific Revolution and
+      the thinkers around it: Alexandre Koyré, Emanuel Swedenborg, Paracelsus, Galileo Galilei, Lucretius, Marin Mersenne keep about a quarter.
+      Section 3 holds in every run: 17–18 of the busiest 20 links still cross.</p></div>
+    <div class="notes"><aside class="note">Normalized mutual information: 1 for identical partitions, 0 for independent ones. Use it against ground truth when you have it and between runs when you do not.</aside><aside class="note">Kept community-mates: the Jaccard overlap of a philosopher's community in two runs, averaged over all pairs of runs. It needs no matching of labels.</aside><aside class="note test"><span class="note-k">On the test</span>Two runs with nearly equal Q can still split the network differently. A partition is one sample, not the truth.</aside></div>
+      <figure class="fig">
+        <img src="../../Figures/Week4/fig4_stability.png" alt="Scatter of how many community-mates each philosopher keeps between Louvain runs against degree; the Scientific Revolution sits lowest, Confucius and Plato high, Aristotle in between." loading="lazy">
+        <figcaption><strong>Who keeps moving</strong><span>Share of community-mates kept between runs, 30 seeds. Dashed: the median.</span></figcaption>
+      </figure>
+  </section>
+  <section class="sec" id="s5">
+    <h2><span class="num">05</span>What are the meeting links made of?</h2>
+    <div class="text">
+      <p>If traditions are built from repeated mentions and joined by passing ones, links across borders should be lighter.
+      They are. 35% of links cross between traditions but carry 30% of the weight.
+      73% of them are a single mention, against 60% inside a tradition. It holds in every run:
+      mean weight 1.45–1.54 across, 1.81–1.86 inside.</p>
+      <p>Strong ties build the traditions, and weak ties join them.</p></div>
+    <div class="notes"><aside class="note">Weighted modularity uses \(w_{ij}\) for \(A_{ij}\), strengths for degrees and the total weight for \(m\). Weighted Louvain scores 0.55, higher because strong ties sit inside groups.</aside><aside class="note test"><span class="note-k">On the test</span>A weighted modularity is not comparable to the unweighted one: they answer different questions.</aside></div>
+      <figure class="fig">
+        <img src="../../Figures/Week4/fig5_weights.png" alt="Grouped bars of link weights: 73% of links between traditions have weight 1, against 60% of links inside." loading="lazy">
+        <figcaption><strong>Borders are sewn with weak thread</strong><span>Share of links at each weight, inside a tradition (grey) and between traditions (blue).</span></figcaption>
+      </figure>
+  </section>
+  <section class="sec" id="s6">
+    <h2><span class="num">06</span>Who stands where traditions meet?</h2>
+    <div class="text">
+      <p>A partition must give each philosopher exactly one tradition. For Aristotle that is a problem. Only 103
+      of his 300 links stay inside his own group, and 74 go to
+      the scholastics, who called him simply <em>the Philosopher</em>. Across 30 runs he sits with Plato
+      16 times and with Aquinas 13 times.</p>
+      <p>Overlapping methods let him keep both. Clique percolation at \(k = 5\) puts him in 6 communities, more
+      than anyone. Link communities, which cluster links instead of philosophers, put him in 23.</p></div>
+    <div class="notes"><aside class="note">\(k\)-clique community: two \(k\)-cliques are adjacent when they share \(k-1\) nodes; a community is every clique reachable by rolling from one to the next.</aside><aside class="note">Link community: links are similar when their end nodes' neighbourhoods overlap; a node inherits all its links' communities. 693 philosophers are in two or more.</aside><aside class="note test"><span class="note-k">On the test</span>An overlapping node belongs to several groups, and a partition must get all but one of them wrong.</aside></div>
+      <figure class="fig">
+        <img src="../../Figures/Week4/fig6_aristotle.png" alt="Aristotle&#x27;s 300 links in a wheel, grouped by tradition: 103 to his own, 74 to the scholastics, the rest spread over six others." loading="lazy">
+        <figcaption><strong>Aristotle's links</strong><span>Grouped by the tradition at the other end. Blue: his own. Black: the scholastics.</span></figcaption>
+      </figure>
+  </section>
+  <section class="sec" id="s7">
+    <h2><span class="num">07</span>Can a drawing show the meeting points?</h2>
+    <div class="text">
+      <p>Drawn whole, 9,139 links are a hairball. A global threshold keeps heavy links only, but a weight of 2 is nothing to
+      Aristotle and the strongest tie a minor commentator has. The <em>disparity filter</em> asks each philosopher separately:
+      is this link a surprisingly large share of your strength? It keeps the link if either end says yes.</p>
+      <p class="formula">\((1 - p_{ij})^{k_i - 1} < \alpha, \quad p_{ij} = w_{ij} / s_i\)</p>
+      <p>At similar link counts the two keep different people: 112 philosophers stay attached only under the filter,
+      25 only under the threshold. But neither keeps the busiest roads of section 3. A weight-1 link cannot pass
+      the test below \(\alpha = 0.381\), so the ties that join traditions are exactly what a backbone removes.</p>
+      <div class="tablewrap"><table class="mini"><thead><tr><th>filter</th><th>links</th><th>attached</th><th>connected</th><th>crossing</th></tr></thead><tbody><tr><td>threshold w ≥ 3</td><td>1,572</td><td>863</td><td>747</td><td>22%</td></tr><tr><td>disparity α = 0.1</td><td>649</td><td>607</td><td>419</td><td>22%</td></tr><tr><td>disparity α = 0.2</td><td>1,540</td><td>950</td><td>816</td><td>24%</td></tr><tr><td>disparity α = 0.3</td><td>2,549</td><td>1,111</td><td>1,052</td><td>26%</td></tr></tbody></table></div>
+      <p>Turn α like a dial and watch each tradition join the connected skeleton. Most do so gradually. Two arrive through a
+      single link: 22 Chinese philosophers through Confucius – Voltaire at \(\alpha = 0.170\), and
+      24 Indian philosophers through Gaudapada – The Buddha at \(\alpha = 0.297\). Confucius – Voltaire is
+      the same link that weighted distance found in section 3.</p></div>
+    <div class="notes"><aside class="note">By hand: Voltaire has 77 links and strength 130, so \((1 - 3/130)^{76} = 0.17\). For The Buddha: \((1 - 2/62)^{37} = 0.297\).</aside><aside class="note">Under a threshold at w ≥ 3, Gaudapada – The Buddha (weight 2) never survives.</aside><aside class="note test"><span class="note-k">On the test</span>The disparity filter keeps every node's own important ties; a global threshold keeps hubs' minor ties and drops small nodes' strongest ones. α is a choice you report.</aside></div>
+      <div class="dial" id="dial" hidden>
+        <div class="dial-head">
+          <label for="alpha">Disparity filter α</label>
+          <output id="alpha-out" for="alpha">0.30</output>
+        </div>
+        <input type="range" id="alpha" min="0.02" max="0.5" step="0.02" value="0.3">
+        <div class="dial-stats"><div><b id="d-links"></b><span>links kept</span></div><div><b id="d-conn"></b><span>philosophers connected</span></div><div><b id="d-att"></b><span>with any link</span></div></div>
+        <div class="dial-bars" id="d-bars"></div>
+        <p class="dial-event" id="d-event"></p>
+      </div>
+      <noscript>
+      <figure class="fig wide">
+        <img src="../../Figures/Week4/fig7_dial.png" alt="Share of each tradition in the connected skeleton as alpha rises; Chinese philosophy jumps at 0.170 and Indian philosophy at 0.297." loading="lazy">
+        <figcaption><strong>Who joins the skeleton, and when</strong><span>Share of each tradition inside the connected skeleton as α loosens.</span></figcaption>
+      </figure></noscript>
+      <p class="choice"><strong>Which α to draw?</strong> At the page's default of 0.2 only 17% of Indian philosophy is in the connected skeleton,
+      and a reader would conclude that it stands apart. At 0.3 every tradition has at least 62% inside. We draw 0.3.</p>
+      <figure class="fig wide">
+        <img src="../../Figures/Week4/fig8_roads.png" alt="The same map with the five busiest roads by hop count drawn as dashed blue lines between their endpoints, such as Ramanuja and Thomas Aquinas, none of which the backbone keeps." loading="lazy">
+        <figcaption><strong>What the skeleton leaves out</strong><span>The map of section 1 with the five busiest roads of section 3 drawn on top (dashed). All five have weight 1, so no skeleton here keeps them.</span></figcaption>
+      </figure>
+  </section>
+  <section class="sec" id="s8">
+    <h2><span class="num">08</span>Are the links what we say they are?</h2>
+    <div class="text">
+      <p>A link is one article naming another. So we read the sentence behind the six links the story leans on: the four
+      busiest roads and the two bridges.</p>
+      <div class="tablewrap"><table class="mini val"><thead><tr><th>link</th><th>it records</th><th>the sentence says</th></tr></thead><tbody><tr><td>Ramanuja – Thomas Aquinas</td><td class="">a modern comparison</td><td>scholars compare Ramanuja's importance in Hinduism to Aquinas's in Christianity; the two never met in any text</td></tr><tr><td>Immanuel Kant – Nagarjuna</td><td class="">a modern comparison</td><td>a 20th-century reading (Murti) of Nagarjuna as a neo-Kantian, and the standard view that rejects it</td></tr><tr><td>Aristotle – Immanuel Kant</td><td class="eng">engagement</td><td>Kant wrote that with Aristotle, logic reached its completion</td></tr><tr><td>David Hume – Mencius</td><td class="">a cross-reference</td><td>a bare entry in the See also list of Hume's article</td></tr><tr><td>Confucius – Voltaire</td><td class="eng">engagement</td><td>Voltaire is among the Western thinkers Confucius influenced; Voltaire's article has a section on Confucianism</td></tr><tr><td>Gaudapada – The Buddha</td><td class="eng">engagement</td><td>Gaudapada's Karika quotes the Buddha on consciousness and the dharmas</td></tr></tbody></table></div>
+      <p>Only one of the four busiest roads is real engagement. The other three are how modern writers relate traditions: a
+      comparison, an interpretation and a See-also entry. Both bridges record what the philosophers actually read. Counting
+      hops finds the analogies; counting strength finds the history.</p></div>
+    <div class="notes"><aside class="note">The evidence comes from the same articles that made the links, so it shows what a link means, not whether the history is right. Six links, chosen because the story uses them.</aside><aside class="note">The code prints the first sentence that names the other philosopher; a link found only in a list is reported with its section.</aside></div>
+  </section>
+  <section class="sec" id="s9">
+    <h2><span class="num">09</span>What holds philosophy together?</h2>
+    <div class="text">
+      <p><strong>Strong ties build the traditions; weak ties join them.</strong> The traditions are real, far above their null.
+      The links between them are lighter, and the busiest ones are single mentions.</p>
+      <p><strong>The busiest roads are mostly analogies.</strong> Ramanuja – Thomas Aquinas carries the most shortest paths and
+      records a modern comparison. Counting strength instead finds Confucius – Voltaire, which records real influence.</p>
+      <p><strong>The borders move, and the same people sit on them:</strong> the Scientific Revolution, and Aristotle.</p>
+      <p><strong>No backbone keeps the weak ties.</strong> A skeleton shows the traditions clearly and hides how they meet. So we
+      drew the busiest roads back on top, and said what was removed.</p>
+      <h3>Choices we made</h3>
+      <ul>
+        <li>Louvain seed 0, unweighted; traditions named after their highest-degree member.</li>
+        <li>20 degree-preserving shuffles as the null for \(Q\), the only thing borrowed from earlier weeks.</li>
+        <li>One edge-betweenness pass by hops, checked with \(1/w\) lengths; no full Girvan–Newman run.</li>
+        <li>\(k = 5\) for clique percolation; link communities cut at the maximum partition density.</li>
+        <li>\(\alpha = 0.3\) for the drawing, with the dial for every other value.</li>
+      </ul>
+      <h3>What we cannot conclude</h3>
+      <ul>
+        <li>That the traditions are the true schools. The names are ours, and the partition only partly matches the century lists.</li>
+        <li>That a link is an influence. Section 8 shows it can be a comparison.</li>
+        <li>That the busiest roads mattered historically. Shortest paths are a property of how Wikipedia's articles link.</li>
+      </ul></div>
+    <div class="notes"><aside class="note test"><span class="note-k">On the test</span>The five drawing rules: backbone first, with a method and parameter you can defend and what was removed; a layout of the backbone; colour by communities found on the full data; size by strength; label the important nodes.</aside><aside class="note">Code, data and every number: <a href="../../Notebooks/Week4/SGI-4.13.ipynb">SGI-4.13.ipynb</a> and <a href="../../Notebooks/Week4/stats.json">stats.json</a>.</aside></div>
+  </section>
+  <footer>Every number above comes from Notebooks/Week4/SGI-4.13.ipynb and its stats.json. Built with Claude Code; the choices and the reading of the evidence are ours.</footer>
+</main>
+<script type="application/json" id="dial-data">{"steps":[{"alpha":0.02,"links":105,"attached":156,"connected":17,"share":[0.0,0.0,0.0,0.073,0.0,0.0,0.0,0.036,0.0]},{"alpha":0.04,"links":240,"attached":297,"connected":57,"share":[0.004,0.07,0.0,0.173,0.0,0.009,0.0,0.083,0.0]},{"alpha":0.06,"links":354,"attached":395,"connected":209,"share":[0.176,0.144,0.209,0.304,0.078,0.14,0.009,0.095,0.0]},{"alpha":0.08,"links":482,"attached":511,"connected":293,"share":[0.261,0.223,0.25,0.408,0.104,0.219,0.019,0.155,0.0]},{"alpha":0.1,"links":649,"attached":607,"connected":419,"share":[0.382,0.288,0.383,0.476,0.305,0.316,0.028,0.167,0.0]},{"alpha":0.12,"links":801,"attached":703,"connected":522,"share":[0.479,0.363,0.459,0.592,0.383,0.368,0.037,0.262,0.0]},{"alpha":0.14,"links":938,"attached":762,"connected":562,"share":[0.517,0.4,0.485,0.618,0.442,0.386,0.037,0.286,0.0]},{"alpha":0.16,"links":1090,"attached":795,"connected":632,"share":[0.576,0.423,0.546,0.639,0.481,0.404,0.14,0.476,0.0]},{"alpha":0.18,"links":1343,"attached":871,"connected":743,"share":[0.655,0.46,0.592,0.723,0.571,0.465,0.159,0.56,0.387]},{"alpha":0.2,"links":1540,"attached":950,"connected":816,"share":[0.697,0.526,0.658,0.77,0.617,0.544,0.168,0.607,0.467]},{"alpha":0.22,"links":1729,"attached":1008,"connected":879,"share":[0.756,0.586,0.699,0.791,0.643,0.632,0.168,0.643,0.56]},{"alpha":0.24,"links":1922,"attached":1042,"connected":938,"share":[0.786,0.637,0.74,0.832,0.669,0.684,0.224,0.726,0.587]},{"alpha":0.26,"links":2115,"attached":1087,"connected":966,"share":[0.803,0.665,0.745,0.838,0.701,0.711,0.243,0.75,0.64]},{"alpha":0.28,"links":2323,"attached":1103,"connected":992,"share":[0.828,0.698,0.76,0.864,0.727,0.719,0.243,0.75,0.64]},{"alpha":0.3,"links":2549,"attached":1111,"connected":1052,"share":[0.832,0.74,0.77,0.864,0.76,0.737,0.617,0.75,0.653]},{"alpha":0.32,"links":2835,"attached":1120,"connected":1063,"share":[0.836,0.744,0.781,0.874,0.76,0.737,0.664,0.75,0.653]},{"alpha":0.34,"links":2981,"attached":1134,"connected":1077,"share":[0.853,0.749,0.781,0.895,0.76,0.754,0.664,0.762,0.68]},{"alpha":0.36,"links":3066,"attached":1134,"connected":1077,"share":[0.853,0.749,0.781,0.895,0.76,0.754,0.664,0.762,0.68]},{"alpha":0.38,"links":3134,"attached":1134,"connected":1081,"share":[0.853,0.749,0.781,0.895,0.76,0.754,0.682,0.762,0.707]},{"alpha":0.4,"links":3334,"attached":1157,"connected":1108,"share":[0.882,0.791,0.806,0.895,0.766,0.772,0.701,0.774,0.707]},{"alpha":0.42,"links":3742,"attached":1209,"connected":1177,"share":[0.899,0.823,0.862,0.948,0.844,0.833,0.785,0.821,0.773]},{"alpha":0.44,"links":4075,"attached":1228,"connected":1202,"share":[0.903,0.837,0.903,0.958,0.864,0.842,0.804,0.845,0.813]},{"alpha":0.46,"links":4604,"attached":1266,"connected":1244,"share":[0.92,0.879,0.918,0.974,0.916,0.904,0.822,0.881,0.853]},{"alpha":0.48,"links":5112,"attached":1273,"connected":1257,"share":[0.929,0.888,0.929,0.984,0.922,0.93,0.822,0.881,0.867]},{"alpha":0.5,"links":5641,"attached":1284,"connected":1270,"share":[0.929,0.912,0.944,0.984,0.929,0.947,0.832,0.893,0.867]}],"bridges":[{"alpha":0.1696,"link":["Confucius","Voltaire"],"w":3,"block":22,"tradition":"Confucius & co.","ends":{"Confucius":[36,65,0.191],"Voltaire":[77,130,0.17]},"ebw_rank":3},{"alpha":0.2972,"link":["Gaudapada","The Buddha"],"w":2,"block":24,"tradition":"The Buddha & co.","ends":{"Gaudapada":[8,14,0.34],"The Buddha":[38,62,0.297]},"ebw_rank":73}],"first_half":{"Immanuel Kant & co.":0.14,"Thomas Aquinas & co.":0.2,"John Locke & co.":0.16,"Aristotle & co.":0.12,"Bertrand Russell & co.":0.18,"René Descartes & co.":0.2,"The Buddha & co.":0.3,"Avicenna & co.":0.18,"Confucius & co.":0.22},"traditions":["Immanuel Kant & co.","Thomas Aquinas & co.","John Locke & co.","Aristotle & co.","Bertrand Russell & co.","René Descartes & co.","The Buddha & co.","Avicenna & co.","Confucius & co."]}</script>
+<script>
+(() => {
+  const D = JSON.parse(document.getElementById("dial-data").textContent);
+  const box = document.getElementById("dial"), input = document.getElementById("alpha"), out = document.getElementById("alpha-out");
+  const bars = document.getElementById("d-bars"), ev = document.getElementById("d-event");
+  const focus = new Set(["Confucius & co.", "The Buddha & co."]);
+  D.traditions.forEach((name, i) => {
+    const row = document.createElement("div");
+    row.className = "dbar" + (focus.has(name) ? " focus" : "");
+    row.innerHTML = `<span>${name}</span><i><s id="bar-${i}"></s></i><em id="val-${i}"></em>`;
+    bars.appendChild(row);
+  });
+  const fmt = n => n.toLocaleString("en-US");
+  function render() {
+    const a = Math.round(parseFloat(input.value) * 100) / 100;
+    const step = D.steps.find(d => Math.abs(d.alpha - a) < 1e-9);
+    out.textContent = a.toFixed(2);
+    document.getElementById("d-links").textContent = fmt(step.links);
+    document.getElementById("d-conn").textContent = fmt(step.connected);
+    document.getElementById("d-att").textContent = fmt(step.attached);
+    step.share.forEach((v, i) => {
+      document.getElementById(`bar-${i}`).style.width = `${v * 100}%`;
+      document.getElementById(`val-${i}`).textContent = `${Math.round(v * 100)}%`;
+    });
+    const joined = D.bridges.filter(b => b.alpha < a);
+    const next = D.bridges.find(b => b.alpha >= a);
+    ev.innerHTML = joined.length
+      ? joined.map(b => `<b>${b.link.join(" – ")}</b> (α ${b.alpha.toFixed(3)}) has brought in ${b.block} philosophers from ${b.tradition.replace(" & co.", "")}'s tradition.`).join(" ")
+        + (next ? ` Next: ${next.link.join(" – ")} at α ${next.alpha.toFixed(3)}.` : "")
+      : `No tradition has arrived through a single link yet. First: ${next.link.join(" – ")} at α ${next.alpha.toFixed(3)}.`;
+  }
+  input.addEventListener("input", render);
+  box.hidden = false;
+  render();
+})();
+</script>
+</body>
+</html>
