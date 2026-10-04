@@ -14,6 +14,7 @@ Anas Mir · Martin Møllenhus · Diego Mijares
 | 2 | [The paradox is in the degrees, the triangles are in the wiring](https://martinmoll.github.io/SocialGraphsAndInteractions/posts/week2/) |
 | 3 | [Spider-Man's vote, not his roads](https://martinmoll.github.io/SocialGraphsAndInteractions/posts/week3/) |
 | 4 | [What holds philosophy together?](https://martinmoll.github.io/SocialGraphsAndInteractions/posts/week4/) |
+| 5 | [What does fame buy?](https://martinmoll.github.io/SocialGraphsAndInteractions/posts/week5/) |
 
 ## Layout
 
