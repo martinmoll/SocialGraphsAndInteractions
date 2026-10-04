@@ -1,0 +1,2776 @@
+{
+  "corpus": {
+    "pages": 303,
+    "tokens": 744495,
+    "types": 30856,
+    "chars": 4447666,
+    "min_tokens": 195,
+    "max_tokens": 14469,
+    "median_tokens": 1261,
+    "longest": "Scarlet Witch",
+    "shortest": "Helix (Marvel Comics)"
+  },
+  "fame": {
+    "rho_in": 0.75,
+    "rho_out": 0.78,
+    "slope": 0.73,
+    "slope_pos": 0.66,
+    "intercept": 2.751,
+    "median_low": 722,
+    "median_high": 5971,
+    "n_unlinked": 58
+  },
+  "headings": {
+    "bins": [
+      "0–1",
+      "2–3",
+      "4–9",
+      "10+"
+    ],
+    "sizes": [
+      99,
+      71,
+      80,
+      53
+    ],
+    "kinds": [
+      "lead",
+      "publication",
+      "plot",
+      "powers",
+      "versions",
+      "media",
+      "reception",
+      "back"
+    ],
+    "share": {
+      "0–1": [
+        0.09,
+        0.173,
+        0.484,
+        0.091,
+        0.044,
+        0.048,
+        0.041,
+        0.03
+      ],
+      "2–3": [
+        0.075,
+        0.156,
+        0.471,
+        0.123,
+        0.042,
+        0.063,
+        0.051,
+        0.019
+      ],
+      "4–9": [
+        0.051,
+        0.154,
+        0.43,
+        0.134,
+        0.076,
+        0.067,
+        0.067,
+        0.021
+      ],
+      "10+": [
+        0.045,
+        0.274,
+        0.273,
+        0.136,
+        0.067,
+        0.099,
+        0.092,
+        0.014
+      ]
+    },
+    "n_no_plot": 34,
+    "no_plot_median_kin": 10,
+    "no_plot_top": [
+      "Hulk",
+      "Wolverine (character)",
+      "Deadpool",
+      "Black Panther (character)",
+      "Cyclops (Marvel Comics)",
+      "Luke Cage"
+    ]
+  },
+  "classifier": {
+    "template_pages": 239,
+    "paragraphs": 3822,
+    "plot_base": 0.662,
+    "cv_acc": 0.92,
+    "cv_min": 0.894,
+    "cv_max": 0.937,
+    "real_words": [
+      "august",
+      "february",
+      "stan",
+      "ditko",
+      "december",
+      "1978",
+      "sept",
+      "moench",
+      "wolfman",
+      "romita",
+      "1987",
+      "penciller",
+      "1982",
+      "penciler",
+      "reprinted"
+    ],
+    "plot_words": [
+      "asgard",
+      "balder",
+      "horde",
+      "jennifer",
+      "teddy",
+      "julian",
+      "portal",
+      "heaven",
+      "nico",
+      "convinces",
+      "bodies",
+      "gem",
+      "freed",
+      "kang",
+      "chase"
+    ],
+    "check_n": 24,
+    "check_agree": 22,
+    "check_misses": [
+      [
+        "Black Knight (Marvel Comics)",
+        "plot",
+        "real",
+        "plot"
+      ],
+      [
+        "Captain Marvel (Marvel Comics)",
+        "versions",
+        "real",
+        "plot"
+      ]
+    ]
+  },
+  "plot_share": {
+    "by_fame": [
+      0.754,
+      0.768,
+      0.692,
+      0.627
+    ],
+    "rho_kin": -0.2,
+    "rho_len": -0.31,
+    "partial": 0.05,
+    "tercile_cuts": [
+      [
+        195,
+        969
+      ],
+      [
+        971,
+        2179
+      ],
+      [
+        2204,
+        14469
+      ]
+    ],
+    "table": {
+      "short|0–1": [
+        0.804,
+        66
+      ],
+      "short|2–3": [
+        0.818,
+        28
+      ],
+      "short|4–9": [
+        0.719,
+        7
+      ],
+      "middle|0–1": [
+        0.732,
+        28
+      ],
+      "middle|2–3": [
+        0.765,
+        33
+      ],
+      "middle|4–9": [
+        0.69,
+        36
+      ],
+      "middle|10+": [
+        0.53,
+        4
+      ],
+      "long|0–1": [
+        0.536,
+        5
+      ],
+      "long|2–3": [
+        0.689,
+        10
+      ],
+      "long|4–9": [
+        0.693,
+        37
+      ],
+      "long|10+": [
+        0.649,
+        49
+      ]
+    }
+  },
+  "outliers": [
+    {
+      "name": "Brian Braddock",
+      "kin": 1,
+      "tokens": 7446,
+      "times": 8.0,
+      "verdict": "Captain Britain: a British publishing history (Captain Britain Weekly, Excalibur, MI: 13), fame made outside this network"
+    },
+    {
+      "name": "Miracleman (character)",
+      "kin": 0,
+      "tokens": 4471,
+      "times": 7.9,
+      "verdict": "Marvelman, a British character from 1954: four publishers and a 15-year legal fight over who owns him; almost none of it involves other Marvel heroes"
+    },
+    {
+      "name": "Betsy Braddock",
+      "kin": 7,
+      "tokens": 13289,
+      "times": 5.2,
+      "verdict": "Psylocke: decades of X-Men plot, Captain Britain's twin, a 1989 redesign in a new body, and a reception section of fan polls"
+    },
+    {
+      "name": "U.S. Agent",
+      "kin": 6,
+      "tokens": 9653,
+      "times": 4.2,
+      "verdict": "a replacement Captain America whose plot runs through nearly twenty storyline sections, from Force Works to the Thunderbolts; on screen since 2021"
+    },
+    {
+      "name": "Quasar (character)",
+      "kin": 24,
+      "tokens": 1020,
+      "times": 0.2,
+      "verdict": "one title held by several characters; the in-links point at the name, the stories live on the holders' own pages"
+    },
+    {
+      "name": "Blue Bullet",
+      "kin": 2,
+      "tokens": 338,
+      "times": 0.3,
+      "verdict": "an Invaders villain with two appearances (1976 and 1993): little to say, and the page says little"
+    },
+    {
+      "name": "Ch'od",
+      "kin": 4,
+      "tokens": 520,
+      "times": 0.3,
+      "verdict": "a Starjammers alien in the X-Men books since 1977: often mentioned, rarely the subject"
+    }
+  ],
+  "checks": {
+    "rho_split": 0.75
+  },
+  "viz": {
+    "pages": [
+      [
+        "Spider-Man",
+        106,
+        9,
+        10658,
+        0.302,
+        9916
+      ],
+      [
+        "Hulk",
+        64,
+        10,
+        7799,
+        0.373,
+        7437
+      ],
+      [
+        "Wolverine (character)",
+        60,
+        17,
+        7601,
+        0.258,
+        7247
+      ],
+      [
+        "Doctor Strange",
+        50,
+        17,
+        7043,
+        0.452,
+        5970
+      ],
+      [
+        "Deadpool",
+        33,
+        19,
+        9384,
+        0.295,
+        8842
+      ],
+      [
+        "She-Hulk",
+        29,
+        20,
+        12749,
+        0.662,
+        11654
+      ],
+      [
+        "Scarlet Witch",
+        28,
+        14,
+        14469,
+        0.666,
+        14015
+      ],
+      [
+        "Black Panther (character)",
+        27,
+        11,
+        8411,
+        0.163,
+        8073
+      ],
+      [
+        "Cyclops (Marvel Comics)",
+        26,
+        11,
+        5157,
+        0.328,
+        4785
+      ],
+      [
+        "Luke Cage",
+        25,
+        9,
+        5971,
+        0.156,
+        5602
+      ],
+      [
+        "Hank Pym",
+        24,
+        8,
+        5530,
+        0.708,
+        4691
+      ],
+      [
+        "Phoenix (Guardians of the Galaxy)",
+        24,
+        17,
+        5544,
+        0.904,
+        4825
+      ],
+      [
+        "Quasar (character)",
+        24,
+        3,
+        1020,
+        1.0,
+        880
+      ],
+      [
+        "Jean Grey",
+        23,
+        12,
+        11894,
+        0.532,
+        11322
+      ],
+      [
+        "Black Widow (Natasha Romanova)",
+        22,
+        7,
+        6341,
+        0.123,
+        6183
+      ],
+      [
+        "Moon Knight",
+        22,
+        14,
+        7307,
+        0.172,
+        6723
+      ],
+      [
+        "Emma Frost",
+        21,
+        17,
+        10549,
+        0.768,
+        9616
+      ],
+      [
+        "Iron Fist (character)",
+        21,
+        16,
+        9210,
+        0.711,
+        8804
+      ],
+      [
+        "Black Cat (Marvel Comics)",
+        21,
+        14,
+        9442,
+        0.347,
+        8464
+      ],
+      [
+        "Cable (character)",
+        21,
+        11,
+        4234,
+        0.624,
+        3833
+      ],
+      [
+        "Storm (Marvel Comics)",
+        20,
+        16,
+        9927,
+        0.368,
+        9356
+      ],
+      [
+        "Hercules (Marvel Comics)",
+        19,
+        17,
+        8824,
+        0.797,
+        8259
+      ],
+      [
+        "Deathlok",
+        17,
+        5,
+        3301,
+        0.649,
+        2745
+      ],
+      [
+        "Venom (character)",
+        17,
+        21,
+        10837,
+        0.72,
+        9772
+      ],
+      [
+        "Human Torch",
+        17,
+        5,
+        4071,
+        0.69,
+        3397
+      ],
+      [
+        "Blade (character)",
+        17,
+        12,
+        6422,
+        0.613,
+        5930
+      ],
+      [
+        "Nova (Richard Rider)",
+        16,
+        11,
+        3372,
+        0.739,
+        3075
+      ],
+      [
+        "Rachel Summers",
+        16,
+        19,
+        3449,
+        0.855,
+        3019
+      ],
+      [
+        "Spider-Woman (Jessica Drew)",
+        16,
+        11,
+        9904,
+        0.377,
+        8779
+      ],
+      [
+        "Misty Knight",
+        15,
+        13,
+        2688,
+        0.735,
+        2466
+      ],
+      [
+        "Man-Thing",
+        15,
+        12,
+        5009,
+        0.43,
+        4277
+      ],
+      [
+        "Human Torch (android)",
+        14,
+        9,
+        4006,
+        0.818,
+        3730
+      ],
+      [
+        "Mayday Parker",
+        14,
+        14,
+        8070,
+        0.84,
+        7453
+      ],
+      [
+        "Ghost Rider",
+        13,
+        15,
+        7066,
+        0.746,
+        5883
+      ],
+      [
+        "Mockingbird (Marvel Comics)",
+        13,
+        11,
+        7898,
+        0.468,
+        7380
+      ],
+      [
+        "Shang-Chi",
+        13,
+        11,
+        9048,
+        0.01,
+        8332
+      ],
+      [
+        "Jericho Drumm",
+        13,
+        7,
+        1626,
+        0.513,
+        1386
+      ],
+      [
+        "Franklin Richards (character)",
+        13,
+        3,
+        2499,
+        0.818,
+        2291
+      ],
+      [
+        "Black Bolt",
+        13,
+        9,
+        5809,
+        0.701,
+        5298
+      ],
+      [
+        "Spider-Woman (Gwen Stacy)",
+        12,
+        14,
+        5605,
+        0.627,
+        5055
+      ],
+      [
+        "Star-Lord",
+        12,
+        10,
+        5953,
+        0.724,
+        5254
+      ],
+      [
+        "War Machine",
+        12,
+        4,
+        3539,
+        0.169,
+        3261
+      ],
+      [
+        "Cloak and Dagger (characters)",
+        11,
+        24,
+        5596,
+        0.784,
+        5002
+      ],
+      [
+        "Moondragon",
+        11,
+        7,
+        3061,
+        0.912,
+        2844
+      ],
+      [
+        "Ms. Marvel",
+        11,
+        1,
+        1875,
+        0.0,
+        1483
+      ],
+      [
+        "Eddie Brock",
+        11,
+        16,
+        10774,
+        0.809,
+        9874
+      ],
+      [
+        "Spider-Woman",
+        10,
+        12,
+        2485,
+        0.502,
+        1985
+      ],
+      [
+        "Rocket Raccoon",
+        10,
+        8,
+        2750,
+        0.489,
+        2049
+      ],
+      [
+        "Quicksilver (Marvel Comics)",
+        10,
+        10,
+        7070,
+        0.307,
+        6761
+      ],
+      [
+        "Silk (character)",
+        10,
+        4,
+        1980,
+        0.548,
+        1468
+      ],
+      [
+        "Anya Corazon",
+        10,
+        12,
+        3825,
+        0.841,
+        3369
+      ],
+      [
+        "Jubilee (character)",
+        10,
+        10,
+        4503,
+        0.726,
+        4103
+      ],
+      [
+        "Ghost Rider (Johnny Blaze)",
+        10,
+        8,
+        6921,
+        0.759,
+        6552
+      ],
+      [
+        "Sentry (Robert Reynolds)",
+        9,
+        6,
+        3262,
+        0.569,
+        2796
+      ],
+      [
+        "Captain Marvel (Marvel Comics)",
+        9,
+        14,
+        2760,
+        0.549,
+        2150
+      ],
+      [
+        "Bucky (Marvel Comics)",
+        9,
+        9,
+        2911,
+        0.76,
+        2716
+      ],
+      [
+        "Morbius",
+        9,
+        16,
+        9034,
+        0.693,
+        8496
+      ],
+      [
+        "Bill Foster (character)",
+        9,
+        12,
+        1845,
+        0.821,
+        1594
+      ],
+      [
+        "Vulcan (Marvel Comics)",
+        9,
+        8,
+        2590,
+        0.892,
+        2351
+      ],
+      [
+        "John Jameson (character)",
+        9,
+        7,
+        2667,
+        0.883,
+        2440
+      ],
+      [
+        "Adam Warlock",
+        8,
+        22,
+        6810,
+        0.771,
+        6248
+      ],
+      [
+        "Union Jack (Marvel Comics)",
+        8,
+        5,
+        2649,
+        0.56,
+        2299
+      ],
+      [
+        "Rom the Space Knight",
+        8,
+        8,
+        3632,
+        0.628,
+        3414
+      ],
+      [
+        "Star Brand",
+        8,
+        11,
+        3907,
+        0.74,
+        3606
+      ],
+      [
+        "Jessica Jones",
+        8,
+        14,
+        6625,
+        0.406,
+        5911
+      ],
+      [
+        "Darkhawk",
+        8,
+        11,
+        3305,
+        0.752,
+        2904
+      ],
+      [
+        "Scarlet Spider",
+        8,
+        3,
+        956,
+        0.527,
+        763
+      ],
+      [
+        "Genis-Vell",
+        7,
+        3,
+        2231,
+        0.688,
+        2019
+      ],
+      [
+        "Betsy Braddock",
+        7,
+        28,
+        13289,
+        0.786,
+        12466
+      ],
+      [
+        "Phyla-Vell",
+        7,
+        8,
+        1981,
+        0.659,
+        1753
+      ],
+      [
+        "Patsy Walker",
+        7,
+        10,
+        4510,
+        0.371,
+        4046
+      ],
+      [
+        "Spider-Man Noir",
+        7,
+        5,
+        3476,
+        0.75,
+        3090
+      ],
+      [
+        "Werewolf by Night",
+        7,
+        13,
+        3923,
+        0.738,
+        3713
+      ],
+      [
+        "Hyperion (character)",
+        7,
+        6,
+        1963,
+        0.562,
+        1705
+      ],
+      [
+        "Ghost Rider (Danny Ketch)",
+        7,
+        7,
+        1496,
+        0.831,
+        1180
+      ],
+      [
+        "Jeffrey Mace",
+        7,
+        1,
+        1141,
+        0.375,
+        1040
+      ],
+      [
+        "Doctor Nemesis",
+        7,
+        9,
+        1459,
+        0.891,
+        1259
+      ],
+      [
+        "Wolverine (Ultimate Marvel character)",
+        6,
+        8,
+        3107,
+        0.903,
+        2919
+      ],
+      [
+        "Robbie Baldwin",
+        6,
+        13,
+        3928,
+        0.816,
+        3700
+      ],
+      [
+        "Outlaw (Marvel Comics)",
+        6,
+        5,
+        873,
+        0.873,
+        797
+      ],
+      [
+        "Gladiator (Kallark)",
+        6,
+        6,
+        1065,
+        0.677,
+        934
+      ],
+      [
+        "U.S. Agent",
+        6,
+        20,
+        9653,
+        0.851,
+        9104
+      ],
+      [
+        "Machine Man",
+        6,
+        12,
+        2153,
+        0.692,
+        1980
+      ],
+      [
+        "Union Jack (Joseph Chapman)",
+        6,
+        6,
+        1940,
+        0.497,
+        1677
+      ],
+      [
+        "Anole (character)",
+        6,
+        6,
+        4001,
+        0.554,
+        3716
+      ],
+      [
+        "Gwenpool",
+        6,
+        15,
+        8042,
+        0.572,
+        7511
+      ],
+      [
+        "Whizzer (Robert Frank)",
+        6,
+        6,
+        1276,
+        0.619,
+        1085
+      ],
+      [
+        "Captain Universe",
+        6,
+        14,
+        2947,
+        0.699,
+        2514
+      ],
+      [
+        "Guardian (Marvel Comics)",
+        6,
+        4,
+        1481,
+        0.756,
+        1170
+      ],
+      [
+        "Tarantula (Marvel Comics)",
+        6,
+        9,
+        1582,
+        0.687,
+        1336
+      ],
+      [
+        "Gargoyle (comics)",
+        5,
+        5,
+        1219,
+        0.659,
+        1104
+      ],
+      [
+        "Abomination (character)",
+        5,
+        8,
+        4022,
+        0.785,
+        3714
+      ],
+      [
+        "Vance Astrovik",
+        5,
+        8,
+        1437,
+        0.901,
+        1298
+      ],
+      [
+        "Spider-Girl",
+        5,
+        12,
+        2220,
+        0.627,
+        1769
+      ],
+      [
+        "Spitfire (character)",
+        5,
+        5,
+        3007,
+        0.464,
+        2664
+      ],
+      [
+        "Delroy Garrett",
+        5,
+        3,
+        1779,
+        0.866,
+        1693
+      ],
+      [
+        "Red Guardian",
+        5,
+        5,
+        2529,
+        0.599,
+        2266
+      ],
+      [
+        "Paladin (comics)",
+        5,
+        10,
+        1227,
+        0.749,
+        1119
+      ],
+      [
+        "Black Marvel",
+        5,
+        2,
+        1206,
+        0.867,
+        1130
+      ],
+      [
+        "Elsa Bloodstone",
+        5,
+        12,
+        1935,
+        0.429,
+        1710
+      ],
+      [
+        "Nomad (Marvel Comics)",
+        5,
+        4,
+        696,
+        0.379,
+        607
+      ],
+      [
+        "Ares (Marvel Comics)",
+        5,
+        7,
+        2951,
+        0.879,
+        2710
+      ],
+      [
+        "Puck (Marvel Comics)",
+        5,
+        8,
+        1858,
+        0.828,
+        1578
+      ],
+      [
+        "Hulkling",
+        5,
+        9,
+        3160,
+        0.587,
+        2863
+      ],
+      [
+        "Vindicator (comics)",
+        5,
+        4,
+        1562,
+        0.96,
+        1464
+      ],
+      [
+        "Arabian Knight (character)",
+        5,
+        8,
+        784,
+        0.668,
+        678
+      ],
+      [
+        "Gorgon (Inhuman)",
+        5,
+        1,
+        814,
+        0.883,
+        511
+      ],
+      [
+        "Nightmask",
+        5,
+        3,
+        1475,
+        0.67,
+        1142
+      ],
+      [
+        "Makkari (character)",
+        5,
+        1,
+        1052,
+        0.671,
+        956
+      ],
+      [
+        "Phil Urich",
+        5,
+        3,
+        995,
+        0.867,
+        896
+      ],
+      [
+        "Fin Fang Foom",
+        5,
+        2,
+        2046,
+        0.545,
+        1773
+      ],
+      [
+        "Doctor Druid",
+        5,
+        4,
+        2179,
+        0.552,
+        1966
+      ],
+      [
+        "Xorn",
+        4,
+        8,
+        1762,
+        0.595,
+        1560
+      ],
+      [
+        "Agent X (Marvel Comics)",
+        4,
+        3,
+        1419,
+        0.573,
+        1336
+      ],
+      [
+        "Ch'od",
+        4,
+        3,
+        520,
+        0.719,
+        434
+      ],
+      [
+        "Toro (character)",
+        4,
+        4,
+        1206,
+        0.752,
+        1150
+      ],
+      [
+        "Two-Gun Kid",
+        4,
+        4,
+        1412,
+        0.668,
+        1249
+      ],
+      [
+        "Northstar (character)",
+        4,
+        14,
+        4855,
+        0.725,
+        4365
+      ],
+      [
+        "Empath (character)",
+        4,
+        3,
+        929,
+        0.846,
+        870
+      ],
+      [
+        "Radian (Morituri)",
+        4,
+        6,
+        1662,
+        0.949,
+        1622
+      ],
+      [
+        "Radioactive Man (comics)",
+        4,
+        8,
+        1435,
+        0.875,
+        1283
+      ],
+      [
+        "Ronin (Marvel Comics)",
+        4,
+        5,
+        1052,
+        0.572,
+        887
+      ],
+      [
+        "Devil Dinosaur",
+        4,
+        8,
+        3231,
+        0.733,
+        2768
+      ],
+      [
+        "Chase Stein",
+        4,
+        4,
+        3832,
+        0.933,
+        3589
+      ],
+      [
+        "Satana (Marvel Comics)",
+        4,
+        7,
+        2560,
+        0.559,
+        2270
+      ],
+      [
+        "Black Knight (Marvel Comics)",
+        4,
+        3,
+        2835,
+        0.579,
+        2515
+      ],
+      [
+        "Karnak (character)",
+        4,
+        7,
+        2204,
+        0.655,
+        1837
+      ],
+      [
+        "Kristoff Vernard",
+        4,
+        4,
+        1085,
+        0.718,
+        993
+      ],
+      [
+        "Hellion (character)",
+        4,
+        11,
+        5601,
+        0.65,
+        5367
+      ],
+      [
+        "Noh-Varr",
+        4,
+        18,
+        4775,
+        0.661,
+        4289
+      ],
+      [
+        "Guardsman (character)",
+        4,
+        7,
+        1787,
+        0.748,
+        1483
+      ],
+      [
+        "Hornet (comics)",
+        4,
+        4,
+        984,
+        0.858,
+        854
+      ],
+      [
+        "Iron Man 2020",
+        4,
+        3,
+        1386,
+        0.598,
+        1255
+      ],
+      [
+        "Balder the Brave",
+        3,
+        2,
+        1840,
+        0.97,
+        1578
+      ],
+      [
+        "Battlestar (character)",
+        3,
+        2,
+        1203,
+        0.557,
+        1107
+      ],
+      [
+        "Jack Monroe (character)",
+        3,
+        4,
+        2423,
+        0.42,
+        2345
+      ],
+      [
+        "Kismet (Marvel Comics)",
+        3,
+        9,
+        1000,
+        0.704,
+        926
+      ],
+      [
+        "Korvus",
+        3,
+        4,
+        498,
+        0.914,
+        428
+      ],
+      [
+        "Kid Colt",
+        3,
+        2,
+        971,
+        0.384,
+        823
+      ],
+      [
+        "Vyking",
+        3,
+        2,
+        1095,
+        0.913,
+        1075
+      ],
+      [
+        "Gauntlet (Joseph Green)",
+        3,
+        3,
+        591,
+        0.914,
+        524
+      ],
+      [
+        "Living Lightning",
+        3,
+        5,
+        1834,
+        0.387,
+        1705
+      ],
+      [
+        "Lei Kung (character)",
+        3,
+        3,
+        464,
+        0.911,
+        370
+      ],
+      [
+        "Shatterstar",
+        3,
+        3,
+        3685,
+        0.763,
+        3392
+      ],
+      [
+        "Shuri (character)",
+        3,
+        9,
+        2945,
+        0.613,
+        2598
+      ],
+      [
+        "Speed (character)",
+        3,
+        6,
+        3172,
+        0.806,
+        2956
+      ],
+      [
+        "Captain Marvel (Khn'nr)",
+        3,
+        2,
+        980,
+        0.588,
+        882
+      ],
+      [
+        "She-Venom (Patricia Robertson)",
+        3,
+        4,
+        757,
+        0.79,
+        613
+      ],
+      [
+        "William Burnside (character)",
+        3,
+        4,
+        2032,
+        0.517,
+        1952
+      ],
+      [
+        "Surge (Marvel Comics)",
+        3,
+        2,
+        979,
+        0.671,
+        870
+      ],
+      [
+        "Sabra (character)",
+        3,
+        9,
+        2786,
+        0.383,
+        2608
+      ],
+      [
+        "Peggy Carter",
+        3,
+        0,
+        1085,
+        0.389,
+        879
+      ],
+      [
+        "Ravage 2099",
+        3,
+        2,
+        1036,
+        0.403,
+        955
+      ],
+      [
+        "Rikki Barnes",
+        3,
+        6,
+        1171,
+        0.867,
+        1110
+      ],
+      [
+        "Toxyn",
+        3,
+        2,
+        480,
+        0.778,
+        464
+      ],
+      [
+        "Thin Man (character)",
+        3,
+        1,
+        1008,
+        0.79,
+        951
+      ],
+      [
+        "Thor Girl",
+        3,
+        2,
+        842,
+        0.813,
+        774
+      ],
+      [
+        "Turbo (comics)",
+        3,
+        3,
+        1229,
+        0.968,
+        1190
+      ],
+      [
+        "Blazing Skull",
+        3,
+        8,
+        817,
+        0.502,
+        733
+      ],
+      [
+        "Scaredycat",
+        3,
+        3,
+        693,
+        0.852,
+        682
+      ],
+      [
+        "Rockslide (character)",
+        3,
+        6,
+        1015,
+        0.799,
+        907
+      ],
+      [
+        "Justice (New Universe)",
+        2,
+        5,
+        3093,
+        0.718,
+        2680
+      ],
+      [
+        "Killpower",
+        2,
+        2,
+        631,
+        0.765,
+        537
+      ],
+      [
+        "Ikaris",
+        2,
+        3,
+        1609,
+        0.836,
+        1339
+      ],
+      [
+        "White Tiger (comics)",
+        2,
+        5,
+        1075,
+        0.768,
+        983
+      ],
+      [
+        "Hulk 2099",
+        2,
+        2,
+        779,
+        0.697,
+        737
+      ],
+      [
+        "Hybrid (Scott Washington)",
+        2,
+        5,
+        724,
+        0.746,
+        594
+      ],
+      [
+        "Rusty Collins",
+        2,
+        3,
+        987,
+        1.0,
+        862
+      ],
+      [
+        "Alice Nugent",
+        2,
+        6,
+        1561,
+        0.771,
+        1461
+      ],
+      [
+        "Ricochet (comics)",
+        2,
+        4,
+        787,
+        0.844,
+        718
+      ],
+      [
+        "Killraven",
+        2,
+        5,
+        1798,
+        0.381,
+        1614
+      ],
+      [
+        "Iron Lad",
+        2,
+        4,
+        939,
+        1.0,
+        827
+      ],
+      [
+        "Backhand (character)",
+        2,
+        1,
+        547,
+        0.823,
+        538
+      ],
+      [
+        "Ulysses Bloodstone",
+        2,
+        1,
+        1551,
+        0.683,
+        1425
+      ],
+      [
+        "Beta Ray Bill",
+        2,
+        5,
+        3928,
+        0.758,
+        3480
+      ],
+      [
+        "She-Hulk (Lyra)",
+        2,
+        6,
+        1417,
+        0.615,
+        1275
+      ],
+      [
+        "Cammi (character)",
+        2,
+        3,
+        539,
+        0.877,
+        504
+      ],
+      [
+        "Citizen V",
+        2,
+        1,
+        771,
+        0.87,
+        577
+      ],
+      [
+        "Caretaker (comics)",
+        2,
+        3,
+        690,
+        0.854,
+        595
+      ],
+      [
+        "Steel Spider",
+        2,
+        3,
+        676,
+        0.811,
+        599
+      ],
+      [
+        "Starr the Slayer",
+        2,
+        3,
+        583,
+        0.557,
+        540
+      ],
+      [
+        "Starhawk (character)",
+        2,
+        5,
+        1969,
+        0.782,
+        1835
+      ],
+      [
+        "Spider-UK",
+        2,
+        8,
+        1409,
+        0.862,
+        1182
+      ],
+      [
+        "Synapse (character)",
+        2,
+        0,
+        422,
+        0.717,
+        368
+      ],
+      [
+        "Yelena Belova",
+        2,
+        6,
+        1331,
+        0.441,
+        1177
+      ],
+      [
+        "Blue Bullet",
+        2,
+        2,
+        338,
+        0.929,
+        281
+      ],
+      [
+        "Blackthorn (character)",
+        2,
+        1,
+        1090,
+        0.78,
+        1066
+      ],
+      [
+        "Blue Marvel",
+        2,
+        4,
+        1747,
+        0.523,
+        1559
+      ],
+      [
+        "The Union (Marvel)",
+        2,
+        2,
+        1113,
+        0.629,
+        991
+      ],
+      [
+        "Thena",
+        2,
+        1,
+        1027,
+        0.784,
+        852
+      ],
+      [
+        "Bob, Agent of Hydra",
+        2,
+        7,
+        985,
+        0.84,
+        810
+      ],
+      [
+        "Raza Longknife",
+        2,
+        5,
+        655,
+        0.767,
+        574
+      ],
+      [
+        "Power Man (Victor Alvarez)",
+        2,
+        4,
+        938,
+        0.708,
+        836
+      ],
+      [
+        "Spider-Bitch (Ashley Barton)",
+        2,
+        15,
+        3574,
+        0.894,
+        3206
+      ],
+      [
+        "Snapdragon (Morituri)",
+        2,
+        3,
+        591,
+        0.832,
+        578
+      ],
+      [
+        "Scatterbrain (Morituri)",
+        2,
+        2,
+        553,
+        0.737,
+        540
+      ],
+      [
+        "Frog-Man",
+        2,
+        6,
+        3817,
+        0.66,
+        3531
+      ],
+      [
+        "Firelord (character)",
+        2,
+        1,
+        578,
+        1.0,
+        423
+      ],
+      [
+        "Marvel Boy (Robert Grayson)",
+        2,
+        2,
+        862,
+        0.73,
+        774
+      ],
+      [
+        "Red Raven (Dania)",
+        2,
+        3,
+        1574,
+        0.7,
+        1385
+      ],
+      [
+        "Dusk (comics)",
+        2,
+        6,
+        583,
+        1.0,
+        481
+      ],
+      [
+        "Frankenstein's Monster (Marvel Comics)",
+        2,
+        11,
+        3093,
+        0.605,
+        2706
+      ],
+      [
+        "Leech (character)",
+        2,
+        4,
+        1134,
+        0.818,
+        912
+      ],
+      [
+        "Firebird (Marvel Comics)",
+        2,
+        12,
+        1753,
+        0.765,
+        1638
+      ],
+      [
+        "Iron Man (Ultimate Marvel character)",
+        1,
+        5,
+        1664,
+        0.754,
+        1541
+      ],
+      [
+        "Golem (Marvel Comics)",
+        1,
+        3,
+        823,
+        0.655,
+        597
+      ],
+      [
+        "Janice Lincoln",
+        1,
+        4,
+        1068,
+        0.731,
+        1003
+      ],
+      [
+        "Alex Wilder",
+        1,
+        1,
+        757,
+        0.75,
+        704
+      ],
+      [
+        "Ajak",
+        1,
+        4,
+        643,
+        0.901,
+        543
+      ],
+      [
+        "Will o' the Wisp (comics)",
+        1,
+        2,
+        515,
+        1.0,
+        448
+      ],
+      [
+        "Timeslip (comics)",
+        1,
+        2,
+        499,
+        0.814,
+        468
+      ],
+      [
+        "The Witness (character)",
+        1,
+        0,
+        839,
+        0.507,
+        808
+      ],
+      [
+        "Blue Diamond (character)",
+        1,
+        9,
+        741,
+        0.338,
+        656
+      ],
+      [
+        "Box (comics)",
+        1,
+        2,
+        863,
+        0.957,
+        791
+      ],
+      [
+        "Black Rider (character)",
+        1,
+        4,
+        1076,
+        0.383,
+        1027
+      ],
+      [
+        "Brian Braddock",
+        1,
+        11,
+        7446,
+        0.701,
+        6865
+      ],
+      [
+        "Bug (Marvel Comics)",
+        1,
+        4,
+        733,
+        0.226,
+        685
+      ],
+      [
+        "Stingray (Marvel Comics)",
+        1,
+        7,
+        1261,
+        0.83,
+        1179
+      ],
+      [
+        "Solo (Marvel Comics)",
+        1,
+        12,
+        753,
+        0.908,
+        671
+      ],
+      [
+        "Force (comics)",
+        1,
+        1,
+        499,
+        0.892,
+        434
+      ],
+      [
+        "Flatman (character)",
+        1,
+        3,
+        1522,
+        0.876,
+        1447
+      ],
+      [
+        "Jean Grey (X-Men film series)",
+        1,
+        5,
+        2249,
+        0.423,
+        2106
+      ],
+      [
+        "Hit-Monkey",
+        1,
+        3,
+        969,
+        0.737,
+        753
+      ],
+      [
+        "White Tiger (Heroes for Hire)",
+        1,
+        3,
+        404,
+        0.842,
+        374
+      ],
+      [
+        "Hrimhari",
+        1,
+        1,
+        652,
+        0.94,
+        598
+      ],
+      [
+        "Jack Frost (Marvel Comics)",
+        1,
+        7,
+        1158,
+        0.362,
+        1110
+      ],
+      [
+        "Black Jack Tarr",
+        1,
+        1,
+        471,
+        0.0,
+        420
+      ],
+      [
+        "Typeface (character)",
+        1,
+        3,
+        465,
+        0.901,
+        375
+      ],
+      [
+        "Debrii",
+        1,
+        5,
+        577,
+        0.649,
+        527
+      ],
+      [
+        "Devil Hulk",
+        1,
+        2,
+        1092,
+        0.873,
+        1013
+      ],
+      [
+        "Doom 2099",
+        1,
+        9,
+        1663,
+        0.828,
+        1481
+      ],
+      [
+        "Garrison Kane",
+        1,
+        6,
+        982,
+        0.734,
+        876
+      ],
+      [
+        "G. W. Bridge",
+        1,
+        2,
+        672,
+        0.774,
+        592
+      ],
+      [
+        "Dragon Lord (character)",
+        1,
+        1,
+        710,
+        0.577,
+        506
+      ],
+      [
+        "Fandral",
+        1,
+        2,
+        1812,
+        0.843,
+        1472
+      ],
+      [
+        "Nightwatch (character)",
+        1,
+        3,
+        786,
+        0.718,
+        727
+      ],
+      [
+        "Magician (Marvel Comics)",
+        1,
+        3,
+        1014,
+        0.953,
+        915
+      ],
+      [
+        "Motormouth (comics)",
+        1,
+        4,
+        1215,
+        0.832,
+        1149
+      ],
+      [
+        "Mania (character)",
+        1,
+        7,
+        2737,
+        0.949,
+        2628
+      ],
+      [
+        "Crane Mother",
+        1,
+        3,
+        637,
+        0.898,
+        600
+      ],
+      [
+        "Darkdevil",
+        1,
+        4,
+        626,
+        0.847,
+        528
+      ],
+      [
+        "Powerhouse (Marvel Comics)",
+        1,
+        4,
+        566,
+        0.846,
+        488
+      ],
+      [
+        "Red Wolf (comics)",
+        1,
+        9,
+        2281,
+        0.48,
+        2065
+      ],
+      [
+        "Skull the Slayer",
+        1,
+        3,
+        574,
+        0.669,
+        501
+      ],
+      [
+        "Shear (character)",
+        1,
+        2,
+        451,
+        0.816,
+        440
+      ],
+      [
+        "Gremlin (comics)",
+        0,
+        4,
+        628,
+        0.746,
+        551
+      ],
+      [
+        "Junior Juniper",
+        0,
+        2,
+        993,
+        0.652,
+        924
+      ],
+      [
+        "Human Fly (character)",
+        0,
+        5,
+        1191,
+        0.712,
+        1088
+      ],
+      [
+        "Illuminator (Marvel Comics)",
+        0,
+        0,
+        284,
+        0.47,
+        247
+      ],
+      [
+        "Ursa Major (character)",
+        0,
+        4,
+        1181,
+        0.88,
+        1072
+      ],
+      [
+        "Black Fox (Robert Paine)",
+        0,
+        0,
+        281,
+        0.908,
+        228
+      ],
+      [
+        "Bird-Brain (Marvel Comics)",
+        0,
+        0,
+        390,
+        0.905,
+        336
+      ],
+      [
+        "Baymax",
+        0,
+        0,
+        1610,
+        0.518,
+        1422
+      ],
+      [
+        "Inferno (Dante Pertuz)",
+        0,
+        3,
+        1202,
+        0.689,
+        1021
+      ],
+      [
+        "Isaiah Bradley",
+        0,
+        7,
+        2085,
+        0.53,
+        1941
+      ],
+      [
+        "Helix (Marvel Comics)",
+        0,
+        1,
+        195,
+        0.743,
+        187
+      ],
+      [
+        "Hawkeye (comics)",
+        0,
+        3,
+        361,
+        0.596,
+        230
+      ],
+      [
+        "Hellfire (J. T. Slade)",
+        0,
+        0,
+        201,
+        1.0,
+        102
+      ],
+      [
+        "Happy Sam Sawyer",
+        0,
+        0,
+        380,
+        0.451,
+        297
+      ],
+      [
+        "Dogpool",
+        0,
+        1,
+        377,
+        0.369,
+        363
+      ],
+      [
+        "Emrys Killebrew",
+        0,
+        2,
+        379,
+        0.834,
+        326
+      ],
+      [
+        "Mahr Vehl",
+        0,
+        1,
+        703,
+        0.835,
+        593
+      ],
+      [
+        "Mark Hazzard: Merc",
+        0,
+        1,
+        833,
+        0.549,
+        617
+      ],
+      [
+        "Father Time (Marvel Comics)",
+        0,
+        0,
+        550,
+        0.664,
+        532
+      ],
+      [
+        "Miracleman (character)",
+        0,
+        0,
+        4471,
+        0.536,
+        4278
+      ],
+      [
+        "Moonglow (comics)",
+        0,
+        1,
+        347,
+        0.904,
+        249
+      ],
+      [
+        "Phil Grayfield",
+        0,
+        1,
+        717,
+        0.334,
+        584
+      ],
+      [
+        "Rockman (character)",
+        0,
+        2,
+        911,
+        0.822,
+        876
+      ],
+      [
+        "Coldblood",
+        0,
+        2,
+        696,
+        0.956,
+        619
+      ],
+      [
+        "Enigma (Marvel Comics)",
+        0,
+        1,
+        529,
+        1.0,
+        485
+      ],
+      [
+        "Ethan Edwards",
+        0,
+        1,
+        588,
+        0.953,
+        509
+      ],
+      [
+        "Sean and Chris",
+        0,
+        0,
+        554,
+        0.897,
+        516
+      ],
+      [
+        "Scorpio (Marvel Comics)",
+        0,
+        2,
+        1183,
+        0.815,
+        1047
+      ],
+      [
+        "Scarlet Scarab",
+        0,
+        2,
+        1158,
+        0.579,
+        1075
+      ],
+      [
+        "Ruby Summers",
+        0,
+        2,
+        455,
+        0.809,
+        434
+      ],
+      [
+        "Dargo Ktor",
+        0,
+        2,
+        465,
+        0.882,
+        406
+      ],
+      [
+        "Crippler (character)",
+        0,
+        4,
+        350,
+        1.0,
+        292
+      ],
+      [
+        "Detroit Steel",
+        0,
+        1,
+        1278,
+        0.633,
+        1121
+      ],
+      [
+        "Digitek (character)",
+        0,
+        1,
+        481,
+        0.43,
+        467
+      ],
+      [
+        "Ogre (Marvel Comics)",
+        0,
+        0,
+        332,
+        1.0,
+        296
+      ],
+      [
+        "Redneck (comics)",
+        0,
+        1,
+        256,
+        0.9,
+        210
+      ],
+      [
+        "Oya (comics)",
+        0,
+        3,
+        655,
+        0.663,
+        597
+      ],
+      [
+        "Fabio Medina",
+        0,
+        3,
+        902,
+        0.44,
+        866
+      ],
+      [
+        "Silhouette (comics)",
+        0,
+        2,
+        844,
+        0.955,
+        760
+      ],
+      [
+        "Silencer (comics)",
+        0,
+        2,
+        1025,
+        0.854,
+        882
+      ],
+      [
+        "Shamrock (comics)",
+        0,
+        8,
+        1102,
+        0.447,
+        1010
+      ],
+      [
+        "Breeze Barton",
+        0,
+        0,
+        734,
+        0.868,
+        695
+      ],
+      [
+        "Straw Man (comics)",
+        0,
+        2,
+        488,
+        0.386,
+        435
+      ],
+      [
+        "Spider-Man (Marvel Mangaverse)",
+        0,
+        3,
+        1227,
+        0.315,
+        1091
+      ],
+      [
+        "Captain Ultra",
+        0,
+        1,
+        722,
+        0.634,
+        685
+      ],
+      [
+        "Charcoal (comics)",
+        0,
+        0,
+        397,
+        0.437,
+        339
+      ],
+      [
+        "Captain Midlands",
+        0,
+        0,
+        648,
+        0.563,
+        595
+      ],
+      [
+        "Solarman",
+        0,
+        0,
+        771,
+        0.262,
+        686
+      ],
+      [
+        "Solomon Kane (comics)",
+        0,
+        1,
+        1026,
+        0.0,
+        947
+      ],
+      [
+        "Blue Eagle (character)",
+        0,
+        1,
+        591,
+        0.779,
+        548
+      ],
+      [
+        "Brain Drain (character)",
+        0,
+        0,
+        459,
+        0.799,
+        408
+      ],
+      [
+        "Super Rabbit",
+        0,
+        0,
+        502,
+        0.215,
+        460
+      ],
+      [
+        "Blackwulf",
+        0,
+        2,
+        1031,
+        0.856,
+        956
+      ],
+      [
+        "Thunderbolt (Marvel Comics)",
+        0,
+        2,
+        570,
+        0.902,
+        468
+      ],
+      [
+        "Wild Child (character)",
+        0,
+        3,
+        1253,
+        0.801,
+        1115
+      ],
+      [
+        "Thunderclap (comics)",
+        0,
+        1,
+        430,
+        0.921,
+        369
+      ],
+      [
+        "Yo-Yo Rodriguez",
+        0,
+        0,
+        758,
+        0.593,
+        639
+      ],
+      [
+        "Zombie (comics)",
+        0,
+        4,
+        1617,
+        0.442,
+        1392
+      ]
+    ],
+    "fit": [
+      2.7512,
+      0.7252
+    ],
+    "headings": {
+      "0–1": [
+        0.09,
+        0.173,
+        0.484,
+        0.091,
+        0.044,
+        0.048,
+        0.041,
+        0.03
+      ],
+      "2–3": [
+        0.075,
+        0.156,
+        0.471,
+        0.123,
+        0.042,
+        0.063,
+        0.051,
+        0.019
+      ],
+      "4–9": [
+        0.051,
+        0.154,
+        0.43,
+        0.134,
+        0.076,
+        0.067,
+        0.067,
+        0.021
+      ],
+      "10+": [
+        0.045,
+        0.274,
+        0.273,
+        0.136,
+        0.067,
+        0.099,
+        0.092,
+        0.014
+      ]
+    },
+    "kinds": [
+      "lead",
+      "publication",
+      "plot",
+      "powers",
+      "versions",
+      "media",
+      "reception",
+      "back"
+    ],
+    "bins": [
+      "0–1",
+      "2–3",
+      "4–9",
+      "10+"
+    ],
+    "tercile_max": [
+      969,
+      2179
+    ]
+  }
+}

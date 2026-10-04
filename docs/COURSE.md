@@ -30,7 +30,8 @@ Base URL: **<https://sunelehmann.com/socialgraphs2026-web/>**
 | The new way of working | `the-new-way.html` | The rules on AI use in this course. Required reading. |
 | Week 1 · Networks | `weeks/week1.html` | Published |
 | Week 2 · Models & null models | `weeks/week2.html` | Published |
-| Weeks 3–8 | `weeks/week{N}.html` | **Not yet published — these URLs 404.** Each week's page goes up one session ahead. |
+| Week 5 · From language to numbers | `weeks/week5.html` | Published. NLP I: tokens, counts, Zipf, n-grams, Bag of Words. The weekly post is exercise **5.9**; the 🧠 Learn exercises are 5.1, 5.2, 5.6 and the 🧠 parts of 5.4–5.5. |
+| Weeks 3–4, 6–8 | `weeks/week{N}.html` | Each week's page goes up one session ahead; if one 404s, it is not released yet. |
 | Course data | `data/` | Dataset releases and download links. See §5. |
 | Textbook | <https://www.networkatlas.eu/> | Michele Coscia, *The Atlas for the Aspiring Network Scientist*, 2nd ed. Free. Week 1 reading: ch. 6 (Basic Graphs), ch. 9 (Degree). |
 
@@ -152,7 +153,7 @@ Frozen snapshots, so every group computes on identical data while Wikipedia move
 | `week1_edges.tsv`, `week1_nodes.tsv` | Week 1 — **out now** | Unweighted directed network: an edge A → B wherever A's article links to B's. 303 nodes, 1,784 edges. |
 | weighted edition | ~week 3 | The same edges, plus how often each link is repeated. |
 | bipartite edition | ~week 4 | Pages × people. |
-| raw text | week 5 | Full wiki-source per page, for the language half. Too big for the course site — served from DTU storage, link appears at release. |
+| `marvel_pages.zip` | Week 5 — **out now** | Plain-text Wikipedia article per character, one file each (303 + README), 1.8 MB zipped, 4.4M characters. Served from the course data page. Local copy: `Data/Week5/marvel_pages.zip`. |
 
 ### Week 1 files
 
@@ -214,8 +215,9 @@ When our own project crawls a domain, those choices become ours.
 
 **Datasets are committed to git.** They total ~125 KB, and a frozen release only does its
 job if all three of us compute on identical bytes — gitignoring `Data/` would quietly break
-that. *Revisit at week 5*: the raw wiki-source release comes from DTU storage and will likely
-be too large to commit, at which point we need a download script instead.
+that. Revisited at week 5: the text release is a 1.8 MB zip served from the course data page, small
+enough to commit like the rest, so `Data/Week5/marvel_pages.zip` is committed as downloaded. Filenames are
+URL-encoded node ids (`Mark_Hazzard%3A_Merc`): `urllib.parse.unquote` the stem to join on `node_id`.
 
 Site structure (settled week 1): plain static HTML, no build step. index.html and style.css at the repo root; one post per week at posts/week{N}/index.html; figures at Figures/Week{N}/. All paths inside posts are relative (../../style.css), because a project Pages site serves from /SocialGraphsAndInteractions/ and absolute paths 404.
 
