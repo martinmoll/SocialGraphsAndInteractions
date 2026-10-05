@@ -86,24 +86,91 @@
         0.013
       ]
     },
+    "page_median": [
+      0.568,
+      0.495,
+      0.445,
+      0.361
+    ],
     "n_no_plot": 22,
-    "no_plot_median_kin": 3,
+    "no_plot_median_kin": 3.5,
     "no_plot_top": [
       "Deadpool",
       "Cable (character)",
       "Venom (character)",
       "Ghost Rider",
-      "Star-Lord",
-      "Ms. Marvel"
+      "Ms. Marvel",
+      "Spider-Woman"
     ]
   },
   "classifier": {
     "template_pages": 239,
     "paragraphs": 3786,
-    "plot_base": 0.691,
+    "inu_base": 0.691,
     "cv_acc": 0.943,
     "cv_min": 0.912,
     "cv_max": 0.96,
+    "in_sample": 0.965,
+    "log_prior": 0.8,
+    "dtm": [
+      3786,
+      18984,
+      0.9966
+    ],
+    "class_tokens": [
+      249913,
+      105266
+    ],
+    "rel_freq": [
+      [
+        "escapes",
+        67,
+        0,
+        2.7,
+        0.0,
+        3.45
+      ],
+      [
+        "tells",
+        107,
+        2,
+        4.3,
+        0.2,
+        2.81
+      ],
+      [
+        "is",
+        3374,
+        467,
+        135.0,
+        44.4,
+        1.2
+      ],
+      [
+        "was",
+        1575,
+        1495,
+        63.0,
+        142.0,
+        -0.72
+      ],
+      [
+        "reprinted",
+        0,
+        30,
+        0.0,
+        2.8,
+        -4.21
+      ],
+      [
+        "penciller",
+        0,
+        33,
+        0.0,
+        3.1,
+        -4.3
+      ]
+    ],
     "real_words": [
       "august",
       "february",
@@ -111,23 +178,23 @@
       "december",
       "stan",
       "sept",
-      "wolfman",
       "romita",
+      "wolfman",
       "1987",
       "penciller",
       "penciler",
-      "reprinted",
       "premiere",
+      "reprinted",
       "kirby",
       "september"
     ],
-    "plot_words": [
+    "inu_words": [
       "ship",
       "escapes",
       "freed",
       "asgard",
-      "balder",
       "facility",
+      "balder",
       "horde",
       "secretly",
       "attacking",
@@ -136,41 +203,45 @@
       "tells",
       "breaks",
       "attack",
-      "julian"
+      "portal"
     ],
     "check_n": 24,
-    "check_agree": 21,
-    "check_misses": [
-      [
-        "Ghost Rider",
-        "media",
-        "plot",
-        "real"
-      ],
-      [
-        "Enigma (Marvel Comics)",
-        "lead",
-        "plot",
-        "real"
-      ],
-      [
-        "Ghost Rider",
-        "media",
-        "plot",
-        "real"
-      ]
-    ]
+    "check_read_by": null,
+    "check_agree": null,
+    "check_misses": null
   },
-  "plot_share": {
+  "inu_share": {
+    "by_kind": {
+      "lead": 0.229,
+      "publication": 0.177,
+      "plot": 0.96,
+      "powers": 0.931,
+      "versions": 0.845,
+      "media": 0.489,
+      "reception": 0.147,
+      "back": 0.012
+    },
+    "outside_trained": [
+      0.308,
+      0.343,
+      0.385,
+      0.439
+    ],
     "by_fame": [
       0.779,
-      0.771,
-      0.716,
-      0.66
+      0.768,
+      0.719,
+      0.652
     ],
-    "rho_kin": -0.21,
-    "rho_len": -0.32,
-    "partial": 0.04,
+    "pooled": [
+      0.695,
+      0.721,
+      0.708,
+      0.607
+    ],
+    "rho_kin": -0.2,
+    "rho_len": -0.31,
+    "partial": 0.05,
     "tercile_cuts": [
       [
         195,
@@ -203,11 +274,11 @@
         28
       ],
       "middle|2–3": [
-        0.768,
+        0.765,
         33
       ],
       "middle|4–9": [
-        0.73,
+        0.718,
         36
       ],
       "middle|10+": [
@@ -223,11 +294,11 @@
         10
       ],
       "long|4–9": [
-        0.701,
+        0.724,
         37
       ],
       "long|10+": [
-        0.684,
+        0.66,
         49
       ]
     }
@@ -283,6 +354,7 @@
       "verdict": "a Starjammers alien in the X-Men books since 1977: often mentioned, rarely the subject"
     }
   ],
+  "outliers_read_by": null,
   "checks": {
     "rho_split": 0.75
   },
@@ -293,7 +365,7 @@
         106,
         9,
         10658,
-        0.309,
+        0.38,
         9916
       ],
       [
@@ -301,7 +373,7 @@
         64,
         10,
         7799,
-        0.584,
+        0.554,
         7437
       ],
       [
@@ -317,7 +389,7 @@
         50,
         17,
         7043,
-        0.452,
+        0.508,
         5970
       ],
       [
@@ -333,7 +405,7 @@
         29,
         20,
         12749,
-        0.684,
+        0.645,
         11654
       ],
       [
@@ -341,7 +413,7 @@
         28,
         14,
         14469,
-        0.71,
+        0.724,
         14015
       ],
       [
@@ -357,7 +429,7 @@
         26,
         11,
         5157,
-        0.451,
+        0.591,
         4785
       ],
       [
@@ -365,7 +437,7 @@
         25,
         9,
         5971,
-        0.293,
+        0.382,
         5602
       ],
       [
@@ -373,7 +445,7 @@
         24,
         8,
         5530,
-        0.724,
+        0.761,
         4691
       ],
       [
@@ -397,32 +469,24 @@
         23,
         12,
         11894,
-        0.544,
+        0.671,
         11322
-      ],
-      [
-        "Black Widow (Natasha Romanova)",
-        22,
-        7,
-        6341,
-        0.296,
-        6183
       ],
       [
         "Moon Knight",
         22,
         14,
         7307,
-        0.48,
+        0.567,
         6723
       ],
       [
-        "Emma Frost",
-        21,
-        17,
-        10549,
-        0.779,
-        9616
+        "Black Widow (Natasha Romanova)",
+        22,
+        7,
+        6341,
+        0.313,
+        6183
       ],
       [
         "Iron Fist (character)",
@@ -437,7 +501,7 @@
         21,
         14,
         9442,
-        0.377,
+        0.376,
         8464
       ],
       [
@@ -449,11 +513,19 @@
         3833
       ],
       [
+        "Emma Frost",
+        21,
+        17,
+        10549,
+        0.775,
+        9616
+      ],
+      [
         "Storm (Marvel Comics)",
         20,
         16,
         9927,
-        0.417,
+        0.491,
         9356
       ],
       [
@@ -465,20 +537,28 @@
         8259
       ],
       [
-        "Deathlok",
-        17,
-        5,
-        3301,
-        0.686,
-        2745
-      ],
-      [
         "Venom (character)",
         17,
         21,
         10837,
         0.733,
         9772
+      ],
+      [
+        "Deathlok",
+        17,
+        5,
+        3301,
+        0.649,
+        2745
+      ],
+      [
+        "Blade (character)",
+        17,
+        12,
+        6422,
+        0.652,
+        5930
       ],
       [
         "Human Torch",
@@ -489,14 +569,6 @@
         3397
       ],
       [
-        "Blade (character)",
-        17,
-        12,
-        6422,
-        0.621,
-        5930
-      ],
-      [
         "Nova (Richard Rider)",
         16,
         11,
@@ -505,20 +577,20 @@
         3075
       ],
       [
-        "Rachel Summers",
-        16,
-        19,
-        3449,
-        0.855,
-        3019
-      ],
-      [
         "Spider-Woman (Jessica Drew)",
         16,
         11,
         9904,
         0.49,
         8779
+      ],
+      [
+        "Rachel Summers",
+        16,
+        19,
+        3449,
+        0.855,
+        3019
       ],
       [
         "Misty Knight",
@@ -533,7 +605,7 @@
         15,
         12,
         5009,
-        0.425,
+        0.46,
         4277
       ],
       [
@@ -541,7 +613,7 @@
         14,
         9,
         4006,
-        0.818,
+        0.769,
         3730
       ],
       [
@@ -549,40 +621,24 @@
         14,
         14,
         8070,
-        0.85,
+        0.828,
         7453
-      ],
-      [
-        "Ghost Rider",
-        13,
-        15,
-        7066,
-        0.758,
-        5883
-      ],
-      [
-        "Mockingbird (Marvel Comics)",
-        13,
-        11,
-        7898,
-        0.512,
-        7380
       ],
       [
         "Shang-Chi",
         13,
         11,
         9048,
-        0.329,
+        0.389,
         8332
       ],
       [
-        "Jericho Drumm",
+        "Mockingbird (Marvel Comics)",
         13,
-        7,
-        1626,
-        0.513,
-        1386
+        11,
+        7898,
+        0.413,
+        7380
       ],
       [
         "Franklin Richards (character)",
@@ -593,28 +649,28 @@
         2291
       ],
       [
+        "Ghost Rider",
+        13,
+        15,
+        7066,
+        0.758,
+        5883
+      ],
+      [
         "Black Bolt",
         13,
         9,
         5809,
-        0.723,
+        0.701,
         5298
       ],
       [
-        "Spider-Woman (Gwen Stacy)",
-        12,
-        14,
-        5605,
-        0.627,
-        5055
-      ],
-      [
-        "Star-Lord",
-        12,
-        10,
-        5953,
-        0.719,
-        5254
+        "Jericho Drumm",
+        13,
+        7,
+        1626,
+        0.513,
+        1386
       ],
       [
         "War Machine",
@@ -625,20 +681,36 @@
         3261
       ],
       [
+        "Spider-Woman (Gwen Stacy)",
+        12,
+        14,
+        5605,
+        0.634,
+        5055
+      ],
+      [
+        "Star-Lord",
+        12,
+        10,
+        5953,
+        0.735,
+        5254
+      ],
+      [
+        "Eddie Brock",
+        11,
+        16,
+        10774,
+        0.829,
+        9874
+      ],
+      [
         "Cloak and Dagger (characters)",
         11,
         24,
         5596,
-        0.791,
+        0.779,
         5002
-      ],
-      [
-        "Moondragon",
-        11,
-        7,
-        3061,
-        0.912,
-        2844
       ],
       [
         "Ms. Marvel",
@@ -649,35 +721,43 @@
         1483
       ],
       [
-        "Eddie Brock",
+        "Moondragon",
         11,
-        16,
-        10774,
-        0.823,
-        9874
-      ],
-      [
-        "Spider-Woman",
-        10,
-        12,
-        2485,
-        0.481,
-        1985
+        7,
+        3061,
+        0.912,
+        2844
       ],
       [
         "Rocket Raccoon",
         10,
         8,
         2750,
-        0.489,
+        0.499,
         2049
+      ],
+      [
+        "Jubilee (character)",
+        10,
+        10,
+        4503,
+        0.778,
+        4103
+      ],
+      [
+        "Anya Corazon",
+        10,
+        12,
+        3825,
+        0.841,
+        3369
       ],
       [
         "Quicksilver (Marvel Comics)",
         10,
         10,
         7070,
-        0.405,
+        0.462,
         6761
       ],
       [
@@ -689,44 +769,20 @@
         1468
       ],
       [
-        "Anya Corazon",
-        10,
-        12,
-        3825,
-        0.841,
-        3369
-      ],
-      [
-        "Jubilee (character)",
-        10,
-        10,
-        4503,
-        0.744,
-        4103
-      ],
-      [
         "Ghost Rider (Johnny Blaze)",
         10,
         8,
         6921,
-        0.759,
+        0.74,
         6552
       ],
       [
-        "Sentry (Robert Reynolds)",
-        9,
-        6,
-        3262,
-        0.569,
-        2796
-      ],
-      [
-        "Captain Marvel (Marvel Comics)",
-        9,
-        14,
-        2760,
-        0.581,
-        2150
+        "Spider-Woman",
+        10,
+        12,
+        2485,
+        0.481,
+        1985
       ],
       [
         "Bucky (Marvel Comics)",
@@ -737,20 +793,20 @@
         2716
       ],
       [
-        "Morbius",
+        "Captain Marvel (Marvel Comics)",
         9,
-        16,
-        9034,
-        0.701,
-        8496
+        14,
+        2760,
+        0.581,
+        2150
       ],
       [
-        "Bill Foster (character)",
+        "Sentry (Robert Reynolds)",
         9,
-        12,
-        1845,
-        0.809,
-        1594
+        6,
+        3262,
+        0.569,
+        2796
       ],
       [
         "Vulcan (Marvel Comics)",
@@ -761,6 +817,22 @@
         2351
       ],
       [
+        "Bill Foster (character)",
+        9,
+        12,
+        1845,
+        0.809,
+        1594
+      ],
+      [
+        "Morbius",
+        9,
+        16,
+        9034,
+        0.743,
+        8496
+      ],
+      [
         "John Jameson (character)",
         9,
         7,
@@ -769,12 +841,12 @@
         2440
       ],
       [
-        "Adam Warlock",
+        "Rom the Space Knight",
         8,
-        22,
-        6810,
-        0.771,
-        6248
+        8,
+        3632,
+        0.593,
+        3414
       ],
       [
         "Union Jack (Marvel Comics)",
@@ -785,36 +857,12 @@
         2299
       ],
       [
-        "Rom the Space Knight",
-        8,
-        8,
-        3632,
-        0.628,
-        3414
-      ],
-      [
         "Star Brand",
         8,
         11,
         3907,
         0.74,
         3606
-      ],
-      [
-        "Jessica Jones",
-        8,
-        14,
-        6625,
-        0.472,
-        5911
-      ],
-      [
-        "Darkhawk",
-        8,
-        11,
-        3305,
-        0.752,
-        2904
       ],
       [
         "Scarlet Spider",
@@ -825,36 +873,44 @@
         763
       ],
       [
-        "Genis-Vell",
+        "Darkhawk",
+        8,
+        11,
+        3305,
+        0.752,
+        2904
+      ],
+      [
+        "Adam Warlock",
+        8,
+        22,
+        6810,
+        0.771,
+        6248
+      ],
+      [
+        "Jessica Jones",
+        8,
+        14,
+        6625,
+        0.472,
+        5911
+      ],
+      [
+        "Hyperion (character)",
         7,
-        3,
-        2231,
-        0.688,
-        2019
+        6,
+        1963,
+        0.613,
+        1705
       ],
       [
         "Betsy Braddock",
         7,
         28,
         13289,
-        0.8,
+        0.818,
         12466
-      ],
-      [
-        "Phyla-Vell",
-        7,
-        8,
-        1981,
-        0.659,
-        1753
-      ],
-      [
-        "Patsy Walker",
-        7,
-        10,
-        4510,
-        0.376,
-        4046
       ],
       [
         "Spider-Man Noir",
@@ -873,19 +929,43 @@
         3713
       ],
       [
-        "Hyperion (character)",
+        "Phyla-Vell",
         7,
-        6,
-        1963,
-        0.562,
-        1705
+        8,
+        1981,
+        0.709,
+        1753
+      ],
+      [
+        "Doctor Nemesis",
+        7,
+        9,
+        1459,
+        0.817,
+        1259
+      ],
+      [
+        "Patsy Walker",
+        7,
+        10,
+        4510,
+        0.403,
+        4046
+      ],
+      [
+        "Genis-Vell",
+        7,
+        3,
+        2231,
+        0.678,
+        2019
       ],
       [
         "Ghost Rider (Danny Ketch)",
         7,
         7,
         1496,
-        0.814,
+        0.833,
         1180
       ],
       [
@@ -893,16 +973,8 @@
         7,
         1,
         1141,
-        0.375,
+        0.398,
         1040
-      ],
-      [
-        "Doctor Nemesis",
-        7,
-        9,
-        1459,
-        0.891,
-        1259
       ],
       [
         "Wolverine (Ultimate Marvel character)",
@@ -913,11 +985,27 @@
         2919
       ],
       [
+        "Captain Universe",
+        6,
+        14,
+        2947,
+        0.724,
+        2514
+      ],
+      [
+        "Whizzer (Robert Frank)",
+        6,
+        6,
+        1276,
+        0.489,
+        1085
+      ],
+      [
         "Robbie Baldwin",
         6,
         13,
         3928,
-        0.81,
+        0.786,
         3700
       ],
       [
@@ -929,22 +1017,6 @@
         797
       ],
       [
-        "Gladiator (Kallark)",
-        6,
-        6,
-        1065,
-        0.677,
-        934
-      ],
-      [
-        "U.S. Agent",
-        6,
-        20,
-        9653,
-        0.856,
-        9104
-      ],
-      [
         "Machine Man",
         6,
         12,
@@ -953,44 +1025,12 @@
         1980
       ],
       [
-        "Union Jack (Joseph Chapman)",
+        "Gladiator (Kallark)",
         6,
         6,
-        1940,
-        0.497,
-        1677
-      ],
-      [
-        "Anole (character)",
-        6,
-        6,
-        4001,
-        0.554,
-        3716
-      ],
-      [
-        "Gwenpool",
-        6,
-        15,
-        8042,
-        0.586,
-        7511
-      ],
-      [
-        "Whizzer (Robert Frank)",
-        6,
-        6,
-        1276,
-        0.619,
-        1085
-      ],
-      [
-        "Captain Universe",
-        6,
-        14,
-        2947,
-        0.699,
-        2514
+        1065,
+        0.677,
+        934
       ],
       [
         "Guardian (Marvel Comics)",
@@ -1001,6 +1041,14 @@
         1170
       ],
       [
+        "Gwenpool",
+        6,
+        15,
+        8042,
+        0.572,
+        7511
+      ],
+      [
         "Tarantula (Marvel Comics)",
         6,
         9,
@@ -1009,92 +1057,36 @@
         1336
       ],
       [
-        "Gargoyle (comics)",
-        5,
-        5,
-        1219,
-        0.659,
-        1104
+        "Union Jack (Joseph Chapman)",
+        6,
+        6,
+        1940,
+        0.425,
+        1677
       ],
       [
-        "Abomination (character)",
+        "U.S. Agent",
+        6,
+        20,
+        9653,
+        0.858,
+        9104
+      ],
+      [
+        "Anole (character)",
+        6,
+        6,
+        4001,
+        0.554,
+        3716
+      ],
+      [
+        "Arabian Knight (character)",
         5,
         8,
-        4022,
-        0.807,
-        3714
-      ],
-      [
-        "Vance Astrovik",
-        5,
-        8,
-        1437,
-        0.901,
-        1298
-      ],
-      [
-        "Spider-Girl",
-        5,
-        12,
-        2220,
-        0.67,
-        1769
-      ],
-      [
-        "Spitfire (character)",
-        5,
-        5,
-        3007,
-        0.464,
-        2664
-      ],
-      [
-        "Delroy Garrett",
-        5,
-        3,
-        1779,
-        0.866,
-        1693
-      ],
-      [
-        "Red Guardian",
-        5,
-        5,
-        2529,
-        0.715,
-        2266
-      ],
-      [
-        "Paladin (comics)",
-        5,
-        10,
-        1227,
-        0.749,
-        1119
-      ],
-      [
-        "Black Marvel",
-        5,
-        2,
-        1206,
-        0.867,
-        1130
-      ],
-      [
-        "Elsa Bloodstone",
-        5,
-        12,
-        1935,
-        0.429,
-        1710
-      ],
-      [
-        "Nomad (Marvel Comics)",
-        5,
-        4,
-        696,
-        0.379,
-        607
+        784,
+        0.668,
+        678
       ],
       [
         "Ares (Marvel Comics)",
@@ -1105,12 +1097,28 @@
         2710
       ],
       [
-        "Puck (Marvel Comics)",
+        "Black Marvel",
+        5,
+        2,
+        1206,
+        0.841,
+        1130
+      ],
+      [
+        "Gorgon (Inhuman)",
+        5,
+        1,
+        814,
+        0.883,
+        511
+      ],
+      [
+        "Vance Astrovik",
         5,
         8,
-        1858,
-        0.828,
-        1578
+        1437,
+        0.901,
+        1298
       ],
       [
         "Hulkling",
@@ -1125,24 +1133,56 @@
         5,
         4,
         1562,
-        0.986,
+        0.946,
         1464
       ],
       [
-        "Arabian Knight (character)",
+        "Spitfire (character)",
         5,
-        8,
-        784,
-        0.668,
-        678
+        5,
+        3007,
+        0.455,
+        2664
       ],
       [
-        "Gorgon (Inhuman)",
+        "Spider-Girl",
         5,
-        1,
-        814,
-        0.883,
-        511
+        12,
+        2220,
+        0.67,
+        1769
+      ],
+      [
+        "Delroy Garrett",
+        5,
+        3,
+        1779,
+        0.866,
+        1693
+      ],
+      [
+        "Puck (Marvel Comics)",
+        5,
+        8,
+        1858,
+        0.828,
+        1578
+      ],
+      [
+        "Red Guardian",
+        5,
+        5,
+        2529,
+        0.715,
+        2266
+      ],
+      [
+        "Nomad (Marvel Comics)",
+        5,
+        4,
+        696,
+        0.379,
+        607
       ],
       [
         "Nightmask",
@@ -1153,14 +1193,6 @@
         1142
       ],
       [
-        "Makkari (character)",
-        5,
-        1,
-        1052,
-        0.671,
-        956
-      ],
-      [
         "Phil Urich",
         5,
         3,
@@ -1169,12 +1201,36 @@
         896
       ],
       [
+        "Paladin (comics)",
+        5,
+        10,
+        1227,
+        0.749,
+        1119
+      ],
+      [
+        "Gargoyle (comics)",
+        5,
+        5,
+        1219,
+        0.659,
+        1104
+      ],
+      [
         "Fin Fang Foom",
         5,
         2,
         2046,
-        0.545,
+        0.572,
         1773
+      ],
+      [
+        "Elsa Bloodstone",
+        5,
+        12,
+        1935,
+        0.429,
+        1710
       ],
       [
         "Doctor Druid",
@@ -1185,36 +1241,36 @@
         1966
       ],
       [
-        "Xorn",
-        4,
+        "Makkari (character)",
+        5,
+        1,
+        1052,
+        0.671,
+        956
+      ],
+      [
+        "Abomination (character)",
+        5,
         8,
-        1762,
-        0.595,
-        1560
+        4022,
+        0.733,
+        3714
       ],
       [
-        "Agent X (Marvel Comics)",
+        "Northstar (character)",
         4,
-        3,
-        1419,
-        0.629,
-        1336
+        14,
+        4855,
+        0.771,
+        4365
       ],
       [
-        "Ch'od",
+        "Guardsman (character)",
         4,
-        3,
-        520,
-        0.719,
-        434
-      ],
-      [
-        "Toro (character)",
-        4,
-        4,
-        1206,
-        0.752,
-        1150
+        7,
+        1787,
+        0.748,
+        1483
       ],
       [
         "Two-Gun Kid",
@@ -1225,28 +1281,12 @@
         1249
       ],
       [
-        "Northstar (character)",
+        "Toro (character)",
         4,
-        14,
-        4855,
-        0.743,
-        4365
-      ],
-      [
-        "Empath (character)",
         4,
-        3,
-        929,
-        0.846,
-        870
-      ],
-      [
-        "Radian (Morituri)",
-        4,
-        6,
-        1662,
-        0.949,
-        1622
+        1206,
+        0.752,
+        1150
       ],
       [
         "Radioactive Man (comics)",
@@ -1257,27 +1297,59 @@
         1283
       ],
       [
-        "Ronin (Marvel Comics)",
+        "Radian (Morituri)",
         4,
-        5,
-        1052,
-        0.629,
-        887
+        6,
+        1662,
+        0.949,
+        1622
       ],
       [
         "Devil Dinosaur",
         4,
         8,
         3231,
-        0.733,
+        0.724,
         2768
+      ],
+      [
+        "Agent X (Marvel Comics)",
+        4,
+        3,
+        1419,
+        0.629,
+        1336
+      ],
+      [
+        "Xorn",
+        4,
+        8,
+        1762,
+        0.595,
+        1560
+      ],
+      [
+        "Empath (character)",
+        4,
+        3,
+        929,
+        0.846,
+        870
+      ],
+      [
+        "Noh-Varr",
+        4,
+        18,
+        4775,
+        0.644,
+        4289
       ],
       [
         "Chase Stein",
         4,
         4,
         3832,
-        0.97,
+        0.905,
         3589
       ],
       [
@@ -1289,20 +1361,20 @@
         2270
       ],
       [
-        "Black Knight (Marvel Comics)",
+        "Ch'od",
         4,
         3,
-        2835,
-        0.59,
-        2515
+        520,
+        0.719,
+        434
       ],
       [
-        "Karnak (character)",
+        "Ronin (Marvel Comics)",
         4,
-        7,
-        2204,
-        0.62,
-        1837
+        5,
+        1052,
+        0.572,
+        887
       ],
       [
         "Kristoff Vernard",
@@ -1313,28 +1385,28 @@
         993
       ],
       [
-        "Hellion (character)",
-        4,
-        11,
-        5601,
-        0.696,
-        5367
-      ],
-      [
-        "Noh-Varr",
-        4,
-        18,
-        4775,
-        0.654,
-        4289
-      ],
-      [
-        "Guardsman (character)",
+        "Karnak (character)",
         4,
         7,
-        1787,
-        0.748,
-        1483
+        2204,
+        0.715,
+        1837
+      ],
+      [
+        "Black Knight (Marvel Comics)",
+        4,
+        3,
+        2835,
+        0.59,
+        2515
+      ],
+      [
+        "Iron Man 2020",
+        4,
+        3,
+        1386,
+        0.719,
+        1255
       ],
       [
         "Hornet (comics)",
@@ -1345,12 +1417,196 @@
         854
       ],
       [
-        "Iron Man 2020",
+        "Hellion (character)",
         4,
+        11,
+        5601,
+        0.696,
+        5367
+      ],
+      [
+        "Kismet (Marvel Comics)",
         3,
-        1386,
-        0.794,
-        1255
+        9,
+        1000,
+        0.745,
+        926
+      ],
+      [
+        "Toxyn",
+        3,
+        2,
+        480,
+        0.778,
+        464
+      ],
+      [
+        "Kid Colt",
+        3,
+        2,
+        971,
+        0.384,
+        823
+      ],
+      [
+        "Jack Monroe (character)",
+        3,
+        4,
+        2423,
+        0.531,
+        2345
+      ],
+      [
+        "Turbo (comics)",
+        3,
+        3,
+        1229,
+        0.968,
+        1190
+      ],
+      [
+        "Speed (character)",
+        3,
+        6,
+        3172,
+        0.763,
+        2956
+      ],
+      [
+        "Shuri (character)",
+        3,
+        9,
+        2945,
+        0.688,
+        2598
+      ],
+      [
+        "Sabra (character)",
+        3,
+        9,
+        2786,
+        0.383,
+        2608
+      ],
+      [
+        "Scaredycat",
+        3,
+        3,
+        693,
+        0.852,
+        682
+      ],
+      [
+        "Captain Marvel (Khn'nr)",
+        3,
+        2,
+        980,
+        0.588,
+        882
+      ],
+      [
+        "Rockslide (character)",
+        3,
+        6,
+        1015,
+        0.913,
+        907
+      ],
+      [
+        "Rikki Barnes",
+        3,
+        6,
+        1171,
+        0.867,
+        1110
+      ],
+      [
+        "Peggy Carter",
+        3,
+        0,
+        1085,
+        0.389,
+        879
+      ],
+      [
+        "Gauntlet (Joseph Green)",
+        3,
+        3,
+        591,
+        0.914,
+        524
+      ],
+      [
+        "Ravage 2099",
+        3,
+        2,
+        1036,
+        0.403,
+        955
+      ],
+      [
+        "Lei Kung (character)",
+        3,
+        3,
+        464,
+        0.911,
+        370
+      ],
+      [
+        "Korvus",
+        3,
+        4,
+        498,
+        0.914,
+        428
+      ],
+      [
+        "Living Lightning",
+        3,
+        5,
+        1834,
+        0.387,
+        1705
+      ],
+      [
+        "Thin Man (character)",
+        3,
+        1,
+        1008,
+        0.79,
+        951
+      ],
+      [
+        "Vyking",
+        3,
+        2,
+        1095,
+        0.913,
+        1075
+      ],
+      [
+        "Surge (Marvel Comics)",
+        3,
+        2,
+        979,
+        0.671,
+        870
+      ],
+      [
+        "Thor Girl",
+        3,
+        2,
+        842,
+        0.813,
+        774
+      ],
+      [
+        "Blazing Skull",
+        3,
+        8,
+        817,
+        0.502,
+        733
       ],
       [
         "Balder the Brave",
@@ -1369,68 +1625,12 @@
         1107
       ],
       [
-        "Jack Monroe (character)",
+        "She-Venom (Patricia Robertson)",
         3,
         4,
-        2423,
-        0.42,
-        2345
-      ],
-      [
-        "Kismet (Marvel Comics)",
-        3,
-        9,
-        1000,
-        0.82,
-        926
-      ],
-      [
-        "Korvus",
-        3,
-        4,
-        498,
-        0.914,
-        428
-      ],
-      [
-        "Kid Colt",
-        3,
-        2,
-        971,
-        0.384,
-        823
-      ],
-      [
-        "Vyking",
-        3,
-        2,
-        1095,
-        0.913,
-        1075
-      ],
-      [
-        "Gauntlet (Joseph Green)",
-        3,
-        3,
-        591,
-        0.914,
-        524
-      ],
-      [
-        "Living Lightning",
-        3,
-        5,
-        1834,
-        0.387,
-        1705
-      ],
-      [
-        "Lei Kung (character)",
-        3,
-        3,
-        464,
-        0.911,
-        370
+        757,
+        0.865,
+        613
       ],
       [
         "Shatterstar",
@@ -1441,140 +1641,12 @@
         3392
       ],
       [
-        "Shuri (character)",
-        3,
-        9,
-        2945,
-        0.688,
-        2598
-      ],
-      [
-        "Speed (character)",
-        3,
-        6,
-        3172,
-        0.806,
-        2956
-      ],
-      [
-        "Captain Marvel (Khn'nr)",
-        3,
-        2,
-        980,
-        0.588,
-        882
-      ],
-      [
-        "She-Venom (Patricia Robertson)",
-        3,
-        4,
-        757,
-        0.865,
-        613
-      ],
-      [
         "William Burnside (character)",
         3,
         4,
         2032,
-        0.517,
+        0.589,
         1952
-      ],
-      [
-        "Surge (Marvel Comics)",
-        3,
-        2,
-        979,
-        0.671,
-        870
-      ],
-      [
-        "Sabra (character)",
-        3,
-        9,
-        2786,
-        0.383,
-        2608
-      ],
-      [
-        "Peggy Carter",
-        3,
-        0,
-        1085,
-        0.437,
-        879
-      ],
-      [
-        "Ravage 2099",
-        3,
-        2,
-        1036,
-        0.403,
-        955
-      ],
-      [
-        "Rikki Barnes",
-        3,
-        6,
-        1171,
-        0.867,
-        1110
-      ],
-      [
-        "Toxyn",
-        3,
-        2,
-        480,
-        0.778,
-        464
-      ],
-      [
-        "Thin Man (character)",
-        3,
-        1,
-        1008,
-        0.79,
-        951
-      ],
-      [
-        "Thor Girl",
-        3,
-        2,
-        842,
-        0.813,
-        774
-      ],
-      [
-        "Turbo (comics)",
-        3,
-        3,
-        1229,
-        0.968,
-        1190
-      ],
-      [
-        "Blazing Skull",
-        3,
-        8,
-        817,
-        0.502,
-        733
-      ],
-      [
-        "Scaredycat",
-        3,
-        3,
-        693,
-        0.852,
-        682
-      ],
-      [
-        "Rockslide (character)",
-        3,
-        6,
-        1015,
-        0.913,
-        907
       ],
       [
         "Justice (New Universe)",
@@ -1585,36 +1657,12 @@
         2680
       ],
       [
-        "Killpower",
+        "Leech (character)",
         2,
-        2,
-        631,
-        0.765,
-        537
-      ],
-      [
-        "Ikaris",
-        2,
-        3,
-        1609,
-        0.836,
-        1339
-      ],
-      [
-        "White Tiger (comics)",
-        2,
-        5,
-        1075,
-        0.768,
-        983
-      ],
-      [
-        "Hulk 2099",
-        2,
-        2,
-        779,
-        0.748,
-        737
+        4,
+        1134,
+        0.818,
+        912
       ],
       [
         "Hybrid (Scott Washington)",
@@ -1625,132 +1673,12 @@
         594
       ],
       [
-        "Rusty Collins",
+        "Hulk 2099",
         2,
-        3,
-        987,
-        1.0,
-        862
-      ],
-      [
-        "Alice Nugent",
         2,
-        6,
-        1561,
-        0.771,
-        1461
-      ],
-      [
-        "Ricochet (comics)",
-        2,
-        4,
-        787,
-        0.844,
-        718
-      ],
-      [
-        "Killraven",
-        2,
-        5,
-        1798,
-        0.418,
-        1614
-      ],
-      [
-        "Iron Lad",
-        2,
-        4,
-        939,
-        1.0,
-        827
-      ],
-      [
-        "Backhand (character)",
-        2,
-        1,
-        547,
-        0.823,
-        538
-      ],
-      [
-        "Ulysses Bloodstone",
-        2,
-        1,
-        1551,
-        0.683,
-        1425
-      ],
-      [
-        "Beta Ray Bill",
-        2,
-        5,
-        3928,
-        0.758,
-        3480
-      ],
-      [
-        "She-Hulk (Lyra)",
-        2,
-        6,
-        1417,
-        0.615,
-        1275
-      ],
-      [
-        "Cammi (character)",
-        2,
-        3,
-        539,
-        0.877,
-        504
-      ],
-      [
-        "Citizen V",
-        2,
-        1,
-        771,
-        0.87,
-        577
-      ],
-      [
-        "Caretaker (comics)",
-        2,
-        3,
-        690,
-        0.854,
-        595
-      ],
-      [
-        "Steel Spider",
-        2,
-        3,
-        676,
-        0.811,
-        599
-      ],
-      [
-        "Starr the Slayer",
-        2,
-        3,
-        583,
-        0.557,
-        540
-      ],
-      [
-        "Starhawk (character)",
-        2,
-        5,
-        1969,
-        0.782,
-        1835
-      ],
-      [
-        "Spider-UK",
-        2,
-        8,
-        1409,
-        0.896,
-        1182
+        779,
+        0.748,
+        737
       ],
       [
         "Synapse (character)",
@@ -1761,12 +1689,60 @@
         368
       ],
       [
-        "Yelena Belova",
+        "Bob, Agent of Hydra",
         2,
-        6,
-        1331,
-        0.572,
-        1177
+        7,
+        985,
+        0.84,
+        810
+      ],
+      [
+        "Thena",
+        2,
+        1,
+        1027,
+        0.784,
+        852
+      ],
+      [
+        "Killraven",
+        2,
+        5,
+        1798,
+        0.418,
+        1614
+      ],
+      [
+        "Killpower",
+        2,
+        2,
+        631,
+        0.765,
+        537
+      ],
+      [
+        "The Union (Marvel)",
+        2,
+        2,
+        1113,
+        0.689,
+        991
+      ],
+      [
+        "Backhand (character)",
+        2,
+        1,
+        547,
+        0.823,
+        538
+      ],
+      [
+        "Beta Ray Bill",
+        2,
+        5,
+        3928,
+        0.814,
+        3480
       ],
       [
         "Blue Bullet",
@@ -1785,46 +1761,6 @@
         1066
       ],
       [
-        "Blue Marvel",
-        2,
-        4,
-        1747,
-        0.523,
-        1559
-      ],
-      [
-        "The Union (Marvel)",
-        2,
-        2,
-        1113,
-        0.689,
-        991
-      ],
-      [
-        "Thena",
-        2,
-        1,
-        1027,
-        0.784,
-        852
-      ],
-      [
-        "Bob, Agent of Hydra",
-        2,
-        7,
-        985,
-        0.84,
-        810
-      ],
-      [
-        "Raza Longknife",
-        2,
-        5,
-        655,
-        0.767,
-        574
-      ],
-      [
         "Power Man (Victor Alvarez)",
         2,
         4,
@@ -1833,11 +1769,107 @@
         836
       ],
       [
+        "White Tiger (comics)",
+        2,
+        5,
+        1075,
+        0.768,
+        983
+      ],
+      [
+        "Yelena Belova",
+        2,
+        6,
+        1331,
+        0.572,
+        1177
+      ],
+      [
+        "Blue Marvel",
+        2,
+        4,
+        1747,
+        0.523,
+        1559
+      ],
+      [
+        "Ikaris",
+        2,
+        3,
+        1609,
+        0.836,
+        1339
+      ],
+      [
+        "Iron Lad",
+        2,
+        4,
+        939,
+        1.0,
+        827
+      ],
+      [
+        "Ulysses Bloodstone",
+        2,
+        1,
+        1551,
+        0.683,
+        1425
+      ],
+      [
+        "Rusty Collins",
+        2,
+        3,
+        987,
+        1.0,
+        862
+      ],
+      [
+        "Spider-UK",
+        2,
+        8,
+        1409,
+        0.862,
+        1182
+      ],
+      [
+        "Steel Spider",
+        2,
+        3,
+        676,
+        0.811,
+        599
+      ],
+      [
+        "Starhawk (character)",
+        2,
+        5,
+        1969,
+        0.782,
+        1835
+      ],
+      [
+        "Starr the Slayer",
+        2,
+        3,
+        583,
+        0.557,
+        540
+      ],
+      [
+        "She-Hulk (Lyra)",
+        2,
+        6,
+        1417,
+        0.615,
+        1275
+      ],
+      [
         "Spider-Bitch (Ashley Barton)",
         2,
         15,
         3574,
-        0.932,
+        0.894,
         3206
       ],
       [
@@ -1857,12 +1889,12 @@
         540
       ],
       [
-        "Frog-Man",
+        "Firebird (Marvel Comics)",
         2,
-        6,
-        3817,
-        0.671,
-        3531
+        12,
+        1753,
+        0.765,
+        1638
       ],
       [
         "Firelord (character)",
@@ -1873,6 +1905,38 @@
         423
       ],
       [
+        "Frog-Man",
+        2,
+        6,
+        3817,
+        0.671,
+        3531
+      ],
+      [
+        "Cammi (character)",
+        2,
+        3,
+        539,
+        0.877,
+        504
+      ],
+      [
+        "Citizen V",
+        2,
+        1,
+        771,
+        0.927,
+        577
+      ],
+      [
+        "Caretaker (comics)",
+        2,
+        3,
+        690,
+        0.854,
+        595
+      ],
+      [
         "Marvel Boy (Robert Grayson)",
         2,
         2,
@@ -1881,12 +1945,12 @@
         774
       ],
       [
-        "Red Raven (Dania)",
+        "Alice Nugent",
         2,
-        3,
-        1574,
-        0.7,
-        1385
+        6,
+        1561,
+        0.771,
+        1461
       ],
       [
         "Dusk (comics)",
@@ -1897,59 +1961,83 @@
         481
       ],
       [
+        "Ricochet (comics)",
+        2,
+        4,
+        787,
+        0.844,
+        718
+      ],
+      [
+        "Red Raven (Dania)",
+        2,
+        3,
+        1574,
+        0.7,
+        1385
+      ],
+      [
         "Frankenstein's Monster (Marvel Comics)",
         2,
         11,
         3093,
-        0.634,
+        0.647,
         2706
       ],
       [
-        "Leech (character)",
+        "Raza Longknife",
         2,
-        4,
-        1134,
-        0.818,
-        912
-      ],
-      [
-        "Firebird (Marvel Comics)",
-        2,
-        12,
-        1753,
-        0.765,
-        1638
-      ],
-      [
-        "Iron Man (Ultimate Marvel character)",
-        1,
         5,
-        1664,
-        0.754,
-        1541
+        655,
+        0.767,
+        574
       ],
       [
-        "Golem (Marvel Comics)",
+        "Box (comics)",
         1,
-        3,
-        823,
-        0.655,
-        597
+        2,
+        863,
+        0.957,
+        791
       ],
       [
-        "Janice Lincoln",
+        "Stingray (Marvel Comics)",
+        1,
+        7,
+        1261,
+        0.83,
+        1179
+      ],
+      [
+        "Bug (Marvel Comics)",
         1,
         4,
-        1068,
-        0.731,
-        1003
+        733,
+        0.226,
+        685
+      ],
+      [
+        "Blue Diamond (character)",
+        1,
+        9,
+        741,
+        0.338,
+        656
+      ],
+      [
+        "Black Rider (character)",
+        1,
+        4,
+        1076,
+        0.459,
+        1027
       ],
       [
         "Alex Wilder",
         1,
         1,
         757,
-        0.75,
+        0.909,
         704
       ],
       [
@@ -1969,68 +2057,20 @@
         448
       ],
       [
-        "Timeslip (comics)",
+        "Skull the Slayer",
+        1,
+        3,
+        574,
+        0.669,
+        501
+      ],
+      [
+        "Shear (character)",
         1,
         2,
-        499,
-        0.814,
-        468
-      ],
-      [
-        "The Witness (character)",
-        1,
-        0,
-        839,
-        0.392,
-        808
-      ],
-      [
-        "Blue Diamond (character)",
-        1,
-        9,
-        741,
-        0.338,
-        656
-      ],
-      [
-        "Box (comics)",
-        1,
-        2,
-        863,
-        0.957,
-        791
-      ],
-      [
-        "Black Rider (character)",
-        1,
-        4,
-        1076,
-        0.459,
-        1027
-      ],
-      [
-        "Brian Braddock",
-        1,
-        11,
-        7446,
-        0.701,
-        6865
-      ],
-      [
-        "Bug (Marvel Comics)",
-        1,
-        4,
-        733,
-        0.226,
-        685
-      ],
-      [
-        "Stingray (Marvel Comics)",
-        1,
-        7,
-        1261,
-        0.83,
-        1179
+        451,
+        0.816,
+        440
       ],
       [
         "Solo (Marvel Comics)",
@@ -2041,164 +2081,12 @@
         671
       ],
       [
-        "Force (comics)",
-        1,
-        1,
-        499,
-        0.892,
-        434
-      ],
-      [
-        "Flatman (character)",
-        1,
-        3,
-        1522,
-        0.876,
-        1447
-      ],
-      [
-        "Jean Grey (X-Men film series)",
-        1,
-        5,
-        2249,
-        0.423,
-        2106
-      ],
-      [
-        "Hit-Monkey",
-        1,
-        3,
-        969,
-        0.737,
-        753
-      ],
-      [
-        "White Tiger (Heroes for Hire)",
-        1,
-        3,
-        404,
-        0.842,
-        374
-      ],
-      [
-        "Hrimhari",
-        1,
-        1,
-        652,
-        0.94,
-        598
-      ],
-      [
-        "Jack Frost (Marvel Comics)",
-        1,
-        7,
-        1158,
-        0.362,
-        1110
-      ],
-      [
-        "Black Jack Tarr",
-        1,
-        1,
-        471,
-        0.945,
-        420
-      ],
-      [
-        "Typeface (character)",
-        1,
-        3,
-        465,
-        0.901,
-        375
-      ],
-      [
         "Debrii",
         1,
         5,
         577,
         0.649,
         527
-      ],
-      [
-        "Devil Hulk",
-        1,
-        2,
-        1092,
-        0.873,
-        1013
-      ],
-      [
-        "Doom 2099",
-        1,
-        9,
-        1663,
-        0.828,
-        1481
-      ],
-      [
-        "Garrison Kane",
-        1,
-        6,
-        982,
-        0.734,
-        876
-      ],
-      [
-        "G. W. Bridge",
-        1,
-        2,
-        672,
-        0.774,
-        592
-      ],
-      [
-        "Dragon Lord (character)",
-        1,
-        1,
-        710,
-        0.577,
-        506
-      ],
-      [
-        "Fandral",
-        1,
-        2,
-        1812,
-        0.843,
-        1472
-      ],
-      [
-        "Nightwatch (character)",
-        1,
-        3,
-        786,
-        0.718,
-        727
-      ],
-      [
-        "Magician (Marvel Comics)",
-        1,
-        3,
-        1014,
-        0.953,
-        915
-      ],
-      [
-        "Motormouth (comics)",
-        1,
-        4,
-        1215,
-        0.832,
-        1149
-      ],
-      [
-        "Mania (character)",
-        1,
-        7,
-        2737,
-        0.941,
-        2628
       ],
       [
         "Crane Mother",
@@ -2217,6 +2105,46 @@
         528
       ],
       [
+        "Red Wolf (comics)",
+        1,
+        9,
+        2281,
+        0.533,
+        2065
+      ],
+      [
+        "Devil Hulk",
+        1,
+        2,
+        1092,
+        0.873,
+        1013
+      ],
+      [
+        "Doom 2099",
+        1,
+        9,
+        1663,
+        0.828,
+        1481
+      ],
+      [
+        "Magician (Marvel Comics)",
+        1,
+        3,
+        1014,
+        0.953,
+        915
+      ],
+      [
+        "Brian Braddock",
+        1,
+        11,
+        7446,
+        0.701,
+        6865
+      ],
+      [
         "Powerhouse (Marvel Comics)",
         1,
         4,
@@ -2225,92 +2153,172 @@
         488
       ],
       [
-        "Red Wolf (comics)",
+        "G. W. Bridge",
         1,
-        9,
-        2281,
-        0.48,
-        2065
+        2,
+        672,
+        0.774,
+        592
       ],
       [
-        "Skull the Slayer",
+        "Force (comics)",
+        1,
+        1,
+        499,
+        0.892,
+        434
+      ],
+      [
+        "Garrison Kane",
+        1,
+        6,
+        982,
+        0.734,
+        876
+      ],
+      [
+        "Iron Man (Ultimate Marvel character)",
+        1,
+        5,
+        1664,
+        0.754,
+        1541
+      ],
+      [
+        "Hrimhari",
+        1,
+        1,
+        652,
+        0.94,
+        598
+      ],
+      [
+        "Golem (Marvel Comics)",
         1,
         3,
-        574,
-        0.669,
-        501
+        823,
+        0.655,
+        597
       ],
       [
-        "Shear (character)",
+        "Jean Grey (X-Men film series)",
+        1,
+        5,
+        2249,
+        0.423,
+        2106
+      ],
+      [
+        "Hit-Monkey",
+        1,
+        3,
+        969,
+        0.737,
+        753
+      ],
+      [
+        "Janice Lincoln",
+        1,
+        4,
+        1068,
+        0.731,
+        1003
+      ],
+      [
+        "Black Jack Tarr",
+        1,
+        1,
+        471,
+        0.945,
+        420
+      ],
+      [
+        "Typeface (character)",
+        1,
+        3,
+        465,
+        0.901,
+        375
+      ],
+      [
+        "Timeslip (comics)",
         1,
         2,
-        451,
-        0.816,
-        440
+        499,
+        0.814,
+        468
       ],
       [
-        "Gremlin (comics)",
+        "The Witness (character)",
+        1,
         0,
+        839,
+        0.392,
+        808
+      ],
+      [
+        "White Tiger (Heroes for Hire)",
+        1,
+        3,
+        404,
+        0.842,
+        374
+      ],
+      [
+        "Jack Frost (Marvel Comics)",
+        1,
+        7,
+        1158,
+        0.362,
+        1110
+      ],
+      [
+        "Nightwatch (character)",
+        1,
+        3,
+        786,
+        0.718,
+        727
+      ],
+      [
+        "Motormouth (comics)",
+        1,
         4,
-        628,
-        0.746,
-        551
+        1215,
+        0.832,
+        1149
       ],
       [
-        "Junior Juniper",
-        0,
+        "Dragon Lord (character)",
+        1,
+        1,
+        710,
+        0.577,
+        506
+      ],
+      [
+        "Flatman (character)",
+        1,
+        3,
+        1522,
+        0.876,
+        1447
+      ],
+      [
+        "Mania (character)",
+        1,
+        7,
+        2737,
+        0.941,
+        2628
+      ],
+      [
+        "Fandral",
+        1,
         2,
-        993,
-        0.652,
-        924
-      ],
-      [
-        "Human Fly (character)",
-        0,
-        5,
-        1191,
-        0.712,
-        1088
-      ],
-      [
-        "Illuminator (Marvel Comics)",
-        0,
-        0,
-        284,
-        0.47,
-        247
-      ],
-      [
-        "Ursa Major (character)",
-        0,
-        4,
-        1181,
-        0.905,
-        1072
-      ],
-      [
-        "Black Fox (Robert Paine)",
-        0,
-        0,
-        281,
-        0.908,
-        228
-      ],
-      [
-        "Bird-Brain (Marvel Comics)",
-        0,
-        0,
-        390,
-        0.905,
-        336
-      ],
-      [
-        "Baymax",
-        0,
-        0,
-        1610,
-        0.595,
-        1422
+        1812,
+        0.826,
+        1472
       ],
       [
         "Inferno (Dante Pertuz)",
@@ -2321,36 +2329,52 @@
         1021
       ],
       [
-        "Isaiah Bradley",
-        0,
-        7,
-        2085,
-        0.641,
-        1941
-      ],
-      [
-        "Helix (Marvel Comics)",
-        0,
-        1,
-        195,
-        0.743,
-        187
-      ],
-      [
-        "Hawkeye (comics)",
-        0,
-        3,
-        361,
-        1.0,
-        230
-      ],
-      [
         "Hellfire (J. T. Slade)",
         0,
         0,
         201,
         1.0,
         102
+      ],
+      [
+        "Junior Juniper",
+        0,
+        2,
+        993,
+        0.652,
+        924
+      ],
+      [
+        "Illuminator (Marvel Comics)",
+        0,
+        0,
+        284,
+        0.47,
+        247
+      ],
+      [
+        "Super Rabbit",
+        0,
+        0,
+        502,
+        0.215,
+        460
+      ],
+      [
+        "Ursa Major (character)",
+        0,
+        4,
+        1181,
+        0.861,
+        1072
+      ],
+      [
+        "Gremlin (comics)",
+        0,
+        4,
+        628,
+        0.746,
+        551
       ],
       [
         "Happy Sam Sawyer",
@@ -2361,20 +2385,100 @@
         297
       ],
       [
-        "Dogpool",
+        "Helix (Marvel Comics)",
         0,
         1,
-        377,
-        0.369,
-        363
+        195,
+        0.743,
+        187
       ],
       [
-        "Emrys Killebrew",
+        "Blue Eagle (character)",
+        0,
+        1,
+        591,
+        0.779,
+        548
+      ],
+      [
+        "Bird-Brain (Marvel Comics)",
+        0,
+        0,
+        390,
+        0.643,
+        336
+      ],
+      [
+        "Black Fox (Robert Paine)",
+        0,
+        0,
+        281,
+        0.908,
+        228
+      ],
+      [
+        "Blackwulf",
         0,
         2,
-        379,
-        0.834,
-        326
+        1031,
+        0.856,
+        956
+      ],
+      [
+        "Baymax",
+        0,
+        0,
+        1610,
+        0.501,
+        1422
+      ],
+      [
+        "Human Fly (character)",
+        0,
+        5,
+        1191,
+        0.693,
+        1088
+      ],
+      [
+        "Isaiah Bradley",
+        0,
+        7,
+        2085,
+        0.681,
+        1941
+      ],
+      [
+        "Hawkeye (comics)",
+        0,
+        3,
+        361,
+        1.0,
+        230
+      ],
+      [
+        "Straw Man (comics)",
+        0,
+        2,
+        488,
+        0.453,
+        435
+      ],
+      [
+        "Thunderclap (comics)",
+        0,
+        1,
+        430,
+        0.921,
+        369
+      ],
+      [
+        "Thunderbolt (Marvel Comics)",
+        0,
+        2,
+        570,
+        0.902,
+        468
       ],
       [
         "Mahr Vehl",
@@ -2385,12 +2489,20 @@
         593
       ],
       [
-        "Mark Hazzard: Merc",
+        "Dogpool",
         0,
         1,
-        833,
-        0.549,
-        617
+        377,
+        0.369,
+        363
+      ],
+      [
+        "Digitek (character)",
+        0,
+        1,
+        481,
+        0.43,
+        467
       ],
       [
         "Father Time (Marvel Comics)",
@@ -2401,28 +2513,28 @@
         532
       ],
       [
-        "Miracleman (character)",
+        "Fabio Medina",
         0,
-        0,
-        4471,
-        0.554,
-        4278
+        3,
+        902,
+        0.44,
+        866
       ],
       [
-        "Moonglow (comics)",
+        "Mark Hazzard: Merc",
         0,
         1,
-        347,
-        0.904,
-        249
+        833,
+        0.549,
+        617
       ],
       [
-        "Phil Grayfield",
+        "Ruby Summers",
         0,
-        1,
-        717,
-        0.334,
-        584
+        2,
+        455,
+        0.809,
+        434
       ],
       [
         "Rockman (character)",
@@ -2433,20 +2545,52 @@
         876
       ],
       [
-        "Coldblood",
-        0,
-        2,
-        696,
-        0.956,
-        619
-      ],
-      [
-        "Enigma (Marvel Comics)",
+        "Redneck (comics)",
         0,
         1,
-        529,
+        256,
+        0.9,
+        210
+      ],
+      [
+        "Miracleman (character)",
+        0,
+        0,
+        4471,
+        0.554,
+        4278
+      ],
+      [
+        "Phil Grayfield",
+        0,
+        1,
+        717,
+        0.334,
+        584
+      ],
+      [
+        "Moonglow (comics)",
+        0,
+        1,
+        347,
+        0.904,
+        249
+      ],
+      [
+        "Oya (comics)",
+        0,
+        3,
+        655,
+        0.663,
+        597
+      ],
+      [
+        "Ogre (Marvel Comics)",
+        0,
+        0,
+        332,
         1.0,
-        485
+        296
       ],
       [
         "Ethan Edwards",
@@ -2457,6 +2601,22 @@
         509
       ],
       [
+        "Enigma (Marvel Comics)",
+        0,
+        1,
+        529,
+        1.0,
+        485
+      ],
+      [
+        "Emrys Killebrew",
+        0,
+        2,
+        379,
+        0.834,
+        326
+      ],
+      [
         "Sean and Chris",
         0,
         0,
@@ -2465,12 +2625,20 @@
         516
       ],
       [
-        "Scorpio (Marvel Comics)",
+        "Breeze Barton",
         0,
-        2,
-        1183,
-        0.815,
-        1047
+        0,
+        734,
+        0.868,
+        695
+      ],
+      [
+        "Brain Drain (character)",
+        0,
+        0,
+        459,
+        0.799,
+        408
       ],
       [
         "Scarlet Scarab",
@@ -2481,12 +2649,28 @@
         1075
       ],
       [
-        "Ruby Summers",
+        "Scorpio (Marvel Comics)",
         0,
         2,
-        455,
-        0.809,
-        434
+        1183,
+        0.787,
+        1047
+      ],
+      [
+        "Shamrock (comics)",
+        0,
+        8,
+        1102,
+        0.718,
+        1010
+      ],
+      [
+        "Detroit Steel",
+        0,
+        1,
+        1278,
+        0.633,
+        1121
       ],
       [
         "Dargo Ktor",
@@ -2505,116 +2689,28 @@
         292
       ],
       [
-        "Detroit Steel",
-        0,
-        1,
-        1278,
-        0.633,
-        1121
-      ],
-      [
-        "Digitek (character)",
-        0,
-        1,
-        481,
-        0.43,
-        467
-      ],
-      [
-        "Ogre (Marvel Comics)",
-        0,
-        0,
-        332,
-        1.0,
-        296
-      ],
-      [
-        "Redneck (comics)",
-        0,
-        1,
-        256,
-        0.9,
-        210
-      ],
-      [
-        "Oya (comics)",
-        0,
-        3,
-        655,
-        0.663,
-        597
-      ],
-      [
-        "Fabio Medina",
-        0,
-        3,
-        902,
-        0.44,
-        866
-      ],
-      [
-        "Silhouette (comics)",
-        0,
-        2,
-        844,
-        0.955,
-        760
-      ],
-      [
-        "Silencer (comics)",
-        0,
-        2,
-        1025,
-        0.854,
-        882
-      ],
-      [
-        "Shamrock (comics)",
-        0,
-        8,
-        1102,
-        0.718,
-        1010
-      ],
-      [
-        "Breeze Barton",
-        0,
-        0,
-        734,
-        0.868,
-        695
-      ],
-      [
-        "Straw Man (comics)",
-        0,
-        2,
-        488,
-        0.386,
-        435
-      ],
-      [
-        "Spider-Man (Marvel Mangaverse)",
-        0,
-        3,
-        1227,
-        0.559,
-        1091
-      ],
-      [
-        "Captain Ultra",
-        0,
-        1,
-        722,
-        0.634,
-        685
-      ],
-      [
         "Charcoal (comics)",
         0,
         0,
         397,
         0.437,
         339
+      ],
+      [
+        "Captain Ultra",
+        0,
+        1,
+        722,
+        0.664,
+        685
+      ],
+      [
+        "Coldblood",
+        0,
+        2,
+        696,
+        0.956,
+        619
       ],
       [
         "Captain Midlands",
@@ -2625,12 +2721,12 @@
         595
       ],
       [
-        "Solarman",
+        "Spider-Man (Marvel Mangaverse)",
         0,
-        0,
-        771,
-        0.262,
-        686
+        3,
+        1227,
+        0.315,
+        1091
       ],
       [
         "Solomon Kane (comics)",
@@ -2641,44 +2737,28 @@
         947
       ],
       [
-        "Blue Eagle (character)",
+        "Solarman",
         0,
-        1,
-        591,
-        0.779,
-        548
+        0,
+        771,
+        0.376,
+        686
       ],
       [
-        "Brain Drain (character)",
-        0,
-        0,
-        459,
-        0.799,
-        408
-      ],
-      [
-        "Super Rabbit",
-        0,
-        0,
-        502,
-        0.215,
-        460
-      ],
-      [
-        "Blackwulf",
+        "Silencer (comics)",
         0,
         2,
-        1031,
-        0.856,
-        956
+        1025,
+        0.854,
+        882
       ],
       [
-        "Thunderbolt (Marvel Comics)",
+        "Silhouette (comics)",
         0,
         2,
-        570,
-        0.902,
-        468
+        844,
+        0.955,
+        760
       ],
       [
         "Wild Child (character)",
@@ -2687,14 +2767,6 @@
         1253,
         0.801,
         1115
-      ],
-      [
-        "Thunderclap (comics)",
-        0,
-        1,
-        430,
-        0.921,
-        369
       ],
       [
         "Yo-Yo Rodriguez",
@@ -5606,218 +5678,6 @@
         ]
       },
       {
-        "name": "Black Widow (Natasha Romanova)",
-        "text": "She reformed into a hero in The Avengers #30 (1966) and her most well-known design was introduced in The Amazing Spider-Man #86 (1970).",
-        "tok": [
-          [
-            "She",
-            "she",
-            5
-          ],
-          [
-            "reformed",
-            "reform",
-            4
-          ],
-          [
-            "into",
-            0,
-            5
-          ],
-          [
-            "a",
-            0,
-            5
-          ],
-          [
-            "hero",
-            0,
-            4
-          ],
-          [
-            "in",
-            0,
-            5
-          ],
-          [
-            "The",
-            "the",
-            5
-          ],
-          [
-            "Avengers",
-            0,
-            4
-          ],
-          [
-            "#",
-            0,
-            2
-          ],
-          [
-            "30",
-            0,
-            4
-          ],
-          [
-            "(",
-            0,
-            2
-          ],
-          [
-            "1966",
-            0,
-            0
-          ],
-          [
-            ")",
-            0,
-            6
-          ],
-          [
-            "and",
-            0,
-            5
-          ],
-          [
-            "her",
-            0,
-            5
-          ],
-          [
-            "most",
-            0,
-            5
-          ],
-          [
-            "well",
-            0,
-            1
-          ],
-          [
-            "-",
-            0,
-            2
-          ],
-          [
-            "known",
-            "know",
-            4
-          ],
-          [
-            "design",
-            0,
-            4
-          ],
-          [
-            "was",
-            "be",
-            5
-          ],
-          [
-            "introduced",
-            "introduce",
-            4
-          ],
-          [
-            "in",
-            0,
-            5
-          ],
-          [
-            "The",
-            "the",
-            5
-          ],
-          [
-            "Amazing",
-            0,
-            4
-          ],
-          [
-            "Spider",
-            0,
-            0
-          ],
-          [
-            "-",
-            0,
-            2
-          ],
-          [
-            "Man",
-            0,
-            4
-          ],
-          [
-            "#",
-            0,
-            2
-          ],
-          [
-            "86",
-            0,
-            4
-          ],
-          [
-            "(",
-            0,
-            2
-          ],
-          [
-            "1970",
-            0,
-            0
-          ],
-          [
-            ")",
-            0,
-            2
-          ],
-          [
-            ".",
-            0,
-            2
-          ]
-        ],
-        "pieces": [
-          "She",
-          " re",
-          "formed",
-          " into",
-          " a",
-          " hero",
-          " in",
-          " The",
-          " Avengers",
-          " #",
-          "30",
-          " (",
-          "196",
-          "6",
-          ")",
-          " and",
-          " her",
-          " most",
-          " well",
-          "-known",
-          " design",
-          " was",
-          " introduced",
-          " in",
-          " The",
-          " Amazing",
-          " Spider",
-          "-Man",
-          " #",
-          "86",
-          " (",
-          "197",
-          "0",
-          ")."
-        ]
-      },
-      {
         "name": "Moon Knight",
         "text": "Moon Knight is typically portrayed as a street-level vigilante with minimal superhuman abilities, relying instead on his athletic conditioning, expert hand-to-hand combat training, and detective skills to fight crime.",
         "tok": [
@@ -6059,97 +5919,32 @@
         ]
       },
       {
-        "name": "Emma Frost",
-        "text": "Created by writer Chris Claremont and artist/co-writer John Byrne, the character first appeared in The Uncanny X-Men #129 (January 1980).",
+        "name": "Black Widow (Natasha Romanova)",
+        "text": "She reformed into a hero in The Avengers #30 (1966) and her most well-known design was introduced in The Amazing Spider-Man #86 (1970).",
         "tok": [
           [
-            "Created",
-            "create",
+            "She",
+            "she",
+            5
+          ],
+          [
+            "reformed",
+            "reform",
             4
           ],
           [
-            "by",
+            "into",
             0,
             5
           ],
           [
-            "writer",
-            0,
-            4
-          ],
-          [
-            "Chris",
-            0,
-            4
-          ],
-          [
-            "Claremont",
-            0,
-            4
-          ],
-          [
-            "and",
+            "a",
             0,
             5
           ],
           [
-            "artist",
+            "hero",
             0,
-            0
-          ],
-          [
-            "/",
-            0,
-            2
-          ],
-          [
-            "co",
-            0,
-            0
-          ],
-          [
-            "-",
-            0,
-            2
-          ],
-          [
-            "writer",
-            0,
-            4
-          ],
-          [
-            "John",
-            0,
-            4
-          ],
-          [
-            "Byrne",
-            0,
-            0
-          ],
-          [
-            ",",
-            0,
-            6
-          ],
-          [
-            "the",
-            0,
-            5
-          ],
-          [
-            "character",
-            0,
-            4
-          ],
-          [
-            "first",
-            0,
-            5
-          ],
-          [
-            "appeared",
-            "appear",
             4
           ],
           [
@@ -6163,23 +5958,8 @@
             5
           ],
           [
-            "Uncanny",
-            "uncanny",
-            4
-          ],
-          [
-            "X",
-            "x",
-            0
-          ],
-          [
-            "-",
+            "Avengers",
             0,
-            2
-          ],
-          [
-            "Men",
-            "men",
             4
           ],
           [
@@ -6188,7 +5968,7 @@
             2
           ],
           [
-            "129",
+            "30",
             0,
             4
           ],
@@ -6198,12 +5978,107 @@
             2
           ],
           [
-            "January",
+            "1966",
+            0,
+            0
+          ],
+          [
+            ")",
+            0,
+            6
+          ],
+          [
+            "and",
+            0,
+            5
+          ],
+          [
+            "her",
+            0,
+            5
+          ],
+          [
+            "most",
+            0,
+            5
+          ],
+          [
+            "well",
+            0,
+            1
+          ],
+          [
+            "-",
+            0,
+            2
+          ],
+          [
+            "known",
+            "know",
+            4
+          ],
+          [
+            "design",
             0,
             4
           ],
           [
-            "1980",
+            "was",
+            "be",
+            5
+          ],
+          [
+            "introduced",
+            "introduce",
+            4
+          ],
+          [
+            "in",
+            0,
+            5
+          ],
+          [
+            "The",
+            "the",
+            5
+          ],
+          [
+            "Amazing",
+            0,
+            4
+          ],
+          [
+            "Spider",
+            0,
+            0
+          ],
+          [
+            "-",
+            0,
+            2
+          ],
+          [
+            "Man",
+            0,
+            4
+          ],
+          [
+            "#",
+            0,
+            2
+          ],
+          [
+            "86",
+            0,
+            4
+          ],
+          [
+            "(",
+            0,
+            2
+          ],
+          [
+            "1970",
             0,
             0
           ],
@@ -6219,38 +6094,38 @@
           ]
         ],
         "pieces": [
-          "Created",
-          " by",
-          " writer",
-          " Chris",
-          " Cl",
-          "arem",
-          "ont",
-          " and",
-          " artist",
-          "/co",
-          "-w",
-          "riter",
-          " John",
-          " Byrne",
-          ",",
-          " the",
-          " character",
-          " first",
-          " appeared",
+          "She",
+          " re",
+          "formed",
+          " into",
+          " a",
+          " hero",
           " in",
           " The",
-          " Un",
-          "c",
-          "anny",
-          " X",
-          "-Men",
+          " Avengers",
           " #",
-          "129",
+          "30",
           " (",
-          "January",
-          " ",
-          "198",
+          "196",
+          "6",
+          ")",
+          " and",
+          " her",
+          " most",
+          " well",
+          "-known",
+          " design",
+          " was",
+          " introduced",
+          " in",
+          " The",
+          " Amazing",
+          " Spider",
+          "-Man",
+          " #",
+          "86",
+          " (",
+          "197",
           "0",
           ")."
         ]
@@ -6890,6 +6765,203 @@
         ]
       },
       {
+        "name": "Emma Frost",
+        "text": "Created by writer Chris Claremont and artist/co-writer John Byrne, the character first appeared in The Uncanny X-Men #129 (January 1980).",
+        "tok": [
+          [
+            "Created",
+            "create",
+            4
+          ],
+          [
+            "by",
+            0,
+            5
+          ],
+          [
+            "writer",
+            0,
+            4
+          ],
+          [
+            "Chris",
+            0,
+            4
+          ],
+          [
+            "Claremont",
+            0,
+            4
+          ],
+          [
+            "and",
+            0,
+            5
+          ],
+          [
+            "artist",
+            0,
+            0
+          ],
+          [
+            "/",
+            0,
+            2
+          ],
+          [
+            "co",
+            0,
+            0
+          ],
+          [
+            "-",
+            0,
+            2
+          ],
+          [
+            "writer",
+            0,
+            4
+          ],
+          [
+            "John",
+            0,
+            4
+          ],
+          [
+            "Byrne",
+            0,
+            0
+          ],
+          [
+            ",",
+            0,
+            6
+          ],
+          [
+            "the",
+            0,
+            5
+          ],
+          [
+            "character",
+            0,
+            4
+          ],
+          [
+            "first",
+            0,
+            5
+          ],
+          [
+            "appeared",
+            "appear",
+            4
+          ],
+          [
+            "in",
+            0,
+            5
+          ],
+          [
+            "The",
+            "the",
+            5
+          ],
+          [
+            "Uncanny",
+            "uncanny",
+            4
+          ],
+          [
+            "X",
+            "x",
+            0
+          ],
+          [
+            "-",
+            0,
+            2
+          ],
+          [
+            "Men",
+            "men",
+            4
+          ],
+          [
+            "#",
+            0,
+            2
+          ],
+          [
+            "129",
+            0,
+            4
+          ],
+          [
+            "(",
+            0,
+            2
+          ],
+          [
+            "January",
+            0,
+            4
+          ],
+          [
+            "1980",
+            0,
+            0
+          ],
+          [
+            ")",
+            0,
+            2
+          ],
+          [
+            ".",
+            0,
+            2
+          ]
+        ],
+        "pieces": [
+          "Created",
+          " by",
+          " writer",
+          " Chris",
+          " Cl",
+          "arem",
+          "ont",
+          " and",
+          " artist",
+          "/co",
+          "-w",
+          "riter",
+          " John",
+          " Byrne",
+          ",",
+          " the",
+          " character",
+          " first",
+          " appeared",
+          " in",
+          " The",
+          " Un",
+          "c",
+          "anny",
+          " X",
+          "-Men",
+          " #",
+          "129",
+          " (",
+          "January",
+          " ",
+          "198",
+          "0",
+          ")."
+        ]
+      },
+      {
         "name": "Storm (Marvel Comics)",
         "text": "Created by writer Len Wein and artist Dave Cockrum, the character first appeared in Giant-Size X-Men #1 (May 1975).",
         "tok": [
@@ -7263,157 +7335,6 @@
         ]
       },
       {
-        "name": "Deathlok",
-        "text": "The first Deathlok, Luther Manning, appeared in Astonishing Tales #25 (Aug. 1974), created by Rich Buckler.",
-        "tok": [
-          [
-            "The",
-            "the",
-            5
-          ],
-          [
-            "first",
-            0,
-            5
-          ],
-          [
-            "Deathlok",
-            0,
-            0
-          ],
-          [
-            ",",
-            0,
-            6
-          ],
-          [
-            "Luther",
-            0,
-            4
-          ],
-          [
-            "Manning",
-            0,
-            0
-          ],
-          [
-            ",",
-            0,
-            6
-          ],
-          [
-            "appeared",
-            "appear",
-            4
-          ],
-          [
-            "in",
-            0,
-            5
-          ],
-          [
-            "Astonishing",
-            0,
-            4
-          ],
-          [
-            "Tales",
-            0,
-            4
-          ],
-          [
-            "#",
-            0,
-            2
-          ],
-          [
-            "25",
-            0,
-            4
-          ],
-          [
-            "(",
-            0,
-            2
-          ],
-          [
-            "Aug.",
-            0,
-            4
-          ],
-          [
-            "1974",
-            0,
-            0
-          ],
-          [
-            ")",
-            0,
-            2
-          ],
-          [
-            ",",
-            0,
-            6
-          ],
-          [
-            "created",
-            "create",
-            4
-          ],
-          [
-            "by",
-            0,
-            5
-          ],
-          [
-            "Rich",
-            0,
-            4
-          ],
-          [
-            "Buckler",
-            0,
-            0
-          ],
-          [
-            ".",
-            0,
-            2
-          ]
-        ],
-        "pieces": [
-          "The",
-          " first",
-          " Death",
-          "lok",
-          ",",
-          " Luther",
-          " Manning",
-          ",",
-          " appeared",
-          " in",
-          " Aston",
-          "ishing",
-          " Tales",
-          " #",
-          "25",
-          " (",
-          "Aug",
-          ".",
-          " ",
-          "197",
-          "4",
-          "),",
-          " created",
-          " by",
-          " Rich",
-          " Buck",
-          "ler",
-          "."
-        ]
-      },
-      {
         "name": "Venom (character)",
         "text": "The character is a sentient alien symbiote with an amorphous, liquid-like form, who survives by bonding with a host, usually human.",
         "tok": [
@@ -7588,101 +7509,21 @@
         ]
       },
       {
-        "name": "Human Torch",
-        "text": "\"Flame on!\", which the Torch customarily shouts when activating his full-body flame effect, has become his catchphrase.",
+        "name": "Deathlok",
+        "text": "The first Deathlok, Luther Manning, appeared in Astonishing Tales #25 (Aug. 1974), created by Rich Buckler.",
         "tok": [
           [
-            "\"",
-            0,
-            2
-          ],
-          [
-            "Flame",
-            "flame",
-            4
-          ],
-          [
-            "on",
-            0,
-            1
-          ],
-          [
-            "!",
-            0,
-            2
-          ],
-          [
-            "\"",
-            0,
-            2
-          ],
-          [
-            ",",
-            0,
-            6
-          ],
-          [
-            "which",
-            0,
-            5
-          ],
-          [
+            "The",
             "the",
+            5
+          ],
+          [
+            "first",
             0,
             5
           ],
           [
-            "Torch",
-            0,
-            4
-          ],
-          [
-            "customarily",
-            0,
-            4
-          ],
-          [
-            "shouts",
-            "shout",
-            4
-          ],
-          [
-            "when",
-            0,
-            5
-          ],
-          [
-            "activating",
-            "activate",
-            4
-          ],
-          [
-            "his",
-            0,
-            5
-          ],
-          [
-            "full",
-            0,
-            1
-          ],
-          [
-            "-",
-            0,
-            2
-          ],
-          [
-            "body",
-            0,
-            4
-          ],
-          [
-            "flame",
-            0,
-            4
-          ],
-          [
-            "effect",
+            "Deathlok",
             0,
             0
           ],
@@ -7692,22 +7533,92 @@
             6
           ],
           [
-            "has",
-            "have",
-            5
+            "Luther",
+            0,
+            4
           ],
           [
-            "become",
+            "Manning",
+            0,
+            0
+          ],
+          [
+            ",",
+            0,
+            6
+          ],
+          [
+            "appeared",
+            "appear",
+            4
+          ],
+          [
+            "in",
             0,
             5
           ],
           [
-            "his",
+            "Astonishing",
+            0,
+            4
+          ],
+          [
+            "Tales",
+            0,
+            4
+          ],
+          [
+            "#",
+            0,
+            2
+          ],
+          [
+            "25",
+            0,
+            4
+          ],
+          [
+            "(",
+            0,
+            2
+          ],
+          [
+            "Aug.",
+            0,
+            4
+          ],
+          [
+            "1974",
+            0,
+            0
+          ],
+          [
+            ")",
+            0,
+            2
+          ],
+          [
+            ",",
+            0,
+            6
+          ],
+          [
+            "created",
+            "create",
+            4
+          ],
+          [
+            "by",
             0,
             5
           ],
           [
-            "catchphrase",
+            "Rich",
+            0,
+            4
+          ],
+          [
+            "Buckler",
             0,
             0
           ],
@@ -7718,31 +7629,33 @@
           ]
         ],
         "pieces": [
-          "\"",
-          "Fl",
-          "ame",
-          " on",
-          "!\",",
-          " which",
-          " the",
-          " Torch",
-          " custom",
-          "arily",
-          " sh",
-          "outs",
-          " when",
-          " activating",
-          " his",
-          " full",
-          "-body",
-          " flame",
-          " effect",
+          "The",
+          " first",
+          " Death",
+          "lok",
           ",",
-          " has",
-          " become",
-          " his",
-          " catch",
-          "phrase",
+          " Luther",
+          " Manning",
+          ",",
+          " appeared",
+          " in",
+          " Aston",
+          "ishing",
+          " Tales",
+          " #",
+          "25",
+          " (",
+          "Aug",
+          ".",
+          " ",
+          "197",
+          "4",
+          "),",
+          " created",
+          " by",
+          " Rich",
+          " Buck",
+          "ler",
           "."
         ]
       },
@@ -7945,6 +7858,165 @@
         ]
       },
       {
+        "name": "Human Torch",
+        "text": "\"Flame on!\", which the Torch customarily shouts when activating his full-body flame effect, has become his catchphrase.",
+        "tok": [
+          [
+            "\"",
+            0,
+            2
+          ],
+          [
+            "Flame",
+            "flame",
+            4
+          ],
+          [
+            "on",
+            0,
+            1
+          ],
+          [
+            "!",
+            0,
+            2
+          ],
+          [
+            "\"",
+            0,
+            2
+          ],
+          [
+            ",",
+            0,
+            6
+          ],
+          [
+            "which",
+            0,
+            5
+          ],
+          [
+            "the",
+            0,
+            5
+          ],
+          [
+            "Torch",
+            0,
+            4
+          ],
+          [
+            "customarily",
+            0,
+            4
+          ],
+          [
+            "shouts",
+            "shout",
+            4
+          ],
+          [
+            "when",
+            0,
+            5
+          ],
+          [
+            "activating",
+            "activate",
+            4
+          ],
+          [
+            "his",
+            0,
+            5
+          ],
+          [
+            "full",
+            0,
+            1
+          ],
+          [
+            "-",
+            0,
+            2
+          ],
+          [
+            "body",
+            0,
+            4
+          ],
+          [
+            "flame",
+            0,
+            4
+          ],
+          [
+            "effect",
+            0,
+            0
+          ],
+          [
+            ",",
+            0,
+            6
+          ],
+          [
+            "has",
+            "have",
+            5
+          ],
+          [
+            "become",
+            0,
+            5
+          ],
+          [
+            "his",
+            0,
+            5
+          ],
+          [
+            "catchphrase",
+            0,
+            0
+          ],
+          [
+            ".",
+            0,
+            2
+          ]
+        ],
+        "pieces": [
+          "\"",
+          "Fl",
+          "ame",
+          " on",
+          "!\",",
+          " which",
+          " the",
+          " Torch",
+          " custom",
+          "arily",
+          " sh",
+          "outs",
+          " when",
+          " activating",
+          " his",
+          " full",
+          "-body",
+          " flame",
+          " effect",
+          ",",
+          " has",
+          " become",
+          " his",
+          " catch",
+          "phrase",
+          "."
+        ]
+      },
+      {
         "name": "Nova (Richard Rider)",
         "text": "The character appeared historically as the star of his own series, and at other times, as a supporting character in team books such as The New Warriors.",
         "tok": [
@@ -8133,118 +8205,6 @@
         ]
       },
       {
-        "name": "Rachel Summers",
-        "text": "The character was created by writer Chris Claremont and artist/co-plotter John Byrne.",
-        "tok": [
-          [
-            "The",
-            "the",
-            5
-          ],
-          [
-            "character",
-            0,
-            4
-          ],
-          [
-            "was",
-            "be",
-            5
-          ],
-          [
-            "created",
-            "create",
-            4
-          ],
-          [
-            "by",
-            0,
-            5
-          ],
-          [
-            "writer",
-            0,
-            4
-          ],
-          [
-            "Chris",
-            0,
-            4
-          ],
-          [
-            "Claremont",
-            0,
-            4
-          ],
-          [
-            "and",
-            0,
-            5
-          ],
-          [
-            "artist",
-            0,
-            0
-          ],
-          [
-            "/",
-            0,
-            2
-          ],
-          [
-            "co",
-            0,
-            0
-          ],
-          [
-            "-",
-            0,
-            2
-          ],
-          [
-            "plotter",
-            0,
-            4
-          ],
-          [
-            "John",
-            0,
-            4
-          ],
-          [
-            "Byrne",
-            0,
-            0
-          ],
-          [
-            ".",
-            0,
-            2
-          ]
-        ],
-        "pieces": [
-          "The",
-          " character",
-          " was",
-          " created",
-          " by",
-          " writer",
-          " Chris",
-          " Cl",
-          "arem",
-          "ont",
-          " and",
-          " artist",
-          "/co",
-          "-",
-          "plot",
-          "ter",
-          " John",
-          " Byrne",
-          "."
-        ]
-      },
-      {
         "name": "Spider-Woman (Jessica Drew)",
         "text": "Bendis then added Spider-Woman to the roster of the New Avengers, which leads to her involvement in the \"Secret Invasion\" storyline.",
         "tok": [
@@ -8413,6 +8373,118 @@
           "vasion",
           "\"",
           " storyline",
+          "."
+        ]
+      },
+      {
+        "name": "Rachel Summers",
+        "text": "The character was created by writer Chris Claremont and artist/co-plotter John Byrne.",
+        "tok": [
+          [
+            "The",
+            "the",
+            5
+          ],
+          [
+            "character",
+            0,
+            4
+          ],
+          [
+            "was",
+            "be",
+            5
+          ],
+          [
+            "created",
+            "create",
+            4
+          ],
+          [
+            "by",
+            0,
+            5
+          ],
+          [
+            "writer",
+            0,
+            4
+          ],
+          [
+            "Chris",
+            0,
+            4
+          ],
+          [
+            "Claremont",
+            0,
+            4
+          ],
+          [
+            "and",
+            0,
+            5
+          ],
+          [
+            "artist",
+            0,
+            0
+          ],
+          [
+            "/",
+            0,
+            2
+          ],
+          [
+            "co",
+            0,
+            0
+          ],
+          [
+            "-",
+            0,
+            2
+          ],
+          [
+            "plotter",
+            0,
+            4
+          ],
+          [
+            "John",
+            0,
+            4
+          ],
+          [
+            "Byrne",
+            0,
+            0
+          ],
+          [
+            ".",
+            0,
+            2
+          ]
+        ],
+        "pieces": [
+          "The",
+          " character",
+          " was",
+          " created",
+          " by",
+          " writer",
+          " Chris",
+          " Cl",
+          "arem",
+          "ont",
+          " and",
+          " artist",
+          "/co",
+          "-",
+          "plot",
+          "ter",
+          " John",
+          " Byrne",
           "."
         ]
       },
@@ -9132,6 +9204,586 @@
         ]
       },
       {
+        "name": "Shang-Chi",
+        "text": "Marvel had originally hoped to license the television series Kung Fu, but the rights were unavailable, and the character was instead spun off from novelist Sax Rohmer's licensed pulp villain Fu Manchu as his previously unknown son.",
+        "tok": [
+          [
+            "Marvel",
+            0,
+            4
+          ],
+          [
+            "had",
+            "have",
+            5
+          ],
+          [
+            "originally",
+            0,
+            4
+          ],
+          [
+            "hoped",
+            "hop",
+            4
+          ],
+          [
+            "to",
+            0,
+            5
+          ],
+          [
+            "license",
+            0,
+            4
+          ],
+          [
+            "the",
+            0,
+            5
+          ],
+          [
+            "television",
+            0,
+            4
+          ],
+          [
+            "series",
+            0,
+            4
+          ],
+          [
+            "Kung",
+            0,
+            4
+          ],
+          [
+            "Fu",
+            0,
+            0
+          ],
+          [
+            ",",
+            0,
+            6
+          ],
+          [
+            "but",
+            0,
+            5
+          ],
+          [
+            "the",
+            0,
+            5
+          ],
+          [
+            "rights",
+            "right",
+            4
+          ],
+          [
+            "were",
+            "be",
+            5
+          ],
+          [
+            "unavailable",
+            0,
+            0
+          ],
+          [
+            ",",
+            0,
+            6
+          ],
+          [
+            "and",
+            0,
+            5
+          ],
+          [
+            "the",
+            0,
+            5
+          ],
+          [
+            "character",
+            0,
+            4
+          ],
+          [
+            "was",
+            "be",
+            5
+          ],
+          [
+            "instead",
+            0,
+            4
+          ],
+          [
+            "spun",
+            "spin",
+            4
+          ],
+          [
+            "off",
+            0,
+            5
+          ],
+          [
+            "from",
+            0,
+            5
+          ],
+          [
+            "novelist",
+            0,
+            4
+          ],
+          [
+            "Sax",
+            0,
+            4
+          ],
+          [
+            "Rohmer",
+            0,
+            0
+          ],
+          [
+            "'s",
+            0,
+            5
+          ],
+          [
+            "licensed",
+            0,
+            4
+          ],
+          [
+            "pulp",
+            0,
+            4
+          ],
+          [
+            "villain",
+            0,
+            4
+          ],
+          [
+            "Fu",
+            0,
+            4
+          ],
+          [
+            "Manchu",
+            0,
+            4
+          ],
+          [
+            "as",
+            0,
+            5
+          ],
+          [
+            "his",
+            0,
+            5
+          ],
+          [
+            "previously",
+            0,
+            4
+          ],
+          [
+            "unknown",
+            0,
+            4
+          ],
+          [
+            "son",
+            0,
+            0
+          ],
+          [
+            ".",
+            0,
+            2
+          ]
+        ],
+        "pieces": [
+          "Marvel",
+          " had",
+          " originally",
+          " hoped",
+          " to",
+          " license",
+          " the",
+          " television",
+          " series",
+          " Kung",
+          " Fu",
+          ",",
+          " but",
+          " the",
+          " rights",
+          " were",
+          " unavailable",
+          ",",
+          " and",
+          " the",
+          " character",
+          " was",
+          " instead",
+          " spun",
+          " off",
+          " from",
+          " novelist",
+          " Sax",
+          " Roh",
+          "mer",
+          "'s",
+          " licensed",
+          " pulp",
+          " villain",
+          " Fu",
+          " Man",
+          "chu",
+          " as",
+          " his",
+          " previously",
+          " unknown",
+          " son",
+          "."
+        ]
+      },
+      {
+        "name": "Mockingbird (Marvel Comics)",
+        "text": "The character first appeared in Astonishing Tales #6 in 1971 as a supporting character and eventual love interest of Ka-Zar, with a Ph.D. in biology.",
+        "tok": [
+          [
+            "The",
+            "the",
+            5
+          ],
+          [
+            "character",
+            0,
+            4
+          ],
+          [
+            "first",
+            0,
+            5
+          ],
+          [
+            "appeared",
+            "appear",
+            4
+          ],
+          [
+            "in",
+            0,
+            5
+          ],
+          [
+            "Astonishing",
+            0,
+            4
+          ],
+          [
+            "Tales",
+            0,
+            4
+          ],
+          [
+            "#",
+            0,
+            2
+          ],
+          [
+            "6",
+            0,
+            4
+          ],
+          [
+            "in",
+            0,
+            5
+          ],
+          [
+            "1971",
+            0,
+            4
+          ],
+          [
+            "as",
+            0,
+            5
+          ],
+          [
+            "a",
+            0,
+            5
+          ],
+          [
+            "supporting",
+            "support",
+            4
+          ],
+          [
+            "character",
+            0,
+            4
+          ],
+          [
+            "and",
+            0,
+            5
+          ],
+          [
+            "eventual",
+            0,
+            4
+          ],
+          [
+            "love",
+            0,
+            4
+          ],
+          [
+            "interest",
+            0,
+            4
+          ],
+          [
+            "of",
+            0,
+            5
+          ],
+          [
+            "Ka",
+            0,
+            0
+          ],
+          [
+            "-",
+            0,
+            2
+          ],
+          [
+            "Zar",
+            0,
+            0
+          ],
+          [
+            ",",
+            0,
+            6
+          ],
+          [
+            "with",
+            0,
+            5
+          ],
+          [
+            "a",
+            0,
+            5
+          ],
+          [
+            "Ph.D.",
+            "ph.d.",
+            4
+          ],
+          [
+            "in",
+            0,
+            5
+          ],
+          [
+            "biology",
+            0,
+            0
+          ],
+          [
+            ".",
+            0,
+            2
+          ]
+        ],
+        "pieces": [
+          "The",
+          " character",
+          " first",
+          " appeared",
+          " in",
+          " Aston",
+          "ishing",
+          " Tales",
+          " #",
+          "6",
+          " in",
+          " ",
+          "197",
+          "1",
+          " as",
+          " a",
+          " supporting",
+          " character",
+          " and",
+          " eventual",
+          " love",
+          " interest",
+          " of",
+          " Ka",
+          "-Z",
+          "ar",
+          ",",
+          " with",
+          " a",
+          " Ph",
+          ".D",
+          ".",
+          " in",
+          " biology",
+          "."
+        ]
+      },
+      {
+        "name": "Franklin Richards (character)",
+        "text": "Franklin is an immensely powerful being with vast reality-manipulating and psionic powers beyond most Omega level mutants.",
+        "tok": [
+          [
+            "Franklin",
+            0,
+            4
+          ],
+          [
+            "is",
+            "be",
+            5
+          ],
+          [
+            "an",
+            0,
+            5
+          ],
+          [
+            "immensely",
+            0,
+            4
+          ],
+          [
+            "powerful",
+            0,
+            4
+          ],
+          [
+            "being",
+            "be",
+            5
+          ],
+          [
+            "with",
+            0,
+            5
+          ],
+          [
+            "vast",
+            0,
+            4
+          ],
+          [
+            "reality",
+            0,
+            0
+          ],
+          [
+            "-",
+            0,
+            2
+          ],
+          [
+            "manipulating",
+            "manipulate",
+            4
+          ],
+          [
+            "and",
+            0,
+            5
+          ],
+          [
+            "psionic",
+            0,
+            4
+          ],
+          [
+            "powers",
+            "power",
+            4
+          ],
+          [
+            "beyond",
+            0,
+            5
+          ],
+          [
+            "most",
+            0,
+            5
+          ],
+          [
+            "Omega",
+            "omega",
+            4
+          ],
+          [
+            "level",
+            0,
+            4
+          ],
+          [
+            "mutants",
+            "mutant",
+            0
+          ],
+          [
+            ".",
+            0,
+            2
+          ]
+        ],
+        "pieces": [
+          "Frank",
+          "lin",
+          " is",
+          " an",
+          " immensely",
+          " powerful",
+          " being",
+          " with",
+          " vast",
+          " reality",
+          "-man",
+          "ip",
+          "ulating",
+          " and",
+          " ps",
+          "ionic",
+          " powers",
+          " beyond",
+          " most",
+          " Omega",
+          " level",
+          " mutants",
+          "."
+        ]
+      },
+      {
         "name": "Ghost Rider",
         "text": "The first supernatural Ghost Rider is stunt motorcyclist Johnny Blaze, who agrees to give his soul to \"Satan\" (later revealed to be an arch-demon named Mephisto) to save the life of his foster father.",
         "tok": [
@@ -9397,694 +10049,6 @@
         ]
       },
       {
-        "name": "Mockingbird (Marvel Comics)",
-        "text": "The character first appeared in Astonishing Tales #6 in 1971 as a supporting character and eventual love interest of Ka-Zar, with a Ph.D. in biology.",
-        "tok": [
-          [
-            "The",
-            "the",
-            5
-          ],
-          [
-            "character",
-            0,
-            4
-          ],
-          [
-            "first",
-            0,
-            5
-          ],
-          [
-            "appeared",
-            "appear",
-            4
-          ],
-          [
-            "in",
-            0,
-            5
-          ],
-          [
-            "Astonishing",
-            0,
-            4
-          ],
-          [
-            "Tales",
-            0,
-            4
-          ],
-          [
-            "#",
-            0,
-            2
-          ],
-          [
-            "6",
-            0,
-            4
-          ],
-          [
-            "in",
-            0,
-            5
-          ],
-          [
-            "1971",
-            0,
-            4
-          ],
-          [
-            "as",
-            0,
-            5
-          ],
-          [
-            "a",
-            0,
-            5
-          ],
-          [
-            "supporting",
-            "support",
-            4
-          ],
-          [
-            "character",
-            0,
-            4
-          ],
-          [
-            "and",
-            0,
-            5
-          ],
-          [
-            "eventual",
-            0,
-            4
-          ],
-          [
-            "love",
-            0,
-            4
-          ],
-          [
-            "interest",
-            0,
-            4
-          ],
-          [
-            "of",
-            0,
-            5
-          ],
-          [
-            "Ka",
-            0,
-            0
-          ],
-          [
-            "-",
-            0,
-            2
-          ],
-          [
-            "Zar",
-            0,
-            0
-          ],
-          [
-            ",",
-            0,
-            6
-          ],
-          [
-            "with",
-            0,
-            5
-          ],
-          [
-            "a",
-            0,
-            5
-          ],
-          [
-            "Ph.D.",
-            "ph.d.",
-            4
-          ],
-          [
-            "in",
-            0,
-            5
-          ],
-          [
-            "biology",
-            0,
-            0
-          ],
-          [
-            ".",
-            0,
-            2
-          ]
-        ],
-        "pieces": [
-          "The",
-          " character",
-          " first",
-          " appeared",
-          " in",
-          " Aston",
-          "ishing",
-          " Tales",
-          " #",
-          "6",
-          " in",
-          " ",
-          "197",
-          "1",
-          " as",
-          " a",
-          " supporting",
-          " character",
-          " and",
-          " eventual",
-          " love",
-          " interest",
-          " of",
-          " Ka",
-          "-Z",
-          "ar",
-          ",",
-          " with",
-          " a",
-          " Ph",
-          ".D",
-          ".",
-          " in",
-          " biology",
-          "."
-        ]
-      },
-      {
-        "name": "Shang-Chi",
-        "text": "Marvel had originally hoped to license the television series Kung Fu, but the rights were unavailable, and the character was instead spun off from novelist Sax Rohmer's licensed pulp villain Fu Manchu as his previously unknown son.",
-        "tok": [
-          [
-            "Marvel",
-            0,
-            4
-          ],
-          [
-            "had",
-            "have",
-            5
-          ],
-          [
-            "originally",
-            0,
-            4
-          ],
-          [
-            "hoped",
-            "hop",
-            4
-          ],
-          [
-            "to",
-            0,
-            5
-          ],
-          [
-            "license",
-            0,
-            4
-          ],
-          [
-            "the",
-            0,
-            5
-          ],
-          [
-            "television",
-            0,
-            4
-          ],
-          [
-            "series",
-            0,
-            4
-          ],
-          [
-            "Kung",
-            0,
-            4
-          ],
-          [
-            "Fu",
-            0,
-            0
-          ],
-          [
-            ",",
-            0,
-            6
-          ],
-          [
-            "but",
-            0,
-            5
-          ],
-          [
-            "the",
-            0,
-            5
-          ],
-          [
-            "rights",
-            "right",
-            4
-          ],
-          [
-            "were",
-            "be",
-            5
-          ],
-          [
-            "unavailable",
-            0,
-            0
-          ],
-          [
-            ",",
-            0,
-            6
-          ],
-          [
-            "and",
-            0,
-            5
-          ],
-          [
-            "the",
-            0,
-            5
-          ],
-          [
-            "character",
-            0,
-            4
-          ],
-          [
-            "was",
-            "be",
-            5
-          ],
-          [
-            "instead",
-            0,
-            4
-          ],
-          [
-            "spun",
-            "spin",
-            4
-          ],
-          [
-            "off",
-            0,
-            5
-          ],
-          [
-            "from",
-            0,
-            5
-          ],
-          [
-            "novelist",
-            0,
-            4
-          ],
-          [
-            "Sax",
-            0,
-            4
-          ],
-          [
-            "Rohmer",
-            0,
-            0
-          ],
-          [
-            "'s",
-            0,
-            5
-          ],
-          [
-            "licensed",
-            0,
-            4
-          ],
-          [
-            "pulp",
-            0,
-            4
-          ],
-          [
-            "villain",
-            0,
-            4
-          ],
-          [
-            "Fu",
-            0,
-            4
-          ],
-          [
-            "Manchu",
-            0,
-            4
-          ],
-          [
-            "as",
-            0,
-            5
-          ],
-          [
-            "his",
-            0,
-            5
-          ],
-          [
-            "previously",
-            0,
-            4
-          ],
-          [
-            "unknown",
-            0,
-            4
-          ],
-          [
-            "son",
-            0,
-            0
-          ],
-          [
-            ".",
-            0,
-            2
-          ]
-        ],
-        "pieces": [
-          "Marvel",
-          " had",
-          " originally",
-          " hoped",
-          " to",
-          " license",
-          " the",
-          " television",
-          " series",
-          " Kung",
-          " Fu",
-          ",",
-          " but",
-          " the",
-          " rights",
-          " were",
-          " unavailable",
-          ",",
-          " and",
-          " the",
-          " character",
-          " was",
-          " instead",
-          " spun",
-          " off",
-          " from",
-          " novelist",
-          " Sax",
-          " Roh",
-          "mer",
-          "'s",
-          " licensed",
-          " pulp",
-          " villain",
-          " Fu",
-          " Man",
-          "chu",
-          " as",
-          " his",
-          " previously",
-          " unknown",
-          " son",
-          "."
-        ]
-      },
-      {
-        "name": "Jericho Drumm",
-        "text": "He first appeared in Strange Tales #169 (September 1973) as Brother Voodoo.",
-        "tok": [
-          [
-            "He",
-            "he",
-            5
-          ],
-          [
-            "first",
-            0,
-            5
-          ],
-          [
-            "appeared",
-            "appear",
-            4
-          ],
-          [
-            "in",
-            0,
-            5
-          ],
-          [
-            "Strange",
-            0,
-            4
-          ],
-          [
-            "Tales",
-            0,
-            4
-          ],
-          [
-            "#",
-            0,
-            2
-          ],
-          [
-            "169",
-            0,
-            4
-          ],
-          [
-            "(",
-            0,
-            2
-          ],
-          [
-            "September",
-            0,
-            4
-          ],
-          [
-            "1973",
-            0,
-            0
-          ],
-          [
-            ")",
-            0,
-            6
-          ],
-          [
-            "as",
-            0,
-            5
-          ],
-          [
-            "Brother",
-            0,
-            4
-          ],
-          [
-            "Voodoo",
-            0,
-            0
-          ],
-          [
-            ".",
-            0,
-            2
-          ]
-        ],
-        "pieces": [
-          "He",
-          " first",
-          " appeared",
-          " in",
-          " Strange",
-          " Tales",
-          " #",
-          "169",
-          " (",
-          "September",
-          " ",
-          "197",
-          "3",
-          ")",
-          " as",
-          " Brother",
-          " V",
-          "ood",
-          "oo",
-          "."
-        ]
-      },
-      {
-        "name": "Franklin Richards (character)",
-        "text": "Franklin is an immensely powerful being with vast reality-manipulating and psionic powers beyond most Omega level mutants.",
-        "tok": [
-          [
-            "Franklin",
-            0,
-            4
-          ],
-          [
-            "is",
-            "be",
-            5
-          ],
-          [
-            "an",
-            0,
-            5
-          ],
-          [
-            "immensely",
-            0,
-            4
-          ],
-          [
-            "powerful",
-            0,
-            4
-          ],
-          [
-            "being",
-            "be",
-            5
-          ],
-          [
-            "with",
-            0,
-            5
-          ],
-          [
-            "vast",
-            0,
-            4
-          ],
-          [
-            "reality",
-            0,
-            0
-          ],
-          [
-            "-",
-            0,
-            2
-          ],
-          [
-            "manipulating",
-            "manipulate",
-            4
-          ],
-          [
-            "and",
-            0,
-            5
-          ],
-          [
-            "psionic",
-            0,
-            4
-          ],
-          [
-            "powers",
-            "power",
-            4
-          ],
-          [
-            "beyond",
-            0,
-            5
-          ],
-          [
-            "most",
-            0,
-            5
-          ],
-          [
-            "Omega",
-            "omega",
-            4
-          ],
-          [
-            "level",
-            0,
-            4
-          ],
-          [
-            "mutants",
-            "mutant",
-            0
-          ],
-          [
-            ".",
-            0,
-            2
-          ]
-        ],
-        "pieces": [
-          "Frank",
-          "lin",
-          " is",
-          " an",
-          " immensely",
-          " powerful",
-          " being",
-          " with",
-          " vast",
-          " reality",
-          "-man",
-          "ip",
-          "ulating",
-          " and",
-          " ps",
-          "ionic",
-          " powers",
-          " beyond",
-          " most",
-          " Omega",
-          " level",
-          " mutants",
-          "."
-        ]
-      },
-      {
         "name": "Black Bolt",
         "text": "Black Bolt's signature power is his voice, as his electron-harnessing ability is linked to the speech center of his brain.",
         "tok": [
@@ -10244,22 +10208,22 @@
         ]
       },
       {
-        "name": "Spider-Woman (Gwen Stacy)",
-        "text": "The character debuted in Edge of Spider-Verse issue #2 as part of the 2014–15 \"Spider-Verse\" comic book storyline, leading to the ongoing series Spider-Gwen in 2015.",
+        "name": "Jericho Drumm",
+        "text": "He first appeared in Strange Tales #169 (September 1973) as Brother Voodoo.",
         "tok": [
           [
-            "The",
-            "the",
+            "He",
+            "he",
             5
           ],
           [
-            "character",
+            "first",
             0,
-            4
+            5
           ],
           [
-            "debuted",
-            "debut",
+            "appeared",
+            "appear",
             4
           ],
           [
@@ -10268,32 +10232,12 @@
             5
           ],
           [
-            "Edge",
+            "Strange",
             0,
             4
           ],
           [
-            "of",
-            0,
-            5
-          ],
-          [
-            "Spider",
-            0,
-            0
-          ],
-          [
-            "-",
-            0,
-            2
-          ],
-          [
-            "Verse",
-            0,
-            4
-          ],
-          [
-            "issue",
+            "Tales",
             0,
             4
           ],
@@ -10303,9 +10247,29 @@
             2
           ],
           [
-            "2",
+            "169",
             0,
             4
+          ],
+          [
+            "(",
+            0,
+            2
+          ],
+          [
+            "September",
+            0,
+            4
+          ],
+          [
+            "1973",
+            0,
+            0
+          ],
+          [
+            ")",
+            0,
+            6
           ],
           [
             "as",
@@ -10313,117 +10277,12 @@
             5
           ],
           [
-            "part",
-            0,
-            5
-          ],
-          [
-            "of",
-            0,
-            5
-          ],
-          [
-            "the",
-            0,
-            5
-          ],
-          [
-            "2014–15",
+            "Brother",
             0,
             4
           ],
           [
-            "\"",
-            0,
-            2
-          ],
-          [
-            "Spider",
-            0,
-            0
-          ],
-          [
-            "-",
-            0,
-            2
-          ],
-          [
-            "Verse",
-            0,
-            0
-          ],
-          [
-            "\"",
-            0,
-            6
-          ],
-          [
-            "comic",
-            0,
-            4
-          ],
-          [
-            "book",
-            0,
-            4
-          ],
-          [
-            "storyline",
-            0,
-            0
-          ],
-          [
-            ",",
-            0,
-            6
-          ],
-          [
-            "leading",
-            "lead",
-            4
-          ],
-          [
-            "to",
-            0,
-            5
-          ],
-          [
-            "the",
-            0,
-            5
-          ],
-          [
-            "ongoing",
-            0,
-            4
-          ],
-          [
-            "series",
-            0,
-            4
-          ],
-          [
-            "Spider",
-            0,
-            0
-          ],
-          [
-            "-",
-            0,
-            2
-          ],
-          [
-            "Gwen",
-            0,
-            4
-          ],
-          [
-            "in",
-            0,
-            5
-          ],
-          [
-            "2015",
+            "Voodoo",
             0,
             0
           ],
@@ -10434,48 +10293,270 @@
           ]
         ],
         "pieces": [
-          "The",
-          " character",
-          " debuted",
+          "He",
+          " first",
+          " appeared",
           " in",
-          " Edge",
-          " of",
-          " Spider",
-          "-Ver",
-          "se",
-          " issue",
+          " Strange",
+          " Tales",
           " #",
-          "2",
+          "169",
+          " (",
+          "September",
+          " ",
+          "197",
+          "3",
+          ")",
           " as",
-          " part",
-          " of",
-          " the",
-          " ",
-          "201",
-          "4",
-          "–",
-          "15",
+          " Brother",
+          " V",
+          "ood",
+          "oo",
+          "."
+        ]
+      },
+      {
+        "name": "War Machine",
+        "text": "Col. James Rupert \"Rhodey\" Rhodes is a military veteran and pilot who began working for Tony Stark, eventually discovering that he was Iron Man and then taking Stark's place when he was incapacitated.",
+        "tok": [
+          [
+            "Col",
+            0,
+            0
+          ],
+          [
+            ".",
+            0,
+            6
+          ],
+          [
+            "James",
+            0,
+            4
+          ],
+          [
+            "Rupert",
+            0,
+            4
+          ],
+          [
+            "\"",
+            0,
+            2
+          ],
+          [
+            "Rhodey",
+            0,
+            0
+          ],
+          [
+            "\"",
+            0,
+            6
+          ],
+          [
+            "Rhodes",
+            0,
+            4
+          ],
+          [
+            "is",
+            "be",
+            5
+          ],
+          [
+            "a",
+            0,
+            5
+          ],
+          [
+            "military",
+            0,
+            4
+          ],
+          [
+            "veteran",
+            0,
+            4
+          ],
+          [
+            "and",
+            0,
+            5
+          ],
+          [
+            "pilot",
+            0,
+            4
+          ],
+          [
+            "who",
+            0,
+            5
+          ],
+          [
+            "began",
+            "begin",
+            4
+          ],
+          [
+            "working",
+            "work",
+            4
+          ],
+          [
+            "for",
+            0,
+            5
+          ],
+          [
+            "Tony",
+            0,
+            4
+          ],
+          [
+            "Stark",
+            0,
+            0
+          ],
+          [
+            ",",
+            0,
+            6
+          ],
+          [
+            "eventually",
+            0,
+            4
+          ],
+          [
+            "discovering",
+            "discover",
+            4
+          ],
+          [
+            "that",
+            0,
+            5
+          ],
+          [
+            "he",
+            0,
+            5
+          ],
+          [
+            "was",
+            "be",
+            5
+          ],
+          [
+            "Iron",
+            0,
+            4
+          ],
+          [
+            "Man",
+            0,
+            4
+          ],
+          [
+            "and",
+            0,
+            5
+          ],
+          [
+            "then",
+            0,
+            5
+          ],
+          [
+            "taking",
+            "take",
+            4
+          ],
+          [
+            "Stark",
+            0,
+            0
+          ],
+          [
+            "'s",
+            0,
+            5
+          ],
+          [
+            "place",
+            0,
+            4
+          ],
+          [
+            "when",
+            0,
+            5
+          ],
+          [
+            "he",
+            0,
+            5
+          ],
+          [
+            "was",
+            "be",
+            5
+          ],
+          [
+            "incapacitated",
+            "incapacitate",
+            0
+          ],
+          [
+            ".",
+            0,
+            2
+          ]
+        ],
+        "pieces": [
+          "Col",
+          ".",
+          " James",
+          " Rupert",
           " \"",
-          "Spider",
-          "-Ver",
-          "se",
+          "Rh",
+          "ode",
+          "y",
           "\"",
-          " comic",
-          " book",
-          " storyline",
+          " Rhodes",
+          " is",
+          " a",
+          " military",
+          " veteran",
+          " and",
+          " pilot",
+          " who",
+          " began",
+          " working",
+          " for",
+          " Tony",
+          " Stark",
           ",",
-          " leading",
-          " to",
-          " the",
-          " ongoing",
-          " series",
-          " Spider",
-          "-G",
-          "wen",
-          " in",
-          " ",
-          "201",
-          "5",
+          " eventually",
+          " discovering",
+          " that",
+          " he",
+          " was",
+          " Iron",
+          " Man",
+          " and",
+          " then",
+          " taking",
+          " Stark",
+          "'s",
+          " place",
+          " when",
+          " he",
+          " was",
+          " incapac",
+          "itated",
           "."
         ]
       }
@@ -20196,6 +20277,11 @@
       "terms": 25003,
       "nnz": 206042,
       "zeros": 0.9728
+    },
+    "course_pipeline": {
+      "tokens": 727261,
+      "types": 27033
     }
-  }
+  },
+  "search_index_version": "a26d7ad59c"
 }
