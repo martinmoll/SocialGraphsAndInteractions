@@ -16,6 +16,7 @@ Anas Mir · Martin Møllenhus · Diego Mijares
 | 4 | [What holds philosophy together?](https://martinmoll.github.io/SocialGraphsAndInteractions/posts/week4/) |
 | 5 | [What does fame buy?](https://martinmoll.github.io/SocialGraphsAndInteractions/posts/week5/) |
 | 6 | [Who counts as a mutant?](https://martinmoll.github.io/SocialGraphsAndInteractions/posts/week6/) |
+| 7 | [Wrong Storm, missing Thor](https://martinmoll.github.io/SocialGraphsAndInteractions/posts/week7/) |
 
 ## Layout
 

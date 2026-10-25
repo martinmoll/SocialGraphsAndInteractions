@@ -1,0 +1,969 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wrong Storm, missing Thor · Marvel Superstars</title>
+<meta name="description" content="Week 7 of DTU 02805: what the machines make of Marvel's names, and what they say about characters who have no page.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,800&family=JetBrains+Mono:wght@400;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<style>
+/* Hallmark · route: custom (bespoke) · structure: game → case-file hero → name×tool grid → two acts → verdict → formula sheet
+ * idea: "every name on the page is a sticker the machines relabel; missing characters are dashed until they walk in"
+ * paper: oklch(92.5% 0.010 82) · accent: oklch(84% 0.145 86) marigold highlighter + oklch(50% 0.12 66) amber pen
+ * display: Bricolage Grotesque 800/300 · body: Newsreader · machine voice: JetBrains Mono
+ * axes: light / display-heavy / warm (marigold ~86°) · nav: N9 edge-aligned + lens switch · footer: Ft5 statement
+ * pre-emit critique: P5 H4 E4 S5 R4 V5 · mono = the machines' voice (tags, data, labels), a role rather than a two-slot outlier
+ * chart tooltips appear on hover without delay on purpose (data inspection) · studied: no · context: user brief + DESIGN_1–3
+ */
+:root {
+  --color-paper:      oklch(92.5% 0.010 82);
+  --color-paper-2:    oklch(97.5% 0.007 85);
+  --color-paper-3:    oklch(88.5% 0.012 80);
+  --color-ink:        oklch(21% 0.012 60);
+  --color-ink-2:      oklch(36% 0.012 62);
+  --color-muted:      oklch(47% 0.011 66);
+  --color-rule:       oklch(72% 0.012 75);
+  --color-rule-2:     oklch(83% 0.010 78);
+  --color-accent:     oklch(84% 0.145 86);
+  --color-accent-ink: oklch(50% 0.12 66);
+  --color-accent-wash:oklch(91% 0.065 88);
+  --color-focus:      oklch(50% 0.17 64);
+  --color-shadow:     oklch(21% 0.012 60 / 0.10);
+
+  --font-display: "Bricolage Grotesque", ui-sans-serif, sans-serif;
+  --font-body:    "Newsreader", ui-serif, Georgia, serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  --text-xs: 0.78rem;
+  --text-base: 1.15rem;
+  --text-md: 1.44rem;
+  --text-h2: clamp(1.9rem, 2.2vw + 1.2rem, 2.85rem);
+  --text-display: clamp(2.9rem, 6.2vw + 1rem, 6.1rem);
+
+  --space-3xs: 0.25rem; --space-2xs: 0.5rem; --space-xs: 0.75rem; --space-sm: 1rem; --space-md: 1.5rem;
+  --space-lg: 2rem; --space-xl: 3rem; --space-2xl: 4.5rem; --space-3xl: 7rem;
+
+  --radius-sticker: 1.4rem; --radius-card: 0.9rem; --radius-pill: 999px;
+  --rule-hair: 1px; --rule-sticker: 2px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms; --dur-draw: 760ms; --dur-glide: 1200ms;
+  --z-bar: 30; --z-tip: 40;
+  --measure: 64ch;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--color-paper); color: var(--color-ink);
+  font: 400 var(--text-base)/1.6 var(--font-body); font-optical-sizing: auto;
+  font-variant-numeric: oldstyle-nums proportional-nums;
+}
+img, svg { max-width: 100%; }
+a { color: inherit; text-decoration-color: var(--color-accent-ink); text-underline-offset: 0.18em; text-decoration-thickness: 1.5px; }
+a:hover { text-decoration-thickness: 3px; }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; border-radius: 4px; }
+.skip { position: absolute; left: -999px; top: 0; background: var(--color-ink); color: var(--color-paper); padding: var(--space-2xs) var(--space-sm); z-index: var(--z-tip); }
+.skip:focus { left: var(--space-sm); top: var(--space-sm); }
+.wrap { width: min(100% - 2rem, 72rem); margin-inline: auto; }
+.prose { max-width: var(--measure); }
+.prose p { margin: 0 0 var(--space-md); }
+em { font-style: italic; }
+h1, h2, h3 { font-family: var(--font-display); font-style: normal; font-weight: 800; letter-spacing: -0.03em; line-height: 1.04; margin: 0; overflow-wrap: anywhere; min-width: 0; }
+h2 { font-size: var(--text-h2); margin-bottom: var(--space-md); }
+h3 { font-size: var(--text-md); letter-spacing: -0.02em; }
+.mono { font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: 0.02em; font-variant-numeric: tabular-nums; }
+.num { font-variant-numeric: tabular-nums lining-nums; }
+button { font: inherit; color: inherit; }
+
+/* ── top bar: edge-aligned, the lens switch at the right edge ─────────────────────── */
+.bar { position: sticky; top: 0; z-index: var(--z-bar); background: var(--color-paper); border-bottom: var(--rule-hair) dashed var(--color-rule); }
+.bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--space-sm); min-height: 3.4rem; }
+.wordmark { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; text-decoration: none; white-space: nowrap; font-size: 1.02rem; }
+.bar .where { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.lens { display: inline-flex; align-items: center; gap: var(--space-2xs); }
+.lens-label { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-muted); white-space: nowrap; }
+.seg { display: inline-flex; border: var(--rule-sticker) solid var(--color-ink); border-radius: var(--radius-pill); padding: 2px; background: var(--color-paper-2); }
+.seg button { border: 0; background: transparent; padding: 0.3rem 0.8rem; border-radius: var(--radius-pill); cursor: pointer; font-family: var(--font-mono); font-size: var(--text-xs); white-space: nowrap; transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out); }
+.seg button[aria-pressed="true"] { background: var(--color-ink); color: var(--color-paper-2); }
+.seg button:hover:not([aria-pressed="true"]) { background: var(--color-accent-wash); }
+.seg button:active { transform: translateY(1px); }
+.sm { display: none; }
+.lens-label { display: grid; justify-items: end; line-height: 1.2; }
+.lens-label .sub { font-size: 0.68rem; color: var(--color-accent-ink); text-decoration: none; white-space: nowrap; }
+.lens-label .sub:hover { text-decoration: underline; }
+.lens-note { display: none; border-top: var(--rule-hair) dashed var(--color-rule); background: var(--color-accent-wash); }
+body.read .lens-note { display: block; animation: rise var(--dur-long) var(--ease-out); }
+.lens-note p { margin: 0; padding: var(--space-2xs) 0; font-size: 0.92rem; line-height: 1.45; max-width: 92ch; }
+.lens-note .key { font-family: var(--font-mono); font-size: 0.72rem; border: 1.5px solid var(--color-ink); border-radius: var(--radius-pill); padding: 0 0.45em; white-space: nowrap; background: var(--color-paper-2); }
+.lens-note .key.k-x { background: var(--color-accent); }
+.lens-note .key.k-n { border-style: dotted; background: transparent; }
+.try-lens { margin: 0 0 var(--space-md); }
+.tip-line { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-ink-2); margin-top: var(--space-sm); }
+.tip-line button { font: inherit; color: var(--color-accent-ink); background: none; border: 0; padding: 0; text-decoration: underline; text-underline-offset: 0.2em; cursor: pointer; }
+.tip-line button:active { transform: translateY(1px); }
+@media (max-width: 760px) { .bar .where, .lens-label { display: none; } .lens-note p { font-size: 0.85rem; } }
+@media (max-width: 520px) { .lg { display: none; } .sm { display: inline; } .wordmark { font-size: 0.92rem; } .seg button { padding: 0.3rem 0.65rem; } }
+
+/* ── name stickers: the page's central device ─────────────────────────────────────── */
+.nm { display: inline-block; position: relative; vertical-align: baseline; white-space: nowrap; border: 1.5px solid var(--color-ink); border-radius: var(--radius-pill);
+      padding: 0 0.42em; margin: 0 0.04em; background: var(--color-paper-2); line-height: 1.32; font-variant-numeric: lining-nums; }
+.nm > span { display: inline-block; transition: opacity var(--dur-long) var(--ease-out), transform var(--dur-long) var(--ease-out); }
+.nm .r { position: absolute; left: 0; right: 0; top: 0.18em; text-align: center; opacity: 0; transform: translateY(0.4em); font-family: var(--font-mono); font-size: 0.72em; letter-spacing: 0.04em; }
+.nm.is-missing { border-style: dashed; background: transparent; }
+body.thor-in .nm[data-n="Thor"], body.thor-in .nm[data-n="Captain America"], body.thor-in .nm[data-n="Iron Man"] { border-style: solid; background: var(--color-paper-2); }
+body.read .nm[data-tag] .w { position: absolute; left: 0; right: 0; text-align: center; opacity: 0; transform: translateY(-0.4em); }
+body.read .nm[data-tag] .r { position: static; opacity: 1; transform: none; }
+body.read .nm[data-tag]:not([data-tag="person"]) { background: var(--color-accent); border-color: var(--color-ink); }
+body.read .nm[data-tag="none"] { background: transparent; border-style: dotted; }
+
+/* hand-drawn marks: an SVG laid over an inline element */
+.mk { position: relative; display: inline-block; }
+.mk > svg.draw { position: absolute; inset: -0.35em -0.5em; width: calc(100% + 1em); height: calc(100% + 0.7em); overflow: visible; pointer-events: none; }
+svg.draw path { fill: none; stroke: var(--color-accent-ink); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.anno { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-accent-ink); white-space: nowrap; }
+
+/* ── 0 · the game ─────────────────────────────────────────────────────────────────── */
+.play { padding: var(--space-xl) 0 var(--space-2xl); border-bottom: var(--rule-hair) dashed var(--color-rule); }
+.play .wrap { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: var(--space-xl); align-items: start; }
+.play h2 { font-size: clamp(1.9rem, 3vw + 1rem, 3.2rem); margin-bottom: var(--space-sm); }
+.play-intro p { margin: 0 0 var(--space-sm); max-width: 36ch; }
+.tally { display: flex; gap: var(--space-md); margin-top: var(--space-md); }
+.tally div { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-muted); }
+.tally b { display: block; font-family: var(--font-display); font-size: 2.2rem; line-height: 1; color: var(--color-ink); font-weight: 800; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.pips { display: flex; gap: 6px; margin-top: var(--space-md); flex-wrap: wrap; }
+.pips i { width: 1.4rem; height: 0.55rem; border-radius: var(--radius-pill); border: 1.5px solid var(--color-ink); background: transparent; }
+.pips i.ok { background: var(--color-ink); }
+.pips i.miss { background: var(--color-accent); }
+.pips i.now { outline: 2px solid var(--color-accent-ink); outline-offset: 2px; }
+.card { background: var(--color-paper-2); border: var(--rule-sticker) solid var(--color-ink); border-radius: var(--radius-sticker); padding: var(--space-lg); box-shadow: 6px 6px 0 var(--color-shadow); min-height: 22rem; display: flex; flex-direction: column; }
+.card .tool { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-muted); display: flex; justify-content: space-between; gap: var(--space-sm); }
+.card .q { font-family: var(--font-display); font-weight: 300; font-size: clamp(1.35rem, 1.2vw + 1rem, 1.85rem); line-height: 1.22; letter-spacing: -0.015em; margin: var(--space-md) 0; }
+.opts { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+.opt { position: relative; border: var(--rule-sticker) solid var(--color-ink); background: var(--color-paper); border-radius: var(--radius-pill); padding: 0.5rem 1.1rem; cursor: pointer; white-space: nowrap; font-family: var(--font-body); font-size: 1.05rem; transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+.opt:hover:not(:disabled) { background: var(--color-accent-wash); }
+.opt:active:not(:disabled) { transform: translateY(1px); }
+.opt:disabled { cursor: default; }
+.opt.picked-wrong { background: var(--color-paper-3); text-decoration: line-through; text-decoration-color: var(--color-ink-2); }
+.opt.right { background: var(--color-accent); }
+.opt svg.draw { position: absolute; inset: -9px -12px; width: calc(100% + 24px); height: calc(100% + 18px); overflow: visible; pointer-events: none; }
+.reveal { margin-top: auto; padding-top: var(--space-md); min-height: 4.5rem; }
+.reveal p { margin: 0; opacity: 0; transform: translateY(6px); transition: opacity var(--dur-long) var(--ease-out), transform var(--dur-long) var(--ease-out); }
+.reveal p.on { opacity: 1; transform: none; }
+.reveal .verdict-line { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-accent-ink); margin-bottom: var(--space-3xs); }
+.card-foot { display: flex; justify-content: space-between; align-items: center; gap: var(--space-sm); margin-top: var(--space-md); }
+.btn { border: var(--rule-sticker) solid var(--color-ink); background: var(--color-ink); color: var(--color-paper-2); border-radius: var(--radius-pill); padding: 0.55rem 1.2rem; cursor: pointer; white-space: nowrap; font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: 0.03em; transition: transform var(--dur-micro) var(--ease-out), background-color var(--dur-short) var(--ease-out); }
+.btn:hover:not(:disabled) { transform: translateY(-1px); }
+.btn:active:not(:disabled) { transform: translateY(1px); }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn.ghost { background: transparent; color: var(--color-ink); }
+.card.end .q { font-weight: 800; }
+@media (max-width: 860px) { .play .wrap { grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); } .card { padding: var(--space-md); min-height: 0; } }
+
+/* ── hero ─────────────────────────────────────────────────────────────────────────── */
+.hero { padding: var(--space-3xl) 0 var(--space-xl); }
+.hero h1 { font-size: var(--text-display); max-width: 13ch; letter-spacing: -0.045em; line-height: 0.98; }
+.hero h1 .word { position: relative; display: inline-block; }
+.hero h1 .ghost { border: 3px dashed var(--color-ink); border-radius: 0.28em; padding: 0 0.12em; }
+.hero h1 .hl { background: linear-gradient(transparent 58%, var(--color-accent) 58%, var(--color-accent) 90%, transparent 90%); }
+.hero h1 .anno { position: absolute; left: 0.1em; top: 100%; font-size: clamp(0.7rem, 0.5vw + 0.55rem, 0.9rem); letter-spacing: 0.02em; font-weight: 400; margin-top: 0.15em; }
+.hero h1 .anno.up { top: auto; bottom: 100%; margin: 0 0 0.3em; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: var(--space-xl); align-items: end; margin-top: var(--space-2xl); }
+.dek { font-size: var(--text-md); line-height: 1.42; margin: 0; max-width: 34ch; }
+.stat { border-top: var(--rule-sticker) solid var(--color-ink); padding-top: var(--space-sm); }
+.stat b { display: block; font-family: var(--font-display); font-weight: 800; font-size: clamp(3.2rem, 5vw + 1rem, 5.4rem); letter-spacing: -0.05em; line-height: 0.95; font-variant-numeric: tabular-nums lining-nums; }
+.stat b small { font-size: 0.42em; font-weight: 300; letter-spacing: -0.02em; }
+.stat p { margin: var(--space-2xs) 0 0; font-size: 1rem; line-height: 1.45; color: var(--color-ink-2); }
+.byline { margin-top: var(--space-xl); font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-muted); display: flex; flex-wrap: wrap; gap: var(--space-2xs) var(--space-md); }
+@media (max-width: 860px) { .hero { padding-top: var(--space-2xl); } .hero-grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); } }
+
+/* ── the grid ─────────────────────────────────────────────────────────────────────── */
+.grid-sec { padding: var(--space-xl) 0 var(--space-2xl); }
+.grid-sec .lead { max-width: var(--measure); margin: 0 0 var(--space-md); }
+.tablewrap { overflow-x: auto; position: relative; -webkit-overflow-scrolling: touch; border-top: var(--rule-sticker) solid var(--color-ink); border-bottom: var(--rule-hair) dashed var(--color-rule); }
+table.grid { border-collapse: separate; border-spacing: 6px 8px; min-width: 52rem; width: 100%; }
+table.grid th { font-family: var(--font-mono); font-size: var(--text-xs); font-weight: 400; color: var(--color-muted); text-align: left; padding: var(--space-xs) 4px 2px; white-space: nowrap; }
+table.grid th[scope="row"] { position: sticky; left: 0; z-index: 1; background: var(--color-paper); font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--color-ink); letter-spacing: -0.01em; padding-right: var(--space-xs); }
+table.grid td { padding: 0; }
+.cell { display: block; width: 100%; text-align: left; border: 1.5px solid var(--color-ink); border-radius: 0.7rem; padding: 0.38rem 0.55rem; background: var(--color-paper-2); font-family: var(--font-mono); font-size: 0.74rem; line-height: 1.25; cursor: pointer; text-decoration: none; min-height: 2.6rem; transition: transform var(--dur-micro) var(--ease-out); }
+.cell:hover { transform: translateY(-1px); }
+.cell.wrong { background: var(--color-accent); }
+.cell.missing { background: transparent; border-style: dashed; }
+.cell.blank { border-color: var(--color-rule-2); color: var(--color-muted); background: transparent; cursor: default; }
+.cell .k { display: block; font-size: 0.66rem; color: var(--color-ink-2); text-transform: lowercase; margin-bottom: 1px; }
+.legend { display: flex; flex-wrap: wrap; gap: var(--space-sm) var(--space-md); margin-top: var(--space-sm); font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-ink-2); }
+.legend span::before { content: ""; display: inline-block; width: 1.2rem; height: 0.8rem; border: 1.5px solid var(--color-ink); border-radius: 0.3rem; margin-right: 0.4rem; vertical-align: -0.1rem; }
+.legend .l-right::before { background: var(--color-paper-2); }
+.legend .l-wrong::before { background: var(--color-accent); }
+.legend .l-missing::before { border-style: dashed; }
+
+/* ── acts and sections ────────────────────────────────────────────────────────────── */
+.act-head { padding: var(--space-3xl) 0 var(--space-lg); border-top: var(--rule-sticker) solid var(--color-ink); }
+.act-head .act { font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-muted); display: block; margin-bottom: var(--space-xs); }
+.act-head h2 { font-size: clamp(2.3rem, 4vw + 1rem, 4.4rem); max-width: 16ch; margin-bottom: var(--space-md); }
+.cast { display: flex; flex-wrap: wrap; gap: var(--space-2xs); margin: 0; padding: 0; list-style: none; }
+.cast li { font-family: var(--font-display); font-weight: 800; font-size: 0.98rem; border: var(--rule-sticker) solid var(--color-ink); border-radius: var(--radius-pill); padding: 0.25rem 0.85rem; background: var(--color-paper-2); }
+.cast li.missing { border-style: dashed; background: transparent; }
+body.thor-in .cast li.missing { border-style: solid; background: var(--color-paper-2); }
+.sec { padding: var(--space-2xl) 0 var(--space-lg); scroll-margin-top: 4rem; }
+.sec-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 17rem); gap: var(--space-xl); align-items: start; }
+.side { display: grid; gap: var(--space-md); position: sticky; top: 4.6rem; }
+@media (max-width: 960px) { .sec-grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-md); } .side { position: static; } }
+.ontest { background: var(--color-paper-2); border: 1.5px solid var(--color-ink); border-radius: var(--radius-card); padding: var(--space-sm) var(--space-sm) var(--space-xs); font-size: 0.98rem; line-height: 1.5; }
+.ontest .tag { font-family: var(--font-mono); font-size: var(--text-xs); display: inline-block; background: var(--color-ink); color: var(--color-paper-2); border-radius: var(--radius-pill); padding: 0.05rem 0.55rem; margin-bottom: var(--space-2xs); }
+.ontest p { margin: 0 0 var(--space-2xs); }
+.eq { border-top: var(--rule-sticker) solid var(--color-ink); border-bottom: var(--rule-hair) dashed var(--color-rule); padding: var(--space-xs) 0; display: grid; gap: var(--space-3xs); }
+.eq .lab { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-muted); }
+.eq .f { overflow-x: auto; position: relative; font-size: 1.05rem; padding: 2px 0; }
+.katex { position: relative; }
+.aside-note { font-size: 0.98rem; color: var(--color-ink-2); border-left: 0; padding: 0; }
+
+/* figures */
+figure.fig { margin: var(--space-lg) 0 var(--space-xl); background: var(--color-paper-2); border: var(--rule-sticker) solid var(--color-ink); border-radius: var(--radius-sticker); padding: var(--space-md); }
+figure.fig .fhead { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-xs) var(--space-md); margin-bottom: var(--space-sm); }
+figure.fig .ftitle { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; letter-spacing: -0.01em; }
+figcaption { margin-top: var(--space-sm); font-size: 0.95rem; line-height: 1.5; color: var(--color-ink-2); }
+figcaption b { font-family: var(--font-mono); font-size: var(--text-xs); font-weight: 600; color: var(--color-ink); margin-right: 0.35rem; }
+.viz { position: relative; width: 100%; }
+.viz svg { display: block; width: 100%; height: auto; overflow: visible; }
+.viz text { font-family: var(--font-mono); font-size: 11px; fill: var(--color-ink-2); }
+.viz .axis line, .viz .axis path { stroke: var(--color-rule); }
+.viz .axis text { fill: var(--color-muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { border: 1.5px solid var(--color-ink); border-radius: var(--radius-pill); background: var(--color-paper); padding: 0.22rem 0.7rem; cursor: pointer; font-family: var(--font-mono); font-size: var(--text-xs); white-space: nowrap; transition: background-color var(--dur-short) var(--ease-out); }
+.chip[aria-pressed="true"] { background: var(--color-ink); color: var(--color-paper-2); }
+.chip:hover:not([aria-pressed="true"]) { background: var(--color-accent-wash); }
+.chip:active, .waffle button:active, .cell:active { transform: translateY(1px); }
+.chip:disabled, .cell:disabled { opacity: 0.55; cursor: not-allowed; }
+.tip { position: absolute; z-index: var(--z-tip); pointer-events: none; background: var(--color-ink); color: var(--color-paper-2); font-family: var(--font-mono); font-size: 0.74rem; line-height: 1.4; padding: 0.45rem 0.6rem; border-radius: 0.5rem; max-width: 22rem; opacity: 0; transition: opacity var(--dur-micro) var(--ease-out); }
+.tip.on { opacity: 1; }
+.readout { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-ink-2); display: flex; flex-wrap: wrap; gap: var(--space-2xs) var(--space-md); margin-top: var(--space-xs); }
+.readout b { color: var(--color-ink); font-size: 1rem; font-family: var(--font-display); font-weight: 800; }
+
+/* storm figure */
+.storm-wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 13rem); gap: var(--space-md); align-items: center; }
+.glove-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; font-family: var(--font-mono); font-size: var(--text-xs); }
+.glove-list li { display: flex; justify-content: space-between; gap: var(--space-xs); border-bottom: var(--rule-hair) dashed var(--color-rule-2); padding: 2px 0; }
+.glove-list li:first-child { background: var(--color-accent-wash); }
+@media (max-width: 640px) { .storm-wrap { grid-template-columns: minmax(0, 1fr); } }
+
+/* rename list */
+.rn-list { position: relative; margin-top: var(--space-sm); }
+.rn-row { position: absolute; left: 0; right: 0; height: 2.1rem; display: grid; grid-template-columns: 3.2rem minmax(0, 1fr) 4.5rem; align-items: center; gap: var(--space-xs); border-bottom: var(--rule-hair) dashed var(--color-rule-2); transition: transform var(--dur-glide) var(--ease-out), opacity var(--dur-long) var(--ease-out); font-size: 1rem; }
+.rn-row .rk { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-muted); text-align: right; font-variant-numeric: tabular-nums; }
+.rn-row .nmx { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rn-row.black .nmx span { background: linear-gradient(transparent 60%, var(--color-accent) 60%, var(--color-accent) 92%, transparent 92%); }
+.rn-row .cs { font-family: var(--font-mono); font-size: var(--text-xs); text-align: right; font-variant-numeric: tabular-nums; }
+.rn-row .delta { font-family: var(--font-mono); font-size: 0.68rem; color: var(--color-accent-ink); margin-left: 0.4rem; }
+.rn-row.far { opacity: 0.5; }
+
+/* sentiment bars */
+.sb { display: grid; grid-template-columns: minmax(0, 9rem) minmax(0, 1fr) minmax(0, 1fr); gap: 4px var(--space-sm); align-items: center; font-size: 0.95rem; }
+.sb .hd { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-muted); }
+.sb .nmc { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bar2 { display: grid; grid-template-columns: minmax(0, 1fr) 3rem; align-items: center; gap: 6px; height: 1.1rem; }
+.bar2 .trk { position: relative; height: 100%; }
+.bar2 .trk::before { content: ""; position: absolute; left: 50%; top: -2px; bottom: -2px; border-left: var(--rule-hair) solid var(--color-rule); }
+.bar2 i { position: absolute; top: 0.18rem; height: 0.74rem; left: 50%; width: 50%; transform-origin: left center; background: var(--color-ink); border-radius: 2px; transition: transform var(--dur-long) var(--ease-out), background-color var(--dur-short) var(--ease-out); }
+.bar2 i.neg { background: var(--color-accent); outline: 1.5px solid var(--color-ink); }
+.bar2 b { font-family: var(--font-mono); font-size: 0.68rem; font-weight: 400; color: var(--color-ink-2); text-align: right; font-variant-numeric: tabular-nums; }
+.frame-line { font-family: var(--font-display); font-weight: 300; font-size: 1.25rem; margin: var(--space-xs) 0 var(--space-sm); }
+.frame-line u { text-decoration: none; border-bottom: 2px solid var(--color-accent-ink); }
+@media (max-width: 560px) { .sb { grid-template-columns: minmax(0, 6.2rem) minmax(0, 1fr) minmax(0, 1fr); font-size: 0.86rem; } .bar2 { grid-template-columns: minmax(0, 1fr); } .bar2 b { display: none; } }
+
+/* BIO */
+.bio { display: flex; flex-wrap: wrap; gap: 6px 4px; margin: var(--space-xs) 0 var(--space-md); }
+.tokn { display: grid; justify-items: center; gap: 2px; }
+.tokn .t { border: 1.5px solid var(--color-ink); border-radius: 0.45rem; padding: 0.1rem 0.45rem; background: var(--color-paper); font-size: 1.02rem; }
+.tokn .g { font-family: var(--font-mono); font-size: 0.68rem; color: var(--color-muted); }
+.tokn.e .t { background: var(--color-accent); }
+.tokn.p .t { background: var(--color-ink); color: var(--color-paper-2); }
+.swatch { display: inline-block; width: 0.9rem; height: 0.7rem; border: 1px solid var(--color-ink); border-radius: 2px; margin-right: 0.3rem; vertical-align: -0.05rem; }
+
+/* reading waffle */
+.waffle { display: grid; grid-template-columns: repeat(20, minmax(0, 1fr)); gap: 4px; margin-top: var(--space-sm); max-width: 34rem; }
+.waffle button { aspect-ratio: 1; border: 1.5px solid var(--color-ink); border-radius: 4px; background: var(--color-paper); padding: 0; cursor: pointer; }
+.waffle button.c { background: var(--color-ink); }
+.waffle button.t { background: var(--color-accent); }
+.waffle button.m { border-style: dashed; }
+.waffle button[aria-pressed="true"] { outline: 2px solid var(--color-accent-ink); outline-offset: 2px; }
+.ctx { margin-top: var(--space-xs); min-height: 3.2rem; font-size: 0.98rem; color: var(--color-ink-2); }
+
+/* thor map */
+.map-ctl { display: flex; flex-wrap: wrap; gap: 6px; }
+.viz .dot { transition: opacity var(--dur-short) var(--ease-out); }
+.viz .new-ring { fill: none; stroke: var(--color-ink); stroke-width: 2; stroke-dasharray: 4 3; }
+.viz .new-dot { fill: var(--color-accent); stroke: var(--color-ink); stroke-width: 2; }
+.viz .nn-line { stroke: var(--color-accent-ink); stroke-width: 1.4; fill: none; }
+
+/* search */
+.q-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.q-list li { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) 3.4rem; gap: var(--space-xs); align-items: center; padding: 0.4rem 0; border-bottom: var(--rule-hair) dashed var(--color-rule-2); font-size: 0.97rem; cursor: default; }
+.q-list li.absent .qq::before { content: "no page · "; font-family: var(--font-mono); font-size: 0.66rem; color: var(--color-accent-ink); }
+.q-list li.hot { background: var(--color-accent-wash); }
+.q-list .top { font-family: var(--font-mono); font-size: 0.74rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.q-list .sc { font-family: var(--font-mono); font-size: var(--text-xs); text-align: right; font-variant-numeric: tabular-nums; }
+@media (max-width: 560px) { .q-list li { grid-template-columns: minmax(0, 1fr) 3rem; } .q-list .top { grid-column: 1 / -1; grid-row: 2; } }
+
+/* turn, verdict, goodies, formulas, notes, footer */
+.turn { padding: var(--space-2xl) 0; }
+.turn p { font-family: var(--font-display); font-weight: 300; font-size: clamp(1.6rem, 2vw + 1rem, 2.4rem); line-height: 1.22; letter-spacing: -0.02em; max-width: 30ch; margin: 0; }
+.verdict { padding: var(--space-3xl) 0 var(--space-xl); border-top: var(--rule-sticker) solid var(--color-ink); }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); gap: var(--space-md); margin: var(--space-lg) 0; }
+.vcard { background: var(--color-paper-2); border: var(--rule-sticker) solid var(--color-ink); border-radius: var(--radius-sticker); padding: var(--space-md); }
+.vcard.missing { border-style: dashed; background: transparent; }
+.vcard h3 { margin-bottom: var(--space-2xs); }
+.vcard .who { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-muted); display: block; margin-bottom: var(--space-2xs); }
+.vcard p { margin: 0; font-size: 1rem; line-height: 1.5; }
+.closing { font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 3vw + 1rem, 3.6rem); letter-spacing: -0.04em; line-height: 1.02; max-width: 18ch; margin: var(--space-xl) 0 var(--space-md); }
+.goodies { margin: var(--space-xl) 0; padding: var(--space-md); border: 1.5px dashed var(--color-ink); border-radius: var(--radius-sticker); max-width: 52rem; }
+.goodies .tag { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-muted); }
+.goodies h3 { margin: var(--space-2xs) 0 var(--space-xs); }
+.goodies p { margin: 0 0 var(--space-xs); font-size: 1.02rem; }
+.sheet { padding: var(--space-2xl) 0; border-top: var(--rule-sticker) solid var(--color-ink); }
+.sheet-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); gap: var(--space-md); }
+.fcard { border: 1.5px solid var(--color-ink); border-radius: var(--radius-card); padding: var(--space-sm); background: var(--color-paper-2); }
+.fcard.adapted { border-style: dashed; }
+.fcard .lab { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-muted); display: flex; justify-content: space-between; gap: var(--space-xs); }
+.fcard .f { overflow-x: auto; position: relative; margin: var(--space-xs) 0; font-size: 1.05rem; }
+.fcard p { margin: 0; font-size: 0.95rem; color: var(--color-ink-2); }
+.notes { padding: var(--space-xl) 0 var(--space-2xl); font-size: 0.95rem; }
+.notes ol { padding-left: 1.4rem; max-width: var(--measure); }
+.notes li { margin-bottom: var(--space-2xs); }
+sup a { text-decoration: none; font-family: var(--font-mono); font-size: 0.7em; padding: 0 1px; }
+.foot { border-top: var(--rule-sticker) solid var(--color-ink); padding: var(--space-2xl) 0 var(--space-xl); }
+.foot .stmt { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.2rem, 5vw + 1rem, 5rem); letter-spacing: -0.045em; line-height: 0.98; margin: 0 0 var(--space-md); }
+.foot .meta { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-muted); display: flex; flex-wrap: wrap; gap: var(--space-2xs) var(--space-md); }
+
+/* the one orchestrated entrance: hero lines rise once on load */
+.rise { opacity: 0; transform: translateY(10px); animation: rise var(--dur-long) var(--ease-out) forwards; animation-delay: calc(var(--i, 0) * 90ms); }
+@keyframes rise { to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 150ms !important; animation-iteration-count: 1 !important; transition-duration: 150ms !important; scroll-behavior: auto !important; }
+  .rise { animation: rise-reduced 150ms linear forwards; }
+  @keyframes rise-reduced { to { opacity: 1; transform: none; } }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#story">Skip to the story</a>
+
+<div class="bar">
+  <div class="wrap">
+    <a class="wordmark" href="../../index.html">Marvel Superstars</a>
+    <span class="where" id="where">Week 7 · from meaning to measurement</span>
+    <div class="lens">
+      <span class="lens-label" id="lens-label"><span>names on this page</span><a class="sub" href="#s4">shown as spaCy’s NER tag · §4</a></span>
+      <div class="seg" role="group" aria-labelledby="lens-label">
+        <button type="button" id="lens-w" aria-pressed="true"><span class="lg">as written</span><span class="sm">written</span></button>
+        <button type="button" id="lens-r" aria-pressed="false"><span class="lg">as spaCy reads them</span><span class="sm">spaCy</span></button>
+      </div>
+    </div>
+  </div>
+  <div class="lens-note" id="lens-note" role="status">
+    <div class="wrap"><p><b>You’re reading this page as spaCy does.</b> Each name sticker now shows the entity type spaCy’s NER model gives most of that name’s mentions across the 303 pages (the named-entity label, not the token-level BIO tags). <span class="key k-p">person</span> means it found the character; <span class="key k-x">yellow</span> means it read the name as something else; <span class="key k-n">dotted</span> means it never tagged it. <a href="#s4">§4 shows the numbers.</a></p></div>
+  </div>
+</div>
+
+<main>
+<!-- ═════════════ 0 · the game ═════════════ -->
+<section class="play" id="play" aria-labelledby="play-h">
+  <div class="wrap">
+    <div class="play-intro">
+      <h2 id="play-h">Who does the machine think it is?</h2>
+      <p>Eight names, eight tools from week 7. Guess what each tool made of the name, then see what it actually said.</p>
+      <p class="mono" style="color: var(--color-muted)">Every answer comes from our notebook, run on the course’s 303 Marvel pages.</p>
+      <div class="tally" aria-live="polite">
+        <div><b id="g-you">0</b>you guessed the machine</div>
+        <div><b id="g-left">8</b>names left</div>
+      </div>
+      <div class="pips" id="g-pips" aria-hidden="true"></div>
+    </div>
+    <div class="card" id="g-card" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- ═════════════ hero ═════════════ -->
+<header class="hero" id="story">
+  <div class="wrap">
+    <h1 class="rise" style="--i:0">Wrong <span class="word hl">Storm<span class="anno up" aria-hidden="true">GloVe: hurricane 0.88</span></span>, missing <span class="word ghost">Thor<span class="anno" aria-hidden="true">no page</span></span></h1>
+    <div class="hero-grid">
+      <p class="dek rise" style="--i:1">When the text says a name, who do the machines think it is? Week 7 gave us encoders, sentiment models, a tagger and a search engine. We asked each of them about Marvel’s names, the ones on our 303 pages and the ones that should be there and aren’t.</p>
+      <div class="stat rise" style="--i:2">
+        <b>1 <small>of 615</small></b>
+        <p>mentions of <span class="nm" data-n="Captain America"><span class="w">Captain America</span><span class="r" aria-hidden="true"></span></span> that spaCy tags as a person. He is named on 115 of the 303 pages and has no page of his own.</p>
+      </div>
+    </div>
+    <div class="byline rise" style="--i:3">
+      <span>Marvel Superstars · Anas Mir, Martin Møllenhus, Diego A. Mijares</span>
+      <span>DTU 02805 · exercise 7.13</span>
+      <span>notebook <a href="../../Notebooks/Week7/SGI-7.13.ipynb">SGI-7.13.ipynb</a></span>
+    </div>
+    <p class="tip-line rise" style="--i:4">Every name on this page is a sticker. The switch at the top right, or <button type="button" class="lens-go">this link</button>, shows each one as spaCy’s tagger reads it.</p>
+  </div>
+</header>
+
+<!-- ═════════════ the grid ═════════════ -->
+<section class="grid-sec" id="grid" aria-labelledby="grid-h">
+  <div class="wrap">
+    <h2 id="grid-h">Seven names, seven tools</h2>
+    <p class="lead">Each row is a name, each column a tool from the week. Yellow means the tool read the name as something else. Dashed means the character has no page and the tool answered anyway. Click a cell to jump to the section that explains it.</p>
+    <div class="tablewrap"><table class="grid" id="grid-t"></table></div>
+    <div class="legend"><span class="l-right">read as the character</span><span class="l-wrong">read as something else</span><span class="l-missing">no page, answered anyway</span></div>
+  </div>
+</section>
+
+<!-- ═════════════ ACT I ═════════════ -->
+<div class="wrap act-head" id="act1">
+  <span class="act">Act I</span>
+  <h2>Names that are there, misread</h2>
+  <ul class="cast" aria-label="Cast of act I"><li>Storm</li><li>Black Widow</li><li>Black Cat</li><li>Abomination</li><li>Venom</li><li>Steve Rogers</li></ul>
+</div>
+
+<section class="wrap sec" id="s1" aria-labelledby="s1-h">
+  <div class="sec-grid">
+    <div class="prose">
+      <h2 id="s1-h">One vector for Storm</h2>
+      <p>Last week’s word vectors gave every <em>bank</em> the same numbers, river or money. GloVe does the same to <span class="nm" data-n="Storm"><span class="w">Storm</span><span class="r" aria-hidden="true"></span></span>. Its one vector for <em>storm</em> sits next to <em>hurricane</em> (0.88) and <em>winds</em>, and <em>x-men</em> is down at 0.20. A static embedding can hold one sense per word, and for this word the sense is weather.</p>
+      <p>A contextual encoder computes a fresh vector each time the word appears. We took four sentences from Storm’s own page and four weather reports we wrote, and pulled BERT’s vector for <em>storm</em> out of each. Her sentences agree with each other (0.63), the weather sentences agree with each other (0.73), and across the two groups the cosine falls to 0.28. All 170 sentences on her page that name her stay that far from the weather.</p>
+    </div>
+    <aside class="side">
+      <div class="ontest"><span class="tag">On Test 2</span><p>A static embedding gives a word type one fixed vector; a contextual representation depends on the surrounding words, so the two <em>bank</em>s, or the two storms, get different vectors.</p></div>
+      <div class="eq"><span class="lab">cosine similarity · course · weeks 5–6</span><div class="f">\( \cos(\mathbf{x},\mathbf{y})=\dfrac{\mathbf{x}\cdot\mathbf{y}}{\lVert\mathbf{x}\rVert\,\lVert\mathbf{y}\rVert} \)</div></div>
+    </aside>
+  </div>
+  <figure class="fig" id="f-storm">
+    <div class="fhead"><span class="ftitle">One storm or eight?</span>
+      <div class="seg" role="group" aria-label="Representation"><button type="button" data-m="glove" aria-pressed="false">GloVe<span class="lg"> · static</span></button><button type="button" data-m="bert" aria-pressed="true">BERT<span class="lg"> · contextual</span></button></div></div>
+    <div class="storm-wrap">
+      <div class="viz" id="v-storm"></div>
+      <div><p class="mono" style="margin:0 0 6px;color:var(--color-muted)">GloVe’s nearest words to storm</p><ul class="glove-list" id="glove-list"></ul></div>
+    </div>
+    <figcaption><b>How to read it</b>Each dot is one occurrence of <em>storm</em>: filled dots come from Storm’s page, rings from weather sentences. Distance stands for 1 − cosine between BERT vectors. Switch to GloVe and all eight collapse into one point, because a static model has a single vector to give. Hover or focus a dot for its sentence.</figcaption>
+  </figure>
+  <div class="prose"><p>Static vectors aren’t blind to Marvel. GloVe lists <em>symbiote</em> among the neighbours of <em>venom</em> (0.58), because news and Wikipedia write about the comic often enough to leave a trace. The single vector is the limit: <em>widow</em> sits beside <em>wife</em> and <em>niece</em>, <em>cable</em> beside <em>network</em>, and none of those vectors can move when the sentence is about a superhero.</p></div>
+</section>
+
+<section class="wrap sec" id="s2" aria-labelledby="s2-h">
+  <div class="sec-grid">
+    <div class="prose">
+      <h2 id="s2-h">The name leaks into the page vector</h2>
+      <p>The course atlas embeds whole pages with <span class="mono">all-MiniLM-L6-v2</span>. The encoder reads at most 256 word pieces, so each page is cut into passages of up to 180 words, every passage is embedded, and the page becomes the mean of its passages: 384 numbers. Then we changed one thing. On <span class="nm" data-n="Black Widow"><span class="w">Black Widow</span><span class="r" aria-hidden="true"></span></span>’s page we replaced all 165 uses of her codename with <em>Natasha Romanoff</em> and embedded the page again.</p>
+      <p><span class="nm" data-n="Black Cat"><span class="w">Black Cat</span><span class="r" aria-hidden="true"></span></span> fell from her second-nearest page to the 19th. <span class="nm" data-n="Black Marvel"><span class="w">Black Marvel</span><span class="r" aria-hidden="true"></span></span> fell from 7th to 51st. Yelena Belova and the Spider-Women, who share her story, stayed at the top. It works in reverse too: Black Cat renamed Felicia Hardy loses Black Widow (1st to 12th), and <span class="nm" data-n="Black Panther"><span class="w">Black Panther</span><span class="r" aria-hidden="true"></span></span> renamed T’Challa loses Black Cat (3rd to 20th). The encoder treats the word <em>Black</em> as something these pages are about.</p>
+      <p><span class="nm" data-n="Storm"><span class="w">Storm</span><span class="r" aria-hidden="true"></span></span> is the control. With <em>Ororo Munroe</em> in place of her codename, <span class="nm" data-n="Emma Frost"><span class="w">Emma Frost</span><span class="r" aria-hidden="true"></span></span> stays her nearest page and the X-Men stay close. The page that leaves is <span class="nm" data-n="Human Torch"><span class="w">Human Torch</span><span class="r" aria-hidden="true"></span></span>, from 14th to 74th. His real name is Johnny Storm.</p>
+    </div>
+    <aside class="side">
+      <div class="ontest"><span class="tag">On Test 2</span><p>A document embedding is one dense vector per text. Nearest neighbours come from cosine in the original space; a 2D projection is a drawing of it, and its nearest dots can differ.</p></div>
+      <div class="eq"><span class="lab">a page as a vector · course · week 7</span><div class="f">\( \mathbf{x}_i = [x_1, x_2, \ldots, x_{384}] \)</div></div>
+    </aside>
+  </div>
+  <figure class="fig" id="f-rename">
+    <div class="fhead"><span class="ftitle">Rename one page, watch its neighbours move</span>
+      <div class="seg" role="group" aria-label="Name used on the page"><button type="button" data-v="0" aria-pressed="true">codename</button><button type="button" data-v="1" aria-pressed="false">real name</button></div></div>
+    <div class="chips" id="rn-pages" role="group" aria-label="Page"></div>
+    <div class="rn-list" id="rn-list" aria-live="polite"></div>
+    <figcaption><b>How to read it</b>Rows are the page’s nearest pages by cosine, ranked. Highlighted names start with <em>Black</em>. Switch between the codename and the real name: only that one name changed on that one page, and every other page vector stayed fixed.</figcaption>
+  </figure>
+  <div class="prose"><p>None of this shows on a map. PCA’s two axes keep 9.9% of the variance of these vectors, so the nearest dots on a 2D drawing are a poor guide to the nearest pages. Every rank above comes from the original 384 dimensions.</p></div>
+</section>
+
+<section class="wrap sec" id="s3" aria-labelledby="s3-h">
+  <div class="sec-grid">
+    <div class="prose">
+      <h2 id="s3-h">Names read as feelings</h2>
+      <p>A sentiment tool doesn’t know who Doom is. It sees a word. The VADER lexicon has human ratings for <em>doom</em> (-1.7) and <em>ghost</em> (-1.3), so <span class="nm" data-n="Ghost Rider"><span class="w">Ghost Rider</span><span class="r" aria-hidden="true"></span></span> and Doom start below zero before a verb arrives, and Captain Marvel starts above it because <em>marvel</em> is rated +1.8.</p>
+      <p>We put 19 codenames from the corpus into three plain sentences and asked DistilBERT, the movie-review classifier from the course page. “<span class="nm" data-n="Abomination"><span class="w">Abomination</span><span class="r" aria-hidden="true"></span></span> arrived in New York” comes back negative at 0.97. The same name in “Abomination was created by Stan Lee and Jack Kirby” comes back positive at 0.99. Seventeen of the names are positive in every frame; Storm and Black Widow score 1.00.</p>
+      <p>Learned classifiers pick up names too. The TF-IDF and logistic-regression model we trained on news headlines in exercise 7.6 has <em>trump</em> as its most negative feature, with a weight of -1.73. The sign says the word pushes a headline toward the negative class. It doesn’t say whether the headlines were negative because of him or the coverage was.</p>
+    </div>
+    <aside class="side">
+      <div class="ontest"><span class="tag">On Test 2</span><p>Lexicon score of “Ghost Rider saved the city from Doom” with VADER’s ratings: ghost −1.3 + saved +1.8 + doom −1.7 = -1.2. A lookup scores words, so names, negation and sarcasm all slip through.</p></div>
+      <div class="ontest"><span class="tag">On Test 2</span><p>A confidence of 0.99 says the model is sure. It isn’t evidence that the score measures sentiment in a new domain: this model was fine-tuned on movie reviews.</p></div>
+    </aside>
+  </div>
+  <figure class="fig" id="f-senti">
+    <div class="fhead"><span class="ftitle">Same sentence, different name</span><div class="chips" id="fr-chips" role="group" aria-label="Sentence frame"></div></div>
+    <p class="frame-line" id="fr-line"></p>
+    <div class="sb" id="sb"></div>
+    <figcaption><b>How to read it</b>Bars run from −1 (left) to +1 (right). VADER gives a compound score from its word list; DistilBERT gives a label and a confidence, drawn here as ± confidence. Yellow bars are negative. Pick a frame: only the name changes between rows.</figcaption>
+  </figure>
+</section>
+
+<section class="wrap sec" id="s4" aria-labelledby="s4-h">
+  <div class="sec-grid">
+    <div class="prose">
+      <h2 id="s4-h">The tagger knows people by their real names</h2>
+      <p>Named-entity recognition gives every token a tag. In BIO notation B begins a span, I continues it and O is outside. spaCy’s small English model reads our own sentence below. <span class="nm" data-n="Venom"><span class="w">Venom</span><span class="r" aria-hidden="true"></span></span> is a place, like New York, and Spider-Man is an organisation. The model learned from news, where codenames are rare and <em>Venom</em> looks like the name of a town.</p>
+      <div class="chips" id="bio-chips" role="group" aria-label="Sentence"></div>
+      <div class="bio" id="bio" aria-live="polite"></div>
+      <p>Across all 33,752 sentences of the corpus the pattern holds. <span class="nm" data-n="Steve Rogers"><span class="w">Steve Rogers</span><span class="r" aria-hidden="true"></span></span> is a person in 105 of 106 mentions, <span class="nm" data-n="Peter Parker"><span class="w">Peter Parker</span><span class="r" aria-hidden="true"></span></span> in 222 of 225, <span class="nm" data-n="Tony Stark"><span class="w">Tony Stark</span><span class="r" aria-hidden="true"></span></span> in 78 of 79. Their codenames lose the person. <span class="nm" data-n="Spider-Man"><span class="w">Spider-Man</span><span class="r" aria-hidden="true"></span></span> is a person in 601 of 1,888 mentions and <span class="nm" data-n="Iron Man"><span class="w">Iron Man</span><span class="r" aria-hidden="true"></span></span> in 134 of 395. <span class="nm" data-n="Captain America"><span class="w">Captain America</span><span class="r" aria-hidden="true"></span></span> is a person once in 615: his usual tag is a place (377 times), because the tagger reads <em>America</em>. Venom is a place in 547 of 643, and <span class="nm" data-n="Doctor Strange"><span class="w">Doctor Strange</span><span class="r" aria-hidden="true"></span></span> is never tagged at all. The button below, like the switch in the top bar, gives every name sticker on this page the tag spaCy most often gives that name.</p>
+      <button type="button" class="btn ghost try-lens lens-go" aria-controls="lens-note">Read this page as spaCy does</button>
+      <p>We checked the model before trusting this. On 40 sentences we labelled by hand in exercise 7.8 it found 15% of hero names and 70% of personal names. Finding a span is also only half the job. To a reader, Steve Rogers and Captain America are one man; to the tagger they are two strings. Deciding they belong together is resolution, and no tagger does it for you.</p>
+    </div>
+    <aside class="side">
+      <div class="ontest"><span class="tag">On Test 2</span><p>Read and write BIO tags: B begins an entity span, I continues it, O marks a token outside one. Extraction finds the spans; resolution decides that Steve Rogers and Captain America are the same entity.</p></div>
+      <div class="eq"><span class="lab">span precision and recall · adapted · exercise 7.8</span><div class="f">\( P=\dfrac{\text{correct spans}}{\text{model spans}} \)</div><div class="f">\( R=\dfrac{\text{correct spans}}{\text{reference spans}} \)</div></div>
+    </aside>
+  </div>
+  <figure class="fig" id="f-ner">
+    <div class="fhead"><span class="ftitle">What spaCy calls each name, over the whole corpus</span></div>
+    <div class="viz" id="v-ner"></div>
+    <figcaption><b>How to read it</b>Each pair is a codename above the real name it belongs to. Bars split every mention of the name by the entity type spaCy gave the span around it; the number is the count of mentions. Hover a segment for the count.</figcaption>
+  </figure>
+</section>
+
+<div class="wrap turn"><p>So the tagger misses <span class="nm" data-n="Captain America"><span class="w">Captain America</span><span class="r" aria-hidden="true"></span></span> 614 times out of 615. A network built from its output loses him too, and the network from weeks 1 to 4 never had him. He has no page.</p></div>
+
+<!-- ═════════════ ACT II ═════════════ -->
+<div class="wrap act-head" id="act2">
+  <span class="act">Act II</span>
+  <h2>Characters who aren’t there, answered anyway</h2>
+  <ul class="cast" aria-label="Cast of act II"><li class="missing">Captain America</li><li class="missing">Thor</li><li class="missing">Iron Man</li><li>Beta Ray Bill</li><li>Bucky</li></ul>
+</div>
+
+<section class="wrap sec" id="s5" aria-labelledby="s5-h">
+  <div class="sec-grid">
+    <div class="prose">
+      <h2 id="s5-h">Captain America, everywhere and nowhere</h2>
+      <p>Three of Marvel’s best-known heroes have no page among our 303: <span class="nm" data-n="Captain America"><span class="w">Captain America</span><span class="r" aria-hidden="true"></span></span>, <span class="nm" data-n="Thor"><span class="w">Thor</span><span class="r" aria-hidden="true"></span></span> and <span class="nm" data-n="Iron Man"><span class="w">Iron Man</span><span class="r" aria-hidden="true"></span></span>. The corpus has <em>Iron Man (Ultimate Marvel character)</em> and <em>Iron Man 2020</em>, who are other men. All three are still all over the text. Captain America is named on 115 pages, Iron Man on 99 and Thor on 63.</p>
+      <p>For characters who do have a page, being named and being linked go together. Across the 267 characters whose name belongs to no one else, the number of other pages naming them and their hyperlink in-degree correlate at ρ = 0.82. By that measure only Spider-Man (142 pages) is more central than Captain America, and Thor comes after Spider-Man and Wolverine.<sup><a href="#n1" id="r1">1</a></sup></p>
+    </div>
+    <aside class="side">
+      <div class="ontest"><span class="tag">On Test 2</span><p>An entity co-occurrence network joins two entities when they appear in the same unit of text. Changing the unit from sentence to paragraph changes what an edge claims, so it is a modelling decision.</p></div>
+      <div class="ontest"><span class="tag">On Test 2</span><p>A count of entities is only as good as the resolution behind it. “Captain America” on 115 pages is not 115 pages about one man.</p></div>
+    </aside>
+  </div>
+  <figure class="fig" id="f-named">
+    <div class="fhead"><span class="ftitle">Named on many pages, linked from none</span></div>
+    <div class="viz" id="v-named"></div>
+    <figcaption><b>How to read it</b>Each dot is a character with a page: hyperlink in-degree against the number of other pages that name them. The dashed lane on the left holds characters with no page, at their naming count. The circled dot is <em>Iron Man (Ultimate Marvel character)</em>: one incoming link, 98 pages saying “Iron Man”.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>A count of 115 pages still overstates him. We read 40 random mentions. 20 are the character. 12 are titles: issue numbers like <em>Captain America #153</em>, a series, a film. 8 are the mantle on someone else: Bucky after Steve Rogers’s death, Sam Wilson, William Burnside, Jeffrey Mace, William Naslund in the 1940s. The name is a job, and several of the men who held it have pages here.</p>
+    <div class="waffle" id="waffle" role="group" aria-label="Forty mentions of Captain America"></div>
+    <p class="ctx" id="ctx" aria-live="polite">Pick a square to read the mention. Filled: the character · yellow: a title · dashed: someone else in the role.</p>
+    <p>Resolution decides which of those mentions become the node. Map <em>Steve Rogers</em> to Captain America and he enters the co-mention network built from spaCy’s person spans at rank 17 by degree when an edge means two people in one sentence, and rank 24 when it means one paragraph. Same spans, two networks (13,386 and 37,278 edges). The corpus carries the opposite trap as well. The Ultimate Iron Man page has 1 incoming link, while 98 pages say <em>Iron Man</em> about someone else. Match names to nodes without resolution and that page inherits the hero.</p>
+  </div>
+</section>
+
+<section class="wrap sec" id="s6" aria-labelledby="s6-h">
+  <div class="sec-grid">
+    <div class="prose">
+      <h2 id="s6-h">Thor walks in</h2>
+      <p>A missing page can be added. We took the current Wikipedia articles for the three heroes and passed them through the same encoder. Nothing was retrained: the model learned its weights long before it saw Marvel, and only three new vectors were computed. It places them well. Thor’s nearest pages are Dargo Ktor and <span class="nm" data-n="Beta Ray Bill"><span class="w">Beta Ray Bill</span><span class="r" aria-hidden="true"></span></span>, two other bearers of the hammer, then <span class="nm" data-n="Thor Girl"><span class="w">Thor Girl</span><span class="r" aria-hidden="true"></span></span> and Balder. Captain America’s are William Burnside, Nomad and Bucky, men who wore his name.</p>
+      <p>The maps have a harder time. PCA is a fixed projection, so it can drop a new page onto the old map, and it puts Thor beside Hulk and The Witness, neither of them anywhere near his list of nearest pages. t-SNE has no way to add a point. It redraws, Thor lands among the Asgardians, and the 303 old pages keep only 56% of their five nearest dots, although not one of their cosine neighbours changed.</p>
+    </div>
+    <aside class="side">
+      <div class="ontest"><span class="tag">On Test 2</span><p>A pretrained encoder was trained on another corpus; passing your documents through it only computes their vectors. t-SNE keeps local neighbourhoods and makes global distances unreliable.</p></div>
+      <div class="ontest"><span class="tag">On Test 2</span><p>Three ways to group the same pages: an LDA topic (shared word counts), an embedding cluster (nearby dense vectors) and a network community (hyperlinks). They don’t have to agree.</p></div>
+    </aside>
+  </div>
+  <figure class="fig" id="f-map">
+    <div class="fhead"><span class="ftitle">Let them in</span>
+      <div class="map-ctl"><button class="btn" type="button" data-s="tsne">Redraw with t-SNE</button><button class="btn ghost" type="button" data-s="pca">Drop onto PCA</button><button class="btn ghost" type="button" data-s="before">Before</button></div></div>
+    <div class="viz" id="v-map"></div>
+    <div class="readout" id="map-read" aria-live="polite"></div>
+    <figcaption><b>How to read it</b>Each dot is one of the 303 pages. The dashed rings are the three newcomers, waiting outside the map. Redraw with t-SNE and watch every dot move to make room. Drop them onto PCA and the page switches to PCA’s own drawing, which adding pages never changes; lines run from each newcomer to its five nearest pages by cosine.</figcaption>
+  </figure>
+  <div class="prose"><p>BERTopic clusters the same page vectors and calls Thor and Iron Man outliers: neither is dense enough to join a cluster of our 303. It files Captain America with Bucky, U.S. Agent and Union Jack, the topic of patriotic and wartime heroes. That makes three groupings of the same pages, LDA by shared words in week 6, BERTopic by nearby vectors, Louvain by hyperlinks, and each answers a different question.</p></div>
+</section>
+
+<section class="wrap sec" id="s7" aria-labelledby="s7-h">
+  <div class="sec-grid">
+    <div class="prose">
+      <h2 id="s7-h">Ask the corpus for Thor</h2>
+      <p>Search is where a question meets a corpus that may not hold the answer. We asked for “the Norse god of thunder”. TF-IDF matches the words and returns <span class="nm" data-n="Beta Ray Bill"><span class="w">Beta Ray Bill</span><span class="r" aria-hidden="true"></span></span>. The dense retriever, which scores each page by its best 60-word passage, returns Ultimate Iron Man at 0.68.</p>
+      <p>For the eight course queries whose page exists, the right page scores between 0.28 and 0.64. The missing answer scored higher than every right one. A similarity score says how close the nearest passage is, and nothing about whether the corpus holds an answer at all.</p>
+      <p>Hand that passage to a language model and it would answer from Ultimate Iron Man. That’s a retrieval error: the generator never had the right evidence. Had the passage been right and the answer still wrong, the error would belong to generation, and keeping the retrieved passage visible is how you tell the two apart. Once Thor’s page exists, TF-IDF ranks it first and the dense retriever second.</p>
+    </div>
+    <aside class="side">
+      <div class="ontest"><span class="tag">On Test 2</span><p>Sparse retrieval (TF-IDF) rewards shared words; dense retrieval compares meaning and can bridge vocabulary mismatch. “A deaf archer who never misses”: TF-IDF finds Hawkeye first, the dense retriever ranks him 35th.</p></div>
+      <div class="ontest"><span class="tag">On Test 2</span><p>RAG has two stages. Retrieval picks passages, generation writes from them. Wrong passage: retrieval error. Right passage, wrong answer: generation error.</p></div>
+    </aside>
+  </div>
+  <figure class="fig" id="f-search">
+    <div class="fhead"><span class="ftitle">How confident is a wrong answer?</span></div>
+    <div class="viz" id="v-search"></div>
+    <ul class="q-list" id="q-list"></ul>
+    <figcaption><b>How to read it</b>Top: dense retrieval scores. Filled dots are the right page’s score for queries whose page exists; dashed yellow dots are the top score for queries whose page is missing, so whatever came back is wrong. Hover a row to find its dot.</figcaption>
+  </figure>
+</section>
+
+<!-- ═════════════ verdict ═════════════ -->
+<section class="wrap verdict" id="verdict" aria-labelledby="v-h">
+  <h2 id="v-h">What the machines made of the names</h2>
+  <div class="cards">
+    <div class="vcard"><span class="who">word vector · page encoder</span><h3>Storm</h3><p>GloVe hears the weather. BERT and the page encoder, which read the context, find the X-Man and her teammates.</p></div>
+    <div class="vcard"><span class="who">page encoder</span><h3>Black Widow</h3><p>Her nearest pages include everyone else called Black. Give her page her real name and they leave.</p></div>
+    <div class="vcard"><span class="who">sentiment</span><h3>Abomination</h3><p>Negative at 0.97 for arriving in New York, positive at 0.99 for being created by Stan Lee.</p></div>
+    <div class="vcard"><span class="who">tagger</span><h3>Venom</h3><p>A place in 547 of 643 mentions. The person is found only as “Eddie Brock / Venom”.</p></div>
+    <div class="vcard missing"><span class="who">tagger · network · clusters</span><h3>Captain America</h3><p>A place to the tagger, missing from the network, a mantle worn by several men, and placed by BERTopic with the wartime heroes.</p></div>
+    <div class="vcard missing"><span class="who">maps · search</span><h3>Thor</h3><p>The encoder knows where he belongs. t-SNE redraws everything to fit him, and search answers for him with Ultimate Iron Man.</p></div>
+  </div>
+  <p class="closing">Wrong Storm, missing Thor.</p>
+  <div class="prose">
+    <p>The codenames did the damage. Every tool that reads words one at a time, a static vector, a lexicon, a tagger trained on news, took a superhero’s name for the ordinary word inside it. The tools that read context did better, and still answered with full confidence when the answer wasn’t in the corpus. We only saw each of these failures by reading the text behind a number, the habit the course has asked for since week 1.</p>
+    <p><em>Limits.</em> Every number is one run of each model on one corpus. The weather sentences, the sentence frames, the alias table and the reading of 40 mentions are our own choices. The three newcomer articles are today’s versions; they changed size by less than 0.3% since the corpus snapshot of 26 August.</p>
+  </div>
+  <aside class="goodies" aria-label="Goodies">
+    <span class="tag">goodies · not on Test 2</span>
+    <h3>The King of Wakanda, in a novel</h3>
+    <p>The course’s Dark Matter explorables score a Marvel fan-fiction novel sentence by sentence. Their sharpest disagreement is about a name: “An eerie stillness comes from the King of Wakanda…” gets +0.96 from the movie-review classifier and −0.96 from VADER, and DeepMoji reads it as 👿 😡 😠. Across the novel the two instruments agree on the sign of only 36% of sentences. An emotional arc is the shape of the smoothed scores, and the level drops out, which is how two instruments can disagree on most sentences and still draw arcs that rise and fall together.</p>
+  </aside>
+</section>
+
+<!-- ═════════════ formula sheet ═════════════ -->
+<section class="wrap sheet" id="formulas" aria-labelledby="fs-h">
+  <h2 id="fs-h">Formula sheet</h2>
+  <div class="sheet-grid">
+    <div class="fcard"><div class="lab"><span>page vector</span><span>course · week 7</span></div><div class="f">\( \mathbf{x}_i = [x_1, x_2, \ldots, x_{384}] \)</div><p>One row per page in the encoder’s matrix.</p></div>
+    <div class="fcard"><div class="lab"><span>cosine similarity</span><span>course · weeks 5–6</span></div><div class="f">\( \cos(\mathbf{x},\mathbf{y})=\dfrac{\mathbf{x}\cdot\mathbf{y}}{\lVert\mathbf{x}\rVert\,\lVert\mathbf{y}\rVert} \)</div><p>For unit vectors it equals the dot product, so ranking by either gives the same order.</p></div>
+    <div class="fcard"><div class="lab"><span>TF-IDF</span><span>course · week 6</span></div><div class="f">\( \mathrm{tfidf}(t,d)=\dfrac{\mathrm{count}(t,d)}{|d|}\,\log\dfrac{N}{\mathrm{df}(t)} \)</div><p>The sparse retriever’s weights.</p></div>
+    <div class="fcard adapted"><div class="lab"><span>lexicon score</span><span>adapted · week 7</span></div><div class="f">\( \mathrm{score}(d)=\sum_{w\in d} s(w) \)</div><p>The course describes it in words: give words scores, find them, add them up. s(w) is a word’s rating.</p></div>
+    <div class="fcard adapted"><div class="lab"><span>logistic regression</span><span>adapted · week 7</span></div><div class="f">\( P(\text{positive}\mid\mathbf{x})=\dfrac{1}{1+e^{-(b+\sum_j \beta_j x_j)}} \)</div><p>x are TF-IDF features; a positive β pushes toward the positive class.</p></div>
+    <div class="fcard adapted"><div class="lab"><span>span precision and recall</span><span>adapted · exercise 7.8</span></div><div class="f">\( P=\dfrac{\text{correct}}{\text{model spans}} \)</div><div class="f">\( R=\dfrac{\text{correct}}{\text{reference spans}} \)</div><p>The course asks for both; the formulas are ours.</p></div>
+  </div>
+</section>
+
+<section class="wrap notes" id="notes" aria-labelledby="n-h">
+  <h2 id="n-h">Notes</h2>
+  <ol>
+    <li id="n1">Thor is named on 63 pages. Above him are Spider-Man, Wolverine and the page <em>Force (comics)</em>, whose name is also an ordinary word, so its count of 77 is mostly not about the character. The correlation uses only names that belong to one page. <a href="#r1">↩</a></li>
+    <li>Models: GloVe <span class="mono">glove-wiki-gigaword-100</span>; BERT <span class="mono">bert-base-uncased</span>; <span class="mono">all-MiniLM-L6-v2</span>; DistilBERT SST-2 at revision <span class="mono">714eb0fa</span>; VADER 3.3.2; spaCy <span class="mono">en_core_web_sm</span> 3.8. BERTopic with the course page’s settings gives 4 topics and 125 outliers on our machine (the page reports 110).</li>
+    <li>The co-mention network uses spaCy’s PERSON spans with possessives stripped, spans like “Eddie Brock / Venom” split in two, and a 26-entry alias table (Steve Rogers → Captain America, Tony Stark → Iron Man, Peter Parker → Spider-Man and so on), all in the notebook. It has 7,159 distinct names.</li>
+    <li>Two numbers come from our week-7 exercise notebooks rather than this one: the <em>trump</em> weight (SGI-7.6, trained on 4,200 GoodNewsEveryone headlines) and the hand-labelled recall (SGI-7.8, 40 sentences). The Dark Matter figures in the goodies box are the course explorables’ own.</li>
+    <li>Newcomer articles: Thor (Marvel Comics) rev 1381049847, Captain America rev 1381051886, Iron Man rev 1380311906, fetched 25 October 2026, saved in <span class="mono">Data/Week7/newcomers.json</span>.</li>
+  </ol>
+  <h3 style="margin-top: var(--space-lg)">Sources</h3>
+  <ol>
+    <li>Lehmann, S. <a href="https://sunelehmann.com/socialgraphs2026-web/weeks/week7.html">Week 7 · From meaning to measurement</a>, DTU 02805, 2026, including its explorables.</li>
+    <li>Jurafsky, D. and Martin, J. H. <em>Speech and Language Processing</em>, chapters 4, 9, 11, 18 and 23 (the readings listed on the week-7 page).</li>
+    <li>The course’s 303 Marvel pages (frozen snapshot, 26 August 2026) and the week-1 hyperlink network.</li>
+  </ol>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="stmt">Wrong Storm,<br>missing Thor.</p>
+    <div class="meta"><span>Marvel Superstars · week 7 of 8</span><a href="../../index.html">all weeks</a><a href="../../Notebooks/Week7/SGI-7.13.ipynb">the notebook</a><a href="#play">play again</a></div>
+  </div>
+</footer>
+<div class="tip" id="tip" role="tooltip"></div>
+
+<script type="application/json" id="viz-data">{"names":["Abomination (character)","Adam Warlock","Agent X (Marvel Comics)","Ajak","Alex Wilder","She-Venom (Patricia Robertson)","Anole (character)","Anya Corazon","Arabian Knight (character)","Ares (Marvel Comics)","Backhand (character)","Balder the Brave","Battlestar (character)","Baymax","Beta Ray Bill","Betsy Braddock","Bill Foster (character)","Bird-Brain (Marvel Comics)","Black Bolt","Black Cat (Marvel Comics)","Black Fox (Robert Paine)","Black Jack Tarr","Black Knight (Marvel Comics)","Black Marvel","Black Panther (character)","Black Rider (character)","Black Widow (Natasha Romanova)","Blackthorn (character)","Blackwulf","Blade (character)","Blazing Skull","Blue Bullet","Blue Diamond (character)","Blue Eagle (character)","Blue Marvel","Bob, Agent of Hydra","Box (comics)","Brain Drain (character)","Breeze Barton","Brian Braddock","Bucky (Marvel Comics)","Bug (Marvel Comics)","Cable (character)","Cammi (character)","Captain Marvel (Khn'nr)","Captain Marvel (Marvel Comics)","Captain Midlands","Captain Ultra","Captain Universe","Caretaker (comics)","Ch'od","Charcoal (comics)","Chase Stein","Citizen V","Cloak and Dagger (characters)","Coldblood","Crane Mother","Crippler (character)","Cyclops (Marvel Comics)","Dargo Ktor","Darkdevil","Darkhawk","Deadpool","Deathlok","Debrii","Delroy Garrett","Detroit Steel","Devil Dinosaur","Devil Hulk","Digitek (character)","Doctor Druid","Doctor Nemesis","Alice Nugent","Doctor Strange","Dogpool","Doom 2099","Dragon Lord (character)","Dusk (comics)","Eddie Brock","Elsa Bloodstone","Emma Frost","Empath (character)","Emrys Killebrew","Enigma (Marvel Comics)","Ethan Edwards","Fabio Medina","Fandral","Father Time (Marvel Comics)","Fin Fang Foom","Firebird (Marvel Comics)","Firelord (character)","Flatman (character)","Force (comics)","Frankenstein's Monster (Marvel Comics)","Franklin Richards (character)","Frog-Man","G. W. Bridge","Gargoyle (comics)","Garrison Kane","Gauntlet (Joseph Green)","Genis-Vell","Ghost Rider","Ghost Rider (Danny Ketch)","Ghost Rider (Johnny Blaze)","Gladiator (Kallark)","Golem (Marvel Comics)","Gorgon (Inhuman)","Gremlin (comics)","Guardian (Marvel Comics)","Guardsman (character)","Gwenpool","Hank Pym","Happy Sam Sawyer","Hawkeye (comics)","Helix (Marvel Comics)","Hellfire (J. T. Slade)","Hellion (character)","Hercules (Marvel Comics)","Hit-Monkey","Hornet (comics)","Hrimhari","Hulk","Hulk 2099","Hulkling","Human Fly (character)","Human Torch","Human Torch (android)","Hybrid (Scott Washington)","Hyperion (character)","Ikaris","Illuminator (Marvel Comics)","Inferno (Dante Pertuz)","Iron Fist (character)","Iron Lad","Iron Man (Ultimate Marvel character)","Iron Man 2020","Isaiah Bradley","Jack Frost (Marvel Comics)","Jack Monroe (character)","Janice Lincoln","Jean Grey","Jean Grey (X-Men film series)","Jeffrey Mace","Jericho Drumm","Jessica Jones","John Jameson (character)","Jubilee (character)","Junior Juniper","Justice (New Universe)","Karnak (character)","Kid Colt","Killpower","Killraven","Kismet (Marvel Comics)","Korvus","Kristoff Vernard","Leech (character)","Lei Kung (character)","Living Lightning","Luke Cage","Machine Man","Magician (Marvel Comics)","Mahr Vehl","Makkari (character)","Man-Thing","Mania (character)","Mark Hazzard: Merc","Marvel Boy (Robert Grayson)","Mayday Parker","Miracleman (character)","Misty Knight","Mockingbird (Marvel Comics)","Moon Knight","Moondragon","Moonglow (comics)","Morbius","Motormouth (comics)","Ms. Marvel","Phil Grayfield","Nightmask","Nightwatch (character)","Noh-Varr","Nomad (Marvel Comics)","Northstar (character)","Nova (Richard Rider)","Ogre (Marvel Comics)","Outlaw (Marvel Comics)","Oya (comics)","Paladin (comics)","Patsy Walker","Peggy Carter","Phil Urich","Phoenix Force","Phyla-Vell","Power Man (Victor Alvarez)","Powerhouse (Marvel Comics)","Puck (Marvel Comics)","Quasar (character)","Quicksilver (Marvel Comics)","Rachel Summers","Radian (Morituri)","Radioactive Man (comics)","Ravage 2099","Raza Longknife","Red Guardian","Red Raven (Dania)","Red Wolf (comics)","Redneck (comics)","Ricochet (comics)","Rikki Barnes","Robbie Baldwin","Rocket Raccoon","Rockman (character)","Rockslide (character)","Rom the Space Knight","Ronin (Marvel Comics)","Ruby Summers","Rusty Collins","Sabra (character)","Satana (Marvel Comics)","Scaredycat","Scarlet Scarab","Scarlet Spider","Scarlet Witch","Scatterbrain (Morituri)","Scorpio (Marvel Comics)","Sean and Chris","Sentry (Robert Reynolds)","Shamrock (comics)","Shang-Chi","Shatterstar","She-Hulk","She-Hulk (Lyra)","Shear (character)","Shuri (character)","Silencer (comics)","Silhouette (comics)","Silk (character)","Skull the Slayer","Snapdragon (Morituri)","Solarman","Solo (Marvel Comics)","Solomon Kane (comics)","Speed (character)","Spider-Bitch (Ashley Barton)","Spider-Girl","Spider-Man","Spider-Man (Marvel Mangaverse)","Spider-Man Noir","Spider-UK","Spider-Woman","Spider-Woman (Gwen Stacy)","Spider-Woman (Jessica Drew)","Spitfire (character)","Star Brand","Star-Lord","Starhawk (character)","Starr the Slayer","Steel Spider","Stingray (Marvel Comics)","Storm (Marvel Comics)","Straw Man (comics)","Super Rabbit","Surge (Marvel Comics)","Synapse (character)","Tarantula (Marvel Comics)","The Union (Marvel)","The Witness (character)","Thena","Thin Man (character)","Thor Girl","Thunderbolt (Marvel Comics)","Thunderclap (comics)","Timeslip (comics)","Toro (character)","Toxyn","Turbo (comics)","Two-Gun Kid","Typeface (character)","U.S. Agent","Ulysses Bloodstone","Union Jack (Joseph Chapman)","Union Jack (Marvel Comics)","Ursa Major (character)","Vance Astrovik","Venom (character)","Vindicator (comics)","Vulcan (Marvel Comics)","Vyking","War Machine","Werewolf by Night","White Tiger (Heroes for Hire)","White Tiger (comics)","Whizzer (Robert Frank)","Wild Child (character)","Will o' the Wisp (comics)","William Burnside (character)","Wolverine (Ultimate Marvel character)","Wolverine (character)","Xorn","Yelena Belova","Yo-Yo Rodriguez","Zombie (comics)"],"newcomers":["Thor (Marvel Comics)","Captain America","Iron Man"],"grid":{"cols":["word vector","page encoder","sentiment","tagger","network","map & clusters","search"],"rows":[{"name":"Storm","cells":[{"state":"wrong","text":"hurricane 0.88"},{"state":"right","text":"Emma Frost, Jean Grey"},{"state":"blank","text":"no score"},{"state":"wrong","text":"organisation 286/400"},{"state":"wrong","text":"rank 649 of 7,159"},{"state":"blank","text":"—"},{"state":"blank","text":"—"}]},{"name":"Black Widow","cells":[{"state":"wrong","text":"widow → wife"},{"state":"wrong","text":"Black Cat #2"},{"state":"blank","text":"+1.00"},{"state":"wrong","text":"person 4/235"},{"state":"blank","text":"—"},{"state":"blank","text":"—"},{"state":"right","text":"TF-IDF #1"}]},{"name":"Venom","cells":[{"state":"right","text":"symbiote 0.58"},{"state":"right","text":"Eddie Brock"},{"state":"blank","text":"+0.83"},{"state":"wrong","text":"place 547/643"},{"state":"right","text":"degree 26, via Eddie Brock / Venom"},{"state":"blank","text":"—"},{"state":"blank","text":"—"}]},{"name":"Abomination","cells":[{"state":"blank","text":"—"},{"state":"blank","text":"—"},{"state":"wrong","text":"-0.97"},{"state":"blank","text":"—"},{"state":"blank","text":"—"},{"state":"blank","text":"—"},{"state":"blank","text":"—"}]},{"name":"Captain America","cells":[{"state":"blank","text":"—"},{"state":"right","text":"William Burnside"},{"state":"blank","text":"—"},{"state":"wrong","text":"place 377/615"},{"state":"missing","text":"no node"},{"state":"right","text":"topic 3, with Bucky"},{"state":"missing","text":"Union Jack"}]},{"name":"Thor","cells":[{"state":"blank","text":"—"},{"state":"right","text":"Beta Ray Bill"},{"state":"blank","text":"—"},{"state":"blank","text":"—"},{"state":"missing","text":"no node"},{"state":"missing","text":"outlier"},{"state":"missing","text":"Ultimate Iron Man 0.68"}]},{"name":"Iron Man","cells":[{"state":"blank","text":"—"},{"state":"right","text":"War Machine"},{"state":"blank","text":"—"},{"state":"wrong","text":"person 134/395"},{"state":"missing","text":"in-degree 1"},{"state":"missing","text":"outlier"},{"state":"missing","text":"Turbo"}]}]},"game":[{"tool":"GloVe · static word vector","q":"GloVe keeps one vector for the word storm. Which word sits closest to it?","options":["hurricane","x-men","mutant","Ororo"],"answer":0,"reveal":"hurricane, at 0.88. x-men is down at 0.20."},{"tool":"MiniLM · page encoder","q":"Black Widow’s page is rewritten with Natasha Romanoff in place of her codename. Which neighbour falls furthest?","options":["Black Cat","Yelena Belova","Spider-Woman (Jessica Drew)"],"answer":0,"reveal":"Black Cat, from #2 to #19. Yelena and Jessica Drew stay in the top three."},{"tool":"DistilBERT · sentiment","q":"“Abomination arrived in New York.” What does the movie-review classifier say?","options":["positive","negative","it can’t tell"],"answer":1,"reveal":"Negative, with confidence 0.97. Nothing in the sentence is negative except the name."},{"tool":"spaCy · named entities","q":"“Venom attacked Spider-Man in New York.” What type does spaCy give Venom?","options":["person","place","organisation","nothing"],"answer":1,"reveal":"A place (GPE), like New York. Spider-Man is an organisation."},{"tool":"spaCy · the whole corpus","q":"Captain America is mentioned 615 times. In how many is he tagged a person?","options":["1","61","305","598"],"answer":0,"reveal":"1. His most common tag is a place: 377 times, for America."},{"tool":"the hyperlink network","q":"Captain America has no page among the 303. How many of the 303 pages name him?","options":["15","58","115","203"],"answer":2,"reveal":"115. Only Spider-Man is named on more pages."},{"tool":"BERTopic · clusters","q":"Thor’s article is added to the corpus. Where does BERTopic put him?","options":["with Hercules","with the X-Men","nowhere: an outlier"],"answer":2,"reveal":"An outlier: not dense enough to join any cluster of the 303 pages."},{"tool":"dense retrieval","q":"You search the corpus for “the Norse god of thunder”. What comes back first?","options":["Beta Ray Bill","Hercules","Ultimate Iron Man","nothing"],"answer":2,"reveal":"Ultimate Iron Man, scoring 0.68: higher than any right answer in our test."}],"lens":{"Captain America":["place",377,615],"Steve Rogers":["person",105,106],"Iron Man":["person",134,395],"Tony Stark":["person",78,79],"Spider-Man":["person",601,1888],"Peter Parker":["person",222,225],"Hulk":["organisation",601,813],"Bruce Banner":["person",49,51],"Black Widow":["organisation",121,235],"Natasha Romanoff":["person",11,11],"Venom":["place",547,643],"Eddie Brock":["person",96,144],"Doctor Strange":["none",261,263],"Stephen Strange":["person",9,10],"Storm":["organisation",286,400],"Ororo":["person",17,34],"Thor":["person",155,327],"Wolverine":["organisation",362,674],"Black Panther":["organisation",126,280],"Black Cat":["place",85,220],"Black Marvel":["organisation",35,36],"Human Torch":["organisation",143,177],"Emma Frost":["person",175,184],"Abomination":["none",109,132],"Ghost Rider":["person",247,433],"Beta Ray Bill":["none",46,48],"Thor Girl":["person",18,26],"Bucky":["person",83,167]},"storm_xy":[[-0.432,-0.173],[-0.231,0.143],[-0.52,-0.107],[-0.146,0.291],[0.408,-0.035],[0.271,-0.066],[0.295,0.069],[0.355,-0.122]],"storm_sents":["Storm is a superhero appearing in American comic books published by Marvel Comics.","Descended from a long line of African witch-priestesses, Storm is a member of a fictional subspecies of humans born with superhuman abilities known as mutants.","Storm is a member of the X-Men, a group of mutant heroes fighting for peace and equal rights between mutants and humans.","Born Ororo Munroe to a tribal princess of Kenya, and a Black-American photojournalist father, Storm was raised in Harlem, New York City, and Cairo, Egypt.","A storm hit the coast last night and knocked out the power.","The storm brought heavy rain and strong winds to the city.","Farmers waited for the storm to pass before harvesting.","The tropical storm grew into a hurricane over the warm sea."],"kept":0.56,"placement":[{"title":"Thor (Marvel Comics)","pca":["Hulk","The Witness (character)","Gauntlet (Joseph Green)","Black Fox (Robert Paine)","Ghost Rider (Danny Ketch)"],"tsne":["Dargo Ktor","Beta Ray Bill","Fandral","Thor Girl","Balder the Brave"]},{"title":"Captain America","pca":["Father Time (Marvel Comics)","Jeffrey Mace","Black Rider (character)","Happy Sam Sawyer","Kid Colt"],"tsne":["William Burnside (character)","Jeffrey Mace","Jack Monroe (character)","Isaiah Bradley","Nomad (Marvel Comics)"]},{"title":"Iron Man","pca":["Zombie (comics)","Man-Thing","Phil Urich","Super Rabbit","Solomon Kane (comics)"],"tsne":["War Machine","Iron Man (Ultimate Marvel character)","Iron Man 2020","Detroit Steel","Force (comics)"]}],"reading":[["m","asion, Black Widow worked alongside Bucky, who had taken the title of Captain America after the death of Steve Rogers."],["c","y Chapman in Captain America #18-21 (July–October 2006); in the story Captain America recruits the two heroes, who are no longer dating"],["c","They go on to join Captain America's anti-registration group, the Secret Avengers."],["c","Captain America's dialogue implies that the new members, includin"],["t","In the DC Comics/Marvel Comics one-shot intercompany crossover Batman/Captain America (Dec."],["c","at the 1950s Captain America was a different person from the original Captain America."],["c","Agent's suit is available as an alternate costume for Captain America in Marvel Heroes."],["m","Jeffrey Solomon Mace, also known as the Patriot and Captain America, is a superhero appearing in American comic books"],["t","We got a lot of grief from the Captain America fans on that series until the fifth and sixth iss"],["c","Brian is captured by Modred the Mystic, and teams with Captain America to defeat Modred."],["t","s first appearance, when in fact this, and subsequent 1950s-published Captain America stories, was clearly created with the intention o"],["c","When Marvel Comics had revived the character Captain America in 1964, the story explained that he had been mis"],["c","hart and artist Sal Buscema as an alternate identity for the original Captain America, Steve Rogers, in Captain America #180 (December "],["t","He features in Captain America #324–325 (December 1986–January 1987), and after "],["t","mer Black Widow assassin, in the Marvel Cinematic Universe (MCU) film Captain America: Brave New World (2025), with her inclusion recei"],["c","g several characters to switch sides, such as Spider-Man defecting to Captain America's side."],["c","When Captain America repeatedly refuses his challenges to a fight, Sup"],["c","Captain America recognized Wolverine as James Howlett, a paratroo"],["c","though she had dismissed the idea of putting on her costume to assist Captain America defeat Baron Blood, she was able to summon her su"],["t"," Captain America #153, the origin of the character, first revealed in Captain America #155 (again by Englehart and Buscema), identifies"],["c","me time after his official introduction as a superhero, Rockman joins Captain America, the Invaders and a cadre of second-tier superher"],["t","In Captain America #232–236 (April–August 1979) — by writers Roger M"],["c","ica costume was based on the prejudicial assumption that it tarnished Captain America's legacy."],["m","An alternate universe variant of Peggy Carter who became Captain America, based on Hayley Atwell's likeness and adapted fr"],["t"," parts of his history would be told through flashbacks in titles like Captain America: Sentinel of Liberty (1999), and more of the back"],["m"," is destroyed, the heroes witness Sam Wilson reassuming the mantle of Captain America."],["c","An alternate version of Captain America is created, one loyal to the terrorist organizati"],["c","ort directly to the Commission on Superhuman Activities, feeling that Captain America had grown beyond the name's original role as a sy"],["c","rainwashed into becoming an assassin called the Winter Soldier before Captain America uses the Cosmic Cube to restore his mind."],["m","Mace succeeded the second Captain America, William Naslund (formerly the Spirit of '76), wh"],["c","She is imprisoned in the Raft, where she reveals that she knows Captain America and Bucky are one and the same."],["c","leaves Captain America's employ due to his attraction to Diamondback (Captain America's then-girlfriend)."],["t","Feild portrayed James Falsworth in the Marvel Cinematic Universe film Captain America: The First Avenger as a member of the Howling Com"],["t","aining Timely Comics' first publication of Joe Simon and Jack Kirby’s Captain America in 1940—a full year before Pearl Harbor and the t"],["t","Although the character's first real appearance is as \"Bucky\" in Captain America #153, the origin of the character, first revealed"],["t","on of Rikki Barnes, the female Bucky established in the Heroes Reborn Captain America series, now resides in the mainstream Marvel Univ"],["c","kills Black Goliath, Debrii is compelled to become involved and joins Captain America's Secret Avengers."],["m","ent Marvel promotion as a supporting character to Sam Wilson, the new Captain America, who is uneasy now that his friend Steve Rogers h"],["m","Prior to becoming Captain America, William Burnside has university graduate level i"],["m","Very little is known of him, but he fought alongside Captain America (William Naslund) and the Sub-Mariner at the Pots"]],"tsne0":[[-15.930000305175781,-1.75],[1.5399999618530273,1.059999942779541],[-16.6299991607666,10.84000015258789],[3.5399999618530273,15.979999542236328],[7.110000133514404,-6.449999809265137],[10.039999961853027,6.099999904632568],[-8.170000076293945,10.380000114440918],[12.319999694824219,7.53000020980835],[9.859999656677246,-2.559999942779541],[-12.649999618530273,-4.699999809265137],[-1.0399999618530273,25.600000381469727],[-14.640000343322754,-6.260000228881836],[5.260000228881836,-16.579999923706055],[-19.510000228881836,0.9700000286102295],[-12.010000228881836,-2.8299999237060547],[-4.590000152587891,11.119999885559082],[-3.9000000953674316,-7.980000019073486],[-6.25,20.139999389648438],[-8.4399995803833,-13.0600004196167],[10.319999694824219,10.1899995803833],[2.4200000762939453,-9.960000038146973],[0.38999998569488525,4.989999771118164],[10.789999961853027,-4.070000171661377],[1.7699999809265137,-10.180000305175781],[6.71999979019165,-2.559999942779541],[9.930000305175781,-8.850000381469727],[10.470000267028809,11.470000267028809],[0.5699999928474426,23.360000610351562],[-6.409999847412109,-13.609999656677246],[11.90999984741211,-4.210000038146973],[14.920000076293945,-12.40999984741211],[-8.180000305175781,-18.729999542236328],[-16.989999771118164,-3.4000000953674316],[3.4700000286102295,9.369999885559082],[-16.670000076293945,-3.140000104904175],[-17.540000915527344,10.979999542236328],[-11.670000076293945,7.670000076293945],[-6.710000038146973,20.079999923706055],[4.320000171661377,7.210000038146973],[10.199999809265137,-13.399999618530273],[5.440000057220459,-15.260000228881836],[7.840000152587891,0.49000000953674316],[-13.260000228881836,13.90999984741211],[-4.489999771118164,7.46999979019165],[-0.10000000149011612,-0.8199999928474426],[-0.8500000238418579,-1.149999976158142],[10.890000343322754,-13.270000457763672],[-0.36000001430511475,-3.619999885559082],[-0.23000000417232513,-2.7799999713897705],[-1.100000023841858,-21.149999618530273],[-2.819999933242798,16.75],[-5.599999904632568,-3.200000047683716],[-6.210000038146973,3.440000057220459],[2.4700000286102295,-13.239999771118164],[14.40999984741211,0.5400000214576721],[-6.380000114440918,-10.699999809265137],[-2.3299999237060547,6.809999942779541],[4.519999980926514,-18.0],[-7.789999961853027,12.920000076293945],[-11.0600004196167,-2.200000047683716],[15.729999542236328,4.21999979019165],[4.710000038146973,0.11999999731779099],[-16.790000915527344,11.319999694824219],[-6.010000228881836,-10.15999984741211],[-11.079999923706055,4.010000228881836],[-2.940000057220459,-3.3299999237060547],[-9.350000381469727,-8.4399995803833],[7.460000038146973,7.869999885559082],[-15.470000267028809,-0.09000000357627869],[4.630000114440918,-6.760000228881836],[-4.409999847412109,-16.950000762939453],[-2.8299999237060547,-6.760000228881836],[-1.5,-4.75],[-4.190000057220459,-17.020000457763672],[-16.889999389648438,12.210000038146973],[-1.5800000429153442,-8.119999885559082],[-1.3899999856948853,3.9100000858306885],[15.510000228881836,0.20000000298023224],[9.75,4.869999885559082],[7.369999885559082,12.800000190734863],[-5.840000152587891,11.84000015258789],[-8.920000076293945,15.739999771118164],[-16.579999923706055,9.369999885559082],[16.469999313354492,8.609999656677246],[-14.25,4.110000133514404],[-9.380000114440918,12.4399995803833],[-14.300000190734863,-5.889999866485596],[6.769999980926514,-14.100000381469727],[-2.3399999141693115,4.260000228881836],[2.490000009536743,7.050000190734863],[-3.309999942779541,1.440000057220459],[0.25999999046325684,-7.010000228881836],[-9.510000228881836,-6.909999847412109],[12.710000038146973,-6.400000095367432],[2.819999933242798,-4.150000095367432],[9.569999694824219,2.2699999809265137],[-13.739999771118164,14.119999885559082],[-11.359999656677246,-10.550000190734863],[-13.399999618530273,12.40999984741211],[-10.789999961853027,-7.360000133514404],[0.9200000166893005,-1.7699999809265137],[-0.11999999731779099,-20.40999984741211],[0.5299999713897705,-20.559999465942383],[-0.25,-20.299999237060547],[-0.800000011920929,14.859999656677246],[-8.170000076293945,-18.68000030517578],[-8.9399995803833,-12.819999694824219],[-11.15999984741211,-10.350000381469727],[-10.670000076293945,7.789999961853027],[-9.229999542236328,-6.139999866485596],[12.350000381469727,9.640000343322754],[-3.7100000381469727,-7.710000038146973],[7.510000228881836,-17.920000076293945],[4.880000114440918,5.400000095367432],[-17.690000534057617,4.230000019073486],[-4.03000020980835,0.8199999928474426],[-9.09000015258789,11.699999809265137],[-12.710000038146973,-4.559999942779541],[6.289999961853027,2.630000114440918],[10.680000305175781,1.6299999952316284],[15.15999984741211,-7.449999809265137],[-14.9399995803833,-0.49000000953674316],[-14.510000228881836,-0.5099999904632568],[-13.550000190734863,-1.6699999570846558],[11.829999923706055,2.200000047683716],[-5.199999809265137,-1.940000057220459],[-4.829999923706055,-2.0399999618530273],[8.279999732971191,4.179999828338623],[-1.649999976158142,-4.510000228881836],[2.6700000762939453,15.880000114440918],[18.209999084472656,-4.130000114440918],[-4.820000171661377,0.44999998807907104],[-1.6399999856948853,5.710000038146973],[-6.730000019073486,-6.730000019073486],[-7.920000076293945,-7.320000171661377],[-7.75,-7.679999828338623],[4.179999828338623,-13.359999656677246],[8.800000190734863,-15.779999732971191],[5.050000190734863,-14.869999885559082],[10.800000190734863,8.1899995803833],[-6.460000038146973,12.550000190734863],[-6.769999980926514,12.729999542236328],[5.289999961853027,-12.850000381469727],[-3.2699999809265137,-17.469999313354492],[14.100000381469727,10.40999984741211],[12.460000038146973,3.869999885559082],[-6.75,11.489999771118164],[7.659999847412109,-18.68000030517578],[2.359999895095825,-6.110000133514404],[-9.210000038146973,-14.180000305175781],[8.369999885559082,-8.859999656677246],[-15.630000114440918,7.159999847412109],[4.940000057220459,-5.300000190734863],[1.3200000524520874,1.8300000429153442],[-2.859999895095825,14.890000343322754],[-1.4900000095367432,-8.3100004196167],[-6.199999809265137,15.859999656677246],[-1.5299999713897705,5.940000057220459],[-6.539999961853027,-1.0299999713897705],[-7.789999961853027,-2.940000057220459],[-6.869999885559082,-8.90999984741211],[-6.28000020980835,14.510000228881836],[-0.1899999976158142,-0.11999999731779099],[3.630000114440918,13.960000038146973],[-2.109999895095825,-13.550000190734863],[8.859999656677246,5.110000133514404],[8.670000076293945,-11.880000114440918],[-0.15000000596046448,-5.710000038146973],[13.649999618530273,6.659999847412109],[0.7099999785423279,-6.570000171661377],[-0.5199999809265137,7.070000171661377],[3.609999895095825,6.360000133514404],[10.449999809265137,-3.2300000190734863],[1.3899999856948853,11.289999961853027],[1.3899999856948853,11.630000114440918],[13.829999923706055,-5.039999961853027],[-15.529999732971191,6.980000019073486],[-1.4199999570846558,-0.6000000238418579],[-13.40999984741211,-14.930000305175781],[15.380000114440918,-1.8200000524520874],[15.329999923706055,-0.7400000095367432],[-1.840000033378601,-1.6799999475479126],[4.510000228881836,-15.100000381469727],[-7.309999942779541,9.4399995803833],[2.930000066757202,0.9700000286102295],[2.2699999809265137,-2.049999952316284],[-17.959999084472656,9.34000015258789],[-9.470000267028809,13.850000381469727],[4.360000133514404,-11.130000114440918],[8.489999771118164,9.819999694824219],[6.480000019073486,-11.449999809265137],[-1.559999942779541,-10.989999771118164],[-5.349999904632568,13.239999771118164],[0.7300000190734863,2.509999990463257],[-7.53000020980835,-2.7699999809265137],[-9.050000190734863,5.550000190734863],[4.869999885559082,-8.760000228881836],[-0.6499999761581421,1.7200000286102295],[-5.409999847412109,6.090000152587891],[-5.070000171661377,12.3100004196167],[-0.4099999964237213,24.0],[-5.230000019073486,-6.659999847412109],[1.3200000524520874,-4.550000190734863],[-2.940000057220459,16.75],[-3.2799999713897705,-10.199999809265137],[2.319999933242798,8.5],[14.369999885559082,-7.019999980926514],[-7.960000038146973,0.8500000238418579],[10.920000076293945,1.0399999618530273],[2.990000009536743,-15.819999694824219],[-8.069999694824219,3.5199999809265137],[2.690000057220459,-0.5799999833106995],[0.8199999928474426,-8.279999732971191],[-10.109999656677246,10.550000190734863],[-3.2300000190734863,-5.519999980926514],[5.019999980926514,5.230000019073486],[-3.009999990463257,11.880000114440918],[-11.729999542236328,14.8100004196167],[-10.789999961853027,1.5800000429153442],[7.679999828338623,8.630000114440918],[1.2300000190734863,25.729999542236328],[6.389999866485596,10.90999984741211],[14.520000457763672,4.46999979019165],[-5.260000228881836,6.119999885559082],[0.7900000214576721,25.8799991607666],[3.619999885559082,3.809999942779541],[3.490000009536743,-3.119999885559082],[6.21999979019165,-4.050000190734863],[-1.2400000095367432,9.960000038146973],[0.10999999940395355,4.960000038146973],[-7.300000190734863,8.399999618530273],[-12.989999771118164,0.9900000095367432],[-13.149999618530273,1.340000033378601],[-2.119999885559082,25.190000534057617],[6.75,-2.3299999237060547],[0.6399999856948853,21.360000610351562],[13.529999732971191,-1.7799999713897705],[14.789999961853027,8.1899995803833],[15.010000228881836,-12.289999961853027],[0.03999999910593033,24.68000030517578],[-15.15999984741211,-10.359999656677246],[-6.829999923706055,-4.789999961853027],[9.979999542236328,-6.199999809265137],[-5.639999866485596,5.050000190734863],[12.319999694824219,6.619999885559082],[13.430000305175781,7.190000057220459],[13.569999694824219,4.650000095367432],[14.399999618530273,5.480000019073486],[13.479999542236328,5.090000152587891],[15.0,6.659999847412109],[13.699999809265137,8.039999961853027],[13.0,8.380000114440918],[13.770000457763672,9.279999732971191],[-0.1899999976158142,8.899999618530273],[4.199999809265137,-1.1299999952316284],[2.3499999046325684,-0.029999999329447746],[4.260000228881836,0.07999999821186066],[15.850000381469727,-10.729999542236328],[14.170000076293945,3.319999933242798],[-4.230000019073486,-5.03000020980835],[-6.039999961853027,10.449999809265137],[-2.5399999618530273,-14.09000015258789],[0.3199999928474426,-11.920000076293945],[-8.460000038146973,11.420000076293945],[-8.630000114440918,18.3799991607666],[11.729999542236328,5.21999979019165],[11.4399995803833,-15.729999542236328],[2.700000047683716,-7.010000228881836],[2.7100000381469727,14.84000015258789],[-0.1599999964237213,-14.109999656677246],[-11.4399995803833,-0.3700000047683716],[-7.820000171661377,-0.3199999928474426],[-9.460000038146973,-1.2100000381469727],[-8.0,3.859999895095825],[-4.25,-1.9900000095367432],[1.1299999952316284,24.34000015258789],[-10.130000114440918,4.659999847412109],[8.460000038146973,-8.920000076293945],[16.93000030517578,5.429999828338623],[4.25,-12.640000343322754],[7.28000020980835,12.960000038146973],[10.579999923706055,-15.279999732971191],[10.239999771118164,-15.220000267028809],[-3.119999885559082,-10.6899995803833],[2.130000114440918,-5.619999885559082],[9.829999923706055,4.829999923706055],[-10.25,7.940000057220459],[-1.7899999618530273,14.079999923706055],[-0.75,24.600000381469727],[-8.90999984741211,-7.829999923706055],[13.869999885559082,-6.289999961853027],[9.609999656677246,16.790000915527344],[9.619999885559082,16.760000228881836],[0.8899999856948853,-10.760000228881836],[7.53000020980835,-7.769999980926514],[16.09000015258789,2.7200000286102295],[5.349999904632568,-14.119999885559082],[-11.84000015258789,11.850000381469727],[-11.899999618530273,11.859999656677246],[-7.909999847412109,13.989999771118164],[10.520000457763672,12.029999732971191],[-8.859999656677246,2.799999952316284],[-1.5,-16.229999542236328]],"tsne1":[[-3.8299999237060547,4.829999923706055],[-5.619999885559082,0.47999998927116394],[-8.050000190734863,17.040000915527344],[-8.359999656677246,-1.1399999856948853],[12.829999923706055,4.210000038146973],[6.400000095367432,17.1200008392334],[-10.399999618530273,9.199999809265137],[0.25999999046325684,14.819999694824219],[-9.8100004196167,-6.389999866485596],[-5.519999980926514,2.549999952316284],[20.229999542236328,9.270000457763672],[9.9399995803833,6.289999961853027],[8.380000114440918,-16.709999084472656],[14.729999542236328,-4.400000095367432],[7.650000095367432,4.710000038146973],[-11.670000076293945,5.559999942779541],[4.239999771118164,-1.7999999523162842],[9.479999542236328,10.0600004196167],[-3.75,-6.860000133514404],[-15.039999961853027,0.5099999904632568],[-1.5499999523162842,-8.279999732971191],[1.0800000429153442,-11.6899995803833],[-9.3100004196167,-8.369999885559082],[-1.100000023841858,-7.889999866485596],[-5.409999847412109,-9.25],[-6.179999828338623,-18.670000076293945],[-16.200000762939453,0.75],[19.049999237060547,6.900000095367432],[-11.720000267028809,-10.279999732971191],[-10.020000457763672,-8.819999694824219],[-4.829999923706055,-15.729999542236328],[15.40999984741211,-9.079999923706055],[4.760000228881836,3.049999952316284],[4.760000228881836,4.710000038146973],[4.599999904632568,2.930000066757202],[-8.739999771118164,17.40999984741211],[8.510000228881836,1.5],[9.920000076293945,10.279999732971191],[2.7899999618530273,7.369999885559082],[0.6399999856948853,-17.739999771118164],[7.139999866485596,-17.15999984741211],[0.3100000023841858,3.240000009536743],[-11.710000038146973,13.680000305175781],[-6.119999885559082,9.270000457763672],[-3.9000000953674316,-3.4000000953674316],[-2.7799999713897705,-1.9800000190734863],[1.340000033378601,-17.729999542236328],[-0.2800000011920929,-2.1700000762939453],[-0.7699999809265137,-1.590000033378601],[-10.539999961853027,-17.329999923706055],[-8.270000457763672,4.769999980926514],[8.050000190734863,-5.599999904632568],[13.649999618530273,3.0299999713897705],[6.710000038146973,-14.819999694824219],[-1.3700000047683716,11.850000381469727],[6.039999961853027,-12.350000381469727],[3.4700000286102295,-11.350000381469727],[9.890000343322754,-16.270000457763672],[-12.180000305175781,9.149999618530273],[8.779999732971191,5.070000171661377],[2.200000047683716,17.950000762939453],[-0.7099999785423279,1.6100000143051147],[-7.840000152587891,17.700000762939453],[5.71999979019165,-11.770000457763672],[13.84000015258789,-0.5],[0.8199999928474426,1.0299999713897705],[10.109999656677246,-10.020000457763672],[-16.0,-6.449999809265137],[-4.909999847412109,6.389999866485596],[-1.1100000143051147,-10.40999984741211],[-9.670000076293945,-13.109999656677246],[3.2200000286102295,-0.9800000190734863],[1.4900000095367432,-1.3300000429153442],[-9.5,-13.25],[-7.170000076293945,18.15999984741211],[-7.019999980926514,-5.369999885559082],[-12.65999984741211,-13.65999984741211],[-0.2800000011920929,11.479999542236328],[6.510000228881836,15.869999885559082],[-14.0600004196167,-4.119999885559082],[-12.510000228881836,7.010000228881836],[-16.299999237060547,8.770000457763672],[-7.880000114440918,15.989999771118164],[-0.18000000715255737,18.809999465942383],[4.900000095367432,9.430000305175781],[-14.369999885559082,8.859999656677246],[8.90999984741211,6.619999885559082],[6.920000076293945,-19.59000015258789],[1.6299999952316284,-9.710000038146973],[2.809999942779541,5.579999923706055],[2.299999952316284,3.630000114440918],[0.6800000071525574,-3.9700000286102295],[9.9399995803833,-11.649999618530273],[-14.729999542236328,-7.28000020980835],[-11.149999618530273,0.2800000011920929],[4.730000019073486,10.710000038146973],[-11.6899995803833,14.180000305175781],[-2.0,-5.159999847412109],[-10.350000381469727,13.1899995803833],[11.289999961853027,-11.520000457763672],[-3.7300000190734863,-1.1200000047683716],[-9.359999656677246,-17.719999313354492],[-9.199999809265137,-18.329999923706055],[-9.350000381469727,-17.559999465942383],[-7.78000020980835,2.2300000190734863],[15.399999618530273,-9.0600004196167],[-4.010000228881836,-6.579999923706055],[-1.6100000143051147,-5.349999904632568],[7.639999866485596,1.6200000047683716],[9.09000015258789,-12.4399995803833],[-1.8700000047683716,17.31999969482422],[4.170000076293945,-1.600000023841858],[3.5,-15.84000015258789],[0.9399999976158142,7.210000038146973],[7.210000038146973,13.430000305175781],[2.2699999809265137,2.799999952316284],[-14.579999923706055,7.860000133514404],[-5.389999866485596,2.640000104904175],[-8.229999542236328,19.309999465942383],[4.170000076293945,11.899999618530273],[-13.800000190734863,-9.850000381469727],[-4.46999979019165,6.019999980926514],[-5.0,5.489999771118164],[-3.140000104904175,5.929999828338623],[4.980000019073486,12.859999656677246],[6.909999847412109,-4.46999979019165],[6.590000152587891,-4.489999771118164],[8.539999961853027,16.25],[1.2899999618530273,-0.9700000286102295],[-7.909999847412109,-0.44999998807907104],[2.380000114440918,-2.75],[-6.300000190734863,-6.28000020980835],[3.190000057220459,-10.210000038146973],[5.510000228881836,-9.59000015258789],[8.449999809265137,-9.920000076293945],[7.940000057220459,-10.359999656677246],[4.760000228881836,-16.579999923706055],[2.7200000286102295,-19.860000610351562],[6.769999980926514,-17.6200008392334],[0.1599999964237213,13.359999656677246],[-11.729999542236328,7.929999828338623],[-11.649999618530273,8.34000015258789],[4.480000019073486,-17.90999984741211],[-8.869999885559082,-13.970000267028809],[-2.619999885559082,15.520000457763672],[4.230000019073486,14.5600004196167],[-12.869999885559082,7.929999828338623],[3.049999952316284,-15.140000343322754],[2.759999990463257,-4.829999923706055],[-4.260000228881836,-5.239999771118164],[-4.460000038146973,-19.049999237060547],[16.639999389648438,-0.6299999952316284],[-2.869999885559082,-10.029999732971191],[-6.070000171661377,-0.1899999976158142],[-9.640000343322754,3.9700000286102295],[-7.239999771118164,-5.159999847412109],[-15.0600004196167,11.069999694824219],[3.25,-10.260000228881836],[8.3100004196167,-4.039999961853027],[5.869999885559082,-6.960000038146973],[6.849999904632568,-10.819999694824219],[-13.779999732971191,10.390000343322754],[-4.389999866485596,-2.7200000286102295],[-7.380000114440918,-2.549999952316284],[-1.159999966621399,-13.010000228881836],[7.480000019073486,15.890000343322754],[-1.7699999809265137,-17.1200008392334],[0.9300000071525574,-2.8499999046325684],[1.0099999904632568,16.030000686645508],[1.2999999523162842,-3.859999895095825],[3.309999942779541,-9.0600004196167],[2.049999952316284,6.269999980926514],[-9.619999885559082,-7.329999923706055],[-10.210000038146973,-2.6600000858306885],[-10.649999618530273,-2.7899999618530273],[-12.5,-7.800000190734863],[16.639999389648438,-0.6399999856948853],[-2.5799999237060547,-1.6699999570846558],[6.730000019073486,10.890000343322754],[0.05000000074505806,9.65999984741211],[-0.17000000178813934,10.670000076293945],[-2.299999952316284,-2.9600000381469727],[6.920000076293945,-18.110000610351562],[-9.539999961853027,8.020000457763672],[-2.0299999713897705,0.6399999856948853],[-4.21999979019165,0.07000000029802322],[-6.78000020980835,15.979999542236328],[-14.619999885559082,5.960000038146973],[3.8499999046325684,-7.489999771118164],[-14.510000228881836,-0.6700000166893005],[5.21999979019165,-20.1299991607666],[6.400000095367432,-2.2699999809265137],[-11.0600004196167,7.179999828338623],[-5.599999904632568,-1.409999966621399],[6.050000190734863,-6.78000020980835],[11.720000267028809,-1.3600000143051147],[8.0600004196167,-0.7200000286102295],[-0.550000011920929,-0.30000001192092896],[-5.510000228881836,10.789999961853027],[-11.359999656677246,6.659999847412109],[19.190000534057617,7.989999771118164],[-0.47999998927116394,-6.25],[0.4300000071525574,-5.590000152587891],[-8.369999885559082,5.070000171661377],[0.7099999785423279,-7.300000190734863],[4.510000228881836,6.320000171661377],[-13.829999923706055,-9.010000228881836],[10.239999771118164,-2.7699999809265137],[3.5799999237060547,12.140000343322754],[10.84000015258789,2.4700000286102295],[11.289999961853027,0.10000000149011612],[-3.319999933242798,1.7599999904632568],[-3.869999885559082,-12.779999732971191],[-15.859999656677246,7.150000095367432],[2.5999999046325684,0.550000011920929],[0.7599999904632568,7.340000152587891],[-13.34000015258789,3.2100000381469727],[-13.359999656677246,13.0],[-1.6299999952316284,4.789999961853027],[-16.3700008392334,-5.789999961853027],[21.5,7.440000057220459],[-14.1899995803833,-2.140000104904175],[3.240000009536743,16.600000381469727],[-5.360000133514404,10.579999923706055],[21.389999389648438,7.849999904632568],[0.25999999046325684,5.409999847412109],[-10.119999885559082,0.4300000071525574],[-4.289999961853027,-10.350000381469727],[18.6299991607666,-5.21999979019165],[1.2200000286102295,-11.550000190734863],[-8.539999961853027,7.570000171661377],[-3.559999942779541,7.300000190734863],[-3.490000009536743,7.739999771118164],[19.329999923706055,9.920000076293945],[-5.599999904632568,-9.100000381469727],[16.860000610351562,6.480000019073486],[-1.559999942779541,9.579999923706055],[-0.9200000166893005,14.470000267028809],[-4.860000133514404,-15.670000076293945],[20.010000228881836,7.880000114440918],[-19.219999313354492,3.869999885559082],[7.679999828338623,-7.909999847412109],[-7.019999980926514,-11.75],[-4.53000020980835,10.479999542236328],[1.1699999570846558,14.729999542236328],[0.5199999809265137,15.739999771118164],[3.0199999809265137,15.529999732971191],[2.3399999141693115,16.329999923706055],[2.5899999141693115,15.4399995803833],[1.0199999809265137,17.200000762939453],[-0.3499999940395355,15.84000015258789],[-0.38999998569488525,16.700000762939453],[-1.4600000381469727,15.5600004196167],[0.10000000149011612,-19.260000228881836],[-2.0,2.549999952316284],[-2.859999895095825,1.0700000524520874],[-1.3700000047683716,1.7400000095367432],[12.899999618530273,8.140000343322754],[4.230000019073486,16.190000534057617],[3.75,0.5799999833106995],[-13.010000228881836,6.21999979019165],[-1.7300000190734863,-13.260000228881836],[12.050000190734863,-6.829999923706055],[-14.149999618530273,7.230000019073486],[11.329999923706055,12.539999961853027],[2.619999885559082,13.84000015258789],[0.4399999976158142,-20.93000030517578],[2.680000066757202,-5.53000020980835],[-7.159999847412109,-0.6700000166893005],[0.46000000834465027,-14.449999809265137],[7.300000190734863,6.190000057220459],[9.800000190734863,-3.8299999237060547],[12.170000076293945,-3.890000104904175],[11.010000228881836,0.5299999713897705],[5.980000019073486,-4.460000038146973],[20.219999313354492,6.829999923706055],[12.859999656677246,-0.8500000238418579],[-4.489999771118164,-18.979999542236328],[4.409999847412109,17.8700008392334],[5.840000152587891,-16.110000610351562],[-13.970000267028809,-4.320000171661377],[0.8399999737739563,-19.959999084472656],[1.0399999618530273,-19.75],[1.1100000143051147,-7.489999771118164],[3.4100000858306885,-4.460000038146973],[6.429999828338623,15.859999656677246],[7.409999847412109,1.7699999809265137],[-9.100000381469727,2.680000066757202],[19.559999465942383,8.529999732971191],[9.319999694824219,-10.829999923706055],[-13.579999923706055,-8.25],[16.479999542236328,-13.260000228881836],[16.459999084472656,-13.25],[10.819999694824219,-6.730000019073486],[6.150000095367432,0.07999999821186066],[3.25,19.420000076293945],[5.809999942779541,-17.770000457763672],[-10.5600004196167,11.510000228881836],[-10.529999732971191,11.529999732971191],[-12.289999961853027,10.119999885559082],[-16.690000534057617,0.8999999761581421],[12.1899995803833,1.1299999952316284],[-6.650000095367432,-13.260000228881836],[8.399999618530273,5.46999979019165],[5.400000095367432,-17.950000762939453],[8.8100004196167,-10.619999885559082]],"pca":[[-0.02800000086426735,0.006000000052154064],[0.0689999982714653,-0.09000000357627869],[-0.013000000268220901,-0.1679999977350235],[0.09600000083446503,-0.19599999487400055],[0.11500000208616257,-0.04699999839067459],[-0.4440000057220459,-0.10000000149011612],[0.054999999701976776,-0.23800000548362732],[-0.46700000762939453,-0.1940000057220459],[0.1940000057220459,0.050999999046325684],[0.10000000149011612,-0.061000000685453415],[0.16599999368190765,-0.10700000077486038],[0.15700000524520874,-0.032999999821186066],[0.2549999952316284,0.26899999380111694],[0.09000000357627869,0.029999999329447746],[0.08900000154972076,0.08900000154972076],[0.017000000923871994,-0.33799999952316284],[-0.041999999433755875,0.15000000596046448],[-0.010999999940395355,-0.10100000351667404],[0.10899999737739563,0.02500000037252903],[-0.36899998784065247,-0.03099999949336052],[0.023000000044703484,0.14499999582767487],[0.17800000309944153,-0.03700000047683716],[-0.004000000189989805,0.1679999977350235],[-0.04399999976158142,0.34299999475479126],[-0.04899999871850014,0.06700000166893005],[0.11800000071525574,0.3149999976158142],[-0.28299999237060547,-0.028999999165534973],[0.09399999678134918,-0.31700000166893005],[0.14300000667572021,-0.08900000154972076],[-0.07900000363588333,0.11599999666213989],[0.20000000298023224,0.22599999606609344],[0.20999999344348907,0.2809999883174896],[0.01899999938905239,0.07400000095367432],[0.08100000023841858,0.10100000351667404],[-0.03700000047683716,0.08100000023841858],[-0.06400000303983688,-0.014999999664723873],[0.2809999883174896,-0.04899999871850014],[0.07400000095367432,0.01899999938905239],[0.054999999701976776,-0.03099999949336052],[0.14300000667572021,0.0820000022649765],[0.19599999487400055,0.33000001311302185],[-0.1080000028014183,0.10199999809265137],[0.09099999815225601,-0.0729999989271164],[0.026000000536441803,-0.22100000083446503],[0.11800000071525574,0.13899999856948853],[-0.035999998450279236,0.029999999329447746],[0.20800000429153442,0.17100000381469727],[0.023000000044703484,0.20100000500679016],[-0.052000001072883606,0.0729999989271164],[-0.027000000700354576,-0.09300000220537186],[0.17299999296665192,-0.13300000131130219],[0.12600000202655792,0.15299999713897705],[0.03999999910593033,-0.03200000151991844],[0.11100000143051147,0.1599999964237213],[-0.14100000262260437,-0.05700000002980232],[0.11900000274181366,0.1860000044107437],[0.09200000017881393,-0.2199999988079071],[0.10199999809265137,0.22200000286102295],[0.09099999815225601,-0.2759999930858612],[0.0729999989271164,0.03400000184774399],[-0.35499998927116394,-0.012000000104308128],[0.11100000143051147,0.052000001072883606],[-0.15299999713897705,0.0430000014603138],[0.10899999737739563,0.17000000178813934],[-0.004999999888241291,-0.14800000190734863],[0.10100000351667404,0.06599999964237213],[0.061000000685453415,0.18299999833106995],[-0.14300000667572021,-0.0689999982714653],[0.014999999664723873,0.04800000041723251],[0.06499999761581421,0.1860000044107437],[-0.010999999940395355,0.08500000089406967],[-0.02500000037252903,0.06599999964237213],[0.10000000149011612,0.012000000104308128],[-0.054999999701976776,0.06300000101327896],[-0.12800000607967377,-0.028999999165534973],[0.017999999225139618,-0.0020000000949949026],[0.10499999672174454,-0.029999999329447746],[-0.24899999797344208,-0.03999999910593033],[-0.35899999737739563,0.06199999898672104],[-0.17000000178813934,-0.17100000381469727],[0.009999999776482582,-0.41999998688697815],[0.07699999958276749,-0.30300000309944153],[-0.032999999821186066,-0.03099999949336052],[-0.3009999990463257,-0.06199999898672104],[-0.10000000149011612,0.052000001072883606],[0.08900000154972076,-0.16500000655651093],[0.0560000017285347,-0.06800000369548798],[0.04600000008940697,0.3619999885559082],[-0.1120000034570694,0.09600000083446503],[0.0020000000949949026,-0.15299999713897705],[0.09399999678134918,-0.03700000047683716],[0.03500000014901161,0.04699999839067459],[-0.004000000189989805,0.18000000715255737],[-0.18000000715255737,0.19200000166893005],[0.06599999964237213,0.01899999938905239],[-0.2160000056028366,0.125],[0.15299999713897705,0.057999998331069946],[0.10700000077486038,-0.08299999684095383],[0.09099999815225601,0.1340000033378601],[0.017999999225139618,0.11400000005960464],[0.07900000363588333,-0.035999998450279236],[0.07400000095367432,0.10400000214576721],[0.03500000014901161,0.1289999932050705],[0.16200000047683716,0.09099999815225601],[0.13600000739097595,-0.23199999332427979],[0.014999999664723873,0.21299999952316284],[0.04699999839067459,-0.013000000268220901],[0.04100000113248825,0.01600000075995922],[0.19300000369548798,0.02199999988079071],[0.12600000202655792,0.18299999833106995],[-0.33000001311302185,-0.17100000381469727],[-0.13500000536441803,0.10300000011920929],[0.02500000037252903,0.328000009059906],[-0.09300000220537186,0.04800000041723251],[-0.06300000101327896,0.004999999888241291],[0.0820000022649765,0.03999999910593033],[0.16899999976158142,-0.36000001430511475],[0.09600000083446503,-0.09000000357627869],[-0.13600000739097595,0.1940000057220459],[-0.21699999272823334,0.11500000208616257],[0.05400000140070915,-0.18000000715255737],[0.0010000000474974513,0.12600000202655792],[0.06199999898672104,0.03400000184774399],[0.019999999552965164,0.006000000052154064],[-0.2460000067949295,0.16500000655651093],[-0.0949999988079071,0.11400000005960464],[0.019999999552965164,0.1679999977350235],[-0.06700000166893005,0.017999999225139618],[0.07900000363588333,-0.08699999749660492],[0.13300000131130219,-0.13899999856948853],[0.0989999994635582,-0.006000000052154064],[-0.06300000101327896,-0.023000000044703484],[0.035999998450279236,0.02800000086426735],[0.04500000178813934,0.06300000101327896],[-0.06499999761581421,0.09300000220537186],[-0.15399999916553497,0.17299999296665192],[0.1860000044107437,0.296999990940094],[0.10599999874830246,0.26100000739097595],[0.20499999821186066,0.30000001192092896],[-0.27900001406669617,0.012000000104308128],[-0.007000000216066837,-0.4059999883174896],[0.009999999776482582,-0.3700000047683716],[0.10400000214576721,0.3149999976158142],[-0.004999999888241291,0.09700000286102295],[-0.33399999141693115,-0.2329999953508377],[-0.3059999942779541,0.13500000536441803],[0.04100000113248825,-0.3240000009536743],[0.13199999928474426,0.07500000298023224],[0.06499999761581421,0.003000000026077032],[0.10400000214576721,-0.0689999982714653],[0.052000001072883606,0.3070000112056732],[0.1289999932050705,0.041999999433755875],[0.052000001072883606,0.1379999965429306],[0.09200000017881393,-0.24899999797344208],[0.08799999952316284,-0.24500000476837158],[-0.027000000700354576,0.028999999165534973],[0.024000000208616257,-0.11500000208616257],[0.03400000184774399,-0.09099999815225601],[0.12999999523162842,0.1080000028014183],[-0.09399999678134918,0.17299999296665192],[0.04800000041723251,0.18199999630451202],[0.09799999743700027,-0.1809999942779541],[0.11500000208616257,0.028999999165534973],[0.003000000026077032,-0.035999998450279236],[-0.10499999672174454,0.24799999594688416],[-0.1809999942779541,-0.12300000339746475],[0.2280000001192093,0.11999999731779099],[0.0430000014603138,0.15700000524520874],[-0.5249999761581421,-0.0989999994635582],[0.05299999937415123,0.12300000339746475],[-0.1599999964237213,-0.13500000536441803],[-0.15199999511241913,0.03200000151991844],[0.007000000216066837,0.03099999949336052],[0.041999999433755875,-0.44999998807907104],[-0.003000000026077032,-0.3240000009536743],[-0.10999999940395355,0.0820000022649765],[0.02500000037252903,-0.035999998450279236],[-0.24899999797344208,0.003000000026077032],[-0.06300000101327896,0.16599999368190765],[0.164000004529953,0.027000000700354576],[-0.1120000034570694,0.06400000303983688],[0.01600000075995922,-0.07800000160932541],[0.17000000178813934,0.29600000381469727],[0.17299999296665192,-0.24899999797344208],[0.12099999934434891,-0.06599999964237213],[0.28999999165534973,-0.07599999755620956],[0.0689999982714653,-0.04100000113248825],[0.17000000178813934,-0.3540000021457672],[-0.019999999552965164,0.10899999737739563],[-0.1550000011920929,-0.1340000033378601],[-0.10400000214576721,0.11699999868869781],[-0.10400000214576721,0.18000000715255737],[0.004999999888241291,-0.414000004529953],[0.07000000029802322,-0.30300000309944153],[-0.05000000074505806,0.1420000046491623],[0.04800000041723251,-0.28600001335144043],[0.07900000363588333,-0.026000000536441803],[0.13600000739097595,-0.03099999949336052],[-0.07800000160932541,-0.08500000089406967],[0.04500000178813934,-0.47099998593330383],[0.25200000405311584,-0.20499999821186066],[-0.04100000113248825,0.12600000202655792],[-0.02800000086426735,0.0820000022649765],[0.1899999976158142,-0.17900000512599945],[0.11999999731779099,0.08900000154972076],[-0.014000000432133675,-0.10199999809265137],[0.06300000101327896,0.20499999821186066],[0.28600001335144043,0.006000000052154064],[-0.23800000548362732,0.2669999897480011],[0.03999999910593033,-0.06499999761581421],[0.017999999225139618,-0.05000000074505806],[0.17000000178813934,0.05700000002980232],[0.19099999964237213,0.1679999977350235],[0.06700000166893005,-0.1420000046491623],[0.11800000071525574,0.027000000700354576],[-0.10300000011920929,0.0820000022649765],[0.004999999888241291,-0.2150000035762787],[0.16200000047683716,-0.1599999964237213],[0.0010000000474974513,-0.08500000089406967],[-0.15199999511241913,-0.19200000166893005],[0.07800000160932541,-0.4020000100135803],[0.024000000208616257,-0.010999999940395355],[-0.5320000052452087,0.1589999943971634],[-0.1899999976158142,-0.17800000309944153],[0.1899999976158142,-0.1899999976158142],[0.10000000149011612,0.08299999684095383],[0.15600000321865082,-0.039000000804662704],[0.05700000002980232,0.028999999165534973],[-0.0430000014603138,-0.09300000220537186],[0.05299999937415123,0.07999999821186066],[0.14399999380111694,-0.19499999284744263],[-0.11999999731779099,-0.19099999964237213],[-0.16699999570846558,-0.18700000643730164],[0.12200000137090683,-0.08100000023841858],[-0.02500000037252903,-0.18199999630451202],[0.11100000143051147,-0.07000000029802322],[0.0949999988079071,-0.041999999433755875],[-0.4659999907016754,-0.17599999904632568],[0.17100000381469727,0.09700000286102295],[0.15199999511241913,-0.3440000116825104],[0.014999999664723873,0.07000000029802322],[-0.052000001072883606,0.1459999978542328],[-0.008999999612569809,0.24699999392032623],[-0.009999999776482582,0.03500000014901161],[-0.4309999942779541,-0.10599999874830246],[-0.6100000143051147,-0.12399999797344208],[-0.5720000267028809,0.19200000166893005],[-0.5249999761581421,0.1289999932050705],[-0.5580000281333923,0.164000004529953],[-0.4830000102519989,0.004999999888241291],[-0.6439999938011169,-0.09799999743700027],[-0.5669999718666077,-0.10700000077486038],[-0.5479999780654907,-0.1720000058412552],[0.06700000166893005,-0.05999999865889549],[0.21799999475479126,-0.0020000000949949026],[0.10300000011920929,-0.08699999749660492],[0.1899999976158142,-0.008999999612569809],[0.25099998712539673,0.0020000000949949026],[-0.38499999046325684,0.19699999690055847],[-0.06499999761581421,0.0989999994635582],[0.035999998450279236,-0.2759999930858612],[-0.12099999934434891,0.16599999368190765],[-0.03799999877810478,0.19099999964237213],[0.07000000029802322,-0.39500001072883606],[0.02199999988079071,-0.12700000405311584],[-0.33899998664855957,0.041999999433755875],[0.09300000220537186,0.07199999690055847],[0.014000000432133675,0.12200000137090683],[0.03200000151991844,-0.29100000858306885],[0.18199999630451202,0.18299999833106995],[-0.014000000432133675,-0.25600001215934753],[0.20900000631809235,0.09799999743700027],[0.032999999821186066,0.14000000059604645],[0.012000000104308128,-0.15800000727176666],[0.07100000232458115,0.057999998331069946],[0.0689999982714653,-0.382999986410141],[0.14800000190734863,-0.028999999165534973],[-0.006000000052154064,0.28999999165534973],[-0.2630000114440918,0.22300000488758087],[0.12800000607967377,0.2540000081062317],[0.0729999989271164,0.0689999982714653],[0.1860000044107437,0.25999999046325684],[0.24799999594688416,0.328000009059906],[0.125,0.01899999938905239],[0.11900000274181366,0.01600000075995922],[-0.43799999356269836,0.0820000022649765],[0.13899999856948853,-0.257999986410141],[0.21899999678134918,-0.2759999930858612],[0.2849999964237213,-0.17499999701976776],[0.023000000044703484,0.22200000286102295],[0.05299999937415123,0.03500000014901161],[-0.041999999433755875,-0.1340000033378601],[-0.03200000151991844,-0.02500000037252903],[0.017000000923871994,0.24699999392032623],[0.15299999713897705,-0.027000000700354576],[-0.15700000524520874,0.09600000083446503],[0.2240000069141388,0.39800000190734863],[0.06499999761581421,-0.12800000607967377],[0.013000000268220901,-0.08699999749660492],[0.1589999943971634,-0.2150000035762787],[-0.17399999499320984,-0.10899999737739563],[0.007000000216066837,-0.017999999225139618],[-0.06499999761581421,0.25699999928474426],[0.00800000037997961,0.12800000607967377],[0.09399999678134918,0.42800000309944153],[-0.0820000022649765,0.24799999594688416]],"comm":[4,2,5,2,0,3,1,3,4,2,7,2,4,-1,2,1,0,-1,6,5,-1,0,0,3,0,0,0,7,0,5,4,1,6,0,4,5,1,-1,-1,4,6,2,1,2,2,2,-1,5,3,5,1,-1,0,6,0,0,4,6,1,2,5,2,5,0,4,0,0,0,3,0,5,1,2,5,5,1,0,3,3,5,1,1,5,3,3,1,4,-1,5,0,2,2,3,5,6,3,1,4,1,4,2,5,5,5,1,1,6,4,1,3,5,0,-1,0,3,-1,1,2,5,3,5,4,2,6,3,6,6,3,2,2,-1,6,0,6,0,3,0,6,6,0,1,1,6,5,0,3,1,1,2,6,0,4,5,2,1,6,1,1,2,0,3,1,2,2,5,3,2,0,3,-1,0,0,0,2,5,5,4,3,3,2,0,2,6,1,2,-1,5,1,0,0,4,3,1,2,0,2,1,2,6,1,7,0,4,1,0,6,0,2,3,6,4,2,0,1,2,0,1,1,4,5,7,6,3,6,7,3,-1,4,4,0,1,4,4,7,0,4,0,3,4,7,-1,4,0,6,3,3,3,3,3,3,3,3,3,4,2,2,2,2,3,6,1,5,-1,1,6,0,4,0,2,6,0,0,3,4,6,7,2,0,4,0,5,4,4,0,4,3,1,1,7,0,5,0,0,6,1,4,6,1,1,1,0,-1,5],"topics":[0,0,-1,0,-1,1,2,1,0,0,-1,-1,3,0,0,2,0,-1,-1,1,-1,0,-1,3,0,-1,1,-1,-1,-1,-1,-1,-1,-1,0,-1,2,-1,-1,3,3,0,2,-1,0,0,3,0,0,-1,-1,-1,-1,3,1,0,0,3,2,0,1,-1,-1,0,-1,-1,-1,-1,0,-1,0,0,0,0,-1,-1,0,-1,1,-1,2,2,-1,1,1,2,-1,3,0,-1,-1,0,-1,-1,0,1,2,0,2,-1,0,-1,-1,-1,0,-1,-1,-1,2,0,1,-1,3,-1,1,-1,2,0,-1,1,-1,0,0,0,1,-1,-1,1,0,0,0,-1,0,0,0,-1,3,3,3,1,2,2,3,0,1,1,2,3,0,0,-1,-1,0,0,-1,0,2,0,0,-1,0,2,0,0,-1,1,3,0,1,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,3,2,0,0,-1,2,3,-1,3,-1,2,0,-1,-1,2,0,-1,2,-1,-1,0,-1,-1,-1,-1,0,1,3,0,0,0,2,-1,-1,2,2,0,1,-1,-1,1,-1,-1,1,0,-1,-1,0,2,0,-1,-1,-1,-1,-1,1,-1,-1,0,0,0,-1,1,1,1,1,1,1,1,1,1,-1,0,0,0,-1,1,-1,2,-1,-1,2,-1,1,-1,0,0,-1,-1,-1,-1,-1,-1,-1,0,-1,1,3,1,3,3,-1,-1,1,2,0,-1,-1,-1,-1,-1,-1,-1,1,3,2,2,2,1,0,0],"nn5":[[121,34,231,122,68],[153,48,255,184,117],[62,35,42,82,58],[129,268,163,9,153],[294,216,133,52,148],[285,78,250,252,251],[116,183,58,140,80],[245,250,168,244,252],[172,22,163,221,132],[117,1,61,153,78],[288,200,224,275,233],[86,181,117,14,235],[40,138,279,296,136],[88,160,276,204,108],[255,48,117,123,16],[199,80,286,140,146],[111,48,71,23,201],[37,205,171,119,89],[23,106,61,22,149],[26,252,251,244,189],[23,26,24,22,18],[229,132,201,181,299],[23,29,61,172,133],[279,119,136,20,22],[234,260,19,23,159],[277,101,23,150,103],[300,19,252,189,170],[200,275,28,220,288],[27,18,120,22,133],[22,175,194,290,248],[238,23,277,284,281],[105,71,23,204,136],[34,33,94,136,105],[61,32,34,205,119],[32,0,123,48,167],[62,2,82,74,110],[108,286,196,15,294],[17,108,279,16,126],[171,113,286,259,89],[48,282,281,46,15],[138,182,296,12,279],[48,119,177,45,285],[96,58,2,297,199],[223,199,231,284,234],[45,162,123,181,100],[177,48,100,44,193],[39,281,282,253,279],[48,125,134,169,45],[45,255,100,47,1],[101,103,102,219,143],[203,255,154,256,104],[126,125,119,23,274],[210,243,4,54,284],[284,279,136,148,40],[237,77,180,26,244],[63,160,136,125,133],[132,157,170,133,270],[12,23,241,279,188],[140,141,80,298,199],[270,14,45,48,149],[246,168,222,251,248],[256,210,202,184,23],[2,74,35,110,82],[160,55,152,164,302],[276,231,270,284,48],[91,61,210,184,255],[289,92,135,134,133],[219,93,68,285,78],[121,122,231,0,123],[202,63,152,181,160],[73,143,71,169,72],[111,48,72,75,16],[128,48,71,148,73],[70,143,72,169,48],[62,2,35,110,82],[155,131,71,122,148],[88,132,229,201,67],[180,54,248,60,247],[285,165,5,244,247],[280,252,250,7,251],[140,58,192,199,141],[80,116,140,192,187],[62,151,2,35,78],[251,7,237,250,247],[95,258,161,125,65],[116,58,263,299,2],[11,117,120,14,255],[40,296,138,23,136],[132,48,229,194,23],[171,90,270,231,253],[115,89,48,255,45],[169,284,167,210,255],[289,109,134,66,135],[290,67,164,23,248],[125,284,155,48,167],[246,119,285,247,222],[42,98,279,297,284],[107,117,106,123,1],[298,42,297,96,108],[289,92,123,279,259],[45,48,255,162,193],[103,102,49,25,176],[101,103,49,176,143],[101,102,49,176,25],[153,255,184,192,203],[31,16,93,23,106],[18,16,97,153,149],[97,201,204,122,123],[286,204,36,61,298],[92,279,135,134,289],[251,252,62,250,168],[16,71,48,201,119],[136,147,40,279,23],[215,171,300,26,119],[145,210,285,194,119],[90,131,126,125,116],[263,80,58,85,6],[9,48,14,153,231],[62,2,159,124,132],[208,222,246,124,285],[206,86,290,28,79],[68,122,231,123,0],[121,68,231,75,0],[121,231,243,45,44],[119,246,145,248,125],[126,194,158,274,94],[125,274,279,23,115],[285,165,78,48,241],[72,184,48,47,134],[268,3,153,100,1],[72,169,54,1,148],[75,115,194,95,119],[157,133,229,170,88],[132,135,134,289,201],[135,289,133,92,66],[134,160,289,133,92],[279,296,142,40,23],[282,23,281,138,212],[182,40,296,279,136],[252,250,244,7,170],[141,192,58,199,80],[140,58,192,199,80],[279,136,296,40,182],[73,70,101,161,302],[252,250,177,110,245],[246,248,168,244,285],[140,141,80,199,260],[112,284,297,253,158],[284,267,169,202,48],[18,44,106,153,59],[277,294,25,243,167],[176,82,194,195,152],[148,63,24,61,75],[1,193,255,268,256],[192,50,199,104,287],[75,125,94,204,148],[161,146,181,169,58],[132,170,229,133,56],[125,194,260,126,215],[194,24,23,277,132],[135,289,164,63,48],[80,192,116,58,140],[45,44,193,100,181],[268,162,153,48,194],[160,261,246,125,23],[285,78,5,127,244],[40,227,277,39,148],[169,48,34,23,119],[245,250,251,246,244],[148,48,91,167,23],[132,157,139,26,253],[189,113,89,119,177],[22,290,170,8,229],[193,174,153,15,192],[173,15,172,80,128],[290,29,71,248,78],[151,101,210,103,276],[45,252,250,223,218],[246,119,47,95,169],[180,61,254,148,236],[77,179,54,71,60],[45,263,123,255,48],[138,40,296,279,209],[140,58,199,230,6],[255,256,61,153,183],[100,97,255,226,1],[2,82,62,35,244],[116,58,263,80,15],[279,284,170,142,22],[171,19,139,244,26],[45,177,182,136,142],[167,283,246,248,210],[140,199,80,141,58],[45,153,173,255,162],[159,125,48,23,132],[210,263,276,184,194],[183,230,204,284,108],[153,48,167,72,184],[223,243,299,58,111],[140,192,80,58,141],[288,27,239,10,220],[107,23,202,133,194],[201,61,148,48,23],[50,85,230,104,58],[283,23,279,107,108],[89,33,17,43,61],[290,120,23,40,281],[271,61,195,194,203],[119,246,265,222,248],[182,40,48,273,138],[284,273,119,61,276],[255,256,184,41,48],[91,169,126,137,280],[116,263,85,122,123],[259,71,48,255,169],[113,171,170,300,298],[199,80,221,189,140],[42,116,199,2,299],[45,231,177,136,153],[67,189,290,19,79],[224,275,200,27,239],[189,216,79,290,218],[246,250,248,245,247],[198,243,177,252,110],[220,288,275,10,200],[171,218,113,279,184],[94,100,1,294,254],[24,61,152,171,148],[15,253,110,251,39],[21,132,157,88,201],[183,254,199,210,255],[232,121,218,123,122],[231,121,244,177,252],[288,10,200,224,210],[24,177,218,45,223],[11,27,61,181,200],[61,54,77,180,179],[250,251,252,245,7],[30,257,93,61,75],[288,200,275,224,27],[169,119,167,159,230],[194,160,125,119,47],[22,302,25,24,159],[223,198,123,210,167],[245,251,168,250,7],[168,250,251,7,252],[248,247,251,168,250],[246,248,245,168,222],[246,247,251,222,168],[251,245,168,250,244],[245,252,251,168,246],[250,245,168,248,246],[250,144,245,251,168],[282,281,286,170,171],[256,255,230,48,184],[48,256,184,153,1],[61,255,254,184,153],[254,238,179,30,61],[246,222,248,285,247],[285,134,71,48,78],[80,140,263,146,58],[164,73,302,169,93],[95,293,171,164,62],[116,260,80,140,199],[15,223,37,126,81],[285,248,251,7,244],[281,282,39,253,45],[148,169,48,23,284],[153,129,1,263,270],[136,164,23,65,160],[231,199,153,89,117],[158,210,207,194,14],[210,14,271,194,99],[210,209,301,243,195],[126,125,167,279,276],[27,239,220,224,288],[210,195,64,286,259],[150,25,294,284,159],[246,247,222,248,285],[138,296,40,136,142],[79,212,117,93,125],[282,266,253,39,279],[281,253,39,266,137],[204,191,16,279,48],[148,210,202,61,71],[78,165,5,247,246],[108,15,253,116,140],[104,154,1,153,184],[200,239,10,224,27],[134,135,66,92,160],[206,93,175,120,221],[292,260,19,195,24],[291,19,61,24,194],[23,243,262,169,210],[150,277,284,183,108],[246,60,244,258,202],[138,40,182,279,136],[298,58,140,141,42],[297,58,140,141,80],[58,199,183,198,140],[26,113,223,215,232],[210,209,279,273,215],[63,164,143,101,202]],"newnn":[[59,14,270,86,11],[296,182,40,138,136],[289,134,135,92,66]],"scatter":[["Abomination (character)",5,6],["Adam Warlock",8,8],["Agent X (Marvel Comics)",4,4],["Alex Wilder",1,1],["She-Venom (Patricia Robertson)",3,4],["Anole (character)",6,6],["Anya Corazon",10,7],["Arabian Knight (character)",5,5],["Backhand (character)",2,1],["Balder the Brave",3,0],["Battlestar (character)",3,4],["Baymax",0,0],["Beta Ray Bill",2,3],["Betsy Braddock",7,3],["Bill Foster (character)",9,5],["Bird-Brain (Marvel Comics)",0,0],["Black Bolt",13,15],["Black Cat (Marvel Comics)",21,20],["Black Fox (Robert Paine)",0,1],["Black Jack Tarr",1,1],["Black Knight (Marvel Comics)",4,13],["Black Marvel",5,6],["Black Panther (character)",27,30],["Black Rider (character)",1,1],["Black Widow (Natasha Romanova)",22,27],["Blackthorn (character)",2,1],["Blackwulf",0,0],["Blade (character)",17,32],["Blazing Skull",3,3],["Blue Bullet",2,2],["Blue Diamond (character)",1,1],["Blue Eagle (character)",0,0],["Blue Marvel",2,3],["Bob, Agent of Hydra",2,2],["Brain Drain (character)",0,0],["Breeze Barton",0,0],["Brian Braddock",1,1],["Bucky (Marvel Comics)",9,20],["Cable (character)",21,22],["Cammi (character)",2,2],["Captain Midlands",0,0],["Captain Ultra",0,0],["Captain Universe",6,3],["Caretaker (comics)",2,2],["Ch'od",4,4],["Charcoal (comics)",0,0],["Chase Stein",4,3],["Citizen V",2,4],["Cloak and Dagger (characters)",11,5],["Coldblood",0,0],["Crane Mother",1,1],["Crippler (character)",0,0],["Cyclops (Marvel Comics)",26,31],["Dargo Ktor",0,0],["Darkdevil",1,1],["Darkhawk",8,8],["Deadpool",33,48],["Deathlok",17,15],["Debrii",1,1],["Delroy Garrett",5,2],["Detroit Steel",0,0],["Devil Dinosaur",4,8],["Devil Hulk",1,1],["Digitek (character)",0,0],["Doctor Druid",5,5],["Doctor Nemesis",7,6],["Alice Nugent",2,0],["Doctor Strange",50,52],["Dogpool",0,0],["Doom 2099",1,1],["Dragon Lord (character)",1,1],["Eddie Brock",11,10],["Elsa Bloodstone",5,5],["Emma Frost",21,22],["Empath (character)",4,3],["Emrys Killebrew",0,0],["Enigma (Marvel Comics)",0,3],["Ethan Edwards",0,0],["Fabio Medina",0,0],["Fandral",1,1],["Father Time (Marvel Comics)",0,0],["Fin Fang Foom",5,5],["Firebird (Marvel Comics)",2,3],["Firelord (character)",2,2],["Flatman (character)",1,2],["Force (comics)",1,76],["Frankenstein's Monster (Marvel Comics)",2,0],["Franklin Richards (character)",13,14],["Frog-Man",2,1],["G. W. Bridge",1,1],["Gargoyle (comics)",5,9],["Garrison Kane",1,1],["Gauntlet (Joseph Green)",3,15],["Genis-Vell",7,6],["Gladiator (Kallark)",6,9],["Golem (Marvel Comics)",1,2],["Gorgon (Inhuman)",5,12],["Gremlin (comics)",0,0],["Guardian (Marvel Comics)",6,20],["Guardsman (character)",4,1],["Gwenpool",6,5],["Hank Pym",24,18],["Happy Sam Sawyer",0,0],["Hawkeye (comics)",0,43],["Helix (Marvel Comics)",0,1],["Hellfire (J. T. Slade)",0,26],["Hellion (character)",4,5],["Hercules (Marvel Comics)",19,21],["Hit-Monkey",1,1],["Hornet (comics)",4,4],["Hrimhari",1,1],["Hulk 2099",2,1],["Hulkling",5,5],["Human Fly (character)",0,0],["Hybrid (Scott Washington)",2,3],["Hyperion (character)",7,8],["Ikaris",2,2],["Illuminator (Marvel Comics)",0,0],["Inferno (Dante Pertuz)",0,7],["Iron Fist (character)",21,27],["Iron Lad",2,3],["Iron Man (Ultimate Marvel character)",1,98],["Iron Man 2020",4,7],["Isaiah Bradley",0,1],["Jack Frost (Marvel Comics)",1,1],["Jack Monroe (character)",3,2],["Janice Lincoln",1,1],["Jeffrey Mace",7,1],["Jericho Drumm",13,2],["Jessica Jones",8,11],["John Jameson (character)",9,6],["Jubilee (character)",10,10],["Junior Juniper",0,0],["Justice (New Universe)",2,11],["Karnak (character)",4,5],["Kid Colt",3,4],["Killpower",2,2],["Killraven",2,1],["Kismet (Marvel Comics)",3,3],["Korvus",3,3],["Kristoff Vernard",4,4],["Leech (character)",2,2],["Lei Kung (character)",3,3],["Living Lightning",3,2],["Luke Cage",25,21],["Machine Man",6,6],["Magician (Marvel Comics)",1,4],["Mahr Vehl",0,1],["Makkari (character)",5,4],["Man-Thing",15,17],["Mania (character)",1,2],["Mark Hazzard: Merc",0,0],["Marvel Boy (Robert Grayson)",2,5],["Mayday Parker",14,7],["Miracleman (character)",0,0],["Misty Knight",15,16],["Mockingbird (Marvel Comics)",13,13],["Moon Knight",22,21],["Moondragon",11,11],["Moonglow (comics)",0,0],["Morbius",9,12],["Motormouth (comics)",1,1],["Ms. Marvel",11,24],["Phil Grayfield",0,0],["Nightmask",5,5],["Nightwatch (character)",1,1],["Noh-Varr",4,4],["Nomad (Marvel Comics)",5,5],["Northstar (character)",4,6],["Outlaw (Marvel Comics)",6,10],["Paladin (comics)",5,5],["Patsy Walker",7,3],["Peggy Carter",3,4],["Phil Urich",5,3],["Phoenix Force",24,15],["Phyla-Vell",7,7],["Power Man (Victor Alvarez)",2,16],["Powerhouse (Marvel Comics)",1,3],["Quasar (character)",24,22],["Quicksilver (Marvel Comics)",10,10],["Rachel Summers",16,10],["Radian (Morituri)",4,4],["Radioactive Man (comics)",4,4],["Ravage 2099",3,2],["Raza Longknife",2,1],["Red Guardian",5,5],["Red Raven (Dania)",2,7],["Red Wolf (comics)",1,3],["Redneck (comics)",0,0],["Ricochet (comics)",2,3],["Rikki Barnes",3,3],["Robbie Baldwin",6,1],["Rocket Raccoon",10,10],["Rockman (character)",0,1],["Rockslide (character)",3,3],["Rom the Space Knight",8,2],["Ronin (Marvel Comics)",4,6],["Ruby Summers",0,0],["Rusty Collins",2,1],["Sabra (character)",3,3],["Satana (Marvel Comics)",4,4],["Scaredycat",3,3],["Scarlet Scarab",0,0],["Scarlet Spider",8,14],["Scarlet Witch",28,33],["Scatterbrain (Morituri)",2,2],["Scorpio (Marvel Comics)",0,1],["Sean and Chris",0,0],["Sentry (Robert Reynolds)",9,15],["Shamrock (comics)",0,0],["Shang-Chi",13,17],["Shatterstar",3,3],["Shear (character)",1,2],["Shuri (character)",3,3],["Silencer (comics)",0,1],["Silhouette (comics)",0,0],["Skull the Slayer",1,1],["Snapdragon (Morituri)",2,2],["Solarman",0,0],["Solomon Kane (comics)",0,0],["Speed (character)",3,7],["Spider-Bitch (Ashley Barton)",2,2],["Spider-Girl",5,15],["Spider-Man Noir",7,8],["Spider-UK",2,4],["Spitfire (character)",5,6],["Star Brand",8,6],["Star-Lord",12,11],["Starhawk (character)",2,4],["Starr the Slayer",2,2],["Steel Spider",2,1],["Stingray (Marvel Comics)",1,1],["Storm (Marvel Comics)",20,37],["Straw Man (comics)",0,0],["Super Rabbit",0,0],["Surge (Marvel Comics)",3,4],["Synapse (character)",2,3],["Tarantula (Marvel Comics)",6,11],["The Union (Marvel)",2,2],["The Witness (character)",1,0],["Thena",2,2],["Thin Man (character)",3,3],["Thor Girl",3,3],["Thunderbolt (Marvel Comics)",0,10],["Thunderclap (comics)",0,0],["Timeslip (comics)",1,1],["Toxyn",3,3],["Turbo (comics)",3,2],["Two-Gun Kid",4,4],["Typeface (character)",1,1],["U.S. Agent",6,6],["Ulysses Bloodstone",2,3],["Ursa Major (character)",0,0],["Vance Astrovik",5,1],["Venom (character)",17,38],["Vindicator (comics)",5,4],["Vulcan (Marvel Comics)",9,10],["Vyking",3,3],["War Machine",12,12],["Werewolf by Night",7,7],["Whizzer (Robert Frank)",6,6],["Wild Child (character)",0,0],["Will o' the Wisp (comics)",1,1],["William Burnside (character)",3,1],["Yelena Belova",2,3],["Yo-Yo Rodriguez",0,0],["Zombie (comics)",0,1]],"absent":{"Captain America":115,"Iron Man":99,"Thor":63,"Doctor Doom":49,"Daredevil":47,"Magneto":34,"Thanos":32,"Loki":32},"census":{"Captain America":{"name":"Captain America","mentions":615,"pages":114,"labels":{"place":377,"none":182,"organisation":28,"other":4,"book or film":23,"person":1}},"Steve Rogers":{"name":"Steve Rogers","mentions":106,"pages":36,"labels":{"person":105,"place":1}},"Iron Man":{"name":"Iron Man","mentions":395,"pages":98,"labels":{"organisation":123,"person":134,"none":116,"book or film":15,"place":2,"other":5}},"Tony Stark":{"name":"Tony Stark","mentions":79,"pages":39,"labels":{"person":78,"book or film":1}},"Spider-Man":{"name":"Spider-Man","mentions":1888,"pages":142,"labels":{"other":130,"none":524,"organisation":348,"book or film":282,"person":601,"place":3}},"Peter Parker":{"name":"Peter Parker","mentions":225,"pages":49,"labels":{"person":222,"organisation":3}},"Hulk":{"name":"Hulk","mentions":813,"pages":87,"labels":{"organisation":601,"place":35,"person":32,"other":24,"none":87,"book or film":34}},"Bruce Banner":{"name":"Bruce Banner","mentions":51,"pages":17,"labels":{"person":49,"organisation":2}},"Black Widow":{"name":"Black Widow","mentions":235,"pages":27,"labels":{"none":56,"organisation":121,"other":17,"place":10,"book or film":27,"person":4}},"Natasha Romanoff":{"name":"Natasha Romanoff","mentions":11,"pages":4,"labels":{"person":11}},"Venom":{"name":"Venom","mentions":643,"pages":39,"labels":{"place":547,"none":19,"organisation":17,"person":43,"book or film":11,"other":6}},"Eddie Brock":{"name":"Eddie Brock","mentions":144,"pages":11,"labels":{"person":96,"none":43,"book or film":1,"place":3,"organisation":1}},"Doctor Strange":{"name":"Doctor Strange","mentions":263,"pages":53,"labels":{"none":261,"organisation":2}},"Stephen Strange":{"name":"Stephen Strange","mentions":10,"pages":3,"labels":{"person":9,"book or film":1}},"Storm":{"name":"Storm","mentions":400,"pages":38,"labels":{"organisation":286,"person":37,"none":68,"other":2,"book or film":7}},"Ororo":{"name":"Ororo","mentions":34,"pages":3,"labels":{"person":17,"place":4,"none":2,"organisation":11}}},"pairs":[["Captain America","Steve Rogers"],["Iron Man","Tony Stark"],["Spider-Man","Peter Parker"],["Hulk","Bruce Banner"],["Black Widow","Natasha Romanoff"],["Venom","Eddie Brock"],["Doctor Strange","Stephen Strange"],["Storm","Ororo"]],"renames":[{"page":"Black Widow (Natasha Romanova)","old":"Black Widow","new":"Natasha Romanoff","swaps":165,"self_cos":0.77,"rows":[["Yelena Belova",1,2,0.719,0.664],["Black Cat (Marvel Comics)",2,19,0.699,0.573],["Spider-Woman (Jessica Drew)",3,1,0.649,0.667],["Patsy Walker",4,17,0.637,0.576],["Misty Knight",5,18,0.633,0.573],["Spider-Bitch (Ashley Barton)",6,12,0.629,0.587],["Black Marvel",7,51,0.628,0.497],["Scarlet Witch",8,3,0.622,0.663],["Spider-Woman",10,5,0.618,0.617],["She-Hulk",15,4,0.59,0.646],["Ms. Marvel",16,6,0.588,0.61],["Quicksilver (Marvel Comics)",30,7,0.542,0.609],["Emma Frost",46,8,0.512,0.604],["Human Torch",135,105,0.415,0.432]]},{"page":"Black Cat (Marvel Comics)","old":"Black Cat","new":"Felicia Hardy","swaps":180,"self_cos":0.848,"rows":[["Black Widow (Natasha Romanova)",1,12,0.699,0.644],["Spider-Woman (Jessica Drew)",2,1,0.671,0.709],["Spider-Woman (Gwen Stacy)",3,2,0.67,0.707],["Spider-Bitch (Ashley Barton)",4,3,0.667,0.701],["Patsy Walker",5,10,0.667,0.65],["Spider-Man",6,8,0.652,0.654],["Spider-Woman",7,4,0.65,0.696],["Spider-Man Noir",8,6,0.642,0.664],["Spider-Girl",10,5,0.633,0.686],["Janice Lincoln",15,7,0.599,0.66],["Black Marvel",22,73,0.578,0.484],["Human Torch",51,39,0.531,0.548]]},{"page":"Black Panther (character)","old":"Black Panther","new":"T'Challa","swaps":161,"self_cos":0.882,"rows":[["Shuri (character)",1,1,0.793,0.789],["Storm (Marvel Comics)",2,6,0.643,0.588],["Black Cat (Marvel Comics)",3,20,0.637,0.535],["Black Marvel",4,12,0.634,0.558],["Luke Cage",5,7,0.625,0.578],["Ravage 2099",6,2,0.6,0.626],["Darkhawk",7,11,0.592,0.561],["Shang-Chi",8,8,0.586,0.577],["Black Widow (Natasha Romanova)",11,68,0.577,0.487],["Sentry (Robert Reynolds)",12,3,0.574,0.593],["Captain Universe",13,4,0.573,0.593],["Mockingbird (Marvel Comics)",14,5,0.572,0.593],["Human Torch",35,18,0.517,0.538]]},{"page":"Storm (Marvel Comics)","old":"Storm","new":"Ororo Munroe","swaps":240,"self_cos":0.789,"rows":[["Emma Frost",1,1,0.712,0.636],["Jean Grey",2,3,0.701,0.62],["Surge (Marvel Comics)",3,2,0.679,0.623],["Jubilee (character)",4,5,0.664,0.605],["Cyclops (Marvel Comics)",5,9,0.655,0.569],["Jean Grey (X-Men film series)",6,8,0.651,0.57],["Rachel Summers",7,10,0.644,0.566],["Black Panther (character)",8,6,0.643,0.577],["Northstar (character)",9,7,0.633,0.574],["Wolverine (character)",12,4,0.622,0.614],["Human Torch",14,74,0.617,0.484],["Black Cat (Marvel Comics)",30,19,0.573,0.555],["Black Widow (Natasha Romanova)",60,13,0.529,0.563],["Black Marvel",72,32,0.514,0.534]]}],"senti":[{"name":"Storm","lexicon":{},"vader":[0.0,0.0,0.25],"bert":[1.0,1.0,1.0]},{"name":"Venom","lexicon":{},"vader":[0.0,0.0,0.25],"bert":[0.83,0.88,1.0]},{"name":"Abomination","lexicon":{},"vader":[0.0,0.0,0.25],"bert":[-0.97,-0.99,0.99]},{"name":"Blade","lexicon":{},"vader":[0.0,0.0,0.25],"bert":[1.0,1.0,1.0]},{"name":"Ghost Rider","lexicon":{"ghost":-1.3},"vader":[-0.32,-0.32,-0.08],"bert":[0.99,0.99,1.0]},{"name":"Sentry","lexicon":{},"vader":[0.0,0.0,0.25],"bert":[0.95,0.99,1.0]},{"name":"Wolverine","lexicon":{},"vader":[0.0,0.0,0.25],"bert":[0.99,1.0,1.0]},{"name":"Black Widow","lexicon":{},"vader":[0.0,0.0,0.25],"bert":[1.0,1.0,1.0]},{"name":"Black Panther","lexicon":{},"vader":[0.0,0.0,0.25],"bert":[0.99,0.99,1.0]},{"name":"Hawkeye","lexicon":{},"vader":[0.0,0.0,0.25],"bert":[1.0,1.0,1.0]},{"name":"Cyclops","lexicon":{},"vader":[0.0,0.0,0.25],"bert":[1.0,1.0,1.0]},{"name":"Doom","lexicon":{"doom":-1.7},"vader":[-0.4,-0.4,-0.18],"bert":[-0.98,-0.98,0.98]},{"name":"Man-Thing","lexicon":{},"vader":[0.0,0.0,0.25],"bert":[0.99,0.96,1.0]},{"name":"Spider-Man","lexicon":{},"vader":[0.0,0.0,0.25],"bert":[1.0,1.0,1.0]},{"name":"Captain Marvel","lexicon":{"marvel":1.8},"vader":[0.42,0.42,0.59],"bert":[1.0,1.0,1.0]},{"name":"Quasar","lexicon":{},"vader":[0.0,0.0,0.25],"bert":[0.99,0.99,1.0]},{"name":"Cable","lexicon":{},"vader":[0.0,0.0,0.25],"bert":[0.99,0.99,1.0]},{"name":"Moon Knight","lexicon":{},"vader":[0.0,0.0,0.25],"bert":[1.0,1.0,1.0]},{"name":"Human Torch","lexicon":{},"vader":[0.0,0.0,0.25],"bert":[1.0,1.0,1.0]}],"frames":["{} arrived in New York.","{} joined the team in 1975.","{} was created by Stan Lee and Jack Kirby."],"storm":{"cos":[[1.0,0.6100000143051147,0.9200000166893005,0.4399999976158142,0.12999999523162842,0.2800000011920929,0.23000000417232513,0.1899999976158142],[0.6100000143051147,1.0,0.6100000143051147,0.7599999904632568,0.33000001311302185,0.41999998688697815,0.4300000071525574,0.33000001311302185],[0.9200000166893005,0.6100000143051147,1.0,0.44999998807907104,0.05999999865889549,0.20999999344348907,0.15000000596046448,0.10999999940395355],[0.4399999976158142,0.7599999904632568,0.44999998807907104,1.0,0.3100000023841858,0.44999998807907104,0.46000000834465027,0.3400000035762787],[0.12999999523162842,0.33000001311302185,0.05999999865889549,0.3100000023841858,1.0,0.75,0.7099999785423279,0.6800000071525574],[0.2800000011920929,0.41999998688697815,0.20999999344348907,0.44999998807907104,0.75,1.0,0.7900000214576721,0.8100000023841858],[0.23000000417232513,0.4300000071525574,0.15000000596046448,0.46000000834465027,0.7099999785423279,0.7900000214576721,1.0,0.6299999952316284],[0.1899999976158142,0.33000001311302185,0.10999999940395355,0.3400000035762787,0.6800000071525574,0.8100000023841858,0.6299999952316284,1.0]],"glove":{"storm":[["hurricane",0.88],["storms",0.82],["winds",0.81],["typhoon",0.76],["cyclone",0.74],["tropical",0.72]],"venom":[["toxin",0.67],["scorpion",0.59],["symbiote",0.58],["poisonous",0.57],["toxins",0.57],["snake",0.56]],"widow":[["wife",0.81],["niece",0.78],["daughter",0.78],["granddaughter",0.76],["husband",0.75],["mother",0.75]],"cable":[["network",0.81],["networks",0.8],["channel",0.77],["channels",0.75],["tv",0.73],["television",0.73]],"stark":[["grim",0.68],["reminder",0.61],["backdrop",0.59],["sharp",0.59],["contrast",0.56],["bleak",0.56]],"sentry":[["blimp",0.52],["crouched",0.49],["lookout",0.49],["sentries",0.49],["e-3",0.49],["rifleman",0.49]]}},"bio":[[["Venom","B-GPE"],["attacked","O"],["Spider","B-ORG"],["-","I-ORG"],["Man","I-ORG"],["in","O"],["New","B-GPE"],["York","I-GPE"],[".","O"]],[["Storm","O"],["flew","O"],["over","O"],["Wakanda","B-GPE"],["with","O"],["Black","B-ORG"],["Panther","I-ORG"],[".","O"]],[["Steve","B-PERSON"],["Rogers","I-PERSON"],["met","O"],["Storm","B-ORG"],["in","O"],["Harlem","B-LOC"],[".","O"]]],"bio_sents":["Venom attacked Spider-Man in New York.","Storm flew over Wakanda with Black Panther.","Steve Rogers met Storm in Harlem."],"search":[{"query":"the Norse god of thunder","target":"Thor (Marvel Comics)","absent":true,"dense_top":["Iron Man (Ultimate Marvel character)",0.68],"tfidf_top":["Beta Ray Bill",0.05],"score":0.65,"rank_after":[2,1]},{"query":"a super soldier who carries a round shield","target":"Captain America","absent":true,"dense_top":["Union Jack (Marvel Comics)",0.59],"tfidf_top":["U.S. Agent",0.06],"score":0.58,"rank_after":[2,1]},{"query":"a billionaire inventor in a suit of armor","target":"Iron Man","absent":true,"dense_top":["Turbo (comics)",0.63],"tfidf_top":["Iron Man (Ultimate Marvel character)",0.083],"score":0.49,"rank_after":[5,3]},{"query":"a hero who runs faster than sound","target":"Quicksilver (Marvel Comics)","absent":false,"dense_top":["Speed (character)",0.54],"tfidf_top":["Thunderclap (comics)",0.053],"score":0.5,"rank":[2,11]},{"query":"a man who can shrink to the size of an insect","target":"Hank Pym","absent":false,"dense_top":["Hank Pym",0.55],"tfidf_top":["Hank Pym",0.061],"score":0.55,"rank":[1,1]},{"query":"a scientist who turns into a green giant when he gets angry","target":"Hulk","absent":false,"dense_top":["Hulk",0.53],"tfidf_top":["Hulk",0.052],"score":0.53,"rank":[1,1]},{"query":"a lawyer who is also a superhero","target":"She-Hulk","absent":false,"dense_top":["She-Hulk",0.64],"tfidf_top":["She-Hulk",0.045],"score":0.64,"rank":[1,1]},{"query":"a short hairy Canadian with metal claws","target":"Wolverine (character)","absent":false,"dense_top":["Wolverine (character)",0.5],"tfidf_top":["Wolverine (character)",0.089],"score":0.5,"rank":[1,1]},{"query":"a horse-faced alien worthy of lifting the magic hammer","target":"Beta Ray Bill","absent":false,"dense_top":["Beta Ray Bill",0.54],"tfidf_top":["Solomon Kane (comics)",0.094],"score":0.54,"rank":[1,3]},{"query":"a Russian spy who became an Avenger","target":"Black Widow (Natasha Romanova)","absent":false,"dense_top":["Red Guardian",0.61],"tfidf_top":["Black Widow (Natasha Romanova)",0.079],"score":0.57,"rank":[2,1]},{"query":"a deaf archer who never misses","target":"Hawkeye (comics)","absent":false,"dense_top":["Makkari (character)",0.44],"tfidf_top":["Hawkeye (comics)",0.095],"score":0.28,"rank":[35,1]}]}</script>
+<script>
+(() => {
+  const D = JSON.parse(document.getElementById("viz-data").textContent);
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const $ = (s, el = document) => el.querySelector(s), $$ = (s, el = document) => [...el.querySelectorAll(s)];
+  const short = n => n.replace(/\s*\(.*\)$/, "");
+  
+  /* ── name stickers and the spaCy lens ── */
+  const MISSING = new Set(["Captain America", "Thor", "Iron Man"]);
+  $$(".nm").forEach(el => {
+    const n = el.dataset.n, L = D.lens[n];
+    if (MISSING.has(n)) el.classList.add("is-missing");
+    if (L) { el.dataset.tag = L[0]; const r = el.querySelector(".r"); r.textContent = L[0] === "none" ? "untagged" : L[0];
+      el.title = `spaCy: ${L[0]} in ${L[1]} of ${L[2]} mentions`; }
+  });
+  const lensW = $("#lens-w"), lensR = $("#lens-r");
+  const setLens = on => { document.body.classList.toggle("read", on); lensW.setAttribute("aria-pressed", String(!on)); lensR.setAttribute("aria-pressed", String(on));
+    $$(".nm .r").forEach(r => r.setAttribute("aria-hidden", String(!on))); $$(".nm .w").forEach(w => w.setAttribute("aria-hidden", String(on)));
+    $$(".try-lens").forEach(t => (t.textContent = on ? "Back to the names as written" : "Read this page as spaCy does")); };
+  lensW.addEventListener("click", () => setLens(false)); lensR.addEventListener("click", () => setLens(true)); setLens(false);
+  $$(".lens-go").forEach(b => b.addEventListener("click", () => setLens(!document.body.classList.contains("read"))));
+})();
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const D = JSON.parse(document.getElementById("viz-data").textContent);
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const $ = (s, el = document) => el.querySelector(s), $$ = (s, el = document) => [...el.querySelectorAll(s)];
+  const short = n => n === "Iron Man (Ultimate Marvel character)" ? "Ultimate Iron Man" : n.replace(/\s*\((character|Marvel Comics|comics)\)$/, "");
+  const tip = $("#tip");
+  const showTip = (html, x, y) => { tip.innerHTML = html; tip.classList.add("on"); const r = tip.getBoundingClientRect();
+    tip.style.left = Math.max(8, Math.min(innerWidth - r.width - 8, x + 12)) + "px"; tip.style.top = (y + scrollY - r.height - 10) + "px"; };
+  const hideTip = () => tip.classList.remove("on");
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  const pressGroup = (btns, on) => btns.forEach(b => b.setAttribute("aria-pressed", String(b === on)));
+  /* charts draw once their box has a width, and redraw when it crosses the phone breakpoint
+     (a page opened in a hidden tab or pane starts at width 0) */
+  const sized = (box, render) => {
+    let mode = null;
+    const run = () => { const w = box.clientWidth; if (!w) return; const m = w < 600 ? "s" : "l"; if (m === mode) return; mode = m; box.innerHTML = ""; render(w); };
+    new ResizeObserver(run).observe(box); run();
+  };
+  /* d3 transitions stall in a hidden tab and should not run under reduced motion: fall back to the plain selection */
+  const anim = (sel, dur) => (reduce || document.visibilityState !== "visible") ? sel : sel.transition().duration(dur).ease(d3.easeCubicInOut);
+
+  /* where-am-I label in the bar */
+  const where = $("#where");
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const h = e.target.querySelector("h2"); if (h) where.textContent = h.textContent; } }),
+    { rootMargin: "-40% 0px -55% 0px" });
+  $$(".act-head, .sec, .verdict, #grid, #play").forEach(s => io.observe(s));
+
+  /* ── the game ── */
+  const G = D.game, card = $("#g-card"), pips = $("#g-pips"); let gi = 0, right = 0; const res = [];
+  pips.innerHTML = G.map(() => "<i></i>").join("");
+  const paintPips = () => $$("i", pips).forEach((p, i) => { p.className = res[i] === true ? "ok" : res[i] === false ? "miss" : ""; if (i === gi && gi < G.length) p.classList.add("now"); });
+  function circleOn(el) {
+    const ns = "http://www.w3.org/2000/svg", svg = document.createElementNS(ns, "svg"), p = document.createElementNS(ns, "path");
+    svg.setAttribute("class", "draw"); svg.setAttribute("aria-hidden", "true"); el.appendChild(svg);
+    const r = svg.getBoundingClientRect(), W = r.width, H = r.height; svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    let s = 11 + gi * 7; const rn = () => { s = (s * 16807) % 2147483647; return s / 2147483647; };
+    const pts = [], st = rn() * 6.28;
+    for (let i = 0; i <= 44; i++) { const t = st + (i / 44) * 6.28 * 1.1, j = 1 + (rn() - 0.5) * 0.06;
+      pts.push([W / 2 + Math.cos(t) * (W / 2 - 3) * j, H / 2 + Math.sin(t) * (H / 2 - 3) * j]); }
+    p.setAttribute("d", "M" + pts.map(q => q.map(v => v.toFixed(1)).join(",")).join("L")); svg.appendChild(p);
+    if (!reduce) { const L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; p.getBoundingClientRect();
+      p.style.transition = "stroke-dashoffset var(--dur-draw) var(--ease-out)"; requestAnimationFrame(() => (p.style.strokeDashoffset = 0)); }
+  }
+  function renderCard() {
+    paintPips(); $("#g-left").textContent = G.length - gi; $("#g-you").textContent = right;
+    if (gi >= G.length) {
+      card.className = "card end";
+      card.innerHTML = `<div class="tool"><span>all eight</span><span>${right} of 8</span></div>
+        <p class="q">You guessed the machine ${right} times out of 8.</p>
+        <p style="margin:0 0 var(--space-sm)">Five of the eight answers are a name read as something else, and three are a character the corpus doesn’t have. The story below explains each one.</p>
+        <div class="card-foot"><a class="btn" href="#story" style="text-decoration:none">Read the case</a><button class="btn ghost" type="button" id="g-again">Play again</button></div>`;
+      $("#g-again").addEventListener("click", () => { gi = 0; right = 0; res.length = 0; renderCard(); });
+      return;
+    }
+    const c = G[gi]; card.className = "card";
+    card.innerHTML = `<div class="tool"><span>${esc(c.tool)}</span><span>${gi + 1} / ${G.length}</span></div>
+      <p class="q">${esc(c.q)}</p><div class="opts">${c.options.map((o, i) => `<button class="opt" type="button" data-i="${i}">${esc(o)}</button>`).join("")}</div>
+      <div class="reveal"><p class="verdict-line" id="g-vl"></p><p id="g-rv">${esc(c.reveal)}</p></div>
+      <div class="card-foot"><span class="mono" style="color:var(--color-muted)">${gi === 0 ? "pick one" : ""}</span><button class="btn" type="button" id="g-next" disabled>${gi === G.length - 1 ? "See the tally" : "Next name"}</button></div>`;
+    $$(".opt", card).forEach(b => b.addEventListener("click", () => {
+      const i = +b.dataset.i, ok = i === c.answer; res[gi] = ok; if (ok) right++;
+      $$(".opt", card).forEach(x => (x.disabled = true));
+      const ans = $(`.opt[data-i="${c.answer}"]`, card); ans.classList.add("right"); if (!ok) b.classList.add("picked-wrong");
+      circleOn(ans);
+      $("#g-vl").textContent = ok ? "you read it like the machine" : "the machine read it differently";
+      requestAnimationFrame(() => { $("#g-vl").classList.add("on"); $("#g-rv").classList.add("on"); });
+      $("#g-you").textContent = right; const nx = $("#g-next"); nx.disabled = false; nx.focus({ preventScroll: true }); paintPips();
+    }));
+    $("#g-next").addEventListener("click", () => { gi++; renderCard(); $(".opt", card)?.focus({ preventScroll: true }); });
+  }
+  renderCard();
+
+  /* ── the grid ── */
+  const SEC = { "word vector": "#s1", "page encoder": "#s2", "sentiment": "#s3", "tagger": "#s4", "network": "#s5", "map & clusters": "#s6", "search": "#s7" };
+  const late = new Set(["Captain America", "Thor", "Iron Man"]);
+  $("#grid-t").innerHTML = `<thead><tr><th scope="col"><span class="mono">name</span></th>${D.grid.cols.map(c => `<th scope="col">${esc(c)}</th>`).join("")}</tr></thead><tbody>` +
+    D.grid.rows.map(r => `<tr><th scope="row">${esc(r.name)}</th>${r.cells.map((c, j) => {
+      const col = D.grid.cols[j]; let href = SEC[col]; if (late.has(r.name) && col === "page encoder") href = "#s6";
+      return c.state === "blank" ? `<td><span class="cell blank">${esc(c.text)}</span></td>`
+        : `<td><a class="cell ${c.state}" href="${href}"><span class="k">${c.state === "wrong" ? "misread" : c.state === "missing" ? "no page" : "read right"}</span>${esc(c.text)}</a></td>`; }).join("")}</tr>`).join("") + "</tbody>";
+
+  /* ── §1 storm ── */
+  (function storm() {
+    const box = $("#v-storm"), xy = D.storm_xy, sents = D.storm_sents, btns = $$("#f-storm .seg button"); let glove = false, apply = () => {};
+    btns.forEach(b => b.addEventListener("click", () => { pressGroup(btns, b); glove = b.dataset.m === "glove"; apply(true); }));
+    sized(box, cw => {
+      const small = cw < 600, W = small ? cw : 640, H = small ? 260 : 300;
+      const xs = d3.extent(xy, d => d[0]), ys = d3.extent(xy, d => d[1]);
+      const sx = d3.scaleLinear().domain(xs).range([small ? 16 : 30, W - (small ? 84 : 130)]), sy = d3.scaleLinear().domain(ys).range([30, H - 30]);
+      const svg = d3.select(box).append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("role", "img").attr("aria-label", "Eight occurrences of storm placed by BERT or collapsed by GloVe");
+      const g = svg.selectAll("g.pt").data(xy).join("g").attr("class", "pt").attr("tabindex", 0);
+      g.append("circle").attr("r", small ? 7 : 9).attr("fill", (d, i) => i < 4 ? "var(--color-ink)" : "var(--color-paper-2)").attr("stroke", "var(--color-ink)").attr("stroke-width", 2.4);
+      g.append("text").attr("x", small ? 12 : 16).attr("y", 4).text((d, i) => i < 4 ? `Storm ${i + 1}` : `weather ${i - 3}`);
+      const one = svg.append("text").attr("x", W / 2).attr("y", H / 2 + 34).attr("text-anchor", "middle").text("one vector · cosine 1.00 with itself");
+      g.on("mouseenter focus", function (ev, d) { const i = xy.indexOf(d), r = this.getBoundingClientRect(); showTip(esc(sents[i]), r.left + r.width / 2, r.top); })
+       .on("mouseleave blur", hideTip);
+      apply = animate => {
+        const a = sel => animate ? anim(sel, 1100) : sel;
+        a(g).attr("transform", d => glove ? `translate(${W / 2},${H / 2})` : `translate(${sx(d[0])},${sy(d[1])})`);
+        a(g.select("text")).style("opacity", glove ? 0 : 1);
+        a(one).style("opacity", glove ? 1 : 0);
+      };
+      apply(false);
+    });
+    $("#glove-list").innerHTML = D.storm.glove.storm.map(([w, s]) => `<li><span>${esc(w)}</span><span>${s.toFixed(2)}</span></li>`).join("");
+  })();
+
+  /* ── §2 rename ── */
+  (function rename() {
+    const R = D.renames, list = $("#rn-list"), chips = $("#rn-pages"), seg = $$("#f-rename .seg button"); let pi = 0, v = 0; const H = 34;
+    chips.innerHTML = R.map((r, i) => `<button class="chip" type="button" aria-pressed="${i === 0}" data-i="${i}">${esc(short(r.page))}<span class="lg"> → ${esc(r.new)}</span></button>`).join("");
+    function draw(fresh) {
+      const r = R[pi], rows = r.rows.slice().sort((a, b) => a[1 + v] - b[1 + v]).slice(0, 12);
+      if (fresh) list.innerHTML = "";
+      list.style.height = rows.length * H + "px";
+      const have = new Map($$(".rn-row", list).map(el => [el.dataset.n, el]));
+      const keep = new Set(rows.map(x => x[0]));
+      have.forEach((el, n) => { if (!keep.has(n)) el.remove(); });
+      rows.forEach((x, i) => {
+        let el = have.get(x[0]);
+        if (!el) { el = document.createElement("div"); el.className = "rn-row"; el.dataset.n = x[0]; el.style.transform = `translateY(${i * H}px)`; el.style.opacity = 0; list.appendChild(el); requestAnimationFrame(() => (el.style.opacity = "")); }
+        const d = x[2] - x[1], black = /^Black /.test(x[0]) || (r.new === "Ororo Munroe" && x[0] === "Human Torch");
+        el.classList.toggle("black", black); el.classList.toggle("far", x[1 + v] > 10);
+        el.innerHTML = `<span class="rk">#${x[1 + v]}</span><span class="nmx"><span>${esc(short(x[0]))}</span>${v === 1 && Math.abs(d) >= 3 ? `<span class="delta">${d > 0 ? "↓" : "↑"} ${Math.abs(d)}</span>` : ""}</span><span class="cs">${x[3 + v].toFixed(2)}</span>`;
+        requestAnimationFrame(() => (el.style.transform = `translateY(${i * H}px)`));
+      });
+    }
+    chips.addEventListener("click", e => { const b = e.target.closest(".chip"); if (!b) return; pi = +b.dataset.i; pressGroup($$(".chip", chips), b); draw(true); });
+    seg.forEach(b => b.addEventListener("click", () => { v = +b.dataset.v; pressGroup(seg, b); draw(false); }));
+    draw(true);
+  })();
+
+  /* ── §3 sentiment ── */
+  (function senti() {
+    const F = D.frames, S = D.senti, chips = $("#fr-chips"), sb = $("#sb"); let f = 0;
+    chips.innerHTML = F.map((x, i) => `<button class="chip" type="button" aria-pressed="${i === 0}" data-i="${i}">frame ${i + 1}</button>`).join("");
+    sb.innerHTML = `<span class="hd">name</span><span class="hd">VADER</span><span class="hd">DistilBERT</span>` +
+      S.map(r => `<span class="nmc">${esc(r.name)}</span><span class="bar2" data-k="vader"><span class="trk"><i></i></span><b></b></span><span class="bar2" data-k="bert"><span class="trk"><i></i></span><b></b></span>`).join("");
+    function paint() {
+      $("#fr-line").innerHTML = esc(F[f]).replace("{}", "<u>Name</u>");
+      $$(".nmc", sb).forEach((el, i) => {
+        ["vader", "bert"].forEach(k => { const bar = el.parentNode.children[3 * (i + 1) + (k === "vader" ? 1 : 2)], val = S[i][k][f];
+          const fill = bar.querySelector("i"); fill.style.transform = val >= 0 ? `scaleX(${val})` : `translateX(${val * 100}%) scaleX(${-val})`;
+          fill.classList.toggle("neg", val < 0); const txt = (val > 0 ? "+" : "") + val.toFixed(2); bar.querySelector("b").textContent = txt; bar.title = `${k === "vader" ? "VADER" : "DistilBERT"}: ${txt}`; });
+      });
+    }
+    chips.addEventListener("click", e => { const b = e.target.closest(".chip"); if (!b) return; f = +b.dataset.i; pressGroup($$(".chip", chips), b); paint(); });
+    paint();
+  })();
+
+  /* ── §4 BIO + label bars ── */
+  (function ner() {
+    const chips = $("#bio-chips"), box = $("#bio"); let s = 0;
+    chips.innerHTML = D.bio_sents.map((x, i) => `<button class="chip" type="button" aria-pressed="${i === 0}" data-i="${i}">sentence ${i + 1}</button>`).join("");
+    const paint = () => { box.innerHTML = D.bio[s].map(([w, t]) => `<span class="tokn ${t === "O" ? "" : t.endsWith("PERSON") ? "p" : "e"}"><span class="t">${esc(w)}</span><span class="g">${esc(t)}</span></span>`).join(""); };
+    chips.addEventListener("click", e => { const b = e.target.closest(".chip"); if (!b) return; s = +b.dataset.i; pressGroup($$(".chip", chips), b); paint(); });
+    paint();
+    const CATS = ["person", "organisation", "place", "book or film", "other", "none"];
+    const COL = { person: "var(--color-ink)", organisation: "var(--color-muted)", place: "var(--color-accent)", "book or film": "var(--color-accent-wash)", other: "var(--color-rule-2)", none: "var(--color-paper)" };
+    sized($("#v-ner"), cw => {
+    const small = cw < 600, names = D.pairs.flat(), W = small ? cw : 900, rowH = small ? 18 : 22, gap = small ? 10 : 14, left = small ? 108 : 150, H = D.pairs.length * (2 * rowH + gap) + (small ? 46 : 30);
+    const svg = d3.select("#v-ner").append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("role", "img").attr("aria-label", "Entity types spaCy gives codenames and real names");
+    const x = d3.scaleLinear().domain([0, 1]).range([left, W - (small ? 42 : 56)]);
+    D.pairs.forEach((pair, pi) => pair.forEach((nm, k) => {
+      const c = D.census[nm], y = 20 + pi * (2 * rowH + gap) + k * rowH; let acc = 0;
+      svg.append("text").attr("x", left - 6).attr("y", y + (small ? 12 : 14)).attr("text-anchor", "end").style("font-size", small ? "10px" : null).style("font-weight", k === 0 ? 600 : 400).style("fill", "var(--color-ink)").text(nm);
+      CATS.forEach(cat => { const v = (c.labels[cat] || 0) / c.mentions; if (!v) return;
+        svg.append("rect").attr("x", x(acc)).attr("y", y + 2).attr("width", Math.max(0.5, x(acc + v) - x(acc))).attr("height", rowH - 5)
+          .attr("fill", COL[cat]).attr("stroke", "var(--color-ink)").attr("stroke-width", 1).attr("tabindex", 0)
+          .on("mouseenter focus", function () { const r = this.getBoundingClientRect(); showTip(`${esc(nm)} · ${cat}: ${c.labels[cat]} of ${c.mentions}`, r.left + r.width / 2, r.top); })
+          .on("mouseleave blur", hideTip);
+        acc += v; });
+      svg.append("text").attr("x", W - (small ? 38 : 50)).attr("y", y + (small ? 12 : 14)).text(c.mentions.toLocaleString("en"));
+    }));
+    const lg = svg.append("g").attr("transform", `translate(${small ? 4 : left},${H - (small ? 22 : 6)})`); let lx = 0, ly = 0;
+    CATS.forEach(cat => { if (small && lx > W - 90) { lx = 0; ly += 16; } lg.append("rect").attr("x", lx).attr("y", ly - 10).attr("width", 12).attr("height", 10).attr("fill", COL[cat]).attr("stroke", "var(--color-ink)");
+      lg.append("text").attr("x", lx + 16).attr("y", ly - 1).text(cat); lx += 22 + cat.length * 6.8; });
+    });
+  })();
+
+  /* ── §5 named vs linked + reading waffle ── */
+  (function named() {
+    sized($("#v-named"), cw => {
+    const small = cw < 600, pts = D.scatter, ab = Object.entries(D.absent), W = small ? cw : 900, H = small ? 380 : 400, m = { l: small ? 108 : 230, r: 14, t: 28, b: 40 };
+    const x = d3.scaleSqrt().domain([0, d3.max(pts, d => d[1])]).range([m.l, W - m.r]).nice();
+    const y = d3.scaleLinear().domain([0, d3.max([...pts.map(d => d[2]), ...ab.map(d => d[1])]) + 6]).range([H - m.b, m.t]);
+    const svg = d3.select("#v-named").append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("role", "img").attr("aria-label", "Pages naming a character against hyperlink in-degree");
+    svg.append("g").attr("class", "axis").attr("transform", `translate(0,${H - m.b})`).call(d3.axisBottom(x).ticks(6));
+    svg.append("g").attr("class", "axis").attr("transform", `translate(${m.l},0)`).call(d3.axisLeft(y).ticks(6));
+    svg.append("text").attr("x", W - m.r).attr("y", H - 6).attr("text-anchor", "end").text("hyperlink in-degree (√ scale)");
+    svg.append("text").attr("x", m.l + 8).attr("y", m.t - 12).text(small ? "pages naming ↑" : "other pages naming them ↑");
+    svg.append("rect").attr("x", 4).attr("y", m.t).attr("width", m.l - 48).attr("height", H - m.b - m.t).attr("fill", "none").attr("stroke", "var(--color-ink)").attr("stroke-dasharray", "4 4").attr("rx", 10);
+    svg.append("text").attr("x", 10).attr("y", H - m.b - 8).text("no page");
+    const LANE = { "Captain America": "Cap" };
+    const tipOn = (html) => function () { const r = this.getBoundingClientRect(); showTip(html, r.left + r.width / 2, r.top); };
+    svg.selectAll("circle.p").data(pts).join("circle").attr("class", "p").attr("cx", d => x(d[1])).attr("cy", d => y(d[2])).attr("r", 3.6)
+      .attr("fill", "var(--color-ink)").attr("fill-opacity", 0.55).attr("tabindex", 0)
+      .each(function (d) { d3.select(this).on("mouseenter focus", tipOn(`${esc(d[0])} · in-degree ${d[1]} · named on ${d[2]} pages`)).on("mouseleave blur", hideTip); });
+    ab.forEach(([nm, c], i) => {
+      const cx = 22, cy = y(c);
+      svg.append("circle").attr("cx", cx).attr("cy", cy).attr("r", 6).attr("fill", "var(--color-paper-2)").attr("stroke", "var(--color-ink)").attr("stroke-width", 1.6).attr("stroke-dasharray", "3 2").attr("tabindex", 0)
+        .on("mouseenter focus", tipOn(`${esc(nm)} · no page · named on ${c} pages`)).on("mouseleave blur", hideTip);
+      if (c >= 60) svg.append("text").attr("x", cx + 12).attr("y", cy + 4).style("fill", "var(--color-ink)").text(small ? `${LANE[nm] || nm} ${c}` : `${nm} · ${c}`);
+    });
+    const rest = ab.filter(([, c]) => c < 60).map(([nm, c]) => `${small ? nm.split(" ").pop() : nm} ${c}`);
+    (small ? [] : [rest.slice(0, 2).join(" · "), rest.slice(2).join(" · ")]).forEach((line, k) => svg.append("text").attr("x", 14).attr("y", H - m.b - 44 + k * 15).style("fill", "var(--color-muted)").style("font-size", "10px").text(line));
+    const ult = pts.find(d => d[0].startsWith("Iron Man (Ultimate"));
+    if (ult) { svg.append("ellipse").attr("cx", x(ult[1])).attr("cy", y(ult[2])).attr("rx", 13).attr("ry", 10).attr("fill", "none").attr("stroke", "var(--color-accent-ink)").attr("stroke-width", 2.2);
+      svg.append("text").attr("x", small ? x(ult[1]) - 12 : x(ult[1]) + 18).attr("y", small ? y(ult[2]) + 26 : y(ult[2]) + 4).style("fill", "var(--color-accent-ink)").text("Ultimate Iron Man"); }
+    });
+    const wf = $("#waffle"), ctx = $("#ctx"), LBL = { c: "the character", t: "a title", m: "someone else in the role" };
+    wf.innerHTML = D.reading.map(([k], i) => `<button type="button" class="${k}" aria-pressed="false" aria-label="mention ${i + 1}: ${LBL[k]}" data-i="${i}"></button>`).join("");
+    wf.addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; pressGroup($$("button", wf), b); const [k, s] = D.reading[+b.dataset.i];
+      ctx.innerHTML = `<span class="mono" style="color:var(--color-accent-ink)">${LBL[k]}</span> · …${esc(s)}…`; });
+  })();
+
+  /* ── §6 Thor walks in ── */
+  (function map() {
+    const box = $("#v-map"); let state = "before", go = () => {};
+    $$("#f-map .map-ctl .btn").forEach(b => b.addEventListener("click", () => go(b.dataset.s, true)));
+    sized(box, cw => {
+    const small = cw < 600, W = small ? cw : 900, H = small ? Math.round(cw * 1.3) : 520, N = D.names.length, T0 = D.tsne0, T1 = D.tsne1, P = D.pca;
+    const svg = d3.select(box).append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("role", "img").attr("aria-label", "Map of the 303 pages before and after the three newcomers arrive");
+    const fit = (pts, x0, x1) => { const xe = d3.extent(pts, d => d[0]), ye = d3.extent(pts, d => d[1]);
+      return [d3.scaleLinear().domain(xe).range([x0, x1]), d3.scaleLinear().domain(ye).range([small ? H - 50 : H - 24, 24])]; };
+    const lines = svg.append("g"), dots = svg.append("g"), newg = svg.append("g");
+    const pos = { before: T0, tsne: T1.slice(0, N), pca: P.slice(0, N) };
+    const d = dots.selectAll("circle").data(D.names).join("circle").attr("class", "dot").attr("r", small ? 3 : 4).attr("fill", "var(--color-ink)").attr("fill-opacity", 0.5).attr("tabindex", -1)
+      .on("mouseenter", function (ev, n) { const r = this.getBoundingClientRect(); showTip(esc(n), r.left, r.top); }).on("mouseleave", hideTip);
+    const ng = newg.selectAll("g").data(D.newcomers).join("g").attr("tabindex", 0)
+      .on("mouseenter focus", function (ev, n) { const r = this.getBoundingClientRect(); showTip(esc(n), r.left, r.top); }).on("mouseleave blur", hideTip);
+    ng.append("circle").attr("r", 9).attr("class", "new-ring");
+    ng.append("text").attr("x", 14).attr("y", 4).style("fill", "var(--color-ink)").style("font-weight", 600).text(n => small && n === "Captain America" ? "Cap" : short(n));
+    const near = new Set(D.newnn.flat());
+    go = (s, animate) => {
+      state = s; const dur = animate && !reduce && document.visibilityState === "visible" ? 1300 : 0;
+      const tr = sel => dur ? sel.transition().duration(dur).ease(d3.easeCubicInOut) : sel;
+      const pts = s === "before" ? T0 : s === "tsne" ? T1 : P; const [sx, sy] = fit(pts, 20, small ? W - 20 : s === "before" ? W - 170 : W - 110);
+      tr(d).attr("cx", (n, i) => sx(pos[s][i][0])).attr("cy", (n, i) => sy(pos[s][i][1]))
+        .attr("fill", (n, i) => s !== "before" && near.has(i) ? "var(--color-accent-ink)" : "var(--color-ink)").attr("fill-opacity", (n, i) => s !== "before" && near.has(i) ? 0.95 : 0.45);
+      tr(ng).attr("transform", (n, k) => s === "before" ? (small ? `translate(${10 + k * ((W - 80) / 2)},${H - 10})` : `translate(${W - 120},${120 + k * 60})`) : `translate(${sx(pts[N + k][0])},${sy(pts[N + k][1])})`);
+      ng.select("circle").attr("class", s === "before" ? "new-ring" : "new-dot");
+      document.body.classList.toggle("thor-in", s !== "before");
+      lines.selectAll("path").remove();
+      if (s !== "before") setTimeout(() => {
+        if (state !== s) return;
+        D.newnn.forEach((nn, k) => nn.forEach(j => lines.append("path").attr("class", "nn-line")
+          .attr("d", `M${sx(pts[N + k][0])},${sy(pts[N + k][1])}L${sx(pos[s][j][0])},${sy(pos[s][j][1])}`)
+          .style("opacity", s === "pca" ? 0.9 : 0.6)));
+      }, dur);
+      const R = $("#map-read");
+      R.innerHTML = s === "before" ? `<span><b>303</b> pages on the map · 3 waiting outside</span>`
+        : s === "tsne" ? `<span><b>${Math.round(D.kept * 100)}%</b> of old pages keep their 5 nearest dots</span><span>cosine neighbours changed: <b>0</b></span>`
+        : `<span>PCA’s map of the 303 is fixed: adding pages moves <b>0</b> dots</span><span>Thor’s nearest dots: ${D.placement[0].pca.slice(0, 3).map(short).join(", ")}</span>`;
+      $$("#f-map .map-ctl .btn").forEach(b => b.classList.toggle("ghost", b.dataset.s !== s));
+    };
+    go(state, false);
+    });
+  })();
+
+  /* ── §7 search ── */
+  (function search() {
+    const Q = D.search, val = q => q.absent ? q.dense_top[1] : q.score; let dots = null, hotI = -1;
+    sized($("#v-search"), cw => {
+    const small = cw < 600, W = small ? cw : 900, H = 120, m = { l: small ? 10 : 20, r: small ? 12 : 20 };
+    const x = d3.scaleLinear().domain([0.2, 0.75]).range([m.l, W - m.r]);
+    const svg = d3.select("#v-search").append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("role", "img").attr("aria-label", "Dense retrieval scores for present and missing answers");
+    svg.append("g").attr("class", "axis").attr("transform", `translate(0,${H - 26})`).call(d3.axisBottom(x).ticks(small ? 4 : 6));
+    svg.append("text").attr("x", m.l).attr("y", 24).text("page exists: the right page’s score");
+    svg.append("text").attr("x", m.l).attr("y", 70).text("page missing: the top score");
+    dots = svg.selectAll("g.q").data(Q).join("g").attr("class", "q").attr("transform", (q, i) => `translate(${x(val(q))},${q.absent ? 80 : 38})`);
+    dots.append("circle").attr("r", (q, k) => k === hotI ? 11 : q.absent ? 8 : 6).attr("fill", q => q.absent ? "var(--color-accent)" : "var(--color-ink)").attr("stroke", "var(--color-ink)").attr("stroke-width", 2).attr("stroke-dasharray", q => q.absent ? "3 2" : null);
+    });
+    const ul = $("#q-list");
+    ul.innerHTML = Q.map((q, i) => `<li class="${q.absent ? "absent" : ""}" data-i="${i}" tabindex="0"><span class="qq">${esc(q.query)}</span><span class="top">${q.absent ? "returned " + esc(short(q.dense_top[0])) : "right page " + esc(short(q.target)) + " · rank " + q.rank[0]}</span><span class="sc">${val(q).toFixed(2)}</span></li>`).join("");
+    const hot = i => { hotI = i; $$("li", ul).forEach((li, k) => li.classList.toggle("hot", k === i)); if (dots) dots.select("circle").attr("r", (q, k) => k === i ? 11 : q.absent ? 8 : 6); };
+    $$("li", ul).forEach((li, i) => { li.addEventListener("mouseenter", () => hot(i)); li.addEventListener("focus", () => hot(i)); });
+    ul.addEventListener("mouseleave", () => hot(-1));
+  })();
+
+  if (window.renderMathInElement) renderMathInElement(document.body, { delimiters: [{ left: "\\(", right: "\\)", display: false }], throwOnError: false });
+});
+</script>
+</body>
+</html>
