@@ -3918,7 +3918,12 @@
   },
   "game": [
    {
+    "name": "Storm",
     "tool": "GloVe · static word vector",
+    "ghost": false,
+    "state": "wrong",
+    "label": "HURRICANE",
+    "sub": "nearest word · 0.88",
     "q": "GloVe keeps one vector for the word storm. Which word sits closest to it?",
     "options": [
      "hurricane",
@@ -3930,7 +3935,12 @@
     "reveal": "hurricane, at 0.88. x-men is down at 0.20."
    },
    {
+    "name": "Black Widow",
     "tool": "MiniLM · page encoder",
+    "ghost": false,
+    "state": "wrong",
+    "label": "BLACK CAT",
+    "sub": "falls #2 → #19",
     "q": "Black Widow’s page is rewritten with Natasha Romanoff in place of her codename. Which neighbour falls furthest?",
     "options": [
      "Black Cat",
@@ -3941,7 +3951,12 @@
     "reveal": "Black Cat, from #2 to #19. Yelena and Jessica Drew stay in the top three."
    },
    {
+    "name": "Abomination",
     "tool": "DistilBERT · sentiment",
+    "ghost": false,
+    "state": "wrong",
+    "label": "NEGATIVE",
+    "sub": "confidence 0.97",
     "q": "“Abomination arrived in New York.” What does the movie-review classifier say?",
     "options": [
      "positive",
@@ -3952,7 +3967,12 @@
     "reveal": "Negative, with confidence 0.97. Nothing in the sentence is negative except the name."
    },
    {
+    "name": "Venom",
     "tool": "spaCy · named entities",
+    "ghost": false,
+    "state": "wrong",
+    "label": "PLACE",
+    "sub": "tag B-GPE",
     "q": "“Venom attacked Spider-Man in New York.” What type does spaCy give Venom?",
     "options": [
      "person",
@@ -3964,8 +3984,29 @@
     "reveal": "A place (GPE), like New York. Spider-Man is an organisation."
    },
    {
+    "name": "Steve Rogers",
     "tool": "spaCy · the whole corpus",
-    "q": "Captain America is mentioned 615 times. In how many is he tagged a person?",
+    "ghost": false,
+    "state": "right",
+    "label": "PERSON",
+    "sub": "105 of 106 mentions",
+    "q": "Steve Rogers is named 106 times across the corpus. In how many does spaCy tag him as a person?",
+    "options": [
+     "1",
+     "53",
+     "105"
+    ],
+    "answer": 2,
+    "reveal": "105 of 106. The tagger finds the man under his real name."
+   },
+   {
+    "name": "Captain America",
+    "tool": "spaCy · the whole corpus",
+    "ghost": true,
+    "state": "wrong",
+    "label": "PLACE",
+    "sub": "person in 1 of 615",
+    "q": "Captain America has no page of his own, but 615 mentions. In how many does spaCy tag him as a person?",
     "options": [
      "1",
      "61",
@@ -3973,33 +4014,31 @@
      "598"
     ],
     "answer": 0,
-    "reveal": "1. His most common tag is a place: 377 times, for America."
+    "reveal": "1. His usual tag is a place, 377 times: the tagger reads America."
    },
    {
-    "tool": "the hyperlink network",
-    "q": "Captain America has no page among the 303. How many of the 303 pages name him?",
-    "options": [
-     "15",
-     "58",
-     "115",
-     "203"
-    ],
-    "answer": 2,
-    "reveal": "115. Only Spider-Man is named on more pages."
-   },
-   {
+    "name": "Iron Man",
     "tool": "BERTopic · clusters",
-    "q": "Thor’s article is added to the corpus. Where does BERTopic put him?",
+    "ghost": true,
+    "state": "wrong",
+    "label": "OUTLIER",
+    "sub": "no cluster takes him",
+    "q": "Iron Man’s article is added to the corpus. Where does BERTopic put him?",
     "options": [
-     "with Hercules",
+     "with the armoured heroes",
      "with the X-Men",
      "nowhere: an outlier"
     ],
     "answer": 2,
-    "reveal": "An outlier: not dense enough to join any cluster of the 303 pages."
+    "reveal": "An outlier, although his nearest page, War Machine, sits at cosine 0.83."
    },
    {
+    "name": "Thor",
     "tool": "dense retrieval",
+    "ghost": true,
+    "state": "wrong",
+    "label": "ULTIMATE IRON MAN",
+    "sub": "top score · 0.68",
     "q": "You search the corpus for “the Norse god of thunder”. What comes back first?",
     "options": [
      "Beta Ray Bill",
