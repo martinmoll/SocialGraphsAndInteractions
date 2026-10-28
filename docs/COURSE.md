@@ -31,7 +31,8 @@ Base URL: **<https://sunelehmann.com/socialgraphs2026-web/>**
 | Week 1 · Networks | `weeks/week1.html` | Published |
 | Week 2 · Models & null models | `weeks/week2.html` | Published |
 | Week 5 · From language to numbers | `weeks/week5.html` | Published. NLP I: tokens, counts, Zipf, n-grams, Bag of Words. The weekly post is exercise **5.9**; the 🧠 Learn exercises are 5.1, 5.2, 5.6 and the 🧠 parts of 5.4–5.5. |
-| Weeks 3–4, 6–8 | `weeks/week{N}.html` | Each week's page goes up one session ahead; if one 404s, it is not released yet. |
+| Week 8 · Putting it all together | `weeks/week8.html` | Published. No new method: project kickoff. API-finding workshop (browser Network tab), dataset and question advice, report structure, afternoon brainstorm. Exercises 8.1 and 8.2 are both 🧠 Learn; there is no 🚀 Builder exercise. Grading categories for the project are listed here. |
+| Weeks 3–4, 6–7 | `weeks/week{N}.html` | Each week's page goes up one session ahead; if one 404s, it is not released yet. |
 | Course data | `data/` | Dataset releases and download links. See §5. |
 | Textbook | <https://www.networkatlas.eu/> | Michele Coscia, *The Atlas for the Aspiring Network Scientist*, 2nd ed. Free. Week 1 reading: ch. 6 (Basic Graphs), ch. 9 (Degree). |
 
@@ -62,18 +63,50 @@ Instructor: Sune Lehmann, <sljo@dtu.dk>.
 | 6 | NLP II | Wed 7 Oct |
 | 7 | NLP III | Wed 21 Oct |
 | 8 | Networks × language | Wed 28 Oct |
-| 9–13 | Project period | — |
+| 9–13 | Project period: sessions Wed 4 Nov (after Test 2), 11, 18, 25 Nov | — |
 
 | Component | Weight | When |
 | --- | --- | --- |
-| Test 1 (weeks 1–4) | 25% | Wed 30 Sep, first hour |
-| Test 2 (weeks 5–8) | 25% | Wed 4 Nov, first hour |
-| Final project | 50% | Weeks 9–13; demo fair Wed 2 Dec |
+| Test 1 (weeks 1–4) | 25% | Wed 30 Sep, 08:30–09:30 |
+| Test 2 (weeks 5–7) | 25% | Wed 4 Nov, 08:30–09:30 |
+| Final project | 50% | Hand-in Fri 27 Nov 23:59; presentation Wed 2 Dec |
 
-Both tests are **pen-and-paper, closed-book, in class** — roughly 60 minutes, roughly 25
-multiple-choice questions, testing application rather than recall. There are no take-home
-assignments. There are no lectures: after a short framing talk each Wednesday, groups work
-through the week's page at their own pace.
+Both tests are **pen-and-paper, closed-book, no devices, in class**: ~60 minutes, **16
+multiple-choice questions plus 4 tasks** where you draw, calculate and explain. They test
+transfer, not recall, and draw only on 🧠 Learn material (each week page ends with an "on the
+test" box). Nothing from week 8 is on Test 2. Rooms: building 303A, Auditoriums 42 and 43
+(Test 2 in the same room as Test 1). **Be seated by 08:10 — arriving later scores zero.**
+There are no take-home assignments. There are no lectures: after a short framing talk each
+Wednesday, groups work through the week's page at their own pace.
+
+### Final project
+
+Pick a domain, find a dataset with **both a network and text**, and use the course tools to
+find something new. Groups of up to three, registered on DTU Learn by Wed 28 Oct; changes
+allowed until 4 Nov.
+
+**Hand-in: Friday 27 November, 23:59, on DTU Learn — three PDFs:**
+
+1. **Paper** — PNAS template, LaTeX only (Overleaf), at most **six pages including
+   references and figures**. Sections: Abstract, Significance Statement, Introduction,
+   Results, Discussion, Methods, References, Author Contributions (specific, per person).
+2. **Slides** — three pages, no animations, for a three-minute talk. The instructors merge
+   all groups' slides into one deck.
+3. **Reflection** — half a page, ungraded: did the "From an AI-drafted report" boxes change
+   how you read your draft, and where did you use them (or not)?
+
+**Presentation: Wednesday 2 December** — three slides, three minutes, then questions to
+whichever member they pick. Everyone must be able to explain everything in the paper.
+
+**Scoring:** one score on 0–3 (0 insufficient, 1 sufficient, 2 good, 3 excellent) for paper
+and presentation together. Categories (from week 8): research question, data and scope,
+showcasing the course, analysis and checks, figures, references and literature, overall
+impression, presentation and questions. The go-nuts posts are a tie-breaker at grade
+boundaries.
+
+Separately, `the-new-way.html` requires the project repo to contain an **`AI_METHODS.md`**
+(see §4). The home page's project section does not list it as a hand-in, but it is still
+required. *(Verified 28 Oct 2026 against the live pages.)*
 
 ---
 
@@ -105,8 +138,8 @@ sample and an error analysis**.
 
 ### Documenting AI use
 
-The final project must include an **`AI_METHODS.md`** recording every place a model touched
-the results and how that was checked. "The model said so" is explicitly not a method.
+The final project repo must contain an **`AI_METHODS.md`** (required by `the-new-way.html`)
+recording every place a model touched the results and how that was checked. "The model said so" is explicitly not a method.
 
 ### The weekly rhythm
 
