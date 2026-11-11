@@ -1,0 +1,2928 @@
+{
+ "field": "energy_transition",
+ "collected": "2026-11-11",
+ "lcc_nodes": 2500,
+ "lcc_edges": 9858,
+ "lcc_with_abstract": 1325,
+ "min_group": 30,
+ "split_year": 2019,
+ "field_level": {
+  "groups": {
+   "Economics, Econometrics and Finance": 540,
+   "Energy": 473,
+   "Engineering": 400,
+   "Environmental Science": 552,
+   "Social Sciences": 535
+  },
+  "n_pairs": 10,
+  "n_pairs_too_small": 0,
+  "corr_S_logR": 0.857217865577435,
+  "corr_perm_p": 0.0009995002498750624,
+  "fit_logR_on_S": [
+   5.360321616261745,
+   -4.067531150687082
+  ],
+  "temporal": {
+   "pairs_used": 10,
+   "beta_const_pre_S": [
+    -3.9022692559667083,
+    0.1711851111978353,
+    5.2038410950366725
+   ],
+   "S_coef_perm_p": 0.009495252373813094
+  },
+  "pairs": [
+   {
+    "a": "Economics, Econometrics and Finance",
+    "b": "Social Sciences",
+    "cross_field": true,
+    "observed": 126,
+    "expected": 933.9,
+    "R": 0.135,
+    "R_ci": [
+     0.107,
+     0.173
+    ],
+    "S": 0.513,
+    "S_ci": [
+     0.464,
+     0.514
+    ],
+    "silence": 0.613,
+    "shared_words": [
+     "renewable",
+     "policy",
+     "development",
+     "environmental",
+     "climate",
+     "green",
+     "role",
+     "china"
+    ],
+    "R_pre": 0.508,
+    "R_post": 0.124
+   },
+   {
+    "a": "Energy",
+    "b": "Environmental Science",
+    "cross_field": true,
+    "observed": 707,
+    "expected": 971.6,
+    "R": 0.728,
+    "R_ci": [
+     0.634,
+     0.816
+    ],
+    "S": 0.732,
+    "S_ci": [
+     0.661,
+     0.713
+    ],
+    "silence": 0.159,
+    "shared_words": [
+     "renewable",
+     "hydrogen",
+     "policy",
+     "global",
+     "china",
+     "sustainable",
+     "systems",
+     "development"
+    ],
+    "R_pre": 0.84,
+    "R_post": 0.705
+   },
+   {
+    "a": "Engineering",
+    "b": "Environmental Science",
+    "cross_field": true,
+    "observed": 317,
+    "expected": 599.3,
+    "R": 0.529,
+    "R_ci": [
+     0.448,
+     0.627
+    ],
+    "S": 0.662,
+    "S_ci": [
+     0.598,
+     0.644
+    ],
+    "silence": 0.1,
+    "shared_words": [
+     "renewable",
+     "power",
+     "systems",
+     "electricity",
+     "sustainable",
+     "future",
+     "storage",
+     "case"
+    ],
+    "R_pre": 0.52,
+    "R_post": 0.53
+   },
+   {
+    "a": "Engineering",
+    "b": "Social Sciences",
+    "cross_field": true,
+    "observed": 153,
+    "expected": 465.1,
+    "R": 0.329,
+    "R_ci": [
+     0.25,
+     0.412
+    ],
+    "S": 0.575,
+    "S_ci": [
+     0.517,
+     0.565
+    ],
+    "silence": 0.094,
+    "shared_words": [
+     "renewable",
+     "power",
+     "systems",
+     "electricity",
+     "solar",
+     "policy",
+     "community",
+     "future"
+    ],
+    "R_pre": 0.198,
+    "R_post": 0.35
+   },
+   {
+    "a": "Environmental Science",
+    "b": "Social Sciences",
+    "cross_field": true,
+    "observed": 1258,
+    "expected": 1170.5,
+    "R": 1.075,
+    "R_ci": [
+     0.993,
+     1.159
+    ],
+    "S": 0.783,
+    "S_ci": [
+     0.716,
+     0.759
+    ],
+    "silence": 0.047,
+    "shared_words": [
+     "justice",
+     "social",
+     "renewable",
+     "policy",
+     "local",
+     "development",
+     "power",
+     "rural"
+    ],
+    "R_pre": 0.848,
+    "R_post": 1.121
+   },
+   {
+    "a": "Economics, Econometrics and Finance",
+    "b": "Environmental Science",
+    "cross_field": true,
+    "observed": 551,
+    "expected": 1203.4,
+    "R": 0.458,
+    "R_ci": [
+     0.385,
+     0.551
+    ],
+    "S": 0.615,
+    "S_ci": [
+     0.559,
+     0.605
+    ],
+    "silence": -0.012,
+    "shared_words": [
+     "china",
+     "renewable",
+     "policy",
+     "development",
+     "carbon",
+     "environmental",
+     "climate",
+     "sustainable"
+    ],
+    "R_pre": 1.115,
+    "R_post": 0.455
+   },
+   {
+    "a": "Energy",
+    "b": "Social Sciences",
+    "cross_field": true,
+    "observed": 475,
+    "expected": 754.1,
+    "R": 0.63,
+    "R_ci": [
+     0.528,
+     0.717
+    ],
+    "S": 0.663,
+    "S_ci": [
+     0.599,
+     0.651
+    ],
+    "silence": -0.069,
+    "shared_words": [
+     "renewable",
+     "policy",
+     "solar",
+     "development",
+     "wind",
+     "power",
+     "hydrogen",
+     "social"
+    ],
+    "R_pre": 0.597,
+    "R_post": 0.635
+   },
+   {
+    "a": "Energy",
+    "b": "Engineering",
+    "cross_field": true,
+    "observed": 413,
+    "expected": 386.1,
+    "R": 1.07,
+    "R_ci": [
+     0.916,
+     1.238
+    ],
+    "S": 0.746,
+    "S_ci": [
+     0.677,
+     0.728
+    ],
+    "silence": -0.146,
+    "shared_words": [
+     "renewable",
+     "systems",
+     "storage",
+     "power",
+     "electricity",
+     "hydrogen",
+     "future",
+     "sustainable"
+    ],
+    "R_pre": 0.784,
+    "R_post": 1.109
+   },
+   {
+    "a": "Economics, Econometrics and Finance",
+    "b": "Energy",
+    "cross_field": true,
+    "observed": 518,
+    "expected": 775.3,
+    "R": 0.668,
+    "R_ci": [
+     0.576,
+     0.771
+    ],
+    "S": 0.65,
+    "S_ci": [
+     0.592,
+     0.643
+    ],
+    "silence": -0.198,
+    "shared_words": [
+     "renewable",
+     "green",
+     "policy",
+     "countries",
+     "development",
+     "china",
+     "economic",
+     "role"
+    ],
+    "R_pre": 1.318,
+    "R_post": 0.648
+   },
+   {
+    "a": "Economics, Econometrics and Finance",
+    "b": "Engineering",
+    "cross_field": true,
+    "observed": 216,
+    "expected": 478.2,
+    "R": 0.452,
+    "R_ci": [
+     0.357,
+     0.553
+    ],
+    "S": 0.505,
+    "S_ci": [
+     0.456,
+     0.508
+    ],
+    "silence": -0.587,
+    "shared_words": [
+     "renewable",
+     "emissions",
+     "carbon",
+     "role",
+     "sustainable",
+     "economic",
+     "china",
+     "impact"
+    ],
+    "R_pre": 0.721,
+    "R_post": 0.445
+   }
+  ]
+ },
+ "subfield_level": {
+  "groups": {
+   "Economics and Econometrics": 482,
+   "Electrical and Electronic Engineering": 341,
+   "Energy Engineering and Power Technology": 129,
+   "Environmental Engineering": 55,
+   "Finance": 48,
+   "General Energy": 81,
+   "Global and Planetary Change": 302,
+   "Law": 39,
+   "Management, Monitoring, Policy and Law": 80,
+   "Political Science and International Relations": 51,
+   "Pollution": 102,
+   "Renewable Energy, Sustainability and the Environment": 252,
+   "Sociology and Political Science": 380
+  },
+  "n_pairs": 55,
+  "n_pairs_too_small": 23,
+  "corr_S_logR": 0.7327484651094931,
+  "corr_perm_p": 0.0004997501249375312,
+  "fit_logR_on_S": [
+   5.256936919951227,
+   -3.16630578258466
+  ],
+  "temporal": {
+   "pairs_used": 55,
+   "beta_const_pre_S": [
+    -3.0598889375526626,
+    0.04798333935212473,
+    5.175298164493581
+   ],
+   "S_coef_perm_p": 0.0004997501249375312
+  },
+  "pairs": [
+   {
+    "a": "Energy Engineering and Power Technology",
+    "b": "Pollution",
+    "cross_field": true,
+    "observed": 0,
+    "expected": 22.0,
+    "R": 0.0,
+    "R_ci": [
+     0.0,
+     0.0
+    ],
+    "S": 0.161,
+    "S_ci": [
+     0.12,
+     0.177
+    ],
+    "silence": 2.286,
+    "shared_words": [
+     "fuel",
+     "clean",
+     "fuels",
+     "case",
+     "gas",
+     "sustainable",
+     "cooking",
+     "cost"
+    ],
+    "R_pre": 0.0,
+    "R_post": 0.0
+   },
+   {
+    "a": "Economics and Econometrics",
+    "b": "Sociology and Political Science",
+    "cross_field": true,
+    "observed": 79,
+    "expected": 660.9,
+    "R": 0.12,
+    "R_ci": [
+     0.081,
+     0.16
+    ],
+    "S": 0.439,
+    "S_ci": [
+     0.39,
+     0.443
+    ],
+    "silence": 1.184,
+    "shared_words": [
+     "renewable",
+     "policy",
+     "development",
+     "environmental",
+     "climate",
+     "green",
+     "economic",
+     "evidence"
+    ],
+    "R_pre": 0.369,
+    "R_post": 0.114
+   },
+   {
+    "a": "Economics and Econometrics",
+    "b": "Law",
+    "cross_field": true,
+    "observed": 7,
+    "expected": 49.7,
+    "R": 0.141,
+    "R_ci": [
+     0.0,
+     0.312
+    ],
+    "S": 0.407,
+    "S_ci": [
+     0.293,
+     0.398
+    ],
+    "silence": 0.866,
+    "shared_words": [
+     "policy",
+     "renewable",
+     "environmental",
+     "role",
+     "development",
+     "innovation",
+     "climate",
+     "green"
+    ],
+    "R_pre": 0.0,
+    "R_post": 0.132
+   },
+   {
+    "a": "Environmental Engineering",
+    "b": "Sociology and Political Science",
+    "cross_field": true,
+    "observed": 4,
+    "expected": 31.9,
+    "R": 0.126,
+    "R_ci": [
+     0.0,
+     0.284
+    ],
+    "S": 0.384,
+    "S_ci": [
+     0.294,
+     0.365
+    ],
+    "silence": 0.849,
+    "shared_words": [
+     "renewable",
+     "hydrogen",
+     "power",
+     "development",
+     "global",
+     "environmental",
+     "future",
+     "potential"
+    ],
+    "R_pre": 0.0,
+    "R_post": 0.133
+   },
+   {
+    "a": "Electrical and Electronic Engineering",
+    "b": "Sociology and Political Science",
+    "cross_field": true,
+    "observed": 107,
+    "expected": 323.6,
+    "R": 0.331,
+    "R_ci": [
+     0.241,
+     0.424
+    ],
+    "S": 0.531,
+    "S_ci": [
+     0.469,
+     0.52
+    ],
+    "silence": 0.701,
+    "shared_words": [
+     "renewable",
+     "power",
+     "systems",
+     "solar",
+     "wind",
+     "community",
+     "electricity",
+     "social"
+    ],
+    "R_pre": 0.223,
+    "R_post": 0.349
+   },
+   {
+    "a": "Economics and Econometrics",
+    "b": "Political Science and International Relations",
+    "cross_field": true,
+    "observed": 15,
+    "expected": 61.9,
+    "R": 0.242,
+    "R_ci": [
+     0.095,
+     0.418
+    ],
+    "S": 0.466,
+    "S_ci": [
+     0.343,
+     0.434
+    ],
+    "silence": 0.659,
+    "shared_words": [
+     "policy",
+     "china",
+     "green",
+     "climate",
+     "renewable",
+     "evidence",
+     "environmental",
+     "role"
+    ],
+    "R_pre": 0.841,
+    "R_post": 0.233
+   },
+   {
+    "a": "Energy Engineering and Power Technology",
+    "b": "Management, Monitoring, Policy and Law",
+    "cross_field": true,
+    "observed": 4,
+    "expected": 38.6,
+    "R": 0.104,
+    "R_ci": [
+     0.0,
+     0.286
+    ],
+    "S": 0.31,
+    "S_ci": [
+     0.235,
+     0.309
+    ],
+    "silence": 0.637,
+    "shared_words": [
+     "green",
+     "renewable",
+     "hydrogen",
+     "future",
+     "production",
+     "sustainable",
+     "clean",
+     "global"
+    ],
+    "R_pre": 0.0,
+    "R_post": 0.102
+   },
+   {
+    "a": "Economics and Econometrics",
+    "b": "Renewable Energy, Sustainability and the Environment",
+    "cross_field": true,
+    "observed": 306,
+    "expected": 421.1,
+    "R": 0.727,
+    "R_ci": [
+     0.597,
+     0.884
+    ],
+    "S": 0.657,
+    "S_ci": [
+     0.578,
+     0.638
+    ],
+    "silence": 0.593,
+    "shared_words": [
+     "renewable",
+     "china",
+     "development",
+     "policy",
+     "countries",
+     "environmental",
+     "economic",
+     "carbon"
+    ],
+    "R_pre": 1.478,
+    "R_post": 0.725
+   },
+   {
+    "a": "Renewable Energy, Sustainability and the Environment",
+    "b": "Sociology and Political Science",
+    "cross_field": true,
+    "observed": 259,
+    "expected": 334.6,
+    "R": 0.774,
+    "R_ci": [
+     0.634,
+     0.899
+    ],
+    "S": 0.668,
+    "S_ci": [
+     0.586,
+     0.643
+    ],
+    "silence": 0.589,
+    "shared_words": [
+     "renewable",
+     "solar",
+     "wind",
+     "development",
+     "policy",
+     "social",
+     "power",
+     "communities"
+    ],
+    "R_pre": 0.741,
+    "R_post": 0.776
+   },
+   {
+    "a": "Electrical and Electronic Engineering",
+    "b": "Global and Planetary Change",
+    "cross_field": true,
+    "observed": 185,
+    "expected": 348.6,
+    "R": 0.531,
+    "R_ci": [
+     0.397,
+     0.659
+    ],
+    "S": 0.591,
+    "S_ci": [
+     0.515,
+     0.572
+    ],
+    "silence": 0.556,
+    "shared_words": [
+     "renewable",
+     "power",
+     "systems",
+     "electricity",
+     "sustainable",
+     "pathways",
+     "policy",
+     "case"
+    ],
+    "R_pre": 0.516,
+    "R_post": 0.527
+   },
+   {
+    "a": "Electrical and Electronic Engineering",
+    "b": "Renewable Energy, Sustainability and the Environment",
+    "cross_field": true,
+    "observed": 226,
+    "expected": 206.2,
+    "R": 1.096,
+    "R_ci": [
+     0.878,
+     1.33
+    ],
+    "S": 0.725,
+    "S_ci": [
+     0.638,
+     0.689
+    ],
+    "silence": 0.546,
+    "shared_words": [
+     "renewable",
+     "systems",
+     "power",
+     "electricity",
+     "solar",
+     "sustainable",
+     "technologies",
+     "future"
+    ],
+    "R_pre": 0.682,
+    "R_post": 1.176
+   },
+   {
+    "a": "Environmental Engineering",
+    "b": "Global and Planetary Change",
+    "cross_field": false,
+    "observed": 8,
+    "expected": 34.3,
+    "R": 0.233,
+    "R_ci": [
+     0.071,
+     0.486
+    ],
+    "S": 0.434,
+    "S_ci": [
+     0.328,
+     0.41
+    ],
+    "silence": 0.528,
+    "shared_words": [
+     "global",
+     "low-carbon",
+     "change",
+     "renewable",
+     "china",
+     "power",
+     "future",
+     "development"
+    ],
+    "R_pre": 0.391,
+    "R_post": 0.246
+   },
+   {
+    "a": "Electrical and Electronic Engineering",
+    "b": "Political Science and International Relations",
+    "cross_field": true,
+    "observed": 5,
+    "expected": 30.3,
+    "R": 0.165,
+    "R_ci": [
+     0.0,
+     0.378
+    ],
+    "S": 0.371,
+    "S_ci": [
+     0.265,
+     0.352
+    ],
+    "silence": 0.524,
+    "shared_words": [
+     "power",
+     "policy",
+     "renewable",
+     "china",
+     "climate",
+     "role",
+     "electricity",
+     "policies"
+    ],
+    "R_pre": 0.162,
+    "R_post": 0.164
+   },
+   {
+    "a": "Finance",
+    "b": "Sociology and Political Science",
+    "cross_field": true,
+    "observed": 8,
+    "expected": 54.1,
+    "R": 0.148,
+    "R_ci": [
+     0.04,
+     0.296
+    ],
+    "S": 0.339,
+    "S_ci": [
+     0.257,
+     0.343
+    ],
+    "silence": 0.459,
+    "shared_words": [
+     "green",
+     "renewable",
+     "climate",
+     "projects",
+     "development",
+     "justice",
+     "financial",
+     "role"
+    ],
+    "R_pre": 0.776,
+    "R_post": 0.101
+   },
+   {
+    "a": "Global and Planetary Change",
+    "b": "Renewable Energy, Sustainability and the Environment",
+    "cross_field": true,
+    "observed": 347,
+    "expected": 360.4,
+    "R": 0.963,
+    "R_ci": [
+     0.791,
+     1.13
+    ],
+    "S": 0.682,
+    "S_ci": [
+     0.589,
+     0.643
+    ],
+    "silence": 0.447,
+    "shared_words": [
+     "renewable",
+     "policy",
+     "development",
+     "systems",
+     "sustainable",
+     "power",
+     "global",
+     "change"
+    ],
+    "R_pre": 0.883,
+    "R_post": 0.946
+   },
+   {
+    "a": "Economics and Econometrics",
+    "b": "Global and Planetary Change",
+    "cross_field": true,
+    "observed": 285,
+    "expected": 711.9,
+    "R": 0.4,
+    "R_ci": [
+     0.312,
+     0.48
+    ],
+    "S": 0.513,
+    "S_ci": [
+     0.447,
+     0.503
+    ],
+    "silence": 0.422,
+    "shared_words": [
+     "renewable",
+     "policy",
+     "innovation",
+     "development",
+     "role",
+     "carbon",
+     "climate",
+     "sustainable"
+    ],
+    "R_pre": 1.202,
+    "R_post": 0.405
+   },
+   {
+    "a": "Global and Planetary Change",
+    "b": "Sociology and Political Science",
+    "cross_field": true,
+    "observed": 604,
+    "expected": 565.7,
+    "R": 1.068,
+    "R_ci": [
+     0.943,
+     1.185
+    ],
+    "S": 0.695,
+    "S_ci": [
+     0.615,
+     0.666
+    ],
+    "silence": 0.414,
+    "shared_words": [
+     "social",
+     "renewable",
+     "justice",
+     "policy",
+     "local",
+     "community",
+     "power",
+     "political"
+    ],
+    "R_pre": 0.764,
+    "R_post": 1.153
+   },
+   {
+    "a": "Economics and Econometrics",
+    "b": "Energy Engineering and Power Technology",
+    "cross_field": true,
+    "observed": 25,
+    "expected": 143.2,
+    "R": 0.175,
+    "R_ci": [
+     0.089,
+     0.274
+    ],
+    "S": 0.353,
+    "S_ci": [
+     0.294,
+     0.366
+    ],
+    "silence": 0.376,
+    "shared_words": [
+     "green",
+     "renewable",
+     "role",
+     "economic",
+     "carbon",
+     "emissions",
+     "development",
+     "sustainable"
+    ],
+    "R_pre": 0.0,
+    "R_post": 0.165
+   },
+   {
+    "a": "Management, Monitoring, Policy and Law",
+    "b": "Renewable Energy, Sustainability and the Environment",
+    "cross_field": true,
+    "observed": 82,
+    "expected": 113.4,
+    "R": 0.723,
+    "R_ci": [
+     0.491,
+     0.928
+    ],
+    "S": 0.585,
+    "S_ci": [
+     0.448,
+     0.546
+    ],
+    "silence": 0.218,
+    "shared_words": [
+     "renewable",
+     "coal",
+     "global",
+     "sustainable",
+     "development",
+     "policy",
+     "just",
+     "social"
+    ],
+    "R_pre": 0.594,
+    "R_post": 0.75
+   },
+   {
+    "a": "Economics and Econometrics",
+    "b": "Electrical and Electronic Engineering",
+    "cross_field": true,
+    "observed": 197,
+    "expected": 407.3,
+    "R": 0.484,
+    "R_ci": [
+     0.36,
+     0.612
+    ],
+    "S": 0.497,
+    "S_ci": [
+     0.443,
+     0.502
+    ],
+    "silence": 0.154,
+    "shared_words": [
+     "renewable",
+     "emissions",
+     "carbon",
+     "china",
+     "sustainable",
+     "economic",
+     "role",
+     "impact"
+    ],
+    "R_pre": 0.712,
+    "R_post": 0.483
+   },
+   {
+    "a": "Energy Engineering and Power Technology",
+    "b": "Global and Planetary Change",
+    "cross_field": true,
+    "observed": 29,
+    "expected": 122.5,
+    "R": 0.237,
+    "R_ci": [
+     0.103,
+     0.394
+    ],
+    "S": 0.364,
+    "S_ci": [
+     0.293,
+     0.367
+    ],
+    "silence": 0.145,
+    "shared_words": [
+     "systems",
+     "renewable",
+     "hydrogen",
+     "role",
+     "power",
+     "electricity",
+     "future",
+     "sustainable"
+    ],
+    "R_pre": 0.249,
+    "R_post": 0.259
+   },
+   {
+    "a": "Global and Planetary Change",
+    "b": "Management, Monitoring, Policy and Law",
+    "cross_field": false,
+    "observed": 187,
+    "expected": 191.7,
+    "R": 0.975,
+    "R_ci": [
+     0.762,
+     1.219
+    ],
+    "S": 0.601,
+    "S_ci": [
+     0.461,
+     0.56
+    ],
+    "silence": 0.009,
+    "shared_words": [
+     "justice",
+     "social",
+     "just",
+     "renewable",
+     "policy",
+     "sustainable",
+     "framework",
+     "global"
+    ],
+    "R_pre": 0.763,
+    "R_post": 1.093
+   },
+   {
+    "a": "General Energy",
+    "b": "Sociology and Political Science",
+    "cross_field": true,
+    "observed": 50,
+    "expected": 120.0,
+    "R": 0.417,
+    "R_ci": [
+     0.242,
+     0.568
+    ],
+    "S": 0.44,
+    "S_ci": [
+     0.347,
+     0.427
+    ],
+    "silence": -0.001,
+    "shared_words": [
+     "renewable",
+     "policy",
+     "climate",
+     "low-carbon",
+     "development",
+     "change",
+     "global",
+     "power"
+    ],
+    "R_pre": 0.086,
+    "R_post": 0.455
+   },
+   {
+    "a": "General Energy",
+    "b": "Renewable Energy, Sustainability and the Environment",
+    "cross_field": false,
+    "observed": 81,
+    "expected": 76.5,
+    "R": 1.059,
+    "R_ci": [
+     0.757,
+     1.407
+    ],
+    "S": 0.614,
+    "S_ci": [
+     0.477,
+     0.586
+    ],
+    "silence": -0.003,
+    "shared_words": [
+     "renewable",
+     "policy",
+     "global",
+     "countries",
+     "fossil",
+     "security",
+     "china",
+     "climate"
+    ],
+    "R_pre": 1.57,
+    "R_post": 1.01
+   },
+   {
+    "a": "Energy Engineering and Power Technology",
+    "b": "Sociology and Political Science",
+    "cross_field": true,
+    "observed": 28,
+    "expected": 113.7,
+    "R": 0.246,
+    "R_ci": [
+     0.094,
+     0.411
+    ],
+    "S": 0.342,
+    "S_ci": [
+     0.282,
+     0.351
+    ],
+    "silence": -0.005,
+    "shared_words": [
+     "hydrogen",
+     "renewable",
+     "green",
+     "wind",
+     "systems",
+     "power",
+     "production",
+     "solar"
+    ],
+    "R_pre": 0.157,
+    "R_post": 0.255
+   },
+   {
+    "a": "Electrical and Electronic Engineering",
+    "b": "Pollution",
+    "cross_field": true,
+    "observed": 11,
+    "expected": 62.7,
+    "R": 0.176,
+    "R_ci": [
+     0.04,
+     0.345
+    ],
+    "S": 0.28,
+    "S_ci": [
+     0.214,
+     0.297
+    ],
+    "silence": -0.008,
+    "shared_words": [
+     "china",
+     "clean",
+     "electricity",
+     "household",
+     "case",
+     "fuel",
+     "sustainable",
+     "use"
+    ],
+    "R_pre": 0.0,
+    "R_post": 0.205
+   },
+   {
+    "a": "Environmental Engineering",
+    "b": "Renewable Energy, Sustainability and the Environment",
+    "cross_field": true,
+    "observed": 17,
+    "expected": 20.3,
+    "R": 0.837,
+    "R_ci": [
+     0.332,
+     1.573
+    ],
+    "S": 0.566,
+    "S_ci": [
+     0.426,
+     0.532
+    ],
+    "silence": -0.027,
+    "shared_words": [
+     "global",
+     "china",
+     "renewable",
+     "assessment",
+     "potential",
+     "gas",
+     "development",
+     "production"
+    ],
+    "R_pre": 1.035,
+    "R_post": 0.851
+   },
+   {
+    "a": "Electrical and Electronic Engineering",
+    "b": "Law",
+    "cross_field": true,
+    "observed": 12,
+    "expected": 24.3,
+    "R": 0.493,
+    "R_ci": [
+     0.119,
+     0.854
+    ],
+    "S": 0.466,
+    "S_ci": [
+     0.342,
+     0.441
+    ],
+    "silence": -0.03,
+    "shared_words": [
+     "electricity",
+     "renewable",
+     "sector",
+     "challenges",
+     "role",
+     "power",
+     "case",
+     "sustainable"
+    ],
+    "R_pre": 0.0,
+    "R_post": 0.52
+   },
+   {
+    "a": "Electrical and Electronic Engineering",
+    "b": "General Energy",
+    "cross_field": true,
+    "observed": 37,
+    "expected": 74.0,
+    "R": 0.5,
+    "R_ci": [
+     0.253,
+     0.731
+    ],
+    "S": 0.463,
+    "S_ci": [
+     0.361,
+     0.453
+    ],
+    "silence": -0.061,
+    "shared_words": [
+     "renewable",
+     "security",
+     "power",
+     "electricity",
+     "global",
+     "policy",
+     "low-carbon",
+     "future"
+    ],
+    "R_pre": 0.0,
+    "R_post": 0.554
+   },
+   {
+    "a": "Economics and Econometrics",
+    "b": "Management, Monitoring, Policy and Law",
+    "cross_field": true,
+    "observed": 120,
+    "expected": 224.0,
+    "R": 0.536,
+    "R_ci": [
+     0.377,
+     0.698
+    ],
+    "S": 0.474,
+    "S_ci": [
+     0.373,
+     0.46
+    ],
+    "silence": -0.068,
+    "shared_words": [
+     "renewable",
+     "environmental",
+     "green",
+     "policy",
+     "development",
+     "economic",
+     "sustainable",
+     "carbon"
+    ],
+    "R_pre": 1.86,
+    "R_post": 0.491
+   },
+   {
+    "a": "Electrical and Electronic Engineering",
+    "b": "Management, Monitoring, Policy and Law",
+    "cross_field": true,
+    "observed": 53,
+    "expected": 109.7,
+    "R": 0.483,
+    "R_ci": [
+     0.236,
+     0.722
+    ],
+    "S": 0.454,
+    "S_ci": [
+     0.35,
+     0.439
+    ],
+    "silence": -0.07,
+    "shared_words": [
+     "renewable",
+     "sustainable",
+     "power",
+     "future",
+     "systems",
+     "global",
+     "just",
+     "case"
+    ],
+    "R_pre": 1.144,
+    "R_post": 0.442
+   },
+   {
+    "a": "Economics and Econometrics",
+    "b": "General Energy",
+    "cross_field": true,
+    "observed": 137,
+    "expected": 151.0,
+    "R": 0.907,
+    "R_ci": [
+     0.668,
+     1.148
+    ],
+    "S": 0.557,
+    "S_ci": [
+     0.444,
+     0.541
+    ],
+    "silence": -0.152,
+    "shared_words": [
+     "countries",
+     "renewable",
+     "policy",
+     "china",
+     "green",
+     "climate",
+     "evidence",
+     "geopolitical"
+    ],
+    "R_pre": 0.378,
+    "R_post": 0.886
+   },
+   {
+    "a": "Management, Monitoring, Policy and Law",
+    "b": "Sociology and Political Science",
+    "cross_field": true,
+    "observed": 240,
+    "expected": 178.0,
+    "R": 1.348,
+    "R_ci": [
+     1.094,
+     1.581
+    ],
+    "S": 0.623,
+    "S_ci": [
+     0.496,
+     0.583
+    ],
+    "silence": -0.199,
+    "shared_words": [
+     "justice",
+     "just",
+     "social",
+     "renewable",
+     "communities",
+     "community",
+     "local",
+     "policy"
+    ],
+    "R_pre": 1.017,
+    "R_post": 1.387
+   },
+   {
+    "a": "Political Science and International Relations",
+    "b": "Renewable Energy, Sustainability and the Environment",
+    "cross_field": true,
+    "observed": 26,
+    "expected": 31.3,
+    "R": 0.83,
+    "R_ci": [
+     0.425,
+     1.318
+    ],
+    "S": 0.526,
+    "S_ci": [
+     0.387,
+     0.473
+    ],
+    "silence": -0.226,
+    "shared_words": [
+     "policy",
+     "renewable",
+     "china",
+     "climate",
+     "power",
+     "policies",
+     "solar",
+     "states"
+    ],
+    "R_pre": 1.073,
+    "R_post": 0.734
+   },
+   {
+    "a": "General Energy",
+    "b": "Management, Monitoring, Policy and Law",
+    "cross_field": true,
+    "observed": 22,
+    "expected": 40.7,
+    "R": 0.541,
+    "R_ci": [
+     0.267,
+     0.873
+    ],
+    "S": 0.431,
+    "S_ci": [
+     0.3,
+     0.395
+    ],
+    "silence": -0.303,
+    "shared_words": [
+     "global",
+     "renewable",
+     "policy",
+     "security",
+     "green",
+     "low-carbon",
+     "coal",
+     "sustainable"
+    ],
+    "R_pre": 1.215,
+    "R_post": 0.501
+   },
+   {
+    "a": "Energy Engineering and Power Technology",
+    "b": "Renewable Energy, Sustainability and the Environment",
+    "cross_field": false,
+    "observed": 55,
+    "expected": 72.5,
+    "R": 0.759,
+    "R_ci": [
+     0.498,
+     1.052
+    ],
+    "S": 0.487,
+    "S_ci": [
+     0.393,
+     0.489
+    ],
+    "silence": -0.342,
+    "shared_words": [
+     "renewable",
+     "production",
+     "systems",
+     "hydrogen",
+     "green",
+     "electricity",
+     "solar",
+     "power"
+    ],
+    "R_pre": 0.0,
+    "R_post": 0.83
+   },
+   {
+    "a": "General Energy",
+    "b": "Global and Planetary Change",
+    "cross_field": true,
+    "observed": 130,
+    "expected": 129.3,
+    "R": 1.006,
+    "R_ci": [
+     0.733,
+     1.284
+    ],
+    "S": 0.535,
+    "S_ci": [
+     0.413,
+     0.508
+    ],
+    "silence": -0.369,
+    "shared_words": [
+     "policy",
+     "low-carbon",
+     "renewable",
+     "global",
+     "change",
+     "climate",
+     "perspective",
+     "governance"
+    ],
+    "R_pre": 1.369,
+    "R_post": 0.981
+   },
+   {
+    "a": "Law",
+    "b": "Renewable Energy, Sustainability and the Environment",
+    "cross_field": true,
+    "observed": 30,
+    "expected": 25.2,
+    "R": 1.192,
+    "R_ci": [
+     0.608,
+     1.865
+    ],
+    "S": 0.561,
+    "S_ci": [
+     0.409,
+     0.521
+    ],
+    "silence": -0.4,
+    "shared_words": [
+     "renewable",
+     "policy",
+     "development",
+     "regulatory",
+     "sector",
+     "european",
+     "electricity",
+     "communities"
+    ],
+    "R_pre": 0.0,
+    "R_post": 1.29
+   },
+   {
+    "a": "Finance",
+    "b": "Global and Planetary Change",
+    "cross_field": true,
+    "observed": 24,
+    "expected": 58.2,
+    "R": 0.412,
+    "R_ci": [
+     0.184,
+     0.663
+    ],
+    "S": 0.362,
+    "S_ci": [
+     0.273,
+     0.364
+    ],
+    "silence": -0.402,
+    "shared_words": [
+     "low-carbon",
+     "climate",
+     "change",
+     "role",
+     "policy",
+     "renewable",
+     "green",
+     "development"
+    ],
+    "R_pre": 0.685,
+    "R_post": 0.404
+   },
+   {
+    "a": "Pollution",
+    "b": "Renewable Energy, Sustainability and the Environment",
+    "cross_field": true,
+    "observed": 26,
+    "expected": 64.8,
+    "R": 0.401,
+    "R_ci": [
+     0.212,
+     0.663
+    ],
+    "S": 0.355,
+    "S_ci": [
+     0.267,
+     0.362
+    ],
+    "silence": -0.41,
+    "shared_words": [
+     "china",
+     "clean",
+     "poverty",
+     "fuels",
+     "fuel",
+     "policy",
+     "use",
+     "development"
+    ],
+    "R_pre": 0.279,
+    "R_post": 0.424
+   },
+   {
+    "a": "Economics and Econometrics",
+    "b": "Environmental Engineering",
+    "cross_field": true,
+    "observed": 30,
+    "expected": 40.1,
+    "R": 0.748,
+    "R_ci": [
+     0.351,
+     1.182
+    ],
+    "S": 0.463,
+    "S_ci": [
+     0.349,
+     0.451
+    ],
+    "silence": -0.455,
+    "shared_words": [
+     "china",
+     "environmental",
+     "emissions",
+     "carbon",
+     "renewable",
+     "global",
+     "development",
+     "climate"
+    ],
+    "R_pre": 0.0,
+    "R_post": 0.7
+   },
+   {
+    "a": "Law",
+    "b": "Sociology and Political Science",
+    "cross_field": false,
+    "observed": 49,
+    "expected": 39.5,
+    "R": 1.241,
+    "R_ci": [
+     0.902,
+     1.61
+    ],
+    "S": 0.557,
+    "S_ci": [
+     0.419,
+     0.519
+    ],
+    "silence": -0.464,
+    "shared_words": [
+     "justice",
+     "community",
+     "communities",
+     "renewable",
+     "local",
+     "policy",
+     "development",
+     "social"
+    ],
+    "R_pre": 0.0,
+    "R_post": 1.316
+   },
+   {
+    "a": "Global and Planetary Change",
+    "b": "Political Science and International Relations",
+    "cross_field": true,
+    "observed": 81,
+    "expected": 53.0,
+    "R": 1.53,
+    "R_ci": [
+     1.14,
+     1.998
+    ],
+    "S": 0.595,
+    "S_ci": [
+     0.433,
+     0.533
+    ],
+    "silence": -0.472,
+    "shared_words": [
+     "policy",
+     "governance",
+     "political",
+     "framework",
+     "change",
+     "power",
+     "climate",
+     "politics"
+    ],
+    "R_pre": 1.167,
+    "R_post": 1.562
+   },
+   {
+    "a": "Finance",
+    "b": "Renewable Energy, Sustainability and the Environment",
+    "cross_field": true,
+    "observed": 23,
+    "expected": 34.5,
+    "R": 0.668,
+    "R_ci": [
+     0.303,
+     1.071
+    ],
+    "S": 0.429,
+    "S_ci": [
+     0.324,
+     0.434
+    ],
+    "silence": -0.52,
+    "shared_words": [
+     "renewable",
+     "green",
+     "climate",
+     "development",
+     "investment",
+     "china",
+     "financial",
+     "policy"
+    ],
+    "R_pre": 1.449,
+    "R_post": 0.612
+   },
+   {
+    "a": "Energy Engineering and Power Technology",
+    "b": "General Energy",
+    "cross_field": false,
+    "observed": 11,
+    "expected": 26.0,
+    "R": 0.423,
+    "R_ci": [
+     0.086,
+     0.83
+    ],
+    "S": 0.343,
+    "S_ci": [
+     0.258,
+     0.347
+    ],
+    "silence": -0.525,
+    "shared_words": [
+     "green",
+     "hydrogen",
+     "renewable",
+     "global",
+     "gas",
+     "role",
+     "economy",
+     "future"
+    ],
+    "R_pre": 0.0,
+    "R_post": 0.427
+   },
+   {
+    "a": "General Energy",
+    "b": "Pollution",
+    "cross_field": true,
+    "observed": 7,
+    "expected": 23.2,
+    "R": 0.301,
+    "R_ci": [
+     0.068,
+     0.632
+    ],
+    "S": 0.275,
+    "S_ci": [
+     0.199,
+     0.274
+    ],
+    "silence": -0.551,
+    "shared_words": [
+     "china",
+     "fuel",
+     "poverty",
+     "security",
+     "africa",
+     "policy",
+     "fuels",
+     "evidence"
+    ],
+    "R_pre": 0.95,
+    "R_post": 0.237
+   },
+   {
+    "a": "Electrical and Electronic Engineering",
+    "b": "Finance",
+    "cross_field": true,
+    "observed": 13,
+    "expected": 33.3,
+    "R": 0.39,
+    "R_ci": [
+     0.09,
+     0.701
+    ],
+    "S": 0.318,
+    "S_ci": [
+     0.243,
+     0.33
+    ],
+    "silence": -0.58,
+    "shared_words": [
+     "renewable",
+     "climate",
+     "role",
+     "impact",
+     "green",
+     "low-carbon",
+     "power",
+     "scenarios"
+    ],
+    "R_pre": 0.872,
+    "R_post": 0.357
+   },
+   {
+    "a": "Pollution",
+    "b": "Sociology and Political Science",
+    "cross_field": true,
+    "observed": 39,
+    "expected": 101.7,
+    "R": 0.383,
+    "R_ci": [
+     0.243,
+     0.547
+    ],
+    "S": 0.31,
+    "S_ci": [
+     0.243,
+     0.32
+    ],
+    "silence": -0.605,
+    "shared_words": [
+     "rural",
+     "household",
+     "clean",
+     "social",
+     "china",
+     "justice",
+     "policy",
+     "households"
+    ],
+    "R_pre": 0.332,
+    "R_post": 0.392
+   },
+   {
+    "a": "Global and Planetary Change",
+    "b": "Law",
+    "cross_field": true,
+    "observed": 65,
+    "expected": 42.5,
+    "R": 1.528,
+    "R_ci": [
+     1.179,
+     2.035
+    ],
+    "S": 0.565,
+    "S_ci": [
+     0.427,
+     0.509
+    ],
+    "silence": -0.629,
+    "shared_words": [
+     "justice",
+     "policy",
+     "framework",
+     "governance",
+     "role",
+     "actors",
+     "innovation",
+     "case"
+    ],
+    "R_pre": 1.522,
+    "R_post": 1.703
+   },
+   {
+    "a": "Economics and Econometrics",
+    "b": "Pollution",
+    "cross_field": true,
+    "observed": 67,
+    "expected": 128.0,
+    "R": 0.523,
+    "R_ci": [
+     0.31,
+     0.71
+    ],
+    "S": 0.339,
+    "S_ci": [
+     0.266,
+     0.351
+    ],
+    "silence": -0.756,
+    "shared_words": [
+     "china",
+     "evidence",
+     "clean",
+     "poverty",
+     "policy",
+     "consumption",
+     "fuel",
+     "countries"
+    ],
+    "R_pre": 1.164,
+    "R_post": 0.51
+   },
+   {
+    "a": "Political Science and International Relations",
+    "b": "Sociology and Political Science",
+    "cross_field": false,
+    "observed": 85,
+    "expected": 49.2,
+    "R": 1.729,
+    "R_ci": [
+     1.237,
+     2.18
+    ],
+    "S": 0.544,
+    "S_ci": [
+     0.407,
+     0.496
+    ],
+    "silence": -0.859,
+    "shared_words": [
+     "policy",
+     "justice",
+     "public",
+     "renewable",
+     "social",
+     "local",
+     "power",
+     "climate"
+    ],
+    "R_pre": 0.766,
+    "R_post": 1.963
+   },
+   {
+    "a": "Economics and Econometrics",
+    "b": "Finance",
+    "cross_field": false,
+    "observed": 121,
+    "expected": 68.1,
+    "R": 1.778,
+    "R_ci": [
+     1.377,
+     2.241
+    ],
+    "S": 0.541,
+    "S_ci": [
+     0.446,
+     0.536
+    ],
+    "silence": -0.904,
+    "shared_words": [
+     "green",
+     "finance",
+     "evidence",
+     "financial",
+     "climate",
+     "china",
+     "renewable",
+     "role"
+    ],
+    "R_pre": 0.0,
+    "R_post": 1.709
+   },
+   {
+    "a": "Electrical and Electronic Engineering",
+    "b": "Energy Engineering and Power Technology",
+    "cross_field": true,
+    "observed": 118,
+    "expected": 70.1,
+    "R": 1.684,
+    "R_ci": [
+     1.284,
+     2.27
+    ],
+    "S": 0.53,
+    "S_ci": [
+     0.434,
+     0.542
+    ],
+    "silence": -0.909,
+    "shared_words": [
+     "storage",
+     "hydrogen",
+     "systems",
+     "renewable",
+     "electricity",
+     "power",
+     "future",
+     "cost"
+    ],
+    "R_pre": 2.379,
+    "R_post": 1.658
+   },
+   {
+    "a": "Global and Planetary Change",
+    "b": "Pollution",
+    "cross_field": false,
+    "observed": 56,
+    "expected": 109.6,
+    "R": 0.511,
+    "R_ci": [
+     0.324,
+     0.765
+    ],
+    "S": 0.305,
+    "S_ci": [
+     0.228,
+     0.312
+    ],
+    "silence": -0.91,
+    "shared_words": [
+     "china",
+     "policy",
+     "urban",
+     "case",
+     "poverty",
+     "clean",
+     "sustainable",
+     "social"
+    ],
+    "R_pre": 0.351,
+    "R_post": 0.56
+   },
+   {
+    "a": "Management, Monitoring, Policy and Law",
+    "b": "Pollution",
+    "cross_field": false,
+    "observed": 16,
+    "expected": 34.5,
+    "R": 0.464,
+    "R_ci": [
+     0.18,
+     0.747
+    ],
+    "S": 0.28,
+    "S_ci": [
+     0.192,
+     0.298
+    ],
+    "silence": -0.95,
+    "shared_words": [
+     "clean",
+     "just",
+     "africa",
+     "china",
+     "rural",
+     "poverty",
+     "justice",
+     "fuel"
+    ],
+    "R_pre": 0.935,
+    "R_post": 0.435
+   }
+  ]
+ },
+ "subfield_level_abstracts_only": {
+  "groups": {
+   "Economics and Econometrics": 168,
+   "Electrical and Electronic Engineering": 201,
+   "Energy Engineering and Power Technology": 67,
+   "Environmental Engineering": 37,
+   "General Energy": 48,
+   "Global and Planetary Change": 170,
+   "Law": 32,
+   "Management, Monitoring, Policy and Law": 47,
+   "Political Science and International Relations": 30,
+   "Pollution": 32,
+   "Renewable Energy, Sustainability and the Environment": 144,
+   "Sociology and Political Science": 224
+  },
+  "n_pairs": 29,
+  "n_pairs_too_small": 37,
+  "corr_S_logR": 0.6259626810502431,
+  "corr_perm_p": 0.0009995002498750624,
+  "fit_logR_on_S": [
+   4.0370228875694485,
+   -2.8019928424821674
+  ],
+  "temporal": {
+   "pairs_used": 25,
+   "beta_const_pre_S": [
+    -1.7013407459088152,
+    0.06691223411775338,
+    2.3544138324674386
+   ],
+   "S_coef_perm_p": 0.0559720139930035
+  },
+  "pairs": [
+   {
+    "a": "Economics and Econometrics",
+    "b": "Sociology and Political Science",
+    "cross_field": true,
+    "observed": 19,
+    "expected": 83.3,
+    "R": 0.228,
+    "R_ci": [
+     0.1,
+     0.341
+    ],
+    "S": 0.543,
+    "S_ci": [
+     0.476,
+     0.532
+    ],
+    "silence": 0.826,
+    "shared_words": [
+     "renewable",
+     "policy",
+     "environmental",
+     "development",
+     "climate",
+     "economic",
+     "green",
+     "countries"
+    ],
+    "R_pre": 0.0,
+    "R_post": 0.235
+   },
+   {
+    "a": "Electrical and Electronic Engineering",
+    "b": "Sociology and Political Science",
+    "cross_field": true,
+    "observed": 44,
+    "expected": 155.5,
+    "R": 0.283,
+    "R_ci": [
+     0.184,
+     0.386
+    ],
+    "S": 0.583,
+    "S_ci": [
+     0.52,
+     0.565
+    ],
+    "silence": 0.778,
+    "shared_words": [
+     "renewable",
+     "power",
+     "systems",
+     "communities",
+     "solar",
+     "local",
+     "wind",
+     "electricity"
+    ],
+    "R_pre": 0.532,
+    "R_post": 0.274
+   },
+   {
+    "a": "Electrical and Electronic Engineering",
+    "b": "Global and Planetary Change",
+    "cross_field": true,
+    "observed": 57,
+    "expected": 151.2,
+    "R": 0.377,
+    "R_ci": [
+     0.27,
+     0.545
+    ],
+    "S": 0.602,
+    "S_ci": [
+     0.523,
+     0.58
+    ],
+    "silence": 0.576,
+    "shared_words": [
+     "systems",
+     "power",
+     "electricity",
+     "renewable",
+     "policy",
+     "technologies",
+     "framework",
+     "climate"
+    ],
+    "R_pre": 0.439,
+    "R_post": 0.398
+   },
+   {
+    "a": "Energy Engineering and Power Technology",
+    "b": "Global and Planetary Change",
+    "cross_field": true,
+    "observed": 8,
+    "expected": 39.7,
+    "R": 0.201,
+    "R_ci": [
+     0.0,
+     0.409
+    ],
+    "S": 0.445,
+    "S_ci": [
+     0.372,
+     0.435
+    ],
+    "silence": 0.548,
+    "shared_words": [
+     "systems",
+     "renewable",
+     "role",
+     "electricity",
+     "hydrogen",
+     "power",
+     "sustainable",
+     "challenges"
+    ],
+    "R_pre": null,
+    "R_post": 0.222
+   },
+   {
+    "a": "Energy Engineering and Power Technology",
+    "b": "Sociology and Political Science",
+    "cross_field": true,
+    "observed": 9,
+    "expected": 40.8,
+    "R": 0.22,
+    "R_ci": [
+     0.0,
+     0.491
+    ],
+    "S": 0.433,
+    "S_ci": [
+     0.364,
+     0.427
+    ],
+    "silence": 0.412,
+    "shared_words": [
+     "renewable",
+     "hydrogen",
+     "green",
+     "systems",
+     "production",
+     "solar",
+     "power",
+     "sustainable"
+    ],
+    "R_pre": null,
+    "R_post": 0.217
+   },
+   {
+    "a": "Renewable Energy, Sustainability and the Environment",
+    "b": "Sociology and Political Science",
+    "cross_field": true,
+    "observed": 100,
+    "expected": 144.8,
+    "R": 0.691,
+    "R_ci": [
+     0.526,
+     0.885
+    ],
+    "S": 0.702,
+    "S_ci": [
+     0.61,
+     0.663
+    ],
+    "silence": 0.389,
+    "shared_words": [
+     "renewable",
+     "communities",
+     "development",
+     "solar",
+     "policy",
+     "social",
+     "projects",
+     "sustainable"
+    ],
+    "R_pre": 0.745,
+    "R_post": 0.687
+   },
+   {
+    "a": "General Energy",
+    "b": "Sociology and Political Science",
+    "cross_field": true,
+    "observed": 20,
+    "expected": 59.0,
+    "R": 0.339,
+    "R_ci": [
+     0.159,
+     0.559
+    ],
+    "S": 0.529,
+    "S_ci": [
+     0.423,
+     0.488
+    ],
+    "silence": 0.385,
+    "shared_words": [
+     "renewable",
+     "policy",
+     "global",
+     "climate",
+     "economic",
+     "power",
+     "development",
+     "environmental"
+    ],
+    "R_pre": 0.0,
+    "R_post": 0.349
+   },
+   {
+    "a": "Management, Monitoring, Policy and Law",
+    "b": "Renewable Energy, Sustainability and the Environment",
+    "cross_field": true,
+    "observed": 20,
+    "expected": 35.9,
+    "R": 0.557,
+    "R_ci": [
+     0.234,
+     0.951
+    ],
+    "S": 0.622,
+    "S_ci": [
+     0.49,
+     0.563
+    ],
+    "silence": 0.277,
+    "shared_words": [
+     "renewable",
+     "sustainable",
+     "development",
+     "global",
+     "countries",
+     "policy",
+     "economic",
+     "environmental"
+    ],
+    "R_pre": 2.05,
+    "R_post": 0.515
+   },
+   {
+    "a": "Electrical and Electronic Engineering",
+    "b": "Management, Monitoring, Policy and Law",
+    "cross_field": true,
+    "observed": 15,
+    "expected": 38.5,
+    "R": 0.389,
+    "R_ci": [
+     0.066,
+     0.735
+    ],
+    "S": 0.524,
+    "S_ci": [
+     0.413,
+     0.485
+    ],
+    "silence": 0.231,
+    "shared_words": [
+     "renewable",
+     "future",
+     "sustainable",
+     "power",
+     "systems",
+     "economic",
+     "climate",
+     "global"
+    ],
+    "R_pre": 0.0,
+    "R_post": 0.379
+   },
+   {
+    "a": "Global and Planetary Change",
+    "b": "Renewable Energy, Sustainability and the Environment",
+    "cross_field": true,
+    "observed": 109,
+    "expected": 140.8,
+    "R": 0.774,
+    "R_ci": [
+     0.6,
+     0.952
+    ],
+    "S": 0.683,
+    "S_ci": [
+     0.588,
+     0.642
+    ],
+    "silence": 0.198,
+    "shared_words": [
+     "renewable",
+     "policy",
+     "systems",
+     "change",
+     "development",
+     "sustainable",
+     "framework",
+     "power"
+    ],
+    "R_pre": 0.877,
+    "R_post": 0.757
+   },
+   {
+    "a": "Electrical and Electronic Engineering",
+    "b": "General Energy",
+    "cross_field": true,
+    "observed": 16,
+    "expected": 34.5,
+    "R": 0.464,
+    "R_ci": [
+     0.088,
+     0.89
+    ],
+    "S": 0.556,
+    "S_ci": [
+     0.434,
+     0.524
+    ],
+    "silence": 0.189,
+    "shared_words": [
+     "security",
+     "renewable",
+     "power",
+     "global",
+     "future",
+     "policy",
+     "climate",
+     "electricity"
+    ],
+    "R_pre": 0.0,
+    "R_post": 0.458
+   },
+   {
+    "a": "Global and Planetary Change",
+    "b": "Sociology and Political Science",
+    "cross_field": true,
+    "observed": 260,
+    "expected": 258.3,
+    "R": 1.007,
+    "R_ci": [
+     0.811,
+     1.147
+    ],
+    "S": 0.736,
+    "S_ci": [
+     0.656,
+     0.696
+    ],
+    "silence": 0.155,
+    "shared_words": [
+     "social",
+     "local",
+     "policy",
+     "justice",
+     "change",
+     "renewable",
+     "political",
+     "systems"
+    ],
+    "R_pre": 0.854,
+    "R_post": 1.051
+   },
+   {
+    "a": "Pollution",
+    "b": "Sociology and Political Science",
+    "cross_field": true,
+    "observed": 6,
+    "expected": 21.8,
+    "R": 0.275,
+    "R_ci": [
+     0.0,
+     0.628
+    ],
+    "S": 0.421,
+    "S_ci": [
+     0.319,
+     0.408
+    ],
+    "silence": 0.15,
+    "shared_words": [
+     "rural",
+     "households",
+     "social",
+     "policy",
+     "access",
+     "development",
+     "justice",
+     "household"
+    ],
+    "R_pre": 0.761,
+    "R_post": 0.244
+   },
+   {
+    "a": "Electrical and Electronic Engineering",
+    "b": "Renewable Energy, Sustainability and the Environment",
+    "cross_field": true,
+    "observed": 93,
+    "expected": 84.8,
+    "R": 1.097,
+    "R_ci": [
+     0.82,
+     1.496
+    ],
+    "S": 0.752,
+    "S_ci": [
+     0.667,
+     0.711
+    ],
+    "silence": 0.13,
+    "shared_words": [
+     "renewable",
+     "power",
+     "systems",
+     "solar",
+     "electricity",
+     "technologies",
+     "sources",
+     "development"
+    ],
+    "R_pre": 1.64,
+    "R_post": 1.08
+   },
+   {
+    "a": "General Energy",
+    "b": "Renewable Energy, Sustainability and the Environment",
+    "cross_field": false,
+    "observed": 28,
+    "expected": 32.1,
+    "R": 0.872,
+    "R_ci": [
+     0.402,
+     1.345
+    ],
+    "S": 0.682,
+    "S_ci": [
+     0.54,
+     0.619
+    ],
+    "silence": 0.076,
+    "shared_words": [
+     "renewable",
+     "countries",
+     "global",
+     "policy",
+     "fossil",
+     "development",
+     "climate",
+     "european"
+    ],
+    "R_pre": 2.236,
+    "R_post": 0.811
+   },
+   {
+    "a": "Economics and Econometrics",
+    "b": "Renewable Energy, Sustainability and the Environment",
+    "cross_field": true,
+    "observed": 52,
+    "expected": 45.4,
+    "R": 1.146,
+    "R_ci": [
+     0.704,
+     1.566
+    ],
+    "S": 0.719,
+    "S_ci": [
+     0.624,
+     0.688
+    ],
+    "silence": -0.043,
+    "shared_words": [
+     "renewable",
+     "countries",
+     "policy",
+     "development",
+     "economic",
+     "climate",
+     "carbon",
+     "environmental"
+    ],
+    "R_pre": 1.025,
+    "R_post": 1.15
+   },
+   {
+    "a": "Economics and Econometrics",
+    "b": "Electrical and Electronic Engineering",
+    "cross_field": true,
+    "observed": 35,
+    "expected": 48.8,
+    "R": 0.718,
+    "R_ci": [
+     0.436,
+     1.017
+    ],
+    "S": 0.592,
+    "S_ci": [
+     0.517,
+     0.581
+    ],
+    "silence": -0.093,
+    "shared_words": [
+     "renewable",
+     "emissions",
+     "carbon",
+     "climate",
+     "economic",
+     "policy",
+     "impact",
+     "environmental"
+    ],
+    "R_pre": 2.562,
+    "R_post": 0.67
+   },
+   {
+    "a": "Energy Engineering and Power Technology",
+    "b": "Renewable Energy, Sustainability and the Environment",
+    "cross_field": false,
+    "observed": 16,
+    "expected": 22.2,
+    "R": 0.719,
+    "R_ci": [
+     0.379,
+     1.244
+    ],
+    "S": 0.588,
+    "S_ci": [
+     0.493,
+     0.568
+    ],
+    "silence": -0.112,
+    "shared_words": [
+     "renewable",
+     "production",
+     "systems",
+     "solar",
+     "green",
+     "technologies",
+     "sustainable",
+     "potential"
+    ],
+    "R_pre": null,
+    "R_post": 0.718
+   },
+   {
+    "a": "Economics and Econometrics",
+    "b": "Global and Planetary Change",
+    "cross_field": true,
+    "observed": 55,
+    "expected": 81.0,
+    "R": 0.679,
+    "R_ci": [
+     0.441,
+     0.965
+    ],
+    "S": 0.572,
+    "S_ci": [
+     0.488,
+     0.561
+    ],
+    "silence": -0.121,
+    "shared_words": [
+     "policy",
+     "climate",
+     "change",
+     "innovation",
+     "renewable",
+     "carbon",
+     "countries",
+     "development"
+    ],
+    "R_pre": 1.507,
+    "R_post": 0.626
+   },
+   {
+    "a": "Economics and Econometrics",
+    "b": "Management, Monitoring, Policy and Law",
+    "cross_field": true,
+    "observed": 14,
+    "expected": 20.6,
+    "R": 0.678,
+    "R_ci": [
+     0.268,
+     1.102
+    ],
+    "S": 0.556,
+    "S_ci": [
+     0.438,
+     0.52
+    ],
+    "silence": -0.183,
+    "shared_words": [
+     "environmental",
+     "renewable",
+     "policy",
+     "economic",
+     "climate",
+     "countries",
+     "carbon",
+     "development"
+    ],
+    "R_pre": 0.0,
+    "R_post": 0.671
+   },
+   {
+    "a": "Global and Planetary Change",
+    "b": "Management, Monitoring, Policy and Law",
+    "cross_field": false,
+    "observed": 66,
+    "expected": 64.0,
+    "R": 1.031,
+    "R_ci": [
+     0.665,
+     1.333
+    ],
+    "S": 0.652,
+    "S_ci": [
+     0.509,
+     0.589
+    ],
+    "silence": -0.209,
+    "shared_words": [
+     "justice",
+     "social",
+     "just",
+     "change",
+     "policy",
+     "sustainable",
+     "political",
+     "governance"
+    ],
+    "R_pre": 0.822,
+    "R_post": 1.115
+   },
+   {
+    "a": "Management, Monitoring, Policy and Law",
+    "b": "Sociology and Political Science",
+    "cross_field": true,
+    "observed": 77,
+    "expected": 65.8,
+    "R": 1.17,
+    "R_ci": [
+     0.761,
+     1.605
+    ],
+    "S": 0.68,
+    "S_ci": [
+     0.545,
+     0.622
+    ],
+    "silence": -0.22,
+    "shared_words": [
+     "justice",
+     "social",
+     "just",
+     "renewable",
+     "local",
+     "communities",
+     "community",
+     "environmental"
+    ],
+    "R_pre": 0.666,
+    "R_post": 1.169
+   },
+   {
+    "a": "General Energy",
+    "b": "Global and Planetary Change",
+    "cross_field": true,
+    "observed": 49,
+    "expected": 57.3,
+    "R": 0.855,
+    "R_ci": [
+     0.537,
+     1.31
+    ],
+    "S": 0.596,
+    "S_ci": [
+     0.465,
+     0.548
+    ],
+    "silence": -0.252,
+    "shared_words": [
+     "policy",
+     "change",
+     "global",
+     "climate",
+     "sustainability",
+     "power",
+     "governance",
+     "renewable"
+    ],
+    "R_pre": 0.997,
+    "R_post": 0.883
+   },
+   {
+    "a": "Global and Planetary Change",
+    "b": "Political Science and International Relations",
+    "cross_field": true,
+    "observed": 26,
+    "expected": 24.5,
+    "R": 1.06,
+    "R_ci": [
+     0.642,
+     1.541
+    ],
+    "S": 0.604,
+    "S_ci": [
+     0.433,
+     0.536
+    ],
+    "silence": -0.431,
+    "shared_words": [
+     "policy",
+     "governance",
+     "change",
+     "political",
+     "climate",
+     "framework",
+     "innovation",
+     "policies"
+    ],
+    "R_pre": 0.572,
+    "R_post": 1.135
+   },
+   {
+    "a": "Law",
+    "b": "Sociology and Political Science",
+    "cross_field": false,
+    "observed": 25,
+    "expected": 23.6,
+    "R": 1.058,
+    "R_ci": [
+     0.513,
+     1.616
+    ],
+    "S": 0.586,
+    "S_ci": [
+     0.439,
+     0.543
+    ],
+    "silence": -0.501,
+    "shared_words": [
+     "community",
+     "communities",
+     "justice",
+     "local",
+     "policy",
+     "renewable",
+     "development",
+     "projects"
+    ],
+    "R_pre": 0.0,
+    "R_post": 1.141
+   },
+   {
+    "a": "Electrical and Electronic Engineering",
+    "b": "Energy Engineering and Power Technology",
+    "cross_field": true,
+    "observed": 36,
+    "expected": 23.9,
+    "R": 1.506,
+    "R_ci": [
+     0.675,
+     2.248
+    ],
+    "S": 0.65,
+    "S_ci": [
+     0.561,
+     0.637
+    ],
+    "silence": -0.593,
+    "shared_words": [
+     "storage",
+     "hydrogen",
+     "systems",
+     "renewable",
+     "electricity",
+     "cost",
+     "power",
+     "technologies"
+    ],
+    "R_pre": null,
+    "R_post": 1.426
+   },
+   {
+    "a": "Global and Planetary Change",
+    "b": "Pollution",
+    "cross_field": false,
+    "observed": 15,
+    "expected": 21.2,
+    "R": 0.708,
+    "R_ci": [
+     0.286,
+     1.207
+    ],
+    "S": 0.414,
+    "S_ci": [
+     0.307,
+     0.398
+    ],
+    "silence": -0.799,
+    "shared_words": [
+     "policy",
+     "urban",
+     "social",
+     "poverty",
+     "literature",
+     "electricity",
+     "systems",
+     "use"
+    ],
+    "R_pre": 0.313,
+    "R_post": 0.786
+   },
+   {
+    "a": "Global and Planetary Change",
+    "b": "Law",
+    "cross_field": true,
+    "observed": 32,
+    "expected": 23.0,
+    "R": 1.393,
+    "R_ci": [
+     0.884,
+     1.898
+    ],
+    "S": 0.567,
+    "S_ci": [
+     0.426,
+     0.513
+    ],
+    "silence": -0.851,
+    "shared_words": [
+     "policy",
+     "framework",
+     "governance",
+     "justice",
+     "role",
+     "sector",
+     "climate",
+     "local"
+    ],
+    "R_pre": 1.218,
+    "R_post": 1.419
+   },
+   {
+    "a": "Political Science and International Relations",
+    "b": "Sociology and Political Science",
+    "cross_field": false,
+    "observed": 34,
+    "expected": 25.2,
+    "R": 1.347,
+    "R_ci": [
+     0.532,
+     1.958
+    ],
+    "S": 0.544,
+    "S_ci": [
+     0.397,
+     0.493
+    ],
+    "silence": -0.913,
+    "shared_words": [
+     "policy",
+     "renewable",
+     "political",
+     "social",
+     "green",
+     "climate",
+     "justice",
+     "democracy"
+    ],
+    "R_pre": 0.926,
+    "R_post": 1.479
+   }
+  ]
+ }
+}
