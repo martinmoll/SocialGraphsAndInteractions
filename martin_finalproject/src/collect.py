@@ -15,7 +15,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 RAW = ROOT / "data" / "raw"
 
 # --- the one place the field is defined: change this to change the field ---
-FIELD = "ocean_science"
+FIELD = "energy_systems"
 FILTERS = {  # one entry per field tried, so every raw file stays reproducible
     "energy_systems": 'title_and_abstract.search:"energy system",publication_year:2015-2024,type:article',
     # CHOICE: OpenAlex subfield 1910 (Oceanography), not a phrase search: "ocean science" matches only 1,145 works
