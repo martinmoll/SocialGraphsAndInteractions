@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
-<title>Bridge topics explorer (prototype)</title>
+<title>Fieldname · Bridge topics</title>
 <style>
   :root { --bg:#0f1318; --panel:#171c23; --line:#2a323d; --fg:#e6e9ee; --mut:#8b96a5; --acc:#ffb454; }
   * { box-sizing: border-box; }
@@ -39,11 +39,21 @@
   .trk i { position:absolute; top:0; height:100%; }
   #abs { max-height:220px; overflow:auto; background:#0f1318; padding:8px; border-radius:4px; }
   a { color:#7cc4ff; }
+  nav { display:flex; gap:4px; }
+  nav a { color:var(--mut); text-decoration:none; padding:4px 10px; border-radius:4px; }
+  nav a:hover { color:var(--fg); }
+  nav a.on { color:#111; background:var(--acc); }
 </style>
 </head>
 <body>
 <header>
-  <b>Bridge topics · FIELDNAME</b>
+  <b>Bridge topics</b>
+  <nav>
+    <a href="explorer_energy_systems.html">Energy systems</a>
+    <a href="explorer_ocean_science.html">Ocean science</a>
+    <a href="guide.html">How to read this</a>
+  </nav>
+  <script>document.querySelectorAll("nav a").forEach(a => { if (location.pathname.endsWith(a.getAttribute("href"))) a.classList.add("on"); });</script>
   <input id="q" placeholder="search title word…">
   <label>edges <select id="graph"><option value="cit">citation</option><option value="cou">coupling</option></select></label>
   <label>colour <select id="colby"><option value="c">citation community</option><option value="tp">text topic (LDA)</option></select></label>

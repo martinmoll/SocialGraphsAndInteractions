@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to read the network · Bridge topics</title>
+<style>
+  :root { --bg:#0f1318; --panel:#171c23; --line:#2a323d; --fg:#e6e9ee; --mut:#8b96a5; --acc:#ffb454; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:15px/1.6 system-ui, "Segoe UI", sans-serif; }
+  header { display:flex; flex-wrap:wrap; gap:10px 16px; align-items:center; padding:8px 12px; background:var(--panel);
+           border-bottom:1px solid var(--line); font-size:13px; position:sticky; top:0; z-index:2; }
+  header b { font-size:14px; }
+  nav { display:flex; gap:4px; }
+  nav a { color:var(--mut); text-decoration:none; padding:4px 10px; border-radius:4px; border:1px solid transparent; }
+  nav a:hover { color:var(--fg); }
+  nav a.on { color:#111; background:var(--acc); }
+  main { max-width:860px; margin:0 auto; padding:8px 16px 80px; }
+  h1 { font-size:26px; margin:28px 0 6px; }
+  h2 { font-size:13px; letter-spacing:.07em; text-transform:uppercase; color:var(--acc); margin:44px 0 8px; }
+  h3 { font-size:17px; margin:0 0 4px; }
+  p { margin:8px 0; } .mut { color:var(--mut); } .lead { font-size:17px; }
+  a { color:#7cc4ff; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:14px 16px; margin:12px 0; }
+  .card dl { margin:8px 0 0; display:grid; grid-template-columns:150px 1fr; gap:6px 14px; }
+  .card dt { color:var(--mut); font-size:13px; padding-top:2px; } .card dd { margin:0; }
+  @media (max-width:600px) { .card dl { grid-template-columns:1fr; gap:0; } .card dt { margin-top:8px; } }
+  .q { color:var(--acc); font-weight:600; }
+  .tw { overflow-x:auto; }
+  table { border-collapse:collapse; width:100%; font-size:14px; }
+  th, td { text-align:left; padding:5px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { color:var(--mut); font-weight:500; } td.n, th.n { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  code { background:#0b0e12; padding:1px 5px; border-radius:3px; font-size:13px; }
+  ol li, ul li { margin:5px 0; }
+  figure { margin:12px 0 0; } figcaption { font-size:13px; color:var(--mut); }
+  svg text { fill:var(--fg); font:12px system-ui, sans-serif; }
+</style>
+</head>
+<body>
+<header>
+  <b>Bridge topics</b>
+  <nav>
+    <a href="explorer_energy_systems.html">Energy systems</a>
+    <a href="explorer_ocean_science.html">Ocean science</a>
+    <a href="guide.html" class="on">How to read this</a>
+  </nav>
+</header>
+<main>
+
+<h1>How to read the network</h1>
+<p class="lead">The two explorer tabs show the same analysis on two research fields. This page explains what each
+dot, colour and number means, and which question it answers.</p>
+<p class="mut">Numbers on this page come from the run of 11 November 2026. Prototype: nothing here is checked by hand yet.</p>
+
+<h2>The question</h2>
+<p class="lead">Which topics connect citation communities that rarely cite each other, and do these topics differ
+from the topics inside the communities?</p>
+<p>A research field is not one conversation. Papers cite inside their own group far more than outside it. A few
+papers have citation links into several groups. We call them <b>bridges</b>. We want to know what the bridges
+write about: the core topic of one group, or something that several groups share, such as a method or a common
+problem.</p>
+<p>To answer this we need two things on the same papers: a <b>network</b> (who cites whom) and <b>text</b>
+(what each paper is about). Every measure below belongs to one of these two halves, or joins them.</p>
+
+<h2>What is on the screen</h2>
+<div class="tw"><table>
+<tr><th>On screen</th><th>In course terms</th></tr>
+<tr><td>A dot</td><td>A <b>node</b>: one paper.</td></tr>
+<tr><td>A line</td><td>An <b>edge</b>: one paper in the sample cites another. The edge is directed (citing → cited). We draw it and analyse it as undirected.</td></tr>
+<tr><td>The whole picture</td><td>The <b>largest connected component</b>. Papers with no path to it are left out.</td></tr>
+<tr><td>Dot colour</td><td>The <b>community</b> that the Louvain algorithm put the paper in. You can switch the colour to the paper's text topic.</td></tr>
+<tr><td>Dot size</td><td>The <b>participation coefficient</b>: how evenly the paper's edges spread over communities.</td></tr>
+<tr><td>White ring</td><td>A <b>bridge</b>: one of the 10% highest participation coefficients among papers with degree ≥ 5.</td></tr>
+<tr><td>Grey dots</td><td>Communities with fewer than 15 papers.</td></tr>
+<tr><td>Position</td><td>A force-directed layout, tuned for readability. <b>Distance on screen is not a measurement.</b> Two dots close together are not necessarily connected.</td></tr>
+</table></div>
+
+<h2>The data</h2>
+<p>Both samples come from <a href="https://openalex.org" target="_blank">OpenAlex</a>: journal articles from
+2015 to 2024, the 3,000 most cited that match the field definition.</p>
+<div class="tw"><table>
+<tr><th></th><th class="n">Energy systems</th><th class="n">Ocean science</th></tr>
+<tr><td>Field definition</td><td class="n">phrase "energy system" in title or abstract</td><td class="n">OpenAlex subfield Oceanography</td></tr>
+<tr><td>Papers collected</td><td class="n">3,000</td><td class="n">3,000</td></tr>
+<tr><td>Papers with an abstract</td><td class="n">1,292 (43%)</td><td class="n">2,312 (77%)</td></tr>
+<tr><td>Nodes in the largest component</td><td class="n">2,463</td><td class="n">2,819</td></tr>
+<tr><td>Citation edges in the largest component</td><td class="n">11,469</td><td class="n">13,418</td></tr>
+</table></div>
+<p class="mut">An edge exists only when both papers are in the sample. A citation to a paper outside the 3,000 is
+invisible. Most cited first means that older papers and review papers are over-represented.</p>
+
+<h2>The network half</h2>
+
+<div class="card">
+<h3>Degree</h3>
+<p class="q">How many papers in the sample is this paper linked to?</p>
+<dl>
+<dt>What it is</dt><dd>The number of edges at a node: papers it cites plus papers that cite it, inside the sample.</dd>
+<dt>In the explorer</dt><dd>"links" in the selected-paper panel. The <b>hub</b> tag marks the 5% highest degrees.</dd>
+<dt>Why it matters</dt><dd>A paper with degree 2 can have its two edges in two communities by chance. We only judge bridging for papers with degree ≥ 5.</dd>
+<dt>What it misses</dt><dd>It is not the paper's total citation count. That count is shown separately as "cited N× overall".</dd>
+</dl>
+</div>
+
+<div class="card">
+<h3>Communities and modularity</h3>
+<p class="q">Does the field split into groups of papers that mostly cite each other?</p>
+<dl>
+<dt>What it is</dt><dd>A <b>community</b> is a set of nodes with many edges inside and few edges out. The Louvain
+algorithm searches for the partition with the highest <b>modularity</b>. Modularity compares the share of edges
+inside communities with the share expected if edges were placed at random with the same degrees. 0 means no
+more grouped than random; values near 1 mean strongly grouped.</dd>
+<dt>In the explorer</dt><dd>Dot colours and the legend at the bottom left. Each community is labelled with its
+most typical words. Click a legend row to isolate one community.</dd>
+<dt>Numbers</dt><dd>Energy systems: 13 communities, modularity 0.62. Ocean science: 19 communities, modularity 0.70.</dd>
+<dt>What it misses</dt><dd>Modularity says how grouped a partition is, not how correct it is. The algorithm always returns communities, also in a random network.</dd>
+</dl>
+</div>
+
+<div class="card">
+<h3>The null model</h3>
+<p class="q">Is this structure more than what degree and publication year alone would produce?</p>
+<dl>
+<dt>What it is</dt><dd>A <b>degree-preserving rewiring</b>. We swap the targets of two citation edges, many times.
+Each paper keeps its number of references and its number of citations. A swap is allowed only when each new edge
+still points from a newer paper to an older one, because a paper cannot cite the future. We build 100 such
+networks and run the same analysis on each.</dd>
+<dt>In the explorer</dt><dd>"modularity, 100 rewired nulls" in the headline numbers, and the grey bands in the topic chart.</dd>
+<dt>Numbers</dt><dd>Modularity in the rewired networks: 0.29 in both fields, against 0.62 and 0.70 in the real ones. The communities are real structure.</dd>
+<dt>What it misses</dt><dd>The rewiring removes all topical structure at once, so it is an easy opponent to beat.</dd>
+</dl>
+</div>
+
+<div class="card">
+<h3>Stability</h3>
+<p class="q">Does the algorithm find the same communities when we run it again?</p>
+<dl>
+<dt>What it is</dt><dd>Louvain has a random element. We run it with 10 random seeds and compare each pair of partitions with NMI (explained below). 1 means identical.</dd>
+<dt>Numbers</dt><dd>Energy systems 0.70, ocean science 0.77.</dd>
+<dt>Why it matters</dt><dd>The communities are similar between runs, not identical. A paper near a border can be a bridge in one run and not in another. Treat a single bridge with care; trust patterns over many bridges more.</dd>
+</dl>
+</div>
+
+<div class="card">
+<h3>Participation coefficient and bridges</h3>
+<p class="q">Does this paper connect several communities, or does it stay in its own?</p>
+<dl>
+<dt>What it is</dt><dd>For one node: take the share of its edges that go to each community, square the shares,
+add them, and subtract the sum from 1. If all edges go to one community the value is 0. If the edges spread
+evenly over many communities the value moves towards 1.</dd>
+<dt>In the explorer</dt><dd>Dot size. Click a paper and read "Where its citation links go": that bar chart is
+the paper's degree split by community, which is what the coefficient summarises in one number.</dd>
+<dt>Bridge</dt><dd>We call a paper a bridge when its coefficient is in the top 10% among papers with degree ≥ 5.
+Energy systems: 155 bridges. Ocean science: 202 bridges.</dd>
+<dt>What it misses</dt><dd>A review paper cites widely by design, so it scores high without connecting ideas in
+any deeper way. The <b>review-like title</b> tag flags these. In energy systems 39% of bridges are flagged; in
+ocean science 3%.</dd>
+</dl>
+<figure>
+<svg viewBox="0 0 560 150" width="100%" role="img" aria-label="Two example papers with six edges each. Left: all six edges go to one community, participation 0. Right: two edges go to each of three communities, participation 0.67.">
+  <g stroke="#55606e" stroke-width="1.5">
+    <line x1="120" y1="75" x2="50" y2="30"/><line x1="120" y1="75" x2="40" y2="75"/><line x1="120" y1="75" x2="50" y2="120"/>
+    <line x1="120" y1="75" x2="190" y2="30"/><line x1="120" y1="75" x2="200" y2="75"/><line x1="120" y1="75" x2="190" y2="120"/>
+    <line x1="410" y1="75" x2="340" y2="30"/><line x1="410" y1="75" x2="330" y2="75"/><line x1="410" y1="75" x2="340" y2="120"/>
+    <line x1="410" y1="75" x2="480" y2="30"/><line x1="410" y1="75" x2="490" y2="75"/><line x1="410" y1="75" x2="480" y2="120"/>
+  </g>
+  <g fill="#4e9af1"><circle cx="50" cy="30" r="7"/><circle cx="40" cy="75" r="7"/><circle cx="50" cy="120" r="7"/>
+    <circle cx="190" cy="30" r="7"/><circle cx="200" cy="75" r="7"/><circle cx="190" cy="120" r="7"/>
+    <circle cx="340" cy="30" r="7"/><circle cx="330" cy="75" r="7"/></g>
+  <g fill="#f1784e"><circle cx="340" cy="120" r="7"/><circle cx="480" cy="120" r="7"/></g>
+  <g fill="#5fcf80"><circle cx="480" cy="30" r="7"/><circle cx="490" cy="75" r="7"/></g>
+  <circle cx="120" cy="75" r="6" fill="#4e9af1"/>
+  <circle cx="410" cy="75" r="13" fill="#4e9af1" stroke="#fff" stroke-width="1.5"/>
+  <text x="120" y="146" text-anchor="middle">6 edges, 1 community: 0</text>
+  <text x="410" y="146" text-anchor="middle">6 edges, 2 + 2 + 2: 1 − 3 × (⅓)² = 0.67</text>
+</svg>
+<figcaption>Two papers with the same degree. The left one stays in its community. The right one is a bridge.</figcaption>
+</figure>
+</div>
+
+<div class="card">
+<h3>Betweenness centrality</h3>
+<p class="q">Does this paper sit on many of the shortest paths between other papers?</p>
+<dl>
+<dt>What it is</dt><dd>The share of shortest paths between pairs of nodes that pass through this node. We estimate it from 500 sampled start nodes.</dd>
+<dt>In the explorer</dt><dd>"betweenness" in the selected-paper panel.</dd>
+<dt>How we use it</dt><dd>As a second opinion only. It does not decide which papers are bridges. A paper with high participation and high betweenness is a stronger bridge candidate than one with high participation alone.</dd>
+</dl>
+</div>
+
+<div class="card">
+<h3>Coupling edges</h3>
+<p class="q">Do two papers build on the same literature, also when they do not cite each other?</p>
+<dl>
+<dt>What it is</dt><dd><b>Bibliographic coupling</b>: we draw an edge between two papers when their reference lists share at least 5 works.</dd>
+<dt>In the explorer</dt><dd>Switch "edges" from citation to coupling. The dots stay in place and only the lines change.</dd>
+<dt>What it misses</dt><dd>The threshold of 5 is our choice. No measure on this page uses the coupling graph yet; it is there to look at.</dd>
+</dl>
+</div>
+
+<h2>The text half</h2>
+
+<div class="card">
+<h3>Text topics</h3>
+<p class="q">What is each paper about, judged from its words alone?</p>
+<dl>
+<dt>What it is</dt><dd>Each paper is a <b>bag of words</b> from its title and abstract, with stop words removed.
+<b>LDA</b> (a topic model) finds 12 groups of words that tend to occur together, and gives each paper a share of
+each topic. We assign each paper to its largest topic.</dd>
+<dt>In the explorer</dt><dd>"text topic" in the selected-paper panel, the topic filter, and "colour: text topic".
+A topic is shown by its top words, for example "T5 phytoplankton · nutrient · production · primary".</dd>
+<dt>What it misses</dt><dd>Nobody has read the papers and named the topics yet; the labels are top words only.
+The topics change when we change the stop words or the number of topics. Papers without an abstract are
+assigned from the title alone: 57% of energy systems, 23% of ocean science.</dd>
+</dl>
+</div>
+
+<div class="card">
+<h3>Community labels (TF-IDF)</h3>
+<p class="q">Which words are typical for this community and rare elsewhere?</p>
+<dl>
+<dt>What it is</dt><dd><b>TF-IDF</b> gives a word a high weight when it is frequent in a text and rare in the
+collection. We add the weights over all papers of a community and show the top words.</dd>
+<dt>In the explorer</dt><dd>The legend, for example "C4 hydrogen · production · storage · future".</dd>
+<dt>What it misses</dt><dd>The words describe the community; they did not create it. Communities come from citations only.</dd>
+</dl>
+</div>
+
+<h2>Joining the two halves</h2>
+
+<div class="card">
+<h3>NMI (normalised mutual information)</h3>
+<p class="q">Do the citation communities and the text topics sort the papers into the same groups?</p>
+<dl>
+<dt>What it is</dt><dd>A number between 0 and 1 that compares two partitions of the same nodes. 0 means that
+knowing a paper's group in one partition tells nothing about its group in the other. 1 means the partitions are identical.</dd>
+<dt>In the explorer</dt><dd>The table under the headline numbers. To see it, switch "colour" from citation
+community to text topic: if the two agreed, each blob would keep one clean colour.</dd>
+<dt>Numbers</dt><dd>Citation communities against LDA topics: 0.29 (energy systems), 0.34 (ocean science). With labels shuffled: 0.01.</dd>
+<dt>What it answers</dt><dd>Citations and text agree partly and far from fully. This gap is what makes the
+project possible: if the two were identical, the text could tell us nothing new about the bridges.</dd>
+</dl>
+</div>
+
+<div class="card">
+<h3>Topic share on bridges, and its z-score</h3>
+<p class="q">Do bridges write about different things than a paper picked without regard to topic?</p>
+<dl>
+<dt>What it is</dt><dd>For each topic we take its share among the real bridges. We then find the bridges in
+each of the 100 rewired networks and take the topic's share there. The <b>z-score</b> is the real share minus
+the mean of the 100 null shares, divided by their standard deviation.</dd>
+<dt>In the explorer</dt><dd>The chart "Topic share on bridges vs. null". Orange bar: real share. Grey band:
+null mean ± 2 standard deviations. A second, grey z-score repeats the test without review-like papers.</dd>
+<dt>How to read z</dt><dd>Near 0: bridges carry this topic as often as chance. Above about +2 or below about −2:
+worth a look. With 12 topics tested, one value near ±2 can appear by chance alone.</dd>
+<dt>Numbers</dt><dd>Energy systems: smart grid +7.0, storage +3.6, hybrid system optimisation −6.3.
+Ocean science: no topic beyond about ±2.3.</dd>
+<dt>What it answers</dt><dd>This is the main result. In energy systems the bridges carry shared problems such as
+storage and grids, and not the core optimisation topic. In ocean science the bridges write about the same
+things as the rest of the field.</dd>
+</dl>
+</div>
+
+<div class="card">
+<h3>Missing links</h3>
+<p class="q">Which papers write about the same thing and do not see each other in citations?</p>
+<dl>
+<dt>What it is</dt><dd>Pairs of papers with high <b>cosine similarity</b> between their TF-IDF vectors, in
+different communities, and at least 3 citation steps apart (shortest path length ≥ 3).</dd>
+<dt>In the explorer</dt><dd>The "Missing links" list at the bottom of the right panel. Click either paper of a pair.</dd>
+<dt>What it misses</dt><dd>The similarity counts shared words, not shared meaning. No pair is checked by hand yet.</dd>
+</dl>
+</div>
+
+<h2>A route through the explorer</h2>
+<ol>
+<li><b>Look at the communities.</b> Read the legend. Click a row to isolate one community, and click again to release it.</li>
+<li><b>Compare with the text.</b> Switch "colour" to text topic. See how much the colours mix inside each blob.</li>
+<li><b>Find the bridges.</b> Tick "bridges only" and see where in the picture they sit.</li>
+<li><b>Open one bridge.</b> Click a paper in "Top 20 bridge papers". Read where its links go, and check the review and hub tags.</li>
+<li><b>Read the topic chart.</b> Find the topics with a z-score beyond ±2. Click a row to see where that topic sits in the network.</li>
+<li><b>Switch to coupling edges.</b> See which communities draw on the same literature.</li>
+</ol>
+<p class="mut">Controls: scroll to zoom, drag to move, hover for a title, click for details. Type a title word in the search box and press Enter to jump to the first match.</p>
+
+<h2>What you should not conclude</h2>
+<ul>
+<li><b>Position is not data.</b> The layout is drawn for the eye.</li>
+<li><b>A bridge is not automatically important.</b> It has links into many communities. A review has that by design.</li>
+<li><b>A topic label is not a finding.</b> The labels are the model's top words.</li>
+<li><b>The two fields are not directly comparable yet.</b> One sample is defined by a phrase, the other by a subfield.</li>
+<li><b>The count of bridges proves nothing against the null.</b> A rewired network has weak communities, so almost every paper in it looks like a bridge. The test is on the topics, not on the count.</li>
+</ul>
+
+</main>
+</body>
+</html>
