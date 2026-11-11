@@ -1,0 +1,290 @@
+{
+ "field": "energy_systems",
+ "split_year": 2019,
+ "min_dist": 3,
+ "abstracts_only": {
+  "papers": 409,
+  "review_flagged": 60,
+  "later_citing_papers": 623,
+  "candidate_pairs": 79745,
+  "base_rate": 0.01581290363032165,
+  "auc_similarity": 0.697695254493751,
+  "auc_popularity_only": 0.6215577420508808,
+  "auc_similarity_within_popularity_strata": 0.7154870656054904,
+  "top50": {
+   "hit_rate": 0.16,
+   "expected_from_popularity": 0.01250860524055234,
+   "lift_vs_base": 10.118318794607456,
+   "lift_vs_popularity_matched": 12.79119429569071
+  },
+  "top100": {
+   "hit_rate": 0.17,
+   "expected_from_popularity": 0.012643346585692604,
+   "lift_vs_base": 10.750713719270422,
+   "lift_vs_popularity_matched": 13.445807156182408
+  },
+  "top500": {
+   "hit_rate": 0.146,
+   "expected_from_popularity": 0.013968960936320348,
+   "lift_vs_base": 9.232965900079302,
+   "lift_vs_popularity_matched": 10.451743738533123
+  },
+  "top100_permutation_null_mean_sd": [
+   0.012510000000000002,
+   0.010945314065845712
+  ],
+  "top100_permutation_p": 0.000999000999000999,
+  "examples_top10": [
+   {
+    "a": "Prediction of solar radiation for solar systems by using ANN models with different back propagation algorithms",
+    "b": "Multiple-Input Deep Convolutional Neural Network Model for Short-Term Photovoltaic Power Forecasting",
+    "sim": 0.334,
+    "later_cocitations": 0
+   },
+   {
+    "a": "A Comprehensive Study of Implemented International Standards, Technical Challenges, Impacts and Prospects for Electric Vehicles",
+    "b": "Review of recent trends in charging infrastructure planning for electric vehicles",
+    "sim": 0.331,
+    "later_cocitations": 1
+   },
+   {
+    "a": "Fast growing research on negative emissions",
+    "b": "The mutual dependence of negative emission technologies and energy systems",
+    "sim": 0.299,
+    "later_cocitations": 1
+   },
+   {
+    "a": "Evaluation and Demonstration of Blockchain Applicability Framework",
+    "b": "Blockchain Technologies for Smart Energy Systems: Fundamentals, Challenges, and Solutions",
+    "sim": 0.292,
+    "later_cocitations": 0
+   },
+   {
+    "a": "Battery Storage Technologies for Electrical Applications: Impact in Stand-Alone Photovoltaic Systems",
+    "b": "Life Cycle Assessment of a Vanadium Redox Flow Battery",
+    "sim": 0.288,
+    "later_cocitations": 0
+   },
+   {
+    "a": "Blockchain in Energy Efficiency: Potential Applications and Benefits",
+    "b": "Blockchain energy: Blockchain in future energy systems",
+    "sim": 0.285,
+    "later_cocitations": 1
+   },
+   {
+    "a": "Climate benefits of natural gas as a bridge fuel and potential delay of near-zero energy systems",
+    "b": "Methane cracking as a bridge technology to the hydrogen economy",
+    "sim": 0.285,
+    "later_cocitations": 0
+   },
+   {
+    "a": "The threat to climate change mitigation posed by the abundance of fossil fuels",
+    "b": "An assessment of CCS costs, barriers and potential",
+    "sim": 0.284,
+    "later_cocitations": 0
+   },
+   {
+    "a": "Development of a Fuzzy-Logic-Based Energy Management System for a Multiport Multioperation Mode Residential Smart Microgrid",
+    "b": "IoT-solar energy powered smart farm irrigation system",
+    "sim": 0.281,
+    "later_cocitations": 0
+   },
+   {
+    "a": "The future of electric vehicles: prospects and impediments",
+    "b": "A Comprehensive Study of Implemented International Standards, Technical Challenges, Impacts and Prospects for Electric Vehicles",
+    "sim": 0.281,
+    "later_cocitations": 0
+   }
+  ]
+ },
+ "all_papers_title_fallback": {
+  "papers": 1266,
+  "review_flagged": 248,
+  "later_citing_papers": 1011,
+  "candidate_pairs": 717934,
+  "base_rate": 0.01514902484072352,
+  "auc_similarity": 0.5847626102719118,
+  "auc_popularity_only": 0.6563512368030169,
+  "auc_similarity_within_popularity_strata": 0.6069125164311008,
+  "top50": {
+   "hit_rate": 0.22,
+   "expected_from_popularity": 0.011695066737574615,
+   "lift_vs_base": 14.522386906951084,
+   "lift_vs_popularity_matched": 18.81135054092259
+  },
+  "top100": {
+   "hit_rate": 0.2,
+   "expected_from_popularity": 0.0136397295241243,
+   "lift_vs_base": 13.202169915410078,
+   "lift_vs_popularity_matched": 14.663047360745994
+  },
+  "top500": {
+   "hit_rate": 0.14,
+   "expected_from_popularity": 0.015339896358876245,
+   "lift_vs_base": 9.241518940787055,
+   "lift_vs_popularity_matched": 9.126528414840998
+  },
+  "top100_permutation_null_mean_sd": [
+   0.01325,
+   0.011846412959204149
+  ],
+  "top100_permutation_p": 0.000999000999000999,
+  "examples_top10": [
+   {
+    "a": "A survey of artificial neural network in wind energy systems",
+    "b": "Modeling of solar energy systems using artificial neural network: A comprehensive review",
+    "sim": 0.813,
+    "later_cocitations": 1
+   },
+   {
+    "a": "Applications of nanofluids in condensing and evaporating systems",
+    "b": "A review on the applications of nanofluids in solar energy field",
+    "sim": 0.76,
+    "later_cocitations": 0
+   },
+   {
+    "a": "Optimization approaches in district heating and cooling thermal network",
+    "b": "Thermal energy storage in district heating and cooling systems: A review",
+    "sim": 0.741,
+    "later_cocitations": 0
+   },
+   {
+    "a": "Solar community heating and cooling system with borehole thermal energy storage \u2013 Review of systems",
+    "b": "Thermal energy storage in district heating and cooling systems: A review",
+    "sim": 0.727,
+    "later_cocitations": 1
+   },
+   {
+    "a": "Applications of nanofluids in condensing and evaporating systems",
+    "b": "Utilization of hybrid nanofluids in solar energy applications: A review",
+    "sim": 0.72,
+    "later_cocitations": 0
+   },
+   {
+    "a": "Review on applications of particle swarm optimization in solar energy systems",
+    "b": "Integrated energy systems planning with electricity, heat and gas using particle swarm optimization",
+    "sim": 0.675,
+    "later_cocitations": 0
+   },
+   {
+    "a": "Applications of nanofluids in solar energy: A review of recent advances",
+    "b": "Applications of nanofluids in condensing and evaporating systems",
+    "sim": 0.664,
+    "later_cocitations": 0
+   },
+   {
+    "a": "Techno-economic analysis of a trigeneration system based on biomass gasification",
+    "b": "Small-scale biomass gasification systems for power generation (<200 kW class): A review",
+    "sim": 0.659,
+    "later_cocitations": 0
+   },
+   {
+    "a": "A review on the applications of nanofluids in solar energy field",
+    "b": "Utilization of hybrid nanofluids in solar energy applications: A review",
+    "sim": 0.656,
+    "later_cocitations": 0
+   },
+   {
+    "a": "Applications of nanofluids in condensing and evaporating systems",
+    "b": "Solar energy systems \u2013 Potential of nanofluids",
+    "sim": 0.65,
+    "later_cocitations": 0
+   }
+  ]
+ },
+ "abstracts_only_no_reviews": {
+  "papers": 349,
+  "review_flagged": 0,
+  "later_citing_papers": 549,
+  "candidate_pairs": 58466,
+  "base_rate": 0.01546197790168645,
+  "auc_similarity": 0.7108835398107096,
+  "auc_popularity_only": 0.6203864674734714,
+  "auc_similarity_within_popularity_strata": 0.7267116391594867,
+  "top50": {
+   "hit_rate": 0.14,
+   "expected_from_popularity": 0.012716591148220331,
+   "lift_vs_base": 9.054469026548674,
+   "lift_vs_popularity_matched": 11.009239690747847
+  },
+  "top100": {
+   "hit_rate": 0.18,
+   "expected_from_popularity": 0.013856165726072643,
+   "lift_vs_base": 11.641460176991151,
+   "lift_vs_popularity_matched": 12.990606749261127
+  },
+  "top500": {
+   "hit_rate": 0.128,
+   "expected_from_popularity": 0.014151344908067045,
+   "lift_vs_base": 8.27837168141593,
+   "lift_vs_popularity_matched": 9.045076692818995
+  },
+  "top100_permutation_null_mean_sd": [
+   0.014,
+   0.011532562594670795
+  ],
+  "top100_permutation_p": 0.000999000999000999,
+  "examples_top10": [
+   {
+    "a": "Prediction of solar radiation for solar systems by using ANN models with different back propagation algorithms",
+    "b": "Multiple-Input Deep Convolutional Neural Network Model for Short-Term Photovoltaic Power Forecasting",
+    "sim": 0.33,
+    "later_cocitations": 0
+   },
+   {
+    "a": "Battery Storage Technologies for Electrical Applications: Impact in Stand-Alone Photovoltaic Systems",
+    "b": "Life Cycle Assessment of a Vanadium Redox Flow Battery",
+    "sim": 0.301,
+    "later_cocitations": 0
+   },
+   {
+    "a": "Evaluation and Demonstration of Blockchain Applicability Framework",
+    "b": "Blockchain Technologies for Smart Energy Systems: Fundamentals, Challenges, and Solutions",
+    "sim": 0.301,
+    "later_cocitations": 0
+   },
+   {
+    "a": "Fast growing research on negative emissions",
+    "b": "The mutual dependence of negative emission technologies and energy systems",
+    "sim": 0.3,
+    "later_cocitations": 1
+   },
+   {
+    "a": "Blockchain in Energy Efficiency: Potential Applications and Benefits",
+    "b": "Blockchain energy: Blockchain in future energy systems",
+    "sim": 0.298,
+    "later_cocitations": 1
+   },
+   {
+    "a": "The future of electric vehicles: prospects and impediments",
+    "b": "A Comprehensive Study of Implemented International Standards, Technical Challenges, Impacts and Prospects for Electric Vehicles",
+    "sim": 0.298,
+    "later_cocitations": 0
+   },
+   {
+    "a": "A real-time evaluation of energy management systems for smart hybrid home Microgrids",
+    "b": "Online Energy Management Systems for Microgrids: Experimental Validation and Assessment Framework",
+    "sim": 0.29,
+    "later_cocitations": 0
+   },
+   {
+    "a": "Blockchain: a secure, decentralized, trusted cyber infrastructure solution for future energy systems",
+    "b": "Blockchain Technologies for Smart Energy Systems: Fundamentals, Challenges, and Solutions",
+    "sim": 0.288,
+    "later_cocitations": 0
+   },
+   {
+    "a": "Climate benefits of natural gas as a bridge fuel and potential delay of near-zero energy systems",
+    "b": "Methane cracking as a bridge technology to the hydrogen economy",
+    "sim": 0.288,
+    "later_cocitations": 0
+   },
+   {
+    "a": "Environmental Impacts of Solar-Photovoltaic and Solar-Thermal Systems with Life-Cycle Assessment",
+    "b": "Life cycle assessment integration into energy system models: An application for Power-to-Methane in the EU",
+    "sim": 0.287,
+    "later_cocitations": 0
+   }
+  ]
+ }
+}
