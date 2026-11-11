@@ -18,6 +18,12 @@ Anas Mir · Martin Møllenhus · Diego Mijares
 | 6 | [Who counts as a mutant?](https://martinmoll.github.io/SocialGraphsAndInteractions/posts/week6/) |
 | 7 | [Wrong Storm, missing Thor](https://martinmoll.github.io/SocialGraphsAndInteractions/posts/week7/) |
 
+## Project outline
+
+[`project/`](project/) holds a working outline for the course project: data, a prototype
+notebook and notes around the 2026 US midterms. It is separate from the weekly posts, and
+the research question is still open. Start with [`project/readme.md`](project/readme.md).
+
 ## Layout
 
 | Path | Contents |
