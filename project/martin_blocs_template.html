@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Blocs in the wave</title>
+<!-- PROTOTYPE (Martin). Template for martin_blocs.html: martin_blocs.ipynb replaces the data placeholder below. Edit this file, not the output. -->
+<style>
+:root{
+  --surface:#fcfcfb; --panel:#f3f2ee; --line:#dddcd5; --text:#0b0b0b; --text2:#52514e; --muted:#85847d;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4; --s6:#008300; --s7:#6250d6; --s8:#e34948;
+  --other:#a9a8a1; --plain:#8b8a84; --edge:#0b0b0b;
+  --seq-lo:#d4e3f6; --seq-hi:#0f3d7a; --div-neg:#eb6834; --div-mid:#cfcec7; --div-pos:#2a78d6;
+  --f-lost:#e34948; --f-prim:#eda100; --f-unc:#6250d6;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --surface:#1a1a19; --panel:#242422; --line:#3a3a37; --text:#f0efec; --text2:#c3c2b7; --muted:#8f8e86;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#008300; --s7:#9085e9; --s8:#e66767;
+    --other:#6f6e69; --plain:#8f8e86; --edge:#f0efec;
+    --seq-lo:#1d3557; --seq-hi:#a9cbf5; --div-neg:#d95926; --div-mid:#55544f; --div-pos:#3987e5;
+    --f-lost:#e66767; --f-prim:#c98500; --f-unc:#9085e9;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--surface);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:1120px;margin:0 auto;padding:0 16px 96px}
+h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.05;margin:56px 0 12px;letter-spacing:-.02em}
+h2{font-size:1.6rem;line-height:1.2;margin:72px 0 8px;letter-spacing:-.01em}
+h3{font-size:1.05rem;margin:0 0 6px}
+p{margin:0 0 12px;max-width:68ch}
+.lede{font-size:1.2rem;color:var(--text2)}
+.note{background:var(--panel);border-left:3px solid var(--f-prim);padding:10px 14px;font-size:.92rem;color:var(--text2);max-width:76ch;margin:16px 0}
+.kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);margin:0 0 4px}
+b.num{font-variant-numeric:tabular-nums}
+small,.small{font-size:.86rem;color:var(--text2)}
+
+/* scrolly */
+#scrolly{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:32px;margin-top:32px}
+.graphic{position:sticky;top:12px;align-self:start;height:calc(100vh - 24px);display:flex;flex-direction:column;min-height:0}
+#net{flex:1;min-height:0;width:100%;background:var(--panel);border-radius:10px}
+.step{min-height:82vh;display:flex;flex-direction:column;justify-content:center;opacity:.35;transition:opacity .25s}
+.step.on{opacity:1}
+.step:last-child{min-height:60vh}
+@media (max-width:820px){
+  #scrolly{grid-template-columns:1fr;gap:0}
+  .graphic{top:0;height:58vh;background:var(--surface);z-index:2;padding:8px 0;border-bottom:1px solid var(--line)}
+  .step{min-height:70vh}
+}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 8px;font-size:.88rem}
+.controls label{color:var(--text2)}
+select,input[type=search],button{font:inherit;font-size:.88rem;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:5px 9px}
+button{cursor:pointer}
+button:hover,select:hover{border-color:var(--muted)}
+input[type=search]{width:11em}
+.legend{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0;font-size:.82rem;min-height:30px;align-items:center;color:var(--text2)}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:3px 9px 3px 7px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--text);font-size:.82rem}
+button.chip.sel{border-color:var(--text);box-shadow:inset 0 0 0 1px var(--text)}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none}
+.dot.hollow{background:transparent;border:1.5px solid var(--plain)}
+.ramp{height:10px;width:140px;border-radius:5px;display:inline-block}
+
+/* marks */
+.edge{stroke:var(--edge);stroke-opacity:.13;stroke-width:1}
+.node{stroke:var(--panel);stroke-width:1.5;cursor:pointer;transition:opacity .2s}
+.node.dim{opacity:.12}
+.node.hit{stroke:var(--text);stroke-width:2.5}
+.axis text,.lab{fill:var(--text2);font-size:11px}
+.axis line,.grid{stroke:var(--line);stroke-width:1}
+.bar{fill:var(--other)}
+.obs{stroke:var(--text);stroke-width:2}
+.obslab{fill:var(--text);font-size:12px;font-weight:600}
+.fit{stroke:var(--text2);stroke-width:1.5;stroke-dasharray:5 4}
+.zero{stroke:var(--muted);stroke-width:1}
+.mean{stroke:var(--text);stroke-width:3;stroke-linecap:round}
+svg.chart{width:100%;height:auto;display:block;background:var(--panel);border-radius:10px}
+
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;margin:20px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin:20px 0}
+.card{text-align:left;border:1px solid var(--line);border-radius:10px;padding:14px;background:var(--surface);display:block;width:100%;font-size:.9rem;line-height:1.45}
+.card.sel{border-color:var(--text);box-shadow:inset 0 0 0 1px var(--text)}
+.card h3{display:flex;align-items:center;gap:8px}
+.card .words{color:var(--text);margin:8px 0}
+.card dl{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin:6px 0;color:var(--text2)}
+.card dt{color:var(--muted)} .card dd{margin:0;color:var(--text)}
+.fatebar{display:flex;gap:2px;height:10px;border-radius:5px;overflow:hidden;margin:8px 0 4px}
+.fatebar span{display:block}
+table{border-collapse:collapse;font-size:.9rem;margin:12px 0;width:100%;max-width:760px}
+th,td{text-align:left;padding:6px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:500}
+td.r,th.r{text-align:right;font-variant-numeric:tabular-nums}
+.verdict{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:20px 0}
+.verdict div{background:var(--panel);border-radius:10px;padding:14px}
+.verdict .big{font-size:1.7rem;font-weight:650;line-height:1.1;font-variant-numeric:tabular-nums}
+#tip{position:fixed;pointer-events:none;background:var(--text);color:var(--surface);padding:8px 10px;border-radius:7px;font-size:.82rem;line-height:1.4;max-width:260px;opacity:0;transition:opacity .1s;z-index:10}
+#tip b{font-weight:650}
+ul{padding-left:20px;max-width:72ch} li{margin:4px 0}
+</style>
+</head>
+<body>
+<main>
+  <p class="kicker" style="margin-top:40px">02805 Social Graphs and Interactions · project exploration · Martin</p>
+  <h1>Blocs in the wave</h1>
+  <p class="lede">Is the House Republican party one bloc or several? Do the blocs found in the cosponsorship network also speak differently, and did the 2026 wave hit them equally?</p>
+  <div class="note" id="status"></div>
+
+  <section id="scrolly">
+    <div class="graphic">
+      <div class="controls">
+        <label for="mode">Colour by</label>
+        <select id="mode">
+          <option value="plain">nothing</option><option value="bloc">bloc</option><option value="ideology">roll-call ideology</option>
+          <option value="fate">what happened in 2026</option><option value="over">ahead of or behind the district</option>
+        </select>
+        <input type="search" id="find" placeholder="Find a member" aria-label="Find a member">
+        <button id="reset">Clear selection</button>
+      </div>
+      <svg id="net" viewBox="0 0 720 720" role="img" aria-label="Cosponsorship backbone of House Republicans"></svg>
+      <div class="legend" id="legend"></div>
+    </div>
+    <div class="steps" id="steps"></div>
+  </section>
+
+  <section>
+    <p class="kicker">Check 1</p>
+    <h2>Is the structure real?</h2>
+    <p id="structure-text"></p>
+    <div class="two">
+      <div><h3>Modularity against rewired networks</h3><svg class="chart" id="h-structure" viewBox="0 0 520 260"></svg>
+        <p class="small" id="structure-cap"></p></div>
+      <div><h3>Does it survive other settings?</h3><div id="sens"></div><p class="small" id="sens-cap"></p></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">The blocs</p>
+    <h2>Who is in each bloc, and what they talk about</h2>
+    <p>Each card is one bloc. The words are the ones its members use more than other Republicans do, and that at least a third of the bloc uses. Select a card to highlight the bloc in every chart on the page.</p>
+    <div class="cards" id="cards"></div>
+    <p class="small" id="small-blocs"></p>
+  </section>
+
+  <section>
+    <p class="kicker">Check 2</p>
+    <h2>Do the blocs speak differently?</h2>
+    <p id="text-text"></p>
+    <div class="controls"><label for="text-var">Pairs compared</label>
+      <select id="text-var"><option value="all">all pairs of members</option><option value="other_state">only pairs from different states</option></select></div>
+    <div class="two"><div><svg class="chart" id="h-text" viewBox="0 0 520 260"></svg><p class="small" id="text-cap"></p></div>
+      <div><h3>What this measures</h3><p class="small"><b>Captures:</b> shared vocabulary in floor speeches. Each member is a TF-IDF vector; the number is the average cosine similarity of two members in the same bloc minus that of two members in different blocs.</p>
+      <p class="small"><b>Misses:</b> stance. Two members can use the same word on opposite sides. It also misses everything said outside the House floor.</p>
+      <p class="small"><b>Why the second setting matters:</b> colleagues from one state share place names and local topics. Comparing only members from different states removes that explanation.</p></div></div>
+  </section>
+
+  <section>
+    <p class="kicker">Check 3</p>
+    <h2>Did the wave hit the blocs equally?</h2>
+    <p id="elec-text"></p>
+    <div class="controls"><label for="null-by">Chance means shuffling results among</label>
+      <select id="null-by"><option value="lean">districts of similar lean</option><option value="state">members of the same state</option></select>
+      <label><input type="checkbox" id="redrawn"> Leave out the nine redrawn states</label></div>
+    <div class="two">
+      <div><h3>Margin against district lean</h3><svg class="chart" id="scatter" viewBox="0 0 520 400"></svg>
+        <p class="small">One dot per Republican incumbent in the study. The dashed line is what district lean alone predicts. Distance above the line is how far a member ran ahead.</p></div>
+      <div><h3>Ahead of or behind the district, by bloc</h3><svg class="chart" id="strip" viewBox="0 0 520 400"></svg>
+        <p class="small">Points of margin relative to the dashed line. The thick tick is the bloc mean.</p></div>
+    </div>
+    <div class="two"><div><h3>Share of the variation explained by bloc</h3><svg class="chart" id="h-elec" viewBox="0 0 520 260"></svg><p class="small" id="elec-cap"></p></div>
+      <div><h3>Read this with care</h3><ul class="small" id="elec-care"></ul></div></div>
+  </section>
+
+  <section>
+    <p class="kicker">Where this stands</p>
+    <h2>What the exploration supports today</h2>
+    <div class="verdict" id="verdict"></div>
+    <h3 style="margin-top:28px">Not checked yet</h3>
+    <ul id="open"></ul>
+    <h3 style="margin-top:28px">Choices made, and what the alternative would change</h3>
+    <div id="choices"></div>
+  </section>
+</main>
+<div id="tip" role="tooltip"></div>
+
+<script>
+const D = __DATA__;
+const $ = (s, e = document) => e.querySelector(s);
+const NS = "http://www.w3.org/2000/svg";
+const svg = (tag, attrs = {}, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; };
+const f = (v, d = 2) => v == null ? "–" : (+v).toFixed(d);
+const sg = (v, d = 1) => v == null ? "–" : (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(d);
+const pct = v => v == null ? "–" : Math.round(100 * v) + "%";
+const leanTxt = v => v == null ? "–" : v > 0 ? "R+" + v : v < 0 ? "D+" + (-v) : "even";
+const pTxt = (p, n) => p === 0 ? "p < " + (1 / n).toFixed(4) : "p = " + p.toFixed(3);
+const css = name => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+const hex = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+const mix = (a, b, t) => { const A = hex(a), B = hex(b); return "rgb(" + A.map((v, i) => Math.round(v + (B[i] - v) * t)).join(",") + ")"; };
+
+const M = D.meta, big = D.big, blocOf = Object.fromEntries(D.blocs.map(b => [b.id, b]));
+const slot = Object.fromEntries(big.map((k, i) => [k, "var(--s" + (i + 1) + ")"]));
+const blocColour = k => slot[k] || "var(--other)";
+const FATES = [["re-elected", "re-elected", "var(--plain)"], ["lost general", "lost in November", "var(--f-lost)"], ["lost primary", "lost a primary", "var(--f-prim)"],
+               ["uncalled", "race not called", "var(--f-unc)"], ["did not run", "did not run", null], ["left mid-term", "left mid-term", null]];
+const ideo = D.nodes.map(n => n.ideology).filter(v => v != null), iLo = Math.min(...ideo), iHi = Math.max(...ideo);
+const overMax = Math.max(...D.nodes.map(n => Math.abs(n.over ?? 0)));
+const state = { mode: "plain", edges: false, sel: null, hit: null, redrawn: false, textVar: "all", nullBy: "lean" };
+const elecKey = () => state.nullBy === "state" ? (state.redrawn ? "state_no_redrawn" : "state") : (state.redrawn ? "no_redrawn" : "all");
+
+/* ---------- tooltip ---------- */
+const tip = $("#tip");
+function showTip(html, ev) { tip.innerHTML = html; tip.style.opacity = 1; const w = tip.offsetWidth, h = tip.offsetHeight;
+  tip.style.left = Math.min(window.innerWidth - w - 8, ev.clientX + 14) + "px"; tip.style.top = Math.max(8, ev.clientY - h - 12) + "px"; }
+const hideTip = () => tip.style.opacity = 0;
+function memberTip(n) {
+  return `<b>${n.name}</b> · ${n.state}-${n.district || "AL"}<br>Bloc ${n.bloc}${n.big ? "" : " (small)"} · ideology ${f(n.ideology)}<br>` +
+    `Cosponsorships across the aisle: ${pct(n.walk)}<br>${(FATES.find(x => x[0] === n.fate) || [0, n.fate])[1]}` +
+    (n.lean != null ? ` · district ${leanTxt(n.lean)}` : "") +
+    (n.over != null ? `<br>Margin ${sg(n.margin)} · ${sg(n.over)} vs district` : "");
+}
+function hover(e, html) { e.addEventListener("mousemove", ev => showTip(typeof html === "function" ? html() : html, ev)); e.addEventListener("mouseleave", hideTip); }
+
+/* ---------- colour ---------- */
+function nodeFill(n) {
+  const m = state.mode;
+  if (m === "bloc") return blocColour(n.bloc);
+  if (m === "ideology") return n.ideology == null ? "var(--other)" : mix(css("--seq-lo"), css("--seq-hi"), (n.ideology - iLo) / (iHi - iLo));
+  if (m === "over") { if (n.over == null) return "transparent"; const t = Math.max(-1, Math.min(1, n.over / overMax));
+    return t >= 0 ? mix(css("--div-mid"), css("--div-pos"), Math.sqrt(t)) : mix(css("--div-mid"), css("--div-neg"), Math.sqrt(-t)); }
+  if (m === "fate") return (FATES.find(x => x[0] === n.fate) || [])[2] || "transparent";
+  return "var(--plain)";
+}
+function paint(c, n) {
+  const fill = nodeFill(n); c.style.fill = fill;
+  c.style.stroke = fill === "transparent" ? "var(--plain)" : "";
+  c.classList.toggle("dim", state.sel != null && n.bloc !== state.sel);
+  c.classList.toggle("hit", state.hit === n.id);
+}
+
+/* ---------- network ---------- */
+const net = $("#net"), P = 28, W = 720;
+const X = n => P + n.x * (W - 2 * P), Y = n => P + n.y * (W - 2 * P);
+const gE = svg("g", {}, net), gN = svg("g", {}, net);
+const edgeEls = D.edges.map(([a, b]) => svg("line", { class: "edge", x1: X(D.nodes[a]), y1: Y(D.nodes[a]), x2: X(D.nodes[b]), y2: Y(D.nodes[b]) }, gE));
+const nodeEls = D.nodes.map(n => { const c = svg("circle", { class: "node", cx: X(n), cy: Y(n), r: 6 }, gN);
+  hover(c, () => memberTip(n)); c.addEventListener("click", () => select(state.sel === n.bloc ? null : n.bloc)); return c; });
+
+function legend() {
+  const L = $("#legend"), m = state.mode; L.innerHTML = "";
+  if (m === "bloc") {
+    D.blocs.filter(b => b.big).forEach(b => { const c = document.createElement("button"); c.className = "chip" + (state.sel === b.id ? " sel" : "");
+      c.innerHTML = `<span class="dot" style="background:${blocColour(b.id)}"></span>${b.id} <small>${b.n}</small>`; c.onclick = () => select(state.sel === b.id ? null : b.id); L.appendChild(c); });
+    L.insertAdjacentHTML("beforeend", `<span class="chip"><span class="dot" style="background:var(--other)"></span>small blocs</span>`);
+  } else if (m === "ideology") {
+    L.innerHTML = `<span>less conservative ${f(iLo)}</span><span class="ramp" style="background:linear-gradient(90deg,var(--seq-lo),var(--seq-hi))"></span><span>${f(iHi)} more conservative</span>`;
+  } else if (m === "over") {
+    L.innerHTML = `<span>behind the district</span><span class="ramp" style="background:linear-gradient(90deg,var(--div-neg),var(--div-mid),var(--div-pos))"></span><span>ahead</span><span class="chip"><span class="dot hollow"></span>not in the study</span>`;
+  } else if (m === "fate") {
+    L.innerHTML = FATES.map(([k, lab, col]) => `<span class="chip"><span class="dot ${col ? "" : "hollow"}" style="${col ? "background:" + col : ""}"></span>${lab} <small>${D.nodes.filter(n => n.fate === k).length}</small></span>`).join("");
+  } else L.innerHTML = `<span>${M.n_backbone} Republican members. Hover a dot for the member; select one to highlight its bloc.</span>`;
+}
+
+/* ---------- small chart helpers ---------- */
+function scale(d0, d1, r0, r1) { const s = v => r0 + (v - d0) / (d1 - d0) * (r1 - r0); s.ticks = n => { const step = niceStep((d1 - d0) / n), out = [];
+  for (let v = Math.ceil(d0 / step) * step; v <= d1 + 1e-9; v += step) out.push(+v.toFixed(10)); return out; }; return s; }
+function niceStep(raw) { const p = Math.pow(10, Math.floor(Math.log10(raw))), r = raw / p; return (r < 1.5 ? 1 : r < 3.5 ? 2 : r < 7.5 ? 5 : 10) * p; }
+function xAxis(g, s, y, label, fmt = v => v, w = 520) {
+  svg("line", { class: "grid", x1: 40, x2: w - 16, y1: y, y2: y }, g);
+  s.ticks(5).forEach(v => { svg("text", { class: "lab", x: s(v), y: y + 15, "text-anchor": "middle" }, g).textContent = fmt(v); });
+  svg("text", { class: "lab", x: (40 + w - 16) / 2, y: y + 32, "text-anchor": "middle" }, g).textContent = label;
+}
+function histogram(el, vals, obs, label, d = 3) {
+  el.innerHTML = ""; const w = 520, top = 34, base = 205;
+  const lo0 = Math.min(obs, ...vals), hi0 = Math.max(obs, ...vals), pad = (hi0 - lo0) * .08, lo = lo0 - pad, hi = hi0 + pad;
+  const s = scale(lo, hi, 40, w - 16), nb = 36, bw = (hi - lo) / nb, bins = Array(nb).fill(0);
+  vals.forEach(v => bins[Math.min(nb - 1, Math.floor((v - lo) / bw))]++);
+  const mx = Math.max(...bins);
+  bins.forEach((c, i) => { if (!c) return; const h = c / mx * (base - top - 8);
+    const r = svg("rect", { class: "bar", x: s(lo + i * bw) + 1, y: base - h, width: Math.max(1, s(lo + (i + 1) * bw) - s(lo + i * bw) - 2), height: h, rx: 2 }, el);
+    hover(r, `${f(lo + i * bw, d)} to ${f(lo + (i + 1) * bw, d)}<br><b>${c}</b> of ${vals.length} shuffles`); });
+  xAxis(el, s, base, label, v => +v.toFixed(d));
+  const mean = vals.reduce((a, b) => a + b, 0) / vals.length;
+  svg("text", { class: "lab", x: s(mean), y: top - 8, "text-anchor": "middle" }, el).textContent = "chance: " + f(mean, d);
+  svg("line", { class: "obs", x1: s(obs), x2: s(obs), y1: top - 4, y2: base }, el);
+  const right = s(obs) > w * .7;
+  svg("text", { class: "obslab", x: s(obs) + (right ? -7 : 7), y: top + 12, "text-anchor": right ? "end" : "start" }, el).textContent = "observed " + f(obs, d);
+}
+
+/* ---------- election charts ---------- */
+const study = D.nodes.filter(n => n.over != null);
+function inPlay(n) { return !(state.redrawn && n.redrawn); }
+function drawScatter() {
+  const el = $("#scatter"); el.innerHTML = "";
+  const xs = study.map(n => n.lean), ys = study.map(n => n.margin);
+  const sx = scale(Math.min(...xs) - 2, Math.max(...xs) + 2, 48, 504), sy = scale(Math.min(...ys) - 4, Math.max(...ys) + 4, 340, 30);
+  sy.ticks(6).forEach(v => { svg("line", { class: "grid", x1: 48, x2: 504, y1: sy(v), y2: sy(v) }, el); svg("text", { class: "lab", x: 42, y: sy(v) + 4, "text-anchor": "end" }, el).textContent = sg(v, 0); });
+  svg("line", { class: "zero", x1: 48, x2: 504, y1: sy(0), y2: sy(0) }, el);
+  svg("text", { class: "lab", x: 500, y: sy(0) - 5, "text-anchor": "end" }, el).textContent = "held the seat above this line";
+  const E = D.election, x0 = Math.min(...xs) - 2, x1 = Math.max(...xs) + 2;
+  svg("line", { class: "fit", x1: sx(x0), y1: sy(E.intercept + E.slope * x0), x2: sx(x1), y2: sy(E.intercept + E.slope * x1) }, el);
+  sx.ticks(6).forEach(v => { svg("text", { class: "lab", x: sx(v), y: 356, "text-anchor": "middle" }, el).textContent = leanTxt(v); });
+  svg("text", { class: "lab", x: 276, y: 380, "text-anchor": "middle" }, el).textContent = "district lean (Cook PVI)";
+  svg("text", { class: "lab", x: 12, y: 12 }, el).textContent = "two-party margin, points";
+  study.filter(inPlay).forEach(n => { const c = svg("circle", { class: "node", cx: sx(n.lean), cy: sy(n.margin), r: 5 }, el);
+    c.style.fill = blocColour(n.bloc); c.classList.toggle("dim", state.sel != null && n.bloc !== state.sel); c.classList.toggle("hit", state.hit === n.id);
+    hover(c, () => memberTip(n)); c.addEventListener("click", () => select(state.sel === n.bloc ? null : n.bloc)); });
+}
+function drawStrip() {
+  const el = $("#strip"); el.innerHTML = "";
+  const s = scale(-overMax - 1, overMax + 1, 60, 504), rowH = 340 / big.length;
+  s.ticks(6).forEach(v => { svg("line", { class: "grid", x1: s(v), x2: s(v), y1: 10, y2: 350 }, el); svg("text", { class: "lab", x: s(v), y: 366, "text-anchor": "middle" }, el).textContent = sg(v, 0); });
+  svg("line", { class: "zero", x1: s(0), x2: s(0), y1: 10, y2: 350 }, el);
+  svg("text", { class: "lab", x: 282, y: 388, "text-anchor": "middle" }, el).textContent = "points behind (−) or ahead (+) of the district";
+  big.forEach((k, i) => {
+    const y = 10 + rowH * (i + .5), ms = study.filter(n => n.bloc === k && inPlay(n)), dim = state.sel != null && state.sel !== k;
+    const g = svg("g", { opacity: dim ? .2 : 1 }, el);
+    svg("text", { class: "lab", x: 14, y: y + 4, style: "font-size:13px;fill:var(--text)" }, g).textContent = "Bloc " + k;
+    ms.forEach((n, j) => { const c = svg("circle", { class: "node", cx: s(n.over), cy: y + ((j * 7919) % 13 - 6) * rowH / 34, r: 4.5 }, g);
+      c.style.fill = blocColour(k); c.classList.toggle("hit", state.hit === n.id); hover(c, () => memberTip(n)); });
+    if (ms.length) { const mean = ms.reduce((a, n) => a + n.over, 0) / ms.length;
+      const t = svg("line", { class: "mean", x1: s(mean), x2: s(mean), y1: y - rowH * .36, y2: y + rowH * .36 }, g);
+      hover(t, `<b>Bloc ${k}</b><br>mean ${sg(mean)} points · ${ms.length} members`); }
+  });
+}
+function drawElection() {
+  const E = D.election[elecKey()];
+  drawScatter(); drawStrip();
+  histogram($("#h-elec"), E.null, E.obs, "share of variation in running ahead that bloc explains (η²)");
+  const q = [...E.null].sort((a, b) => a - b)[Math.floor(.95 * E.null.length)];
+  $("#elec-cap").innerHTML = `Grey bars: ${E.null.length.toLocaleString()} shuffles of the result among ` +
+    (state.nullBy === "state" ? `members of the same state. Only ${E.movable} of the ${E.n} members can move, because the rest share a state only with members of their own bloc. ` : `members in districts of similar lean. `) +
+    `Observed <b>${f(E.obs, 3)}</b> with ${E.n} members; 95% of shuffles fall below ${f(q, 3)} (${pTxt(E.p, E.null.length)}).`;
+}
+
+/* ---------- text chart ---------- */
+function drawText() {
+  const T = D.text[state.textVar];
+  histogram($("#h-text"), T.null, T.obs, "same-bloc minus different-bloc similarity", 4);
+  $("#text-cap").innerHTML = `Grey bars: ${T.null.length.toLocaleString()} shuffles of the bloc labels over the same ${D.text.n} members. Observed <b>${sg(T.obs, 4)}</b> (${pTxt(T.p, T.null.length)}). ` +
+    `For scale, any two of these members have similarity ${f(D.text.mean_sim, 3)} on average.`;
+}
+
+/* ---------- cards ---------- */
+function drawCards() {
+  const box = $("#cards"); box.innerHTML = "";
+  const pm = D.nodes.reduce((a, n) => a + (n.ideology ?? 0), 0) / D.nodes.length;
+  D.blocs.filter(b => b.big).forEach(b => {
+    const c = document.createElement("button"); c.className = "card" + (state.sel === b.id ? " sel" : "");
+    const F = b.fates, left = (F["did not run"] || 0) + (F["lost primary"] || 0), tot = b.n;
+    const seg = FATES.map(([k, , col]) => F[k] ? `<span style="flex:${F[k]};background:${col || "var(--line)"}"></span>` : "").join("");
+    c.innerHTML = `<h3><span class="dot" style="background:${blocColour(b.id)};width:14px;height:14px"></span>Bloc ${b.id} · ${b.n} members</h3>
+      <div class="words">${b.words.slice(0, 10).map(w => w[0]).join(", ")}</div>
+      <dl><dt>States</dt><dd>${b.states.map(s => s[0] + " " + s[1]).join(", ")}</dd>
+      <dt>Ideology</dt><dd>${f(b.ideology)} <small>(all: ${f(pm)})</small></dd>
+      <dt>Across aisle</dt><dd>${pct(b.walk)} of cosponsorships</dd>
+      <dt>District</dt><dd>${leanTxt(Math.round(b.lean))} on average</dd>
+      <dt>Vs district</dt><dd>${sg(b.over)} points <small>(${b.in_study} in study)</small></dd></dl>
+      <div class="fatebar" title="what happened to its members">${seg}</div>
+      <small>${F["re-elected"] || 0} re-elected · ${F["lost general"] || 0} lost in November · ${left} left before the vote</small>`;
+    c.onclick = () => select(state.sel === b.id ? null : b.id); box.appendChild(c);
+  });
+  const small = D.blocs.filter(b => !b.big);
+  $("#small-blocs").textContent = small.length ? `Not shown: ${small.length} small blocs (${small.map(b => b.id + ": " + b.n).join(", ")} members). They have fewer than ${M.min_bloc} members, so they are left out of every test.` : "";
+}
+
+/* ---------- state changes ---------- */
+function renderNet() { edgeEls.forEach((e, i) => { const [a, b] = D.edges[i]; e.style.display = state.edges ? "" : "none";
+    e.style.strokeOpacity = state.sel == null ? "" : (D.nodes[a].bloc === state.sel && D.nodes[b].bloc === state.sel ? .45 : .04); });
+  nodeEls.forEach((c, i) => paint(c, D.nodes[i])); $("#mode").value = state.mode; legend(); }
+function renderAll() { renderNet(); drawCards(); drawElection(); }
+function select(k) { state.sel = k; renderAll(); }
+$("#mode").onchange = e => { state.mode = e.target.value; state.edges = true; renderNet(); };
+$("#reset").onclick = () => { state.hit = null; $("#find").value = ""; select(null); };
+$("#find").oninput = e => { const q = e.target.value.trim().toLowerCase(); const n = q.length > 1 && D.nodes.find(n => n.name.toLowerCase().includes(q));
+  state.hit = n ? n.id : null; state.sel = n ? n.bloc : null; renderAll(); };
+$("#redrawn").onchange = e => { state.redrawn = e.target.checked; drawElection(); };
+$("#null-by").onchange = e => { state.nullBy = e.target.value; drawElection(); };
+$("#text-var").onchange = e => { state.textVar = e.target.value; drawText(); };
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", renderAll);
+
+/* ---------- story text ---------- */
+const S = D.structure, Wh = D.what, B = k => blocOf[k], byIdeo = D.blocs.filter(b => b.big).sort((a, b) => a.ideology - b.ideology);
+const most = byIdeo[byIdeo.length - 1], least = byIdeo[0];
+const geo = D.blocs.filter(b => b.big).sort((a, b) => b.top_state_share - a.top_state_share)[0];
+const lostMost = D.blocs.filter(b => b.big).sort((a, b) => (b.fates["lost general"] || 0) - (a.fates["lost general"] || 0))[0];
+const leftMost = D.blocs.filter(b => b.big).sort((a, b) => ((b.fates["did not run"] || 0) + (b.fates["lost primary"] || 0)) / b.n - ((a.fates["did not run"] || 0) + (a.fates["lost primary"] || 0)) / a.n)[0];
+const byOver = D.blocs.filter(b => b.big && b.over != null).sort((a, b) => b.over - a.over);
+const nullMean = a => a.reduce((x, y) => x + y, 0) / a.length;
+const nBlocRange = Object.keys(S.n_blocs).map(Number);
+
+$("#status").innerHTML = `<b>An exploration, not a result.</b> Election counts are unofficial, downloaded ${M.results_date}; at least ${M.pct_in_min}% of votes are counted in every race used. ` +
+  `A quick probe had already hinted at the election pattern before these definitions were fixed, so the last check is exploratory. Every number on this page is computed in <code>martin_blocs.ipynb</code>.`;
+
+const steps = [
+  ["plain", false, "One party, on paper", `These are <b class="num">${M.n_backbone}</b> of the ${M.n_party} Republicans who sat in the 119th House. Two members are tied when one signs on to the other's bill.<br><br>Drawn in full, the network says nothing: <b class="num">${pct(M.density)}</b> of all pairs are tied (${M.n_ties.toLocaleString()} ties). Almost everybody has signed something with almost everybody.`],
+  ["plain", true, "Keep only the ties that matter", `The <b>disparity filter</b> (week 4) keeps a tie only when it carries a surprisingly large share of a member's cosponsoring, given how many ties that member has (α = ${M.alpha}).<br><br><b class="num">${M.m_backbone}</b> ties survive out of ${M.n_ties.toLocaleString()}. ${M.n_party - M.n_backbone} members keep no tie and drop out of the picture.`],
+  ["bloc", true, `${D.blocs.length} blocs appear`, `Louvain community detection splits the backbone into <b class="num">${D.blocs.length}</b> blocs; ${big.length} have at least ${M.min_bloc} members and get a colour. The drawing pulls each bloc together so you can see it; the many grey lines between blocs are real.<br><br>Modularity is <b class="num">${f(S.Q, 3)}</b>. Networks with the same degrees but randomly placed ties reach only ${f(nullMean(S.null), 3)}. The split is more than chance, but it is not rock solid: over ${M.n_louvain} runs Louvain found between ${Math.min(...nBlocRange)} and ${Math.max(...nBlocRange)} blocs.`],
+  ["ideology", true, "Is a bloc just a slice of left to right?", `Partly. Bloc membership explains <b class="num">${pct(Wh.ideo_eta)}</b> of the variation in the roll-call ideology score; shuffled labels explain under ${pct(Wh.ideo_null95)}.<br><br>Bloc ${most.id} is the most conservative (mean ${f(most.ideology)}), bloc ${least.id} the least (${f(least.ideology)}). The other blocs sit close together, so ideology does not tell them apart.`],
+  ["bloc", true, "Is a bloc just a state delegation?", `Also partly. Blocs and states agree at NMI <b class="num">${f(Wh.state_nmi)}</b>, against ${f(Wh.state_null)} for shuffled labels.<br><br>Bloc ${geo.id} is the clearest case: ${geo.states[0][1]} of its ${geo.n} members are from ${geo.states[0][0]}. Members sign their neighbours' bills. This matters later: a bloc that did well may simply be a state that did well.`],
+  ["fate", true, "Then came November", `Democrats won the House. Bloc ${lostMost.id} lost <b class="num">${lostMost.fates["lost general"]}</b> of its ${lostMost.n} members at the ballot box, more than any other bloc. Its districts are also the closest (${leanTxt(Math.round(lostMost.lean))} on average).<br><br>Bloc ${leftMost.id} lost members another way: ${(leftMost.fates["did not run"] || 0) + (leftMost.fates["lost primary"] || 0)} of ${leftMost.n} did not run again or lost a primary.`],
+  ["over", true, "Losing is mostly the district. So compare to the district.", `District lean explains <b class="num">${pct(D.election.r2)}</b> of the variation in margins. The fairer question is who ran <b>ahead of</b> or <b>behind</b> what their district predicts.<br><br>Blocs ${byOver[0].id} and ${byOver[1].id} ran ahead (${sg(byOver[0].over)} and ${sg(byOver[1].over)} points on average); bloc ${byOver[byOver.length - 1].id} ran behind (${sg(byOver[byOver.length - 1].over)}). The checks below ask whether any of this is more than chance.`],
+];
+$("#steps").innerHTML = steps.map(([m, e, h, t], i) => `<div class="step" data-i="${i}"><p class="kicker">${i + 1} of ${steps.length}</p><h2 style="margin-top:0">${h}</h2><p>${t}</p></div>`).join("");
+const io = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return;
+  document.querySelectorAll(".step").forEach(s => s.classList.toggle("on", s === e.target));
+  const [m, ed] = steps[+e.target.dataset.i]; state.mode = m; state.edges = ed; renderNet(); }), { rootMargin: "-45% 0px -45% 0px" });
+document.querySelectorAll(".step").forEach(s => io.observe(s));
+
+const above = S.Q > Math.max(...S.null);
+$("#structure-text").innerHTML = `Modularity only says the grouping is there, not that it is the right one. The check is a <b>null model</b> (week 2): rewire the backbone ${M.n_rewire} times, keeping every member's number of ties, and run Louvain again. ` +
+  `The real network scores ${f(S.Q, 3)}, ${above ? "above every rewired network" : "inside the range of the rewired networks"}.`;
+$("#structure-cap").innerHTML = `Agreement between ${M.n_louvain} Louvain runs: NMI ${f(S.stability)}. Democrats, same recipe: modularity ${f(S.dem.Q, 3)} against ${f(S.dem.null_mean, 3)} by chance, agreement ${f(S.dem.stability)}. Their blocs are weaker.`;
+$("#sens").innerHTML = `<table><tr><th>Setting</th><th class="r">Members</th><th class="r">Blocs</th><th class="r">Modularity</th><th class="r">Agreement with main</th></tr>` +
+  D.sensitivity.map(r => `<tr><td>${r.setting}</td><td class="r">${r.members}</td><td class="r">${r.blocs}</td><td class="r">${f(r.modularity, 3)}</td><td class="r">${f(r.nmi_with_main)}</td></tr>`).join("") + `</table>`;
+const sensMin = Math.min(...D.sensitivity.slice(1).map(r => r.nmi_with_main));
+$("#sens-cap").innerHTML = `<b>This is the weak point.</b> Agreement is NMI, where 1 is the same grouping and 0 is unrelated. Changing the filter threshold moves many members between blocs (agreement as low as ${f(sensMin)}). The blocs are real as a pattern, but the exact membership depends on a setting we chose.`;
+
+const Ta = D.text.all, To = D.text.other_state;
+$("#text-text").innerHTML = `One member's speeches are a noisy measure (the group's split-half check gave ρ = 0.41). A bloc pools many members, so the question becomes fair: are two members of the same bloc closer in vocabulary than two members of different blocs? ` +
+  `They are: ${sg(Ta.obs, 4)} against about zero for shuffled labels (${pTxt(Ta.p, Ta.null.length)}). The gap ${To.p < .05 ? "holds" : "does not hold"} when only members from different states are compared (${sg(To.obs, 4)}, ${pTxt(To.p, To.null.length)}).`;
+
+const Ea = D.election.all, En = D.election.no_redrawn, Es = D.election.state, Esn = D.election.state_no_redrawn, survives = Es.p < .05;
+$("#elec-text").innerHTML = `Among the ${Ea.n} members in a tested bloc and in the study, bloc explains <b>${pct(Ea.obs)}</b> of the variation in running ahead of the district, against ${pct(nullMean(Ea.null))} expected by chance (${pTxt(Ea.p, Ea.null.length)}). ` +
+  `Without the nine redrawn states it is ${pct(En.obs)} with ${En.n} members (${pTxt(En.p, En.null.length)}).<br><br>` +
+  `<b>The state check.</b> Several blocs are built around state delegations, and state alone explains <b>${pct(D.election.state_eta)}</b> of running ahead. So the fair comparison keeps every result inside its state and shuffles only there. ` +
+  `Against that null, chance already gives ${pct(nullMean(Es.null))}, and the observed ${pct(Es.obs)} is ${survives ? "still above it" : "no longer above it"} (${pTxt(Es.p, Es.null.length)}; without redrawn states ${pTxt(Esn.p, Esn.null.length)}). ` +
+  (survives ? `The uneven wave survives the state check.` : `<b>The uneven wave does not survive: it is a difference between states, not between blocs.</b>`) + ` Switch the setting below to see both nulls.`;
+$("#elec-care").innerHTML = [
+  survives ? `<b>State check passed.</b> Shuffling within states still leaves bloc above chance (${pTxt(Es.p, Es.null.length)}).`
+    : `<b>State, not bloc.</b> The blocs that ran ahead (${byOver.slice(0, 3).map(b => b.id + ": " + b.states[0][0]).join(", ")}) are built around state delegations. Once results stay inside their state, bloc adds nothing (${pTxt(Es.p, Es.null.length)}).`,
+  `<b>Less power.</b> In the state check only ${Es.movable} of ${Es.n} members can move, and blocs that are one delegation cannot be told apart from their state. The check can show that state is enough; it cannot prove bloc has no effect.`,
+  `<b>Exploratory.</b> An earlier probe showed this pattern before the definitions were fixed.`,
+  `<b>Fragile membership.</b> The result has only been computed for one partition. It must be repeated for the other settings in the table above.`,
+  `<b>Small groups.</b> Blocs have ${Math.min(...byOver.map(b => b.in_study))} to ${Math.max(...byOver.map(b => b.in_study))} members in the study.`,
+  `<b>Not causal.</b> Nothing here says a member did better because of the bloc.`,
+].map(t => `<li>${t}</li>`).join("");
+
+$("#verdict").innerHTML = [
+  [f(S.Q, 3) + " vs " + f(nullMean(S.null), 3), "Blocs exist", "Modularity against rewired networks. Membership shifts with the filter threshold."],
+  [pct(Wh.ideo_eta), "Partly ideology", "Share of roll-call ideology explained by bloc. Geography explains part too."],
+  [pTxt(To.p, To.null.length), "Blocs speak differently", "Even between members from different states."],
+  survives ? [pTxt(Es.p, Es.null.length), "The wave was uneven across blocs", "Bloc still explains running ahead when results are shuffled only within states."]
+    : [pct(Es.obs) + " vs " + pct(nullMean(Es.null)), "The uneven wave is a state effect", `Bloc explains no more than chance once results stay inside their state (${pTxt(Es.p, Es.null.length)}). State alone explains ${pct(D.election.state_eta)}.`],
+].map(([n, h, t]) => `<div><div class="big">${n}</div><h3 style="margin-top:8px">${h}</h3><p class="small" style="margin:0">${t}</p></div>`).join("");
+$("#open").innerHTML = [
+  "Why states differ so much in running ahead. Unverified lean in redrawn states could produce part of it.",
+  "The text check under the other backbone settings.",
+  "Known caucus lists (Freedom Caucus, Problem Solvers and others) as outside validation of the blocs.",
+  "District lean in the nine redrawn states. Whether the figures describe the new lines is unverified.",
+  "Speaker assignment in the Record. The 60-turn hand check is still empty.",
+  "Final vote counts. Results were unofficial on the download date.",
+].map(t => `<li>${t}</li>`).join("");
+$("#choices").innerHTML = `<table><tr><th>Choice</th><th>What we did</th><th>The alternative, and what it would change</th></tr>` + [
+  ["Scope", "Republicans only; ties to Democrats dropped", "Keep both parties: the party split would dominate and blocs would mix party with position"],
+  ["Tie", "Undirected; weight = times two members signed each other's bills (bills and joint resolutions)", "Directed ties separate leaders from followers but need a directed method"],
+  ["Backbone", `Disparity filter, α = ${M.alpha}, kept if significant for either member`, "A stricter α gives more, smaller blocs and drops members; a looser one gives fewer, vaguer blocs"],
+  ["Partition", `Louvain, ${M.n_louvain} seeds, keep the run that agrees most with the others`, "The highest-modularity run is less typical; consensus clustering would be more stable"],
+  ["Small blocs", `Fewer than ${M.min_bloc} members: shown, not tested`, "Including them adds groups too small to say anything about"],
+  ["Text", "The group's cleaning and stop lists; TF-IDF and cosine similarity", "Embeddings would capture meaning beyond shared words but are harder to explain"],
+  ["Outcome", "Margin minus a straight-line prediction from district lean", "A prior-election baseline would be better where lean is unverified"],
+  ["Election null", "Two nulls: shuffle within fifths of district lean, and shuffle within state", "The lean null alone lets state differences pass as bloc differences. Subtracting state means instead gives the same reading but needs states with several members"],
+  ["Layout", "Spring layout in which ties inside a bloc pull six times harder than ties between blocs", "The picture shows the blocs as more separate than they are. A plain spring layout gives one dense ball. Positions carry no measurement; the numbers do not depend on them"],
+].map(r => `<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("") + `</table>`;
+
+histogram($("#h-structure"), S.null, S.Q, "Louvain modularity");
+drawText(); renderAll();
+</script>
+</body>
+</html>
