@@ -244,6 +244,7 @@ When our own project crawls a domain, those choices become ours.
 | `posts/week{N}/` | That week's write-up for the site. |
 | `index.html` | Site homepage, served at the Pages root. |
 | `docs/` | Documentation for us, not for the site. This file lives here; `AI_METHODS.md` will join it during the project. |
+| `project/` | The final project. `README.md` is the question and design; `WORK_AND_DEADLINES.md` is the live status and is updated whenever something changes; `archive/` is how the direction was chosen. |
 | `CLAUDE.md`, `AGENTS.md` | Root-level pointers to this file. **They have to stay at the root** — that is the only place agent tools load them from automatically. |
 
 **Datasets are committed to git.** They total ~125 KB, and a frozen release only does its

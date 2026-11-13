@@ -12,3 +12,8 @@ here, in case this file is all you read:
 
 🚀 Builder exercises are the opposite: full agentic mode, be ambitious. Just surface every
 modelling choice you make, because a human has to defend it out loud at a live demo.
+
+**Final project:** the question and design are in [`project/README.md`](project/README.md). Who does what, the
+status and the deadlines are in [`project/WORK_AND_DEADLINES.md`](project/WORK_AND_DEADLINES.md). **Update that file
+whenever a task starts, finishes, is blocked or dropped, or a date moves**, and add a line to its log.
+Everything in `project/archive/` is history, not the plan.
