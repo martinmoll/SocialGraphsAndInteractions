@@ -17,18 +17,24 @@ Status words: **Not started**, **In progress**, **Done**, **Blocked** (say by wh
 
 | Date | What | State |
 |---|---|---|
-| Sun 15 Nov | Collector keeps full text (A1); matcher precision counted (D1) | Open |
+| Sun 15 Nov | The three shared files exist in a first version (M1, M2, A1), so nobody waits on anybody; matcher precision counted (D1) | Open |
 | **Wed 18 Nov, 14:00–17:00** | Group meeting: fix the definitions, confirm owners, outline the paper in Overleaf, ask the teachers (section 4) | Open |
 | **Sun 22 Nov** | Numbers frozen. No definition changes after this | Open |
 | Mon 23 Nov | Final data download, with the date recorded | Open |
-| **Tue 24 Nov, 20:00** | Full draft in Overleaf. Everyone reads all of it | Open |
+| **Tue 24 Nov, 20:00** | Full draft in Overleaf and a first version of the three slides. Everyone reads all of it | Open |
 | **Wed 25 Nov, 14:00–17:00** | Group meeting: read aloud, cut to six pages, number check, rehearse | Open |
-| Thu 26 Nov | Submit. Friday is buffer only | Open |
-| **Fri 27 Nov, 23:59** | **Hand-in deadline** | Open |
-| **Wed 2 Dec** | **Presentation:** three slides, three minutes, then questions | Open |
+| Thu 26 Nov | Submit all three PDFs. Friday is buffer only | Open |
+| **Fri 27 Nov, 23:59** | **Hand-in deadline on DTU Learn: paper, slides and reflection, all three** | Open |
+| **Wed 2 Dec** | **Presentation:** three minutes with the slides handed in on 27 Nov, then questions to whichever member the teachers pick | Open |
 
-**What is handed in:** a paper in the PNAS template (at most six pages), three slides, a half-page
-reflection, and `docs/AI_METHODS.md` in the repository.
+**What is handed in on 27 November, as three PDFs:**
+
+1. **Paper:** PNAS template, at most six pages including figures and references.
+2. **Slides:** three pages, no animations. The teachers merge every group's slides into one deck, so the
+   slides cannot be changed after the deadline.
+3. **Reflection:** half a page, ungraded.
+
+`docs/AI_METHODS.md` must also be in the repository.
 
 ---
 
@@ -42,19 +48,20 @@ has not confirmed them. Confirm or change on 18 November.** Hours have not been 
 | # | Task | Delivers | Needs | Status |
 |---|---|---|---|---|
 | M0 | Prototype of the two maps | `prototype_two_maps.ipynb`, one run | | Done (13 Nov) |
-| M1 | Move the name matcher out of the notebook into `scripts/`, so floor speeches and press releases use the same one. Add a guard against senators and non-members | One shared matcher | | Not started |
-| M2 | Write `named_ties.csv` from the floor speeches | `data/processed/named_ties.csv` | M1 | Not started |
+| M1 | Move the name matcher out of the notebook into `scripts/`, so floor speeches and press releases use the same one. First version by Sun 15 Nov, as it is in the notebook. The guard against senators and non-members can follow | One shared matcher | | Not started |
+| M2 | Write `mentions.parquet` and `named_ties.csv` from the floor speeches. First version by Sun 15 Nov | The two files in section 3 | M1 | Not started |
 | M3 | Fix the definitions for part 1 in writing: how the working map is thinned, whether yields count, bill types | Definitions agreed by the group | 18 Nov meeting | Not started |
 | M4 | Harder null: rewire while keeping who spoke in the same debate | A second null for the floor map | M2 | Not started |
 | M5 | Louvain communities on each map; overlap with party and between maps (NMI) | Numbers for Results | M3 | Not started |
 | M6 | Null for the close-up: of a member's own bills, are the cross-party ones announced more often than a random draw? | The fair baseline (fix 1) | A3 | Not started |
-| M7 | Figure 1 (the two maps and their division against the nulls); network part of Results; slides | Figure, text, slides | M3–M5 | Not started |
+| M7 | Figure 1 (the two maps and their division against the nulls); network part of Results | Figure, text | M3–M5 | Not started |
+| M8 | The three slides: question and data; the main figure; what it means and how it was checked. PDF, no animations. **Due with the paper on 27 Nov** | Slides PDF | M7, A4, D2 | Not started |
 
 ### Anas: the home text (close-up)
 
 | # | Task | Delivers | Needs | Status |
 |---|---|---|---|---|
-| A1 | Change the collector to store full text, date and the sentence around each name. Fix the bug that turns "Davis's" into "Davi". Starting point: `archive/Anas_Claude/pilot/press_pull.py`; new home `scripts/` | A collector that keeps the text (fix 3) | | Not started |
+| A1 | Change the collector to store the full text and the date of every release. It does not match names: the shared matcher (M1) does that. First version by Sun 15 Nov. Starting point: `archive/Anas_Claude/pilot/press_pull.py`; new home `scripts/` | A collector that keeps the text (fix 3) | | Not started |
 | A2 | Collect the first 20 Republicans, spread over district lean. Then decide whether to go to about 60 | `data/processed/press_releases.parquet` (first part); go or no-go | A1 | Not started |
 | A3 | Match each release to its bill by bill number; mark each named colleague as co-lead or not | Release-to-bill table (fix 1) | A2, M1 | Not started |
 | A4 | Showcase ties: which Democrats each Republican names at home. Check the named examples (Roy–Cohen, Biggs–Jayapal, Lawler 1 of 10, Bacon 8 of 10) against full text | Table and figure for the close-up | A3 | Not started |
@@ -66,7 +73,7 @@ has not confirmed them. Confirm or change on 18 November.** Hours have not been 
 | # | Task | Delivers | Needs | Status |
 |---|---|---|---|---|
 | D1 | Count the 30 matches printed in the prototype notebook; extend to about 100; report precision | Matcher precision for Methods | | Not started |
-| D2 | Labelling protocol for cross-party floor mentions: agreeing, disagreeing or procedural. Draw the sample | Protocol and sample | M2 | Not started |
+| D2 | Labelling protocol for cross-party floor mentions: agreeing, disagreeing or procedural. Draw the sample from `mentions.parquet` | Protocol and sample | M2 for the sample; the protocol can start now | Not started |
 | D3 | Read Westwood and Harbridge: three lines on what each found. Settle Westwood's year. Find three or four more references | Note on prior work; reference list | | Not started |
 | D4 | Introduction and Discussion; the half-page reflection | Text | D3 | Not started |
 
@@ -80,14 +87,42 @@ has not confirmed them. Confirm or change on 18 November.** Hours have not been 
 
 ---
 
-## 3. What blocks what
+## 3. Working without waiting on each other
 
-- **A1 before any more collecting.** Without the full text, fixes 1 and 3 cannot be done.
-- **M1 before M2 and A3.** One matcher for both text sources.
-- **M2 before D2 and M4.** The labelling sample and the harder null both read `named_ties.csv`.
-- **D2 and S1 decide the headline of part 1** ("less divided" or "talks across the aisle to argue"). Do
-  them early.
-- **If the collection fails after A2:** parts 1 and 2 still make a paper. Drop A3–A5 and M6.
+Each person has their own notebook and their own script. The streams meet only in three shared files in
+`data/processed/`. **The columns below are the agreement.** Anyone can build against them before the file
+is complete, and nobody changes a column without saying so in the chat.
+
+| File | Written by | Read by | One row is | Columns |
+|---|---|---|---|---|
+| `mentions.parquet` | Martin (floor), Anas (press), both with the shared matcher | Diego (D1, D2), Martin, Anas | One mention of a member | `speaker`, `named` (Bioguide IDs), `source` (`floor` or `press`), `date`, `doc_id`, `context` (the sentence), `is_yield` |
+| `named_ties.csv` | Martin | Martin, Anas | One pair of members per source | `speaker`, `named`, `source`, `n_mentions` |
+| `press_releases.parquet` | Anas | Anas, Martin (M6) | One press release | `bioguide`, `url`, `date`, `title`, `text` |
+
+**Can start today, with nothing from anyone else**
+
+- Martin: M1, M2, then M4 and M5.
+- Anas: A1, A2.
+- Diego: D1 (the matches are printed in the prototype notebook), D3, the protocol half of D2.
+- Everyone: S2.
+
+**The places where one person waits on another**
+
+| Waiting | On | How to keep it short |
+|---|---|---|
+| Diego's labelling sample (D2) | Martin's `mentions.parquet` (M2) | Martin writes a first version by Sun 15 Nov straight from the prototype. A better matcher later only adds rows |
+| Anas's bill matching (A3) | Martin's shared matcher (M1) | Same date. Until then Anas collects text, which needs no matcher |
+| Martin's close-up null (M6) | Anas's release-to-bill table (A3) | The latest link in the chain. Martin builds it against the columns above with the 280 sampled releases |
+| Martin's definitions (M3) | The 18 Nov meeting | Everything before M5 runs on the prototype's definitions |
+| The slides (M8) | One figure from each stream | Each stream delivers its figure by the draft on Tue 24 Nov |
+
+**Two things that cannot be done alone:** the second coding of the labelling sample (S1), and reading
+each other's parts (S3).
+
+**The order that matters most:** D2 and S1 decide the headline of part 1 ("less divided" or "talks across
+the aisle to argue"). Do them early.
+
+**If the collection fails after A2:** parts 1 and 2 still make a paper. Drop A3–A5 and M6.
 
 ---
 
@@ -121,6 +156,9 @@ From the earlier plans in `archive/`. Listed so nobody keeps working on them.
 
 Newest first. One line per change.
 
+- **13 Nov 2026.** Pull request 5 merged to `main`. Slides are due with the paper on 27 Nov, not at the
+  presentation: deadlines updated and slides made their own task (M8). Section 3 rewritten: columns of the
+  three shared files fixed, first versions due Sun 15 Nov, A1 no longer depends on the matcher.
 - **13 Nov 2026.** File created. Direction settled: two maps of Congress as the main question, press
   releases as the close-up, three fixes to the press-release test. Earlier plans moved to `archive/`.
   Prototype M0 done. Owners proposed, not confirmed.

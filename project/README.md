@@ -126,8 +126,8 @@ Addresses, snapshot dates and the known gaps of each source are in
 apply: nobody has hand-checked speaker assignment (`data/processed/speaker_check_sample.csv`, 60 turns),
 and the election counts are unofficial.
 
-To be written: `named_ties.csv` (member, named colleague, source, date, count) and
-`press_releases.parquet`.
+To be written: `mentions.parquet`, `named_ties.csv` and
+`press_releases.parquet`. Their columns are fixed in [`WORK_AND_DEADLINES.md`](WORK_AND_DEADLINES.md), section 3.
 
 ## 8. Folder layout
 
