@@ -17,7 +17,7 @@ Status words: **Not started**, **In progress**, **Done**, **Blocked** (say by wh
 
 | Date | What | State |
 |---|---|---|
-| Sun 15 Nov | The three shared files exist in a first version (M1, M2, A1), so nobody waits on anybody; matcher precision counted (D1) | Open |
+| Wed 18 Nov, before the meeting | The three shared files exist in a first version (M1, M2, A1), so nobody waits on anybody; matcher precision counted (D1) | Open |
 | **Wed 18 Nov, 14:00–17:00** | Group meeting: fix the definitions, confirm owners, outline the paper in Overleaf, ask the teachers (section 4) | Open |
 | **Sun 22 Nov** | Numbers frozen. No definition changes after this | Open |
 | Mon 23 Nov | Final data download, with the date recorded | Open |
@@ -48,8 +48,8 @@ has not confirmed them. Confirm or change on 18 November.** Hours have not been 
 | # | Task | Delivers | Needs | Status |
 |---|---|---|---|---|
 | M0 | Prototype of the two maps | `prototype_two_maps.ipynb`, one run | | Done (13 Nov) |
-| M1 | Move the name matcher out of the notebook into `scripts/`, so floor speeches and press releases use the same one. First version by Sun 15 Nov, as it is in the notebook. The guard against senators and non-members can follow | One shared matcher | | Not started |
-| M2 | Write `mentions.parquet` and `named_ties.csv` from the floor speeches. First version by Sun 15 Nov | The two files in section 3 | M1 | Not started |
+| M1 | Move the name matcher out of the notebook into `scripts/`, so floor speeches and press releases use the same one. First version by Wed 18 Nov, as it is in the notebook. The guard against senators and non-members can follow | One shared matcher | | Not started |
+| M2 | Write `mentions.parquet` and `named_ties.csv` from the floor speeches. First version by Wed 18 Nov | The two files in section 3 | M1 | Not started |
 | M3 | Fix the definitions for part 1 in writing: how the working map is thinned, whether yields count, bill types | Definitions agreed by the group | 18 Nov meeting | Not started |
 | M4 | Harder null: rewire while keeping who spoke in the same debate | A second null for the floor map | M2 | Not started |
 | M5 | Louvain communities on each map; overlap with party and between maps (NMI) | Numbers for Results | M3 | Not started |
@@ -61,7 +61,7 @@ has not confirmed them. Confirm or change on 18 November.** Hours have not been 
 
 | # | Task | Delivers | Needs | Status |
 |---|---|---|---|---|
-| A1 | Change the collector to store the full text and the date of every release. It does not match names: the shared matcher (M1) does that. First version by Sun 15 Nov. Starting point: `archive/Anas_Claude/pilot/press_pull.py`; new home `scripts/` | A collector that keeps the text (fix 3) | | Not started |
+| A1 | Change the collector to store the full text and the date of every release. It does not match names: the shared matcher (M1) does that. First version by Wed 18 Nov. Starting point: `archive/Anas_Claude/pilot/press_pull.py`; new home `scripts/` | A collector that keeps the text (fix 3) | | Not started |
 | A2 | Collect the first 20 Republicans, spread over district lean. Then decide whether to go to about 60 | `data/processed/press_releases.parquet` (first part); go or no-go | A1 | Not started |
 | A3 | Match each release to its bill by bill number; mark each named colleague as co-lead or not | Release-to-bill table (fix 1) | A2, M1 | Not started |
 | A4 | Showcase ties: which Democrats each Republican names at home. Check the named examples (Roy–Cohen, Biggs–Jayapal, Lawler 1 of 10, Bacon 8 of 10) against full text | Table and figure for the close-up | A3 | Not started |
@@ -110,7 +110,7 @@ is complete, and nobody changes a column without saying so in the chat.
 
 | Waiting | On | How to keep it short |
 |---|---|---|
-| Diego's labelling sample (D2) | Martin's `mentions.parquet` (M2) | Martin writes a first version by Sun 15 Nov straight from the prototype. A better matcher later only adds rows |
+| Diego's labelling sample (D2) | Martin's `mentions.parquet` (M2) | Martin writes a first version by Wed 18 Nov straight from the prototype. A better matcher later only adds rows |
 | Anas's bill matching (A3) | Martin's shared matcher (M1) | Same date. Until then Anas collects text, which needs no matcher |
 | Martin's close-up null (M6) | Anas's release-to-bill table (A3) | The latest link in the chain. Martin builds it against the columns above with the 280 sampled releases |
 | Martin's definitions (M3) | The 18 Nov meeting | Everything before M5 runs on the prototype's definitions |
@@ -156,6 +156,8 @@ From the earlier plans in `archive/`. Listed so nobody keeps working on them.
 
 Newest first. One line per change.
 
+- **13 Nov 2026.** First versions of the shared files (M1, M2, A1) moved from Sun 15 Nov to Wed 18 Nov,
+  before the meeting.
 - **13 Nov 2026.** Pull request 5 merged to `main`. Slides are due with the paper on 27 Nov, not at the
   presentation: deadlines updated and slides made their own task (M8). Section 3 rewritten: columns of the
   three shared files fixed, first versions due Sun 15 Nov, A1 no longer depends on the matcher.
