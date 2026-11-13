@@ -55,7 +55,7 @@ In our data:
 
 ## 3. How this review was made
 
-Martin found P1 uninteresting as it stood and asked for ways to improve it. Claude set up a "council" of
+ Claude set up a "council" of
 five AI reviewers. Each one read the repository and judged the same list of eight possible improvements
 from one point of view, then voted for its top three.
 
