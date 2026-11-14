@@ -1,6 +1,6 @@
 # Work and deadlines
 
-**Last updated: Friday 13 November 2026.**
+**Last updated: Saturday 14 November 2026.**
 
 This is the one place that says who does what, how far it is, and what is due when. The question and the
 design are in [`README.md`](README.md).
@@ -72,10 +72,10 @@ has not confirmed them. Confirm or change on 18 November.** Hours have not been 
 
 | # | Task | Delivers | Needs | Status |
 |---|---|---|---|---|
-| D1 | Count the 30 matches printed in the prototype notebook; extend to about 100; report precision | Matcher precision for Methods | | Not started |
-| D2 | Labelling protocol for cross-party floor mentions: agreeing, disagreeing or procedural. Draw the sample from `mentions.parquet` | Protocol and sample | M2 for the sample; the protocol can start now | Not started |
-| D3 | Read Westwood and Harbridge: three lines on what each found. Settle Westwood's year. Find three or four more references | Note on prior work; reference list | | Not started |
-| D4 | Introduction and Discussion; the half-page reflection | Text | D3 | Not started |
+| D1 | Count the 30 matches printed in the prototype notebook; extend to about 100; report precision | Matcher precision for Methods: `Diego_Claude/d1_matcher_precision/REPORT.md` | | In progress: 100 random matches labelled by Claude, 93 correct. Provisional until Diego has checked the labels |
+| D2 | Labelling protocol for cross-party floor mentions: agreeing, disagreeing or procedural. Draw the sample from `mentions.parquet` | Protocol and sample: `Diego_Claude/d2_labelling/PROTOCOL.md` | M2 for the sample; the protocol can start now | In progress: protocol version 1 written, to be agreed on 18 Nov. Sample blocked by M2 |
+| D3 | Read Westwood and Harbridge: three lines on what each found. Settle Westwood's year. Find three or four more references | Note on prior work; reference list: `Diego_Claude/d3_prior_work.md`, `references.bib` | | In progress: written from abstracts, Westwood is 2022. Westwood's abstract still to be read at the publisher |
+| D4 | Introduction and Discussion; the half-page reflection | Text: `Diego_Claude/d4_drafts.md` | D3 | In progress: drafted with placeholders for all numbers |
 
 ### Everyone
 
@@ -156,6 +156,10 @@ From the earlier plans in `archive/`. Listed so nobody keeps working on them.
 
 Newest first. One line per change.
 
+- **14 Nov 2026.** Diego's stream started in `Diego_Claude/` (Diego with Claude). D1: 93 of 100 random
+  matches correct, first-pass labels awaiting Diego's check; the roster stores 18 surnames in capitals, so
+  those members are never matched and four namesakes receive their mentions (for M1). D2 protocol version 1,
+  D3 note and D4 drafts written.
 - **13 Nov 2026.** First versions of the shared files (M1, M2, A1) moved from Sun 15 Nov to Wed 18 Nov,
   before the meeting.
 - **13 Nov 2026.** Pull request 5 merged to `main`. Slides are due with the paper on 27 Nov, not at the
