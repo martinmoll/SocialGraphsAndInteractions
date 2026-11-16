@@ -8,7 +8,7 @@ resolution rules, same turn filter), then draws
   * a supplementary sample: 20 more mentions from each of the three resolution routes that are rare in
     the main sample (state nearby, first name, Speaker rule), seed 2806.
 
-Run from project/:  python Diego_Claude/d1_matcher_precision/draw_sample.py
+Run from project/:  python Diego/d1_matcher_precision/draw_sample.py
 Writes sample_main.csv and sample_supplement.csv next to this file, without labels.
 """
 import re

@@ -1,15 +1,18 @@
-# Diego_Claude: validation and literature
+# Diego: validation and literature
+
+Diego's own folder. Each member writes only in their own folder (`Diego/`, `Martin/`, `Anas/`) and never edits
+or deletes another's.
 
 Diego Mijares working with Claude (Anthropic's AI assistant), 14 November 2026. This folder holds Diego's
 share of the project as proposed in [`../WORK_AND_DEADLINES.md`](../WORK_AND_DEADLINES.md): D1 to D4. Owners
 are not confirmed until 18 November. Nothing here edits another person's notebook or the shared data.
 
-The work was done by Claude in one session at Diego's request and is to be reviewed by Diego. Where a
-choice was a matter of judgement, the file carries a footnote saying so, and the choices are listed below.
+Diego and Claude did this work together, with Claude doing most of the drafting and coding. Where a choice was a
+matter of judgement, the file carries a footnote saying so, and the choices are listed below.
 
 | Task | File | State on 14 Nov |
 |---|---|---|
-| D1 Matcher precision | [`d1_matcher_precision/REPORT.md`](d1_matcher_precision/REPORT.md) | 160 matches labelled by Claude. **93 of 100 correct in the random sample, provisional until Diego has checked the labels** |
+| D1 Matcher precision | [`d1_matcher_precision/REPORT.md`](d1_matcher_precision/REPORT.md) | 160 matches labelled by Claude. **93 of 100 correct in the random sample, provisional until Diego has checked the labels** (Diego reads [`d1_matcher_precision/CHECK.md`](d1_matcher_precision/CHECK.md)) |
 | D2 Labelling protocol | [`d2_labelling/PROTOCOL.md`](d2_labelling/PROTOCOL.md) | Version 1 written, scripts tested on a stand-in file. Sample waits for `mentions.parquet` (M2) |
 | D3 Prior work | [`d3_prior_work.md`](d3_prior_work.md), [`references.bib`](references.bib) | Eight references verified in Crossref and summarised from abstracts. Westwood's year settled: 2022 |
 | D4 Introduction, Discussion, reflection | [`d4_drafts.md`](d4_drafts.md) | Drafted with placeholders for every number that is not frozen |
@@ -27,9 +30,10 @@ choice was a matter of judgement, the file carries a footnote saying so, and the
 4. **Anas (`docs/AI_METHODS.md`):** D1 labels are a model's first pass until checked by a person, and this
    file should be listed with the rest.
 
-## Decisions that are Diego's to confirm
+## Decisions taken
 
-Taken by Claude as the best option and footnoted in the files. Each can be changed.
+Diego took these under Claude's guidance. Each is footnoted where it applies. The group can still change
+any of them at the 18 November meeting.
 
 | # | Decision | Where | Alternative |
 |---|---|---|---|
@@ -49,9 +53,10 @@ Taken by Claude as the best option and footnoted in the files. Each can be chang
 From `project/`, with pandas and pyarrow installed:
 
 ```
-python Diego_Claude/d1_matcher_precision/draw_sample.py     # rebuilds the notebook's mentions, draws the samples
-python Diego_Claude/d1_matcher_precision/make_labels.py     # writes labels.csv, keeps any diego_check entries
-python Diego_Claude/d1_matcher_precision/score.py           # every number in the D1 report
+python Diego/d1_matcher_precision/draw_sample.py     # rebuilds the notebook's mentions, draws the samples
+python Diego/d1_matcher_precision/make_labels.py     # writes labels.csv, keeps any diego_check entries
+python Diego/d1_matcher_precision/score.py           # every number in the D1 report
+python Diego/d1_matcher_precision/make_check_sheet.py  # CHECK.md, the 100 matches for Diego to read
 ```
 
 Run on 14 November with Python 3.12 and pandas 3.1.1. The mention table reproduces the notebook's exactly

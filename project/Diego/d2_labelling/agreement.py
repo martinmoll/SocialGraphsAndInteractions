@@ -1,6 +1,6 @@
 """D2 / S1: agreement between the two coders of every mention, and the distribution of codes.
 
-Run from project/ when the three sheets are filled in:  python Diego_Claude/d2_labelling/agreement.py
+Run from project/ when the three sheets are filled in:  python Diego/d2_labelling/agreement.py
 Codes: A agreeing, D disagreeing, P procedural, N neutral, X not a mention of that member (see PROTOCOL.md).
 """
 from pathlib import Path

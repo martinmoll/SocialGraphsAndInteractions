@@ -1,6 +1,6 @@
 """D1: precision of the name matcher from labels.csv, and how far each error type reaches in all mentions.
 
-Run from project/:  python Diego_Claude/d1_matcher_precision/score.py
+Run from project/:  python Diego/d1_matcher_precision/score.py
 """
 import sys
 from math import sqrt

@@ -1,7 +1,7 @@
 """D2: draw the labelling sample from mentions.parquet and write one sheet per coder.
 
 Run from project/ once Martin's file exists:
-    python Diego_Claude/d2_labelling/draw_labelling_sample.py [path/to/mentions.parquet]
+    python Diego/d2_labelling/draw_labelling_sample.py [path/to/mentions.parquet]
 
 Design (see PROTOCOL.md): 150 cross-party and 50 same-party floor mentions, drawn at random with seed 2805
 and shuffled together. Diego codes all 200. Martin and Anas each code 100, so every mention has two coders.
