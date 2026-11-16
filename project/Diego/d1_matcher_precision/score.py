@@ -13,7 +13,8 @@ import draw_sample as d          # rebuilds the notebook's mention table M (and 
 
 M, members, party = d.M, d.members, d.party
 L = pd.read_csv(HERE / "labels.csv", dtype={"item": str}, keep_default_na=False)
-L["verdict"] = np.where(L.diego_check.isin(["", "ok"]), L.verdict, L.diego_check)     # Diego's check overrules
+VERDICTS = ["correct", "wrong_person", "not_spoken"]
+L["verdict"] = np.where(L.diego_check.isin(VERDICTS), L.diego_check, L.verdict)     # Diego's check overrules
 main, supp = L[L["sample"] == "main"], L[L["sample"] == "supplement"]
 
 
@@ -22,7 +23,8 @@ def wilson(k, n, z=1.96):
     return f"{k}/{n} = {p:.0%} (95% interval {(c - h) / den:.0%} to {(c + h) / den:.0%})"
 
 
-print(f"\nrows checked by Diego: {(L.diego_check != '').sum()} of {len(L)}")
+print(f"\nmain-sample rows checked by Diego: {(main.diego_check != '').sum()} of {len(main)}; "
+      f"he overruled {main.diego_check.isin(VERDICTS).sum()}")
 print("\n== Main sample: 100 random mentions ==")
 ok = main.verdict == "correct"
 print("precision, strict (right member and said by the speaker):", wilson(ok.sum(), len(main)))

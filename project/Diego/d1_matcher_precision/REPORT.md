@@ -3,10 +3,12 @@
 Diego Mijares with Claude, 14 November 2026. Matcher and data as in `prototype_two_maps.ipynb` (one run,
 13 November). Numbers below come from `score.py` and change if a label in `labels.csv` changes.
 
-**Status: first-pass labels by Claude. Diego has checked 0 of 160 rows.** Under the group's rule that model
-output is not a measurement until a human has checked it, the precision below is provisional until the
-`diego_check` column of `labels.csv` is filled in. The seven rows marked as errors and the notes column are
-the fastest place to start.
+**Status, 16 November: labelled by Claude, checked by Diego.** Claude labelled the matches on 14 November.
+On 16 November Diego read all 100 with Claude's verdict beside each and overruled none. Five of his checks
+were made against a display error in `CHECK.md` (the bold fell on a Record page number, not on the name)
+and are to be redone: items 30, 34, 41, 42 and 56. Because Diego saw the first verdicts, his check is a
+verification, not an independent second coding. His comments are in the `diego_note` column of
+`labels.csv`.
 
 ## Result
 
@@ -21,10 +23,10 @@ A match counts as correct when the text refers to the House member the matcher c
 it.[^strict] Four of the seven errors name the wrong person. Three name the right member in text the
 speaker never said.
 
-**Sentence for Methods (provisional).** We read a random sample of 100 of the 7,931 matched mentions with
-their surrounding text. 93 referred to the matched member in the speaker's own words (95% interval 86% to
-97%); four pointed at a different person and three were Congressional Record boilerplate attributed to the
-speaker.
+**Sentence for Methods.** An AI assistant labelled a random sample of 100 of the 7,931 matched mentions
+from their surrounding text, and a group member read every label against the text. 93 referred to the
+matched member in the speaker's own words (95% interval 86% to 97%); four pointed at a different person and
+three were Congressional Record boilerplate attributed to the speaker.
 
 ## The seven errors
 
@@ -85,6 +87,18 @@ cross-party to 3,661 ties and 34.4%. The errors found so far do not explain the 
 (12% at the same size). The constituent errors are not in this figure because they cannot be identified
 without reading.
 
+**5. Names in lists, found by Diego's check.** Items 10, 23 and 26 name several members in one sentence
+and the sample row shows only one. That is how the table is built: every name is its own row, so a list
+does not hurt precision. It does show what the matcher misses. In item 23 Mr. Nehls has his own row. In
+item 10 "Congresswoman Velazquez" has none, because the roster spells the name with an accent. In item 26
+"Mr. Harris" and "Chairman Biggs" have none, because two members share each surname and nothing nearby
+told them apart. Lists are common: 43% of all mentions have another title and name within 60 characters.
+Accents cost matches across the whole Record: a title followed by the unaccented surname occurs 36 times
+for Velázquez, 12 for Barragán and 6 for Sánchez, and these are all lost. "Garcia" is worse, since an
+unaccented "Mr. Garcia" can mean Jesús García (79 occurrences without the accent) and goes to Robert Garcia
+or Mike Garcia instead. Fix for M1: compare surnames with accents removed, and resolve the Garcias like any
+other shared surname.
+
 ## The yield flag
 
 Among the 150 correct rows of both samples, the notebook's flag ("yield" within 60 characters) found 26 of
@@ -106,8 +120,9 @@ map with "yields dropped" also drops some substantive mentions. Matching the yie
   verdict.
 - **Not measured: recall.** The sample contains only mentions the matcher made. The 717 shared-surname
   mentions it dropped, the 18 invisible members, and names used without a title are all outside it.
-- The labels rest on 400 characters of context either side, and the full turn for the doubtful rows. No
-  second coder has seen them.
+- The labels rest on 400 characters of context either side, and the full turn for the doubtful rows.
+  Diego verified 95 of the 100 main-sample labels on 16 November. The 60 supplementary rows have only
+  Claude's labels.
 
 [^strict]: Whether a vote-change line counts as an error is a choice. The lenient reading (right member,
     whoever said it) gives 96 of 100. We report the strict one because a tie in the floor map is meant to

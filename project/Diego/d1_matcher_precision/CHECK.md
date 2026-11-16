@@ -6,6 +6,9 @@ you disagree with and your verdict (`correct`, `wrong_person` or `not_spoken`). 
 the `diego_check` column of `labels.csv` and reruns the scoring. Silence on an item means you agree with it.
 About 15 minutes.
 
+**Still to check: items 30, 34, 41, 42, 56.** An earlier version of this sheet put the bold on a Record page
+number such as [Page H744] instead of the matched name in these rows. The bold is now on the name.
+
 **1.** Mark Alford (R) → Rosa L. DeLauro (D, CT)
 
 > …Mr. Speaker, I thank Chairman Cole and **Ranking Member DeLauro** for their hard work in this endeavor. Mr. Speaker, here we are again. I rise in strong support of this continuing resolution. Last year, Senate Democrats manuf…
@@ -182,7 +185,7 @@ Claude: `correct`
 
 **30.** J. French Hill (R) → Brad Sherman (D, CA)
 
-> …L.A. basin who are coping with the horrendous results and tragedy connected with the fires at Pacific Palisades and elsewhere where some 45,000 California homes were destroyed in just the blink of an eye and lives lost. **Page H605** I thank [[Mr. Sherman] for his focus on housing the least fortunate, our veterans, but also I know that he is concerned about what is going to happen in the m…
+> …ing with the horrendous results and tragedy connected with the fires at Pacific Palisades and elsewhere where some 45,000 California homes were destroyed in just the blink of an eye and lives lost. [Page H605] I thank **Mr. Sherman** for his focus on housing the least fortunate, our veterans, but also I know that he is concerned about what is going to happen in the months ahead as southern …
 
 Claude: `correct`
 
@@ -206,7 +209,7 @@ Claude: `correct`. Unanimous-consent request naming the debate managers; procedu
 
 **34.** H. Morgan Griffith (R) → James P. McGovern (D, MA)
 
-> …e committee did not always provide a formal amendment deadline every week when they ran the show, either. Mr. Speaker, it is true that this rule has six closed measures. It should be **Page H4983** noted that amendments were only submitted on three of the six. This means that, of the six bills, only three were closed at the discretion of the committee. My…
+> …be [Page H4983] noted that amendments were only submitted on three of the six. This means that, of the six bills, only three were closed at the discretion of the committee. My friend, the gentleman from Massachusetts (**Mr. McGovern**), may also recall that Members can submit amendments, and the Rules Committee may make them in order, whether there is a formal deadline to submit them or not.…
 
 Claude: `correct`
 
@@ -248,13 +251,13 @@ Claude: `correct`
 
 **41.** Roger Williams (R) → Judy Chu (D, CA)
 
-> …Mr. Speaker, I yield myself such time as I may consume. **Page H744** Mr. Speaker, I rise today in support of H.R. 754, the Investing in Main Street Act of 2025, led by my colleagues, [[Representatives Chu], Finstad, McIver, and…
+> …Mr. Speaker, I yield myself such time as I may consume. [Page H744] Mr. Speaker, I rise today in support of H.R. 754, the Investing in Main Street Act of 2025, led by my colleagues, **Representatives Chu**, Finstad, McIver, and Garbarino. As chairman of the Small Business Committee, one of my top priorities is expanding access to capital for small businesses. The…
 
 Claude: `correct`
 
 **42.** Troy Downing (R) → Herbert C. Conaway, Jr. (D, NJ)
 
-> …f limitations for prosecuting fraud within these programs is set to expire beginning early next year. If Congress does not act, law enforcement will not have the necessary time to investigate and prosecute these crimes. **Page H4916** Along with my colleague, [[Representative Conaway], I have introduced H.R. 4495, the SBA Fraud Enforcement Extension Act. This bill extends the statute of lim…
+> …in these programs is set to expire beginning early next year. If Congress does not act, law enforcement will not have the necessary time to investigate and prosecute these crimes. [Page H4916] Along with my colleague, **Representative Conaway**, I have introduced H.R. 4495, the SBA Fraud Enforcement Extension Act. This bill extends the statute of limitations from 5 years to 10 years for fraud with res…
 
 Claude: `correct`
 
@@ -338,7 +341,7 @@ Claude: `correct`
 
 **56.** Jamie Raskin (D) → Marc A. Veasey (D, TX)
 
-> …Mr. Speaker, on that I demand the yeas and nays. The yeas and nays were ordered. The vote was taken by electronic device, and there were--yeas 228, nays 190, not voting 14, as follows: **Page H2606** [[Mr. VEASEY] changed his from ``yea'' to ``nay.'' Ms. HOULAHAN changed her vote from ``nay'' to ``yea.'' So the bill was passed. The result of the vote was a…
+> …Mr. Speaker, on that I demand the yeas and nays. The yeas and nays were ordered. The vote was taken by electronic device, and there were--yeas 228, nays 190, not voting 14, as follows: [Page H2606] **Mr. VEASEY** changed his from ``yea'' to ``nay.'' Ms. HOULAHAN changed her vote from ``nay'' to ``yea.'' So the bill was passed. The result of the vote was announced as abo…
 
 Claude: `not_spoken` ⚠. Vote-change line printed after the vote (Mr. VEASEY changed his vote), not said by the speaker
 

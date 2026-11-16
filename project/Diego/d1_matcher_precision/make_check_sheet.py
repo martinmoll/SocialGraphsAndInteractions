@@ -14,9 +14,14 @@ out = ["# D1: the 100 matches to check by hand", "",
        "you disagree with and your verdict (`correct`, `wrong_person` or `not_spoken`). Claude writes your answers into",
        "the `diego_check` column of `labels.csv` and reruns the scoring. Silence on an item means you agree with it.",
        "About 15 minutes.", ""]
+todo = list(L[L.diego_check == ""].item)
+if todo:
+    out += [f"**Still to check: items {', '.join(todo)}.** An earlier version of this sheet put the bold on a Record page",
+            "number such as [Page H744] instead of the matched name in these rows. The bold is now on the name.", ""]
 for r in L.itertuples():
     w = r.wide_context
-    i, j = w.index("[["), w.index("]]", w.index("[[") + 2)
+    i = w.index("[[" + r.matched_text)          # not w.index("[["): the Record's own [[Page H123]] markers come first in some rows
+    j = i + 2 + len(r.matched_text)
     snippet = (w[max(0, i - 220):i] + "**" + w[i + 2:j] + "**" + w[j + 2:j + 2 + 160]).replace("[[Page", "[Page").replace("]]", "]")
     flag = " ⚠" if r.verdict != "correct" else ""
     out += [f"**{r.item}.** {r.speaker_name} ({r.speaker_party}) → {r.named_name} ({r.named_party}, {r.named_state})", "",

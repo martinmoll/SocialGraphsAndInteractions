@@ -12,7 +12,7 @@ matter of judgement, the file carries a footnote saying so, and the choices are 
 
 | Task | File | State on 14 Nov |
 |---|---|---|
-| D1 Matcher precision | [`d1_matcher_precision/REPORT.md`](d1_matcher_precision/REPORT.md) | 160 matches labelled by Claude. **93 of 100 correct in the random sample, provisional until Diego has checked the labels** (Diego reads [`d1_matcher_precision/CHECK.md`](d1_matcher_precision/CHECK.md)) |
+| D1 Matcher precision | [`d1_matcher_precision/REPORT.md`](d1_matcher_precision/REPORT.md) | 160 matches labelled by Claude. **93 of 100 correct in the random sample.** Diego checked 95 of the 100 on 16 Nov; items 30, 34, 41, 42, 56 to recheck in [`d1_matcher_precision/CHECK.md`](d1_matcher_precision/CHECK.md) |
 | D2 Labelling protocol | [`d2_labelling/PROTOCOL.md`](d2_labelling/PROTOCOL.md) | Version 1 written, scripts tested on a stand-in file. Sample waits for `mentions.parquet` (M2) |
 | D3 Prior work | [`d3_prior_work.md`](d3_prior_work.md), [`references.bib`](references.bib) | Eight references verified in Crossref and summarised from abstracts. Westwood's year settled: 2022 |
 | D4 Introduction, Discussion, reflection | [`d4_drafts.md`](d4_drafts.md) | Drafted with placeholders for every number that is not frozen |
@@ -21,7 +21,8 @@ matter of judgement, the file carries a footnote saying so, and the choices are 
 
 1. **Martin (M1):** `members.csv` stores the surname of 18 members in capitals and the matcher never finds
    them. Their namesakes (Al Green, Adelita Grijalva, Michael Turner, the Scotts) receive their mentions.
-   Details and counts in the D1 report, with two further fixes: drop matches whose surname is printed in
+   Accented surnames (Velázquez, Barragán, Sánchez, García) are never matched either. Details and counts in
+   the D1 report, with two further fixes: drop matches whose surname is printed in
    capitals, and match the yielding phrase instead of a 60-character window.
 2. **Martin (M2):** for the hand-labelling, `context` is more useful as the sentence plus one sentence
    either side.

@@ -75,7 +75,7 @@ part of the cross-party contact follows from that format. Nor is the comparison 
 dense cosponsorship network is thinned: with every tie kept its cross-party share is `[[z]]`%, closer to
 the floor map than the equal-size version is.
 
-One limitation we found ourselves. Checking 100 name matches by hand gave a precision of `[[93]]`%
+One limitation we found ourselves. Checking 100 name matches gave a precision of `[[93]]`%
 (`[[86 to 97]]`), and the errors were not neutral: `[[5 of 7]]` joined members of different parties,
 because a constituent or a namesake who is mistaken for a member belongs to the other party about half the
 time. Matching errors therefore make the floor map look less divided than it is. The errors we could

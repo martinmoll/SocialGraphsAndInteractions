@@ -2,8 +2,8 @@
 
 Every label below was assigned by Claude (the AI assistant working with Diego) on 14 Nov 2026 after reading
 the match with 400 characters of context either side, and the full turn where that was not enough. They are
-a first pass. The column `diego_check` in labels.csv is empty until Diego has read the row himself:
-write `ok` to confirm or the corrected verdict to overrule.
+a first pass. The column `diego_check` holds Diego's own reading of the row: `ok` to confirm, or the corrected
+verdict to overrule. `diego_note` holds his comments. Both are kept when this script is rerun.
 
 verdict
   correct       the matched text refers to the House member the matcher chose, and the speaker said it
@@ -55,12 +55,15 @@ L["kind"] = ["" if v != "correct" else "yield" if k in YIELD else "other" for k,
 L["note"] = [WRONG.get(k) or NOT_SPOKEN.get(k) or NOTES.get(k, "") for k in key]
 L["labelled_by"] = "Claude, first pass, 14 Nov 2026"
 L["diego_check"] = ""
-cols = ["sample", "item", "verdict", "kind", "note", "labelled_by", "diego_check", "speaker_name", "speaker_party",
+L["diego_note"] = ""
+cols = ["sample", "item", "verdict", "kind", "note", "labelled_by", "diego_check", "diego_note", "speaker_name", "speaker_party",
         "named_name", "named_party", "named_state", "cross", "how", "is_yield", "is_leader_title", "day",
         "matched_text", "wide_context", "mention_row", "turn_row", "speaker", "named"]
 old = HERE / "labels.csv"
 if old.exists():                                    # never overwrite checks Diego has already entered
-    prev = pd.read_csv(old, dtype=str).fillna("").set_index("item").diego_check
-    L["diego_check"] = L["item"].map(prev).fillna("")
+    prev = pd.read_csv(old, dtype=str, keep_default_na=False).set_index(["sample", "item"])
+    for col in ("diego_check", "diego_note"):
+        if col in prev:
+            L[col] = [prev[col].get((s, i), "") for s, i in zip(L["sample"], L["item"])]
 L[cols].to_csv(old, index=False)
 print(L.groupby(["sample", "verdict"]).size().to_string())
