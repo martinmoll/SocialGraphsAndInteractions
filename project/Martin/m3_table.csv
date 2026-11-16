@@ -1,0 +1,10 @@
+map,ties,members with a tie,cross-party share,after rewiring,ratio,party Q,null Q mean,null Q max,rewirings
+Floor: all mentions,3777,445,0.3423,0.5006,0.6839,0.1564,-0.0018,0.0193,200
+"Floor: yields dropped, window rule",3305,443,0.3815,0.4993,0.7642,0.116,-0.0017,0.0253,200
+"Floor: yields dropped, phrase rule",3284,443,0.3864,0.4999,0.773,0.1108,-0.0027,0.0219,200
+Floor: phrase yields and leadership titles dropped,2739,441,0.3965,0.4999,0.7932,0.1022,-0.0012,0.0211,200
+Working: all ties,46513,449,0.2866,0.4969,0.5767,0.2105,0.0001,0.0028,20
+Working: backbone alpha 0.05,2328,438,0.1499,0.4938,0.3036,0.3424,-0.0015,0.0228,200
+"Working: strongest, size of floor (all)",3777,410,0.1258,0.4309,0.2918,0.301,-0.0042,0.0171,200
+"Working: strongest, size of floor (phrase)",3284,402,0.1264,0.4286,0.2949,0.2971,-0.0051,0.0127,200
+"Working: random ties, size of floor (all)",3777,446,0.2952,0.4989,0.5917,0.2021,-0.0016,0.0215,200

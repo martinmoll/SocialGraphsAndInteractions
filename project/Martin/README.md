@@ -9,6 +9,7 @@ the choices below are for Martin to defend and for the group to change on 18 Nov
 |---|---|---|
 | M1 Shared name matcher | [`matcher.py`](matcher.py) | First version. The prototype's matcher plus three fixes from Diego's D1 report. No guard against senators and non-members yet |
 | M2 Floor mentions | [`build_mentions.py`](build_mentions.py) → [`mentions.parquet`](mentions.parquet), [`named_ties.csv`](named_ties.csv) | First version: 8,092 mentions, 4,610 directed pairs |
+| M3 Definitions for part 1 | [`M3_PROPOSAL.md`](M3_PROPOSAL.md), [`m3_definitions.py`](m3_definitions.py), [`m3_table.csv`](m3_table.csv) | Proposal for 18 Nov. Against working ties drawn at random the floor map's lead is 5 points (34.2% against 29.5% cross-party), not 22. A phrase-based yield rule finds 30 of 30 labelled yields |
 | M4 Harder null | [`m4_debate_null.ipynb`](m4_debate_null.ipynb), [`figures/m4_debate_null.png`](figures/m4_debate_null.png) | One run. The floor map is more divided than all 200 debate rewirings; the debate structure explains about half of its party division |
 
 **The shared files are here, not in `data/processed/`**, because of the folder rule. Columns are the ones
@@ -40,6 +41,20 @@ whether the shared files move to `scripts/` and `data/processed/` as the work pl
 | 4 | Context is three sentences, from a simple splitter, cut to 1,000 characters centred on the name when longer (184 mentions) | 60 characters either side, as in the prototype: too short to label tone. Without the cap the longest context was 7,192 characters |
 | 5 | `is_yield` is unchanged: "yield" within 60 characters | Matching the yielding phrase itself, as D1 suggests. D1 measured the current flag at 87% recall, 90% precision. For M3 |
 | 6 | Everything else as in the prototype (its choices 2 to 5): House floor turns of 50 words or more, a title before the surname, shared surnames resolved by first name, then state within 80 characters, else dropped | See section 0 of `../prototype_two_maps.ipynb` |
+
+## M3: what the group has to decide on 18 November
+
+The full proposal, with the table and the alternatives, is in [`M3_PROPOSAL.md`](M3_PROPOSAL.md). In short:
+
+1. **Thinning the working map:** compare the floor map with working ties drawn at random at the same size
+   (29.5% cross-party), and report the strongest ties (12.6%) as a second comparison. The floor map is at
+   34.2%.
+2. **Yields:** keep them in the headline, show the map without them (38.6%) below.
+3. **Yield rule:** replace the 60-character window with a phrase rule (30 of 30 labelled yields found, no
+   false flags, against 26 of 30 and three false flags).
+
+Under this proposal the headline gap is 5 points, small enough that matcher errors could close it. The new
+matcher's precision has not been measured.
 
 ## M4: the floor map against a null that keeps the debates
 
@@ -98,6 +113,7 @@ From `project/`, with pandas and pyarrow:
 ```
 python Martin/matcher.py           # self-check: nine known cases
 python Martin/build_mentions.py    # writes mentions.parquet and named_ties.csv, prints the counts above
+PYTHONPATH=Martin python Martin/m3_definitions.py   # the M3 table and the yield-rule test; about a quarter of an hour
 ```
 
 Then run `m4_debate_null.ipynb` from this folder (it also needs networkx and matplotlib; a few minutes).
