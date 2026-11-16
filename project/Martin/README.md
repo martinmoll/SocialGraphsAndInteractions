@@ -9,6 +9,7 @@ the choices below are for Martin to defend and for the group to change on 18 Nov
 |---|---|---|
 | M1 Shared name matcher | [`matcher.py`](matcher.py) | First version. The prototype's matcher plus three fixes from Diego's D1 report. No guard against senators and non-members yet |
 | M2 Floor mentions | [`build_mentions.py`](build_mentions.py) → [`mentions.parquet`](mentions.parquet), [`named_ties.csv`](named_ties.csv) | First version: 8,092 mentions, 4,610 directed pairs |
+| M4 Harder null | [`m4_debate_null.ipynb`](m4_debate_null.ipynb), [`figures/m4_debate_null.png`](figures/m4_debate_null.png) | One run. The floor map is more divided than all 200 debate rewirings; the debate structure explains about half of its party division |
 
 **The shared files are here, not in `data/processed/`**, because of the folder rule. Columns are the ones
 agreed in [`../WORK_AND_DEADLINES.md`](../WORK_AND_DEADLINES.md), section 3.
@@ -40,6 +41,42 @@ whether the shared files move to `scripts/` and `data/processed/` as the work pl
 | 5 | `is_yield` is unchanged: "yield" within 60 characters | Matching the yielding phrase itself, as D1 suggests. D1 measured the current flag at 87% recall, 90% precision. For M3 |
 | 6 | Everything else as in the prototype (its choices 2 to 5): House floor turns of 50 words or more, a title before the surname, shared surnames resolved by first name, then state within 80 characters, else dropped | See section 0 of `../prototype_two_maps.ipynb` |
 
+## M4: the floor map against a null that keeps the debates
+
+**One run, 16 November 2026. Observations, not results.** Inside each debate the named ends of the mentions
+are shuffled; nothing moves between debates.
+
+| Mentions | Measure | Observed | Degree-preserving null | Debate null (smallest to largest) |
+|---|---|---|---|---|
+| All (8,041) | Party modularity Q | 0.156 | -0.003 | 0.077 (0.061 to 0.090) |
+| | Cross-party share of ties | 34.2% | 50.1% | 42.2% (40.9% to 43.8%) |
+| | Cross-party share of mentions | 36.0% | | 43.8% (42.8% to 44.9%) |
+| Yields dropped (6,635) | Party modularity Q | 0.116 | -0.001 | 0.068 (0.058 to 0.083) |
+| | Cross-party share of ties | 38.2% | 49.9% | 42.9% (41.4% to 43.9%) |
+| | Cross-party share of mentions | 41.5% | | 45.5% (44.7% to 46.4%) |
+
+- The debate structure explains about half of the floor map's party division: shuffled inside debates, the
+  map still has Q = 0.077, against about zero for plain rewiring.
+- The other half is not explained by it. The observed map is more divided than every one of the 200
+  rewirings, on all three measures, with and without yields.
+- It does not test the gap to the working map, which has no debates, and it says nothing about tone.
+
+The null's choices, confirmed by Martin before the run:
+
+| # | Choice | Alternative and what it would change |
+|---|---|---|
+| 1 | A debate is one Congressional Record item (`doc_id`) | All items of one day: about 39 unrelated items mixed, a null nearly as easy as plain rewiring |
+| 2 | Inside a debate the named ends are shuffled. Each speaker keeps the mentions made there, each member the mentions received there | Redraw targets from those who spoke in the debate: loses the 30% of mentions that name an absent member |
+| 3 | Two mentions of a debate swap their named member; a swap that makes a member name themselves is rejected. 5 swaps per mention, 200 rewirings, seed 2805 | Fewer swaps leave the null close to the data |
+| 4 | Mentions in a debate with one named member (12%; 15% without yields) stay in the map, fixed | Dropping them changes the observed map too. Keeping them makes the null harder to beat |
+| 5 | Measured: party modularity and cross-party share of the map, and cross-party share per mention | Per tie only, as in the prototype |
+| 6 | Run on all mentions and with yields dropped | One of the two, before the group has decided whether yields count |
+| 7 | Nodes are the 450 Republicans and Democrats (8,041 of the 8,092 mentions) | Keeping the independent, who has no party side |
+
+Limits: after shuffling only about half of the mentions point at a different member, so the null is
+conservative. A long debate split over several Record items counts as several debates. A rewired map does
+not have exactly the observed number of ties.
+
 ## What changed against the prototype
 
 | | Prototype (13 Nov) | This version |
@@ -62,5 +99,7 @@ From `project/`, with pandas and pyarrow:
 python Martin/matcher.py           # self-check: nine known cases
 python Martin/build_mentions.py    # writes mentions.parquet and named_ties.csv, prints the counts above
 ```
+
+Then run `m4_debate_null.ipynb` from this folder (it also needs networkx and matplotlib; a few minutes).
 
 Run on 16 November with Python 3.14 and pandas 3.0.3.
