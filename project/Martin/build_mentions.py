@@ -10,7 +10,8 @@ Choices, as in prototype_two_maps.ipynb unless marked NEW:
   - NEW: the independent in members.csv (Kiley) is kept as speaker and as named. The prototype dropped him;
     anyone who needs two party sides filters on party, as Diego's sampling script does.
   - NEW: context is the sentence with the name plus one sentence either side (Diego's request for the
-    hand-labelling). The prototype kept 60 characters either side.
+    hand-labelling), cut to 1,000 characters centred on the name where the splitter finds no break.
+    The prototype kept 60 characters either side.
   - is_yield: the word "yield" within 60 characters of the name, unchanged. D1 measured this flag at 87%
     recall and 90% precision; whether to replace it is for M3.
   - Two columns beyond the agreed seven: how (the matcher rule) and is_leader_title (prototype choice 6b).
@@ -23,6 +24,7 @@ from matcher import Matcher, LEADER_TITLES
 
 DATA, OUT = Path("data/processed"), Path(__file__).parent
 MIN_TURN_WORDS, YIELD_WINDOW = 50, 60
+MAX_CONTEXT = 1000   # characters; a longer context is cut to a window centred on the name, marked with …
 
 # ponytail: naive sentence splitter. A sentence ends at . ? ! followed by a space and a capital, unless the
 # word before is a title or an initial ("Mr. Cole", "H.R. 1"). It over-joins after "U.S. The" and the like,
@@ -34,6 +36,10 @@ def context(text, bounds, a, b):
     """The sentence(s) holding text[a:b] plus one sentence either side. bounds = sorted sentence starts."""
     i, j = bisect.bisect_right(bounds, a) - 1, bisect.bisect_right(bounds, b - 1) - 1
     lo, hi = bounds[max(i - 1, 0)], bounds[j + 2] if j + 2 < len(bounds) else len(text)
+    if hi - lo > MAX_CONTEXT:                       # no sentence break found: cut a window centred on the name
+        cut_lo = max(lo, min((a + b - MAX_CONTEXT) // 2, hi - MAX_CONTEXT))
+        cut_hi = min(hi, cut_lo + MAX_CONTEXT)
+        return ("… " if cut_lo > lo else "") + " ".join(text[cut_lo:cut_hi].split()) + (" …" if cut_hi < hi else "")
     return " ".join(text[lo:hi].split())
 
 
