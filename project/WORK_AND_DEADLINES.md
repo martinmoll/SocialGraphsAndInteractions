@@ -51,7 +51,7 @@ has not confirmed them. Confirm or change on 18 November.** Hours have not been 
 | M1 | Move the name matcher out of the notebook into `scripts/`, so floor speeches and press releases use the same one. First version by Wed 18 Nov, as it is in the notebook. The guard against senators and non-members can follow | One shared matcher: `Martin/matcher.py` | | In progress: first version written (prototype's matcher plus capitals and accents fixes from D1). Guard against senators and non-members not started |
 | M2 | Write `mentions.parquet` and `named_ties.csv` from the floor speeches. First version by Wed 18 Nov | The two files in section 3, in `Martin/` | M1 | In progress: first version written (8,092 floor mentions, 4,610 directed pairs) |
 | M3 | Fix the definitions for part 1 in writing: how the working map is thinned, whether yields count, bill types | Definitions agreed by the group | 18 Nov meeting | Not started |
-| M4 | Harder null: rewire while keeping who spoke in the same debate | A second null for the floor map | M2 | Not started |
+| M4 | Harder null: rewire while keeping who spoke in the same debate | A second null for the floor map: `Martin/m4_debate_null.ipynb` | M2 | In progress: first run. The floor map is more divided than all 200 debate rewirings; the debate structure explains about half of its party division |
 | M5 | Louvain communities on each map; overlap with party and between maps (NMI) | Numbers for Results | M3 | Not started |
 | M6 | Null for the close-up: of a member's own bills, are the cross-party ones announced more often than a random draw? | The fair baseline (fix 1) | A3 | Not started |
 | M7 | Figure 1 (the two maps and their division against the nulls); network part of Results | Figure, text | M3–M5 | Not started |
@@ -155,6 +155,11 @@ From the earlier plans in `archive/`. Listed so nobody keeps working on them.
 ## 6. Log
 
 Newest first. One line per change.
+
+- **16 Nov 2026.** M4 started (Martin with Claude): first run of the null that shuffles names inside each
+  debate. Party modularity of the floor map 0.156 against 0.077 under the null (0.116 against 0.068 with
+  yields dropped); observed beyond all 200 rewirings. One run, prototype definitions. Details in
+  `Martin/README.md`.
 
 - **16 Nov 2026.** M1 and M2 started (Martin with Claude): first versions of the shared matcher and of
   `mentions.parquet` and `named_ties.csv`. They are in `Martin/`, not `scripts/` and `data/processed/`,
