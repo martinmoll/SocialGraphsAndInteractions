@@ -48,8 +48,8 @@ has not confirmed them. Confirm or change on 18 November.** Hours have not been 
 | # | Task | Delivers | Needs | Status |
 |---|---|---|---|---|
 | M0 | Prototype of the two maps | `prototype_two_maps.ipynb`, one run | | Done (13 Nov) |
-| M1 | Move the name matcher out of the notebook into `scripts/`, so floor speeches and press releases use the same one. First version by Wed 18 Nov, as it is in the notebook. The guard against senators and non-members can follow | One shared matcher | | Not started |
-| M2 | Write `mentions.parquet` and `named_ties.csv` from the floor speeches. First version by Wed 18 Nov | The two files in section 3 | M1 | Not started |
+| M1 | Move the name matcher out of the notebook into `scripts/`, so floor speeches and press releases use the same one. First version by Wed 18 Nov, as it is in the notebook. The guard against senators and non-members can follow | One shared matcher: `Martin/matcher.py` | | In progress: first version written (prototype's matcher plus capitals and accents fixes from D1). Guard against senators and non-members not started |
+| M2 | Write `mentions.parquet` and `named_ties.csv` from the floor speeches. First version by Wed 18 Nov | The two files in section 3, in `Martin/` | M1 | In progress: first version written (8,092 floor mentions, 4,610 directed pairs) |
 | M3 | Fix the definitions for part 1 in writing: how the working map is thinned, whether yields count, bill types | Definitions agreed by the group | 18 Nov meeting | Not started |
 | M4 | Harder null: rewire while keeping who spoke in the same debate | A second null for the floor map | M2 | Not started |
 | M5 | Louvain communities on each map; overlap with party and between maps (NMI) | Numbers for Results | M3 | Not started |
@@ -155,6 +155,11 @@ From the earlier plans in `archive/`. Listed so nobody keeps working on them.
 ## 6. Log
 
 Newest first. One line per change.
+
+- **16 Nov 2026.** M1 and M2 started (Martin with Claude): first versions of the shared matcher and of
+  `mentions.parquet` and `named_ties.csv`. They are in `Martin/`, not `scripts/` and `data/processed/`,
+  because of the folder rule: D2 unblocked, pass `Martin/mentions.parquet` to the sampling script. Details
+  in `Martin/README.md`.
 
 - **16 Nov 2026.** D1: Diego checked 95 of the 100 labelled matches and overruled none; precision 93% stands.
   New for M1: accented surnames (Velázquez, Barragán, Sánchez, García) are never matched.
