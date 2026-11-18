@@ -4,7 +4,8 @@ Diego Mijares with Claude, 14 November 2026. BibTeX for everything here is in `r
 
 **How each entry was checked.** Every reference was looked up in Crossref on 14 November 2026, and the
 title, authors, journal, volume, pages and DOI below are Crossref's. The "what it found" lines are written
-from the published abstract unless a line says otherwise. **Nobody has read the full texts.** That is
+from the published abstract unless a line says otherwise (Westwood: abstract and introduction). **Nobody has
+read the full texts.** That is
 enough to cite a paper for its main finding. It is not enough to cite a specific number or a detail of
 method, and none is cited here except where marked.
 
@@ -19,21 +20,21 @@ also how the author's own research lab cites it.
 
 ## The two the plan asks for
 
-**Westwood (2022).** *Source: the summary in the Library of Partisan Animosity kept by the Polarization
-Research Lab, which Westwood co-directs. Springer's page is behind a login and the abstract is in none of
-the open indexes, so this is a secondary source and Diego should read the abstract through DTU's library
-access before the freeze.*
+**Westwood (2022).** *Source: the abstract and introduction on the publisher's page, read 18 November 2026
+through DTU's library access.*
 
-- Takes every sentence containing "bipartisan" from 434,266 floor speeches in Congress, 1992 to 2018, and
-  asks whether the word goes with bipartisan behaviour.
-- It does not. Bills described as bipartisan are no more likely to have meaningful bipartisan sponsorship,
-  moderates and extremists use the word about equally, and use rises with electoral pressure.
-- In survey experiments, calling a bill bipartisan raised support for it even when only one member of the
-  other party voted for it.
+- Uses 434,266 House floor speeches, 1994 to 2018, matched to the final floor votes on the bills discussed.
+- Members of every ideological position call their work bipartisan about equally often, and a member's
+  bipartisan rhetoric is unrelated to their bipartisan action. Most bipartisan claims are made about bills
+  that win only trivial support from the other party. Marginal members, who need opposition voters, make
+  the most bipartisan appeals.
+- In experiments, calling a bill bipartisan raised support and lowered its perceived extremity even when
+  the bill was overtly partisan. Adding a single member of the other party and the label moved opinion more
+  than a large real cross-party coalition did.
 
-*For us:* the closest study. It shows that a bipartisan **word** on the floor says little about behaviour.
-We look at **named partners** instead, and we check them against the cosponsorship record tie by tie.
-Note that Westwood's text is floor speech, like our floor map, not press releases.
+*For us:* the closest study. It shows that the bipartisan **word** on the floor says little about the
+votes behind it. We look at **named partners** and check each against the cosponsorship record. Westwood's
+text is floor speech, like our floor map.
 
 **Harbridge (2015).** *Is Bipartisanship Dead? Policy Agreement and Agenda-Setting in the House of
 Representatives.* Cambridge University Press. DOI 10.1017/CBO9781139942324. *Source: publisher's abstract.*

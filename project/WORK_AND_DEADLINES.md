@@ -76,7 +76,7 @@ has not confirmed them. Confirm or change on 18 November.** Hours have not been 
 |---|---|---|---|---|
 | D1 | Count the 30 matches printed in the prototype notebook; extend to about 100; report precision | Matcher precision for Methods: `Diego/d1_matcher_precision/REPORT.md` | | In progress: 93 of 100 correct (95% interval 86 to 97%) on the prototype's matcher. Labelled by Claude, 95 of 100 checked by Diego, 5 to recheck. **New, 18 Nov: the new matcher's precision comes from code X in the D2 sample (100 rows), with Martin and Anas as second coders (DECISIONS G10). In progress** |
 | D2 | Labelling protocol for cross-party floor mentions: agreeing, disagreeing or procedural. Draw the sample from `mentions.parquet` | Protocol and sample: `Diego/d2_labelling/PROTOCOL.md` | M2 for the sample; the protocol can start now | In progress: 100 mentions in `Diego/d2_labelling/D2_full_sheet.xlsx`. Diego codes all 100; second coder Martin (1–25), Claude (26–75, done), Anas (76–100) |
-| D3 | Read Westwood and Harbridge: three lines on what each found. Settle Westwood's year. Find three or four more references | Note on prior work; reference list: `Diego/d3_prior_work.md`, `references.bib` | | In progress: written from abstracts, Westwood is 2022. Westwood's abstract still to be read at the publisher |
+| D3 | Read Westwood and Harbridge: three lines on what each found. Settle Westwood's year. Find three or four more references | Note on prior work; reference list: `Diego/d3_prior_work.md`, `references.bib` | | Done: eight references verified; Westwood read at the publisher (2022, online Jan 2021) |
 | D4 | Introduction and Discussion; the half-page reflection. **The Introduction and Discussion are now written together (DECISIONS G3)** | Text: `Diego/d4_drafts.md` | D3 | In progress: drafted with placeholders for all numbers |
 | D5 | TF-IDF and logistic-regression classifier trained on the 100 hand labels (D2), checked by leave-one-out against them, applied to all floor mentions: share of P/A/D/N/X for cross-party and same-party mentions | `Diego/d5_classifier/`: results, shares table, one figure | D2 labels | In progress: runs end to end on Claude's 50 codes as a placeholder; switches to the human labels when the sheets are back |
 
@@ -176,6 +176,9 @@ Newest first. One line per change.
   9:00–11:30. From the meeting plan: owners (Introduction and Discussion now written together), press releases
   Republicans only, swing against safe seats, close-up dropped if no data by Fri 20 Nov, three figures,
   labelling by two coders due Sat 21 Nov. M3 definitions and the TA answers still open.
+
+- **18 Nov 2026.** D3 done: Westwood's abstract read at the publisher and the note corrected (floor votes,
+  1994–2018). Report skeleton with page budget and owners in `Diego/report_skeleton.md`.
 - **18 Nov 2026.** Plan B for the language part: D5 added (TF-IDF classifier trained on the D2 labels, checked
   against them, applied to all floor mentions). Pipeline runs on a placeholder. S1 updated to the 25-row split.
 - **18 Nov 2026.** D2: labelling set at 100 mentions (75 cross-party, 25 same-party) in

@@ -29,7 +29,8 @@ parties are always distinguishable, but more so in front of national audiences t
 Members also have reasons to manage how divided they appear. Voters with weak party attachments reward a
 bipartisan image \cite{harbridge2011}, and what members say to constituents is a strategic presentation of
 their work \cite{grimmer2013}. The presentation need not match the work: floor speeches that use the word
-"bipartisan" are no more likely to concern bills with support from both parties \cite{westwood2022}.
+"bipartisan" are mostly about bills that win trivial support from the other party, and a member's
+bipartisan rhetoric is unrelated to their bipartisan votes \cite{westwood2022}.
 
 We compare two records of the same 450 members of the House in the 119th Congress (2025–26). The first is
 the cosponsorship network \cite{fowler2006}: two members are tied when one signs a bill the other

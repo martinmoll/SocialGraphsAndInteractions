@@ -14,9 +14,10 @@ matter of judgement, the file carries a footnote saying so, and the choices are 
 |---|---|---|
 | D1 Matcher precision | [`d1_matcher_precision/REPORT.md`](d1_matcher_precision/REPORT.md) | 160 matches labelled by Claude. **93 of 100 correct in the random sample.** Diego checked 95 of the 100 on 16 Nov; items 30, 34, 41, 42, 56 to recheck in [`d1_matcher_precision/CHECK.md`](d1_matcher_precision/CHECK.md) |
 | D2 Labelling protocol | [`d2_labelling/PROTOCOL.md`](d2_labelling/PROTOCOL.md) | Version 1 written, scripts tested on a stand-in file. Sample waits for `mentions.parquet` (M2) |
-| D3 Prior work | [`d3_prior_work.md`](d3_prior_work.md), [`references.bib`](references.bib) | Eight references verified in Crossref and summarised from abstracts. Westwood's year settled: 2022 |
+| D3 Prior work | [`d3_prior_work.md`](d3_prior_work.md), [`references.bib`](references.bib) | Done. Eight references verified; Westwood read at the publisher; year 2022 |
 | D4 Introduction, Discussion, reflection | [`d4_drafts.md`](d4_drafts.md) | Drafted with placeholders for every number that is not frozen |
 | D5 Classifier on the hand labels | [`d5_classifier/README.md`](d5_classifier/README.md) | Runs end to end on Claude's 50 codes as a placeholder; switches to the human labels when the D2 sheets are back |
+| Report plan | [`report_skeleton.md`](report_skeleton.md) | Skeleton of paper, reflection and slides: bullets, owners, page budget |
 
 ## What the others need to know before 18 November
 
