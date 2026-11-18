@@ -46,6 +46,7 @@ turns = speeches[(speeches.section == "H") & (speeches.n_words >= MIN_TURN_WORDS
 flags = [(t.bioguide, h.named, yield_phrase(t.text, h.start, h.end)) for t in turns.itertuples()
          for h in matcher.find(t.text) if h.named and h.named != t.bioguide]
 M = pd.read_parquet("Martin/mentions.parquet")
+M["is_yield"] = M.is_yield_window   # since 18 Nov is_yield holds the phrase rule; this script compares the two
 assert [f[:2] for f in flags] == list(zip(M.speaker, M.named)), "mentions.parquet is not what build_mentions.py writes"
 M["is_yield_phrase"] = [f[2] for f in flags]
 

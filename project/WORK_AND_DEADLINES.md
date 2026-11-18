@@ -161,6 +161,10 @@ From the earlier plans in `archive/`. Listed so nobody keeps working on them.
 
 Newest first. One line per change.
 
+- **18 Nov 2026.** M3: phrase yield rule applied in `Martin/mentions.parquet` (`is_yield`; the old flag is kept as
+  `is_yield_window`). 1,427 against 1,406 flags on the R–D mentions, 285 disagreements. Rows unchanged; Diego's D2
+  keys checked. Diego: rerunning D5 carries the new flag into `predictions.parquet`.
+
 - **18 Nov 2026.** **D2 coding is complete**, so G1c can go ahead on `mentions.parquet`. Human κ 0.59 and 0.76
   (pooled 0.67, above the 0.6 set in advance). Cross-party mentions: 71% agreeing, 7% disagreeing, 23% neutral,
   0% procedure. D5 classifier does not beat always-agreeing (74% against 73%): hand-labelled shares carry part 2.

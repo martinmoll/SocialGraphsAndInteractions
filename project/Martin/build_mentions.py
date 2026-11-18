@@ -12,9 +12,11 @@ Choices, as in prototype_two_maps.ipynb unless marked NEW:
   - NEW: context is the sentence with the name plus one sentence either side (Diego's request for the
     hand-labelling), cut to 1,000 characters centred on the name where the splitter finds no break.
     The prototype kept 60 characters either side.
-  - is_yield: the word "yield" within 60 characters of the name, unchanged. D1 measured this flag at 87%
-    recall and 90% precision; whether to replace it is for M3.
-  - Two columns beyond the agreed seven: how (the matcher rule) and is_leader_title (prototype choice 6b).
+  - NEW (18 Nov, DECISIONS G1c): is_yield is the phrase rule from m3_definitions.py: "yield" (not "yield back",
+    not "yield myself") earlier in the same sentence as the name, or "for yielding" later in it. It found 30 of
+    30 of D1's labelled yields; not yet tested on rows it has not seen.
+  - Three columns beyond the agreed seven: how (the matcher rule), is_leader_title (prototype choice 6b) and
+    is_yield_window, the old flag ("yield" within 60 characters of the name), kept for comparing the rules.
 """
 import bisect
 import re
@@ -25,6 +27,17 @@ from matcher import Matcher, LEADER_TITLES
 DATA, OUT = Path("data/processed"), Path(__file__).parent
 MIN_TURN_WORDS, YIELD_WINDOW = 50, 60
 MAX_CONTEXT = 1000   # characters; a longer context is cut to a window centred on the name, marked with …
+
+# The phrase-based yield rule, as in m3_definitions.py (DECISIONS G1c).
+TITLE_DOT = re.compile(r"\b(Mr|Ms|Mrs|Rep|Dr|Messrs)\.")
+YIELD_TO = re.compile(r"\byield(?:s|ed)?\b(?!\s+(?:back|myself))[^.;?!]*$", re.I)     # "... yield 2 minutes to the gentleman from Texas ("
+FOR_YIELDING = re.compile(r"^[^.;?!]*\bfor\s+yielding", re.I)                          # ") for yielding"
+
+
+def yield_phrase(text, a, b):
+    """True when the name at text[a:b] is the member yielded to, or the member thanked for yielding."""
+    before, after = TITLE_DOT.sub(r"\1", text[max(0, a - 200):a]), TITLE_DOT.sub(r"\1", text[b:b + 120])
+    return bool(YIELD_TO.search(before) or FOR_YIELDING.search(after))
 
 # ponytail: naive sentence splitter. A sentence ends at . ? ! followed by a space and a capital, unless the
 # word before is a title or an initial ("Mr. Cole", "H.R. 1"). It over-joins after "U.S. The" and the like,
@@ -58,8 +71,9 @@ def main():
             elif h.named != t.bioguide:
                 near = t.text[max(0, h.start - YIELD_WINDOW): h.end + YIELD_WINDOW].lower()
                 rows.append(dict(speaker=t.bioguide, named=h.named, source="floor", date=t.day, doc_id=t.item,
-                                 context=context(t.text, bounds, h.start, h.end), is_yield="yield" in near,
-                                 how=h.how, is_leader_title=h.title in LEADER_TITLES))
+                                 context=context(t.text, bounds, h.start, h.end),
+                                 is_yield=yield_phrase(t.text, h.start, h.end),
+                                 how=h.how, is_leader_title=h.title in LEADER_TITLES, is_yield_window="yield" in near))
     M = pd.DataFrame(rows)
     M.to_parquet(OUT / "mentions.parquet", index=False)
     ties = M.groupby(["speaker", "named", "source"]).size().rename("n_mentions").reset_index()
@@ -71,7 +85,8 @@ def main():
     print(f"turns read: {len(turns):,} from {turns.bioguide.nunique()} speakers, {turns.day.min()} to {turns.day.max()}")
     print(f"mentions: {len(M):,} | directed pairs: {len(ties):,} | dropped: {dropped}")
     print("resolved by:", M.how.value_counts().to_dict())
-    print(f"near a yield: {M.is_yield.mean():.0%} | leadership title: {M.is_leader_title.mean():.0%}")
+    print(f"yield (phrase rule): {M.is_yield.mean():.1%} | yield (old window rule): {M.is_yield_window.mean():.1%} | "
+          f"leadership title: {M.is_leader_title.mean():.0%}")
     print(f"R and D only: {len(pairs):,} undirected ties, {(party[pairs.a].values != party[pairs.b].values).mean():.1%} cross-party "
           f"(prototype: 3,718 ties, 34.5%)")
     print(f"context length in characters: median {int(M.context.str.len().median())}, max {M.context.str.len().max()}")

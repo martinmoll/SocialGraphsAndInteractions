@@ -24,8 +24,10 @@ agreed in [`../WORK_AND_DEADLINES.md`](../WORK_AND_DEADLINES.md), section 3.
    the name, with … at each cut end.
 2. **Anas (A3):** from `project/`, `from Martin.matcher import Matcher`; the docstring in `matcher.py`
    shows the three lines needed. It takes any text, so it runs on press releases as it is.
-3. **Everyone:** `mentions.parquet` has two columns beyond the agreed seven: `how` (the rule that resolved
-   the name) and `is_leader_title`. `named_ties.csv` is directed: one row per (speaker, named).
+3. **Everyone:** `mentions.parquet` has three columns beyond the agreed seven: `how` (the rule that resolved
+   the name), `is_leader_title` and `is_yield_window`. **Since 18 Nov `is_yield` is the phrase rule** (1,427 of the
+   8,041 R–D mentions; the window rule flagged 1,406; they disagree on 285). Rows, their order and every other
+   column are unchanged, so `mention_row` in Diego's D2 keys still points at the same mentions (checked). `named_ties.csv` is directed: one row per (speaker, named).
 
 ## Choices made here
 
@@ -39,7 +41,7 @@ whether the shared files move to `scripts/` and `data/processed/` as the work pl
 | 2 | A name printed in capitals is dropped (93 hits) | Keeping them counts speaker headings and vote-change lines as speech (3 of the 7 errors in D1) |
 | 3 | The independent (Kiley) stays in the file | The prototype dropped him. Filter on party where two sides are needed |
 | 4 | Context is three sentences, from a simple splitter, cut to 1,000 characters centred on the name when longer (184 mentions) | 60 characters either side, as in the prototype: too short to label tone. Without the cap the longest context was 7,192 characters |
-| 5 | `is_yield` is unchanged: "yield" within 60 characters | Matching the yielding phrase itself, as D1 suggests. D1 measured the current flag at 87% recall, 90% precision. For M3 |
+| 5 | **Changed 18 Nov (DECISIONS G1c):** `is_yield` is the phrase rule. The old flag, "yield" within 60 characters, is kept as `is_yield_window` | The window rule: 87% recall, 90% precision in D1. The phrase rule found 30 of 30 on the same rows, not yet tested on unseen ones |
 | 6 | Everything else as in the prototype (its choices 2 to 5): House floor turns of 50 words or more, a title before the surname, shared surnames resolved by first name, then state within 80 characters, else dropped | See section 0 of `../prototype_two_maps.ipynb` |
 
 ## M3: what the group has to decide on 18 November

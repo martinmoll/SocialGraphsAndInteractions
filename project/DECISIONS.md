@@ -100,8 +100,12 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
   2. the yields in Diego's labelling sample. It has 100 rows, so we expect only about 9 yields (about 2
      cross-party and 7 same-party, estimated from the yield shares in the M3 proposal). That's enough to catch
      a gross failure, not to measure recall.
-- **Timing:** the phrase-rule flag is written into `Martin/mentions.parquet` only **after Diego has finished
-  coding** his 100 rows. His sheets and `full_key.csv` point into that file by row number (`mention_row`), and
+- **Done 18 Nov, after Diego finished coding:** `is_yield` in `Martin/mentions.parquet` is now the phrase rule
+  (1,427 of 8,041 R–D mentions). The old flag is kept as `is_yield_window` (1,406); the two disagree on **285**
+  mentions, which is the pool Martin's 30 rows are drawn from. Checked: same rows, same order, every other
+  column identical, Diego's `full_key.csv` and `sample_key.csv` still point at the same mentions.
+- **Timing, as agreed:** the phrase-rule flag was written into `Martin/mentions.parquet` only **after Diego had
+  finished coding** his 100 rows. His sheets and `full_key.csv` point into that file by row number (`mention_row`), and
   `Diego/d5_classifier/classify.py` reads it. Until then the phrase rule is computed in memory for Martin's
   analysis, and only the `is_yield` column changes, never the rows or their order.
 - **Reason:** the window rule found 26 of 30 labelled yields with 3 false flags; the phrase rule found 30 of 30
