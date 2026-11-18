@@ -28,20 +28,6 @@ Status words: **Agreed**, **Open** (say when it is decided), **Replaced** (say b
 
 ## Open
 
-### G1. Part 1 definitions (M3): thinning the working map, yields, and the yield rule
-- **Status:** Open, to be decided at the meeting on Wed 18 Nov, 9:00. Martin presents it in 5 minutes. Locked
-  after Sun 22 Nov.
-- **Proposal** (full text, numbers and alternatives in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md)):
-  1. Compare the floor map with **working ties drawn at random at the same size** (29.5% cross-party).
-     Report the strongest ties (12.6%) as a second comparison. Drop the backbone.
-  2. **Keep yields** ("I yield to...") in the headline number (34.2%). Show the map without yields (38.6%)
-     directly below.
-  3. Replace the 60-character yield window with the **phrase rule** (30 of 30 labelled yields found).
-- **What is at stake:** under the proposal the headline gap is 5 points, not 22, and matcher errors could
-  close it.
-- **Record here after the meeting:** what was chosen on each of the three points, the reason, and whether
-  M4 follows the same yield choice.
-
 ### G2. Questions for the TAs (Diego asks, 9:50 to 10:10)
 - **Status:** Open, answers expected Wed 18 Nov.
 
@@ -56,6 +42,90 @@ Status words: **Agreed**, **Open** (say when it is decided), **Replaced** (say b
 ---
 
 ## Agreed
+
+The three part 1 definitions (G1a to G1c) were decided on Wed 18 Nov, reported by Martin. Before that, three
+Claude advisers each reviewed the M3 proposal independently: one as a hostile examiner, one on network methods,
+one on congressional politics. They agreed with the proposal on all three points. The group overruled them on
+yields (G1b). All three definitions are locked after Sun 22 Nov (G7). Numbers and the original alternatives
+are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
+
+### G1a. Thinning the working map: random ties are the headline
+- **Status:** Agreed Wed 18 Nov.
+- **Decision:** compare the floor map with **working ties drawn at random, at the same number of ties**. Use
+  200 draws and report the range, not one draw. The strongest working ties (6 or more shared bills, 12.6%
+  cross-party) are a **second, separate comparison**. The backbone (α = 0.05; 2,328 ties, 15.0%) stays as one
+  robustness row in the table, not as a comparison.
+- **Reason:** a floor tie means "named at least once", which is cheap and one-off. The like-for-like working tie
+  is "signed at least one bill". Random thinning changes only the density and keeps the shape of the map:
+  modularity is 0.210 for all ties and 0.202 for the random draw. Cutting to the strongest ties also changes
+  *which* ties are kept: its own rewired null falls to 43.1%, while every other map sits near 50%. The
+  floor counterpart of a strong partnership would be pairs named many times, and we can't build that because
+  floor ties are unweighted.
+- **Alternative and what it would have changed:** strongest ties as the headline, a gap of about 22 points
+  instead of about 5. A reader could then say the cut made the gap, and our own table would support them.
+  Dropping the backbone outright was also considered: it would look selective, because the result is already
+  computed.
+- **The attack and our answer:** "You picked the rule that shrinks your gap." The 22-point result is still in
+  the paper, as its own finding: close allies are more partisan (12.6% against 28.7% for all ties). It just
+  isn't the like-for-like comparison.
+- **Source:** meeting, 18 Nov; `Martin/M3_PROPOSAL.md`, decision 1.
+
+### G1b. Yields are dropped from the headline
+- **Status:** Agreed Wed 18 Nov. **This goes against the M3 proposal and all three advisers.**
+- **Decision:** the headline floor map leaves out yields ("I yield 2 minutes to the gentleman from Texas").
+  Before the new draws (G1a), that map is 3,284 ties and 38.6% cross-party. The map **with** yields (34.2%) is
+  shown directly **below** the headline. M4 leads with its without-yields run: Q = 0.116 observed against
+  0.068 under the debate null.
+- **Reason:** the question is who members talk *about*. A yield is a floor manager handing out speaking
+  time under House rules, mostly to their own side (6.6% of yields cross the aisle). It isn't one member
+  talking about another, so it doesn't belong in the map.
+- **Alternative and what it would have changed:** keeping yields in the headline (the proposal). That gives a
+  gap of 4.7 points instead of 9.1. It was the cautious choice, because dropping yields moves the result in our
+  favour, and it kept the headline independent of the yield rule.
+- **The attack and our answer:** "You picked the version that helps you." The with-yields row sits directly
+  under the headline, and the floor map is less divided than random working ties either way. Part 2 codes
+  yields as procedural, which supports treating them as procedure.
+- **What it costs:** the headline now depends on the yield rule, so G1c's test must be done before the
+  freeze. The headline also needs random working draws at 3,284 ties: the 29.5% figure was drawn at 3,777.
+  **The 9.1-point gap is not the final number.**
+- **Source:** meeting, 18 Nov; `Martin/M3_PROPOSAL.md`, decision 2.
+
+### G1c. Yield rule: the phrase rule, tested on fresh rows before the freeze
+- **Status:** Agreed Wed 18 Nov.
+- **Decision:** `is_yield` uses the **phrase rule**. It flags "yield" before the name (not "yield back" or
+  "yield myself"), or "for yielding" after the name, in the same sentence. Before Sun 22 Nov it is tested on rows
+  it has never seen:
+  1. the yields in Diego's labelling sample (200 rows; about 18 to 25 yields expected, an estimate);
+  2. about 30 hand-checked mentions where the window rule and the phrase rule disagree. Martin does these.
+- **Reason:** the window rule found 26 of 30 labelled yields with 3 false flags; the phrase rule found 30 of 30
+  with none. But the phrase rule was written after reading D1's errors and scored on those same 30 rows, so
+  "30 of 30" is a fit to the data, not a test. Because of G1b the headline now depends on it.
+- **Alternative and what it would have changed:** keeping the 60-character window rule. The map barely moves
+  (38.2% against 38.6% without yields), but the rule makes both kinds of error D1 found.
+- **What the paper may write:** "checked on N hand-labelled held-out mentions", with the real N. Never
+  "100% recall". The test catches gross failures, but at this size it won't give a tight recall figure.
+- **Source:** meeting, 18 Nov; `Martin/M3_PROPOSAL.md`, decision 3.
+
+### G9. Yields stay in the labelling sample
+- **Status:** Agreed Wed 18 Nov.
+- **Decision:** Diego's 200-row labelling sample is drawn from all mentions, with yields included.
+- **Reason:** those rows are the held-out test of the yield rule (G1c), and the protocol's procedural code
+  already handles them.
+- **Alternative:** drawing without yields. Nothing is labelled twice over, but the yield rule loses its only
+  fresh test.
+- **Source:** meeting, 18 Nov.
+
+### G10. The new matcher's precision is re-measured before the freeze
+- **Status:** Agreed Wed 18 Nov. In progress.
+- **Decision:** Diego re-measures the precision of the new matcher (M1), repeating D1 on fresh rows. Martin
+  re-checks about 25 of Diego's labels as a second person, which gives an agreement figure for the precision
+  labels.
+- **Reason:** the headline rests on it more than on any of G1a to G1c. In D1, 7 of 100 matches on the *old*
+  matcher were wrong and 5 of the 7 were cross-party. Wrong matches push the floor share up. If the same held
+  on the new matcher, a rough estimate puts the floor share near 31%, close to the working share. The new
+  matcher's precision was never measured. All three advisers raised this without being asked.
+- **Alternative:** citing D1's 93%. That number was measured on a different matcher.
+- **Source:** meeting, 18 Nov.
 
 ### G3. Owners
 - **Status:** Agreed in the meeting plan, Wed 18 Nov.
