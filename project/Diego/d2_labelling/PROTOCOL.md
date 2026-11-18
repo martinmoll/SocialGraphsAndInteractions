@@ -9,6 +9,8 @@ rows 21 to 100 were drawn at random with seed 2805. Diego codes all 100. The sec
 rows 1 to 25, Anas for rows 76 to 100 and Claude for rows 26 to 75, so every row has two coders. The codes
 and rules below are unchanged; where this file still says 200 mentions, this version replaces it.[^hundred]
 
+One file per person is in `sheets/` (D2_Diego, D2_Martin, D2_Anas, D2_Claude); `agreement.py sheets` scores them.
+
 Claude coded its 50 rows from this protocol before any human code existed, with a reason for each in
 `claude_codes.csv`. Those rows are a model labelling text, so `agreement.py` reports Diego against Claude
 separately, and the paper says which rows had an AI as second coder. Disagreements are settled by the

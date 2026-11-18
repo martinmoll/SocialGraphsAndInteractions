@@ -5,8 +5,11 @@ the same order and with the same ids. Rows 21 to 100 are 60 more cross-party and
 at random (seed 2805) from the rest and shuffled.
 
 Who codes what: Diego all 100; Martin rows 1 to 25; Anas rows 76 to 100; Claude rows 26 to 75, from
-claude_codes.csv, written without seeing any human code. Every row has two coders. Cells nobody fills are
-grey. Party is hidden; the named member's surname is marked ‹like this›.
+claude_codes.csv, written without seeing any human code. Every row has two coders. Party is hidden; the
+named member's surname is marked ‹like this›.
+
+Writes D2_full_sheet.xlsx (everyone in one sheet, cells nobody fills are grey) and one file per person in
+sheets/: D2_Diego.xlsx, D2_Martin.xlsx, D2_Anas.xlsx, D2_Claude.xlsx, each with only that person's rows.
 """
 import sys
 from pathlib import Path
@@ -68,3 +71,36 @@ for i, r in enumerate(S.itertuples(), start=top + 1):
 ws.freeze_panes = ws.cell(row=top + 1, column=1)
 wb.save(BOOK)
 print(f"{len(S)} mentions: {int(S.cross.sum())} cross-party, {int((~S.cross).sum())} same-party; wrote {BOOK}")
+
+
+# ---------------------------------------------------------------- one file per person
+OUT = HERE / "sheets"
+OUT.mkdir(exist_ok=True)
+PCOLS = [("id", 5), ("speaker", 20), ("named member", 20), ("date", 11), ("context", 95), ("code", 8), ("notes", 40)]
+for who, rows in ROWS.items():
+    path = OUT / f"D2_{who}.xlsx"
+    if path.exists() and who != "Claude":
+        print(f"{path.name} exists, not overwritten"); continue
+    part = S[S.id.isin(rows)]
+    wb = Workbook(); ws = wb.active; ws.title = who
+    ws.cell(row=1, column=1, value=f"D2: what does a floor mention mean? {who}, rows {rows.start} to {rows.stop - 1}").font = Font(bold=True, size=14)
+    for r, text in enumerate(base.KEY, start=2):
+        ws.cell(row=r, column=1, value=text).font = Font(bold=(r == 2))
+    top = len(base.KEY) + 3
+    for j, (h, w) in enumerate(PCOLS, start=1):
+        c = ws.cell(row=top, column=j, value=h); c.font, c.fill = Font(bold=True), HEAD
+        ws.column_dimensions[c.column_letter].width = w
+    dv = DataValidation(type="list", formula1='"P,A,D,N,X"', allow_blank=True, error="Use P, A, D, N or X", errorTitle="Code")
+    ws.add_data_validation(dv)
+    for i, r in enumerate(part.itertuples(), start=top + 1):
+        for j, v in enumerate([r.id, r.speaker_name, r.named_name, r.date, r.context_marked], start=1):
+            ws.cell(row=i, column=j, value=v).alignment = Alignment(wrap_text=(j == 5), vertical="top")
+        c = ws.cell(row=i, column=6)
+        if who == "Claude":
+            c.value = claude[r.id]
+            ws.cell(row=i, column=7, value=pd.read_csv(HERE / "claude_codes.csv").set_index("id").note[r.id])
+        else:
+            c.fill = CODE; dv.add(c.coordinate)
+    ws.freeze_panes = ws.cell(row=top + 1, column=1)
+    wb.save(path)
+    print("wrote", path.name, len(part), "rows")
