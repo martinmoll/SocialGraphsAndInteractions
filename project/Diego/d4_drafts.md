@@ -3,6 +3,11 @@
 Diego Mijares with Claude, 14 November 2026. Drafts to be moved into Overleaf after the 18 November
 meeting.
 
+**Headline after D2 (18 Nov), noted here because these drafts predate it:** cross-party floor mentions are
+mostly agreeing (69%) and rarely disagreeing (7%), so the Discussion's Version A applies and Version B
+(members argue across the aisle) is dropped. Since G3, Diego and Martin rewrite these sections together
+from `report_skeleton.md`.
+
 **Placeholders.** Anything in `[[double brackets]]` is not known yet and must be replaced after the freeze
 on 22 November. The prototype's numbers (34% and 12% cross-party at equal size) appear nowhere below,
 because the definitions behind them are not agreed. Citation keys are those of `references.bib`.

@@ -36,7 +36,7 @@ id,mention_row,cross,diego,martin,anas,claude,ai1,ai2,ai3,second_coder,second,la
 35,3147,True,A,,,A,A,A,A,Claude,A,A
 36,652,True,A,,,A,A,A,A,Claude,A,A
 37,7003,True,A,,,A,A,A,A,Claude,A,A
-38,6306,True,A,,,X,X,X,X,Claude,X,A
+38,6306,True,X,,,X,X,X,X,Claude,X,X
 39,6954,True,A,,,A,A,A,A,Claude,A,A
 40,4149,True,A,,,A,A,A,A,Claude,A,A
 41,2594,True,A,,,A,A,A,A,Claude,A,A
@@ -84,7 +84,7 @@ id,mention_row,cross,diego,martin,anas,claude,ai1,ai2,ai3,second_coder,second,la
 83,69,True,N,,N,,A,A,A,Anas,N,N
 84,1108,True,N,,A,,A,A,A,Anas,A,N
 85,7012,True,A,,A,,A,A,A,Anas,A,A
-86,8060,False,N,,N,,X,X,X,Anas,N,N
+86,8060,False,X,,N,,X,X,X,Anas,N,X
 87,7985,False,A,,A,,A,A,A,Anas,A,A
 88,4943,False,A,,A,,A,A,A,Anas,A,A
 89,5156,True,N,,D,,D,D,D,Anas,D,N

@@ -3,6 +3,11 @@
 Diego Mijares with Claude, 18 November 2026. A plan for the paper, the reflection and the slides, not
 text. For the group to change at the meeting. Task ids are those of `../WORK_AND_DEADLINES.md`.
 
+**Headline after D2 (18 Nov):** cross-party floor mentions are mostly agreeing (69%: thanks, credit,
+partnership) and rarely disagreeing (7%). So the floor map is less divided because members credit
+colleagues across the aisle, not because they argue with them. Write every section to this reading; the
+"talk across the aisle to argue" version is out. Numbers in `d2_labelling/RESULTS.md`.
+
 **Hand-in, Fri 27 Nov 23:59 on DTU Learn, three PDFs:** paper (PNAS LaTeX template, at most 6 pages
 including figures and references), slides (3-page PDF, no animations), reflection (ungraded, about half a
 page, one page at most). `docs/AI_METHODS.md` must be in the repository.
@@ -68,11 +73,12 @@ its half page goes to Results part 1.
 - Shares of procedure, agreeing, disagreeing, neutral and wrong-person among cross-party and same-party
   mentions, hand labels, with intervals (D2).
 - Agreement: Diego against Martin, against Anas, against Claude, reported separately (S1).
-- Classifier: leave-one-out accuracy against the always-"agreeing" baseline, F1 for disagreement, then the
-  shares over all 8,041 mentions if it earns it (D5). If not, say so in one sentence.
-- Which headline part 2 allows: "less divided", or "talks across the aisle to argue".
-- **Figure 2** (Diego, D5): shares by code, cross-party against same-party, hand labels next to the
-  classifier.
+- Classifier (D5): 73% against 72% for always "agreeing", 0 of 5 disagreements found. It does not earn a
+  place as a measurement; one sentence saying so, as the check.
+- The headline part 2 allows: cross-party mentions are mostly credit (69% agreeing, 7% disagreeing), so
+  "less divided" stands and "talks across the aisle to argue" is out.
+- **Figure 2** (Diego, D2): shares by code with intervals, cross-party against same-party, from the hand
+  labels. The classifier is not in the figure.
 
 **Part 3: close-up (about 0.5 page with Figure 3). Owner Anas, A3 to A4, with M6.**
 - Which Democrats Republicans name at home, against their own bills as the baseline (M6).

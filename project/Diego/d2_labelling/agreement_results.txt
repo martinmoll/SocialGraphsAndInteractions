@@ -4,13 +4,13 @@ rows coded: {'Diego': 100, 'Martin': 25, 'Anas': 25, 'Claude': 50, 'AI1': 100, '
 
 (a) human against human
         Diego vs Martin      n =  25  raw agreement  80%  Cohen's kappa  0.59
-        Diego vs Anas        n =  25  raw agreement  88%  Cohen's kappa  0.76
+        Diego vs Anas        n =  25  raw agreement  84%  Cohen's kappa  0.69
 
 (b) each AI coder against Diego
-        Diego vs Claude      n =  50  raw agreement  86%  Cohen's kappa  0.66
-        Diego vs AI1         n = 100  raw agreement  80%  Cohen's kappa  0.53
-        Diego vs AI2         n = 100  raw agreement  79%  Cohen's kappa  0.51
-        Diego vs AI3         n = 100  raw agreement  80%  Cohen's kappa  0.53
+        Diego vs Claude      n =  50  raw agreement  88%  Cohen's kappa  0.72
+        Diego vs AI1         n = 100  raw agreement  82%  Cohen's kappa  0.58
+        Diego vs AI2         n = 100  raw agreement  81%  Cohen's kappa  0.56
+        Diego vs AI3         n = 100  raw agreement  82%  Cohen's kappa  0.58
 
 (c) AI against AI
        Claude vs AI1         n =  50  raw agreement  94%  Cohen's kappa  0.85
@@ -21,13 +21,13 @@ rows coded: {'Diego': 100, 'Martin': 25, 'Anas': 25, 'Claude': 50, 'AI1': 100, '
           AI2 vs AI3         n = 100  raw agreement  99%  Cohen's kappa  0.97
 
 (d) majority of AI1-AI3 against Diego (no majority on 0 rows, left out)
-        Diego vs AI majority n = 100  raw agreement  80%  Cohen's kappa  0.53
+        Diego vs AI majority n = 100  raw agreement  82%  Cohen's kappa  0.58
 
 Note: Claude and AI1-AI3 are the same model, given the same rules and the same rows, each without seeing
 the others. Their agreement with each other overstates how independent they are: shared mistakes agree.
 
 shares from Diego's codes, with 95% Wilson intervals
-  same-party  (n = 25): P 12% (4%-30%), A 80% (61%-91%), D 0% (0%-13%), N 8% (2%-25%), X 0% (0%-13%)
-  cross-party (n = 75): P 0% (0%-5%), A 71% (60%-80%), D 7% (3%-15%), N 23% (15%-33%), X 0% (0%-5%)
+  same-party  (n = 25): P 12% (4%-30%), A 80% (61%-91%), D 0% (0%-13%), N 4% (1%-20%), X 4% (1%-20%)
+  cross-party (n = 75): P 0% (0%-5%), A 69% (58%-79%), D 7% (3%-15%), N 23% (15%-33%), X 1% (0%-7%)
 
 labels_final.csv: 100 labelled rows for the classifier (label = Diego's code); rows where Diego and the second coder differ are in disagreements.csv

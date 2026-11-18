@@ -27,10 +27,10 @@ python Diego/d5_classifier/classify.py
 
 ## Result on the human labels (18 November)
 
-Trained on Diego's 100 codes (73 A, 19 N, 5 D, 3 P, 0 X). Full output in `results.txt`.
+Trained on Diego's 100 codes (72 A, 18 N, 5 D, 3 P, 2 X). Full output in `results.txt`.
 
-- Leave-one-out accuracy **74%**, against **73%** for always guessing "agreeing". Macro F1 0.33.
-- It never predicts "disagreeing" correctly (0 of 5) and finds 9 of 19 "neutral".
+- Leave-one-out accuracy **73%**, against **72%** for always guessing "agreeing". Macro F1 0.26.
+- It never predicts "disagreeing" correctly (0 of 5) and finds about half of "neutral".
 - **The classifier does not beat the baseline.** Its shares over all 8,041 mentions are in `shares.csv`
   and the figure, but they are not a measurement. The paper reports the hand-labelled shares (see
   `../d2_labelling/RESULTS.md`) and states this as the check: with 100 labels, five of them disagreement,

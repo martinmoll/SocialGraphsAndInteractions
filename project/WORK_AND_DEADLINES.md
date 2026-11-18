@@ -75,16 +75,16 @@ has not confirmed them. Confirm or change on 18 November.** Hours have not been 
 | # | Task | Delivers | Needs | Status |
 |---|---|---|---|---|
 | D1 | Count the 30 matches printed in the prototype notebook; extend to about 100; report precision | Matcher precision for Methods: `Diego/d1_matcher_precision/REPORT.md` | | In progress: 93 of 100 correct (95% interval 86 to 97%) on the prototype's matcher. Labelled by Claude, 95 of 100 checked by Diego, 5 to recheck. **New, 18 Nov: the new matcher's precision comes from code X in the D2 sample (100 rows), with Martin and Anas as second coders (DECISIONS G10). In progress** |
-| D2 | Labelling protocol for cross-party floor mentions: agreeing, disagreeing or procedural. Draw the sample from `mentions.parquet` | Protocol and sample: `Diego/d2_labelling/PROTOCOL.md` | M2 for the sample; the protocol can start now | Done: **coding complete** 18 Nov (Diego 100; Martin, Anas, Claude as second coders). Pooled human κ 0.67. Cross-party: 71% agreeing, 7% disagreeing, 23% neutral. `Diego/d2_labelling/RESULTS.md` |
+| D2 | Labelling protocol for cross-party floor mentions: agreeing, disagreeing or procedural. Draw the sample from `mentions.parquet` | Protocol and sample: `Diego/d2_labelling/PROTOCOL.md` | M2 for the sample; the protocol can start now | Done: **coding complete** 18 Nov. Pooled human κ 0.64. Cross-party: 69% agreeing, 7% disagreeing, 23% neutral. `Diego/d2_labelling/RESULTS.md` |
 | D3 | Read Westwood and Harbridge: three lines on what each found. Settle Westwood's year. Find three or four more references | Note on prior work; reference list: `Diego/d3_prior_work.md`, `references.bib` | | Done: eight references verified; Westwood read at the publisher (2022, online Jan 2021) |
 | D4 | Introduction and Discussion; the half-page reflection. **The Introduction and Discussion are now written together (DECISIONS G3)** | Text: `Diego/d4_drafts.md` | D3 | In progress: drafted with placeholders for all numbers |
-| D5 | TF-IDF and logistic-regression classifier trained on the 100 hand labels (D2), checked by leave-one-out against them, applied to all floor mentions: share of P/A/D/N/X for cross-party and same-party mentions | `Diego/d5_classifier/`: results, shares table, one figure | D2 labels | Done: run on the human labels. 74% against a 73% baseline, so not used as a measurement; the paper reports the hand-labelled shares |
+| D5 | TF-IDF and logistic-regression classifier trained on the 100 hand labels (D2), checked by leave-one-out against them, applied to all floor mentions: share of P/A/D/N/X for cross-party and same-party mentions | `Diego/d5_classifier/`: results, shares table, one figure | D2 labels | Done: 73% against a 72% always-agreeing baseline, so not used as a measurement; the paper reports the hand-labelled shares |
 
 ### Everyone
 
 | # | Task | Delivers | Status |
 |---|---|---|---|
-| S1 | Second-code the labelling sample from D2: Martin rows 1–25, Anas rows 76–100 (Claude coded 26–75). Report κ per pair | Agreement score for part 2 | Done 18 Nov: Diego–Martin κ 0.59 (25 rows), Diego–Anas κ 0.76 (25 rows) |
+| S1 | Second-code the labelling sample from D2: Martin rows 1–25, Anas rows 76–100 (Claude coded 26–75). Report κ per pair | Agreement score for part 2 | Done 18 Nov: Diego–Martin κ 0.59, Diego–Anas κ 0.69 (25 rows each) |
 | S2 | Hand-check the 60 sampled speaker turns in `data/processed/speaker_check_sample.csv` | Agreement rate for Methods | Not started |
 | S3 | Read the full draft and comment. Explain out loud one method you did not build | Everyone can answer for the whole paper | Not started |
 
@@ -161,6 +161,9 @@ From the earlier plans in `archive/`. Listed so nobody keeps working on them.
 
 Newest first. One line per change.
 
+- **18 Nov 2026.** D2: Diego changed rows 38 and 86 to X (matcher errors the AI coders flagged). Matcher
+  precision in the sample 98 of 100 (G10). Pooled human κ 0.64. Cross-party: 69% agreeing, 7% disagreeing.
+  Headline: cross-party mentions are mostly credit, the "argue" reading is out.
 - **18 Nov 2026.** M3: phrase yield rule applied in `Martin/mentions.parquet` (`is_yield`; the old flag is kept as
   `is_yield_window`). 1,427 against 1,406 flags on the R–D mentions, 285 disagreements. Rows unchanged; Diego's D2
   keys checked. Diego: rerunning D5 carries the new flag into `predictions.parquet`.
