@@ -3,7 +3,7 @@
 **Last updated: Wednesday 18 November 2026.**
 
 This is the one place that says who does what, how far it is, and what is due when. The question and the
-design are in [`README.md`](README.md).
+design are in [`README.md`](README.md). Every decision and its reason is in [`DECISIONS.md`](DECISIONS.md).
 
 **Keep it current.** Whenever something changes (a task starts, finishes, is blocked, is dropped, changes
 owner, or a date moves), update the table, change the date above and add a line to the log at the bottom.
@@ -18,7 +18,9 @@ Status words: **Not started**, **In progress**, **Done**, **Blocked** (say by wh
 | Date | What | State |
 |---|---|---|
 | Wed 18 Nov, before the meeting | The three shared files exist in a first version (M1, M2, A1), so nobody waits on anybody; matcher precision counted (D1) | Open |
-| **Wed 18 Nov, 14:00–17:00** | Group meeting: fix the definitions, confirm owners, outline the paper in Overleaf, ask the teachers (section 4) | Open |
+| **Wed 18 Nov, 9:00–11:30** | Group meeting: fix the definitions, confirm owners, set up Overleaf (PNAS template), ask the TAs, test the labelling rules on 20 mentions. Plan and decisions in [`DECISIONS.md`](DECISIONS.md) | Open |
+| **Fri 20 Nov** | Press releases for the first 20 Republicans. No data by then: the close-up is dropped (DECISIONS G5) | Open |
+| **Sat 21 Nov** | Full labelling done, two coders per mention (DECISIONS G8) | Open |
 | **Sun 22 Nov** | Numbers frozen. No definition changes after this | Open |
 | Mon 23 Nov | Final data download, with the date recorded | Open |
 | **Tue 24 Nov, 20:00** | Full draft in Overleaf and a first version of the three slides. Everyone reads all of it | Open |
@@ -75,7 +77,7 @@ has not confirmed them. Confirm or change on 18 November.** Hours have not been 
 | D1 | Count the 30 matches printed in the prototype notebook; extend to about 100; report precision | Matcher precision for Methods: `Diego/d1_matcher_precision/REPORT.md` | | In progress: 93 of 100 correct (95% interval 86 to 97%). Labelled by Claude, 95 of 100 checked by Diego, 5 to recheck |
 | D2 | Labelling protocol for cross-party floor mentions: agreeing, disagreeing or procedural. Draw the sample from `mentions.parquet` | Protocol and sample: `Diego/d2_labelling/PROTOCOL.md` | M2 for the sample; the protocol can start now | In progress: 100 mentions in `Diego/d2_labelling/D2_full_sheet.xlsx`. Diego codes all 100; second coder Martin (1–25), Claude (26–75, done), Anas (76–100) |
 | D3 | Read Westwood and Harbridge: three lines on what each found. Settle Westwood's year. Find three or four more references | Note on prior work; reference list: `Diego/d3_prior_work.md`, `references.bib` | | In progress: written from abstracts, Westwood is 2022. Westwood's abstract still to be read at the publisher |
-| D4 | Introduction and Discussion; the half-page reflection | Text: `Diego/d4_drafts.md` | D3 | In progress: drafted with placeholders for all numbers |
+| D4 | Introduction and Discussion; the half-page reflection. **The Introduction and Discussion are now written together (DECISIONS G3)** | Text: `Diego/d4_drafts.md` | D3 | In progress: drafted with placeholders for all numbers |
 | D5 | TF-IDF and logistic-regression classifier trained on the 100 hand labels (D2), checked by leave-one-out against them, applied to all floor mentions: share of P/A/D/N/X for cross-party and same-party mentions | `Diego/d5_classifier/`: results, shares table, one figure | D2 labels | In progress: runs end to end on Claude's 50 codes as a placeholder; switches to the human labels when the sheets are back |
 
 ### Everyone
@@ -159,6 +161,10 @@ From the earlier plans in `archive/`. Listed so nobody keeps working on them.
 
 Newest first. One line per change.
 
+- **18 Nov 2026.** `DECISIONS.md` created: every decision with its reason and alternative. Meeting moved to
+  9:00–11:30. From the meeting plan: owners (Introduction and Discussion now written together), press releases
+  Republicans only, swing against safe seats, close-up dropped if no data by Fri 20 Nov, three figures,
+  labelling by two coders due Sat 21 Nov. M3 definitions and the TA answers still open.
 - **18 Nov 2026.** Plan B for the language part: D5 added (TF-IDF classifier trained on the D2 labels, checked
   against them, applied to all floor mentions). Pipeline runs on a placeholder. S1 updated to the 25-row split.
 - **18 Nov 2026.** D2: labelling set at 100 mentions (75 cross-party, 25 same-party) in

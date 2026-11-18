@@ -16,4 +16,6 @@ modelling choice you make, because a human has to defend it out loud at a live d
 **Final project:** the question and design are in [`project/README.md`](project/README.md). Who does what, the
 status and the deadlines are in [`project/WORK_AND_DEADLINES.md`](project/WORK_AND_DEADLINES.md). **Update that file
 whenever a task starts, finishes, is blocked or dropped, or a date moves**, and add a line to its log.
+**Every decision and its reason goes in [`project/DECISIONS.md`](project/DECISIONS.md)** the same day, with the
+alternative and what it would have changed. We have to defend every modelling choice out loud.
 Everything in `project/archive/` is history, not the plan.
