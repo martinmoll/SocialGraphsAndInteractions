@@ -1,0 +1,16 @@
+id,Diego,Martin,Anas,Claude,AI1,AI2,AI3,cross
+3,A,N,,,N,N,N,True
+15,A,N,,,A,A,A,True
+16,A,N,,,A,A,A,True
+23,D,N,,,D,D,D,True
+24,A,N,,,P,P,P,False
+31,N,,,X,P,P,P,True
+38,A,,,X,X,X,X,True
+53,N,,,D,D,D,D,True
+54,N,,,D,D,D,D,True
+56,N,,,X,P,P,P,True
+64,N,,,A,A,A,A,True
+75,N,,,D,D,D,D,True
+80,D,,N,,D,D,D,True
+84,N,,A,,A,A,A,True
+89,N,,D,,D,D,D,True

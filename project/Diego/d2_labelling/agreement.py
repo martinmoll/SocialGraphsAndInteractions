@@ -11,6 +11,7 @@ given as the argument.
 
 Codes: P procedure, A agreeing, D disagreeing, N neutral, X wrong person (see PROTOCOL.md).
 """
+import re
 import sys
 from itertools import combinations
 from math import sqrt
@@ -43,6 +44,21 @@ else:
     T = table(src)
 coders = [c for c in HUMANS + AIS if c in T.columns and (T[c].astype(str).str.strip() != "").any()]
 C = T[coders].apply(lambda s: s.astype(str).str.strip().str.upper()).join(key[["cross"]])
+PRIORITY = "XPDAN"                                      # the protocol's order when two codes fit
+
+
+def one_code(v):
+    """A cell with two codes ('A OR N', 'D, N') takes the first in the protocol's priority order."""
+    found = [c for c in CODES if re.search(rf"\b{c}\b", v)]
+    return min(found, key=PRIORITY.index) if len(found) > 1 and len(v) > 1 else v
+
+
+for c in coders:
+    for i in C.index[C[c].str.len() > 1]:
+        new = one_code(C.at[i, c])
+        if new != C.at[i, c]:
+            print(f"row {i}, {c}: '{C.at[i, c]}' read as {new} (two codes; protocol priority X, P, D, A, N)")
+            C.at[i, c] = new
 bad = C[coders].stack(); bad = bad[~bad.isin(CODES + [""])]
 if len(bad): raise SystemExit(f"unknown codes: {bad.to_dict()}")
 humans, ais = [c for c in coders if c in HUMANS], [c for c in coders if c in AIS]

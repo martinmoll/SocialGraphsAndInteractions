@@ -1,34 +1,32 @@
-PLACEHOLDER (Claude's 50 codes, not the human labels): D5 classifier, 50 labelled mentions
-labels: P 1, A 38, D 5, N 3, X 3
+D5 classifier, 100 labelled mentions
+labels: P 3, A 73, D 5, N 19, X 0
 
 Leave-one-out check against the hand labels
-  accuracy 80%  (always guessing 'A': 76%)
-  macro F1 0.34
-  per code F1: P 0.00, A 0.88, D 0.33, N 0.00, X 0.50
+  accuracy 74%  (always guessing 'A': 73%)
+  macro F1 0.33
+  per code F1: P 0.00, A 0.85, D 0.00, N 0.47
   confusion (rows: hand label, columns: classifier)
-   P   A  D  N  X
-P  0   1  0  0  0
-A  0  38  0  0  0
-D  0   4  1  0  0
-N  0   3  0  0  0
-X  0   2  0  0  1
-  accuracy on cross-party mentions: 79% (n = 43)
-  accuracy on same-party mentions: 86% (n = 7)
+   P   A  D  N
+P  0   3  0  0
+A  0  65  0  8
+D  0   3  0  2
+N  0   9  1  9
+  accuracy on cross-party mentions: 75% (n = 75)
+  accuracy on same-party mentions: 72% (n = 25)
 
 Terms that weigh most for each code
-  A: this, thank, this bill, chairman, with, my, legislation, also, support of, act
-  D: speaker named, not, they, should, they are, our, called, we, last, week
-  N: women, was, speak, and the, need, were, there, district, have, of
-  P: get, minutes, sponsor, sponsor of, hope, hope we, lead, california, named the, the gentleman
-  X: by mr, mr named, has, previously, referred, amendment to, to res, to by, an amendment, the rule
+  A: this, thank, and, legislation, named for, on this, this legislation, this bill, time, bill
+  D: doing, week, oversight, think, speaker named, chance, chance to, we have, post, never
+  N: said, and the, was, by, these, healthcare for, able, able to, women, getting
+  P: gentleman, the gentleman, speaker yield, yield, or, yield minutes, minutes to, gentleman from, minutes, to the
 
 Applied to 8,041 floor mentions (2,898 cross-party, 5,143 same-party)
 Share of each code:
-                                          P      A      D      N      X
-source                   mentions                                      
-classifier, all mentions cross-party  0.000  0.873  0.075  0.016  0.036
-                         same-party   0.012  0.936  0.034  0.017  0.001
-hand labels, sample      cross-party  0.000  0.744  0.116  0.070  0.070
-                         same-party   0.143  0.857  0.000  0.000  0.000
+                                          P      A      D      N  X
+source                   mentions                                  
+classifier, all mentions cross-party  0.016  0.737  0.019  0.228  0
+                         same-party   0.132  0.737  0.004  0.127  0
+hand labels, sample      cross-party  0.000  0.707  0.067  0.227  0
+                         same-party   0.120  0.800  0.000  0.080  0
 
 The classifier's shares carry its errors: read them with the confusion matrix above.

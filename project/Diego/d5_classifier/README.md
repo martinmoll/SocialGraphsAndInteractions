@@ -4,9 +4,7 @@ Diego Mijares with Claude, 18 November 2026. Part 2 of the paper reads 100 menti
 carries those labels to all floor mentions with a TF-IDF and logistic-regression classifier, the course's
 own week 6 tools, and checks it against the hand labels before anything is reported.
 
-**State on 18 Nov: the pipeline runs end to end on Claude's 50 codes as a stand-in. Every number it prints
-now is stamped PLACEHOLDER and goes nowhere.** It switches to the human labels by itself once
-`agreement.py` has written `../d2_labelling/labels_final.csv` from the returned sheets.
+**State on 18 Nov: run on the human labels. It does not beat the baseline; see below.**
 
 ```
 python Diego/d2_labelling/agreement.py <folder with the returned .xlsx files>
@@ -27,7 +25,18 @@ python Diego/d5_classifier/classify.py
 5. **Output.** `results.txt`, `shares.csv` (share of each code, classifier on all mentions next to the hand
    labels on the sample), `predictions.parquet`, `figures/d5_codes.png`.
 
-## What the placeholder run already shows
+## Result on the human labels (18 November)
+
+Trained on Diego's 100 codes (73 A, 19 N, 5 D, 3 P, 0 X). Full output in `results.txt`.
+
+- Leave-one-out accuracy **74%**, against **73%** for always guessing "agreeing". Macro F1 0.33.
+- It never predicts "disagreeing" correctly (0 of 5) and finds 9 of 19 "neutral".
+- **The classifier does not beat the baseline.** Its shares over all 8,041 mentions are in `shares.csv`
+  and the figure, but they are not a measurement. The paper reports the hand-labelled shares (see
+  `../d2_labelling/RESULTS.md`) and states this as the check: with 100 labels, five of them disagreement,
+  a word-count model cannot tell praise from attack.
+
+## What the placeholder run showed (kept for the record)
 
 With 50 labels, 38 of them "agreeing", the classifier predicts "agreeing" for almost everything. It scores
 80% against 76% for always guessing "agreeing", and finds 1 of 5 disagreements. Expect the same problem with
