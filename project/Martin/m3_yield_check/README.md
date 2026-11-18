@@ -20,17 +20,12 @@ it over?** Write the code in the `code` column.
 | Code | When |
 |---|---|
 | **Y** | The speaker yields time to `named` ("I yield 2 minutes to the gentleman from Texas (Mr. [[Roy]])"), or thanks `named` for yielding ("I thank Chairman [[Cole]] for yielding") |
-| **R** | Another floor-time request that involves `named`: asking `named` to yield ("Will the gentleman from Texas yield?"), or `named` refusing to yield or reclaiming time |
-| **N** | Anything else, **including a yield that goes to someone else in the same passage** |
+| **N** | Anything else, **including a yield that goes to someone else in the same passage**, and asking `named` to yield ("Will the gentleman from Texas yield?"): that is not a yield (DECISIONS G12) |
 | **?** | You can't tell from the context. Add a note, and open the debate through `doc_id` if you want |
 
 **Watch for the trap:** row 1 starts "I thank the gentlewoman for yielding", and then talks about
 [[Fitzpatrick]]. The thanks go to the gentlewoman, not to Fitzpatrick, so it is **N**. A "yield" near the name
 isn't enough; it has to be aimed at `named`.
-
-**Why there is an R code:** whether "Will the gentleman yield?" counts as a yield is a modelling choice we haven't
-made yet. Coding it separately keeps the choice open: decide it after you see how many there are, and
-record it in DECISIONS.
 
 Write a note on any row you hesitated over. About 20–30 minutes.
 

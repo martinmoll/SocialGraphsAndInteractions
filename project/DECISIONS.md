@@ -117,6 +117,19 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
   "100% recall". The test catches gross failures, but at this size it won't give a tight recall figure.
 - **Source:** meeting, 18 Nov; `Martin/M3_PROPOSAL.md`, decision 3.
 
+### G12. Asking a member to yield is not a yield
+- **Status:** Agreed Wed 18 Nov, by Martin.
+- **Decision:** "Will the gentleman yield?" (asking the named member to yield) does **not** count as a yield. Only
+  handing time *to* the named member, or thanking them *for* yielding, counts. The mention stays in the headline
+  floor map. In the hand check of the yield rule (`Martin/m3_yield_check/`) such rows are coded N.
+- **Reason:** not recorded. *Proposed, for Martin to confirm:* no floor time passes to the named member. The
+  speaker is addressing that member, usually in the middle of an argument, which is "talking to or about"
+  them, so it is what the floor map is meant to capture (G1b). It also matches what the phrase rule
+  already does: it doesn't flag these.
+- **Alternative and what it would have changed:** count it as a yield, since it is floor-time procedure too. More
+  mentions would be dropped from the headline map, and the phrase rule would need a third pattern.
+- **Source:** Martin, 18 Nov, while preparing the yield-rule check.
+
 ### G9. Yields stay in the labelling sample
 - **Status:** Agreed Wed 18 Nov.
 - **Decision:** Diego's labelling sample (100 rows, already drawn) keeps the yields among them.
