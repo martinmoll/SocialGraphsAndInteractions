@@ -1,0 +1,101 @@
+id,code,unsure,note
+1,A,0,thanks for working on bipartisan bill
+2,A,0,thanks ranking member for partnership
+3,N,0,serves on committee with member
+4,A,0,routine thanks to ranking member
+5,A,0,supports member's bill
+6,A,0,thanks Speaker
+7,A,0,appreciates negotiating changes
+8,D,0,reads resolution alleging misconduct
+9,P,0,yield
+10,A,0,appreciates work on legislation
+11,A,1,cites chairman's priority approvingly
+12,A,0,thanks chairman for advancing bill
+13,A,0,urges passing member's bill
+14,A,0,thanks for bipartisan leadership
+15,A,0,partner on bipartisan legislation
+16,A,1,defends member's right to offer resolution
+17,N,1,questions addressed to member in debate
+18,A,1,explains member's point with approval
+19,A,0,co-lead and credits leadership
+20,A,0,thanks ranking member
+21,A,0,tribute
+22,A,0,thanks for leadership
+23,D,0,blames Speaker for excluding Democrats
+24,P,0,thanks for yielding
+25,A,0,thanks for bipartisan work
+26,A,0,looks forward to working with chairman
+27,D,0,blames Speaker for not bringing bill
+28,N,0,names whose district
+29,A,0,appreciates work on bill
+30,A,0,thanks for partnership
+31,P,0,procedural insertion of material
+32,A,0,thanks chairman for moving bill
+33,A,0,thanks for leadership
+34,A,0,thanks ranking member
+35,A,0,co-lead and thanks
+36,A,0,quotes member to endorse point
+37,A,0,supports bill sponsored by member
+38,X,0,Griff Lynch not the member
+39,A,0,thanks colleague co-worker on bill
+40,A,0,thanks co-leads
+41,A,0,thanks chairman for support
+42,A,0,introduced bill with member
+43,A,0,supports bill led by member
+44,A,0,appreciation for work
+45,A,0,commends leadership
+46,A,1,tribute context cites member
+47,A,0,praises chairman's leadership
+48,A,1,cites member's point approvingly
+49,A,0,thanks for anchoring hour
+50,N,0,reports Speaker was present
+51,A,0,co-anchor partner
+52,A,0,supports friend's legislation
+53,D,0,quotes member to attack
+54,D,1,introduces response to member's comment
+55,A,0,thanks for working together
+56,P,0,procedural insertion of material
+57,A,0,introduced with friend
+58,A,0,thanks for collaboration
+59,A,0,thanks for introducing bill
+60,A,0,credits chairman as instrumental
+61,A,0,thanks for working together
+62,A,0,thanks partner chairman
+63,A,0,introduced with colleague
+64,A,0,cites sponsor approvingly
+65,A,0,thanks for leadership
+66,P,0,yield
+67,A,0,thanks for bipartisan work
+68,A,0,credits work with member
+69,A,0,salutes member's endorsement
+70,A,0,thanks leader for bringing bill
+71,A,0,supports bill introduced by member
+72,D,0,blames Speaker for inaction
+73,A,0,praises friend
+74,A,0,thanks for partnership
+75,D,0,demands Speaker act
+76,A,0,thanks chairman
+77,A,0,commends member
+78,A,0,thanks ranking member
+79,A,0,thanks for friendship and leadership
+80,D,0,mocks chairman's oversight
+81,A,0,credits valuable input
+82,A,0,thanks for managing floor and agrees
+83,A,0,cites colleague approvingly
+84,A,0,defends member's petition
+85,A,0,praises member's work
+86,X,0,Bob Matsui not Doris
+87,A,0,appreciates leadership
+88,A,0,thanks for job well done
+89,D,0,blames Speaker for blocking votes
+90,A,0,thanks member
+91,P,1,thanks and later yields to member
+92,A,0,thanks for partnership
+93,A,0,thanks co-lead
+94,D,0,reads resolution alleging misconduct
+95,A,0,condolences
+96,P,0,yield
+97,A,0,thanks for work
+98,A,0,thanks co-lead
+99,A,0,supports member's push for vote
+100,A,0,supports bill introduced by member

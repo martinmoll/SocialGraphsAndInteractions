@@ -177,6 +177,9 @@ Newest first. One line per change.
   Republicans only, swing against safe seats, close-up dropped if no data by Fri 20 Nov, three figures,
   labelling by two coders due Sat 21 Nov. M3 definitions and the TA answers still open.
 
+- **18 Nov 2026.** D2: three more independent AI codings of all 100 mentions (AI1 to AI3), at Diego's request.
+  They agree with each other on 99 to 100 of 100, so they add stability, not independence. Scored against
+  Diego's codes when his sheet is in.
 - **18 Nov 2026.** D3 done: Westwood's abstract read at the publisher and the note corrected (floor votes,
   1994–2018). Report skeleton with page budget and owners in `Diego/report_skeleton.md`.
 - **18 Nov 2026.** Plan B for the language part: D5 added (TF-IDF classifier trained on the D2 labels, checked

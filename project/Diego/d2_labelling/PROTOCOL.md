@@ -11,6 +11,12 @@ and rules below are unchanged; where this file still says 200 mentions, this ver
 
 One file per person is in `sheets/` (D2_Diego, D2_Martin, D2_Anas, D2_Claude); `agreement.py sheets` scores them.
 
+**Three more AI codings, 18 November.** At Diego's request three further runs of Claude (AI1 to AI3) each
+coded all 100 rows, each seeing only the coding rules and the 100 rows, not any other code. They are in
+`sheets/ai/`. They agree with each other on 99 or 100 of 100 rows and with the first Claude coding on 47 of
+50: repeated runs of one model are close to copies, so they show that the model's coding is stable, not
+that it is right. Only the comparison with Diego's codes tests that.
+
 Claude coded its 50 rows from this protocol before any human code existed, with a reason for each in
 `claude_codes.csv`. Those rows are a model labelling text, so `agreement.py` reports Diego against Claude
 separately, and the paper says which rows had an AI as second coder. Disagreements are settled by the
