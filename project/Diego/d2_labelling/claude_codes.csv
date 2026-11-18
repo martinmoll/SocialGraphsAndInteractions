@@ -1,0 +1,51 @@
+id,code,unsure,note
+26,A,0,looks forward to working with Chairman Arrington
+27,D,0,blames the Speaker for refusing a vote
+28,N,0,names whose district a constituent lives in
+29,A,0,appreciates his work on the bill
+30,A,0,thanks for partnership
+31,X,0,Record boilerplate (the material previously referred to by Mr. McGovern) not spoken by the speaker
+32,A,0,thanks the chairman
+33,A,0,thanks the chairman
+34,A,0,thanks the subcommittee ranking member
+35,A,0,co-lead of the bill
+36,A,0,quotes him to support her point
+37,A,0,supports the bill he sponsored
+38,X,0,Griff Lynch of the Georgia Ports Authority not Stephen Lynch
+39,A,0,thanks and praises the joint work
+40,A,0,thanks for co-leading
+41,A,0,thanks the chairman
+42,A,0,introduced the bill together
+43,A,0,supports the bill he leads
+44,A,0,appreciation for crafting the bill (not a yield)
+45,A,0,commends her leadership
+46,A,0,tribute
+47,A,0,praises his leadership
+48,N,1,refers to her speech; whether he builds on it or answers it is unclear from the context
+49,A,0,thanks her for anchoring the hour
+50,N,0,reports that the Speaker was present
+51,A,0,co-anchoring partner
+52,A,0,supports his bill
+53,D,0,accuses her of excusing violence
+54,D,1,announces he will answer the ranking member's comment; the rebuttal itself is outside the context
+55,A,0,thanks for working together
+56,X,0,Record boilerplate as in 31
+57,A,0,introduced the bill together
+58,A,0,thanks for collaboration
+59,A,0,thanks him for the bill
+60,A,0,thanks for his efforts
+61,A,0,thanks for working together
+62,A,0,thanks his partner
+63,A,0,introduced the bill together
+64,A,0,cites his statement with approval
+65,A,0,thanks for leadership
+66,P,0,yields time
+67,A,0,thanks for bipartisan work
+68,A,0,credits their joint work
+69,A,0,salutes his endorsement
+70,A,0,thanks for bringing the bill to the floor
+71,A,0,supports the bill he introduced
+72,D,0,blames the Speaker for inaction
+73,A,0,praises their work together
+74,A,0,thanks for partnership
+75,D,0,demands the Speaker act

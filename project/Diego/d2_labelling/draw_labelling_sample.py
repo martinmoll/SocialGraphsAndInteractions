@@ -26,7 +26,8 @@ CODERS = ["Diego", "Martin", "Anas"]
 HERE = Path(__file__).parent
 src = sys.argv[1] if len(sys.argv) > 1 else "Martin/mentions.parquet"
 BOOK = HERE / "D2_coding_sheet.xlsx"
-if BOOK.exists():
+MAIN = __name__ == "__main__"
+if MAIN and BOOK.exists():
     sys.exit(f"{BOOK} already exists. Coding may have started, so nothing was overwritten.")
 
 members = pd.read_csv("data/processed/members.csv").set_index("bioguide")
@@ -59,7 +60,8 @@ def mark(context, bioguide):
 
 
 S["context_marked"] = [mark(c, b) for c, b in zip(S.context, S.named)]
-S.drop(columns=["context_marked"]).to_csv(HERE / "sample_key.csv", index=False)
+if MAIN:
+    S.drop(columns=["context_marked"]).to_csv(HERE / "sample_key.csv", index=False)
 
 KEY = [
     "What is the speaker doing towards the named member (marked ‹like this›)? Put one letter in your own column.",
@@ -74,28 +76,34 @@ HEAD = PatternFill("solid", fgColor="DDE4EE")
 CODE = PatternFill("solid", fgColor="FFF4CC")
 COLS = [("id", 5), ("speaker", 20), ("named member", 20), ("date", 11), ("context", 95)] + [(c, 9) for c in CODERS] + [("notes", 30)]
 
-wb = Workbook()
-ws = wb.active
-ws.title = "Labelling"
-ws.cell(row=1, column=1, value="D2: what does a floor mention mean?").font = Font(bold=True, size=14)
-for r, text in enumerate(KEY, start=2):
-    c = ws.cell(row=r, column=1, value=text)
-    c.font = Font(bold=(r == 2))
-top = len(KEY) + 3                                   # header row of the table
-for j, (h, w) in enumerate(COLS, start=1):
-    cell = ws.cell(row=top, column=j, value=h)
-    cell.font, cell.fill = Font(bold=True), HEAD
-    ws.column_dimensions[cell.column_letter].width = w
-for i, r in enumerate(S.itertuples(), start=top + 1):
-    for j, v in enumerate([r.id, r.speaker_name, r.named_name, r.date, r.context_marked], start=1):
-        ws.cell(row=i, column=j, value=v).alignment = Alignment(wrap_text=(j == 5), vertical="top")
-    for j in range(6, 6 + len(CODERS)):
-        ws.cell(row=i, column=j).fill = CODE
-dv = DataValidation(type="list", formula1='"P,A,D,N,X"', allow_blank=True, error="Use P, A, D, N or X", errorTitle="Code")
-ws.add_data_validation(dv)
-dv.add(f"F{top + 1}:{ws.cell(row=top + len(S), column=5 + len(CODERS)).coordinate}")
-ws.freeze_panes = ws.cell(row=top + 1, column=1)
-wb.save(BOOK)
-print(f"{len(S)} mentions: {int(S.cross.sum())} cross-party, {int((~S.cross).sum())} same-party; "
-      f"surname marked in {sum('‹' in c for c in S.context_marked)} of {len(S)}")
-print("wrote", BOOK)
+def write_book():
+    """Write the 20-row sheet. Skipped when draw_full_sheet.py imports this file."""
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Labelling"
+    ws.cell(row=1, column=1, value="D2: what does a floor mention mean?").font = Font(bold=True, size=14)
+    for r, text in enumerate(KEY, start=2):
+        c = ws.cell(row=r, column=1, value=text)
+        c.font = Font(bold=(r == 2))
+    top = len(KEY) + 3                                   # header row of the table
+    for j, (h, w) in enumerate(COLS, start=1):
+        cell = ws.cell(row=top, column=j, value=h)
+        cell.font, cell.fill = Font(bold=True), HEAD
+        ws.column_dimensions[cell.column_letter].width = w
+    for i, r in enumerate(S.itertuples(), start=top + 1):
+        for j, v in enumerate([r.id, r.speaker_name, r.named_name, r.date, r.context_marked], start=1):
+            ws.cell(row=i, column=j, value=v).alignment = Alignment(wrap_text=(j == 5), vertical="top")
+        for j in range(6, 6 + len(CODERS)):
+            ws.cell(row=i, column=j).fill = CODE
+    dv = DataValidation(type="list", formula1='"P,A,D,N,X"', allow_blank=True, error="Use P, A, D, N or X", errorTitle="Code")
+    ws.add_data_validation(dv)
+    dv.add(f"F{top + 1}:{ws.cell(row=top + len(S), column=5 + len(CODERS)).coordinate}")
+    ws.freeze_panes = ws.cell(row=top + 1, column=1)
+    wb.save(BOOK)
+    print(f"{len(S)} mentions: {int(S.cross.sum())} cross-party, {int((~S.cross).sum())} same-party; "
+          f"surname marked in {sum('‹' in c for c in S.context_marked)} of {len(S)}")
+    print("wrote", BOOK)
+
+
+if MAIN:
+    write_book()
