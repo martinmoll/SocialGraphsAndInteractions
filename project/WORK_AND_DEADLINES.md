@@ -52,7 +52,7 @@ has not confirmed them. Confirm or change on 18 November.** Hours have not been 
 | M0 | Prototype of the two maps | `prototype_two_maps.ipynb`, one run | | Done (13 Nov) |
 | M1 | Move the name matcher out of the notebook into `scripts/`, so floor speeches and press releases use the same one. First version by Wed 18 Nov, as it is in the notebook. The guard against senators and non-members can follow | One shared matcher: `Martin/matcher.py` | | In progress: first version written (prototype's matcher plus capitals and accents fixes from D1). Guard against senators and non-members not started |
 | M2 | Write `mentions.parquet` and `named_ties.csv` from the floor speeches. First version by Wed 18 Nov | The two files in section 3, in `Martin/` | M1 | In progress: first version written (8,092 floor mentions, 4,610 directed pairs) |
-| M3 | Fix the definitions for part 1 in writing: how the working map is thinned, whether yields count, bill types | Definitions agreed by the group: `Martin/M3_PROPOSAL.md` | 18 Nov meeting | Decided 18 Nov (DECISIONS G1a–G1c): random working ties as headline, 200 draws; yields dropped from the headline; phrase rule. To do before Sun 22 Nov: apply them; random draws at 3,284 ties; hand-check about 30 rows where the two yield rules disagree; check about 25 of Diego's precision labels (G10) |
+| M3 | Fix the definitions for part 1 in writing: how the working map is thinned, whether yields count, bill types | Definitions agreed by the group: `Martin/M3_PROPOSAL.md` | 18 Nov meeting | Decided 18 Nov (DECISIONS G1a–G1c): random working ties as headline, 200 draws; yields dropped from the headline; phrase rule. To do before Sun 22 Nov: apply them; random draws at 3,284 ties; hand-check about 30 rows where the two yield rules disagree. The phrase-rule flag is written into `mentions.parquet` only after Diego has finished coding (G1c) |
 | M4 | Harder null: rewire while keeping who spoke in the same debate | A second null for the floor map: `Martin/m4_debate_null.ipynb` | M2 | In progress: first run. The floor map is more divided than all 200 debate rewirings; the debate structure explains about half of its party division |
 | M5 | Louvain communities on each map; overlap with party and between maps (NMI) | Numbers for Results | M3 | Not started |
 | M6 | Null for the close-up: of a member's own bills, are the cross-party ones announced more often than a random draw? | The fair baseline (fix 1) | A3 | Not started |
@@ -74,7 +74,7 @@ has not confirmed them. Confirm or change on 18 November.** Hours have not been 
 
 | # | Task | Delivers | Needs | Status |
 |---|---|---|---|---|
-| D1 | Count the 30 matches printed in the prototype notebook; extend to about 100; report precision | Matcher precision for Methods: `Diego/d1_matcher_precision/REPORT.md` | | In progress: 93 of 100 correct (95% interval 86 to 97%) on the prototype's matcher. Labelled by Claude, 95 of 100 checked by Diego, 5 to recheck. **New, 18 Nov: re-measure on the new matcher, fresh rows, before Sun 22 Nov; Martin checks about 25 (DECISIONS G10). In progress** |
+| D1 | Count the 30 matches printed in the prototype notebook; extend to about 100; report precision | Matcher precision for Methods: `Diego/d1_matcher_precision/REPORT.md` | | In progress: 93 of 100 correct (95% interval 86 to 97%) on the prototype's matcher. Labelled by Claude, 95 of 100 checked by Diego, 5 to recheck. **New, 18 Nov: the new matcher's precision comes from code X in the D2 sample (100 rows), with Martin and Anas as second coders (DECISIONS G10). In progress** |
 | D2 | Labelling protocol for cross-party floor mentions: agreeing, disagreeing or procedural. Draw the sample from `mentions.parquet` | Protocol and sample: `Diego/d2_labelling/PROTOCOL.md` | M2 for the sample; the protocol can start now | In progress: 100 mentions in `Diego/d2_labelling/D2_full_sheet.xlsx`. Diego codes all 100; second coder Martin (1–25), Claude (26–75, done), Anas (76–100) |
 | D3 | Read Westwood and Harbridge: three lines on what each found. Settle Westwood's year. Find three or four more references | Note on prior work; reference list: `Diego/d3_prior_work.md`, `references.bib` | | In progress: written from abstracts, Westwood is 2022. Westwood's abstract still to be read at the publisher |
 | D4 | Introduction and Discussion; the half-page reflection. **The Introduction and Discussion are now written together (DECISIONS G3)** | Text: `Diego/d4_drafts.md` | D3 | In progress: drafted with placeholders for all numbers |
@@ -160,6 +160,11 @@ From the earlier plans in `archive/`. Listed so nobody keeps working on them.
 ## 6. Log
 
 Newest first. One line per change.
+
+- **18 Nov 2026.** Merged with Diego's D2 and D5 commits. DECISIONS corrected: G10 (precision from code X in the
+  100-row D2 sample, no separate check), G8 (100 rows, Claude second coder on 26–75, not yet discussed by the
+  group), G2a and G11 (no clear TA answer, D5 classifier), G1c (about 9 yields in the sample, so the 30
+  rule-disagreement rows are the main test; `mentions.parquet` unchanged until Diego finishes coding).
 
 - **18 Nov 2026.** M3 decided (DECISIONS G1a–G1c): random working ties as the headline (200 draws), strongest ties
   second, backbone as a robustness row; **yields dropped from the headline**, against the proposal; phrase yield

@@ -29,11 +29,11 @@ Status words: **Agreed**, **Open** (say when it is decided), **Replaced** (say b
 ## Open
 
 ### G2. Questions for the TAs (Diego asks, 9:50 to 10:10)
-- **Status:** Open, answers expected Wed 18 Nov.
+- **Status:** (a) answered Wed 18 Nov, unclear, see G11. (b) and (c) still open.
 
 | # | Question | If the answer is no |
 |---|---|---|
-| a | Is hand-labelling cross-party floor mentions as agreeing / disagreeing / procedural enough language analysis, or do they want TF-IDF, topics or sentiment too? | Add a text method. That is new work before the freeze on Sun 22 Nov |
+| a | Is hand-labelling cross-party floor mentions as agreeing / disagreeing / procedural enough language analysis, or do they want TF-IDF, topics or sentiment too? | **Asked 18 Nov: no clear answer.** We added a text method anyway (G11) |
 | b | Is a dataset chosen after the 4 Nov lock OK? | Not yet discussed |
 | c | Is the hand-in right: 6 pages including references, 3 slides and the reflection, all by Fri 27 Nov? | Correct the deadlines in `WORK_AND_DEADLINES.md` |
 
@@ -95,8 +95,15 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
 - **Decision:** `is_yield` uses the **phrase rule**. It flags "yield" before the name (not "yield back" or
   "yield myself"), or "for yielding" after the name, in the same sentence. Before Sun 22 Nov it is tested on rows
   it has never seen:
-  1. the yields in Diego's labelling sample (200 rows; about 18 to 25 yields expected, an estimate);
-  2. about 30 hand-checked mentions where the window rule and the phrase rule disagree. Martin does these.
+  1. **the main test:** about 30 hand-checked mentions where the window rule and the phrase rule disagree.
+     Martin does these. Those are the rows where the two rules can be told apart;
+  2. the yields in Diego's labelling sample. It has 100 rows, so we expect only about 9 yields (about 2
+     cross-party and 7 same-party, estimated from the yield shares in the M3 proposal). That's enough to catch
+     a gross failure, not to measure recall.
+- **Timing:** the phrase-rule flag is written into `Martin/mentions.parquet` only **after Diego has finished
+  coding** his 100 rows. His sheets and `full_key.csv` point into that file by row number (`mention_row`), and
+  `Diego/d5_classifier/classify.py` reads it. Until then the phrase rule is computed in memory for Martin's
+  analysis, and only the `is_yield` column changes, never the rows or their order.
 - **Reason:** the window rule found 26 of 30 labelled yields with 3 false flags; the phrase rule found 30 of 30
   with none. But the phrase rule was written after reading D1's errors and scored on those same 30 rows, so
   "30 of 30" is a fit to the data, not a test. Because of G1b the headline now depends on it.
@@ -108,23 +115,28 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
 
 ### G9. Yields stay in the labelling sample
 - **Status:** Agreed Wed 18 Nov.
-- **Decision:** Diego's 200-row labelling sample is drawn from all mentions, with yields included.
+- **Decision:** Diego's labelling sample (100 rows, already drawn) keeps the yields among them.
 - **Reason:** those rows are the held-out test of the yield rule (G1c), and the protocol's procedural code
   already handles them.
-- **Alternative:** drawing without yields. Nothing is labelled twice over, but the yield rule loses its only
-  fresh test.
+- **Alternative:** redrawing without yields. That costs time already spent coding, and the yield rule loses
+  a fresh test.
 - **Source:** meeting, 18 Nov.
 
 ### G10. The new matcher's precision is re-measured before the freeze
 - **Status:** Agreed Wed 18 Nov. In progress.
-- **Decision:** Diego re-measures the precision of the new matcher (M1), repeating D1 on fresh rows. Martin
-  re-checks about 25 of Diego's labels as a second person, which gives an agreement figure for the precision
-  labels.
+- **Decision:** the precision of the new matcher (M1) comes from the labelling sample itself. Its 100 rows
+  were drawn from `Martin/mentions.parquet`, which the new matcher wrote, and code **X (not a mention)** marks
+  each wrong match. Precision = 1 − (share of X), from Diego's codes on all 100 rows. Martin's codes on rows
+  1–25 (and Anas's on 76–100) give a second coder for the X decisions. No separate matcher check is run.
 - **Reason:** the headline rests on it more than on any of G1a to G1c. In D1, 7 of 100 matches on the *old*
   matcher were wrong and 5 of the 7 were cross-party. Wrong matches push the floor share up. If the same held
   on the new matcher, a rough estimate puts the floor share near 31%, close to the working share. The new
   matcher's precision was never measured. All three advisers raised this without being asked.
-- **Alternative:** citing D1's 93%. That number was measured on a different matcher.
+- **Alternative:** citing D1's 93%. That was measured on a different matcher. Or a separate D1-style check:
+  more rows, but no time for it.
+- **Limits:** 100 rows gives an interval of several points on precision. The sample is 75% cross-party by
+  design, so precision has to be reported per stratum (cross-party, same-party) or reweighted, not as one
+  raw share.
 - **Source:** meeting, 18 Nov.
 
 ### G3. Owners
@@ -173,15 +185,40 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
 - **Source:** meeting plan, 18 Nov; work plan, section 1.
 
 ### G8. How the labelling is done
-- **Status:** Agreed in the meeting plan, Wed 18 Nov. The rules themselves are fixed from 11:15 on.
+- **Status:** Agreed in the meeting plan, Wed 18 Nov. **Changed the same morning by Diego (see "Changed"
+  below).** The rules themselves are fixed from 11:15 on.
 - **Decision:** Diego draws about 150 cross-party mentions from `Martin/mentions.parquet` into a shared sheet.
   At 10:45 all three of us label the same 20 and compare, to test the rules. The rules are fixed after that
   comparison. Then every mention is labelled by two people. Due **Sat 21 Nov**.
 - **Reason:** two coders per mention give an agreement score (κ). The protocol already sets what happens if
   κ on cross-party mentions is below 0.6 ([`Diego/d2_labelling/PROTOCOL.md`](Diego/d2_labelling/PROTOCOL.md)).
   Testing on 20 first catches unclear rules before they reach all 150.
+- **Changed, 18 Nov, by Diego under Claude's guidance** (`Diego/d2_labelling/PROTOCOL.md`, footnote "hundred"):
+  **100 mentions** (75 cross-party, 25 same-party), not 150 or 200. Diego codes all 100. The second coder is
+  Martin for rows 1–25, **Claude for rows 26–75**, and Anas for rows 76–100. Reason given: fits the time the
+  group has. Agreement is reported separately for Diego against Claude, and the paper says which rows had an
+  AI as second coder.
+- **What the change costs:** an interval of about ±11 points on a share near one half (the protocol's figure),
+  against about ±8 with 150. Half the rows have **two coders but only one human**. The course asks for model
+  output to be validated against human labels, so the 50 Claude rows count as validated only if the
+  Diego-against-Claude agreement is reported and holds up. **The group has not discussed this change yet.**
 - **Record here at 11:15:** every rule changed after the 20-mention test, and why.
-- **Source:** meeting plan, 18 Nov.
+- **Source:** meeting plan, 18 Nov; Diego's commits `0a401d39`, `dd8a7fe3`.
+
+### G11. A TF-IDF classifier carries the hand labels to all floor mentions (plan B, D5)
+- **Status:** Decided Wed 18 Nov by Diego, recorded in the work plan (section 4). Not yet discussed by the group.
+- **Decision:** train TF-IDF with logistic regression on the 100 hand labels. Check it by leave-one-out against
+  those labels, then apply it to all 8,041 floor mentions between the two parties. The named member's surname
+  is masked as `NAMED`.
+- **Reason:** the TAs gave no clear answer to G2a. This way the language part uses the course's own NLP tools
+  (week 6), not reading alone.
+- **Alternative and what it would have changed:** hand labels only. Less work and no risk of a weak
+  classifier, but the paper might not meet the bar for language analysis.
+- **Known risk:** the placeholder run (Claude's 50 codes) predicts "agreeing" for almost everything: 80%
+  accuracy against 76% for always guessing "agreeing", and 1 of 5 disagreements found. The plan in
+  `Diego/d5_classifier/README.md`: **the hand labels carry the result and the classifier is the extension.** If
+  it doesn't clearly beat the baseline, the paper says so as a finding.
+- **Source:** work plan section 4 (Diego, 18 Nov); `Diego/d5_classifier/README.md`; commit `d77a5692`.
 
 ---
 
