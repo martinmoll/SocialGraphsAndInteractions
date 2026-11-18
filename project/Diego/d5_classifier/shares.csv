@@ -1,0 +1,5 @@
+source,mentions,P,A,D,N,X
+"classifier, all mentions",cross-party,0.0,0.873,0.075,0.016,0.036
+"classifier, all mentions",same-party,0.012,0.936,0.034,0.017,0.001
+"hand labels, sample",cross-party,0.0,0.744,0.116,0.07,0.07
+"hand labels, sample",same-party,0.143,0.857,0.0,0.0,0.0

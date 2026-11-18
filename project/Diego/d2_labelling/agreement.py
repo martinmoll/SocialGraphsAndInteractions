@@ -25,8 +25,10 @@ def table(path):
 if book.is_dir():                                       # one file per person: D2_Diego.xlsx, D2_Martin.xlsx, ...
     key = pd.read_csv(HERE / "full_key.csv").set_index("id")
     T = pd.DataFrame(index=key.index)
-    for f in sorted(book.glob("D2_*.xlsx")):
-        T[f.stem[3:]] = table(f)["code"]
+    for who in ("Diego", "Martin", "Anas", "Claude"):          # any .xlsx whose name contains the coder's name
+        files = [f for f in book.glob("*.xlsx") if who.lower() in f.name.lower() and not f.name.startswith("~$")]
+        if len(files) > 1: raise SystemExit(f"more than one file for {who}: {[f.name for f in files]}")
+        if files: T[who] = table(files[0])["code"]
     T = T.fillna("")
 else:
     T = table(book)
@@ -57,3 +59,12 @@ print("\nfinal codes (? = the two coders differ), by type of mention:")
 print(pd.crosstab(C.cross.map({True: "cross-party", False: "same-party"}), C.final, margins=True).to_string())
 C[C.final == "?"].to_csv(HERE / "disagreements.csv")
 print("\nrows where coders differ are in disagreements.csv")
+
+# the labels the classifier (d5) trains on: Diego's code for every row, with the second coder alongside
+L = key[["mention_row", "cross"]].join(C[coders].rename(columns=str.lower))
+L["second_coder"] = [next((c for c in ("Martin", "Anas", "Claude") if c in C and C.at[i, c] != ""), "") for i in L.index]
+L["second"] = [C.at[i, w] if w else "" for i, w in zip(L.index, L.second_coder)]
+L["label"] = L.get("diego", pd.Series("", index=L.index)).where(lambda x: x != "", L.second)
+L["agreed"] = [d == s if d and s else None for d, s in zip(L.get("diego", [""] * len(L)), L.second)]
+L.to_csv(HERE / "labels_final.csv")
+print(f"labels_final.csv: {int((L.label != '').sum())} labelled rows for the classifier")

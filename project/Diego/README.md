@@ -16,6 +16,7 @@ matter of judgement, the file carries a footnote saying so, and the choices are 
 | D2 Labelling protocol | [`d2_labelling/PROTOCOL.md`](d2_labelling/PROTOCOL.md) | Version 1 written, scripts tested on a stand-in file. Sample waits for `mentions.parquet` (M2) |
 | D3 Prior work | [`d3_prior_work.md`](d3_prior_work.md), [`references.bib`](references.bib) | Eight references verified in Crossref and summarised from abstracts. Westwood's year settled: 2022 |
 | D4 Introduction, Discussion, reflection | [`d4_drafts.md`](d4_drafts.md) | Drafted with placeholders for every number that is not frozen |
+| D5 Classifier on the hand labels | [`d5_classifier/README.md`](d5_classifier/README.md) | Runs end to end on Claude's 50 codes as a placeholder; switches to the human labels when the D2 sheets are back |
 
 ## What the others need to know before 18 November
 
