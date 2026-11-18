@@ -122,7 +122,7 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
 - **Decision:** "Will the gentleman yield?" (asking the named member to yield) does **not** count as a yield. Only
   handing time *to* the named member, or thanking them *for* yielding, counts. The mention stays in the headline
   floor map. In the hand check of the yield rule (`Martin/m3_yield_check/`) such rows are coded N.
-- **Reason:** not recorded. *Proposed, for Martin to confirm:* no floor time passes to the named member. The
+- **Reason** (confirmed by Martin, 18 Nov): no floor time passes to the named member. The
   speaker is addressing that member, usually in the middle of an argument, which is "talking to or about"
   them, so it is what the floor map is meant to capture (G1b). It also matches what the phrase rule
   already does: it doesn't flag these.
