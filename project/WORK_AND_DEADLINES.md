@@ -1,6 +1,6 @@
 # Work and deadlines
 
-**Last updated: Monday 16 November 2026.**
+**Last updated: Wednesday 18 November 2026.**
 
 This is the one place that says who does what, how far it is, and what is due when. The question and the
 design are in [`README.md`](README.md).
@@ -73,7 +73,7 @@ has not confirmed them. Confirm or change on 18 November.** Hours have not been 
 | # | Task | Delivers | Needs | Status |
 |---|---|---|---|---|
 | D1 | Count the 30 matches printed in the prototype notebook; extend to about 100; report precision | Matcher precision for Methods: `Diego/d1_matcher_precision/REPORT.md` | | In progress: 93 of 100 correct (95% interval 86 to 97%). Labelled by Claude, 95 of 100 checked by Diego, 5 to recheck |
-| D2 | Labelling protocol for cross-party floor mentions: agreeing, disagreeing or procedural. Draw the sample from `mentions.parquet` | Protocol and sample: `Diego/d2_labelling/PROTOCOL.md` | M2 for the sample; the protocol can start now | In progress: protocol version 1 written, to be agreed on 18 Nov. Sample blocked by M2 |
+| D2 | Labelling protocol for cross-party floor mentions: agreeing, disagreeing or procedural. Draw the sample from `mentions.parquet` | Protocol and sample: `Diego/d2_labelling/PROTOCOL.md` | M2 for the sample; the protocol can start now | In progress: 20 mentions drawn from `Martin/mentions.parquet` into `Diego/d2_labelling/D2_coding_sheet.xlsx`; all three code all 20 (S1) |
 | D3 | Read Westwood and Harbridge: three lines on what each found. Settle Westwood's year. Find three or four more references | Note on prior work; reference list: `Diego/d3_prior_work.md`, `references.bib` | | In progress: written from abstracts, Westwood is 2022. Westwood's abstract still to be read at the publisher |
 | D4 | Introduction and Discussion; the half-page reflection | Text: `Diego/d4_drafts.md` | D3 | In progress: drafted with placeholders for all numbers |
 
@@ -156,6 +156,8 @@ From the earlier plans in `archive/`. Listed so nobody keeps working on them.
 
 Newest first. One line per change.
 
+- **18 Nov 2026.** D2: labelling cut to 20 mentions (15 cross-party, 5 same-party), coded by all three in one
+  sheet, `Diego/d2_labelling/D2_coding_sheet.xlsx`. S1 is now this sheet.
 - **16 Nov 2026.** M3 started (Martin with Claude): proposal for the part 1 definitions written in
   `Martin/M3_PROPOSAL.md`. Against working ties drawn at random at the same size, the floor map is 34.2%
   cross-party against 29.5%, a gap of 5 points, not the 22 against the strongest ties. A phrase-based yield

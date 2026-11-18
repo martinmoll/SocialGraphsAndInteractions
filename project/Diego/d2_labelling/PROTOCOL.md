@@ -3,6 +3,14 @@
 Diego Mijares with Claude, 14 November 2026. Version 1, for the group to amend on 18 November and then
 freeze. After the first sheet is opened for coding, the codes do not change.
 
+**Changed on 18 November: 20 mentions, all three code all of them.** The sample is 15 cross-party and 5
+same-party mentions (seed 2805), in one sheet, `D2_coding_sheet.xlsx`, with a short key at the top and a code
+column per person. The five codes and the rules below are unchanged. Where this file still says 200 mentions
+and two coders per mention, the 18 November version replaces it. With 20 mentions the shares come with wide
+intervals (15 cross-party mentions give about ±25 points), so the paper can say whether cross-party
+mentions are mostly agreement, mostly disagreement or mostly procedure, and not much finer than that.
+`agreement.py` reports Cohen's κ for each pair and Fleiss' κ for all three.[^twenty]
+
 ## What the labels are for
 
 Part 1 of the paper finds that the floor map is less divided by party than the working map. That can mean
@@ -118,3 +126,5 @@ in a scratch folder. No sample has been drawn in the repository.
     plan with an "other" box.
 [^kappa]: 0.6 is the lower edge of what Landis and Koch (1977) call substantial agreement. Any threshold is
     a convention. Setting it before coding is what matters. Diego took this decision under Claude's guidance.
+[^twenty]: Smaller than the 200 first proposed, to fit the time the group has. Diego took this decision
+    under Claude's guidance, on 18 November.
