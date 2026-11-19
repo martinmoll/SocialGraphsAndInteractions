@@ -164,7 +164,8 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
 - **Reason:** not recorded.
 - **Source:** meeting plan, 18 Nov.
 
-### G4. Press releases: Republicans only, swing seats against safe seats
+### ~~G4. Press releases: Republicans only, swing seats against safe seats~~ Overwritten by G13
+~~
 - **Status:** Agreed in the meeting plan, Wed 18 Nov.
 - **Decision:** collect press releases from Republicans only, and compare members in swing seats with
   members in safe seats. The question: do swing-seat Republicans name Democrats more at home?
@@ -176,6 +177,79 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
   **only to spread the sample**. It is now a comparison in its own right, so the sample has to be balanced
   between swing and safe seats, and we need a definition of a swing seat. **Not yet defined.**
 - **Source:** meeting plan, 18 Nov.
+~~
+
+### Draft for G13
+
+Two edits:
+
+1. In **G4**, replace the Status line with the one under "Edit 1".
+2. Insert **G13** directly after G4, before G5.
+
+---
+
+#### Edit 1: the Status line of G4
+
+```
+- **Status:** Replaced by G13 (Wed 18 Nov): Democrats are now included, with a smaller role.
+```
+
+---
+
+#### Edit 2: new entry G13, after G4
+
+```
+### G13. Press releases: both parties, the Democrats as a small second side of the close-up
+- **Status:** Agreed Wed 18 Nov, by the group (after the meeting). Replaces G4. Three details are open (below).
+- **Decision:** the press-release close-up covers Democrats as well as Republicans. The Republicans stay the
+  main case. The Democrats get one role: a comparison that shows whether naming the other side at home goes
+  with an exposed seat, or with belonging to the president's party in a midterm year. They do not get their
+  own figure or their own section. They appear as one panel or inset in figure 3 (G6), or as one paragraph
+  if the panel adds nothing. The two maps (part 1) stay the headline.
+- **What the Democrats add, concretely:**
+  - **Exposure or party.** If exposed Democrats name Republicans about as often as exposed Republicans name
+    Democrats, showing the other side is about the seat. If only Republicans do it, it is about being in the
+    president's party. With Republicans alone the first reading cannot be told from the second.
+  - **Mutual showing.** With both sides collected, a pair can be checked from both ends: when a Republican
+    shows a Democrat at home, does that Democrat show the Republican back? This was council option E, dropped
+    on 13 Nov for lack of data (work plan, section 5).
+- **Reason:**
+  - **The cost in G4 turned out smaller than expected.** G4's reason against was "roughly twice the
+    collection". A scan of every member's site (`Anas/press_scope/`, one run, 18 Nov) found and counted the
+    press-release listing for 407 of 450 members, 198 Democrats and 209 Republicans, with the same scripts
+    for both parties. The extra work is download time, not new collectors.
+  - **The material is there.** Since 3 Jan 2025 the median Democrat has published 152 releases and the median
+    Republican 90. 56 Democrats and 36 Republicans in exposed seats can be counted (2026 lean within 5 points, or
+    leaning to the other party; not the group's definition, see below).
+  - **A first look says the comparison is not empty.** 20 recent releases each from 16 members: releases that
+    name a House member of the other party, party leaders excluded: exposed Democrats 21% (4 members), safe
+    Democrats 5% (4), exposed Republicans 36% (4), safe Republicans 8% (4). Pairs that name each other in
+    that sample: Golden and Lawler, Golden and Fitzpatrick, Kaptur and Fitzpatrick. Too small to report, and
+    made with the pilot's name rules, not the shared matcher. It shows only that both sides have something to
+    count.
+  - **It makes the close-up less guessable.** The council review (13 Nov) called "swing-seat Republicans
+    mention Democrats more" easy to guess. Whether Democrats do the same is not.
+- **Alternative and what it would have changed:** Republicans only (G4). Half the collection and a simpler
+  figure 3, but the close-up could not tell a seat effect from a party effect, and mutual showing stays dropped.
+- **Limits:**
+  - G5 still applies: no data for the first 20 members by Fri 20 Nov and the close-up is dropped, Democrats
+    included.
+  - 27 Republican sites and 5 Democratic ones stopped posting before September 2026. The two parties must be
+    compared over one common date window.
+  - 31 of the counted exposed members (21 D, 10 R) are in redrawn states, where the 2026 lean describes a
+    district they did not serve in.
+- **Open, to decide by Fri 20 Nov:**
+  1. **The first 20 members.** Proposed: 12 Republicans and 8 Democrats, each spread over exposed and safe
+     seats.
+  2. **The swing-seat definition** G4 left open, now needed for both parties. It must work in redrawn states
+     (old district, not 2026 lean).
+  3. **The date window** both parties are compared over.
+- **Consequences for other files (not yet changed):** the work plan's A2 and A4 still say Republicans only;
+  its open question 3 is answered by this entry; "mutual showing" and "Democrats in Trump districts" in its
+  section 5 are partly back. README section 2, part 3, still reads "which Democrats a Republican names".
+- **Source:** group discussion, Wed 18 Nov, after the meeting; numbers from `Anas/press_scope/README.md`.
+```
+
 
 ### G5. Stop rule for the close-up
 - **Status:** Agreed in the meeting plan, Wed 18 Nov.
