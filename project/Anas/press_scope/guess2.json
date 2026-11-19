@@ -1,0 +1,344 @@
+[
+ {
+  "bioguide": "B001260",
+  "party": "Republican",
+  "listing": "https://buchanan.house.gov/category/press-releases/",
+  "kind": "wp",
+  "newest": "2026-11-17",
+  "n_dates_p0": 10,
+  "status": "ok",
+  "per_page": 10,
+  "boundary_page": 22,
+  "count": 227,
+  "requests": 11,
+  "oldest_seen": "2023-01-29"
+ },
+ {
+  "bioguide": "C000537",
+  "party": "Democrat",
+  "listing": "https://clyburn.house.gov/media/press-releases",
+  "kind": "none",
+  "newest": "2026-07-14",
+  "n_dates_p0": 6,
+  "status": "no pager",
+  "count": 6,
+  "lower_bound": true
+ },
+ {
+  "bioguide": "D000616",
+  "party": "Republican",
+  "listing": "https://desjarlais.house.gov/news/",
+  "kind": "drupal1",
+  "newest": "2026-11-16",
+  "n_dates_p0": 10,
+  "status": "pager not followed",
+  "count": 10,
+  "lower_bound": true
+ },
+ {
+  "bioguide": "G000558",
+  "party": "Republican",
+  "listing": "https://guthrie.house.gov/news/",
+  "kind": "none",
+  "newest": "2026-12-11",
+  "n_dates_p0": 18,
+  "status": "no pager",
+  "count": 18,
+  "lower_bound": true
+ },
+ {
+  "bioguide": "H001047",
+  "party": "Democrat",
+  "listing": "https://himes.house.gov/press-releases",
+  "kind": "wp",
+  "newest": "2026-11-05",
+  "n_dates_p0": 10,
+  "status": "pager not followed",
+  "count": 10,
+  "lower_bound": true
+ },
+ {
+  "bioguide": "L000397",
+  "party": "Democrat",
+  "listing": null,
+  "status": "no listing"
+ },
+ {
+  "bioguide": "L000491",
+  "party": "Republican",
+  "listing": null,
+  "status": "no listing"
+ },
+ {
+  "bioguide": "P000597",
+  "party": "Democrat",
+  "listing": "https://pingree.house.gov/news/documentquery.aspx?DocumentTypeID=27",
+  "kind": "asp",
+  "newest": "2026-11-17",
+  "n_dates_p0": 10,
+  "status": "ok",
+  "per_page": 10,
+  "boundary_page": 18,
+  "count": 184,
+  "requests": 11,
+  "oldest_seen": "2023-12-04"
+ },
+ {
+  "bioguide": "S000522",
+  "party": "Republican",
+  "listing": "https://chrissmith.house.gov/news/",
+  "kind": "none",
+  "newest": "2026-11-13",
+  "n_dates_p0": 7,
+  "status": "no pager",
+  "count": 7,
+  "lower_bound": true
+ },
+ {
+  "bioguide": "J000294",
+  "party": "Democrat",
+  "listing": null,
+  "status": "no listing"
+ },
+ {
+  "bioguide": "J000295",
+  "party": "Republican",
+  "listing": null,
+  "status": "no listing"
+ },
+ {
+  "bioguide": "H001077",
+  "party": "Republican",
+  "listing": "https://clayhiggins.house.gov/category/press-releases/",
+  "kind": "wp",
+  "newest": "2026-11-12",
+  "n_dates_p0": 20,
+  "status": "ok",
+  "per_page": 20,
+  "boundary_page": 5,
+  "count": 113,
+  "requests": 7,
+  "oldest_seen": "2024-03-19"
+ },
+ {
+  "bioguide": "G000583",
+  "party": "Democrat",
+  "listing": null,
+  "status": "no listing"
+ },
+ {
+  "bioguide": "J000298",
+  "party": "Democrat",
+  "listing": null,
+  "status": "no listing"
+ },
+ {
+  "bioguide": "C001115",
+  "party": "Republican",
+  "listing": null,
+  "status": "no listing"
+ },
+ {
+  "bioguide": "L000593",
+  "party": "Democrat",
+  "listing": "https://levin.house.gov/media/press-releases",
+  "kind": "none",
+  "newest": "2026-11-12",
+  "n_dates_p0": 21,
+  "status": "no pager",
+  "count": 21,
+  "lower_bound": true
+ },
+ {
+  "bioguide": "T000481",
+  "party": "Democrat",
+  "listing": null,
+  "status": "no listing"
+ },
+ {
+  "bioguide": "H001085",
+  "party": "Democrat",
+  "listing": null,
+  "status": "no listing"
+ },
+ {
+  "bioguide": "G000589",
+  "party": "Republican",
+  "listing": null,
+  "status": "no listing"
+ },
+ {
+  "bioguide": "W000788",
+  "party": "Democrat",
+  "listing": null,
+  "status": "no listing"
+ },
+ {
+  "bioguide": "T000486",
+  "party": "Democrat",
+  "listing": null,
+  "status": "no listing"
+ },
+ {
+  "bioguide": "O000086",
+  "party": "Republican",
+  "listing": null,
+  "status": "no listing"
+ },
+ {
+  "bioguide": "C001126",
+  "party": "Republican",
+  "listing": "https://carey.house.gov/press-releases",
+  "kind": "wp",
+  "newest": "2026-07-24",
+  "n_dates_p0": 20,
+  "status": "ok",
+  "per_page": 20,
+  "boundary_page": 4,
+  "count": 85,
+  "requests": 5,
+  "oldest_seen": "2024-07-30"
+ },
+ {
+  "bioguide": "C001132",
+  "party": "Republican",
+  "listing": null,
+  "status": "no listing"
+ },
+ {
+  "bioguide": "K000401",
+  "party": "Independent",
+  "listing": null,
+  "status": "no listing"
+ },
+ {
+  "bioguide": "M001217",
+  "party": "Democrat",
+  "listing": null,
+  "status": "no listing"
+ },
+ {
+  "bioguide": "N000193",
+  "party": "Republican",
+  "listing": "https://nunn.house.gov/media/press-releases",
+  "kind": "wp",
+  "newest": "2026-10-27",
+  "n_dates_p0": 20,
+  "status": "pager not followed",
+  "count": 20,
+  "lower_bound": true
+ },
+ {
+  "bioguide": "B001315",
+  "party": "Democrat",
+  "listing": null,
+  "status": "no listing"
+ },
+ {
+  "bioguide": "M001222",
+  "party": "Republican",
+  "listing": null,
+  "status": "no listing"
+ },
+ {
+  "bioguide": "K000399",
+  "party": "Republican",
+  "listing": "https://kiggans.house.gov/category/press-releases/",
+  "kind": "wp",
+  "newest": "2026-11-12",
+  "n_dates_p0": 10,
+  "status": "ok",
+  "per_page": 10,
+  "boundary_page": 17,
+  "count": 174,
+  "requests": 11,
+  "oldest_seen": "2023-04-20"
+ },
+ {
+  "bioguide": "G000600",
+  "party": "Democrat",
+  "listing": null,
+  "status": "no listing"
+ },
+ {
+  "bioguide": "R000619",
+  "party": "Republican",
+  "listing": "https://rulli.house.gov/category/press-releases/",
+  "kind": "wp",
+  "newest": "2026-09-16",
+  "n_dates_p0": 20,
+  "status": "ok",
+  "per_page": 9,
+  "boundary_page": 1,
+  "count": 13,
+  "requests": 2,
+  "oldest_seen": "2024-06-25"
+ },
+ {
+  "bioguide": "H001098",
+  "party": "Republican",
+  "listing": "https://hamadeh.house.gov/news/documentquery.aspx?DocumentTypeID=27",
+  "kind": "asp",
+  "newest": "2026-11-11",
+  "n_dates_p0": 9,
+  "status": "ok",
+  "per_page": 9,
+  "boundary_page": 14,
+  "count": 126,
+  "requests": 9,
+  "oldest_seen": "2025-01-03"
+ },
+ {
+  "bioguide": "M001234",
+  "party": "Democrat",
+  "listing": "https://morrison.house.gov/news/",
+  "kind": "param:PageNum_rs",
+  "newest": "2026-11-16",
+  "n_dates_p0": 20,
+  "status": "ok",
+  "per_page": 20,
+  "boundary_page": 8,
+  "count": 160,
+  "requests": 7,
+  "oldest_seen": "2025-01-03"
+ },
+ {
+  "bioguide": "B001324",
+  "party": "Democrat",
+  "listing": "https://bell.house.gov/media/press-releases",
+  "kind": "drupal",
+  "newest": "2026-11-17",
+  "n_dates_p0": 10,
+  "status": "pager not followed",
+  "count": 10,
+  "lower_bound": true
+ },
+ {
+  "bioguide": "G000604",
+  "party": "Democrat",
+  "listing": "https://goodlander.house.gov/media/press-releases",
+  "kind": "none",
+  "newest": "2026-11-12",
+  "n_dates_p0": 15,
+  "status": "no pager",
+  "count": 15,
+  "lower_bound": true
+ },
+ {
+  "bioguide": "B001328",
+  "party": "Democrat",
+  "listing": "https://blair.house.gov/media/press-releases",
+  "kind": "none",
+  "newest": "2026-11-13",
+  "n_dates_p0": 11,
+  "status": "no pager",
+  "count": 11,
+  "lower_bound": true
+ },
+ {
+  "bioguide": "W000832",
+  "party": "Democrat",
+  "listing": null,
+  "status": "no listing"
+ }
+]

@@ -1,0 +1,451 @@
+bioguide,name,first,last,state,district,party,current,nominate_dim1,nominate_dim2,n_votes,lean,redrawn_state,status,count,listing,kind,newest,guessed,exposed,stopped_before_sep
+B001323,Nicholas J. Begich III,Nicholas,Begich,AK,0,R,True,0.59,-0.175,572,6.0,False,ok,252.0,https://begich.house.gov/media/press-releases,drupal,2026-10-28,,False,False
+M001212,Barry Moore,Barry,Moore,AL,1,R,True,0.646,-0.24,564,17.0,True,ok,64.0,https://barrymoore.house.gov/media/press-releases,drupal,2026-09-18,,False,False
+F000481,Shomari Figures,Shomari,Figures,AL,2,D,True,-0.411,0.499,564,7.0,True,ok,110.0,https://figures.house.gov/media/press-releases,drupal,2026-11-11,,True,False
+R000575,Mike Rogers,Mike,Rogers,AL,3,R,True,0.379,0.377,563,23.0,True,ok,32.0,https://mikerogers.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-09-25,,False,False
+A000055,Robert B. Aderholt,Robert,Aderholt,AL,4,R,True,0.405,0.466,564,33.0,True,ok,139.0,https://aderholt.house.gov/media-center/press-releases,drupal,2026-11-16,,False,False
+S001220,Dale W. Strong,Dale,Strong,AL,5,R,True,0.61,0.388,563,15.0,True,ok,95.0,https://strong.house.gov/media/press-releases,drupal,2026-09-30,,False,False
+P000609,Gary J. Palmer,Gary,Palmer,AL,6,R,True,0.67,0.113,570,17.0,True,ok,61.0,https://palmer.house.gov/media-center/press-releases,drupal,2026-09-16,,False,False
+S001185,Terri A. Sewell,Terri,Sewell,AL,7,D,True,-0.402,0.397,564,-10.0,True,ok,188.0,https://sewell.house.gov/press-releases,drupal1,2026-11-17,,False,False
+C001087,"Eric A. ""Rick"" Crawford",Eric,Crawford,AR,1,R,True,0.462,0.304,566,23.0,False,ok,39.0,https://crawford.house.gov/media/press-releases,drupal,2026-07-23,,False,True
+H001072,J. French Hill,J.,Hill,AR,2,R,True,0.435,0.282,571,8.0,False,ok,101.0,https://hill.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-10-08,,False,False
+W000809,Steve Womack,Steve,Womack,AR,3,R,True,0.347,0.636,514,13.0,False,ok,256.0,https://womack.house.gov/News/DocumentQuery.aspx?DocumentTypeID=2067,asp,2026-12-11,,False,False
+W000821,Bruce Westerman,Bruce,Westerman,AR,4,R,True,0.543,0.257,573,20.0,False,ok,37.0,https://westerman.house.gov/media-center/press-releases,drupal,2026-10-22,,False,False
+R000600,Aumua Amata Coleman Radewagen,Aumua,RADEWAGEN,AS,0,R,False,0.327,0.195,13,,,ok,339.0,https://radewagen.house.gov/media/press-releases,drupal,2026-11-10,,False,False
+S001183,David Schweikert,David,Schweikert,AZ,1,R,True,0.553,-0.22,568,1.0,False,ok,39.0,https://schweikert.house.gov/category/congress_press_release/,wp,2026-09-03,,True,False
+C001132,Elijah Crane,Eli,Crane,AZ,2,R,True,0.752,-0.659,567,7.0,False,no listing,,,,,True,False,False
+A000381,Yassamin Ansari,Yassamin,Ansari,AZ,3,D,True,-0.428,-0.426,569,-22.0,False,ok,242.0,https://ansari.house.gov/media/press-releases,param:PageNum_rs,2026-11-13,,False,False
+S001211,Greg Stanton,Greg,Stanton,AZ,4,D,True,-0.281,0.249,562,-4.0,False,ok,208.0,https://stanton.house.gov/media/press-releases,drupal,2026-10-19,,True,False
+B001302,Andy Biggs,Andy,Biggs,AZ,5,R,True,0.818,-0.575,525,10.0,False,ok,102.0,https://biggs.house.gov/media/press-releases,drupal,2026-11-12,,False,False
+C001133,Juan Ciscomani,Juan,Ciscomani,AZ,6,R,True,0.299,0.53,555,0.0,False,ok,245.0,https://ciscomani.house.gov/media/press-releases,drupal,2026-11-17,,True,False
+G000551,Raúl M. Grijalva,Raúl,GRIJALVA,AZ,7,D,False,-0.598,-0.264,1,-13.0,False,left office,,,,,,False,False
+G000606,Adelita S. Grijalva,Adelita,Grijalva,AZ,7,D,True,-0.497,-0.648,344,-13.0,False,ok,140.0,https://grijalva.house.gov/media/press-releases,drupal,2026-11-09,,False,False
+H001098,Abraham J. Hamadeh,Abraham,Hamadeh,AZ,8,R,True,0.677,-0.044,571,8.0,False,ok,126.0,https://hamadeh.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-11,True,False,False
+G000565,Paul A. Gosar,Paul,Gosar,AZ,9,R,True,0.701,-0.515,538,15.0,False,ok,35.0,https://gosar.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-10-29,,False,False
+L000578,Doug Lamalfa,Doug,LAMALFA,CA,1,R,False,0.542,0.007,291,-7.0,True,left office,,,,,,True,False
+G000607,James Gallagher,James,Gallagher,CA,1,R,True,0.345,-0.107,80,-7.0,True,ok,40.0,https://gallagher.house.gov/media/press-releases,drupal,2026-11-11,,True,False
+H001068,Jared Huffman,Jared,Huffman,CA,2,D,True,-0.432,-0.504,567,-13.0,True,ok,287.0,https://huffman.house.gov/media-center/press-releases,param:PageNum_rs,2026-11-11,,False,False
+T000460,Mike Thompson,Mike,Thompson,CA,4,D,True,-0.392,0.071,572,-8.0,True,ok,232.0,https://mikethompson.house.gov/newsroom/press-releases,drupal,2026-10-30,,False,False
+M001177,Tom McClintock,Tom,McClintock,CA,5,R,True,0.671,-0.358,560,10.0,True,ok,30.0,https://mcclintock.house.gov/newsroom/press-releases,drupal,2026-09-19,,False,False
+B001287,Ami Bera,Ami,Bera,CA,6,D,True,-0.247,0.008,564,-5.0,True,ok,184.0,https://bera.house.gov/news/press-releases,drupal,2026-11-16,,True,False
+M001163,Doris O. Matsui,Doris,Matsui,CA,7,D,True,-0.433,-0.151,575,-7.0,True,ok,166.0,https://matsui.house.gov/media/press-releases,drupal,2026-11-16,,False,False
+G000559,John Garamendi,John,Garamendi,CA,8,D,True,-0.312,-0.101,503,-19.0,True,ok,211.0,https://garamendi.house.gov/category/press-release/,wp,2026-11-11,,False,False
+H001090,Josh Harder,Josh,Harder,CA,9,D,True,-0.295,0.408,572,-8.0,True,ok,123.0,https://harder.house.gov/media/press-releases,drupal,2026-11-10,,False,False
+D000623,Mark DeSaulnier,Mark,DeSaulnier,CA,10,D,True,-0.507,-0.363,565,-18.0,True,ok,87.0,https://desaulnier.house.gov/media-center/press-releases,drupal,2026-11-13,,False,False
+P000197,Nancy Pelosi,Nancy,Pelosi,CA,11,D,True,-0.489,-0.174,534,-36.0,True,ok,169.0,https://pelosi.house.gov/news/press-releases,drupal,2026-11-10,,False,False
+S001231,Lateefah Simon,Lateefah,Simon,CA,12,D,True,-0.603,-0.332,567,-39.0,True,ok,176.0,https://simon.house.gov/media/press-releases,drupal,2026-11-11,,False,False
+G000605,Adam Gray,Adam,Gray,CA,13,D,True,-0.235,0.76,544,-2.0,True,ok,90.0,https://gray.house.gov/media/press-releases,drupal,2026-10-13,,True,False
+S001193,Eric Swalwell,Eric,SWALWELL,CA,14,D,False,-0.355,-0.05,259,-19.0,True,left office,,,,,,False,False
+W000832,Aisha Wahab,Aisha,Wahab,CA,14,D,True,,,0,-19.0,True,no listing,,,,,True,False,False
+M001225,Kevin Mullin,Kevin,Mullin,CA,15,D,True,-0.48,-0.003,549,-26.0,True,ok,153.0,https://kevinmullin.house.gov/category/press_release/,wp,2026-11-12,,False,False
+L000607,Sam T. Liccardo,Sam,Liccardo,CA,16,D,True,-0.346,-0.052,572,-25.0,True,ok,130.0,https://liccardo.house.gov/media/press-releases,drupal,2026-11-09,,False,False
+K000389,Ro Khanna,Ro,Khanna,CA,17,D,True,-0.458,-0.301,568,-21.0,True,ok,77.0,https://khanna.house.gov/media/press-releases,drupal,2026-11-14,,False,False
+L000397,Zoe Lofgren,Zoe,Lofgren,CA,18,D,True,-0.396,-0.396,563,-16.0,True,no listing,,,,,True,False,False
+P000613,Jimmy Panetta,Jimmy,Panetta,CA,19,D,True,-0.279,0.188,576,-18.0,True,ok,234.0,https://panetta.house.gov/media/press-releases,drupal,2026-11-17,,False,False
+F000480,Vince Fong,Vince,Fong,CA,20,R,True,0.449,0.809,562,16.0,True,ok,175.0,https://fong.house.gov/media/press-releases,drupal,2026-11-13,,False,False
+C001059,Jim Costa,Jim,Costa,CA,21,D,True,-0.199,0.447,555,-5.0,True,ok,175.0,https://costa.house.gov/media/press-releases,drupal,2026-11-10,,True,False
+V000129,David G. Valadao,David,Valadao,CA,22,R,True,0.256,0.439,564,-1.0,True,ok,164.0,https://valadao.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-10-23,,True,False
+O000019,Jay Obernolte,Jay,Obernolte,CA,23,R,True,0.318,0.3,562,9.0,True,ok,31.0,https://obernolte.house.gov/media/press-releases,drupal,2026-11-16,,False,False
+C001112,Salud O. Carbajal,Salud,Carbajal,CA,24,D,True,-0.323,0.097,572,-13.0,True,ok,184.0,https://carbajal.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-17,,False,False
+R000599,Raul Ruiz,Raul,Ruiz,CA,25,D,True,-0.262,0.039,570,-4.0,True,ok,85.0,https://ruiz.house.gov/media-center/press-releases,drupal,2026-11-12,,True,False
+B001285,Julia Brownley,Julia,Brownley,CA,26,D,True,-0.306,0.047,558,-9.0,True,ok,169.0,https://juliabrownley.house.gov/category/press-releases/,wp,2026-10-27,,False,False
+W000830,George Whitesides,George,Whitesides,CA,27,D,True,-0.204,0.09,565,-6.0,True,ok,100.0,https://whitesides.house.gov/category/press-releases/,wp,2026-10-30,,False,False
+C001080,Judy Chu,Judy,Chu,CA,28,D,True,-0.479,-0.369,575,-14.0,True,ok,273.0,https://chu.house.gov/media-center/press-releases,drupal,2026-11-05,,False,False
+R000620,Luz M. Rivas,Luz,Rivas,CA,29,D,True,-0.521,-0.215,569,-19.0,True,ok,150.0,https://rivas.house.gov/media/press-releases,drupal,2026-11-10,,False,False
+F000483,Laura Friedman,Laura,Friedman,CA,30,D,True,-0.356,-0.37,572,-21.0,True,ok,204.0,https://friedman.house.gov/media/press-releases,drupal,2026-11-13,,False,False
+C001123,"Gilbert Ray Cisneros, Jr.",Gilbert,Cisneros,CA,31,D,True,-0.457,0.558,574,-8.0,True,ok,110.0,https://cisneros.house.gov/media/press-releases,drupal,2026-11-17,,False,False
+S000344,Brad Sherman,Brad,Sherman,CA,32,D,True,-0.345,-0.136,563,-14.0,True,ok,141.0,https://sherman.house.gov/media-center/press-releases,drupal,2026-10-30,,False,False
+A000371,Pete Aguilar,Pete,Aguilar,CA,33,D,True,-0.328,0.145,571,-7.0,True,ok,102.0,https://aguilar.house.gov/category/congress_press_release/,wp,2026-11-06,,False,False
+G000585,Jimmy Gomez,Jimmy,Gomez,CA,34,D,True,-0.532,-0.262,550,-28.0,True,ok,176.0,https://gomez.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-09-22,,False,False
+T000474,Norma J. Torres,Norma,Torres,CA,35,D,True,-0.366,0.074,568,-6.0,True,ok,190.0,https://torres.house.gov/media-center/press-releases,param:PageNum_rs,2026-11-03,,False,False
+L000582,Ted Lieu,Ted,Lieu,CA,36,D,True,-0.37,-0.195,561,-21.0,True,ok,114.0,https://lieu.house.gov/media-center/press-releases,drupal,2026-11-11,,False,False
+K000400,Sydney Kamlager-Dove,Sydney,Kamlager-Dove,CA,37,D,True,-0.519,-0.447,559,-33.0,True,ok,173.0,https://kamlager-dove.house.gov/media/press-releases,drupal,2026-10-30,,False,False
+S001156,Linda T. Sánchez,Linda,Sánchez,CA,38,D,True,-0.507,-0.13,565,-8.0,True,ok,132.0,https://lindasanchez.house.gov/media-center/press-releases,drupal,2026-11-16,,False,False
+T000472,Mark Takano,Mark,Takano,CA,39,D,True,-0.457,-0.339,573,-7.0,True,ok,46.0,https://takano.house.gov/newsroom/press-releases,param:PageNum_rs,2026-10-29,,False,False
+K000397,Young Kim,Young,Kim,CA,40,R,True,0.264,0.394,573,6.0,True,ok,220.0,https://youngkim.house.gov/media/press-releases/,wp,2026-10-29,,False,False
+C000059,Ken Calvert,Ken,Calvert,CA,41,R,True,0.34,0.28,574,-9.0,True,ok,83.0,https://calvert.house.gov/media/press-releases,drupal,2026-11-13,,True,False
+G000598,Robert Garcia,Robert,Garcia,CA,42,D,True,-0.373,-0.589,555,-8.0,True,ok,58.0,https://robertgarcia.house.gov/media/press-releases,drupal,2026-10-28,,False,False
+W000187,Maxine Waters,Maxine,Waters,CA,43,D,True,-0.656,-0.093,553,-27.0,True,ok,86.0,https://waters.house.gov/media-center/press-releases,drupal,2026-08-14,,False,True
+B001300,Nanette Diaz Barragán,Nanette,Barragán,CA,44,D,True,-0.497,-0.119,562,-20.0,True,ok,138.0,https://barragan.house.gov/category/press-releases/,wp,2026-10-23,,False,False
+T000491,Derek Tran,Derek,Tran,CA,45,D,True,-0.233,0.14,572,-3.0,True,ok,270.0,https://tran.house.gov/media/press-releases,drupal,2026-11-13,,True,False
+C001110,J. Luis Correa,J.,Correa,CA,46,D,True,-0.285,0.187,546,-10.0,True,ok,171.0,https://correa.house.gov/news/press-releases,param:PageNum_rs,2026-11-17,,False,False
+M001241,Dave Min,Dave,Min,CA,47,D,True,-0.208,-0.191,574,-6.0,True,ok,211.0,https://min.house.gov/media/press-releases,drupal,2026-11-13,,False,False
+I000056,Darrell Issa,Darrell,Issa,CA,48,R,True,0.475,0.036,570,-2.0,True,ok,55.0,https://issa.house.gov/media/press-releases,drupal,2026-09-23,,True,False
+L000593,Mike Levin,Mike,Levin,CA,49,D,True,-0.323,0.155,572,-7.0,True,no pager,21.0,https://levin.house.gov/media/press-releases,none,2026-11-12,True,False,False
+P000608,Scott H. Peters,Scott,Peters,CA,50,D,True,-0.194,-0.036,570,-10.0,True,ok,161.0,https://scottpeters.house.gov/press-releases,drupal,2026-11-02,,False,False
+J000305,Sara Jacobs,Sara,Jacobs,CA,51,D,True,-0.419,-0.423,574,-10.0,True,ok,105.0,https://sarajacobs.house.gov/news/press-releases,param:PageNum_rs,2026-11-12,,False,False
+V000130,Juan Vargas,Juan,Vargas,CA,52,D,True,-0.396,0.014,566,-11.0,True,ok,69.0,https://vargas.house.gov/media/press-releases,drupal,2026-11-16,,False,False
+D000197,Diana DeGette,Diana,DeGette,CO,1,D,True,-0.431,-0.309,565,-29.0,False,ok,100.0,https://degette.house.gov/newsroom/press-releases,drupal,2026-10-07,,False,False
+N000191,Joe Neguse,Joe,Neguse,CO,2,D,True,-0.431,-0.106,575,-20.0,False,ok,199.0,https://neguse.house.gov/media/press-releases,drupal,2026-11-05,,False,False
+H001100,Jeff Hurd,Jeff,Hurd,CO,3,R,True,0.317,0.31,573,5.0,False,ok,55.0,https://hurd.house.gov/media/press-releases,drupal,2026-02-19,,True,True
+B000825,Lauren Boebert,Lauren,Boebert,CO,4,R,True,0.711,-0.526,557,9.0,False,ok,112.0,https://boebert.house.gov/media/press-releases,drupal,2026-10-28,,False,False
+C001137,Jeff Crank,Jeff,Crank,CO,5,R,True,0.665,-0.097,575,5.0,False,ok,120.0,https://crank.house.gov/media/press-releases,drupal,2026-10-09,,True,False
+C001121,Jason Crow,Jason,Crow,CO,6,D,True,-0.361,0.179,574,-11.0,False,ok,215.0,https://crow.house.gov/news/press-releases,drupal,2026-11-09,,False,False
+P000620,Brittany Pettersen,Brittany,Pettersen,CO,7,D,True,-0.376,0.273,505,-8.0,False,ok,151.0,https://pettersen.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-16,,False,False
+E000300,Gabe Evans,Gabe,Evans,CO,8,R,True,0.343,0.071,576,0.0,False,ok,180.0,https://gabeevans.house.gov/media/press-releases,drupal,2026-10-29,,True,False
+L000557,John B. Larson,John,Larson,CT,1,D,True,-0.396,-0.04,562,-12.0,False,ok,523.0,https://larson.house.gov/media-center/press-releases,drupal,2026-11-13,,False,False
+C001069,Joe Courtney,Joe,Courtney,CT,2,D,True,-0.336,0.041,546,-4.0,False,ok,257.0,https://courtney.house.gov/media-center/press-releases,drupal,2026-11-12,,True,False
+D000216,Rosa L. DeLauro,Rosa,DeLauro,CT,3,D,True,-0.414,-0.107,571,-8.0,False,ok,195.0,https://delauro.house.gov/media-center/press-releases,drupal,2026-11-16,,False,False
+H001047,James A. Himes,James,Himes,CT,4,D,True,-0.241,-0.203,571,-13.0,False,pager not followed,10.0,https://himes.house.gov/press-releases,wp,2026-11-05,True,False,False
+H001081,Jahana Hayes,Jahana,Hayes,CT,5,D,True,-0.341,-0.053,566,-3.0,False,ok,113.0,https://hayes.house.gov/press-releases,drupal1,2026-11-10,,True,False
+N000147,Eleanor Holmes Norton,Eleanor,NORTON,DC,0,D,False,-0.493,-0.093,72,,,ok,236.0,https://norton.house.gov/media/press-releases,drupal,2026-11-16,,False,False
+M001238,Sarah McBride,Sarah,McBride,DE,0,D,True,-0.268,-0.355,572,-8.0,False,ok,180.0,https://mcbride.house.gov/media/press-releases,drupal,2026-11-17,,False,False
+P000622,Jimmy Patronis,Jimmy,Patronis,FL,1,R,True,0.522,-0.141,515,18.0,True,ok,132.0,https://patronis.house.gov/media/press-releases,drupal,2026-11-12,,False,False
+D000628,Neal P. Dunn,Neal,Dunn,FL,2,R,True,0.508,0.343,481,8.0,True,ok,37.0,https://dunn.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-10-02,,False,False
+C001039,Kat Cammack,Katherine,Cammack,FL,3,R,True,0.59,-0.256,568,10.0,True,ok,95.0,https://cammack.house.gov/media/press-releases,drupal,2026-11-17,,False,False
+B001314,Aaron Bean,Aaron,Bean,FL,4,R,True,0.695,-0.168,576,5.0,True,ok,130.0,https://bean.house.gov/media/press-releases,drupal,2026-06-09,,True,True
+R000609,John H. Rutherford,John,Rutherford,FL,5,R,True,0.433,0.071,519,10.0,True,ok,35.0,https://rutherford.house.gov/media/press-releases,drupal,2026-10-01,,False,False
+W000823,Michael Waltz,Michael,WALTZ,FL,6,R,False,0.452,-0.113,6,14.0,True,left office,,,,,,False,False
+F000484,Randy Fine,Randall,Fine,FL,6,R,True,0.633,-0.334,489,14.0,True,ok,40.0,https://fine.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-08-07,,False,True
+M001216,Cory Mills,Cory,Mills,FL,7,R,True,0.604,-0.318,540,5.0,True,ok,37.0,https://mills.house.gov/media/press-releases,drupal,2026-07-24,,True,True
+H001099,Mike Haridopolos,Mike,Haridopolos,FL,8,R,True,0.462,0.007,569,8.0,True,ok,110.0,https://haridopolos.house.gov/media/press-releases,drupal,2026-11-09,,False,False
+S001200,Darren Soto,Darren,Soto,FL,9,D,True,-0.339,0.239,575,8.0,True,ok,39.0,https://soto.house.gov/media/press-releases,drupal,2026-10-06,,True,False
+F000476,Maxwell Frost,Maxwell,Frost,FL,10,D,True,-0.442,-0.707,574,-13.0,True,ok,90.0,https://frost.house.gov/media/press-releases,param:PageNum_rs,2026-11-12,,False,False
+W000806,Daniel Webster,Daniel,Webster,FL,11,R,True,0.525,-0.074,569,7.0,True,ok,100.0,https://webster.house.gov/press-releases,drupal1,2026-07-22,,False,True
+B001257,Gus M. Bilirakis,Gus,Bilirakis,FL,12,R,True,0.423,-0.029,563,7.0,True,ok,129.0,https://bilirakis.house.gov/media/press-releases,drupal,2026-11-17,,False,False
+L000596,Anna Paulina Luna,Anna,Luna,FL,13,R,True,0.561,-0.506,524,6.0,True,ok,39.0,https://luna.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-10-06,,False,False
+C001066,Kathy Castor,Kathy,Castor,FL,14,D,True,-0.434,0.096,564,4.0,True,ok,148.0,https://castor.house.gov/News/DocumentQuery.aspx?DocumentTypeID=821,asp,2026-11-17,,True,False
+L000597,Laurel M. Lee,Laurel,Lee,FL,15,R,True,0.422,0.166,548,9.0,True,ok,71.0,https://laurellee.house.gov/media/press-releases,drupal,2026-11-16,,False,False
+B001260,Vern Buchanan,Vern,Buchanan,FL,16,R,True,0.361,-0.076,532,6.0,True,ok,227.0,https://buchanan.house.gov/category/press-releases/,wp,2026-11-17,True,False,False
+S001214,W. Gregory Steube,W.,Steube,FL,17,R,True,0.686,-0.359,560,10.0,True,ok,146.0,https://steube.house.gov/category/press-releases/,wp,2026-12-31,,False,False
+F000472,Scott Franklin,C.,Franklin,FL,18,R,True,0.625,0.212,573,8.0,True,ok,90.0,https://franklin.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-10-09,,False,False
+D000032,Byron Donalds,Byron,Donalds,FL,19,R,True,0.636,-0.307,518,14.0,True,ok,126.0,https://donalds.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-09-22,,False,False
+C001127,Sheila Cherfilus-Mccormick,Sheila,CHERFILUS-MCCORMICK,FL,20,D,False,-0.429,-0.005,408,-20.0,True,left office,,,,,,False,False
+M001199,Brian J. Mast,Brian,Mast,FL,21,R,True,0.461,-0.319,562,7.0,True,ok,44.0,https://mast.house.gov/category/press-releases/,wp,2026-11-17,,False,False
+F000462,Lois Frankel,Lois,Frankel,FL,22,D,True,-0.394,-0.017,550,4.0,True,ok,123.0,https://frankel.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-11,,True,False
+M001217,Jared Moskowitz,Jared,Moskowitz,FL,23,D,True,-0.227,0.298,556,-9.0,True,no listing,,,,,True,False,False
+W000808,Frederica S. Wilson,Frederica,Wilson,FL,24,D,True,-0.476,-0.001,418,-22.0,True,ok,70.0,https://wilson.house.gov/media/press-releases,drupal,2026-10-08,,False,False
+W000797,Debbie Wasserman Schultz,Debbie,Wasserman Schultz,FL,25,D,True,-0.412,0.106,565,3.0,True,ok,140.0,https://wassermanschultz.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-10-19,,True,False
+D000600,Mario Diaz-Balart,Mario,Diaz-Balart,FL,26,R,True,0.282,0.165,552,7.0,True,ok,257.0,https://mariodiazbalart.house.gov/media-center/press-releases,drupal,2026-10-23,,False,False
+S000168,Maria Elvira Salazar,Maria,Salazar,FL,27,R,True,0.274,0.163,507,6.0,True,ok,195.0,https://salazar.house.gov/media/press-releases,drupal,2026-11-16,,False,False
+G000593,Carlos A. Gimenez,Carlos,Gimenez,FL,28,R,True,0.329,0.158,539,10.0,True,ok,94.0,https://gimenez.house.gov/media/press-releases,drupal,2026-11-13,,False,False
+C001103,"Earl L. ""Buddy"" Carter",Earl,Carter,GA,1,R,True,0.555,0.33,547,8.0,False,ok,208.0,https://buddycarter.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-11,,False,False
+B000490,"Sanford D. Bishop, Jr.",Sanford,Bishop,GA,2,D,True,-0.289,0.445,565,-4.0,False,ok,84.0,https://bishop.house.gov/media-center/press-releases,drupal,2026-12-11,,True,False
+J000311,Brian Jack,Brian,Jack,GA,3,R,True,0.595,0.064,576,15.0,False,ok,60.0,https://jack.house.gov/media/press-releases,drupal,2026-10-15,,False,False
+J000288,"Henry C. ""Hank"" Johnson, Jr.",Henry,Johnson,GA,4,D,True,-0.479,-0.054,567,-27.0,False,ok,89.0,https://hankjohnson.house.gov/media-center/press-releases,drupal,2026-10-07,,False,False
+W000788,Nikema Williams,Nikema,Williams,GA,5,D,True,-0.442,-0.386,553,-36.0,False,no listing,,,,,True,False,False
+M001208,Lucy McBath,Lucy,McBath,GA,6,D,True,-0.371,0.295,548,-25.0,False,ok,127.0,https://mcbath.house.gov/category/press-releases/,wp,2026-10-21,,False,False
+M001218,Richard McCormick,Rich,McCormick,GA,7,R,True,0.891,0.454,574,11.0,False,ok,62.0,https://mccormick.house.gov/media/press-releases,drupal,2026-11-10,,False,False
+S001189,Austin Scott,Austin,Scott,GA,8,R,True,0.538,0.351,574,15.0,False,ok,25.0,https://austinscott.house.gov/press-releases,drupal1,2026-07-23,,False,True
+C001116,Andrew S. Clyde,Andrew,Clyde,GA,9,R,True,0.827,-0.158,550,17.0,False,ok,77.0,https://clyde.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-09-16,,False,False
+C001129,Mike Collins,Mike,Collins,GA,10,R,True,0.679,-0.243,566,11.0,False,ok,21.0,https://collins.house.gov/media/press-releases,drupal,2026-07-14,,False,True
+L000583,Barry Loudermilk,Barry,Loudermilk,GA,11,R,True,0.676,0.04,544,12.0,False,ok,86.0,https://loudermilk.house.gov/category/press-releases/,wp,2026-09-11,,False,False
+A000372,Rick W. Allen,Rick,Allen,GA,12,R,True,0.689,0.279,570,7.0,False,ok,108.0,https://allen.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-09,,False,False
+S001157,David Scott,David,SCOTT,GA,13,D,False,-0.305,0.165,414,-21.0,False,left office,,,,,,False,False
+B001328,Everton Blair Jr.,Everton,Blair,GA,13,D,True,-0.713,-0.326,26,-21.0,False,no pager,11.0,https://blair.house.gov/media/press-releases,none,2026-11-13,True,False,False
+G000596,Marjorie Taylor Greene,Marjorie,GREENE,GA,14,R,False,0.8,-0.6,275,19.0,False,left office,,,,,,False,False
+F000485,Clay Fuller,Clay,Fuller,GA,14,R,True,0.703,-0.15,174,19.0,False,ok,18.0,https://fuller.house.gov/media/press-releases,drupal,2026-11-12,,False,False
+M001219,James Moylan,James,MOYLAN,GU,0,R,False,0.33,0.064,68,,,ok,116.0,https://moylan.house.gov/media/press-releases,drupal,2026-10-23,,False,False
+C001055,Ed Case,Ed,Case,HI,1,D,True,-0.208,-0.077,571,-13.0,False,ok,100.0,https://case.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-14,,False,False
+T000487,Jill N. Tokuda,Jill,Tokuda,HI,2,D,True,-0.455,-0.35,574,-12.0,False,ok,145.0,https://tokuda.house.gov/media/press-releases,param:PageNum_rs,2026-11-16,,False,False
+M001215,Mariannette Miller-Meeks,Mariannette,Miller-Meeks,IA,1,R,True,0.337,0.174,558,4.0,False,ok,223.0,https://millermeeks.house.gov/media/press-releases,drupal,2026-11-11,,True,False
+H001091,Ashley Hinson,Ashley,Hinson,IA,2,R,True,0.356,0.35,567,4.0,False,ok,144.0,https://hinson.house.gov/media/press-releases,drupal,2026-10-22,,True,False
+N000193,Zachary Nunn,Zachary (Zach),Nunn,IA,3,R,True,0.292,0.196,552,2.0,False,pager not followed,20.0,https://nunn.house.gov/media/press-releases,wp,2026-10-27,True,True,False
+F000446,Randy Feenstra,Randy,Feenstra,IA,4,R,True,0.467,0.183,569,15.0,False,ok,234.0,https://feenstra.house.gov/media/press-releases,drupal,2026-07-22,,False,True
+F000469,Russ Fulcher,Russ,Fulcher,ID,1,R,True,0.643,-0.117,569,22.0,False,ok,88.0,https://fulcher.house.gov/category/press-releases/,wp,2026-11-17,,False,False
+S001148,Michael K. Simpson,Michael,Simpson,ID,2,R,True,0.296,0.316,567,13.0,False,ok,170.0,https://simpson.house.gov/News/DocumentQuery.aspx?DocumentTypeID=1515,asp,2026-11-11,,False,False
+J000309,Jonathan L. Jackson,Jonathan,Jackson,IL,1,D,True,-0.349,-0.456,536,-18.0,False,ok,96.0,https://jonathanjackson.house.gov/media/press-releases,drupal,2026-11-09,,False,False
+K000385,Robin L. Kelly,Robin,Kelly,IL,2,D,True,-0.474,-0.025,564,-18.0,False,ok,142.0,https://robinkelly.house.gov/media-center/press-releases,drupal,2026-11-17,,False,False
+R000617,Delia C. Ramirez,Delia,Ramirez,IL,3,D,True,-0.496,-0.868,553,-17.0,False,ok,171.0,https://ramirez.house.gov/media/press-releases,drupal,2026-11-17,,False,False
+G000586,"Jesús G. ""Chuy"" García",Jesús,García,IL,4,D,True,-0.439,-0.876,564,-17.0,False,ok,224.0,https://chuygarcia.house.gov/media/press-releases,drupal,2026-11-06,,False,False
+Q000023,Mike Quigley,Mike,Quigley,IL,5,D,True,-0.324,-0.223,553,-19.0,False,ok,106.0,https://quigley.house.gov/media-center/press-releases,drupal,2026-11-09,,False,False
+C001117,Sean Casten,Sean,Casten,IL,6,D,True,-0.625,0.399,571,-3.0,False,ok,183.0,https://casten.house.gov/media/press-releases,param:PageNum_rs,2026-10-29,,True,False
+D000096,Danny K. Davis,Danny,Davis,IL,7,D,True,-0.487,-0.267,558,-34.0,False,ok,41.0,https://davis.house.gov/media/press-releases,drupal,2026-07-15,,False,True
+K000391,Raja Krishnamoorthi,Raja,Krishnamoorthi,IL,8,D,True,-0.349,-0.016,562,-5.0,False,ok,422.0,https://krishnamoorthi.house.gov/media/press-releases,drupal,2026-11-17,,True,False
+S001145,Janice D. Schakowsky,Janice,Schakowsky,IL,9,D,True,-0.602,-0.288,546,-19.0,False,ok,118.0,https://schakowsky.house.gov/media/press-releases,drupal,2026-10-26,,False,False
+S001190,Bradley Scott Schneider,Bradley,Schneider,IL,10,D,True,-0.199,-0.113,563,-12.0,False,ok,146.0,https://schneider.house.gov/media/press-releases,drupal,2026-11-17,,False,False
+F000454,Bill Foster,Bill,Foster,IL,11,D,True,-0.238,-0.216,572,-6.0,False,ok,90.0,https://foster.house.gov/media/press-releases,drupal,2026-11-05,,False,False
+B001295,Mike Bost,Mike,Bost,IL,12,R,True,0.402,-0.038,571,22.0,False,ok,55.0,https://bost.house.gov/press-releases,drupal1,2026-11-09,,False,False
+B001315,Nikki Budzinski,Nicole (Nikki),Budzinski,IL,13,D,True,-0.317,0.398,576,-5.0,False,no listing,,,,,True,True,False
+U000040,Lauren Underwood,Lauren,Underwood,IL,14,D,True,-0.597,0.292,573,-3.0,False,ok,88.0,https://underwood.house.gov/media/press-releases,drupal,2026-11-16,,True,False
+M001211,Mary E. Miller,Mary,Miller,IL,15,R,True,0.792,-0.166,557,20.0,False,ok,42.0,https://marymiller.house.gov/media/press-releases,drupal,2026-11-02,,False,False
+L000585,Darin LaHood,Darin,LaHood,IL,16,R,True,0.46,0.226,542,11.0,False,ok,101.0,https://lahood.house.gov/press-releases,drupal1,2026-11-10,,False,False
+S001225,Eric Sorensen,Eric,Sorensen,IL,17,D,True,-0.24,0.223,574,-3.0,False,ok,173.0,https://sorensen.house.gov/media/press-releases,drupal,2026-11-12,,True,False
+M001214,Frank J. Mrvan,Frank,Mrvan,IN,1,D,True,-0.299,0.352,561,-1.0,False,ok,110.0,https://mrvan.house.gov/media/press-releases,drupal,2026-11-16,,True,False
+Y000067,Rudy Yakym III,Rudy,Yakym,IN,2,R,True,0.521,0.167,575,13.0,False,ok,187.0,https://yakym.house.gov/media-center/press-releases,drupal,2026-11-11,,False,False
+S001188,Marlin A. Stutzman,Marlin,Stutzman,IN,3,R,True,0.714,-0.06,563,16.0,False,ok,50.0,https://stutzman.house.gov/media/press-releases,drupal,2026-11-11,,False,False
+B001307,James R. Baird,James,Baird,IN,4,R,True,0.446,0.418,545,15.0,False,ok,85.0,https://baird.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-10,,False,False
+S000929,Victoria Spartz,Victoria,Spartz,IN,5,R,True,0.494,-0.278,545,8.0,False,ok,45.0,https://spartz.house.gov/media/press-releases,drupal,2026-11-17,,False,False
+S001229,Jefferson Shreve,Jefferson,Shreve,IN,6,R,True,0.511,0.141,568,16.0,False,ok,90.0,https://shreve.house.gov/media/press-releases,drupal,2026-10-16,,False,False
+C001072,André Carson,André,Carson,IN,7,D,True,-0.434,0.019,570,-21.0,False,ok,92.0,https://carson.house.gov/media/press-releases,drupal,2026-11-16,,False,False
+M001233,Mark B. Messmer,Mark,Messmer,IN,8,R,True,0.544,0.29,569,18.0,False,ok,70.0,https://messmer.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-10-24,,False,False
+H001093,Erin Houchin,Erin,Houchin,IN,9,R,True,0.624,0.188,567,15.0,False,ok,90.0,https://houchin.house.gov/media/press-releases,drupal,2026-11-10,,False,False
+M000871,Tracey Mann,Tracey,Mann,KS,1,R,True,0.608,0.064,574,16.0,False,ok,103.0,https://mann.house.gov/media/press-releases,drupal,2026-10-01,,False,False
+S001228,Derek Schmidt,Derek,Schmidt,KS,2,R,True,0.694,0.025,571,10.0,False,ok,117.0,https://schmidt.house.gov/media/press-releases,drupal,2026-10-01,,False,False
+D000629,Sharice Davids,Sharice,Davids,KS,3,D,True,-0.265,0.232,570,-2.0,False,ok,365.0,https://davids.house.gov/media/press-releases,drupal,2026-11-12,,True,False
+E000298,Ron Estes,Ron,Estes,KS,4,R,True,0.647,0.134,570,12.0,False,ok,122.0,https://estes.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-10,,False,False
+C001108,James Comer,James,Comer,KY,1,R,True,0.593,-0.072,566,23.0,False,ok,82.0,https://comer.house.gov/category/press-releases/,wp,2026-11-10,,False,False
+G000558,Brett Guthrie,Brett,Guthrie,KY,2,R,True,0.426,0.273,573,20.0,False,no pager,18.0,https://guthrie.house.gov/news/,none,2026-12-11,True,False,False
+M001220,Morgan McGarvey,Morgan,McGarvey,KY,3,D,True,-0.486,-0.08,575,-10.0,False,ok,201.0,https://mcgarvey.house.gov/media/press-releases,param:PageNum_rs,2026-11-17,,False,False
+M001184,Thomas Massie,Thomas,Massie,KY,4,R,True,0.653,-0.758,545,18.0,False,ok,34.0,https://massie.house.gov/news/documentquery.aspx?DocumentTypeID=2362,asp,2026-11-09,,False,False
+R000395,Harold Rogers,Harold,Rogers,KY,5,R,True,0.334,0.157,566,32.0,False,ok,107.0,https://halrogers.house.gov/press-releases,drupal1,2026-11-12,,False,False
+B001282,Andy Barr,Garland,Barr,KY,6,R,True,0.489,0.296,542,7.0,False,ok,122.0,https://barr.house.gov/press-releases,drupal1,2026-11-16,,False,False
+S001176,Steve Scalise,Steve,Scalise,LA,1,R,True,0.558,0.164,566,20.0,True,ok,213.0,https://scalise.house.gov/media/press-releases,drupal,2026-10-08,,False,False
+C001125,Troy A. Carter,Troy,Carter,LA,2,D,True,-0.521,0.276,570,-25.0,True,ok,228.0,https://troycarter.house.gov/media/press-releases,drupal,2026-11-13,,False,False
+H001077,Clay Higgins,Clay,Higgins,LA,3,R,True,0.631,-0.325,565,18.0,True,ok,113.0,https://clayhiggins.house.gov/category/press-releases/,wp,2026-11-12,True,False,False
+J000299,Mike Johnson,Mike,Johnson,LA,4,R,True,0.566,0.029,461,17.0,True,ok,405.0,https://mikejohnson.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-16,,False,False
+L000595,Julia Letlow,Julia,Letlow,LA,5,R,True,0.434,0.338,548,17.0,True,ok,73.0,https://letlow.house.gov/media/press-releases,drupal,2026-10-06,,False,False
+F000110,Cleo Fields,Cleo,Fields,LA,6,D,True,-0.457,0.121,555,16.0,True,ok,80.0,https://fields.house.gov/media/press-releases,drupal,2026-09-01,,True,False
+N000015,Richard E. Neal,Richard,Neal,MA,1,D,True,-0.417,-0.104,543,-8.0,False,ok,318.0,https://neal.house.gov/category/press-releases/,wp,2026-10-15,,False,False
+M000312,James P. McGovern,James,McGovern,MA,2,D,True,-0.538,-0.354,564,-13.0,False,ok,72.0,https://mcgovern.house.gov/news/documentquery.aspx?DocumentTypeID=2472,asp,2026-11-10,,False,False
+T000482,Lori Trahan,Lori,Trahan,MA,3,D,True,-0.416,-0.11,556,-11.0,False,ok,159.0,https://trahan.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-01,,False,False
+A000148,Jake Auchincloss,Jake,Auchincloss,MA,4,D,True,-0.272,-0.27,553,-11.0,False,ok,46.0,https://auchincloss.house.gov/media/press-releases,param:PageNum_rs,2026-10-22,,False,False
+C001101,Katherine M. Clark,Katherine,Clark,MA,5,D,True,-0.478,-0.243,574,-24.0,False,ok,230.0,https://katherineclark.house.gov/category/press-releases/,wp,2026-11-05,,False,False
+M001196,Seth Moulton,Seth,Moulton,MA,6,D,True,-0.286,-0.049,503,-11.0,False,ok,210.0,https://moulton.house.gov/news/press-releases,drupal,2026-10-16,,False,False
+P000617,Ayanna Pressley,Ayanna,Pressley,MA,7,D,True,-0.375,-0.927,563,-34.0,False,ok,406.0,https://pressley.house.gov/category/press-releases/,wp,2026-11-17,,False,False
+L000562,Stephen F. Lynch,Stephen,Lynch,MA,8,D,True,-0.342,0.046,552,-15.0,False,ok,25.0,https://lynch.house.gov/press-releases,drupal1,2026-05-19,,False,True
+K000375,William R. Keating,William,Keating,MA,9,D,True,-0.329,-0.097,552,-6.0,False,ok,22.0,https://keating.house.gov/media/press-releases,drupal,2026-09-15,,False,False
+H001052,Andy Harris,Andy,Harris,MD,1,R,True,0.676,-0.385,562,8.0,False,ok,141.0,https://harris.house.gov/media/press-releases,drupal,2026-11-05,,False,False
+O000176,"Johnny Olszewski, Jr.",Johnny,Olszewski,MD,2,D,True,-0.378,-0.014,572,-10.0,False,ok,160.0,https://olszewski.house.gov/media/press-releases,drupal,2026-11-17,,False,False
+E000301,Sarah Elfreth,Sarah,Elfreth,MD,3,D,True,-0.373,-0.068,575,-12.0,False,ok,190.0,https://elfreth.house.gov/media/press-releases,drupal,2026-11-07,,False,False
+I000058,Glenn Ivey,Glenn,Ivey,MD,4,D,True,-0.466,-0.035,568,-39.0,False,ok,99.0,https://ivey.house.gov/media/press-releases,drupal,2026-10-14,,False,False
+H000874,Steny H. Hoyer,Steny,Hoyer,MD,5,D,True,-0.381,0.125,562,-17.0,False,ok,404.0,https://hoyer.house.gov/media/press-releases,drupal,2026-11-17,,False,False
+M001232,April McClain Delaney,April,McClain Delaney,MD,6,D,True,-0.29,0.065,559,-3.0,False,ok,190.0,https://mcclaindelaney.house.gov/media/press-releases,drupal,2026-11-16,,True,False
+M000687,Kweisi Mfume,Kweisi,Mfume,MD,7,D,True,-0.441,-0.316,548,-31.0,False,ok,141.0,https://mfume.house.gov/media/press-releases,drupal,2026-10-16,,False,False
+R000606,Jamie Raskin,Jamie,Raskin,MD,8,D,True,-0.494,-0.227,572,-30.0,False,ok,115.0,https://raskin.house.gov/press-releases,drupal1,2026-11-17,,False,False
+P000597,Chellie Pingree,Chellie,Pingree,ME,1,D,True,-0.421,-0.363,555,-11.0,False,ok,184.0,https://pingree.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-17,True,False,False
+G000592,Jared F. Golden,Jared,Golden,ME,2,D,True,-0.106,0.391,561,4.0,False,ok,160.0,https://golden.house.gov/media/press-releases,drupal,2026-11-12,,True,False
+B001301,Jack Bergman,Jack,Bergman,MI,1,R,True,0.434,0.093,565,11.0,False,ok,83.0,https://bergman.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-16,,False,False
+M001194,John R. Moolenaar,John,Moolenaar,MI,2,R,True,0.448,0.18,574,15.0,False,ok,109.0,https://moolenaar.house.gov/media-center/press-releases,drupal,2026-11-12,,False,False
+S001221,Hillary J. Scholten,Hillary,Scholten,MI,3,D,True,-0.261,0.232,559,-4.0,False,ok,167.0,https://scholten.house.gov/media/press-releases,drupal,2026-11-09,,True,False
+H001058,Bill Huizenga,Bill,Huizenga,MI,4,R,True,0.531,0.06,569,3.0,False,ok,72.0,https://huizenga.house.gov/News/DocumentQuery.aspx?DocumentTypeID=2041,asp,2026-09-11,,True,False
+W000798,Tim Walberg,Tim,Walberg,MI,5,R,True,0.498,0.169,571,13.0,False,ok,177.0,https://walberg.house.gov/media/press-releases,drupal,2026-11-17,,False,False
+D000624,Debbie Dingell,Debbie,Dingell,MI,6,D,True,-0.397,-0.185,562,-12.0,False,ok,400.0,https://debbiedingell.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-17,,False,False
+B001321,Tom Barrett,Tom,Barrett,MI,7,R,True,0.498,-0.188,573,0.0,False,ok,200.0,https://barrett.house.gov/media/press-releases,drupal,2026-10-15,,True,False
+M001237,Kristen McDonald Rivet,Kristen,McDonald Rivet,MI,8,D,True,-0.245,0.346,562,1.0,False,ok,130.0,https://mcdonaldrivet.house.gov/media/press-releases,drupal,2026-10-15,,True,False
+M001136,Lisa C. McClain,Lisa,McClain,MI,9,R,True,0.548,0.175,567,16.0,False,ok,131.0,https://mcclain.house.gov/press-releases,drupal1,2026-10-27,,False,False
+J000307,John James,John,James,MI,10,R,True,0.322,0.383,531,3.0,False,ok,56.0,https://james.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-10-08,,True,False
+S001215,Haley M. Stevens,Haley,Stevens,MI,11,D,True,-0.361,0.223,569,-9.0,False,ok,235.0,https://stevens.house.gov/media/press-releases,drupal,2026-09-29,,False,False
+T000481,Rashida Tlaib,Rashida,Tlaib,MI,12,D,True,-0.29,-0.957,564,-21.0,False,no listing,,,,,True,False,False
+T000488,Shri Thanedar,Shri,Thanedar,MI,13,D,True,-0.35,-0.051,571,-22.0,False,ok,77.0,https://thanedar.house.gov/media/press-releases,param:PageNum_rs,2026-09-16,,False,False
+F000475,Brad Finstad,Brad,Finstad,MN,1,R,True,0.558,0.003,570,6.0,False,ok,229.0,https://finstad.house.gov/category/press-releases/,wp,2026-11-13,,False,False
+C001119,Angie Craig,Angie,Craig,MN,2,D,True,-0.273,0.49,561,-3.0,False,ok,152.0,https://craig.house.gov/media/press-releases,drupal,2026-11-11,,True,False
+M001234,Kelly Morrison,Kelly,Morrison,MN,3,D,True,-0.347,-0.084,574,-11.0,False,ok,160.0,https://morrison.house.gov/news/,param:PageNum_rs,2026-11-16,True,False,False
+M001143,Betty McCollum,Betty,McCollum,MN,4,D,True,-0.419,-0.182,568,-18.0,False,ok,180.0,https://mccollum.house.gov/media/press-releases,drupal,2026-11-11,,False,False
+O000173,Ilhan Omar,Ilhan,Omar,MN,5,D,True,-0.296,-0.955,566,-32.0,False,ok,137.0,https://omar.house.gov/media/press-releases,drupal,2026-10-29,,False,False
+E000294,Tom Emmer,Tom,Emmer,MN,6,R,True,0.468,-0.061,568,10.0,False,ok,96.0,https://emmer.house.gov/media-center/press-releases,drupal,2026-10-23,,False,False
+F000470,Michelle Fischbach,Michelle,Fischbach,MN,7,R,True,0.541,-0.01,574,18.0,False,ok,131.0,https://fischbach.house.gov/press-releases,drupal1,2026-10-21,,False,False
+S001212,Pete Stauber,Pete,Stauber,MN,8,R,True,0.385,-0.088,570,7.0,False,ok,89.0,https://stauber.house.gov/media/press-releases,drupal,2026-10-28,,False,False
+B001324,Wesley Bell,Wesley,Bell,MO,1,D,True,-0.455,0.294,564,-29.0,False,pager not followed,10.0,https://bell.house.gov/media/press-releases,drupal,2026-11-17,True,False,False
+W000812,Ann Wagner,Ann,Wagner,MO,2,R,True,0.392,0.303,569,4.0,False,ok,101.0,https://wagner.house.gov/media-center/press-releases,drupal,2026-10-30,,True,False
+O000177,"Robert F. Onder, Jr.",Robert,Onder,MO,3,R,True,0.723,-0.143,562,13.0,False,ok,90.0,https://onder.house.gov/media/press-releases,drupal,2026-11-17,,False,False
+A000379,Mark Alford,Mark,Alford,MO,4,R,True,0.563,0.075,567,21.0,False,ok,144.0,https://alford.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-10,,False,False
+C001061,Emanuel Cleaver,Emanuel,Cleaver,MO,5,D,True,-0.454,0.007,551,-12.0,False,ok,185.0,https://cleaver.house.gov/media-center/press-releases,drupal,2026-10-26,,False,False
+G000546,Sam Graves,Sam,Graves,MO,6,R,True,0.449,0.162,545,19.0,False,ok,43.0,https://graves.house.gov/media/press-releases,drupal,2026-09-17,,False,False
+B001316,Eric Burlison,Eric,Burlison,MO,7,R,True,0.734,-0.559,553,21.0,False,ok,104.0,https://burlison.house.gov/media/press-releases,drupal,2026-09-21,,False,False
+S001195,Jason Smith,Jason,Smith,MO,8,R,True,0.578,0.203,567,27.0,False,ok,68.0,https://jasonsmith.house.gov/category/press_release/,wp,2026-11-14,,False,False
+K000404,Kimberlyn King-Hinds,Kimberlyn,KING-HINDS,MP,0,R,False,0.163,-0.043,61,,,ok,70.0,https://king-hinds.house.gov/media/press-releases,drupal,2026-10-27,,False,False
+K000388,Trent Kelly,Trent,Kelly,MS,1,R,True,0.636,0.295,572,18.0,False,ok,22.0,https://trentkelly.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-08-04,,False,True
+T000193,Bennie G. Thompson,Bennie,Thompson,MS,2,D,True,-0.52,0.389,559,-11.0,False,ok,106.0,https://benniethompson.house.gov/media/press-releases,drupal,2026-11-11,,False,False
+G000591,Michael Guest,Michael,Guest,MS,3,R,True,0.53,0.13,565,14.0,False,ok,20.0,https://guest.house.gov/media/press-releases,drupal,2026-11-10,,False,False
+E000235,Mike Ezell,Mike,Ezell,MS,4,R,True,0.557,0.144,568,21.0,False,ok,90.0,https://ezell.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-10-13,,False,False
+Z000018,Ryan K. Zinke,Ryan,Zinke,MT,1,R,True,0.442,-0.112,562,5.0,False,ok,80.0,https://zinke.house.gov/media/press-releases,drupal,2026-09-09,,True,False
+D000634,Troy Downing,Troy,Downing,MT,2,R,True,0.649,-0.049,575,15.0,False,ok,110.0,https://downing.house.gov/media/press-releases,drupal,2026-11-12,,False,False
+D000230,Donald G. Davis,Donald,Davis,NC,1,D,True,-0.241,0.887,565,5.0,True,ok,134.0,https://dondavis.house.gov/media/press-releases,drupal,2026-11-02,,True,False
+R000305,Deborah K. Ross,Deborah,Ross,NC,2,D,True,-0.389,-0.002,574,-17.0,True,ok,206.0,https://ross.house.gov/press-releases,drupal1,2026-11-16,,False,False
+M001210,Gregory F. Murphy,Gregory,Murphy,NC,3,R,True,0.483,0.14,498,6.0,True,ok,124.0,https://murphy.house.gov/media/press-releases,drupal,2026-10-26,,False,False
+F000477,Valerie P. Foushee,Valerie,Foushee,NC,4,D,True,-0.5,-0.301,564,-23.0,True,ok,307.0,https://foushee.house.gov/media/press-releases,param:PageNum_rs,2026-11-17,,False,False
+F000450,Virginia Foxx,Virginia,Foxx,NC,5,R,True,0.624,0.178,573,9.0,True,ok,15.0,https://foxx.house.gov/news/documentquery.aspx?DocumentTypeID=2367,asp,2026-10-01,,False,False
+M001240,Addison P. McDowell,Addison,McDowell,NC,6,R,True,0.56,0.037,571,9.0,True,ok,60.0,https://mcdowell.house.gov/media/press-releases,drupal,2026-10-31,,False,False
+R000603,David Rouzer,David,Rouzer,NC,7,R,True,0.567,0.292,568,7.0,True,ok,71.0,https://rouzer.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-12,,False,False
+H001102,Mark Harris,Mark,Harris,NC,8,R,True,0.8,-0.139,576,10.0,True,ok,110.0,https://markharris.house.gov/media/press-releases,drupal,2026-11-17,,False,False
+H001067,Richard Hudson,Richard,Hudson,NC,9,R,True,0.523,0.208,571,8.0,True,ok,89.0,https://hudson.house.gov/media/press-releases,drupal,2026-10-15,,False,False
+H001101,Pat Harrigan,Pat,Harrigan,NC,10,R,True,0.973,0.229,564,9.0,True,ok,210.0,https://harrigan.house.gov/media/press-releases,drupal,2026-11-13,,False,False
+E000246,Chuck Edwards,Charles (Chuck),Edwards,NC,11,R,True,0.373,0.381,570,5.0,True,ok,70.0,https://edwards.house.gov/media/press-releases,drupal,2026-09-15,,True,False
+A000370,Alma S. Adams,Alma,Adams,NC,12,D,True,-0.464,-0.006,575,-24.0,True,ok,155.0,https://adams.house.gov/media-center/press-releases,drupal,2026-10-28,,False,False
+K000405,Brad Knott,Brad,Knott,NC,13,R,True,0.819,0.168,568,8.0,True,ok,50.0,https://knott.house.gov/media/press-releases,drupal,2026-09-30,,False,False
+M001236,Tim Moore,Tim,Moore,NC,14,R,True,0.588,0.104,574,8.0,True,ok,144.0,https://timmoore.house.gov/media/press-releases,drupal,2026-10-30,,False,False
+F000482,Julie Fedorchak,Julie,Fedorchak,ND,0,R,True,0.611,0.069,564,18.0,False,ok,290.0,https://fedorchak.house.gov/media/press-releases,drupal,2026-11-16,,False,False
+F000474,Mike Flood,Mike,Flood,NE,1,R,True,0.441,0.672,573,6.0,False,ok,231.0,https://flood.house.gov/media/press-releases,drupal,2026-10-09,,False,False
+B001298,Don Bacon,Don,Bacon,NE,2,R,True,0.277,0.186,574,-3.0,False,ok,164.0,https://bacon.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-10,,True,False
+S001172,Adrian Smith,Adrian,Smith,NE,3,R,True,0.51,0.257,567,27.0,False,ok,219.0,https://adriansmith.house.gov/media/press-releases,drupal,2026-11-30,,False,False
+P000614,Chris Pappas,Chris,Pappas,NH,1,D,True,-0.233,0.308,572,-2.0,False,ok,474.0,https://pappas.house.gov/media/press-releases,drupal,2026-10-29,,True,False
+G000604,Maggie Goodlander,Maggie,Goodlander,NH,2,D,True,-0.21,0.09,570,-2.0,False,no pager,15.0,https://goodlander.house.gov/media/press-releases,none,2026-11-12,True,True,False
+N000188,Donald Norcross,Donald,Norcross,NJ,1,D,True,-0.421,0.341,499,-10.0,False,ok,107.0,https://norcross.house.gov/media/press-releases,drupal,2026-10-22,,False,False
+V000133,Jefferson Van Drew,Jefferson,Van Drew,NJ,2,R,True,0.384,-0.407,569,5.0,False,ok,163.0,https://vandrew.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-10-26,,True,False
+C001136,"Herbert C. Conaway, Jr.",Herbert,Conaway,NJ,3,D,True,-0.299,0.041,563,-5.0,False,ok,50.0,https://conaway.house.gov/media/press-releases,drupal,2026-11-04,,True,False
+S000522,Christopher H. Smith,Christopher,Smith,NJ,4,R,True,0.184,-0.169,574,14.0,False,no pager,7.0,https://chrissmith.house.gov/news/,none,2026-11-13,True,False,False
+G000583,Josh Gottheimer,Josh,Gottheimer,NJ,5,D,True,-0.165,0.214,517,-2.0,False,no listing,,,,,True,True,False
+P000034,"Frank Pallone, Jr.",Frank,Pallone,NJ,6,D,True,-0.403,-0.162,572,-5.0,False,ok,271.0,https://pallone.house.gov/media/press-releases,drupal,2026-10-27,,True,False
+K000398,"Thomas H. Kean, Jr.",Thomas,Kean,NJ,7,R,True,0.203,0.362,453,0.0,False,ok,344.0,https://kean.house.gov/media/press-releases,drupal,2026-11-02,,True,False
+M001226,Robert Menendez,Robert,Menendez,NJ,8,D,True,-0.508,0.173,576,-15.0,False,ok,175.0,https://menendez.house.gov/media/press-releases,param:PageNum_rs,2026-11-17,,False,False
+P000621,Nellie Pou,Nellie,Pou,NJ,9,D,True,-0.308,0.02,574,-2.0,False,ok,160.0,https://pou.house.gov/media/press-releases,drupal,2026-11-17,,True,False
+M001229,LaMonica McIver,LaMonica,McIver,NJ,10,D,True,-0.539,-0.291,573,-27.0,False,ok,96.0,https://mciver.house.gov/media/press-releases,param:PageNum_rs,2026-11-11,,False,False
+S001207,Mikie Sherrill,Mikie,SHERRILL,NJ,11,D,False,-0.234,0.243,116,-5.0,False,left office,,,,,,True,False
+M001246,Analilia Mejia,Analilia,Mejia,NJ,11,D,True,-0.423,-0.385,160,-5.0,False,ok,64.0,https://mejia.house.gov/media/press-releases,drupal,2026-11-13,,True,False
+W000822,Bonnie Watson Coleman,Bonnie,Watson Coleman,NJ,12,D,True,-0.592,-0.23,570,-13.0,False,ok,245.0,https://watsoncoleman.house.gov/newsroom/press-releases,param:PageNum_rs,2026-12-11,,False,False
+S001218,Melanie A. Stansbury,Melanie,Stansbury,NM,1,D,True,-0.432,-0.218,562,-7.0,False,ok,100.0,https://stansbury.house.gov/media/press-releases,drupal,2026-09-30,,False,False
+V000136,Gabe Vasquez,Gabriel (Gabe),Vasquez,NM,2,D,True,-0.32,0.545,571,0.0,False,ok,490.0,https://vasquez.house.gov/media/press-releases,drupal,2026-11-17,,True,False
+L000273,Teresa Leger Fernandez,Teresa,Leger Fernandez,NM,3,D,True,-0.366,-0.188,530,-3.0,False,ok,137.0,https://fernandez.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-10-29,,True,False
+T000468,Dina Titus,Dina,Titus,NV,1,D,True,-0.296,-0.16,527,-2.0,False,ok,109.0,https://titus.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-05,,True,False
+A000369,Mark E. Amodei,Mark,Amodei,NV,2,R,True,0.385,0.217,560,7.0,False,ok,40.0,https://amodei.house.gov/news-releases,drupal,2026-07-14,,False,True
+L000590,Susie Lee,Susie,Lee,NV,3,D,True,-0.225,0.293,565,-1.0,False,ok,210.0,https://susielee.house.gov/media/press-releases,drupal,2026-11-16,,True,False
+H001066,Steven Horsford,Steven,Horsford,NV,4,D,True,-0.311,0.16,563,-2.0,False,ok,166.0,https://horsford.house.gov/media/press-releases,drupal,2026-10-20,,True,False
+L000598,Nick LaLota,Nicolas,LaLota,NY,1,R,True,0.253,0.109,566,4.0,False,ok,77.0,https://lalota.house.gov/media/press-releases,drupal,2026-08-25,,True,True
+G000597,Andrew R. Garbarino,Andrew,Garbarino,NY,2,R,True,0.244,0.234,559,6.0,False,ok,77.0,https://garbarino.house.gov/media/press-releases,drupal,2026-10-24,,False,False
+S001201,Thomas R. Suozzi,Thomas,Suozzi,NY,3,D,True,-0.213,0.173,563,0.0,False,ok,101.0,https://suozzi.house.gov/media/press-releases,drupal,2026-11-12,,True,False
+G000602,Laura Gillen,Laura,Gillen,NY,4,D,True,-0.166,0.258,562,-2.0,False,ok,240.0,https://gillen.house.gov/media/press-releases,drupal,2026-11-17,,True,False
+M001137,Gregory W. Meeks,Gregory,Meeks,NY,5,D,True,-0.415,-0.059,556,-24.0,False,uncertain (pager repeats),90.0,https://meeks.house.gov/media/press-releases,drupal,2026-08-20,,False,True
+M001188,Grace Meng,Grace,Meng,NY,6,D,True,-0.371,-0.209,551,-6.0,False,ok,94.0,https://meng.house.gov/media-center/press-releases,drupal,2026-11-09,,False,False
+V000081,Nydia M. Velázquez,Nydia,Velázquez,NY,7,D,True,-0.546,-0.371,548,-25.0,False,ok,89.0,https://velazquez.house.gov/media-center/press-releases,drupal,2026-10-09,,False,False
+J000294,Hakeem S. Jeffries,Hakeem,Jeffries,NY,8,D,True,-0.483,-0.055,572,-24.0,False,no listing,,,,,True,False,False
+C001067,Yvette D. Clarke,Yvette,Clarke,NY,9,D,True,-0.607,-0.254,560,-22.0,False,ok,138.0,https://clarke.house.gov/category/press-release/,wp,2026-11-11,,False,False
+G000599,Daniel S. Goldman,Dan,Goldman,NY,10,D,True,-0.448,0.138,514,-32.0,False,ok,239.0,https://goldman.house.gov/media/press-releases,drupal,2026-10-21,,False,False
+M000317,Nicole Malliotakis,Nicole,Malliotakis,NY,11,R,True,0.334,-0.065,569,10.0,False,ok,146.0,https://malliotakis.house.gov/media/press-releases,drupal,2026-11-13,,False,False
+N000002,Jerrold Nadler,Jerrold,Nadler,NY,12,D,True,-0.507,-0.47,517,-33.0,False,ok,124.0,https://nadler.house.gov/news/documentquery.aspx?DocumentTypeID=1753,asp,2026-10-30,,False,False
+E000297,Adriano Espaillat,Adriano,Espaillat,NY,13,D,True,-0.526,-0.214,569,-32.0,False,ok,116.0,https://espaillat.house.gov/media/press-releases,drupal,2026-06-12,,False,True
+O000172,Alexandria Ocasio-Cortez,Alexandria,Ocasio-Cortez,NY,14,D,True,-0.333,-0.943,562,-19.0,False,ok,110.0,https://ocasio-cortez.house.gov/media/press-releases,drupal,2026-10-20,,False,False
+T000486,Ritchie Torres,Ritchie,Torres,NY,15,D,True,-0.311,-0.116,559,-27.0,False,no listing,,,,,True,False,False
+L000606,George Latimer,George,Latimer,NY,16,D,True,-0.402,0.287,562,-18.0,False,ok,60.0,https://latimer.house.gov/media/press-releases,drupal,2026-11-17,,False,False
+L000599,Michael Lawler,Michael,Lawler,NY,17,R,True,0.19,0.231,566,-1.0,False,ok,382.0,https://lawler.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-12,,True,False
+R000579,Patrick Ryan,Patrick,Ryan,NY,18,D,True,-0.225,0.147,572,-2.0,False,ok,227.0,https://patryan.house.gov/media/press-releases,drupal,2026-11-13,,True,False
+R000622,Josh Riley,Josh,Riley,NY,19,D,True,-0.202,0.193,568,-1.0,False,ok,120.0,https://riley.house.gov/news,wp,2026-11-17,,True,False
+T000469,Paul Tonko,Paul,Tonko,NY,20,D,True,-0.416,-0.264,569,-8.0,False,ok,108.0,https://tonko.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-09,,False,False
+S001196,Elise M. Stefanik,Elise,Stefanik,NY,21,R,True,0.309,-0.107,491,10.0,False,ok,219.0,https://stefanik.house.gov/press-releases,drupal1,2026-07-22,,False,True
+M001231,John W. Mannion,John,Mannion,NY,22,D,True,-0.238,0.092,575,-4.0,False,ok,110.0,https://mannion.house.gov/media/press-releases,drupal,2026-10-27,,True,False
+L000600,Nicholas A. Langworthy,Nicholas,Langworthy,NY,23,R,True,0.425,-0.037,569,10.0,False,ok,154.0,https://langworthy.house.gov/media/press-releases,drupal,2026-10-15,,False,False
+T000478,Claudia Tenney,Claudia,Tenney,NY,24,R,True,0.466,0.032,573,11.0,False,ok,266.0,https://tenney.house.gov/media/press-releases,drupal,2026-12-07,,False,False
+M001206,Joseph D. Morelle,Joseph,Morelle,NY,25,D,True,-0.331,0.149,563,-10.0,False,ok,142.0,https://morelle.house.gov/media/press-releases,drupal,2026-11-12,,False,False
+K000402,Timothy M. Kennedy,Timothy,Kennedy,NY,26,D,True,-0.386,0.257,575,-11.0,False,ok,198.0,https://kennedy.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-17,,False,False
+L000601,Greg Landsman,Greg,Landsman,OH,1,D,True,-0.226,0.233,572,1.0,True,ok,129.0,https://landsman.house.gov/media/press-releases,drupal,2026-11-17,,True,False
+T000490,David J. Taylor,David,Taylor,OH,2,R,True,0.615,0.257,576,21.0,True,ok,156.0,https://taylor.house.gov/media/press-releases,drupal,2026-11-13,,False,False
+B001281,Joyce Beatty,Joyce,Beatty,OH,3,D,True,-0.441,0.028,543,-21.0,True,ok,139.0,https://beatty.house.gov/media-center/press-releases,drupal,2026-08-25,,False,True
+J000289,Jim Jordan,Jim,Jordan,OH,4,R,True,0.711,-0.17,555,21.0,True,listing abandoned,0.0,https://jordan.house.gov/media/press-releases,drupal,2024-03-15,,False,True
+L000566,Robert E. Latta,Robert,Latta,OH,5,R,True,0.508,0.291,576,12.0,True,ok,110.0,https://latta.house.gov/News/DocumentQuery.aspx?DocumentTypeID=1456,asp,2026-11-12,,False,False
+R000619,Michael A. Rulli,Michael,Rulli,OH,6,R,True,0.43,-0.089,547,17.0,True,ok,13.0,https://rulli.house.gov/category/press-releases/,wp,2026-09-16,True,False,False
+M001222,Max L. Miller,Max,Miller,OH,7,R,True,0.369,-0.035,550,5.0,True,no listing,,,,,True,True,False
+D000626,Warren Davidson,Warren,Davidson,OH,8,R,True,0.647,-0.389,564,8.0,True,ok,37.0,https://davidson.house.gov/media/press-releases,drupal,2026-11-10,,False,False
+K000009,Marcy Kaptur,Marcy,Kaptur,OH,9,D,True,-0.34,0.14,550,5.0,True,ok,236.0,https://kaptur.house.gov/media-center/press-releases,drupal,2026-11-09,,True,False
+T000463,Michael R. Turner,Michael,Turner,OH,10,R,True,0.265,0.258,562,4.0,True,ok,69.0,https://turner.house.gov/media-center/press-releases,drupal,2026-10-21,,True,False
+B001313,Shontel M. Brown,Shontel,Brown,OH,11,D,True,-0.476,-0.077,575,-28.0,True,ok,224.0,https://shontelbrown.house.gov/media/press-releases,drupal,2026-11-13,,False,False
+B001306,Troy Balderson,Troy,Balderson,OH,12,R,True,0.464,0.192,568,15.0,True,ok,30.0,https://balderson.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-10-02,,False,False
+S001223,Emilia Strong Sykes,Emilia,Sykes,OH,13,D,True,-0.333,0.173,558,-2.0,True,ok,360.0,https://sykes.house.gov/media/press-releases,param:PageNum_rs,2026-11-13,,True,False
+J000295,David P. Joyce,David,Joyce,OH,14,R,True,0.25,0.314,559,10.0,True,no listing,,,,,True,False,False
+C001126,Mike Carey,Mike,Carey,OH,15,R,True,0.405,0.029,569,5.0,True,ok,85.0,https://carey.house.gov/press-releases,wp,2026-07-24,True,True,True
+H001082,Kevin Hern,Kevin,Hern,OK,1,R,True,0.677,-0.045,565,11.0,False,ok,45.0,https://hern.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-07-22,,False,True
+B001317,Josh Brecheen,Josh,Brecheen,OK,2,R,True,0.841,-0.509,547,28.0,False,ok,29.0,https://brecheen.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-08-11,,False,True
+L000491,Frank D. Lucas,Frank,Lucas,OK,3,R,True,0.361,0.455,566,23.0,False,no listing,,,,,True,False,False
+C001053,Tom Cole,Tom,Cole,OK,4,R,True,0.323,0.414,569,17.0,False,ok,114.0,https://cole.house.gov/media-center/press-releases,drupal,2026-11-11,,False,False
+B000740,Stephanie I. Bice,Stephanie,Bice,OK,5,R,True,0.411,0.308,569,9.0,False,ok,75.0,https://bice.house.gov/media/press-releases,drupal,2026-12-11,,False,False
+B001278,Suzanne Bonamici,Suzanne,Bonamici,OR,1,D,True,-0.401,-0.421,568,-20.0,False,ok,152.0,https://bonamici.house.gov/media/press-releases,drupal,2026-11-16,,False,False
+B000668,Cliff Bentz,Cliff,Bentz,OR,2,R,True,0.476,0.281,575,14.0,False,ok,52.0,https://bentz.house.gov/media/press-releases,drupal,2026-11-16,,False,False
+D000635,Maxine Dexter,Maxine,Dexter,OR,3,D,True,-0.459,-0.733,569,-24.0,False,ok,180.0,https://dexter.house.gov/media/press-releases,drupal,2026-11-17,,False,False
+H001094,Val T. Hoyle,Valerie,Hoyle,OR,4,D,True,-0.233,-0.416,562,-6.0,False,ok,198.0,https://hoyle.house.gov/media/press-releases,param:PageNum_rs,2026-11-16,,False,False
+B001326,Janelle S. Bynum,Janelle,Bynum,OR,5,D,True,-0.288,0.089,569,-4.0,False,ok,170.0,https://bynum.house.gov/media/press-releases,drupal,2026-11-12,,True,False
+S001226,Andrea Salinas,Andrea,Salinas,OR,6,D,True,-0.227,-0.228,575,-6.0,False,ok,258.0,https://salinas.house.gov/media/press-releases,drupal,2026-11-10,,False,False
+F000466,Brian K. Fitzpatrick,Brian,Fitzpatrick,PA,1,R,True,0.141,-0.115,570,-1.0,False,ok,207.0,https://fitzpatrick.house.gov/press-releases,drupal1,2026-11-10,,True,False
+B001296,Brendan F. Boyle,Brendan,Boyle,PA,2,D,True,-0.379,0.145,555,-19.0,False,ok,156.0,https://boyle.house.gov/media-center/press-releases,drupal,2026-11-14,,False,False
+E000296,Dwight Evans,Dwight,Evans,PA,3,D,True,-0.473,-0.167,532,-40.0,False,ok,83.0,https://evans.house.gov/media/press-releases,drupal,2026-11-04,,False,False
+D000631,Madeleine Dean,Madeleine,Dean,PA,4,D,True,-0.436,-0.065,569,-8.0,False,ok,80.0,https://dean.house.gov/press-releases,drupal1,2026-10-07,,False,False
+S001205,Mary Gay Scanlon,Mary,Scanlon,PA,5,D,True,-0.46,-0.209,568,-15.0,False,ok,85.0,https://scanlon.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-17,,False,False
+H001085,Chrissy Houlahan,Chrissy,Houlahan,PA,6,D,True,-0.258,0.214,559,-6.0,False,no listing,,,,,True,False,False
+M001230,Ryan Mackenzie,Ryan,Mackenzie,PA,7,R,True,0.322,-0.114,567,1.0,False,ok,130.0,https://mackenzie.house.gov/media/press-releases,drupal,2026-10-16,,True,False
+B001327,"Robert P. Bresnahan, Jr.",Robert,Bresnahan,PA,8,R,True,0.257,0.068,573,4.0,False,ok,209.0,https://bresnahan.house.gov/media/press-releases,drupal,2026-10-09,,True,False
+M001204,Daniel Meuser,Daniel,Meuser,PA,9,R,True,0.491,0.201,548,19.0,False,ok,96.0,https://meuser.house.gov/media/press-releases,drupal,2026-10-29,,False,False
+P000605,Scott Perry,Scott,Perry,PA,10,R,True,0.685,-0.495,564,3.0,False,ok,25.0,https://perry.house.gov/news/documentquery.aspx?DocumentTypeID=2608,asp,2026-08-07,,True,True
+S001199,Lloyd Smucker,Lloyd,Smucker,PA,11,R,True,0.455,0.129,560,11.0,False,ok,103.0,https://smucker.house.gov/media/press-releases,drupal,2026-10-06,,False,False
+L000602,Summer L. Lee,Summer,Lee,PA,12,D,True,-0.45,-0.893,576,-10.0,False,ok,259.0,https://summerlee.house.gov/newsroom/press-releases,drupal,2026-11-02,,False,False
+J000302,John Joyce,John,Joyce,PA,13,R,True,0.583,-0.048,575,23.0,False,ok,56.0,https://johnjoyce.house.gov/media/press-releases,drupal,2026-12-11,,False,False
+R000610,Guy Reschenthaler,Guy,Reschenthaler,PA,14,R,True,0.447,0.061,560,17.0,False,ok,35.0,https://reschenthaler.house.gov/media/press-releases,param:PageNum_rs,2026-11-16,,False,False
+T000467,Glenn Thompson,Glenn,Thompson,PA,15,R,True,0.335,0.342,568,19.0,False,ok,116.0,https://thompson.house.gov/media-center/press-releases,drupal,2026-11-17,,False,False
+K000376,Mike Kelly,Mike,Kelly,PA,16,R,True,0.379,0.398,567,11.0,False,ok,219.0,https://kelly.house.gov/media/press-releases,drupal,2026-11-16,,False,False
+D000530,Christopher R. Deluzio,Chris,Deluzio,PA,17,D,True,-0.263,-0.155,576,-3.0,False,ok,264.0,https://deluzio.house.gov/media/press-releases,drupal,2026-11-16,,True,False
+H001103,Pablo José Hernández,Pablo,HERNÁNDEZ,PR,0,D,False,-0.507,-0.455,72,,,ok,390.0,https://hernandez.house.gov/media/press-releases,drupal,2026-11-02,,False,False
+A000380,Gabe Amo,Gabe,Amo,RI,1,D,True,-0.426,-0.057,576,-12.0,False,ok,332.0,https://amo.house.gov/press-releases,drupal,2026-11-12,,False,False
+M001223,Seth Magaziner,Seth,Magaziner,RI,2,D,True,-0.303,0.096,563,-4.0,False,ok,201.0,https://magaziner.house.gov/media/press-releases,drupal,2026-10-31,,True,False
+M000194,Nancy Mace,Nancy,Mace,SC,1,R,True,0.353,-0.3,486,6.0,False,ok,710.0,https://mace.house.gov/media/press-releases,drupal,2026-11-12,,False,False
+W000795,Joe Wilson,Joe,Wilson,SC,2,R,True,0.529,0.164,547,7.0,False,ok,42.0,https://joewilson.house.gov/media/press-releases,drupal,2026-10-26,,False,False
+B001325,Sheri Biggs,Sheri,Biggs,SC,3,R,True,0.814,-0.294,576,21.0,False,ok,30.0,https://sheribiggs.house.gov/media/press-releases,drupal,2026-11-02,,False,False
+T000480,William R. Timmons IV,William,Timmons,SC,4,R,True,0.599,0.053,569,11.0,False,ok,32.0,https://timmons.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-09-02,,False,False
+N000190,Ralph Norman,Ralph,Norman,SC,5,R,True,0.856,-0.384,515,11.0,False,ok,45.0,https://norman.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-10-01,,False,False
+C000537,James E. Clyburn,James,Clyburn,SC,6,D,True,-0.466,0.248,569,-13.0,False,no pager,6.0,https://clyburn.house.gov/media/press-releases,none,2026-07-14,True,False,True
+F000478,Russell Fry,Russell,Fry,SC,7,R,True,0.553,-0.27,572,12.0,False,ok,41.0,https://fry.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-09,,False,False
+J000301,Dusty Johnson,Dusty,Johnson,SD,0,R,True,0.468,0.147,553,15.0,False,ok,118.0,https://dustyjohnson.house.gov/media/press-releases,drupal,2026-07-22,,False,True
+H001086,Diana Harshbarger,Diana,Harshbarger,TN,1,R,True,0.682,-0.126,571,29.0,True,ok,105.0,https://harshbarger.house.gov/media/press-releases,drupal,2026-11-09,,False,False
+B001309,Tim Burchett,Tim,Burchett,TN,2,R,True,0.664,-0.455,562,17.0,True,ok,84.0,https://burchett.house.gov/media/press-releases,drupal,2026-11-10,,False,False
+F000459,"Charles J. ""Chuck"" Fleischmann",Charles,Fleischmann,TN,3,R,True,0.431,0.394,575,18.0,True,ok,41.0,https://fleischmann.house.gov/media/press-releases,drupal,2026-09-23,,False,False
+D000616,Scott DesJarlais,Scott,DesJarlais,TN,4,R,True,0.578,-0.039,556,11.0,True,pager not followed,10.0,https://desjarlais.house.gov/news/,drupal1,2026-11-16,True,False,False
+O000175,Andrew Ogles,Andrew,Ogles,TN,5,R,True,0.748,-0.39,534,10.0,True,ok,54.0,https://ogles.house.gov/media/press-releases,drupal,2026-07-23,,False,True
+R000612,John W. Rose,John,Rose,TN,6,R,True,0.654,0.082,550,13.0,True,ok,21.0,https://johnrose.house.gov/media/press-releases,drupal,2026-03-23,,False,True
+G000590,Mark E. Green,Mark,GREEN,TN,7,R,False,0.671,0.018,135,11.0,True,left office,,,,,,False,False
+V000139,Matt Van Epps,Matt,Van Epps,TN,7,R,True,0.611,0.757,320,11.0,True,ok,66.0,https://vanepps.house.gov/media/press-releases,drupal,2026-11-11,,False,False
+K000392,David Kustoff,David,Kustoff,TN,8,R,True,0.541,0.335,573,10.0,True,ok,81.0,https://kustoff.house.gov/media/press-releases,drupal,2026-10-26,,False,False
+C001068,Steve Cohen,Steve,Cohen,TN,9,D,True,-0.388,-0.287,548,9.0,True,ok,442.0,https://cohen.house.gov/media-center/press-releases,drupal,2026-10-30,,True,False
+M001224,Nathaniel Moran,Nathaniel,Moran,TX,1,R,True,0.585,0.564,566,24.0,True,ok,111.0,https://moran.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-10-20,,False,False
+C001120,Dan Crenshaw,Dan,Crenshaw,TX,2,R,True,0.436,0.254,526,11.0,True,ok,33.0,https://crenshaw.house.gov/press-releases,drupal1,2026-02-10,,False,True
+S001224,Keith Self,Keith,Self,TX,3,R,True,0.825,-0.335,567,11.0,True,ok,75.0,https://keithself.house.gov/media/press-releases,drupal,2026-11-12,,False,False
+F000246,Pat Fallon,Patrick,Fallon,TX,4,R,True,0.712,0.126,569,12.0,True,ok,42.0,https://fallon.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-10-15,,False,False
+G000589,Lance Gooden,Lance,Gooden,TX,5,R,True,0.716,-0.036,573,10.0,True,no listing,,,,,True,False,False
+E000071,Jake Ellzey,Jake,Ellzey,TX,6,R,True,0.51,0.699,571,11.0,True,ok,20.0,https://ellzey.house.gov/press-releases,drupal1,2026-06-26,,False,True
+F000468,Lizzie Fletcher,Lizzie,Fletcher,TX,7,D,True,-0.546,0.838,571,-13.0,True,ok,167.0,https://fletcher.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-13,,False,False
+L000603,Morgan Luttrell,Morgan,Luttrell,TX,8,R,True,0.59,-0.071,567,13.0,True,ok,57.0,https://luttrell.house.gov/media/press-releases,drupal,2026-07-22,,False,True
+G000553,Al Green,Al,Green,TX,9,D,True,-0.448,0.255,569,9.0,True,ok,512.0,https://algreen.house.gov/media/press-releases,drupal,2026-11-12,,True,False
+M001157,Michael T. McCaul,Michael,McCaul,TX,10,R,True,0.409,0.18,505,10.0,True,ok,139.0,https://mccaul.house.gov/media-center/press-releases,drupal,2026-10-23,,False,False
+P000048,August Pfluger,August,Pfluger,TX,11,R,True,0.633,0.384,573,17.0,True,ok,375.0,https://pfluger.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-13,,False,False
+G000601,Craig A. Goldman,Craig,Goldman,TX,12,R,True,0.778,0.529,573,11.0,True,ok,30.0,https://craiggoldman.house.gov/media/press-releases,drupal,2026-10-26,,False,False
+J000304,Ronny Jackson,Ronny,Jackson,TX,13,R,True,0.784,0.164,561,23.0,True,ok,113.0,https://jackson.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-12,,False,False
+W000814,"Randy K. Weber, Sr.",Randy,Weber,TX,14,R,True,0.721,0.039,564,12.0,True,ok,58.0,https://weber.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-10-28,,False,False
+D000594,Monica De La Cruz,Mónica,De La Cruz,TX,15,R,True,0.471,0.128,543,7.0,True,ok,134.0,https://delacruz.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-10-31,,False,False
+E000299,Veronica Escobar,Veronica,Escobar,TX,16,D,True,-0.466,-0.287,570,-11.0,True,ok,249.0,https://escobar.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-17,,False,False
+S000250,Pete Sessions,Pete,Sessions,TX,17,R,True,0.583,0.171,575,10.0,True,ok,24.0,https://sessions.house.gov/press-releases,drupal,2026-09-17,,False,False
+T000489,Sylvester Turner,Sylvester,TURNER,TX,18,D,False,-0.746,0.666,39,-29.0,True,left office,,,,,,False,False
+M001245,Christian D. Menefee,Christian,Menefee,TX,18,D,True,-0.567,-0.309,221,-29.0,True,ok,66.0,https://menefee.house.gov/media/press-releases,drupal,2026-11-12,,False,False
+A000375,Jodey C. Arrington,Jodey,Arrington,TX,19,R,True,0.647,0.0,556,25.0,True,ok,295.0,https://arrington.house.gov/news/documentquery.aspx,asp,2026-11-05,,False,False
+C001091,Joaquin Castro,Joaquin,Castro,TX,20,D,True,-0.403,-0.146,559,-16.0,True,ok,203.0,https://castro.house.gov/media-center/press-releases/,param:PageNum_rs,2026-11-10,,False,False
+R000614,Chip Roy,Chip,Roy,TX,21,R,True,0.8,-0.6,544,10.0,True,ok,179.0,https://roy.house.gov/media/press-releases,drupal,2026-11-02,,False,False
+N000026,Troy E. Nehls,Troy,Nehls,TX,22,R,True,0.608,-0.229,541,11.0,True,ok,103.0,https://nehls.house.gov/media/press-releases,drupal,2026-11-16,,False,False
+G000594,Tony Gonzales,Tony,GONZALES,TX,23,R,False,0.35,0.23,367,7.0,True,left office,,,,,,False,False
+V000134,Beth Van Duyne,Beth,Van Duyne,TX,24,R,True,0.604,-0.003,571,8.0,True,ok,56.0,https://vanduyne.house.gov/press-releases,drupal1,2026-10-05,,False,False
+W000816,Roger Williams,Roger,Williams,TX,25,R,True,0.592,0.069,557,11.0,True,ok,48.0,https://williams.house.gov/media-center/press-releases,drupal,2026-11-11,,False,False
+G000603,Brandon Gill,Brandon,Gill,TX,26,R,True,0.771,-0.255,564,11.0,True,ok,60.0,https://gill.house.gov/media/press-releases,drupal,2026-09-28,,False,False
+C001115,Michael Cloud,Michael,Cloud,TX,27,R,True,0.691,-0.383,570,10.0,True,no listing,,,,,True,False,False
+C001063,Henry Cuellar,Henry,Cuellar,TX,28,D,True,-0.225,0.66,569,3.0,True,ok,65.0,https://cuellar.house.gov/News/DocumentQuery.aspx?DocumentTypeID=1232,asp,2026-10-21,,True,False
+G000587,Sylvia R. Garcia,Sylvia,Garcia,TX,29,D,True,-0.764,0.307,546,-17.0,True,ok,78.0,https://sylviagarcia.house.gov/media/press-releases,drupal,2026-10-28,,False,False
+C001130,Jasmine Crockett,Jasmine,Crockett,TX,30,D,True,-0.495,-0.211,544,-25.0,True,ok,85.0,https://crockett.house.gov/media/press-releases,drupal,2026-10-06,,False,False
+C001051,John R. Carter,John,Carter,TX,31,R,True,0.487,0.548,567,11.0,True,ok,18.0,https://carter.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-08-26,,False,True
+J000310,Julie Johnson,Julie,Johnson,TX,32,D,True,-0.353,0.232,560,8.0,True,ok,108.0,https://juliejohnson.house.gov/media/press-releases,drupal,2026-09-30,,True,False
+V000131,Marc A. Veasey,Marc,Veasey,TX,33,D,True,-0.409,0.375,564,-18.0,True,ok,80.0,https://veasey.house.gov/media-center/press-releases,drupal,2026-11-13,,False,False
+G000581,Vicente Gonzalez,Vicente,Gonzalez,TX,34,D,True,-0.385,0.923,548,3.0,True,ok,147.0,https://gonzalez.house.gov/media/press-releases,drupal,2026-11-09,,True,False
+C001131,Greg Casar,Gregorio,Casar,TX,35,D,True,-0.429,-0.864,499,4.0,True,ok,43.0,https://casar.house.gov/media/press-releases,drupal,2026-11-13,,True,False
+B001291,Brian Babin,Brian,Babin,TX,36,R,True,0.709,0.134,568,12.0,True,ok,31.0,https://babin.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-09-29,,False,False
+D000399,Lloyd Doggett,Lloyd,Doggett,TX,37,D,True,-0.403,-0.333,561,-30.0,True,ok,82.0,https://doggett.house.gov/media/press-releases,drupal,2026-11-05,,False,False
+H001095,Wesley Hunt,Wesley,Hunt,TX,38,R,True,0.603,-0.257,453,10.0,True,ok,26.0,https://hunt.house.gov/media/press-releases,drupal,2026-02-10,,False,True
+M001213,Blake D. Moore,Blake,Moore,UT,1,R,True,0.37,0.325,574,-12.0,True,ok,92.0,https://blakemoore.house.gov/media/press-releases,param:PageNum_rs,2026-11-10,,True,False
+M001228,Celeste Maloy,Celeste,Maloy,UT,2,R,True,0.417,0.092,573,15.0,True,ok,45.0,https://maloy.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-07-29,,False,True
+K000403,Mike Kennedy,Mike,Kennedy,UT,3,R,True,0.662,-0.26,567,21.0,True,ok,80.0,https://mikekennedy.house.gov/media/press-releases,drupal,2026-11-13,,False,False
+O000086,Burgess Owens,Clarence,Owens,UT,4,R,True,0.452,0.167,566,17.0,True,no listing,,,,,True,False,False
+W000804,Robert J. Wittman,Robert,Wittman,VA,1,R,True,0.446,0.032,563,3.0,False,ok,201.0,https://wittman.house.gov/newsroom/press-releases,drupal,2026-10-28,,True,False
+K000399,Jennifer A. Kiggans,Jennifer,Kiggans,VA,2,R,True,0.264,0.475,571,0.0,False,ok,174.0,https://kiggans.house.gov/category/press-releases/,wp,2026-11-12,True,True,False
+S000185,"Robert C. ""Bobby"" Scott",Robert,Scott,VA,3,D,True,-0.45,-0.005,575,-18.0,False,ok,250.0,https://bobbyscott.house.gov/media-center/press-releases,drupal,2026-11-10,,False,False
+M001227,Jennifer L. McClellan,Jennifer,McClellan,VA,4,D,True,-0.555,0.082,572,-17.0,False,ok,238.0,https://mcclellan.house.gov/category/press-releases/,wp,2026-11-17,,False,False
+M001239,John J. McGuire III,John,McGuire,VA,5,R,True,0.706,-0.141,571,6.0,False,ok,100.0,https://mcguire.house.gov/media/press-releases,drupal,2026-10-27,,False,False
+C001118,Ben Cline,Ben,Cline,VA,6,R,True,0.712,-0.204,573,12.0,False,ok,57.0,https://cline.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-12,,False,False
+V000138,Eugene Simon Vindman,Eugene,Vindman,VA,7,D,True,-0.175,0.115,571,-2.0,False,ok,290.0,https://vindman.house.gov/category/press-releases/,wp,2026-11-13,,True,False
+B001292,"Donald S. Beyer, Jr.",Donald,Beyer,VA,8,D,True,-0.392,-0.118,560,-26.0,False,ok,324.0,https://beyer.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-12,,False,False
+G000568,H. Morgan Griffith,H.,Griffith,VA,9,R,True,0.51,-0.329,573,22.0,False,ok,372.0,https://morgangriffith.house.gov/News/DocumentQuery.aspx?DocumentTypeID=2235,asp,2026-11-12,,False,False
+S001230,Suhas Subramanyam,Suhas,Subramanyam,VA,10,D,True,-0.238,-0.281,570,-6.0,False,ok,230.0,https://subramanyam.house.gov/media/press-releases,drupal,2026-11-17,,False,False
+C001078,Gerald E. Connolly,Gerald,CONNOLLY,VA,11,D,False,-0.309,-0.047,72,-18.0,False,left office,,,,,,False,False
+W000831,James R. Walkinshaw,James,Walkinshaw,VA,11,D,True,-0.428,0.258,375,-18.0,False,ok,220.0,https://walkinshaw.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-17,,False,False
+P000610,Stacey E. Plaskett,Stacey,PLASKETT,VI,0,D,False,-0.473,0.565,38,,,ok,150.0,https://plaskett.house.gov/news/documentquery.aspx?documenttypeid=27,asp,2026-10-28,,False,False
+B001318,Becca Balint,Becca,Balint,VT,0,D,True,-0.442,-0.479,573,-17.0,False,ok,139.0,https://balint.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-10,,False,False
+D000617,Suzan K. DelBene,Suzan,DelBene,WA,1,D,True,-0.296,-0.191,565,-15.0,False,ok,192.0,https://delbene.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-10,,False,False
+L000560,Rick Larsen,Rick,Larsen,WA,2,D,True,-0.365,0.167,558,-12.0,False,ok,233.0,https://larsen.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-14,,False,False
+G000600,Marie Gluesenkamp Perez,Marie,Gluesenkamp Perez,WA,3,D,True,-0.099,0.385,569,2.0,False,no listing,,,,,True,True,False
+N000189,Dan Newhouse,Dan,Newhouse,WA,4,R,True,0.317,0.339,567,10.0,False,ok,259.0,https://newhouse.house.gov/media-center/press-releases,drupal,2026-11-10,,False,False
+B001322,Michael Baumgartner,Michael,Baumgartner,WA,5,R,True,0.6,0.405,561,5.0,False,ok,100.0,https://baumgartner.house.gov/category/press-releases/,wp,2026-11-02,,True,False
+R000621,Emily Randall,Emily,Randall,WA,6,D,True,-0.572,-0.272,560,-10.0,False,ok,100.0,https://randall.house.gov/media/press-releases,drupal,2026-10-23,,False,False
+J000298,Pramila Jayapal,Pramila,Jayapal,WA,7,D,True,-0.607,-0.584,537,-39.0,False,no listing,,,,,True,False,False
+S001216,Kim Schrier,Kim,Schrier,WA,8,D,True,-0.275,0.363,569,-3.0,False,ok,158.0,https://schrier.house.gov/media/press-releases,drupal,2026-11-16,,True,False
+S000510,Adam Smith,Adam,Smith,WA,9,D,True,-0.291,-0.166,543,-22.0,False,ok,107.0,https://adamsmith.house.gov/news/press-releases,drupal,2026-10-22,,False,False
+S001159,Marilyn Strickland,Marilyn,Strickland,WA,10,D,True,-0.443,0.35,563,-9.0,False,ok,68.0,https://strickland.house.gov/category/press_release/,wp,2026-11-10,,False,False
+S001213,Bryan Steil,Bryan,Steil,WI,1,R,True,0.421,0.074,572,2.0,False,ok,73.0,https://steil.house.gov/media/press-releases,drupal,2026-10-30,,True,False
+P000607,Mark Pocan,Mark,Pocan,WI,2,D,True,-0.521,-0.553,570,-21.0,False,ok,63.0,https://pocan.house.gov/media-center/press-releases,drupal,2026-10-29,,False,False
+V000135,Derrick Van Orden,Derrick,Van Orden,WI,3,R,True,0.379,-0.033,527,3.0,False,ok,116.0,https://vanorden.house.gov/media/press-releases,drupal,2026-08-19,,True,True
+M001160,Gwen Moore,Gwen,Moore,WI,4,D,True,-0.52,-0.272,561,-26.0,False,ok,168.0,https://gwenmoore.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-11-13,,False,False
+F000471,Scott Fitzgerald,Scott,Fitzgerald,WI,5,R,True,0.597,0.082,572,11.0,False,ok,94.0,https://fitzgerald.house.gov/media/press-releases,drupal,2026-09-18,,False,False
+G000576,Glenn Grothman,Glenn,Grothman,WI,6,R,True,0.601,-0.197,564,8.0,False,ok,59.0,https://grothman.house.gov/news/documentquery.aspx?DocumentTypeID=27,asp,2026-10-13,,False,False
+T000165,Thomas P. Tiffany,Thomas,Tiffany,WI,7,R,True,0.642,-0.254,534,11.0,False,ok,54.0,https://tiffany.house.gov/media/press-releases,drupal,2026-09-04,,False,False
+W000829,Tony Wied,Tony,Wied,WI,8,R,True,0.534,-0.227,571,8.0,False,ok,59.0,https://wied.house.gov/media/press-releases,drupal,2026-11-11,,False,False
+M001205,Carol D. Miller,Carol,Miller,WV,1,R,True,0.53,0.108,554,22.0,False,ok,119.0,https://miller.house.gov/media/press-releases,drupal,2026-09-04,,False,False
+M001235,Riley M. Moore,Riley,Moore,WV,2,R,True,0.544,-0.261,566,20.0,False,ok,120.0,https://rileymoore.house.gov/media/press-releases,drupal,2026-10-28,,False,False
+H001096,Harriet M. Hageman,Harriet,Hageman,WY,0,R,True,0.636,-0.355,575,23.0,False,ok,102.0,https://hageman.house.gov/media/press-releases,drupal,2026-10-30,,False,False
