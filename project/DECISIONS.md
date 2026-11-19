@@ -165,7 +165,7 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
 - **Source:** meeting plan, 18 Nov.
 
 ### ~~G4. Press releases: Republicans only, swing seats against safe seats~~ Overwritten by G13
-~~
+<del>
 - **Status:** Agreed in the meeting plan, Wed 18 Nov.
 - **Decision:** collect press releases from Republicans only, and compare members in swing seats with
   members in safe seats. The question: do swing-seat Republicans name Democrats more at home?
@@ -177,7 +177,7 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
   **only to spread the sample**. It is now a comparison in its own right, so the sample has to be balanced
   between swing and safe seats, and we need a definition of a swing seat. **Not yet defined.**
 - **Source:** meeting plan, 18 Nov.
-~~
+</del>
 
 ### Draft for G13
 
@@ -189,17 +189,13 @@ Two edits:
 ---
 
 #### Edit 1: the Status line of G4
-
-```
 - **Status:** Replaced by G13 (Wed 18 Nov): Democrats are now included, with a smaller role.
-```
 
 ---
 
 #### Edit 2: new entry G13, after G4
 
-```
-### G13. Press releases: both parties, the Democrats as a small second side of the close-up
+##### G13. Press releases: both parties, the Democrats as a small second side of the close-up
 - **Status:** Agreed Wed 18 Nov, by the group (after the meeting). Replaces G4. Three details are open (below).
 - **Decision:** the press-release close-up covers Democrats as well as Republicans. The Republicans stay the
   main case. The Democrats get one role: a comparison that shows whether naming the other side at home goes
@@ -248,7 +244,6 @@ Two edits:
   its open question 3 is answered by this entry; "mutual showing" and "Democrats in Trump districts" in its
   section 5 are partly back. README section 2, part 3, still reads "which Democrats a Republican names".
 - **Source:** group discussion, Wed 18 Nov, after the meeting; numbers from `Anas/press_scope/README.md`.
-```
 
 
 ### G5. Stop rule for the close-up
