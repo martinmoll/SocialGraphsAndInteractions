@@ -1,6 +1,6 @@
 # Work and deadlines
 
-**Last updated: Wednesday 18 November 2026.**
+**Last updated: Wednesday 19 November 2026.**
 
 This is the one place that says who does what, how far it is, and what is due when. The question and the
 design are in [`README.md`](README.md). Every decision and its reason is in [`DECISIONS.md`](DECISIONS.md).
@@ -160,6 +160,8 @@ From the earlier plans in `archive/`. Listed so nobody keeps working on them.
 ## 6. Log
 
 Newest first. One line per change.
+
+- **19 Nov 2026.** Anas: press-release scope (both parties), matcher checklist, seats per state, state-null proposal for Martin and a project dictionary uploaded to `Anas/`. Proposed revisions to parts 1–3 and the open part 3 decisions in `Anas/REVISIONS_19NOV.md`. G13 added (Democrats included, small). A1 not started.
 
 - **18 Nov 2026.** D2: Diego changed rows 38 and 86 to X (matcher errors the AI coders flagged). Matcher
   precision in the sample 98 of 100 (G10). Pooled human κ 0.64. Cross-party: 69% agreeing, 7% disagreeing.
