@@ -1,0 +1,21 @@
+bioguide,name,party,state,district,kind,count,exposed_2025,redrawn_state
+B001323,Nicholas J. Begich III,R,AK,0,drupal,252.0,False,False
+B001309,Tim Burchett,R,TN,2,drupal,84.0,False,True
+G000599,Daniel S. Goldman,D,NY,10,drupal,239.0,False,False
+M001245,Christian D. Menefee,D,TX,18,drupal,66.0,False,True
+C001120,Dan Crenshaw,R,TX,2,drupal1,33.0,False,True
+S001196,Elise M. Stefanik,R,NY,21,drupal1,219.0,False,False
+L000562,Stephen F. Lynch,D,MA,8,drupal1,25.0,False,False
+R000305,Deborah K. Ross,D,NC,2,drupal1,206.0,False,True
+N000190,Ralph Norman,R,SC,5,asp,45.0,False,False
+F000450,Virginia Foxx,R,NC,5,asp,15.0,False,True
+C001063,Henry Cuellar,D,TX,28,asp,65.0,True,True
+T000468,Dina Titus,D,NV,1,asp,109.0,True,False
+S001214,W. Gregory Steube,R,FL,17,wp,146.0,False,True
+L000583,Barry Loudermilk,R,GA,11,wp,86.0,False,False
+A000371,Pete Aguilar,D,CA,33,wp,102.0,False,True
+C001101,Katherine M. Clark,D,MA,5,wp,230.0,False,False
+R000610,Guy Reschenthaler,R,PA,14,param:PageNum_rs,35.0,False,False
+M001213,Blake D. Moore,R,UT,1,param:PageNum_rs,92.0,False,True
+C001091,Joaquin Castro,D,TX,20,param:PageNum_rs,203.0,False,True
+F000476,Maxwell Frost,D,FL,10,param:PageNum_rs,90.0,False,True

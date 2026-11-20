@@ -1,0 +1,433 @@
+bioguide,name,party,state,district,lean_2025,pres_margin_2024,exposed_pres,exposed_2025,redrawn_state,district_2026,lean_2026_ran,exposed_2026,moved,fate
+B001323,Nicholas J. Begich III,R,AK,0,6,13.0,False,False,False,,,,False,
+M001212,Barry Moore,R,AL,1,27,55.0,False,False,True,,,,False,
+F000481,Shomari Figures,D,AL,2,-5,-8.0,True,True,True,2.0,7.0,True,False,re-elected
+R000575,Mike Rogers,R,AL,3,23,47.0,False,False,True,3.0,23.0,False,False,re-elected
+A000055,Robert B. Aderholt,R,AL,4,33,66.0,False,False,True,4.0,33.0,False,False,re-elected
+S001220,Dale W. Strong,R,AL,5,15,29.0,False,False,True,5.0,15.0,False,False,re-elected
+P000609,Gary J. Palmer,R,AL,6,20,39.0,False,False,True,6.0,17.0,False,False,re-elected
+S001185,Terri A. Sewell,D,AL,7,-13,-23.0,False,False,True,7.0,-10.0,False,False,re-elected
+C001087,"Eric A. ""Rick"" Crawford",R,AR,1,23,45.0,False,False,False,1.0,23.0,False,False,re-elected
+H001072,J. French Hill,R,AR,2,8,16.0,False,False,False,2.0,8.0,False,False,re-elected
+W000809,Steve Womack,R,AR,3,13,25.0,False,False,False,3.0,13.0,False,False,re-elected
+W000821,Bruce Westerman,R,AR,4,20,40.0,False,False,False,4.0,20.0,False,False,re-elected
+S001183,David Schweikert,R,AZ,1,1,3.0,True,True,False,1.0,1.0,True,False,did not run
+C001132,Elijah Crane,R,AZ,2,7,15.0,False,False,False,2.0,7.0,False,False,re-elected
+A000381,Yassamin Ansari,D,AZ,3,-22,-40.0,False,False,False,3.0,-22.0,False,False,re-elected
+S001211,Greg Stanton,D,AZ,4,-4,-7.0,True,True,False,4.0,-4.0,True,False,re-elected
+B001302,Andy Biggs,R,AZ,5,10,20.0,False,False,False,5.0,10.0,False,False,did not run
+C001133,Juan Ciscomani,R,AZ,6,0,1.0,True,True,False,6.0,0.0,True,False,lost general
+G000606,Adelita S. Grijalva,D,AZ,7,-13,-22.0,False,False,False,7.0,-13.0,False,False,re-elected
+H001098,Abraham J. Hamadeh,R,AZ,8,8,16.0,False,False,False,8.0,8.0,False,False,re-elected
+G000565,Paul A. Gosar,R,AZ,9,15,31.0,False,False,False,9.0,15.0,False,False,re-elected
+G000607,James Gallagher,R,CA,1,12,25.0,False,False,True,1.0,-7.0,True,False,lost general
+H001068,Jared Huffman,D,CA,2,-24,-45.0,False,False,True,2.0,-13.0,False,False,re-elected
+T000460,Mike Thompson,D,CA,4,-17,-31.0,False,False,True,4.0,-8.0,False,False,uncalled
+M001177,Tom McClintock,R,CA,5,8,18.0,False,False,True,5.0,10.0,False,False,re-elected
+B001287,Ami Bera,D,CA,6,-8,-14.0,False,False,True,3.0,-6.0,False,True,re-elected
+M001163,Doris O. Matsui,D,CA,7,-16,-30.0,False,False,True,7.0,-7.0,False,False,re-elected
+G000559,John Garamendi,D,CA,8,-24,-44.0,False,False,True,8.0,-19.0,False,False,re-elected
+H001090,Josh Harder,D,CA,9,-1,2.0,True,True,True,9.0,-8.0,False,False,re-elected
+D000623,Mark DeSaulnier,D,CA,10,-18,-34.0,False,False,True,10.0,-18.0,False,False,re-elected
+P000197,Nancy Pelosi,D,CA,11,-36,-68.0,False,False,True,11.0,-36.0,False,False,did not run
+S001231,Lateefah Simon,D,CA,12,-39,-74.0,False,False,True,12.0,-39.0,False,False,re-elected
+G000605,Adam Gray,D,CA,13,1,5.0,True,True,True,13.0,-2.0,True,False,re-elected
+W000832,Aisha Wahab,D,CA,14,-20,-35.0,False,False,True,14.0,-19.0,False,False,re-elected
+M001225,Kevin Mullin,D,CA,15,-26,-48.0,False,False,True,15.0,-26.0,False,False,re-elected
+L000607,Sam T. Liccardo,D,CA,16,-26,-49.0,False,False,True,16.0,-25.0,False,False,re-elected
+K000389,Ro Khanna,D,CA,17,-21,-38.0,False,False,True,17.0,-21.0,False,False,re-elected
+L000397,Zoe Lofgren,D,CA,18,-17,-30.0,False,False,True,18.0,-16.0,False,False,re-elected
+P000613,Jimmy Panetta,D,CA,19,-18,-34.0,False,False,True,19.0,-18.0,False,False,re-elected
+F000480,Vince Fong,R,CA,20,15,30.0,False,False,True,20.0,16.0,False,False,re-elected
+C001059,Jim Costa,D,CA,21,-4,-4.0,True,True,True,21.0,-5.0,True,False,re-elected
+V000129,David G. Valadao,R,CA,22,1,6.0,True,True,True,22.0,-1.0,True,False,lost general
+O000019,Jay Obernolte,R,CA,23,8,17.0,False,False,True,23.0,9.0,False,False,uncalled
+C001112,Salud O. Carbajal,D,CA,24,-13,-25.0,False,False,True,24.0,-13.0,False,False,re-elected
+R000599,Raul Ruiz,D,CA,25,-3,-2.0,True,True,True,25.0,-4.0,True,False,re-elected
+B001285,Julia Brownley,D,CA,26,-8,-13.0,False,False,True,26.0,-9.0,False,False,did not run
+W000830,George Whitesides,D,CA,27,-3,-4.0,True,True,True,27.0,-6.0,False,False,re-elected
+C001080,Judy Chu,D,CA,28,-15,-27.0,False,False,True,28.0,-14.0,False,False,re-elected
+R000620,Luz M. Rivas,D,CA,29,-20,-35.0,False,False,True,29.0,-19.0,False,False,re-elected
+F000483,Laura Friedman,D,CA,30,-22,-41.0,False,False,True,30.0,-21.0,False,False,re-elected
+C001123,"Gilbert Ray Cisneros, Jr.",D,CA,31,-10,-17.0,False,False,True,31.0,-8.0,False,False,re-elected
+S000344,Brad Sherman,D,CA,32,-17,-31.0,False,False,True,32.0,-14.0,False,False,re-elected
+A000371,Pete Aguilar,D,CA,33,-7,-9.0,False,False,True,33.0,-7.0,False,False,re-elected
+G000585,Jimmy Gomez,D,CA,34,-28,-51.0,False,False,True,34.0,-28.0,False,False,lost general
+T000474,Norma J. Torres,D,CA,35,-8,-10.0,False,False,True,35.0,-6.0,False,False,re-elected
+L000582,Ted Lieu,D,CA,36,-21,-39.0,False,False,True,36.0,-21.0,False,False,re-elected
+K000400,Sydney Kamlager-Dove,D,CA,37,-33,-60.0,False,False,True,37.0,-33.0,False,False,re-elected
+S001156,Linda T. Sánchez,D,CA,38,-10,-16.0,False,False,True,41.0,-9.0,False,True,re-elected
+T000472,Mark Takano,D,CA,39,-7,-10.0,False,False,True,39.0,-7.0,False,False,re-elected
+K000397,Young Kim,R,CA,40,1,2.0,True,True,True,40.0,6.0,False,False,lost general
+C000059,Ken Calvert,R,CA,41,2,6.0,True,True,True,,,,False,
+G000598,Robert Garcia,D,CA,42,-18,-32.0,False,False,True,42.0,-8.0,False,False,re-elected
+W000187,Maxine Waters,D,CA,43,-27,-49.0,False,False,True,43.0,-27.0,False,False,re-elected
+B001300,Nanette Diaz Barragán,D,CA,44,-19,-34.0,False,False,True,44.0,-20.0,False,False,re-elected
+T000491,Derek Tran,D,CA,45,-1,-2.0,True,True,True,45.0,-3.0,True,False,re-elected
+C001110,J. Luis Correa,D,CA,46,-11,-18.0,False,False,True,46.0,-10.0,False,False,re-elected
+M001241,Dave Min,D,CA,47,-3,-4.0,True,True,True,47.0,-6.0,False,False,re-elected
+I000056,Darrell Issa,R,CA,48,7,15.0,False,False,True,48.0,-2.0,True,False,did not run
+L000593,Mike Levin,D,CA,49,-4,-8.0,True,True,True,49.0,-7.0,False,False,re-elected
+P000608,Scott H. Peters,D,CA,50,-16,-30.0,False,False,True,50.0,-10.0,False,False,re-elected
+J000305,Sara Jacobs,D,CA,51,-13,-23.0,False,False,True,51.0,-10.0,False,False,re-elected
+V000130,Juan Vargas,D,CA,52,-13,-21.0,False,False,True,52.0,-11.0,False,False,re-elected
+D000197,Diana DeGette,D,CO,1,-29,-56.0,False,False,False,1.0,-29.0,False,False,lost primary
+N000191,Joe Neguse,D,CO,2,-20,-40.0,False,False,False,2.0,-20.0,False,False,re-elected
+H001100,Jeff Hurd,R,CO,3,5,10.0,True,True,False,3.0,5.0,True,False,re-elected
+B000825,Lauren Boebert,R,CO,4,9,18.0,False,False,False,4.0,9.0,False,False,lost general
+C001137,Jeff Crank,R,CO,5,5,9.0,True,True,False,5.0,5.0,True,False,lost general
+C001121,Jason Crow,D,CO,6,-11,-20.0,False,False,False,6.0,-11.0,False,False,re-elected
+P000620,Brittany Pettersen,D,CO,7,-8,-15.0,False,False,False,7.0,-8.0,False,False,re-elected
+E000300,Gabe Evans,R,CO,8,0,2.0,True,True,False,8.0,0.0,True,False,lost general
+L000557,John B. Larson,D,CT,1,-12,-23.0,False,False,False,1.0,-12.0,False,False,lost primary
+C001069,Joe Courtney,D,CT,2,-4,-8.0,True,True,False,2.0,-4.0,True,False,re-elected
+D000216,Rosa L. DeLauro,D,CT,3,-8,-14.0,False,False,False,3.0,-8.0,False,False,re-elected
+H001047,James A. Himes,D,CT,4,-13,-23.0,False,False,False,4.0,-13.0,False,False,re-elected
+H001081,Jahana Hayes,D,CT,5,-3,-6.0,True,True,False,5.0,-3.0,True,False,re-elected
+M001238,Sarah McBride,D,DE,0,-8,-15.0,False,False,False,0.0,-8.0,False,False,re-elected
+P000622,Jimmy Patronis,R,FL,1,18,37.0,False,False,True,1.0,18.0,False,False,re-elected
+D000628,Neal P. Dunn,R,FL,2,8,18.0,False,False,True,2.0,8.0,False,False,did not run
+C001039,Kat Cammack,R,FL,3,10,21.0,False,False,True,3.0,10.0,False,False,re-elected
+B001314,Aaron Bean,R,FL,4,5,12.0,False,True,True,4.0,5.0,True,False,re-elected
+R000609,John H. Rutherford,R,FL,5,10,21.0,False,False,True,5.0,10.0,False,False,re-elected
+F000484,Randy Fine,R,FL,6,14,30.0,False,False,True,6.0,14.0,False,False,re-elected
+M001216,Cory Mills,R,FL,7,5,12.0,False,True,True,7.0,5.0,True,False,lost primary
+H001099,Mike Haridopolos,R,FL,8,11,22.0,False,False,True,8.0,8.0,False,False,re-elected
+S001200,Darren Soto,D,FL,9,-4,-4.0,True,True,True,9.0,8.0,True,False,re-elected
+F000476,Maxwell Frost,D,FL,10,-13,-23.0,False,False,True,10.0,-13.0,False,False,re-elected
+W000806,Daniel Webster,R,FL,11,8,16.0,False,False,True,11.0,7.0,False,False,did not run
+B001257,Gus M. Bilirakis,R,FL,12,17,35.0,False,False,True,12.0,7.0,False,False,re-elected
+L000596,Anna Paulina Luna,R,FL,13,5,12.0,False,True,True,13.0,6.0,False,False,re-elected
+C001066,Kathy Castor,D,FL,14,-5,-8.0,True,True,True,14.0,4.0,True,False,re-elected
+L000597,Laurel M. Lee,R,FL,15,5,11.0,True,True,True,15.0,9.0,False,False,re-elected
+B001260,Vern Buchanan,R,FL,16,7,15.0,False,False,True,16.0,6.0,False,False,did not run
+S001214,W. Gregory Steube,R,FL,17,11,24.0,False,False,True,17.0,10.0,False,False,re-elected
+F000472,Scott Franklin,R,FL,18,14,29.0,False,False,True,18.0,8.0,False,False,re-elected
+D000032,Byron Donalds,R,FL,19,14,29.0,False,False,True,19.0,14.0,False,False,did not run
+M001199,Brian J. Mast,R,FL,21,7,17.0,False,False,True,21.0,7.0,False,False,re-elected
+F000462,Lois Frankel,D,FL,22,-4,-6.0,True,True,True,23.0,-9.0,False,True,re-elected
+M001217,Jared Moskowitz,D,FL,23,-2,-2.0,True,True,True,25.0,3.0,True,True,re-elected
+W000808,Frederica S. Wilson,D,FL,24,-18,-30.0,False,False,True,24.0,-22.0,False,False,did not run
+W000797,Debbie Wasserman Schultz,D,FL,25,-5,-5.0,True,True,True,,,,False,
+D000600,Mario Diaz-Balart,R,FL,26,16,35.0,False,False,True,26.0,7.0,False,False,re-elected
+S000168,Maria Elvira Salazar,R,FL,27,6,15.0,False,False,True,27.0,6.0,False,False,re-elected
+G000593,Carlos A. Gimenez,R,FL,28,10,25.0,False,False,True,28.0,10.0,False,False,re-elected
+C001103,"Earl L. ""Buddy"" Carter",R,GA,1,8,16.0,False,False,False,1.0,8.0,False,False,did not run
+B000490,"Sanford D. Bishop, Jr.",D,GA,2,-4,-8.0,True,True,False,2.0,-4.0,True,False,re-elected
+J000311,Brian Jack,R,GA,3,15,30.0,False,False,False,3.0,15.0,False,False,re-elected
+J000288,"Henry C. ""Hank"" Johnson, Jr.",D,GA,4,-27,-52.0,False,False,False,4.0,-27.0,False,False,re-elected
+W000788,Nikema Williams,D,GA,5,-36,-72.0,False,False,False,5.0,-36.0,False,False,re-elected
+M001208,Lucy McBath,D,GA,6,-25,-50.0,False,False,False,6.0,-25.0,False,False,re-elected
+M001218,Richard McCormick,R,GA,7,11,22.0,False,False,False,7.0,11.0,False,False,re-elected
+S001189,Austin Scott,R,GA,8,15,31.0,False,False,False,8.0,15.0,False,False,re-elected
+C001116,Andrew S. Clyde,R,GA,9,17,34.0,False,False,False,9.0,17.0,False,False,re-elected
+C001129,Mike Collins,R,GA,10,11,21.0,False,False,False,10.0,11.0,False,False,did not run
+L000583,Barry Loudermilk,R,GA,11,12,23.0,False,False,False,11.0,12.0,False,False,did not run
+A000372,Rick W. Allen,R,GA,12,7,14.0,False,False,False,12.0,7.0,False,False,re-elected
+B001328,Everton Blair Jr.,D,GA,13,-21,-42.0,False,False,False,13.0,-21.0,False,False,lost primary
+F000485,Clay Fuller,R,GA,14,19,37.0,False,False,False,14.0,19.0,False,False,re-elected
+C001055,Ed Case,D,HI,1,-13,-25.0,False,False,False,1.0,-13.0,False,False,re-elected
+T000487,Jill N. Tokuda,D,HI,2,-12,-22.0,False,False,False,2.0,-12.0,False,False,re-elected
+M001215,Mariannette Miller-Meeks,R,IA,1,4,8.0,True,True,False,1.0,4.0,True,False,lost general
+H001091,Ashley Hinson,R,IA,2,4,10.0,True,True,False,2.0,4.0,True,False,did not run
+N000193,Zachary Nunn,R,IA,3,2,4.0,True,True,False,3.0,2.0,True,False,lost general
+F000446,Randy Feenstra,R,IA,4,15,31.0,False,False,False,4.0,15.0,False,False,did not run
+F000469,Russ Fulcher,R,ID,1,22,45.0,False,False,False,1.0,22.0,False,False,re-elected
+S001148,Michael K. Simpson,R,ID,2,13,27.0,False,False,False,2.0,13.0,False,False,re-elected
+J000309,Jonathan L. Jackson,D,IL,1,-18,-32.0,False,False,False,1.0,-18.0,False,False,re-elected
+K000385,Robin L. Kelly,D,IL,2,-18,-33.0,False,False,False,2.0,-18.0,False,False,did not run
+R000617,Delia C. Ramirez,D,IL,3,-17,-31.0,False,False,False,3.0,-17.0,False,False,re-elected
+G000586,"Jesús G. ""Chuy"" García",D,IL,4,-17,-28.0,False,False,False,4.0,-17.0,False,False,did not run
+Q000023,Mike Quigley,D,IL,5,-19,-37.0,False,False,False,5.0,-19.0,False,False,re-elected
+C001117,Sean Casten,D,IL,6,-3,-5.0,True,True,False,6.0,-3.0,True,False,re-elected
+D000096,Danny K. Davis,D,IL,7,-34,-65.0,False,False,False,7.0,-34.0,False,False,did not run
+K000391,Raja Krishnamoorthi,D,IL,8,-5,-7.0,True,True,False,8.0,-5.0,True,False,did not run
+S001145,Janice D. Schakowsky,D,IL,9,-19,-37.0,False,False,False,9.0,-19.0,False,False,did not run
+S001190,Bradley Scott Schneider,D,IL,10,-12,-22.0,False,False,False,10.0,-12.0,False,False,re-elected
+F000454,Bill Foster,D,IL,11,-6,-11.0,False,False,False,11.0,-6.0,False,False,re-elected
+B001295,Mike Bost,R,IL,12,22,43.0,False,False,False,12.0,22.0,False,False,re-elected
+B001315,Nikki Budzinski,D,IL,13,-5,-10.0,False,True,False,13.0,-5.0,True,False,re-elected
+U000040,Lauren Underwood,D,IL,14,-3,-5.0,True,True,False,14.0,-3.0,True,False,re-elected
+M001211,Mary E. Miller,R,IL,15,20,40.0,False,False,False,15.0,20.0,False,False,re-elected
+L000585,Darin LaHood,R,IL,16,11,23.0,False,False,False,16.0,11.0,False,False,re-elected
+S001225,Eric Sorensen,D,IL,17,-3,-5.0,True,True,False,17.0,-3.0,True,False,re-elected
+M001214,Frank J. Mrvan,D,IN,1,-1,-0.4,True,True,False,1.0,-1.0,True,False,re-elected
+Y000067,Rudy Yakym III,R,IN,2,13,27.0,False,False,False,2.0,13.0,False,False,re-elected
+S001188,Marlin A. Stutzman,R,IN,3,16,31.0,False,False,False,3.0,16.0,False,False,re-elected
+B001307,James R. Baird,R,IN,4,15,29.0,False,False,False,4.0,15.0,False,False,re-elected
+S000929,Victoria Spartz,R,IN,5,8,17.0,False,False,False,5.0,8.0,False,False,lost general
+S001229,Jefferson Shreve,R,IN,6,16,33.0,False,False,False,6.0,16.0,False,False,re-elected
+C001072,André Carson,D,IN,7,-21,-41.0,False,False,False,7.0,-21.0,False,False,re-elected
+M001233,Mark B. Messmer,R,IN,8,18,36.0,False,False,False,8.0,18.0,False,False,re-elected
+H001093,Erin Houchin,R,IN,9,15,30.0,False,False,False,9.0,15.0,False,False,re-elected
+M000871,Tracey Mann,R,KS,1,16,31.0,False,False,False,1.0,16.0,False,False,re-elected
+S001228,Derek Schmidt,R,KS,2,10,20.0,False,False,False,2.0,10.0,False,False,re-elected
+D000629,Sharice Davids,D,KS,3,-2,-4.0,True,True,False,3.0,-2.0,True,False,re-elected
+E000298,Ron Estes,R,KS,4,12,23.0,False,False,False,4.0,12.0,False,False,re-elected
+C001108,James Comer,R,KY,1,23,47.0,False,False,False,1.0,23.0,False,False,re-elected
+G000558,Brett Guthrie,R,KY,2,20,41.0,False,False,False,2.0,20.0,False,False,re-elected
+M001220,Morgan McGarvey,D,KY,3,-10,-19.0,False,False,False,3.0,-10.0,False,False,re-elected
+M001184,Thomas Massie,R,KY,4,18,36.0,False,False,False,4.0,18.0,False,False,lost primary
+R000395,Harold Rogers,R,KY,5,32,64.0,False,False,False,5.0,32.0,False,False,re-elected
+B001282,Andy Barr,R,KY,6,7,15.0,False,False,False,6.0,7.0,False,False,did not run
+S001176,Steve Scalise,R,LA,1,19,38.0,False,False,True,1.0,20.0,False,False,re-elected
+C001125,Troy A. Carter,D,LA,2,-17,-31.0,False,False,True,2.0,-25.0,False,False,re-elected
+H001077,Clay Higgins,R,LA,3,22,45.0,False,False,True,3.0,18.0,False,False,re-elected
+J000299,Mike Johnson,R,LA,4,26,52.0,False,False,True,4.0,17.0,False,False,re-elected
+L000595,Julia Letlow,R,LA,5,18,36.0,False,False,True,5.0,17.0,False,False,did not run
+F000110,Cleo Fields,D,LA,6,-8,-15.0,False,False,True,6.0,16.0,True,False,did not run
+N000015,Richard E. Neal,D,MA,1,-8,-14.0,False,False,False,1.0,-8.0,False,False,re-elected
+M000312,James P. McGovern,D,MA,2,-13,-24.0,False,False,False,2.0,-13.0,False,False,re-elected
+T000482,Lori Trahan,D,MA,3,-11,-19.0,False,False,False,3.0,-11.0,False,False,re-elected
+A000148,Jake Auchincloss,D,MA,4,-11,-20.0,False,False,False,4.0,-11.0,False,False,re-elected
+C001101,Katherine M. Clark,D,MA,5,-24,-45.0,False,False,False,5.0,-24.0,False,False,re-elected
+M001196,Seth Moulton,D,MA,6,-11,-21.0,False,False,False,6.0,-11.0,False,False,did not run
+P000617,Ayanna Pressley,D,MA,7,-34,-63.0,False,False,False,7.0,-34.0,False,False,re-elected
+L000562,Stephen F. Lynch,D,MA,8,-15,-26.0,False,False,False,8.0,-15.0,False,False,re-elected
+K000375,William R. Keating,D,MA,9,-6,-11.0,False,False,False,9.0,-6.0,False,False,re-elected
+H001052,Andy Harris,R,MD,1,8,17.0,False,False,False,1.0,8.0,False,False,re-elected
+O000176,"Johnny Olszewski, Jr.",D,MD,2,-10,-18.0,False,False,False,2.0,-10.0,False,False,re-elected
+E000301,Sarah Elfreth,D,MD,3,-12,-24.0,False,False,False,3.0,-12.0,False,False,re-elected
+I000058,Glenn Ivey,D,MD,4,-39,-74.0,False,False,False,4.0,-39.0,False,False,re-elected
+H000874,Steny H. Hoyer,D,MD,5,-17,-33.0,False,False,False,5.0,-17.0,False,False,did not run
+M001232,April McClain Delaney,D,MD,6,-3,-6.0,True,True,False,6.0,-3.0,True,False,re-elected
+M000687,Kweisi Mfume,D,MD,7,-31,-59.0,False,False,False,7.0,-31.0,False,False,re-elected
+R000606,Jamie Raskin,D,MD,8,-30,-56.0,False,False,False,8.0,-30.0,False,False,re-elected
+P000597,Chellie Pingree,D,ME,1,-11,-22.0,False,False,False,1.0,-11.0,False,False,re-elected
+G000592,Jared F. Golden,D,ME,2,4,9.0,True,True,False,2.0,4.0,True,False,did not run
+B001301,Jack Bergman,R,MI,1,11,21.0,False,False,False,1.0,11.0,False,False,re-elected
+M001194,John R. Moolenaar,R,MI,2,15,30.0,False,False,False,2.0,15.0,False,False,re-elected
+S001221,Hillary J. Scholten,D,MI,3,-4,-8.0,True,True,False,3.0,-4.0,True,False,re-elected
+H001058,Bill Huizenga,R,MI,4,3,6.0,True,True,False,4.0,3.0,True,False,lost general
+W000798,Tim Walberg,R,MI,5,13,27.0,False,False,False,5.0,13.0,False,False,re-elected
+D000624,Debbie Dingell,D,MI,6,-12,-23.0,False,False,False,6.0,-12.0,False,False,re-elected
+B001321,Tom Barrett,R,MI,7,0,1.0,True,True,False,7.0,0.0,True,False,lost general
+M001237,Kristen McDonald Rivet,D,MI,8,1,2.0,True,True,False,8.0,1.0,True,False,re-elected
+M001136,Lisa C. McClain,R,MI,9,16,32.0,False,False,False,9.0,16.0,False,False,re-elected
+J000307,John James,R,MI,10,3,7.0,True,True,False,10.0,3.0,True,False,did not run
+S001215,Haley M. Stevens,D,MI,11,-9,-16.0,False,False,False,11.0,-9.0,False,False,did not run
+T000481,Rashida Tlaib,D,MI,12,-21,-38.0,False,False,False,12.0,-21.0,False,False,re-elected
+T000488,Shri Thanedar,D,MI,13,-22,-41.0,False,False,False,13.0,-22.0,False,False,lost primary
+F000475,Brad Finstad,R,MN,1,6,12.0,False,False,False,1.0,6.0,False,False,uncalled
+C001119,Angie Craig,D,MN,2,-3,-6.0,True,True,False,2.0,-3.0,True,False,did not run
+M001234,Kelly Morrison,D,MN,3,-11,-21.0,False,False,False,3.0,-11.0,False,False,re-elected
+M001143,Betty McCollum,D,MN,4,-18,-36.0,False,False,False,4.0,-18.0,False,False,re-elected
+O000173,Ilhan Omar,D,MN,5,-32,-62.0,False,False,False,5.0,-32.0,False,False,re-elected
+E000294,Tom Emmer,R,MN,6,10,20.0,False,False,False,6.0,10.0,False,False,re-elected
+F000470,Michelle Fischbach,R,MN,7,18,36.0,False,False,False,7.0,18.0,False,False,re-elected
+S001212,Pete Stauber,R,MN,8,7,14.0,False,False,False,8.0,7.0,False,False,re-elected
+B001324,Wesley Bell,D,MO,1,-29,-57.0,False,False,False,1.0,-29.0,False,False,re-elected
+W000812,Ann Wagner,R,MO,2,4,8.0,True,True,False,2.0,4.0,True,False,lost general
+O000177,"Robert F. Onder, Jr.",R,MO,3,13,27.0,False,False,False,3.0,13.0,False,False,re-elected
+A000379,Mark Alford,R,MO,4,21,42.0,False,False,False,4.0,21.0,False,False,re-elected
+C001061,Emanuel Cleaver,D,MO,5,-12,-23.0,False,False,False,5.0,-12.0,False,False,re-elected
+G000546,Sam Graves,R,MO,6,19,39.0,False,False,False,6.0,19.0,False,False,did not run
+B001316,Eric Burlison,R,MO,7,21,43.0,False,False,False,7.0,21.0,False,False,re-elected
+S001195,Jason Smith,R,MO,8,27,54.0,False,False,False,8.0,27.0,False,False,re-elected
+K000388,Trent Kelly,R,MS,1,18,37.0,False,False,False,1.0,18.0,False,False,re-elected
+T000193,Bennie G. Thompson,D,MS,2,-11,-20.0,False,False,False,2.0,-11.0,False,False,re-elected
+G000591,Michael Guest,R,MS,3,14,29.0,False,False,False,3.0,14.0,False,False,re-elected
+E000235,Mike Ezell,R,MS,4,21,43.0,False,False,False,4.0,21.0,False,False,re-elected
+Z000018,Ryan K. Zinke,R,MT,1,5,12.0,False,True,False,1.0,5.0,True,False,did not run
+D000634,Troy Downing,R,MT,2,15,30.0,False,False,False,2.0,15.0,False,False,re-elected
+D000230,Donald G. Davis,D,NC,1,1,3.0,True,True,True,1.0,5.0,True,False,re-elected
+R000305,Deborah K. Ross,D,NC,2,-17,-34.0,False,False,True,2.0,-17.0,False,False,re-elected
+M001210,Gregory F. Murphy,R,NC,3,10,22.0,False,False,True,3.0,6.0,False,False,lost general
+F000477,Valerie P. Foushee,D,NC,4,-23,-45.0,False,False,True,4.0,-23.0,False,False,re-elected
+F000450,Virginia Foxx,R,NC,5,9,18.0,False,False,True,5.0,9.0,False,False,lost general
+M001240,Addison P. McDowell,R,NC,6,9,17.0,False,False,True,6.0,9.0,False,False,lost general
+R000603,David Rouzer,R,NC,7,7,14.0,False,False,True,7.0,7.0,False,False,uncalled
+H001102,Mark Harris,R,NC,8,10,19.0,False,False,True,8.0,10.0,False,False,re-elected
+H001067,Richard Hudson,R,NC,9,8,16.0,False,False,True,9.0,8.0,False,False,lost general
+H001101,Pat Harrigan,R,NC,10,9,18.0,False,False,True,10.0,9.0,False,False,uncalled
+E000246,Chuck Edwards,R,NC,11,5,10.0,True,True,True,11.0,5.0,True,False,did not run
+A000370,Alma S. Adams,D,NC,12,-24,-46.0,False,False,True,12.0,-24.0,False,False,re-elected
+K000405,Brad Knott,R,NC,13,8,16.0,False,False,True,13.0,8.0,False,False,lost general
+M001236,Tim Moore,R,NC,14,8,15.0,False,False,True,14.0,8.0,False,False,lost general
+F000482,Julie Fedorchak,R,ND,0,18,37.0,False,False,False,0.0,18.0,False,False,re-elected
+F000474,Mike Flood,R,NE,1,6,13.0,False,False,False,1.0,6.0,False,False,re-elected
+B001298,Don Bacon,R,NE,2,-3,-5.0,True,True,False,2.0,-3.0,True,False,did not run
+S001172,Adrian Smith,R,NE,3,27,54.0,False,False,False,3.0,27.0,False,False,re-elected
+P000614,Chris Pappas,D,NH,1,-2,-2.0,True,True,False,1.0,-2.0,True,False,did not run
+G000604,Maggie Goodlander,D,NH,2,-2,-4.0,True,True,False,2.0,-2.0,True,False,re-elected
+N000188,Donald Norcross,D,NJ,1,-10,-19.0,False,False,False,1.0,-10.0,False,False,re-elected
+V000133,Jefferson Van Drew,R,NJ,2,5,13.0,False,True,False,2.0,5.0,True,False,lost general
+C001136,"Herbert C. Conaway, Jr.",D,NJ,3,-5,-8.0,True,True,False,3.0,-5.0,True,False,re-elected
+S000522,Christopher H. Smith,R,NJ,4,14,30.0,False,False,False,4.0,14.0,False,False,re-elected
+G000583,Josh Gottheimer,D,NJ,5,-2,-2.0,True,True,False,5.0,-2.0,True,False,re-elected
+P000034,"Frank Pallone, Jr.",D,NJ,6,-5,-6.0,True,True,False,6.0,-5.0,True,False,re-elected
+K000398,"Thomas H. Kean, Jr.",R,NJ,7,0,1.0,True,True,False,7.0,0.0,True,False,lost general
+M001226,Robert Menendez,D,NJ,8,-15,-24.0,False,False,False,8.0,-15.0,False,False,re-elected
+P000621,Nellie Pou,D,NJ,9,-2,1.0,True,True,False,9.0,-2.0,True,False,re-elected
+M001229,LaMonica McIver,D,NJ,10,-27,-51.0,False,False,False,10.0,-27.0,False,False,re-elected
+M001246,Analilia Mejia,D,NJ,11,-5,-9.0,False,True,False,11.0,-5.0,True,False,re-elected
+W000822,Bonnie Watson Coleman,D,NJ,12,-13,-24.0,False,False,False,12.0,-13.0,False,False,did not run
+S001218,Melanie A. Stansbury,D,NM,1,-7,-13.0,False,False,False,1.0,-7.0,False,False,re-elected
+V000136,Gabe Vasquez,D,NM,2,0,2.0,True,True,False,2.0,0.0,True,False,re-elected
+L000273,Teresa Leger Fernandez,D,NM,3,-3,-5.0,True,True,False,3.0,-3.0,True,False,re-elected
+T000468,Dina Titus,D,NV,1,-2,-2.0,True,True,False,1.0,-2.0,True,False,re-elected
+A000369,Mark E. Amodei,R,NV,2,7,14.0,False,False,False,2.0,7.0,False,False,did not run
+L000590,Susie Lee,D,NV,3,-1,1.0,True,True,False,3.0,-1.0,True,False,re-elected
+H001066,Steven Horsford,D,NV,4,-2,-2.0,True,True,False,4.0,-2.0,True,False,re-elected
+L000598,Nick LaLota,R,NY,1,4,10.0,True,True,False,1.0,4.0,True,False,re-elected
+G000597,Andrew R. Garbarino,R,NY,2,6,14.0,False,False,False,2.0,6.0,False,False,re-elected
+S001201,Thomas R. Suozzi,D,NY,3,0,4.0,True,True,False,3.0,0.0,True,False,re-elected
+G000602,Laura Gillen,D,NY,4,-2,-1.0,True,True,False,4.0,-2.0,True,False,re-elected
+M001137,Gregory W. Meeks,D,NY,5,-24,-42.0,False,False,False,5.0,-24.0,False,False,re-elected
+M001188,Grace Meng,D,NY,6,-6,-6.0,True,False,False,6.0,-6.0,False,False,re-elected
+V000081,Nydia M. Velázquez,D,NY,7,-25,-46.0,False,False,False,7.0,-25.0,False,False,did not run
+J000294,Hakeem S. Jeffries,D,NY,8,-24,-44.0,False,False,False,8.0,-24.0,False,False,re-elected
+C001067,Yvette D. Clarke,D,NY,9,-22,-41.0,False,False,False,9.0,-22.0,False,False,re-elected
+G000599,Daniel S. Goldman,D,NY,10,-32,-60.0,False,False,False,10.0,-32.0,False,False,lost primary
+M000317,Nicole Malliotakis,R,NY,11,10,24.0,False,False,False,11.0,10.0,False,False,re-elected
+N000002,Jerrold Nadler,D,NY,12,-33,-64.0,False,False,False,12.0,-33.0,False,False,did not run
+E000297,Adriano Espaillat,D,NY,13,-32,-59.0,False,False,False,13.0,-32.0,False,False,lost primary
+O000172,Alexandria Ocasio-Cortez,D,NY,14,-19,-32.0,False,False,False,14.0,-19.0,False,False,re-elected
+T000486,Ritchie Torres,D,NY,15,-27,-48.0,False,False,False,15.0,-27.0,False,False,re-elected
+L000606,George Latimer,D,NY,16,-18,-33.0,False,False,False,16.0,-18.0,False,False,re-elected
+L000599,Michael Lawler,R,NY,17,-1,-1.0,True,True,False,17.0,-1.0,True,False,lost general
+R000579,Patrick Ryan,D,NY,18,-2,-3.0,True,True,False,18.0,-2.0,True,False,re-elected
+R000622,Josh Riley,D,NY,19,-1,-2.0,True,True,False,19.0,-1.0,True,False,re-elected
+T000469,Paul Tonko,D,NY,20,-8,-14.0,False,False,False,20.0,-8.0,False,False,re-elected
+S001196,Elise M. Stefanik,R,NY,21,10,21.0,False,False,False,21.0,10.0,False,False,did not run
+M001231,John W. Mannion,D,NY,22,-4,-8.0,True,True,False,22.0,-4.0,True,False,re-elected
+L000600,Nicholas A. Langworthy,R,NY,23,10,21.0,False,False,False,23.0,10.0,False,False,re-elected
+T000478,Claudia Tenney,R,NY,24,11,23.0,False,False,False,24.0,11.0,False,False,re-elected
+M001206,Joseph D. Morelle,D,NY,25,-10,-18.0,False,False,False,25.0,-10.0,False,False,re-elected
+K000402,Timothy M. Kennedy,D,NY,26,-11,-19.0,False,False,False,26.0,-11.0,False,False,re-elected
+L000601,Greg Landsman,D,OH,1,-3,-6.0,True,True,True,1.0,1.0,True,False,re-elected
+T000490,David J. Taylor,R,OH,2,24,48.0,False,False,True,2.0,21.0,False,False,re-elected
+B001281,Joyce Beatty,D,OH,3,-21,-40.0,False,False,True,3.0,-21.0,False,False,re-elected
+J000289,Jim Jordan,R,OH,4,18,37.0,False,False,True,4.0,21.0,False,False,re-elected
+L000566,Robert E. Latta,R,OH,5,14,29.0,False,False,True,5.0,12.0,False,False,re-elected
+R000619,Michael A. Rulli,R,OH,6,16,34.0,False,False,True,6.0,17.0,False,False,re-elected
+M001222,Max L. Miller,R,OH,7,5,11.0,True,True,True,7.0,5.0,True,False,lost general
+D000626,Warren Davidson,R,OH,8,12,24.0,False,False,True,8.0,8.0,False,False,re-elected
+K000009,Marcy Kaptur,D,OH,9,3,7.0,True,True,True,9.0,5.0,True,False,re-elected
+T000463,Michael R. Turner,R,OH,10,3,6.0,True,True,True,10.0,4.0,True,False,lost general
+B001313,Shontel M. Brown,D,OH,11,-28,-55.0,False,False,True,11.0,-28.0,False,False,re-elected
+B001306,Troy Balderson,R,OH,12,16,33.0,False,False,True,12.0,15.0,False,False,re-elected
+S001223,Emilia Strong Sykes,D,OH,13,0,-0.046,True,True,True,13.0,-2.0,True,False,re-elected
+J000295,David P. Joyce,R,OH,14,9,18.0,False,False,True,14.0,10.0,False,False,re-elected
+C001126,Mike Carey,R,OH,15,4,9.0,True,True,True,15.0,5.0,True,False,lost general
+H001082,Kevin Hern,R,OK,1,11,22.0,False,False,False,1.0,11.0,False,False,did not run
+B001317,Josh Brecheen,R,OK,2,28,56.0,False,False,False,2.0,28.0,False,False,re-elected
+L000491,Frank D. Lucas,R,OK,3,23,46.0,False,False,False,3.0,23.0,False,False,re-elected
+C001053,Tom Cole,R,OK,4,17,33.0,False,False,False,4.0,17.0,False,False,re-elected
+B000740,Stephanie I. Bice,R,OK,5,9,18.0,False,False,False,5.0,9.0,False,False,re-elected
+B001278,Suzanne Bonamici,D,OR,1,-20,-38.0,False,False,False,1.0,-20.0,False,False,re-elected
+B000668,Cliff Bentz,R,OR,2,14,27.0,False,False,False,2.0,14.0,False,False,re-elected
+D000635,Maxine Dexter,D,OR,3,-24,-46.0,False,False,False,3.0,-24.0,False,False,re-elected
+H001094,Val T. Hoyle,D,OR,4,-6,-12.0,False,False,False,4.0,-6.0,False,False,re-elected
+B001326,Janelle S. Bynum,D,OR,5,-4,-9.0,False,True,False,5.0,-4.0,True,False,re-elected
+S001226,Andrea Salinas,D,OR,6,-6,-11.0,False,False,False,6.0,-6.0,False,False,re-elected
+F000466,Brian K. Fitzpatrick,R,PA,1,-1,-0.3,True,True,False,1.0,-1.0,True,False,lost general
+B001296,Brendan F. Boyle,D,PA,2,-19,-36.0,False,False,False,2.0,-19.0,False,False,re-elected
+E000296,Dwight Evans,D,PA,3,-40,-77.0,False,False,False,3.0,-40.0,False,False,did not run
+D000631,Madeleine Dean,D,PA,4,-8,-16.0,False,False,False,4.0,-8.0,False,False,re-elected
+S001205,Mary Gay Scanlon,D,PA,5,-15,-29.0,False,False,False,5.0,-15.0,False,False,re-elected
+H001085,Chrissy Houlahan,D,PA,6,-6,-11.0,False,False,False,6.0,-6.0,False,False,re-elected
+M001230,Ryan Mackenzie,R,PA,7,1,3.0,True,True,False,7.0,1.0,True,False,lost general
+B001327,"Robert P. Bresnahan, Jr.",R,PA,8,4,8.0,True,True,False,8.0,4.0,True,False,lost general
+M001204,Daniel Meuser,R,PA,9,19,38.0,False,False,False,9.0,19.0,False,False,re-elected
+P000605,Scott Perry,R,PA,10,3,5.0,True,True,False,10.0,3.0,True,False,lost general
+S001199,Lloyd Smucker,R,PA,11,11,21.0,False,False,False,11.0,11.0,False,False,re-elected
+L000602,Summer L. Lee,D,PA,12,-10,-19.0,False,False,False,12.0,-10.0,False,False,re-elected
+J000302,John Joyce,R,PA,13,23,46.0,False,False,False,13.0,23.0,False,False,re-elected
+R000610,Guy Reschenthaler,R,PA,14,17,33.0,False,False,False,14.0,17.0,False,False,re-elected
+T000467,Glenn Thompson,R,PA,15,19,38.0,False,False,False,15.0,19.0,False,False,re-elected
+K000376,Mike Kelly,R,PA,16,11,23.0,False,False,False,16.0,11.0,False,False,re-elected
+D000530,Christopher R. Deluzio,D,PA,17,-3,-6.0,True,True,False,17.0,-3.0,True,False,re-elected
+A000380,Gabe Amo,D,RI,1,-12,-22.0,False,False,False,1.0,-12.0,False,False,re-elected
+M001223,Seth Magaziner,D,RI,2,-4,-7.0,True,True,False,2.0,-4.0,True,False,re-elected
+M000194,Nancy Mace,R,SC,1,6,13.0,False,False,False,1.0,6.0,False,False,did not run
+W000795,Joe Wilson,R,SC,2,7,14.0,False,False,False,2.0,7.0,False,False,uncalled
+B001325,Sheri Biggs,R,SC,3,21,43.0,False,False,False,3.0,21.0,False,False,re-elected
+T000480,William R. Timmons IV,R,SC,4,11,24.0,False,False,False,4.0,11.0,False,False,re-elected
+N000190,Ralph Norman,R,SC,5,11,23.0,False,False,False,5.0,11.0,False,False,did not run
+C000537,James E. Clyburn,D,SC,6,-13,-23.0,False,False,False,6.0,-13.0,False,False,re-elected
+F000478,Russell Fry,R,SC,7,12,26.0,False,False,False,7.0,12.0,False,False,re-elected
+J000301,Dusty Johnson,R,SD,0,15,29.0,False,False,False,0.0,15.0,False,False,did not run
+H001086,Diana Harshbarger,R,TN,1,29,58.0,False,False,True,1.0,29.0,False,False,re-elected
+B001309,Tim Burchett,R,TN,2,17,34.0,False,False,True,2.0,17.0,False,False,re-elected
+F000459,"Charles J. ""Chuck"" Fleischmann",R,TN,3,18,36.0,False,False,True,3.0,18.0,False,False,re-elected
+D000616,Scott DesJarlais,R,TN,4,21,44.0,False,False,True,4.0,11.0,False,False,uncalled
+O000175,Andrew Ogles,R,TN,5,8,18.0,False,False,True,5.0,10.0,False,False,lost primary
+R000612,John W. Rose,R,TN,6,17,35.0,False,False,True,6.0,13.0,False,False,did not run
+V000139,Matt Van Epps,R,TN,7,10,22.0,False,False,True,7.0,11.0,False,False,re-elected
+K000392,David Kustoff,R,TN,8,21,41.0,False,False,True,8.0,10.0,False,False,re-elected
+C001068,Steve Cohen,D,TN,9,-23,-43.0,False,False,True,9.0,9.0,True,False,did not run
+M001224,Nathaniel Moran,R,TX,1,25,51.0,False,False,True,1.0,24.0,False,False,re-elected
+C001120,Dan Crenshaw,R,TX,2,12,24.0,False,False,True,2.0,11.0,False,False,lost primary
+S001224,Keith Self,R,TX,3,10,20.0,False,False,True,3.0,11.0,False,False,re-elected
+F000246,Pat Fallon,R,TX,4,16,33.0,False,False,True,4.0,12.0,False,False,re-elected
+G000589,Lance Gooden,R,TX,5,13,27.0,False,False,True,5.0,10.0,False,False,re-elected
+E000071,Jake Ellzey,R,TX,6,14,29.0,False,False,True,6.0,11.0,False,False,re-elected
+F000468,Lizzie Fletcher,D,TX,7,-12,-21.0,False,False,True,7.0,-13.0,False,False,re-elected
+L000603,Morgan Luttrell,R,TX,8,16,34.0,False,False,True,8.0,13.0,False,False,did not run
+G000553,Al Green,D,TX,9,-24,-44.0,False,False,True,,,,False,
+M001157,Michael T. McCaul,R,TX,10,12,25.0,False,False,True,10.0,10.0,False,False,did not run
+P000048,August Pfluger,R,TX,11,22,45.0,False,False,True,11.0,17.0,False,False,re-elected
+G000601,Craig A. Goldman,R,TX,12,11,23.0,False,False,True,12.0,11.0,False,False,re-elected
+J000304,Ronny Jackson,R,TX,13,24,48.0,False,False,True,13.0,23.0,False,False,re-elected
+W000814,"Randy K. Weber, Sr.",R,TX,14,17,34.0,False,False,True,14.0,12.0,False,False,re-elected
+D000594,Monica De La Cruz,R,TX,15,7,18.0,False,False,True,15.0,7.0,False,False,lost general
+E000299,Veronica Escobar,D,TX,16,-11,-16.0,False,False,True,16.0,-11.0,False,False,re-elected
+S000250,Pete Sessions,R,TX,17,14,29.0,False,False,True,17.0,10.0,False,False,re-elected
+M001245,Christian D. Menefee,D,TX,18,-21,-40.0,False,False,True,18.0,-29.0,False,False,re-elected
+A000375,Jodey C. Arrington,R,TX,19,25,52.0,False,False,True,19.0,25.0,False,False,did not run
+C001091,Joaquin Castro,D,TX,20,-12,-21.0,False,False,True,20.0,-16.0,False,False,re-elected
+R000614,Chip Roy,R,TX,21,11,24.0,False,False,True,21.0,10.0,False,False,did not run
+N000026,Troy E. Nehls,R,TX,22,9,20.0,False,False,True,22.0,11.0,False,False,did not run
+V000134,Beth Van Duyne,R,TX,24,7,16.0,False,False,True,24.0,8.0,False,False,re-elected
+W000816,Roger Williams,R,TX,25,18,36.0,False,False,True,25.0,11.0,False,False,re-elected
+G000603,Brandon Gill,R,TX,26,11,23.0,False,False,True,26.0,11.0,False,False,re-elected
+C001115,Michael Cloud,R,TX,27,14,30.0,False,False,True,27.0,10.0,False,False,re-elected
+C001063,Henry Cuellar,D,TX,28,2,7.0,True,True,True,28.0,3.0,True,False,re-elected
+G000587,Sylvia R. Garcia,D,TX,29,-12,-20.0,False,False,True,29.0,-17.0,False,False,re-elected
+C001130,Jasmine Crockett,D,TX,30,-25,-47.0,False,False,True,33.0,-18.0,False,True,did not run
+C001051,John R. Carter,R,TX,31,11,23.0,False,False,True,31.0,11.0,False,False,re-elected
+J000310,Julie Johnson,D,TX,32,-13,-24.0,False,False,True,,,,False,
+V000131,Marc A. Veasey,D,TX,33,-19,-34.0,False,False,True,,,,False,
+G000581,Vicente Gonzalez,D,TX,34,0,4.0,True,True,True,34.0,3.0,True,False,re-elected
+C001131,Greg Casar,D,TX,35,-19,-34.0,False,False,True,,,,False,
+B001291,Brian Babin,R,TX,36,18,37.0,False,False,True,36.0,12.0,False,False,re-elected
+D000399,Lloyd Doggett,D,TX,37,-26,-49.0,False,False,True,37.0,-30.0,False,False,did not run
+H001095,Wesley Hunt,R,TX,38,10,21.0,False,False,True,38.0,10.0,False,False,did not run
+M001213,Blake D. Moore,R,UT,1,10,20.0,False,False,True,2.0,15.0,False,True,re-elected
+M001228,Celeste Maloy,R,UT,2,10,20.0,False,False,True,3.0,21.0,False,True,re-elected
+K000403,Mike Kennedy,R,UT,3,10,19.0,False,False,True,,,,False,
+O000086,Burgess Owens,R,UT,4,14,27.0,False,False,True,4.0,17.0,False,False,did not run
+W000804,Robert J. Wittman,R,VA,1,3,5.0,True,True,False,1.0,3.0,True,False,lost general
+K000399,Jennifer A. Kiggans,R,VA,2,0,0.2,True,True,False,2.0,0.0,True,False,lost general
+S000185,"Robert C. ""Bobby"" Scott",D,VA,3,-18,-35.0,False,False,False,3.0,-18.0,False,False,re-elected
+M001227,Jennifer L. McClellan,D,VA,4,-17,-33.0,False,False,False,4.0,-17.0,False,False,re-elected
+M001239,John J. McGuire III,R,VA,5,6,12.0,False,False,False,5.0,6.0,False,False,re-elected
+C001118,Ben Cline,R,VA,6,12,24.0,False,False,False,6.0,12.0,False,False,re-elected
+V000138,Eugene Simon Vindman,D,VA,7,-2,-3.0,True,True,False,7.0,-2.0,True,False,re-elected
+B001292,"Donald S. Beyer, Jr.",D,VA,8,-26,-50.0,False,False,False,8.0,-26.0,False,False,re-elected
+G000568,H. Morgan Griffith,R,VA,9,22,44.0,False,False,False,9.0,22.0,False,False,re-elected
+S001230,Suhas Subramanyam,D,VA,10,-6,-8.0,True,False,False,10.0,-6.0,False,False,re-elected
+W000831,James R. Walkinshaw,D,VA,11,-18,-34.0,False,False,False,11.0,-18.0,False,False,re-elected
+B001318,Becca Balint,D,VT,0,-17,-32.0,False,False,False,0.0,-17.0,False,False,re-elected
+D000617,Suzan K. DelBene,D,WA,1,-15,-29.0,False,False,False,1.0,-15.0,False,False,re-elected
+L000560,Rick Larsen,D,WA,2,-12,-24.0,False,False,False,2.0,-12.0,False,False,re-elected
+G000600,Marie Gluesenkamp Perez,D,WA,3,2,3.0,True,True,False,3.0,2.0,True,False,re-elected
+N000189,Dan Newhouse,R,WA,4,10,21.0,False,False,False,4.0,10.0,False,False,did not run
+B001322,Michael Baumgartner,R,WA,5,5,11.0,True,True,False,5.0,5.0,True,False,re-elected
+R000621,Emily Randall,D,WA,6,-10,-19.0,False,False,False,6.0,-10.0,False,False,re-elected
+J000298,Pramila Jayapal,D,WA,7,-39,-75.0,False,False,False,7.0,-39.0,False,False,re-elected
+S001216,Kim Schrier,D,WA,8,-3,-6.0,True,True,False,8.0,-3.0,True,False,re-elected
+S000510,Adam Smith,D,WA,9,-22,-41.0,False,False,False,9.0,-22.0,False,False,re-elected
+S001159,Marilyn Strickland,D,WA,10,-9,-18.0,False,False,False,10.0,-9.0,False,False,re-elected
+S001213,Bryan Steil,R,WI,1,2,5.0,True,True,False,1.0,2.0,True,False,lost general
+P000607,Mark Pocan,D,WI,2,-21,-40.0,False,False,False,2.0,-21.0,False,False,re-elected
+V000135,Derrick Van Orden,R,WI,3,3,7.0,True,True,False,3.0,3.0,True,False,lost general
+M001160,Gwen Moore,D,WI,4,-26,-52.0,False,False,False,4.0,-26.0,False,False,re-elected
+F000471,Scott Fitzgerald,R,WI,5,11,22.0,False,False,False,5.0,11.0,False,False,re-elected
+G000576,Glenn Grothman,R,WI,6,8,16.0,False,False,False,6.0,8.0,False,False,re-elected
+T000165,Thomas P. Tiffany,R,WI,7,11,23.0,False,False,False,7.0,11.0,False,False,did not run
+W000829,Tony Wied,R,WI,8,8,16.0,False,False,False,8.0,8.0,False,False,re-elected
+M001205,Carol D. Miller,R,WV,1,22,44.0,False,False,False,1.0,22.0,False,False,re-elected
+M001235,Riley M. Moore,R,WV,2,20,40.0,False,False,False,2.0,20.0,False,False,re-elected
+H001096,Harriet M. Hageman,R,WY,0,23,46.0,False,False,False,0.0,23.0,False,False,did not run

@@ -44,6 +44,9 @@ New York 5 each).
 Nine states were redrawn before 2026 (AL, CA, FL, LA, NC, OH, TN, TX, UT). They hold 173 seats, 40% of the House,
 and a third of the exposed seats. In those states the lean in `districts.csv` describes the 2026 district, so
 the exposed/safe label is unreliable there until the swing-seat rule uses the old district (G13, open point 2).
+**Update 19 Nov:** the lean of the districts members served is now in [`../district_lean/`](../district_lean/README.md).
+By that lean there are 38 exposed Republicans and 59 exposed Democrats; 12 members get a different label in the 2026 district they ran in, and 9 have no 2026 contest in our data. The chart
+and table here still use the 2026 lean.
 
 Of the members whose releases could be counted, 10 exposed Republicans and 21 exposed Democrats are in redrawn
 states. (An earlier version of `press_scope/README.md` and of the G13 draft said 12 Republicans, counting

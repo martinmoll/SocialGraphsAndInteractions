@@ -43,7 +43,8 @@ Sections:
 | Midterm election | The House election halfway through a president's four-year term. The 2026 midterm was on 3 November 2026. Historically the president's party tends to lose seats in midterms. |
 | President's party | The party of the sitting president: the Republicans (Trump) in 2025-26. Part of our question is whether naming the other party is about being in the president's party or about having an exposed seat. |
 | Incumbent | The person who currently holds the seat. `incumbents.csv` records who held each seat and what happened to them in 2026. |
-| Redistricting, redrawn state | Redrawing district borders. Some states drew new maps before 2026, so a member's 2026 district may be a different area from the one they served in 2025. Our `districts.csv` flags these as `redrawn_state`. |
+| Redistricting, redraw, redrawn state | Redrawing the borders of a state's districts. It normally happens once a decade, after the census. Nine states (AL, CA, FL, LA, NC, OH, TN, TX, UT) drew new maps in the middle of the decade, for the 2026 election, so a member's 2026 district can be a different area from the one they served in 2025-26, even with the same number. Wikipedia's list of which states redrew is what `districts.csv` stores as `redrawn_state`. |
+| Served district, new district | The served district is the one a member represented in 2025-26 (the number in `members.csv`). The new district is the 2026 district with that number. They are the same area except in redrawn states. |
 | Voteview, DW-NOMINATE | Voteview is a public database of how every member voted. DW-NOMINATE turns those votes into a left-right score (`nominate_dim1` in `members.csv`: negative is liberal, positive is conservative). |
 | Roll call | A recorded vote where each member's yes or no is written down. |
 | Bioguide ID | The official ID of every member of Congress, such as `B001323` (Begich). Every table we have is joined on it. |
@@ -52,12 +53,12 @@ Sections:
 
 | Term | Meaning |
 |---|---|
-| District lean | How Republican or Democratic a district votes, compared with the country as a whole. In our files it is the Cook PVI number from the 2026 House election page on Wikipedia, stored in `districts.csv` as a signed number: positive leans Republican, negative leans Democratic. Alaska's `6` means R+6. |
+| District lean | How Republican or Democratic a district votes, compared with the country as a whole. In our files it is the 2025 Cook PVI, as a signed number: positive leans Republican, negative leans Democratic. Alaska's `6` means R+6. There are two columns: `lean_2026` (the 2026 map, from the 2026 House election page on Wikipedia, in `districts.csv` as `lean`) and `lean_2025` (the map members served, from `Anas/district_lean/`). They differ only in redrawn states. |
 | Cook PVI (Partisan Voting Index) | A widely used measure of lean published by the Cook Political Report. It compares how a district voted for president in the last two elections with the national result. R+6 means the district voted about 6 points more Republican than the country. EVEN means it voted like the country. |
 | Safe seat | A seat the member's party is very likely to keep, because the district leans strongly their way. |
 | Exposed seat, swing seat | A seat the member could lose, because the district is close or leans to the other party. **The group has not fixed a definition yet (G13, open point 2).** The scope scan used a working rule only to size the samples: a Republican in a district with lean ≤ 5 (R+5 or bluer), or a Democrat with lean ≥ −5 (D+5 or redder). |
 | Crossover district, "Trump district" | A district that leans to the other party: a Democrat holding an R-leaning seat, or a Republican holding a D-leaning seat. The most exposed seats. |
-| Lean in redrawn states | Our lean is for the 2026 map. In a redrawn state it describes a district the member did not serve in during 2025-26 (Cohen, TN-9, shows R+9). For those members the exposed/safe label has to come from the old district. |
+| Lean in redrawn states | In a redrawn state `lean_2026` describes a district the member did not serve in. Cohen's TN-9 is D+23 as he served it and R+9 on the 2026 map. 12 members get a different exposed/safe label in the district they served and the 2026 district they ran in, and 9 more have no 2026 contest in our data. Proposed: label by `lean_2025`, the district served, and check the result without those 21. Use `Anas/district_lean/member_lean.csv`, never `districts.csv` joined by district number. |
 
 ## 2. Bills and cosponsorship (the working map)
 
@@ -161,6 +162,9 @@ Sections:
 | Baseline (for a classifier) | The score you get without a model, here by always guessing the most common code. |
 | Regex | A text pattern for finding things like `H.R. 152` or `(R-NY)`. |
 | Party-state tag | `(R-NY)` after a name in a press release. Must match the roster on both party and state, or senators slip in. |
+| Recall check | Hand-reading a random sample of raw texts (releases or floor turns), listing every House member named in any form, and counting how many the matcher found. The only way to measure missed names, because a sample drawn from the matcher's output contains only names it found. Planned for 30 releases and 30 floor turns. |
+| Alias, nickname | Another name for the same person ("Hank" Johnson for Henry Johnson, "Chuy" García for Jesús García). Week 7. Official nicknames are in `unitedstates/congress-legislators`; no alias list is complete, which is why recall is measured. |
+| Caucus release | A release from a group of members such as the Problem Solvers Caucus, which is bipartisan by design and lists many members of both parties. Naming because of membership, not a choice to show someone, so these are flagged. |
 | Lexicon, dictionary method | Counting words from a fixed list (course week 7, sentiment). Not in our design; possible for A5 with a short list of partnership words. |
 
 ## 7. Statistics and research design
@@ -172,6 +176,8 @@ Sections:
 | Difference-in-differences | The name for the comparison above when it is done before and after an event. Ours has no time dimension, so it is better called an interaction between party and exposure. |
 | Seat effect vs party effect | Seat effect: anyone in a close district names the other side more. Party effect: only the president's party does. The Democrats are collected to tell these apart (G13). |
 | Confound | Something else that could produce the same pattern. Majority status is one: Republicans lead most bipartisan bills that pass, so they have more cross-party news to announce. |
+| Permutation test | A test that shuffles labels many times to see how often chance alone gives a result as large as the real one. In part 3: shuffle the exposed/safe labels within each party and recompute the party × exposure gap. The same logic as the course's shuffle nulls. |
+| Second lean measure | `pres_margin_2024`: Trump's 2024 margin on the districts members served (The Downballot). It agrees with the Cook lean (r = 0.999), which confirms the Wikipedia numbers; labels differ only for 10 members at the ±5 cut-off. |
 | Seed | A fixed starting number for random draws, so the same draws come out every time. |
 | Held-out rows | Rows a rule was not built on, used to test it fairly. |
 | 95% interval | The range a number would likely fall in if the sample were drawn again. Matcher precision 93% (86 to 97%) in D1. |
@@ -186,4 +192,5 @@ Sections:
 | Freeze (G7) | No definition changes after Sun 22 Nov. |
 | Shared files | `mentions.parquet`, `named_ties.csv`, `press_releases.parquet`. Their columns are fixed; nobody changes one without saying so in the chat. |
 | Own folder | `Anas/`, `Martin/`, `Diego/`. Each person writes only in their own. |
+| robots.txt | A file on each website saying what automated tools may fetch. On the member sites checked it allows press-release pages and blocks only print views, forms, previews and search. The collector follows it. |
 | `docs/AI_METHODS.md` | The required file on how AI was used in the project. Anas writes it (A6). Not created yet. |

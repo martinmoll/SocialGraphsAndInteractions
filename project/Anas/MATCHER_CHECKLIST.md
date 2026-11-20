@@ -3,7 +3,7 @@
 **From Anas, 18 November 2026. For `Martin/matcher.py` (M1). You decide every item. Nothing here has been
 changed in your files.**
 
-**Status 19 Nov:** no decision yet. Whatever is decided for the floor, the press side (A3) will apply items 1
+**Status 20 Nov:** no decision yet. Items 9 (nicknames), 10 (state legislators) and 11 (recall check) were added on 20 Nov. **Suggested order: 9, 11, 1, 2, 10; then the rest.** Whatever is decided for the floor, the press side (A3) will apply items 1
 and 2 to press releases: in 60 releases the current rules missed 3 names in lists and 26 colleagues named
 without a title (on top of 198 found).
 
@@ -38,6 +38,9 @@ Every number is one run.
 | 6 | Hyphenated and multi-word surnames | — | — | Already works | Nothing to do |
 | 7 | spaCy NER as the matcher | — | — | No | — |
 | 8 | Unit of a mention (turn, release) | — | — | Write it in Methods | Draft, 24 Nov |
+| 9 | **Nicknames as first names** (added 20 Nov) | 6 members dropped when named by nickname; about 72 such names on the floor | not yet measured | **Do it** | Before Sun 22 Nov |
+| 10 | **Skip state legislators** ("State Rep. Smith") (added 20 Nov) | not measured | likely in home-state releases | Add a test; skip on "State" before the title | Before A3 |
+| 11 | **Recall check on the floor** (added 20 Nov) | not measured: D1 and D2 measure precision only | Anas does it for press (A3) | **Do it**: 30 turns, one hour | Before Sun 22 Nov |
 
 ---
 
@@ -176,6 +179,60 @@ turn"; in press it is "named in a release". Both are directed (who names whom). 
 next to the yield rule.
 
 ---
+
+## 9. Nicknames as first names (added 20 Nov)
+
+**Problem.** When two members share a surname, the matcher picks the right one by the first name in
+`members.csv`. That is the official first name, so a member known by a nickname is dropped when named that way.
+
+**Evidence** (one run of your matcher, 20 Nov):
+
+| Text | Result |
+|---|---|
+| "Rep. Hank Johnson (D-GA) joined." | dropped (shared surname), even with the state tag next to it |
+| "Rep. Henry Johnson joined." | J000288, by first name |
+| "Rep. Bobby Scott", "Rep. Chris Smith", "Rep. Buddy Carter", "Rep. Hal Rogers", "Rep. Chuy Garcia" | all dropped |
+
+Six members have this problem: the 19 members with a nickname in `unitedstates/congress-legislators`
+(`name.nickname`), crossed with the shared surnames. Floor text (section H, turns of 50+ words) has about 72
+uses of these six nickname forms (Chuy García 31, Chris Smith 15, Bobby Scott 14, Buddy Carter 8, Hank Johnson 2,
+Hal Rogers 2). `mentions.parquet` has 54 mentions of the six in total and none of Hal Rogers. Not all 72 are
+mentions (some are untitled or quoted), so this is the size of the problem, not the number of lost rows.
+
+**Proposed change.** Accept the nickname as a second first name. The nicknames are in the same
+`legislators-current.json` that `scripts/roster.py` already reads, so no new source is needed: about five lines
+in `Matcher.__init__`, plus a test per member above.
+
+**Course idea.** Week 7: one person, several names. The aliases list for named entities.
+
+**Also worth a test:** the state tag `(D-GA)` did not break the tie here. Item 4 says tags are handled on the
+press side, so this does not change your matcher, but a test would document it.
+
+## 10. State legislators (added 20 Nov)
+
+**Problem.** Press releases about home-state issues name state legislators: "State Representative Smith",
+"State Sen. Johnson". With a title followed by a House surname, the matcher would count them as the House member.
+
+**Proposed change.** Skip a match when the title is preceded by "State" (or "Assemblyman", "Delegate" in states
+that use those words). Add a test. Not measured yet; A3 will count how often it happens in press releases.
+
+## 11. Recall check on the floor (added 20 Nov)
+
+**Problem.** The matcher's precision is measured: 98 of 100 in Diego's D2 sample (G10), where code X marks a
+wrong match. Its recall is not. A sample drawn from `mentions.parquet` contains only names the matcher found,
+so a missed name (item 9's nicknames, an unknown alias) can never show up in it. Part 1's floor map, part 2's
+sample and part 3's press mentions all depend on recall.
+
+**Proposed check.** Draw 30 floor turns at random from the turns `build_mentions.py` keeps (fixed seed). Read
+each and list every House member named, in any form. Count how many the matcher finds. Report recall with a 95%
+interval and the forms it missed. About an hour; the same check on 30 press releases is in Anas's plan (A3,
+`methods_drafts.md` check 5), so the paper can give recall for both sources.
+
+**Why before Sun 22 Nov.** If recall turns out low for a fixable reason (nicknames, lists), the fix has to land
+before the freeze. If it is fine, the number goes in Methods as it is.
+
+**What the paper can say.** *"The matcher found [x]% of named members in 30 hand-read floor turns and [y]% in
+30 press releases."* No alias list is complete, so this is reported as a measured limitation, not removed.
 
 ## Files
 
