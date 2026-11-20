@@ -1,0 +1,14 @@
+{
+ "frozen_at": "2026-11-20T15:04:16",
+ "snapshot": "press releases collected 20 Nov 2026",
+ "rows": 55023,
+ "repo_commit": "75c67ae7ffa2a900174647249aa5f50c6396101c",
+ "files": {
+  "press_releases_part1of3.parquet": "fef22a6e99d6f8c9f2f03633b8922cb8e675a6f19b3ad3161919ad1ba54ac1d9",
+  "press_releases_part2of3.parquet": "346755da9b878b0cdb11e554c735fa0cd0c08692dc3b642fbb05220d72a5975a",
+  "press_releases_part3of3.parquet": "d57a3148f7dff222193539f47f2043eed53eac4132f207697072588feb8b1de2",
+  "members.csv": "527a8a90bd81f11c117227c3f9f679ba55a8225b16fc9a6cd2cd7ecbcd99ac5d",
+  "Martin/matcher.py": "ecddefe448e2aa60f4977a369d561558f52abc200572951fb511bd9aff7e662c",
+  "Martin/build_mentions.py": "21a5dfa6f76cf48a336662542df793cc5fc007b7d60e53ca100f8a00e687b229"
+ }
+}

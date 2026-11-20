@@ -32,6 +32,7 @@ import sys
 import threading
 import time
 import urllib.robotparser
+from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 from urllib.parse import urljoin, urlparse
 
@@ -59,6 +60,10 @@ BODY_SELECTORS = [
 # Blocks inside a container that are not the release itself.
 DROP = re.compile(r"related|recent|slider|share|social|sidebar|breadcrumb|pager|pagination|subscribe|newsletter|"
                   r"tags?\b|categor|nav|menu|footer|header|comment|print|signup|sign-up|widget|carousel", re.I)
+# Wrappers that look like DROP but hold release text (audit of all kept releases, 20 Nov): emails pasted into the
+# site (newsletterContent, subscriber-only, header-bar), Word (MsoCommentText), CKEditor embeds (cke_widget).
+KEEP = re.compile(r"newsletter_?content|subscriber|header-bar|MsoComment|cke_widget", re.I)
+ALWAYS_DROP = re.compile(r"related|recent|slider|carousel|share|social", re.I)
 
 
 # ----------------------------------------------------------------------------------------------- fetching
@@ -153,10 +158,18 @@ def listing_dates(soup):
     return out
 
 
+UUID_TAIL = re.compile(r"/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/?$", re.I)
+NOT_RELEASE = re.compile(r"/(page|table|feed|rss)(/|$)")
+
+
 def release_links(listing_url, soup):
     """Links on a listing page that point to single releases on the same site."""
     host, path = urlparse(listing_url).netloc, urlparse(listing_url).path.rstrip("/")
     seg = path.split("/")[-1] if path else ""        # WordPress: /category/press-releases/ lists /press-releases/<slug>/
+    # links inside the listed posts of a WordPress category page (posts live at the site root, /<slug>/):
+    # <article> (Brownley) or <div class="post"> (Clarke)
+    in_post = {id(a) for art in soup.select("article, div.post") for a in art.find_all("a", href=True)} \
+        if "/category/" in path else set()
     out, seen = [], set()
     for a in soup.find_all("a", href=True):
         full = urljoin(listing_url, htmlmod.unescape(a["href"])).split("#")[0]
@@ -167,15 +180,53 @@ def release_links(listing_url, soup):
         ok = ("documentsingle.aspx" in low and "documentid=" in low) \
             or (p.path.rstrip("/") == path and re.search(r"(^|&)id=[\w-]{6,}", p.query, re.I)) \
             or (path and p.path.startswith(path + "/") and not p.query
-                and not re.search(r"/(page|table|feed|rss)(/|$)", p.path) and p.path.rstrip("/") != path) \
-            or (re.match(r"^/20\d\d/\d{1,2}/(\d{1,2}/)?[^/]+/?$", p.path) and not p.query) \
+                and not NOT_RELEASE.search(p.path) and p.path.rstrip("/") != path) \
+            or (re.match(r"^/20\d\d/\d{1,2}/(\d{1,2}/)?[^/]+/?$", UUID_TAIL.sub("", p.path)) and not p.query) \
             or ("/category/" in path and seg and re.search(rf"/{re.escape(seg)}/[^/]+/?$", p.path)
                 and "/category/" not in p.path and not p.query)
-        key = full.lower().rstrip("/")                # the same page linked as /News/ and /news/ (Cuellar)
+        # evo Drupal sites list /media/press-releases but link /media-center/press-releases/<slug> (Radewagen,
+        # DeGette, Keating, Foster), /media/press-releases/<slug> (Crow) or /press-releases/<slug> (Scalise)
+        # (also singular: Amo lists /press-releases but links /press-release/<slug>)
+        if not ok and "press-release" in seg.lower() and not p.query and not NOT_RELEASE.search(p.path):
+            ok = bool(re.search(r"/press[-_]releases?/[^/]+/?$", p.path, re.I))
+        # (tested and rejected: any path inside a listed post picks up issue and newsletter pages, Jayapal,
+        # Jeffries; Goodlander's one press release filed at /media/in-the-news/<slug>/ stays a known miss)
+        if not ok and id(a) in in_post and not p.query and not NOT_RELEASE.search(p.path) \
+                and re.fullmatch(r"/[^/]+/?", p.path) and not re.search(r"/(category|tag|author)/", p.path):
+            ok = True
+        # the same page linked as /News/ and /news/ (Cuellar), or as /2025/1/<slug> and /2025/1/<slug>/<uuid>
+        key = UUID_TAIL.sub("", full.lower().rstrip("/")).rstrip("/")
         if ok and key not in seen:
             seen.add(key)
             out.append(full)
     return out
+
+
+def link_dates(listing_url, soup, wanted):
+    """The date shown next to each release link on a listing page: the nearest enclosing block (up to 5 levels)
+    that holds exactly one distinct date. Blocks with several dates (a whole list) are ambiguous and skipped."""
+    out = {}
+    page = Counter(listing_dates(BeautifulSoup(str(soup), "lxml")))
+    for a in soup.find_all("a", href=True):
+        full = urljoin(listing_url, htmlmod.unescape(a["href"])).split("#")[0]
+        if full not in wanted or full in out:
+            continue
+        for par in list(a.parents)[:5]:
+            ds = set(text_dates(par.get_text(" ")))
+            if len(ds) == 1:
+                out[full] = ds.pop()
+                break
+            if len(ds) > 1:
+                # an item whose title quotes a date ("September 11, 2001"): the one the page uses as an item date
+                cand = [x for x in ds if page[x]]
+                if len(cand) == 1:
+                    out[full] = cand[0]
+                break
+    # guard (checked on 80 members: 722 of 733 agree with the release's own date within a day): a date must be one
+    # the page shows as an item date, and may not be handed to more links than the page shows it (a sidebar date
+    # attached to many items, McClain; "September 11, 2001" quoted in a title)
+    used = Counter(out.values())
+    return {l: d for l, d in out.items() if page[d] and used[d] <= page[d]}
 
 
 def pager(listing, kind, offset):
@@ -244,23 +295,31 @@ def parse_release(url, h):
     if body is None:
         return dict(title=title, date=date, date_source=src, text=None, selector=None)
     drop = []
+    body_words = len(body.get_text(" ", strip=True).split())
     for el in body.find_all(True):
         ident = " ".join(el.get("class", []) or []) + " " + (el.get("id") or "")
-        if ident.strip() and DROP.search(ident) and len(el.get_text(" ", strip=True).split()) < 400:
+        n = len(el.get_text(" ", strip=True).split())
+        # a block holding most of the body is the release itself, whatever its class says (Boebert's
+        # "header-bar", Hoyer's "x_newsletterContent"); text pasted from Word or an email keeps its wrappers
+        # ...but a slider or "related posts" block is never the release, however large (McBath, Neal, Whitesides:
+        # posts with no text of their own, where only the slider of other posts is left)
+        if ident.strip() and DROP.search(ident) and not KEEP.search(ident) and n < 400 \
+                and (n < 0.5 * body_words or ALWAYS_DROP.search(ident)):
             drop.append(el)
     for el in drop:                                   # outermost first; children of a dropped block go with it
         if not any(p in drop for p in el.parents):
             el.decompose()
     if date is None:
-        tm = body.find("time") or soup.find("time")
+        # a <time> outside the article is the template's, not the release's (Latta: 13 Nov 2017 on every page)
+        tm, tsrc = (body.find("time"), "time") if body.find("time") is not None else (soup.find("time"), "page time")
         if tm is not None:
             m = DATE_ISO.search(tm.get("datetime") or "") or None
             if m:
-                date, src = dt.date(*map(int, m.groups())), "time"
+                date, src = dt.date(*map(int, m.groups())), tsrc
             else:
                 d = text_dates(tm.get_text(" "))
                 if d:
-                    date, src = d[0], "time"
+                    date, src = d[0], tsrc
     if date is None:                                  # a visible date label, e.g. <span class="date"> (Steube)
         for el in body.select('[class*="date"], [class*="Date"]')[:3] + soup.select('[class*="date"]')[:3]:
             d = text_dates(el.get_text(" "))
@@ -342,7 +401,7 @@ def collect_member(row, raw, out, limit=None):
     rows, seen_pages = [], []
     url_of = pager(listing, kind, int(row.get("offset", 1) or 1))
     max_pages = int(row["boundary_page"]) + 4 if pd.notna(row.get("boundary_page")) else 200
-    links, stop, failed_releases = [], None, 0
+    links, stop, failed = [], None, []
     n = 0
     while True:
         u = listing if n == 0 or url_of is None else url_of(n)
@@ -355,25 +414,37 @@ def collect_member(row, raw, out, limit=None):
                 listing, kind = new, ("wp" if "/category/" in new else kind)
                 url_of = pager(listing, kind, 1)
                 continue
+        if h is None and n > 0 and site.fails and site.fails[-1][1] == "HTTP 404":
+            # a WordPress listing answers 404 past its last page (Baumgartner, page 11): the listing has ended
+            stop = "listing ended (404 past last page)"
+            break
         if h is None:
             stop = "listing fetch failed"
             break
         soup = BeautifulSoup(h, "lxml")
         new = [l for l in release_links(listing, soup) if l not in links]
         ds = listing_dates(BeautifulSoup(h, "lxml"))
-        if not new or (ds and ds in seen_pages):                    # nothing new, or the site repeats a page
+        # nothing new, or the site repeats a page. A "repeat" needs a real page of dates: Jeffries' pages show only
+        # two fixed sidebar dates, identical on every page, which cut his walk at 10 of 709 releases
+        if not new or (len(ds) >= 5 and ds in seen_pages):
             stop = "no new links" if n > 0 else "no links on the first page"
             break
         seen_pages.append(ds)
         links += new
         page_dates = []
+        shown = link_dates(listing, soup, set(new))
         for l in new[: (limit - len(rows)) if limit else None]:
             r = fetch_release(site, b, l, listing, kind)
             if r is None:
-                failed_releases += 1
+                failed.append((l, site.fails[-1][1] if site.fails else ""))
             elif r == "no body":
                 pass
             else:
+                # a release page without a date of its own, or with only a date quoted in its text, takes the date
+                # shown next to its link on the listing (Latta: quoted 2023 dates dropped 6 of 20 releases)
+                # (also over <time> and date labels: the listing agrees with page metadata for 717 of 718 links)
+                if r["date_source"] in (None, "body text", "page time", "time", "date element") and l in shown:
+                    r["date"], r["date_source"] = shown[l], "listing"
                 if r["date"] is not None:
                     page_dates.append(r["date"])
                 if r["date"] is None or r["date"] >= SINCE:
@@ -381,7 +452,9 @@ def collect_member(row, raw, out, limit=None):
         if url_of is None:
             stop = "single page (no pager)"
             break
-        if (ds and max(ds) < SINCE) or (page_dates and max(page_dates) < SINCE):
+        # a real page of listing dates decides the cut-off on its own; release dates only when the listing has none
+        # (Latta: one misdated release on page 2 ended the walk at 14 of about 110)
+        if (max(ds) < SINCE) if len(ds) >= 5 else (page_dates and max(page_dates) < SINCE):
             stop = "reached cutoff"
             break
         if limit and len(links) >= limit:
@@ -391,12 +464,42 @@ def collect_member(row, raw, out, limit=None):
             stop = "page cap"
             break
         n += 1
+    # A 404 means the site itself has no such page: refetching cannot help, so it does not keep the member
+    # incomplete. It is logged and counted (missing_at_source). Most are links the site cut short
+    # ("...tribute-to-", Harder, Courtney) whose full link was collected; the rest are dead links (Wittman,
+    # DocumentID=6798). Connection errors and timeouts still count as failures and are retried by --skip-done.
+    got = {r["url"] for r in rows}
+    # a redirect loop (Goodlander: TooManyRedirects on 2 releases) is just as permanent on the site's side
+    gone = [u for u, why in failed if why in ("HTTP 404", "TooManyRedirects")]
+    missing_at_source = 0
+    for u in gone:
+        cut = any(o != u and o.startswith(u) and o in got for o in links)
+        missing_at_source += not cut
+        site.fails.append((u, "cut-short link; full link collected" if cut else "dead link on the site (404 or redirect loop)", 0))
+    failed_releases = len(failed) - len(gone)
+    # a release collected by an earlier run, dated in the window, that the listing no longer shows is kept and
+    # flagged listed=False: sites unlist releases whose pages stay online (Obernolte: 2 releases of March-April 2026
+    # left his listing on 20 Nov). Undated earlier rows are not carried over (Espaillat's turned out to be 2024)
+    for r in rows:
+        r["listed"] = True
+    prev_parquet = os.path.join(out, f"{b}.parquet")
+    if os.path.exists(prev_parquet):
+        prev_rows = pd.read_parquet(prev_parquet)
+        if len(prev_rows) and "date" in prev_rows:
+            keep = prev_rows[~prev_rows.url.isin(got) & prev_rows.date.notna()]
+            keep = keep[keep.date.map(lambda d: d >= SINCE)]
+            for r in keep.to_dict("records"):
+                r["listed"] = False
+                rows.append(r)
     df = pd.DataFrame(rows)
     os.makedirs(out, exist_ok=True)
-    complete = stop in ("reached cutoff", "no new links", "single page (no pager)") and failed_releases == 0
+    complete = stop in ("reached cutoff", "no new links", "single page (no pager)",
+                        "listing ended (404 past last page)") and failed_releases == 0
     old = os.path.join(out, f"{b}.status.json")
-    if os.path.exists(old) and json.load(open(old)).get("complete") and not complete:
-        # never replace a complete earlier result with a worse one (a site that failed today)
+    prev = json.load(open(old)) if os.path.exists(old) else {}
+    if prev.get("complete") and not complete and prev.get("releases", 0) >= len(df):
+        # never replace a complete earlier result with a worse one (a site that failed today); but a run that
+        # found more releases always wins (Goodlander: an earlier "complete" 15 against a new 357)
         site.fails.append((listing, f"run incomplete ({stop}); kept the earlier complete result", 0))
         pd.DataFrame(site.fails, columns=["url", "reason", "tries"]).assign(bioguide=b).to_csv(
             os.path.join(out, f"{b}.retry.log.csv"), index=False)
@@ -405,7 +508,8 @@ def collect_member(row, raw, out, limit=None):
     pd.DataFrame(site.fails, columns=["url", "reason", "tries"]).assign(bioguide=b).to_csv(
         os.path.join(out, f"{b}.log.csv"), index=False)
     status = dict(bioguide=b, listing=listing, layout=kind, stop=stop, pages=n + 1, links=len(links),
-                  releases=len(df), failed_releases=failed_releases, complete=complete,
+                  releases=len(df), failed_releases=failed_releases, missing_at_source=missing_at_source,
+                  complete=complete,
                   finished_at=dt.datetime.now().isoformat(timespec="seconds"))
     json.dump(status, open(os.path.join(out, f"{b}.status.json"), "w"))
     return b, len(links), len(df), len(site.fails), int(df.date.isna().sum()) if len(df) else 0, stop, complete
@@ -440,7 +544,8 @@ def main():
              for x in json.load(open(os.path.join(d, f))) if x.get("status") == "ok"}
     sc["boundary_page"] = sc.bioguide.map(pages)
     extra = pd.read_csv(os.path.join(os.path.dirname(os.path.abspath(__file__)), "extra_listings.csv"))
-    sc = pd.concat([sc, extra.assign(status="ok")], ignore_index=True)   # listings the scan missed (README)
+    # listings the scan missed, or got wrong (Brownley pages with ?paged=N): an extra row replaces the scan's row
+    sc = pd.concat([sc, extra.assign(status="ok")], ignore_index=True).drop_duplicates("bioguide", keep="last")
     if a.members != "all":
         sc = sc[sc.bioguide.isin(a.members.split(","))]
 
