@@ -1,0 +1,181 @@
+sample_id,tab,anas,anas_resolved,rater1,rater2,rater3,majority
+untitled_full_name_01,untitled full name,y,y,y,y,y,y
+untitled_full_name_02,untitled full name,y,y,y,y,y,y
+untitled_full_name_03,untitled full name,y,y,y,y,y,y
+untitled_full_name_04,untitled full name,y,y,y,y,y,y
+untitled_full_name_05,untitled full name,y,y,y,y,y,y
+untitled_full_name_06,untitled full name,y,y,y,y,y,y
+untitled_full_name_07,untitled full name,y,y,y,y,y,y
+untitled_full_name_08,untitled full name,y,y,y,y,y,y
+untitled_full_name_09,untitled full name,y,y,y,y,y,y
+untitled_full_name_10,untitled full name,y,y,y,y,y,y
+untitled_full_name_11,untitled full name,y,y,y,y,y,y
+untitled_full_name_12,untitled full name,y,y,y,y,y,y
+untitled_full_name_13,untitled full name,y,y,y,y,y,y
+untitled_full_name_14,untitled full name,y,y,y,y,y,y
+untitled_full_name_15,untitled full name,y,y,y,y,y,y
+untitled_full_name_16,untitled full name,y,y,y,y,y,y
+untitled_full_name_17,untitled full name,y,y,y,y,y,y
+untitled_full_name_18,untitled full name,y,y,y,y,y,y
+untitled_full_name_19,untitled full name,y,y,y,y,y,y
+untitled_full_name_20,untitled full name,y,y,y,y,y,y
+untitled_full_name_21,untitled full name,y,y,y,y,y,y
+untitled_full_name_22,untitled full name,y,y,y,y,y,y
+untitled_full_name_23,untitled full name,y,y,y,y,y,y
+untitled_full_name_24,untitled full name,y,y,y,y,y,y
+untitled_full_name_25,untitled full name,y,y,y,y,y,y
+untitled_full_name_26,untitled full name,y,y,y,y,y,y
+untitled_full_name_27,untitled full name,y,y,y,y,y,y
+untitled_full_name_28,untitled full name,y,y,y,y,y,y
+untitled_full_name_29,untitled full name,y,y,y,y,y,y
+untitled_full_name_30,untitled full name,y,y,y,y,y,y
+list_01,list,y,y,y,y,y,y
+list_02,list,y,y,y,y,y,y
+list_03,list,y,y,y,y,y,y
+list_04,list,y,y,y,y,y,y
+list_05,list,y,y,y,y,y,y
+list_06,list,y,y,y,y,y,y
+list_07,list,y,y,y,y,y,y
+list_08,list,y,y,y,y,y,y
+list_09,list,y,y,y,y,y,y
+list_10,list,y,y,y,y,y,y
+list_11,list,y,y,y,y,y,y
+list_12,list,y,y,y,y,y,y
+list_13,list,y,y,y,y,y,y
+list_14,list,y,y,y,y,y,y
+list_15,list,y,y,y,y,y,y
+list_16,list,y,y,y,y,y,y
+list_17,list,y,y,y,y,y,y
+list_18,list,y,y,y,y,y,y
+list_19,list,y,y,y,y,y,y
+list_20,list,y,y,y,y,y,y
+list_21,list,y,y,y,y,y,y
+list_22,list,y,y,y,y,y,y
+list_23,list,y,y,y,y,y,y
+list_24,list,y,y,y,y,y,y
+list_25,list,y,y,y,y,y,y
+list_26,list,y,y,y,y,y,y
+list_27,list,y,y,y,y,y,y
+list_28,list,y,y,y,y,y,y
+list_29,list,y,y,y,y,y,y
+list_30,list,?,?,y,y,y,y
+alias_first_name_01,alias first name,y,y,y,y,y,y
+alias_first_name_02,alias first name,y,y,y,y,y,y
+alias_first_name_03,alias first name,y,y,y,y,y,y
+alias_first_name_04,alias first name,y,y,y,y,y,y
+alias_first_name_05,alias first name,y,y,y,y,y,y
+alias_first_name_06,alias first name,y,y,y,y,y,y
+alias_first_name_07,alias first name,n,y,y,y,y,y
+alias_first_name_08,alias first name,y,y,y,y,y,y
+alias_first_name_09,alias first name,y,y,y,y,y,y
+alias_first_name_10,alias first name,y,y,y,y,y,y
+alias_first_name_11,alias first name,y,y,y,y,y,y
+alias_first_name_12,alias first name,y,y,y,y,y,y
+alias_first_name_13,alias first name,?,y,y,y,y,y
+alias_first_name_14,alias first name,n,y,y,y,y,y
+alias_first_name_15,alias first name,y,y,y,y,y,y
+alias_first_name_16,alias first name,?,y,y,y,y,y
+alias_first_name_17,alias first name,y,y,y,y,y,y
+alias_first_name_18,alias first name,y,y,y,y,y,y
+alias_first_name_19,alias first name,y,y,y,y,y,y
+alias_first_name_20,alias first name,y,y,y,y,y,y
+alias_first_name_21,alias first name,?,y,y,y,y,y
+alias_first_name_22,alias first name,?,y,y,y,y,y
+alias_first_name_23,alias first name,y,y,y,y,y,y
+alias_first_name_24,alias first name,y,y,y,y,y,y
+alias_first_name_25,alias first name,y,y,y,y,y,y
+alias_first_name_26,alias first name,?,y,y,y,y,y
+alias_first_name_27,alias first name,y,y,y,y,y,y
+alias_first_name_28,alias first name,y,y,y,y,y,y
+alias_first_name_29,alias first name,y,y,y,y,y,y
+alias_first_name_30,alias first name,y,y,y,y,y,y
+party-state_tag_01,party-state tag,y,y,y,y,y,y
+party-state_tag_02,party-state tag,n,y,y,y,y,y
+party-state_tag_03,party-state tag,y,y,y,y,y,y
+party-state_tag_04,party-state tag,n,y,y,y,y,y
+party-state_tag_05,party-state tag,?,y,y,y,y,y
+party-state_tag_06,party-state tag,?,y,y,y,y,y
+party-state_tag_07,party-state tag,y,y,y,y,y,y
+party-state_tag_08,party-state tag,y,y,y,y,y,y
+party-state_tag_09,party-state tag,y,y,y,y,y,y
+party-state_tag_10,party-state tag,?,y,y,y,y,y
+party-state_tag_11,party-state tag,n,y,y,y,y,y
+party-state_tag_12,party-state tag,n,y,y,y,y,y
+party-state_tag_13,party-state tag,?,y,y,y,y,y
+party-state_tag_14,party-state tag,y,y,y,y,y,y
+party-state_tag_15,party-state tag,y,y,y,y,y,y
+party-state_tag_16,party-state tag,?,y,y,y,y,y
+party-state_tag_17,party-state tag,?,y,y,y,y,y
+party-state_tag_18,party-state tag,n,y,y,y,y,y
+party-state_tag_19,party-state tag,y,y,y,y,y,y
+party-state_tag_20,party-state tag,y,y,y,y,y,y
+party-state_tag_21,party-state tag,y,y,y,y,y,y
+party-state_tag_22,party-state tag,n,y,y,y,y,y
+party-state_tag_23,party-state tag,?,y,y,y,y,y
+party-state_tag_24,party-state tag,y,y,y,y,y,y
+party-state_tag_25,party-state tag,y,y,y,y,y,y
+party-state_tag_26,party-state tag,?,y,y,y,y,y
+party-state_tag_27,party-state tag,y,y,y,y,y,y
+party-state_tag_28,party-state tag,?,y,y,y,y,y
+party-state_tag_29,party-state tag,y,y,y,y,y,y
+party-state_tag_30,party-state tag,y,y,y,y,y,y
+own_surname_01,own surname,n,y,y,y,y,y
+own_surname_02,own surname,?,y,y,y,y,y
+own_surname_03,own surname,?,y,y,y,y,y
+own_surname_04,own surname,?,y,y,y,y,y
+own_surname_05,own surname,?,y,y,y,y,y
+own_surname_06,own surname,?,y,y,y,y,y
+own_surname_07,own surname,?,y,y,y,y,y
+own_surname_08,own surname,?,y,y,y,y,y
+own_surname_09,own surname,?,y,y,y,y,y
+own_surname_10,own surname,?,y,y,y,y,y
+own_surname_11,own surname,?,y,y,y,y,y
+own_surname_12,own surname,?,y,y,y,y,y
+own_surname_13,own surname,?,y,y,y,y,y
+own_surname_14,own surname,?,y,y,y,y,y
+own_surname_15,own surname,?,y,y,y,y,y
+own_surname_16,own surname,?,y,y,y,y,y
+own_surname_17,own surname,?,y,y,y,y,y
+own_surname_18,own surname,?,y,y,y,y,y
+own_surname_19,own surname,y,y,y,y,y,y
+own_surname_20,own surname,?,y,y,y,y,y
+own_surname_21,own surname,?,y,y,y,y,y
+own_surname_22,own surname,?,y,y,y,y,y
+own_surname_23,own surname,?,y,y,y,y,y
+own_surname_24,own surname,?,y,y,y,y,y
+own_surname_25,own surname,?,y,y,y,y,y
+own_surname_26,own surname,?,y,y,y,y,y
+own_surname_27,own surname,?,y,y,y,y,y
+own_surname_28,own surname,?,y,y,y,y,y
+own_surname_29,own surname,?,y,y,y,y,y
+own_surname_30,own surname,?,y,y,y,y,y
+state_legislator_01,state legislator,y,y,y,y,y,y
+state_legislator_02,state legislator,y,y,y,y,y,y
+state_legislator_03,state legislator,y,y,y,y,y,y
+state_legislator_04,state legislator,y,y,y,y,y,y
+state_legislator_05,state legislator,y,y,y,y,y,y
+state_legislator_06,state legislator,y,y,y,y,y,y
+state_legislator_07,state legislator,y,y,y,y,y,y
+state_legislator_08,state legislator,y,y,y,y,y,y
+state_legislator_09,state legislator,y,y,y,y,y,y
+state_legislator_10,state legislator,y,y,y,y,y,y
+state_legislator_11,state legislator,y,y,y,y,y,y
+state_legislator_12,state legislator,n,y,y,y,y,y
+state_legislator_13,state legislator,y,y,y,y,y,y
+state_legislator_14,state legislator,n,n,n,n,n,n
+state_legislator_15,state legislator,y,y,y,y,y,y
+state_legislator_16,state legislator,y,y,y,y,y,y
+state_legislator_17,state legislator,y,y,y,y,y,y
+state_legislator_18,state legislator,y,y,y,y,y,y
+state_legislator_19,state legislator,y,y,y,y,y,y
+state_legislator_20,state legislator,y,y,y,y,y,y
+state_legislator_21,state legislator,y,y,y,y,y,y
+state_legislator_22,state legislator,y,y,y,y,y,y
+state_legislator_23,state legislator,n,n,n,n,n,n
+state_legislator_24,state legislator,y,y,y,y,y,y
+state_legislator_25,state legislator,y,y,y,y,y,y
+state_legislator_26,state legislator,y,y,y,y,y,y
+state_legislator_27,state legislator,y,y,y,y,y,y
+state_legislator_28,state legislator,y,y,y,y,y,y
+state_legislator_29,state legislator,y,y,y,y,y,y
+state_legislator_30,state legislator,n,y,y,y,y,y

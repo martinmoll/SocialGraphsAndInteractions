@@ -2,6 +2,7 @@ bioguide,name,listing,kind,source
 C001132,Elijah Crane,https://crane.house.gov/category/press_releases/,wp,"WordPress API category search (/wp-json/wp/v2/categories?search=press), 20 Nov 2026"
 H001047,James A. Himes,https://himes.house.gov/category/press-releases/,wp,"WordPress API category search (/wp-json/wp/v2/categories?search=press), 20 Nov 2026"
 N000193,Zachary Nunn,https://nunn.house.gov/category/news/press-releases/,wp,"WordPress API category search (/wp-json/wp/v2/categories?search=press), 20 Nov 2026"
-G000604,Maggie Goodlander,https://goodlander.house.gov/media/category/press-releases/,wp,"WordPress API category search (/wp-json/wp/v2/categories?search=press), 20 Nov 2026"
+G000604,Maggie Goodlander,https://goodlander.house.gov/media/category/press-releases/,param:query-79-page,"WordPress API category search (/wp-json/wp/v2/categories?search=press), 20 Nov 2026; pager is ?query-79-page=N (WordPress block pager): /page/N/ repeats page 1 (20 Nov 2026). WP API total since 3 Jan 2025 = 360"
 J000294,Hakeem S. Jeffries,https://jeffries.house.gov/category/press-release/,wp,"WordPress API category search (/wp-json/wp/v2/categories?search=press), 20 Nov 2026"
 J000298,Pramila Jayapal,https://jayapal.house.gov/category/press-releases/,wp,"WordPress API category search (/wp-json/wp/v2/categories?search=press), 20 Nov 2026"
+B001285,Julia Brownley,https://juliabrownley.house.gov/category/press-releases/,param:paged,"Listing pager is ?paged=N, not /page/N/ (listing page HTML, 20 Nov 2026); WP API total since 3 Jan 2025 = 169"

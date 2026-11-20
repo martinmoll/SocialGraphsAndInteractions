@@ -1,8 +1,39 @@
 # Anas: status, findings and proposals
 
-Anas, Friday 20 November 2026. **Start here.** This replaces `REVISIONS_19NOV.md` and is kept up to date.
+Anas, Friday 20 November 2026 (last updated 20 Nov evening: A3.0 to A3.3 done, section 3). **Start here.** This
+replaces `REVISIONS_19NOV.md` and is kept up to date.
 **Proposals, not decisions:** parts 1 and 2 belong to Martin and Diego, who decide on anything in them. Agreed
 changes go into `DECISIONS.md` before the freeze on Sun 22 Nov (G7).
+
+## 0. Martin and Diego: what is proposed for your parts, on one page
+
+Everything below is a proposal; you decide for your own part. Agreed items go into `DECISIONS.md` before the
+freeze on **Sun 22 Nov**. Details: section 1 (order), section 4 (per part), `MATCHER_CHECKLIST.md` (matcher).
+
+**Why bother with these at all.** On DTU's scale a 12 is the excellent performance with *no or only a few minor
+weaknesses*. Our headline (two maps, one more divided than the other) is already in place; what separates a 10 from a
+12 is whether an examiner can find a weakness we did not see first. Each row closes one such weakness, and most cost
+an hour. A limitation we measured and report is a strength; one an examiner finds is a deduction.
+
+| # | Extension | Part | What it takes | If we do it | If we don't | Status |
+|---|---|---|---|---|---|---|
+| 1 | **Redrawn states** (9 states, 173 seats): exposure measured on the district members **served** (`lean_2025`), plus a check without the 21 members whose label changes | 3, Methods | Done (Anas) | Exposure means what members faced while they wrote | "Exposed" partly reflects a map drawn after the releases | You know this one |
+| 2 | **State null** (shuffle ties within states) as one robustness row | 1 | Yes or no from Martin; pilot ready (`state_null/`) | Answers "members only know their own delegation": state explains almost none of the division | An examiner can say the division is just geography | You know this one |
+| 3 | **Measured recall of the matcher.** Not a second matcher: the same one, checked for what it *misses*. Hand-read 30 floor turns (Martin) and 30 press releases (Anas), list every member named in any form, count how many the matcher finds | 1, 2, 3 | About an hour each; floor by Sun 22 Nov | Methods states: *"The matcher found x% of named members in 30 floor turns and y% in 30 releases"*, with the forms it missed | Our precision (98/100, Diego's D2) says nothing about missed names: a sample drawn from `mentions.parquet` can never contain a name the matcher missed. Every count in all three parts would rest on an unmeasured number | **New: please read.** Press precision measured 20 Nov (section 3); press recall next (A3.4) |
+| 4 | **Matcher fixes** that raise recall: nicknames (item 9: Hank Johnson, Bobby Scott, Chris Smith, Buddy Carter, Hal Rogers, Chuy García are dropped whenever named so), name lists (1), untitled full names (2), state legislators (10) | 1 (and so 2, 3) | Martin, `MATCHER_CHECKLIST.md`, by Sun 22 Nov | Recall (row 3) goes up before it is measured; six members stop disappearing | Six members are systematically under-counted on the floor map | Waiting for Martin |
+| 5 | **One recall sentence in part 2's limitations** | 2 | Diego, one sentence once row 3 has a number | Part 2 says plainly what hand codes can and cannot catch (wrong matches yes, missed names no) | The obvious examiner question about part 2 goes unanswered | Waiting for row 3 |
+| 6 | **Date window and leader list** fixed in writing before results | All | Group, Sun 22 Nov | Results cannot be accused of a window chosen after seeing them | Same | Open |
+| 7 | **Press data snapshot: 20 Nov 2026** (55,023 releases, 412 members; `press_releases/MANIFEST.md`) | 3, and the window in row 6 | Window must end on or before 20 Nov | All three parts cover the same days | Press and floor would cover different periods | Decided by Anas 20 Nov |
+| 8 | **One confusion table for the matcher** in Methods: TP, FP, FN, precision, recall, F1 per source (floor, press) | 1, 2, 3, Methods | Nothing extra: filled from D2 (precision), Martin's 30 turns and Anas's checks (recall); template in [`A3_PLAN.md`](A3_PLAN.md) section 8 | The matcher's quality in one place, measured cell by cell; one sentence explains why accuracy is left out (no meaningful true negatives) | Precision and recall stay scattered, and an examiner may ask why there is no accuracy | **New**, Anas |
+
+**Rows 3, 4, 5 and 8 belong together:** the fixes (4) raise recall, the check (3) measures what remains, the
+sentence (5) reports it for part 2, and the confusion table (8) puts precision and recall for floor and press in one
+place. No alias list is ever complete, so the goal is not 100%; it is a number we stand behind.
+
+**A lesson from the press collection that applies to the floor data too** (collector README): our first collector
+reported members as *complete* that held 10 of 709 releases (Jeffries) or 14 of 107 (Latta). Only an outside count
+caught it (the WordPress API, the dates the walk reached). "The code finished without errors" is not evidence that
+the data is complete; a count from an independent source is.
 
 ## 1. Priority list for the group
 
@@ -22,8 +53,8 @@ Ordered by how much depends on it. Items 1 and 2 matter to all three parts.
 
 | Done (in this folder) | In progress / next |
 |---|---|
-| Press-release scope, both parties (`press_scope/`), rechecked 19 Nov | **A1: built and tested; first 20 complete (G5 met); full collection running** (`collector/`) |
-| Matcher checklist for Martin, 11 items (`MATCHER_CHECKLIST.md`) | A2 to A6 |
+| Press-release scope, both parties (`press_scope/`), rechecked 19 Nov | **A1 and A2 done (20 Nov): 55,023 releases from 412 members**, in `press_releases/` (3 parts, read `MANIFEST.md`) |
+| Matcher checklist for Martin, 11 items (`MATCHER_CHECKLIST.md`) | **A3.0 to A3.3 done (20 Nov)**, scripts in `a3/`, plan in `A3_PLAN.md`. Next: A3.4 recall (by Sun 22 Nov), A3.5 to A3.7 (Mon 23 Nov), then A4 to A6 |
 | Seats per state, exposure, redrawn states (`state_seats/`) | `docs/AI_METHODS.md` |
 | Lean of the districts members served, 2026 districts run in, second lean measure, redraw dates (`district_lean/`) | Analysis plan for A4 (written while A1 runs) |
 | Proposal and pilot for a state null (`state_null/`) | |
@@ -94,13 +125,56 @@ Details in [`collector/README.md`](collector/README.md).
   twice; checked by hand on Begich and Loudermilk). The collector's counts replace the scan's 56,747.
 - **Eleven problems found and fixed in testing**, from duplicate URLs differing only in letter case to a site
   that moved to WordPress after 18 Nov (table in the README).
-- **Full collection of every countable member started 20 Nov, about 01:15**, four sites in parallel, 0.5 s per
-  site between requests, `robots.txt` followed. About 3 hours. Interrupted or failed members are retried with
-  `--skip-done`.
-- **Not collected:** Budzinski, Gottheimer, Gluesenkamp Perez, Morrison (listings load only with JavaScript);
-  the 12 who left office; Jordan (listing ends in 2024).
+- **Full collection done (20 Nov): 55,023 releases from 412 of 413 countable members**, dated 3 Jan 2025 to 20 Nov
+  2026, in [`press_releases/`](press_releases/MANIFEST.md): three files under GitHub's 25 MB limit, split by member
+  (every member in one file), checked to add up exactly to the whole. 100% dated; median 351 words.
+- **Audited before it was accepted.** Every fix was tested against the cached pages of all members (old and new
+  rules side by side), and the final table comes from one run of the final code; a second full run 15 minutes
+  later gave the same rows. The audit found members the first version had cut short while reporting them
+  complete: **Jeffries 10 of 709, Goodlander 15 of 360, Latta 14 of 107**, and none at all for Radewagen, DeGette,
+  Keating, Crow, Scalise, Hudson, Cole, Brownley, Clarke and Amo; plus 37 releases silently missed on 13 more
+  members (Fischbach 8, LaHood 5, Crenshaw, McClain and Stefanik 4 each, ...), 14 Espaillat releases from 2024
+  wrongly kept, and release text deleted or cut in 19 releases (12 members). All fixed (table in the collector
+  README).
+- **Independent check against the WordPress API** (37 members whose sites expose it): 26 equal; every other
+  difference explained (posts with no text, a 3 Jan time-zone edge, Carey's releases filed under another
+  category).
+- **The scope scan's counts are estimates, not the truth.** It counted dates on listing pages, and many sites
+  show two per release (Womack, Loudermilk, Foushee, Mace). For each of the 38 members more than 15% below the scan,
+  the collector holds what the listing holds and reaches back to January 2025 (or the member started later).
+- **Not collected:** Budzinski, Gottheimer, Gluesenkamp Perez (listings load only with JavaScript), Morrison
+  (listing answers "410 Gone", only her 20 newest releases are shown); the 12 who left office; Jordan (listing
+  ends in 2024). Known gaps inside the data: 28 posts with no text of their own (image or video), 3 dead links on
+  the sites (Wittman 1, Goodlander 2), 1 Goodlander release filed under "in the news".
+- **For A3:** some freshman sites carry House-wide template posts ("Newest Members of Congress") that name dozens
+  of members, and many members repeat a bio or press-contact paragraph in most releases (`check.py`, section 5).
+  The matcher should not count these as mentions.
 - **The A4 analysis plan is written** (`methods_drafts.md`) before any release has been analysed: outcome,
   groups, permutation test, and how each result will be read.
+
+### A3: from press releases to named colleagues (20 Nov)
+
+Plan, decisions and traps: [`A3_PLAN.md`](A3_PLAN.md). Scripts and full numbers: [`a3/README.md`](a3/README.md).
+Martin's matcher is used unchanged; everything A3 adds is a separate layer, so both versions stay visible.
+
+- **Inputs frozen** (A3.0): the three press files, `members.csv` and Martin's matcher at repo commit `75c67ae`,
+  by SHA-256. Every later step stops if any of them changes, so no result mixes two versions. Rerunning A3.0 to
+  A3.3 takes about two minutes.
+- **Shared matcher on the press text** (A3.2): 38,557 colleague mentions (once per release) in 18,308 releases;
+  29.4% cross-party. Two thirds of all hits are members naming themselves.
+- **Press layer** (A3.3) recovers what the matcher's title rule cannot see in releases: untitled full names,
+  name lists after "Reps.", nicknames (Hal Rogers, Chris Smith, Don Davis), party-state tags ("Rep. Smith
+  (R-NE)"), plus a guard for state legislators. Mentions rise to 123,147.
+- **Precision, every rule at or above 95%.** 30 random hits per rule, read by Anas and by three blind LLM readers
+  that saw only the excerpt and the member list. The three agreed on all 180 rows and with Anas's resolved reading
+  on 179. Every adding rule 30/30; the state-legislator guard 28/29 after a fix the reading found (a lowercase
+  verb, "reports further state Rep. Omar"). Limits and the two versions of the table: `a3/README.md`.
+- **New finding, signatory lists:** releases naming 10 or more colleagues are 12% of releases naming anyone but
+  hold 63% of mentions (6.9% cross-party). **Decision 8:** each colleague in a release gets weight 1/n, so every
+  release counts once in tie counts; plain counts from releases naming fewer than 10 as the robustness row.
+- **Next:** A3.4 recall on 30 hand-read releases (design question open: draw from releases containing any House
+  surname, so the sample does not depend on what the matcher found); A3.5 bills and co-leads; A3.6 flags;
+  A3.7 the press-mention file and the named examples.
 
 ## 4. Proposed revisions, part by part
 
@@ -147,14 +221,16 @@ Lawler, Bacon); the page budget.
 
 ## 5. Next steps (Anas)
 
-1. Finish the full collection (rerun with `--skip-done` if it stopped), run `check.py` on everyone, and explain
-   the three members 10 to 14% below the scan (Menefee, Crenshaw, Castro).
-2. Audit the text where a generic container was used (`body_selector` = `main`, `article`, `#main_column`) and
-   whether WordPress listings pick up sidebar posts from other categories.
-3. Split `press_releases.parquet` under 25 MB per file (by party or state) and add it to this folder.
-4. A3: party-leader list, matcher on the press text (with nicknames if item 9 is not done), release-to-bill
-   matching, caucus and redistricting flags, recall check on 30 releases.
-5. A4 by the draft on Tue 24 Nov.
+1. ~~Finish the full collection, check, split~~ Done 20 Nov (`press_releases/`). **Snapshot: 20 Nov 2026** (decided
+   20 Nov; needs the date window frozen on Sun 22 Nov to end on or before 20 Nov). A later update only if
+   something changes or a missed problem turns up: then the whole collector is rerun (about 15 minutes, release
+   pages come from the cache), never patched by hand, and the date and reason are logged in `collector/README.md`
+   and here.
+2. Audit the text where a generic container was used (`body_selector` = `main`, `article`, `#main_column`).
+3. A3: ~~freeze, prepare, shared matcher, press layer and its precision check~~ done 20 Nov. Left: **A3.4**
+   recall check (Sun 22 Nov), **A3.5** bills and co-leads, **A3.6** flags and tie weights, **A3.7** the
+   press-mention file and named examples (Mon 23 Nov).
+4. A4 by the draft on Tue 24 Nov.
 
 ## 6. Files in this folder
 
