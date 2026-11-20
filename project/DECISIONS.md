@@ -156,6 +156,22 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
   15 names) each add many ties.
 - **Source:** `Anas/MATCHER_CHECKLIST.md` items 1, 2, 3, 5, 9, 10; `Martin/m1_checks_20nov/README.md`.
 
+### G15. M5: how communities are found and compared
+- **Status:** Open, for Martin to confirm by Sun 22 Nov. Run 20 Nov with the choices below (`Martin/m5_communities.py`).
+- **Decision (proposed):** Louvain (resolution 1) on the same unweighted maps as M3, 50 seeds per map, best
+  partition kept; NMI with party on members with a tie, NMI between maps on members in both; baseline = Louvain on
+  degree-preserving rewirings. Committees from today's membership (unitedstates/congress-legislators), full
+  committees only; a tie "shares a committee" if the two members sit on one.
+- **Reason:** same maps and nulls as the rest of part 1, so the numbers can be read side by side. Louvain is the
+  course's method (week 4). Several seeds because one Louvain run is random.
+- **Alternatives and what they would change:** weighted working ties (NMI with party 0.75 instead of 0.83, one row
+  in `m5_table.csv`); a fixed number of communities, e.g. two, to force a party test (would hide the committee
+  structure); committee membership at the start of the term (not in our data; today's lists misplace members who
+  moved).
+- **What it found (first run):** working map = the two parties (NMI 0.83); floor map = 8 communities across party
+  (NMI 0.02), 7 of them a committee. 46% of floor ties join committee colleagues, 17.5% under rewiring.
+- **Source:** `Martin/m5_table.csv`, `Martin/m5_committees/committee_table.csv`.
+
 ### G9. Yields stay in the labelling sample
 - **Status:** Agreed Wed 18 Nov.
 - **Decision:** Diego's labelling sample (100 rows, already drawn) keeps the yields among them.

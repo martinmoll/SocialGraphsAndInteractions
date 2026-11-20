@@ -53,10 +53,10 @@ has not confirmed them. Confirm or change on 18 November.** Hours have not been 
 | M1 | Move the name matcher out of the notebook into `scripts/`, so floor speeches and press releases use the same one. First version by Wed 18 Nov, as it is in the notebook. The guard against senators and non-members can follow | One shared matcher: `Martin/matcher.py` | | In progress. 20 Nov (G14): nicknames, lists after plural titles, "State Rep." skipped, senators pinned by a test. Untitled full names built but off for the floor. **To do by Sun 22 Nov:** Martin's three hand checks in `Martin/m1_checks_20nov/` (recall on 30 turns, 30 untitled names, 20 list hits) |
 | M2 | Write `mentions.parquet` and `named_ties.csv` from the floor speeches. First version by Wed 18 Nov | The two files in section 3, in `Martin/` | M1 | In progress: rebuilt 20 Nov with the G14 matcher: 8,626 floor mentions, 4,931 directed pairs. Old rows all kept; row numbers map through `Martin/m1_checks_20nov/row_map.csv` |
 | M3 | Fix the definitions for part 1 in writing: how the working map is thinned, whether yields count, bill types | Definitions agreed by the group: `Martin/M3_PROPOSAL.md` | 18 Nov meeting | Decided 18 Nov (DECISIONS G1a–G1c): random working ties as headline, 200 draws; yields dropped from the headline; phrase rule. Applied. 20 Nov: 200 random working draws at the headline size done (28.6% against the floor's 39.2%, G1a). **Still to do by Sun 22 Nov:** code the 30 yield-check rows (`Martin/m3_yield_check/`); answer Anas on the state null |
-| M4 | Harder null: rewire while keeping who spoke in the same debate | A second null for the floor map: `Martin/m4_debate_null.ipynb` | M2 | In progress: first run. The floor map is more divided than all 200 debate rewirings; the debate structure explains about half of its party division |
-| M5 | Louvain communities on each map; overlap with party and between maps (NMI) | Numbers for Results | M3 | Not started |
+| M4 | Harder null: rewire while keeping who spoke in the same debate | A second null for the floor map: `Martin/m4_debate_null.ipynb` | M2 | In progress: rerun 20 Nov on the G14 mentions. Headline map Q 0.106 against 0.070 under the debate null (more divided than all 200): debates explain about two thirds |
+| M5 | Louvain communities on each map; overlap with party and between maps (NMI) | Numbers for Results: `Martin/m5_communities.py`, `Martin/m5_committees/` | M3 | First run 20 Nov: working map splits into the parties (NMI 0.83); floor map into 8 cross-party communities (NMI 0.02) that match committees (46% of floor ties inside a committee, 17.5% by chance). Choices to confirm (G15) |
 | M6 | Null for the close-up: of a member's own bills, are the cross-party ones announced more often than a random draw? | The fair baseline (fix 1) | A3 | Not started |
-| M7 | Figure 1 (the two maps and their division against the nulls); network part of Results | Figure, text | M3–M5 | Not started |
+| M7 | Figure 1 (the two maps and their division against the nulls); network part of Results | Figure, text | M3–M5 | First draft of the figure: `Martin/figures/figure1_draft.png`. Text not started |
 | M8 | The three slides: question and data; the main figure; what it means and how it was checked. PDF, no animations. **Due with the paper on 27 Nov** | Slides PDF | M7, A4, D2 | Not started |
 
 ### Anas: the home text (close-up)
@@ -161,6 +161,10 @@ From the earlier plans in `archive/`. Listed so nobody keeps working on them.
 
 Newest first. One line per change.
 
+- **20 Nov 2026.** Martin (with Claude): M4 rerun on the new mentions (debates explain about two thirds of the
+  headline map's division); M5 first run (floor communities are committees, not parties; G15 open); first draft of
+  Figure 1; Anas's state null rerun on the new mentions (Q 0.003 against 0.106). `Martin/README.md` now opens with
+  the current state.
 - **20 Nov 2026.** Martin (with Claude): matcher changes from Anas's checklist applied (G14); `mentions.parquet`
   rebuilt, 8,092 → 8,626 mentions, none lost, Diego's D2 rows checked. M3 table rerun with G1a's 200 random draws:
   headline floor map 39.2% cross-party (3,573 ties) against 28.6% (26.5–30.4%) for random working ties. Three hand

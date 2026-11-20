@@ -2,20 +2,50 @@
 
 Martin's own folder. Each member writes only in their own folder (`Diego/`, `Martin/`, `Anas/`) and never edits or deletes another's.
 
-Martin Møllenhus working with Claude (Anthropic's AI assistant), 16 November 2026. Claude wrote the code;
-the choices below are for Martin to defend and for the group to change on 18 November.
+Martin Møllenhus working with Claude (Anthropic's AI assistant). Claude wrote the code; every choice is
+Martin's to defend. **Start here: this top part is the current state (20 Nov). Everything from "What the others
+need to know" down is the 16–18 Nov record, kept for the reasons behind each choice.**
 
-| Task | File | State on 16 Nov |
+## Where things stand, 20 November
+
+**Headline numbers (draft, not frozen; see "Still open" below):**
+
+| What | Number | Where |
 |---|---|---|
-| M1 Shared name matcher | [`matcher.py`](matcher.py), [`nicknames.csv`](nicknames.csv) | **20 Nov:** nicknames, lists after plural titles, "State Rep." skipped, senators tested, untitled full names as an option (Anas's checklist items 9, 1, 10, 5, 2). Details and three hand checks for Martin in [`m1_checks_20nov/`](m1_checks_20nov/README.md) |
-| M2 Floor mentions | [`build_mentions.py`](build_mentions.py) → [`mentions.parquet`](mentions.parquet), [`named_ties.csv`](named_ties.csv) | **20 Nov:** 8,626 mentions, 4,931 directed pairs (18 Nov: 8,092 and 4,610). No old row lost; row numbers moved, see `m1_checks_20nov/row_map.csv` |
-| M3 Definitions for part 1 | [`M3_PROPOSAL.md`](M3_PROPOSAL.md), [`m3_definitions.py`](m3_definitions.py), [`m3_table.csv`](m3_table.csv) | Proposal for 18 Nov. Against working ties drawn at random the floor map's lead is 5 points (34.2% against 29.5% cross-party), not 22. A phrase-based yield rule finds 30 of 30 labelled yields |
-| M4 Harder null | [`m4_debate_null.ipynb`](m4_debate_null.ipynb), [`figures/m4_debate_null.png`](figures/m4_debate_null.png) | One run. The floor map is more divided than all 200 debate rewirings; the debate structure explains about half of its party division |
+| Floor map, yields dropped (headline, G1b) | 3,573 ties, **39.2%** cross-party, party Q 0.106 | `m3_table.csv` |
+| Working ties, 200 random draws of the same size (G1a) | **28.6%** (26.5% to 30.4%), Q 0.211; no draw reaches the floor | `m3_random_draws.csv` |
+| Gap | **10.6 points** | |
+| Floor map with yields | 4,058 ties, 35.1%, against 28.7% (26.9% to 30.7%) | `m3_table.csv` |
+| Strongest working ties (second comparison, G1a) | 12.5% | `m3_table.csv` |
+| Debate null (M4), headline map | Q 0.106 observed, 0.070 (0.059 to 0.079) under the null: debates explain about two thirds of the division; observed beyond all 200 | `m4_debate_null.ipynb` |
+| Communities (M5) | Working map: Louvain finds the two parties (NMI with party 0.83). Floor map: 8 communities that cut across party (NMI 0.02; 0.26 for working draws of the same size) | `m5_table.csv` |
+| Anas's state null, rerun on these mentions | Q 0.003 under the null (max 0.016, 50 draws) against 0.106: state explains almost none of the floor map's division. Same-state ties 9.0% against 3.7% by chance. Yes/no is Martin's | `../Anas/state_null/` |
+| What the floor communities are (M5) | **Committees.** 46% of floor ties join two members of one committee, against 17.5% under rewiring (working: 22% against 18.7%); 53% of cross-party floor ties. 7 of 8 communities match a committee (Appropriations, Ways and Means, Energy and Commerce, …); the 8th is leadership | `m5_committees/` |
 
-**The shared files are here, not in `data/processed/`**, because of the folder rule. Columns are the ones
-agreed in [`../WORK_AND_DEADLINES.md`](../WORK_AND_DEADLINES.md), section 3.
+| Task | Files | State |
+|---|---|---|
+| M1 Shared name matcher | [`matcher.py`](matcher.py), [`nicknames.csv`](nicknames.csv) | 20 Nov changes (G14). Hand checks open: [`m1_checks_20nov/`](m1_checks_20nov/README.md) |
+| M2 Floor mentions | [`build_mentions.py`](build_mentions.py) → [`mentions.parquet`](mentions.parquet), [`named_ties.csv`](named_ties.csv) | 8,626 mentions, 4,931 directed pairs. 18 Nov rows all kept; row numbers moved ([`row_map.csv`](m1_checks_20nov/row_map.csv)) |
+| M3 Definitions | [`m3_definitions.py`](m3_definitions.py), [`m3_table.csv`](m3_table.csv), [`m3_random_draws.csv`](m3_random_draws.csv) | Decided 18 Nov (G1a–G1c), applied. Yield check not yet coded ([`m3_yield_check/`](m3_yield_check/README.md)). [`M3_PROPOSAL.md`](M3_PROPOSAL.md) is the 16 Nov proposal, partly overruled |
+| M4 Debate null | [`m4_debate_null.ipynb`](m4_debate_null.ipynb) | Rerun 20 Nov on the new mentions |
+| M5 Communities | [`m5_communities.py`](m5_communities.py), [`m5_table.csv`](m5_table.csv), [`m5_committees/`](m5_committees/committee_check.py) | First run 20 Nov. Choices listed at the top of each script, **not yet confirmed by Martin** |
+| M6 Close-up null | | Not started: needs Anas's release-to-bill table (A3) |
+| M7 Figure 1 | [`m7_figure1.py`](m7_figure1.py) → [`figures/figure1_draft.png`](figures/figure1_draft.png) | First draft |
+| M8 Slides | | Not started |
 
-## What the others need to know
+**Still open before the freeze (Sun 22 Nov), Martin's:** code the three sheets in `m1_checks_20nov/` and the
+yield check; confirm G14 and the M5 choices; yes or no to Anas's state null. When a hand check changes a rule,
+rerun in this order: `build_mentions.py`, `m3_definitions.py`, `m4_debate_null.ipynb`, `m5_communities.py`,
+`m5_committees/committee_check.py`, `m7_figure1.py`.
+
+**What the committee result could mean for the paper (an idea, not a decision):** the floor map is less divided
+than the working map, and its cross-party ties sit mostly inside committees, between members who manage the same
+bills. That fits part 2 (cross-party mentions are mostly credit): crossing the aisle on the floor is largely
+committee work being thanked in public. Limits: committee membership is today's
+(unitedstates/congress-legislators, downloaded 20 Nov), and committee managers name each other partly because
+House procedure puts them in the same debates, which the M4 null already partly holds fixed.
+
+## What the others need to know (16–18 Nov)
 
 1. **Diego (D2):** draw the sample with
    `python Diego/d2_labelling/draw_labelling_sample.py Martin/mentions.parquet`. `context` is the sentence

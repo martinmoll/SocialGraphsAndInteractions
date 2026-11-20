@@ -1,5 +1,8 @@
 # M3: definitions for part 1, proposal for 18 November
 
+> **History, 20 Nov.** The group decided on 18 Nov (DECISIONS G1a–G1c) and overruled decision 2: yields are
+> dropped from the headline. Current numbers are in `README.md`, "Where things stand", not here.
+
 Martin Møllenhus with Claude, 16 November 2026. For the group to decide at the meeting. Every number comes
 from [`m3_definitions.py`](m3_definitions.py) (one run, seed 2805) and is in [`m3_table.csv`](m3_table.csv).
 **Observations, not results.**
