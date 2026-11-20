@@ -174,6 +174,19 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
   (NMI 0.02); in 7 of them one committee is 2.8 to 7.6 times as common as in the House. 46% of floor ties join committee colleagues, 17.5% under rewiring.
 - **Source:** `Martin/m5_table.csv`, `Martin/m5_committees/committee_table.csv`.
 
+### G16. The state null is one robustness row in part 1
+- **Status:** Agreed Fri 20 Nov by Martin, on Anas's proposal (`Anas/state_null/`, STATUS.md section 0, row 2).
+- **Decision:** add a null that keeps every member's number of ties and number of same-state ties
+  (`Martin/m3b_state_null.py`, Anas's function, 200 draws for the floor maps and 20 for the working map). One row
+  in the robustness table and one sentence in Results.
+- **Reason:** many state delegations are mostly one party, so a reader can ask whether the division is geography.
+  The answer is no: Q 0.002 under the null (max 0.026) against 0.106 for the headline floor map, and 0.006
+  against 0.210 for the working map. Same-state ties are over-represented (floor 9.0% against 3.7% by chance) but
+  are not what makes the maps divided.
+- **Alternative and what it would have changed:** leave it out. One fewer row; the geography objection is
+  unanswered.
+- **Source:** `Martin/m3b_state_null.csv`; Anas's pilot.
+
 ### G9. Yields stay in the labelling sample
 - **Status:** Agreed Wed 18 Nov.
 - **Decision:** Diego's labelling sample (100 rows, already drawn) keeps the yields among them.

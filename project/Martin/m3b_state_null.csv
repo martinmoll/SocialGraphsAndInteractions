@@ -1,0 +1,4 @@
+map,ties,same-state share,party Q,state null Q mean,state null Q max,cross-party share,state null cross mean,draws at least as divided,draws
+Floor: yields dropped (headline),3573,0.0901,0.1058,0.0025,0.0257,0.3924,0.4957,0,200
+Floor: all mentions,4058,0.089,0.1481,0.0018,0.0204,0.3512,0.4974,0,200
+Working: all ties,46513,0.0667,0.2105,0.0059,0.0087,0.2866,0.4911,0,20

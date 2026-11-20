@@ -161,6 +161,8 @@ From the earlier plans in `archive/`. Listed so nobody keeps working on them.
 
 Newest first. One line per change.
 
+- **20 Nov 2026.** Martin (with Claude): state null accepted as a part 1 robustness row (G16; Q 0.002 against
+  0.106); scoring script for the hand checks; first draft of the part 1 Results text (`Martin/results_part1_draft.md`).
 - **20 Nov 2026.** Audit (Martin with Claude): the list rule double-counted 4 names that followed a list with their own
   title; fixed with a test (8,626 → 8,622 mentions, no tie changed, M4 rerun). Claims corrected: only four of the six
   nickname members gain floor rows; the untitled-name threshold is Claude's proposal, not agreed.

@@ -19,7 +19,7 @@ need to know" down is the 16–18 Nov record, kept for the reasons behind each c
 | Strongest working ties (second comparison, G1a) | 12.5% | `m3_table.csv` |
 | Debate null (M4), headline map | Q 0.106 observed, 0.071 (0.061 to 0.084) under the null: debates explain about two thirds of the division; observed beyond all 200 | `m4_debate_null.ipynb` |
 | Communities (M5) | Working map: Louvain finds the two parties (NMI with party 0.83). Floor map: 8 communities that cut across party (NMI 0.02; 0.26 for working draws of the same size) | `m5_table.csv` |
-| Anas's state null, rerun on these mentions | Q 0.003 under the null (max 0.016, 50 draws) against 0.106: state explains almost none of the floor map's division. Same-state ties 9.0% against 3.7% by chance. Yes/no is Martin's | `../Anas/state_null/` |
+| State null (G16, accepted 20 Nov) | Q 0.002 under the null (max 0.026, 200 draws) against 0.106: state explains almost none of the floor map's division. Same-state ties 9.0% against 3.7% by chance | `m3b_state_null.csv` |
 | What the floor communities are (M5) | **Committees.** 46% of floor ties join two members of one committee, against 17.5% under rewiring (working: 22% against 18.7%); 53% of cross-party floor ties. In 7 of 8 communities one committee is 2.8 to 7.6 times as common as in the House (Appropriations 79% of members, Ways and Means 76%, Energy and Commerce 69%, …); the 8th has none and holds the party leaders | `m5_committees/` |
 
 | Task | Files | State |
@@ -32,9 +32,11 @@ need to know" down is the 16–18 Nov record, kept for the reasons behind each c
 | M6 Close-up null | | Not started: needs Anas's release-to-bill table (A3) |
 | M7 Figure 1 | [`m7_figure1.py`](m7_figure1.py) → [`figures/figure1_draft.png`](figures/figure1_draft.png) | First draft |
 | M8 Slides | | Not started |
+| Results text, part 1 | [`results_part1_draft.md`](results_part1_draft.md) | First draft, about 420 words, numbers not frozen |
+| Scoring the hand checks | [`m1_checks_20nov/score_checks.py`](m1_checks_20nov/score_checks.py) | Ready: scores whichever sheets are filled in, with 95% intervals |
 
 **Still open before the freeze (Sun 22 Nov), Martin's:** code the three sheets in `m1_checks_20nov/` and the
-yield check; confirm G14 and the M5 choices; yes or no to Anas's state null. When a hand check changes a rule,
+yield check; confirm G14 and the M5 choices (G15). Then run `python Martin/m1_checks_20nov/score_checks.py`. When a hand check changes a rule,
 rerun in this order: `build_mentions.py`, `m3_definitions.py`, `m4_debate_null.ipynb`, `m5_communities.py`,
 `m5_committees/committee_check.py`, `m7_figure1.py`.
 
