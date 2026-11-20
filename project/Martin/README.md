@@ -13,19 +13,19 @@ need to know" down is the 16–18 Nov record, kept for the reasons behind each c
 | What | Number | Where |
 |---|---|---|
 | Floor map, yields dropped (headline, G1b) | 3,573 ties, **39.2%** cross-party, party Q 0.106 | `m3_table.csv` |
-| Working ties, 200 random draws of the same size (G1a) | **28.6%** (26.5% to 30.4%), Q 0.211; no draw reaches the floor | `m3_random_draws.csv` |
+| Working ties, 200 random draws of the same size (G1a; the single-draw row in `m3_table.csv`, 27.0%, is one draw, use this) | **28.6%** (26.5% to 30.4%), Q 0.211; no draw reaches the floor | `m3_random_draws.csv` |
 | Gap | **10.6 points** | |
 | Floor map with yields | 4,058 ties, 35.1%, against 28.7% (26.9% to 30.7%) | `m3_table.csv` |
 | Strongest working ties (second comparison, G1a) | 12.5% | `m3_table.csv` |
-| Debate null (M4), headline map | Q 0.106 observed, 0.070 (0.059 to 0.079) under the null: debates explain about two thirds of the division; observed beyond all 200 | `m4_debate_null.ipynb` |
+| Debate null (M4), headline map | Q 0.106 observed, 0.071 (0.061 to 0.084) under the null: debates explain about two thirds of the division; observed beyond all 200 | `m4_debate_null.ipynb` |
 | Communities (M5) | Working map: Louvain finds the two parties (NMI with party 0.83). Floor map: 8 communities that cut across party (NMI 0.02; 0.26 for working draws of the same size) | `m5_table.csv` |
 | Anas's state null, rerun on these mentions | Q 0.003 under the null (max 0.016, 50 draws) against 0.106: state explains almost none of the floor map's division. Same-state ties 9.0% against 3.7% by chance. Yes/no is Martin's | `../Anas/state_null/` |
-| What the floor communities are (M5) | **Committees.** 46% of floor ties join two members of one committee, against 17.5% under rewiring (working: 22% against 18.7%); 53% of cross-party floor ties. 7 of 8 communities match a committee (Appropriations, Ways and Means, Energy and Commerce, …); the 8th is leadership | `m5_committees/` |
+| What the floor communities are (M5) | **Committees.** 46% of floor ties join two members of one committee, against 17.5% under rewiring (working: 22% against 18.7%); 53% of cross-party floor ties. In 7 of 8 communities one committee is 2.8 to 7.6 times as common as in the House (Appropriations 79% of members, Ways and Means 76%, Energy and Commerce 69%, …); the 8th has none and holds the party leaders | `m5_committees/` |
 
 | Task | Files | State |
 |---|---|---|
 | M1 Shared name matcher | [`matcher.py`](matcher.py), [`nicknames.csv`](nicknames.csv) | 20 Nov changes (G14). Hand checks open: [`m1_checks_20nov/`](m1_checks_20nov/README.md) |
-| M2 Floor mentions | [`build_mentions.py`](build_mentions.py) → [`mentions.parquet`](mentions.parquet), [`named_ties.csv`](named_ties.csv) | 8,626 mentions, 4,931 directed pairs. 18 Nov rows all kept; row numbers moved ([`row_map.csv`](m1_checks_20nov/row_map.csv)) |
+| M2 Floor mentions | [`build_mentions.py`](build_mentions.py) → [`mentions.parquet`](mentions.parquet), [`named_ties.csv`](named_ties.csv) | 8,622 mentions, 4,931 directed pairs. 18 Nov rows all kept; row numbers moved ([`row_map.csv`](m1_checks_20nov/row_map.csv)) |
 | M3 Definitions | [`m3_definitions.py`](m3_definitions.py), [`m3_table.csv`](m3_table.csv), [`m3_random_draws.csv`](m3_random_draws.csv) | Decided 18 Nov (G1a–G1c), applied. Yield check not yet coded ([`m3_yield_check/`](m3_yield_check/README.md)). [`M3_PROPOSAL.md`](M3_PROPOSAL.md) is the 16 Nov proposal, partly overruled |
 | M4 Debate null | [`m4_debate_null.ipynb`](m4_debate_null.ipynb) | Rerun 20 Nov on the new mentions |
 | M5 Communities | [`m5_communities.py`](m5_communities.py), [`m5_table.csv`](m5_table.csv), [`m5_committees/`](m5_committees/committee_check.py) | First run 20 Nov. Choices listed at the top of each script, **not yet confirmed by Martin** |
@@ -58,7 +58,7 @@ House procedure puts them in the same debates, which the M4 null already partly 
    the name), `is_leader_title` and `is_yield_window`. **Since 18 Nov `is_yield` is the phrase rule** (1,427 of the
    8,041 R–D mentions; the window rule flagged 1,406; they disagree on 285). Rows, their order and every other
    column are unchanged, so `mention_row` in Diego's D2 keys still points at the same mentions (checked).
-   **Since 20 Nov the file has 534 more rows from the new matcher and the row numbers moved:** look up an
+   **Since 20 Nov the file has 530 more rows from the new matcher and the row numbers moved:** look up an
    18 Nov `mention_row` through [`m1_checks_20nov/row_map.csv`](m1_checks_20nov/row_map.csv). All 100 D2 rows are still there. `named_ties.csv` is directed: one row per (speaker, named).
 
 ## Choices made here

@@ -136,17 +136,19 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
 
 ### G14. Matcher changes of 20 Nov: nicknames, lists, "State Rep." (applied before the freeze)
 - **Status:** Applied Fri 20 Nov by Martin (with Claude), from Anas's `Anas/MATCHER_CHECKLIST.md`. **Reason to be
-  confirmed by Martin; the 534 new rows are not yet hand-checked** (`Martin/m1_checks_20nov/`).
+  confirmed by Martin; the 530 new rows are not yet hand-checked** (`Martin/m1_checks_20nov/`).
 - **Decision:** in `Martin/matcher.py`: (9) nicknames count as first names, so Bobby Scott, Chuy García, Chris
   Smith, Hank Johnson, Buddy Carter and Hal Rogers are no longer dropped; (1) names in a list after a plural title
   ("Reps. A, B, and C") are each a mention; (10) a title right after "State" is skipped; (5) senators stay
   unmatched, pinned by a test. Not done: (2) untitled full names stay off for the floor until a 30-row hand
-  check (at least 24 of 30 real mentions to switch on, fixed in advance); (3) carrying a name forward in a turn.
-- **Effect:** 8,092 → 8,626 floor mentions, no old row lost (Diego's 100 D2 rows checked; old row numbers map
+  check (proposed: at least 24 of 30 real mentions to switch on; threshold set by Claude, Martin to confirm before coding); (3) carrying a name forward in a turn.
+- **Effect:** 8,092 → 8,622 floor mentions, no old row lost (Diego's 100 D2 rows checked; old row numbers map
   through `Martin/m1_checks_20nov/row_map.csv`). Headline floor map (phrase yields dropped): 3,284 → 3,573 ties,
   38.6% → **39.2%** cross-party. Without the list hits: 38.6%. So the change moves the headline by under one point.
-- **Reason:** the matcher missed names for a reason that can be fixed and named in Methods. Missed names in thank-you
-  lists are exactly the cross-party credit part 2 found, so leaving them out biases the floor map.
+- **Reason:** the matcher missed names for a reason that can be fixed and named in Methods. List hits are more
+  cross-party than other mentions (49.5% against 36.0% of R–D mentions; none are yields), so leaving them out
+  would under-count cross-party naming. **Note the direction:** the fix raises the floor share, which favours our
+  headline; the row without list hits (38.6%) is in the M3 table for that reason.
 - **Alternative and what it would have changed:** leave the matcher as on 18 Nov and report the misses as a
   limitation. The numbers would stay as measured by G10, but recall would be lower and the six nickname members
   would be under-counted. Or drop list hits as "less chosen" than a named thank-you: 38.6% instead of 39.2%,
@@ -169,7 +171,7 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
   structure); committee membership at the start of the term (not in our data; today's lists misplace members who
   moved).
 - **What it found (first run):** working map = the two parties (NMI 0.83); floor map = 8 communities across party
-  (NMI 0.02), 7 of them a committee. 46% of floor ties join committee colleagues, 17.5% under rewiring.
+  (NMI 0.02); in 7 of them one committee is 2.8 to 7.6 times as common as in the House. 46% of floor ties join committee colleagues, 17.5% under rewiring.
 - **Source:** `Martin/m5_table.csv`, `Martin/m5_committees/committee_table.csv`.
 
 ### G9. Yields stay in the labelling sample

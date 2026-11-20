@@ -7,22 +7,23 @@ Martin working with Claude, Friday 20 November 2026. Claude wrote the code. The 
 
 | Item | Change | Floor effect (rebuild of `mentions.parquet`) |
 |---|---|---|
-| 9 | Nicknames count as first names (`nicknames.csv`, 19 House members, from `legislators-current.json` in unitedstates/congress-legislators) | +21 mentions; Bobby Scott, Chuy García, Chris Smith, Hank Johnson, Buddy Carter, Hal Rogers now found. 5 mentions resolved by "state nearby" are now resolved by first name (same member) |
+| 9 | Nicknames count as first names (`nicknames.csv`, 19 House members, from `legislators-current.json` in unitedstates/congress-legislators) | +21 mentions, all of four of the six: Chuy García 9, Bobby Scott 8, Chris Smith 3, Hal Rogers 1. Hank Johnson and Buddy Carter are now matched in the tests but gain no floor rows (their nickname forms appear 2 and 8 times on the floor, mostly without a title). 5 mentions resolved by "state nearby" are now resolved by first name (same member) |
 | 1 | Lists after a plural title: "Reps. A, B, and C", "Representatives A and B" | +508 mentions with `how` starting `list: ` (34 more dropped as shared surnames) |
 | 10 | Skip a title right after "State" ("State Rep. Smith") | No floor row removed |
 | 5 | Senators: no change ("Senator" is not a title); pinned by a test | — |
 | 2 | Full names without a title: **optional, off for the floor** (`find(text, untitled=True)`) | Not in `mentions.parquet`. 904 such hits on the floor; the hand check below decides |
 | 3 | Carry a resolved name forward within a turn | **Not done.** Methods sentence instead |
 
-**Total: 8,092 → 8,626 mentions; 4,610 → 4,931 directed pairs. No 18 Nov row was lost.** The rows are in turn
+**Total: 8,092 → 8,622 mentions; 4,610 → 4,931 directed pairs. No 18 Nov row was lost.** The rows are in turn
 order, so row numbers moved: [`row_map.csv`](row_map.csv) maps every 18 Nov row to its new row.
 [`compare_18nov.py`](compare_18nov.py) checks that all 100 rows of Diego's `full_key.csv`, the 20 of
 `sample_key.csv` and the 30 of `m3_yield_check/yield_check_key.csv` are still there with the same speaker,
 named member and context. **Diego:** your codes still apply; use `row_map.csv` if you look up a row by
-`mention_row`. D5 reads `mentions.parquet` and will now apply to 8,626 mentions.
+`mention_row`. D5 reads `mentions.parquet` and will now apply to 8,622 mentions.
 
-**Not yet validated by a human:** the 534 new rows. Claude read 25 of them at random on 20 Nov and found no
-wrong member, but G10's 98/100 precision was measured on the 18 Nov rows only. The list check below is the
+**Not yet validated by a human:** the 530 new rows. Claude read 25 of them at random on 20 Nov and found no
+wrong member. A later audit the same day found a double count (a list running into a titled name, "Representatives
+Scholten and Representative Gillen", counted Gillen twice: 4 rows, no tie changed) and fixed it, with a test, but G10's 98/100 precision was measured on the 18 Nov rows only. The list check below is the
 human check.
 
 **A modelling point for the defence:** most new rows come from thank-you lists, some long ("I thank
@@ -59,7 +60,7 @@ Each row is a full name without a title, marked `[[like this]]`. Code:
 | **P** | The member, but procedure: tellers, appointments, a list of conferees read by the Clerk |
 | **X** | Not that member (someone else with the same name, a bill named after someone, a quote) |
 
-Rule set in advance: if **at least 24 of 30 are M**, the untitled rule goes into the floor mentions as well; if
+Proposed rule, **set by Claude, for Martin to confirm before coding**: if **at least 24 of 30 are M**, the untitled rule goes into the floor mentions as well; if
 not, it is used for press releases only and Methods says so.
 
 ### 3. List hits: `list_sheet.csv` (20 rows, 10 minutes) — item 1

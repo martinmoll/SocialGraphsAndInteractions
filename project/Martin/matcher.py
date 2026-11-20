@@ -143,6 +143,10 @@ class Matcher:
                     if r:
                         hits.append(Hit(nx.start(1), nx.end(1), title, r[0], "list: " + r[1]))
                     pos = nx.end()
+        # a list can run into a titled name ("Representatives Scholten and Representative Gillen"): the title rule
+        # already found it, so the list hit ending at the same place is dropped (no double count)
+        titled_ends = {h.end for h in hits if not h.how.startswith("list: ")}
+        hits = [h for h in hits if not (h.how.startswith("list: ") and h.end in titled_ends)]
         if untitled:
             taken = [(h.start, h.end) for h in hits]
             for mm in self.full_rx.finditer(text):
@@ -186,7 +190,8 @@ if __name__ == "__main__":      # self-check: python Martin/matcher.py, from pro
         ["Michael Lawler", "Jared F. Golden", "Brian K. Fitzpatrick"]                         # E: lists
     assert many("Representatives Lawler and Golden introduced it.") == ["Michael Lawler", "Jared F. Golden"]
     assert many("Congressmen Bacon and Golden wrote.") == ["Don Bacon", "Jared F. Golden"]
-    assert many("Representative Lawler and Golden Gate Park") == ["Michael Lawler"]           # singular: no list
+    assert many("Representative Lawler and Golden Gate Park") == ["Michael Lawler"]
+    assert many("Representatives Scholten and Representative Gillen spoke.") == ["Hillary J. Scholten", "Laura Gillen"]  # no double count           # singular: no list
     assert mt.find("I met State Rep. Lawler and State Representative Golden.") == []          # F
     assert mt.find("I thank Senator Collins and Sen. Kennedy.") == []                         # item 5: senators
     assert mt.find("my colleague and friend, Chip Roy, said") == []                           # G is off by default
