@@ -1,6 +1,6 @@
 # Work and deadlines
 
-**Last updated: Wednesday 19 November 2026.**
+**Last updated: Friday 20 November 2026.**
 
 This is the one place that says who does what, how far it is, and what is due when. The question and the
 design are in [`README.md`](README.md). Every decision and its reason is in [`DECISIONS.md`](DECISIONS.md).
@@ -50,9 +50,9 @@ has not confirmed them. Confirm or change on 18 November.** Hours have not been 
 | # | Task | Delivers | Needs | Status |
 |---|---|---|---|---|
 | M0 | Prototype of the two maps | `prototype_two_maps.ipynb`, one run | | Done (13 Nov) |
-| M1 | Move the name matcher out of the notebook into `scripts/`, so floor speeches and press releases use the same one. First version by Wed 18 Nov, as it is in the notebook. The guard against senators and non-members can follow | One shared matcher: `Martin/matcher.py` | | In progress: first version written (prototype's matcher plus capitals and accents fixes from D1). Guard against senators and non-members not started |
-| M2 | Write `mentions.parquet` and `named_ties.csv` from the floor speeches. First version by Wed 18 Nov | The two files in section 3, in `Martin/` | M1 | In progress: first version written (8,092 floor mentions, 4,610 directed pairs) |
-| M3 | Fix the definitions for part 1 in writing: how the working map is thinned, whether yields count, bill types | Definitions agreed by the group: `Martin/M3_PROPOSAL.md` | 18 Nov meeting | Decided 18 Nov (DECISIONS G1a–G1c): random working ties as headline, 200 draws; yields dropped from the headline; phrase rule. To do before Sun 22 Nov: apply them; random draws at 3,284 ties; hand-check about 30 rows where the two yield rules disagree. The phrase-rule flag is written into `mentions.parquet` only after Diego has finished coding (G1c) |
+| M1 | Move the name matcher out of the notebook into `scripts/`, so floor speeches and press releases use the same one. First version by Wed 18 Nov, as it is in the notebook. The guard against senators and non-members can follow | One shared matcher: `Martin/matcher.py` | | In progress. 20 Nov (G14): nicknames, lists after plural titles, "State Rep." skipped, senators pinned by a test. Untitled full names built but off for the floor. **To do by Sun 22 Nov:** Martin's three hand checks in `Martin/m1_checks_20nov/` (recall on 30 turns, 30 untitled names, 20 list hits) |
+| M2 | Write `mentions.parquet` and `named_ties.csv` from the floor speeches. First version by Wed 18 Nov | The two files in section 3, in `Martin/` | M1 | In progress: rebuilt 20 Nov with the G14 matcher: 8,626 floor mentions, 4,931 directed pairs. Old rows all kept; row numbers map through `Martin/m1_checks_20nov/row_map.csv` |
+| M3 | Fix the definitions for part 1 in writing: how the working map is thinned, whether yields count, bill types | Definitions agreed by the group: `Martin/M3_PROPOSAL.md` | 18 Nov meeting | Decided 18 Nov (DECISIONS G1a–G1c): random working ties as headline, 200 draws; yields dropped from the headline; phrase rule. Applied. 20 Nov: 200 random working draws at the headline size done (28.6% against the floor's 39.2%, G1a). **Still to do by Sun 22 Nov:** code the 30 yield-check rows (`Martin/m3_yield_check/`); answer Anas on the state null |
 | M4 | Harder null: rewire while keeping who spoke in the same debate | A second null for the floor map: `Martin/m4_debate_null.ipynb` | M2 | In progress: first run. The floor map is more divided than all 200 debate rewirings; the debate structure explains about half of its party division |
 | M5 | Louvain communities on each map; overlap with party and between maps (NMI) | Numbers for Results | M3 | Not started |
 | M6 | Null for the close-up: of a member's own bills, are the cross-party ones announced more often than a random draw? | The fair baseline (fix 1) | A3 | Not started |
@@ -160,6 +160,12 @@ From the earlier plans in `archive/`. Listed so nobody keeps working on them.
 ## 6. Log
 
 Newest first. One line per change.
+
+- **20 Nov 2026.** Martin (with Claude): matcher changes from Anas's checklist applied (G14); `mentions.parquet`
+  rebuilt, 8,092 → 8,626 mentions, none lost, Diego's D2 rows checked. M3 table rerun with G1a's 200 random draws:
+  headline floor map 39.2% cross-party (3,573 ties) against 28.6% (26.5–30.4%) for random working ties. Three hand
+  checks for Martin drawn in `Martin/m1_checks_20nov/`. Not reflected here yet: Anas's 20 Nov A1 progress (see
+  `Anas/STATUS.md`).
 
 - **19 Nov 2026.** Anas: press-release scope (both parties), matcher checklist, seats per state, state-null proposal for Martin and a project dictionary uploaded to `Anas/`. Proposed revisions to parts 1–3 and the open part 3 decisions in `Anas/REVISIONS_19NOV.md`. G13 added (Democrats included, small). A1 not started.
 

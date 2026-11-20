@@ -7,6 +7,11 @@ Reads Martin/mentions.parquet, data/processed/ and Diego's labelled matches. Wri
   2. The prototype's table (prototype_two_maps.ipynb, sections 3 and 4) on the new mentions, with the
      floor map under each yield rule and the working map under each thinning rule.
 
+  3. (20 Nov) G1a's 200 random working draws at the size of the headline floor map (phrase yields dropped)
+     and at the size of the map with yields: Martin/m3_random_draws.csv, summarised at the end.
+  4. (20 Nov) A row without the hits the 20 Nov matcher added through lists after a plural title (how
+     starting "list: "), so the effect of that change on the headline can be seen.
+
 Everything not named here is as in the prototype: bill types hr and hjres, withdrawn cosponsorships
 removed, undirected unweighted ties, degree-preserving rewiring with 5 swaps per tie, seed 2805.
 """
@@ -101,11 +106,13 @@ LAYERS = {
     "Floor: yields dropped, window rule":               F_win,
     "Floor: yields dropped, phrase rule":               F_phr,
     "Floor: phrase yields and leadership titles dropped": floor(M[~M.is_yield_phrase & ~M.is_leader_title]),
+    "Floor: phrase yields and list hits dropped":       floor(M[~M.is_yield_phrase & ~M.how.str.startswith("list: ")]),
     "Working: all ties":                                work,
     "Working: backbone alpha 0.05":                     backbone(work, ALPHA),
     "Working: strongest, size of floor (all)":          top_all,
     "Working: strongest, size of floor (phrase)":       top_phr,
     "Working: random ties, size of floor (all)":        keep(work, F_all.number_of_edges(), False)[0],
+    "Working: random ties, size of floor (phrase)":     keep(work, F_phr.number_of_edges(), False)[0],
 }
 print(f"\ncosponsorships used: {len(links):,} on {links.bill_id.nunique():,} bills. "
       f"'Strongest' keeps ties on at least {cut_all} bills (size of floor, all) and {cut_phr} bills (size of floor, phrase)")
@@ -129,3 +136,21 @@ T = pd.DataFrame(rows).set_index("map")
 T.round(4).to_csv("Martin/m3_table.csv")
 pd.set_option("display.width", 250)
 print("\n" + T.round(3).to_string())
+
+# ---------------------------------------------------------------- 3. G1a: 200 random working draws
+draws = []
+for size_name, F in (("phrase", F_phr), ("all", F_all)):
+    n = F.number_of_edges()
+    for d in range(N_REWIRE):
+        q, c = stats(keep(work, n, False)[0])
+        draws.append({"size of floor": size_name, "ties": n, "draw": d, "cross-party share": c, "party Q": q})
+D = pd.DataFrame(draws)
+D.round(4).to_csv("Martin/m3_random_draws.csv", index=False)
+print("\n== G1a: random working ties at the size of the floor map, 200 draws ==")
+for (size_name, n), g in D.groupby(["size of floor", "ties"], sort=False):
+    F = F_phr if size_name == "phrase" else F_all
+    fq, fc = stats(F)
+    print(f"size {n:,} ({size_name}): cross-party {g['cross-party share'].mean():.1%} "
+          f"(range {g['cross-party share'].min():.1%} to {g['cross-party share'].max():.1%}); party Q {g['party Q'].mean():.3f} "
+          f"(range {g['party Q'].min():.3f} to {g['party Q'].max():.3f}). Floor map: {fc:.1%}, Q {fq:.3f}; "
+          f"draws at or above the floor's share: {(g['cross-party share'] >= fc).sum()} of {len(g)}")

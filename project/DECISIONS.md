@@ -88,6 +88,10 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
 - **What it costs:** the headline now depends on the yield rule, so G1c's test must be done before the
   freeze. The headline also needs random working draws at 3,284 ties: the 29.5% figure was drawn at 3,777.
   **The 9.1-point gap is not the final number.**
+- **Done 20 Nov (after G14):** 200 random working draws at the headline size (3,573 ties): **28.6%** cross-party
+  (range 26.5% to 30.4%), party Q 0.211. Headline floor map 39.2%, Q 0.106: a gap of **10.6 points**, and no draw
+  reaches the floor's share. With yields: 35.1% against 28.7% (26.9% to 30.7%) at 4,058 ties. Still subject to
+  the G1c yield check and the G14 hand checks. `Martin/m3_table.csv`, `Martin/m3_random_draws.csv`.
 - **Source:** meeting, 18 Nov; `Martin/M3_PROPOSAL.md`, decision 2.
 
 ### G1c. Yield rule: the phrase rule, tested on fresh rows before the freeze
@@ -129,6 +133,28 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
 - **Alternative and what it would have changed:** count it as a yield, since it is floor-time procedure too. More
   mentions would be dropped from the headline map, and the phrase rule would need a third pattern.
 - **Source:** Martin, 18 Nov, while preparing the yield-rule check.
+
+### G14. Matcher changes of 20 Nov: nicknames, lists, "State Rep." (applied before the freeze)
+- **Status:** Applied Fri 20 Nov by Martin (with Claude), from Anas's `Anas/MATCHER_CHECKLIST.md`. **Reason to be
+  confirmed by Martin; the 534 new rows are not yet hand-checked** (`Martin/m1_checks_20nov/`).
+- **Decision:** in `Martin/matcher.py`: (9) nicknames count as first names, so Bobby Scott, Chuy García, Chris
+  Smith, Hank Johnson, Buddy Carter and Hal Rogers are no longer dropped; (1) names in a list after a plural title
+  ("Reps. A, B, and C") are each a mention; (10) a title right after "State" is skipped; (5) senators stay
+  unmatched, pinned by a test. Not done: (2) untitled full names stay off for the floor until a 30-row hand
+  check (at least 24 of 30 real mentions to switch on, fixed in advance); (3) carrying a name forward in a turn.
+- **Effect:** 8,092 → 8,626 floor mentions, no old row lost (Diego's 100 D2 rows checked; old row numbers map
+  through `Martin/m1_checks_20nov/row_map.csv`). Headline floor map (phrase yields dropped): 3,284 → 3,573 ties,
+  38.6% → **39.2%** cross-party. Without the list hits: 38.6%. So the change moves the headline by under one point.
+- **Reason:** the matcher missed names for a reason that can be fixed and named in Methods. Missed names in thank-you
+  lists are exactly the cross-party credit part 2 found, so leaving them out biases the floor map.
+- **Alternative and what it would have changed:** leave the matcher as on 18 Nov and report the misses as a
+  limitation. The numbers would stay as measured by G10, but recall would be lower and the six nickname members
+  would be under-counted. Or drop list hits as "less chosen" than a named thank-you: 38.6% instead of 39.2%,
+  a row in the M3 table.
+- **Costs:** G10's 98/100 precision was measured on the 18 Nov rows. The new rows need their own check (20 list
+  rows, `list_sheet.csv`) or a Methods sentence saying they were not checked. Long thank-you lists (up to about
+  15 names) each add many ties.
+- **Source:** `Anas/MATCHER_CHECKLIST.md` items 1, 2, 3, 5, 9, 10; `Martin/m1_checks_20nov/README.md`.
 
 ### G9. Yields stay in the labelling sample
 - **Status:** Agreed Wed 18 Nov.

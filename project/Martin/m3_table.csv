@@ -1,10 +1,12 @@
 map,ties,members with a tie,cross-party share,after rewiring,ratio,party Q,null Q mean,null Q max,rewirings
-Floor: all mentions,3777,445,0.3423,0.5006,0.6839,0.1564,-0.0018,0.0193,200
-"Floor: yields dropped, window rule",3305,443,0.3815,0.4993,0.7642,0.116,-0.0017,0.0253,200
-"Floor: yields dropped, phrase rule",3284,443,0.3864,0.4999,0.773,0.1108,-0.0027,0.0219,200
-Floor: phrase yields and leadership titles dropped,2739,441,0.3965,0.4999,0.7932,0.1022,-0.0012,0.0211,200
+Floor: all mentions,4058,446,0.3512,0.5004,0.7018,0.1481,-0.0012,0.0184,200
+"Floor: yields dropped, window rule",3591,444,0.3879,0.5003,0.7754,0.1105,-0.0019,0.0181,200
+"Floor: yields dropped, phrase rule",3573,444,0.3924,0.5003,0.7844,0.1058,-0.0021,0.024,200
+Floor: phrase yields and leadership titles dropped,3033,442,0.4016,0.5008,0.8019,0.0977,-0.0015,0.0226,200
+Floor: phrase yields and list hits dropped,3295,443,0.386,0.5003,0.7717,0.1113,-0.0029,0.0215,200
 Working: all ties,46513,449,0.2866,0.4969,0.5767,0.2105,0.0001,0.0028,20
 Working: backbone alpha 0.05,2328,438,0.1499,0.4938,0.3036,0.3424,-0.0015,0.0228,200
-"Working: strongest, size of floor (all)",3777,410,0.1258,0.4309,0.2918,0.301,-0.0042,0.0171,200
-"Working: strongest, size of floor (phrase)",3284,402,0.1264,0.4286,0.2949,0.2971,-0.0051,0.0127,200
-"Working: random ties, size of floor (all)",3777,446,0.2952,0.4989,0.5917,0.2021,-0.0016,0.0215,200
+"Working: strongest, size of floor (all)",4058,415,0.1274,0.432,0.2949,0.3011,-0.0036,0.0093,200
+"Working: strongest, size of floor (phrase)",3573,403,0.1254,0.4271,0.2936,0.2969,-0.0048,0.0125,200
+"Working: random ties, size of floor (all)",4058,446,0.294,0.4988,0.5894,0.2031,-0.0017,0.0163,200
+"Working: random ties, size of floor (phrase)",3573,447,0.2695,0.4987,0.5404,0.2283,-0.0009,0.0162,200

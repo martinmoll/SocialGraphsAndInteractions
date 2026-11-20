@@ -7,8 +7,8 @@ the choices below are for Martin to defend and for the group to change on 18 Nov
 
 | Task | File | State on 16 Nov |
 |---|---|---|
-| M1 Shared name matcher | [`matcher.py`](matcher.py) | First version. The prototype's matcher plus three fixes from Diego's D1 report. No guard against senators and non-members yet |
-| M2 Floor mentions | [`build_mentions.py`](build_mentions.py) → [`mentions.parquet`](mentions.parquet), [`named_ties.csv`](named_ties.csv) | First version: 8,092 mentions, 4,610 directed pairs |
+| M1 Shared name matcher | [`matcher.py`](matcher.py), [`nicknames.csv`](nicknames.csv) | **20 Nov:** nicknames, lists after plural titles, "State Rep." skipped, senators tested, untitled full names as an option (Anas's checklist items 9, 1, 10, 5, 2). Details and three hand checks for Martin in [`m1_checks_20nov/`](m1_checks_20nov/README.md) |
+| M2 Floor mentions | [`build_mentions.py`](build_mentions.py) → [`mentions.parquet`](mentions.parquet), [`named_ties.csv`](named_ties.csv) | **20 Nov:** 8,626 mentions, 4,931 directed pairs (18 Nov: 8,092 and 4,610). No old row lost; row numbers moved, see `m1_checks_20nov/row_map.csv` |
 | M3 Definitions for part 1 | [`M3_PROPOSAL.md`](M3_PROPOSAL.md), [`m3_definitions.py`](m3_definitions.py), [`m3_table.csv`](m3_table.csv) | Proposal for 18 Nov. Against working ties drawn at random the floor map's lead is 5 points (34.2% against 29.5% cross-party), not 22. A phrase-based yield rule finds 30 of 30 labelled yields |
 | M4 Harder null | [`m4_debate_null.ipynb`](m4_debate_null.ipynb), [`figures/m4_debate_null.png`](figures/m4_debate_null.png) | One run. The floor map is more divided than all 200 debate rewirings; the debate structure explains about half of its party division |
 
@@ -27,7 +27,9 @@ agreed in [`../WORK_AND_DEADLINES.md`](../WORK_AND_DEADLINES.md), section 3.
 3. **Everyone:** `mentions.parquet` has three columns beyond the agreed seven: `how` (the rule that resolved
    the name), `is_leader_title` and `is_yield_window`. **Since 18 Nov `is_yield` is the phrase rule** (1,427 of the
    8,041 R–D mentions; the window rule flagged 1,406; they disagree on 285). Rows, their order and every other
-   column are unchanged, so `mention_row` in Diego's D2 keys still points at the same mentions (checked). `named_ties.csv` is directed: one row per (speaker, named).
+   column are unchanged, so `mention_row` in Diego's D2 keys still points at the same mentions (checked).
+   **Since 20 Nov the file has 534 more rows from the new matcher and the row numbers moved:** look up an
+   18 Nov `mention_row` through [`m1_checks_20nov/row_map.csv`](m1_checks_20nov/row_map.csv). All 100 D2 rows are still there. `named_ties.csv` is directed: one row per (speaker, named).
 
 ## Choices made here
 
@@ -113,7 +115,7 @@ mentions. **Not re-validated:** the 93% precision in D1 was measured on the prot
 From `project/`, with pandas and pyarrow:
 
 ```
-python Martin/matcher.py           # self-check: nine known cases
+python Martin/matcher.py           # self-check: 20 known cases
 python Martin/build_mentions.py    # writes mentions.parquet and named_ties.csv, prints the counts above
 PYTHONPATH=Martin python Martin/m3_definitions.py   # the M3 table and the yield-rule test; about a quarter of an hour
 ```
