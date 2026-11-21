@@ -40,3 +40,26 @@ them for each side separately:
 Fifteen rows per side gives a rough figure, not a precise rate. Report it as "n of 15".
 
 To redraw: `python Martin/m3_yield_check/draw_yield_check.py` from `project/` (seed 2805, the same rows).
+
+## Result (coded by Martin, scored 21 Nov)
+
+Coded sheet: `yield_check_sheet.csv` (and the original `yield_check_sheet_coded.xlsx`). Scored with
+`python Martin/m1_checks_20nov/score_checks.py`.
+
+| Rows flagged by | Martin coded Y (a yield) | Coded N | Reading |
+|---|---|---|---|
+| The phrase rule only (15) | **15** | 0 | No false flags: every mention the new rule drops is a yield |
+| The old window rule only (15) | 1 | **14** | 14 of 15 extra window flags are not yields; the new rule is right to keep them |
+
+**The one Y in the window-only rows (#18) is a sheet artefact, not a miss.** The turn names McClellan twice: "I thank
+Ms. McClellan for yielding, and I thank Representatives McClellan and Clyburn for initiating…". The phrase rule flags
+the first mention as a yield (correct). Row 18 is the **second** mention ("for initiating"), which is not a yield,
+but the sheet marked every occurrence of the surname with `[[ ]]`, so the coder could not tell which one the row
+meant. Read as the second mention, the code is N, and the window-only side is 0 of 15.
+
+**What the paper may say (G1c):** "On 30 held-out mentions where the two rules disagree, all 15 flagged only by the
+phrase rule were yields, and none of the 15 flagged only by the window rule were (one row was ambiguous in the
+coding sheet and is counted as a yield in the strict reading: 1 of 15)." Fifteen rows per side catch a gross
+failure; they do not give a tight rate.
+
+**Lesson for the other sheets:** the list and untitled sheets mark only the one hit; the recall sheet has no marks.

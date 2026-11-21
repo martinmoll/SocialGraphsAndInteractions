@@ -112,6 +112,11 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
   finished coding** his 100 rows. His sheets and `full_key.csv` point into that file by row number (`mention_row`), and
   `Diego/d5_classifier/classify.py` reads it. Until then the phrase rule is computed in memory for Martin's
   analysis, and only the `is_yield` column changes, never the rows or their order.
+- **Test done 21 Nov (Martin coded the 30 rows blind):** of the 15 mentions only the phrase rule flags, **15 are yields**
+  (no false flags). Of the 15 only the window rule flags, **14 are not yields**; the one coded Y (#18) is the second
+  mention of the same member in one sentence, where the sheet marked both occurrences, and that mention is not a
+  yield ("for initiating"). Strict reading 1 of 15, corrected 0 of 15. The phrase rule stands; the headline's
+  dependence on it (G1b) is now tested. `Martin/m3_yield_check/README.md`.
 - **Reason:** the window rule found 26 of 30 labelled yields with 3 false flags; the phrase rule found 30 of 30
   with none. But the phrase rule was written after reading D1's errors and scored on those same 30 rows, so
   "30 of 30" is a fit to the data, not a test. Because of G1b the headline now depends on it.
