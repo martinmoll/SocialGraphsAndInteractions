@@ -39,7 +39,28 @@ def input_files(press, repo):
     return {**{os.path.basename(p): p for p in parts},
             "members.csv": os.path.join(repo, "data", "processed", "members.csv"),
             "Martin/matcher.py": os.path.join(repo, "Martin", "matcher.py"),
-            "Martin/build_mentions.py": os.path.join(repo, "Martin", "build_mentions.py")}
+            "Martin/nicknames.csv": os.path.join(repo, "Martin", "nicknames.csv"),
+            "Martin/build_mentions.py": os.path.join(repo, "Martin", "build_mentions.py"),
+            # first-name aliases, built 20 Nov by press_layer.py (at 75c67ae) and frozen since the 21 Nov switch
+            # (A3_MATCHER_SWITCH.md): an input now, no longer rebuilt
+            "aliases.csv": ALIASES}
+
+
+ALIASES = os.path.join(OUT, "aliases.csv")
+MATCHER_ALIASES = os.path.join(OUT, "matcher_aliases.csv")
+
+
+def write_matcher_aliases(repo):
+    """The press side's extra first names in the format Martin's Matcher reads (bioguide, nickname): his
+    nicknames.csv plus every alias in aliases.csv that is not the members.csv first name. Martin's code is not
+    changed; only this input differs from the floor's (A3_MATCHER_SWITCH.md, point 2)."""
+    mart = pd.read_csv(os.path.join(repo, "Martin", "nicknames.csv"))[["bioguide", "nickname"]]
+    al = pd.read_csv(ALIASES)
+    al = al[al.source != "members.csv"].rename(columns={"first": "nickname"})[["bioguide", "nickname"]]
+    out = pd.concat([mart, al]).assign(k=lambda x: x.nickname.str.lower())
+    out = out.drop_duplicates(["bioguide", "k"]).drop(columns="k").sort_values(["bioguide", "nickname"])
+    out.to_csv(MATCHER_ALIASES, index=False)
+    return MATCHER_ALIASES
 
 
 def git_commit(repo):
@@ -70,3 +91,20 @@ def load_inputs(press, repo):
     import build_mentions                                     # Martin's context() and sentence splitter
     from matcher import Matcher, LEADER_TITLES
     return d, members, Matcher, LEADER_TITLES, build_mentions
+
+
+def status_of(named, speaker, template, in_rep):
+    """Why a hit does or does not count (principle 4 of A3_PLAN.md: nothing is deleted)."""
+    return ("unresolved" if named is None else "self" if named == speaker
+            else "template" if template else "in_boilerplate" if in_rep else "counted")
+
+
+def repeated_spans(text, mine, split):
+    """(start, end, sentence) of every sentence, split exactly as prepare.py does, if the member has repeated ones."""
+    spans, pos = [], 0
+    if mine:
+        for m in list(split.finditer(text)) + [None]:
+            end = m.start() if m else len(text)
+            spans.append((pos, end, text[pos:end].strip()))
+            pos = m.end() if m else end
+    return spans

@@ -1,6 +1,7 @@
 # Anas: status, findings and proposals
 
-Anas, Friday 20 November 2026 (last updated 20 Nov evening: A3.0 to A3.3 done, section 3). **Start here.** This
+Anas, Friday 20 November 2026 (last updated **Sun 22 Nov, early morning: A3 complete, A4 first run and the home-map
+network extension**; section 3, [`a3/README.md`](a3/README.md), [`a4/README.md`](a4/README.md)). **Start here.** This
 replaces `REVISIONS_19NOV.md` and is kept up to date.
 **Proposals, not decisions:** parts 1 and 2 belong to Martin and Diego, who decide on anything in them. Agreed
 changes go into `DECISIONS.md` before the freeze on Sun 22 Nov (G7).
@@ -20,13 +21,14 @@ an hour. A limitation we measured and report is a strength; one an examiner find
 | 1 | **Redrawn states** (9 states, 173 seats): exposure measured on the district members **served** (`lean_2025`), plus a check without the 21 members whose label changes | 3, Methods | Done (Anas) | Exposure means what members faced while they wrote | "Exposed" partly reflects a map drawn after the releases | You know this one |
 | 2 | **State null** (shuffle ties within states) as one robustness row | 1 | Yes or no from Martin; pilot ready (`state_null/`) | Answers "members only know their own delegation": state explains almost none of the division | An examiner can say the division is just geography | You know this one |
 | 3 | **Measured recall of the matcher.** Not a second matcher: the same one, checked for what it *misses*. Hand-read 30 floor turns (Martin) and 30 press releases (Anas), list every member named in any form, count how many the matcher finds | 1, 2, 3 | About an hour each; floor by Sun 22 Nov | Methods states: *"The matcher found x% of named members in 30 floor turns and y% in 30 releases"*, with the forms it missed | Our precision (98/100, Diego's D2) says nothing about missed names: a sample drawn from `mentions.parquet` can never contain a name the matcher missed. Every count in all three parts would rest on an unmeasured number | **New: please read.** Press precision measured 20 Nov (section 3); press recall next (A3.4) |
-| 4 | **Matcher fixes** that raise recall: nicknames (item 9: Hank Johnson, Bobby Scott, Chris Smith, Buddy Carter, Hal Rogers, Chuy García are dropped whenever named so), name lists (1), untitled full names (2), state legislators (10) | 1 (and so 2, 3) | Martin, `MATCHER_CHECKLIST.md`, by Sun 22 Nov | Recall (row 3) goes up before it is measured; six members stop disappearing | Six members are systematically under-counted on the floor map | Waiting for Martin |
+| 4 | **Matcher fixes** that raise recall: nicknames (item 9: Hank Johnson, Bobby Scott, Chris Smith, Buddy Carter, Hal Rogers, Chuy García are dropped whenever named so), name lists (1), untitled full names (2), state legislators (10) | 1 (and so 2, 3) | Martin, `MATCHER_CHECKLIST.md`, by Sun 22 Nov | Recall (row 3) goes up before it is measured; six members stop disappearing | Six members are systematically under-counted on the floor map | **Done 20 Nov (G14)**: 9, 1, 10 applied; 2 waits for a 30-row check. A3 switched to this matcher 21 Nov |
 | 5 | **One recall sentence in part 2's limitations** | 2 | Diego, one sentence once row 3 has a number | Part 2 says plainly what hand codes can and cannot catch (wrong matches yes, missed names no) | The obvious examiner question about part 2 goes unanswered | Waiting for row 3 |
 | 6 | **Date window and leader list** fixed in writing before results | All | Group, Sun 22 Nov | Results cannot be accused of a window chosen after seeing them | Same | Open |
 | 7 | **Press data snapshot: 20 Nov 2026** (55,023 releases, 412 members; `press_releases/MANIFEST.md`) | 3, and the window in row 6 | Window must end on or before 20 Nov | All three parts cover the same days | Press and floor would cover different periods | Decided by Anas 20 Nov |
 | 8 | **One confusion table for the matcher** in Methods: TP, FP, FN, precision, recall, F1 per source (floor, press) | 1, 2, 3, Methods | Nothing extra: filled from D2 (precision), Martin's 30 turns and Anas's checks (recall); template in [`A3_PLAN.md`](A3_PLAN.md) section 8 | The matcher's quality in one place, measured cell by cell; one sentence explains why accuracy is left out (no meaningful true negatives) | Precision and recall stay scattered, and an examiner may ask why there is no accuracy | **New**, Anas |
+| 9 | **Four more matcher items, 21 Nov** ([`MATCHER_CHECKLIST.md`](MATCHER_CHECKLIST.md) items 12 to 15): **12, possessives are never matched** ("Mr. Cole’s amendment"); **15, a middle initial makes the first name the surname** ("Congressman Riley M. Moore" → Josh Riley; 4 floor hits, 364 press mentions); 13, "Washington" the city counts as the state; 14, no guard on untitled names after "Sen." or "Governor" | 1 (and so 2, 3) | Item 12: a few lines in `matcher.py` and a rerun, by Sun 22 Nov. Items 13 and 14: nothing, only know them | Item 12 adds about 417 floor mentions (4.8%, 33.6% cross-party), so the headline should barely move. Items 13 and 14 have answers ready if asked | Item 12 becomes one Methods sentence. Items 13 and 14 affect 2 floor mentions and none, so they are harmless | **New: please read item 12**, Martin |
 
-**Rows 3, 4, 5 and 8 belong together:** the fixes (4) raise recall, the check (3) measures what remains, the
+**Rows 3, 4, 5, 8 and 9 belong together:** the fixes (4) raise recall, the check (3) measures what remains, the
 sentence (5) reports it for part 2, and the confusion table (8) puts precision and recall for floor and press in one
 place. No alias list is ever complete, so the goal is not 100%; it is a number we stand behind.
 
@@ -152,7 +154,92 @@ Details in [`collector/README.md`](collector/README.md).
 - **The A4 analysis plan is written** (`methods_drafts.md`) before any release has been analysed: outcome,
   groups, permutation test, and how each result will be read.
 
-### A3: from press releases to named colleagues (20 Nov)
+### A3: switched to Martin's 20 Nov matcher (21 Nov)
+
+Plan, reasons and two deviations: [`A3_MATCHER_SWITCH.md`](A3_MATCHER_SWITCH.md). Numbers: [`a3/README.md`](a3/README.md).
+
+- **One matcher for floor and press (G14).** Martin's code is unchanged. Press differs from the floor only in
+  input and in a thin layer:
+  - **Input:** untitled names on, plus the first names members use for themselves.
+  - **Layer:** party-state tags, own surname, title guards, lists that carry tags, quoted nicknames, middle initials.
+- **`shared` (exactly as on the floor):** 51,569 mentions once per release, 24.1% cross-party.
+  **`shared + press layer` (for A4):** 129,052 mentions, 14.4%, with the middle-initial rule (20 Nov: 123,147, 15.1%).
+- **Against 20 Nov:** 123,013 (release, member) pairs are in both, 134 are only in the old version, and 5,983
+  are only in the new one.
+  - 17 hits name a different member at the same place, and the new version is right in all 17.
+  - 12 of the 17 were errors in the 20 Nov list rule that its 30-row sample did not catch.
+- **Precision:** the 180 rows read on 20 Nov carry over (120 counted rows: 119 y, 1 ?, 0 n).
+  - **The 30-row switch sheet** (`a3/precision_check/switch_sheet.xlsx`) **was left unread, by decision of Anas on
+    21 Nov.**
+  - **Reason:** the A3.4 recall check measures the switched version's precision end to end, at 0.96 on 78 hits
+    that include the new forms. The automatic tag check agrees 99.5% for untitled names.
+  - The sheet is kept, so it can still be read.
+- **A3.4 recall, done 21 Nov, with five blind AI readers instead of Anas's own reading** (`a3/README.md`, A3.4):
+  - **Sample:** 30 releases from the surname pool and 10 from outside it.
+  - **Agreement:** all five readers agree on all 77 pairs, and the 10 outside releases name nobody.
+  - **Press recall:** 0.73 (0.62–0.81) for Martin's matcher as used on the floor, and **0.97 (0.91–0.99) with the
+    press layer**. Precision in the same sample is 0.93 and 0.96.
+  - **Found by it:** a middle-initial bug. "Congressman Riley M. Moore" was counted as Josh Riley, giving 364 false
+    press mentions, 96% of them cross-party. It is `MATCHER_CHECKLIST.md` item 15 for Martin.
+  - **Corrected in the press layer the same evening** (the "middle initial" rule). Only 3 such hits are left,
+    against 449 before.
+  - **Human check, done 21 Nov:** Anas read the 7 reader–matcher differences (`a3/recall_check/DIFFERENCES.md`) and
+    agreed with the readers on all 7, so the numbers stand.
+- **A3.5 bills and co-leads, done 21 Nov** (`a3/README.md`, A3.5; output `a3/out/release_bills.csv`):
+  - **Links:** 18,177 bill links in 13,944 releases (25%), 8,600 found by bill number and 9,577 by exact title.
+    Decision 7 is met: titles add 15.3 points.
+  - **Each link carries** the bill's sponsor and the releasing member's role on it.
+  - **Precision check by 3 blind AI readers:** 30 of 30 numbers and 30 of 30 titles, unanimous, so nothing needed
+    a human look.
+  - **For Martin:** this is the table M6 needs.
+- **A3.6 and A3.7, done 21 Nov** (`a3/README.md`; output **`a3/out/mentions_press.parquet`**, 129,052 rows, the file
+  A4 reads):
+  - **Flags and weights** from the plan, with the leader list and word lists fixed before A4 (`a3/leaders.csv`,
+    `a3/flags.py`).
+  - **Weights matter:** 14.4% of press mentions cross party, and 33.0% weighted by 1/n.
+  - **Named examples:** all three mutual pairs hold, in both directions. The pilot's Lawler figure (1 of 10) and
+    Bacon figure (8 of 10) do not: on all their releases, 19.8% and 32.5%.
+  - **A3 is complete.**
+- **A4 first run, done 21 Nov** (`a4/README.md`, Figure 3 draft `a4/out/figure3_draft.png`):
+  - **Result:** exposed members name the other party more at home in **both** parties. Republicans 13.2% against
+    9.2% (+4.0 points, p 0.004); Democrats 11.5% against 8.9% (+2.6, p 0.003). The interaction is +1.4 (p 0.40).
+  - **Reading fixed in advance:** a seat effect, not a president's-party effect.
+  - **Robustness:** it holds in every row, including the cut-offs at 4 and 6, the second lean source, leaving one
+    state out, and Martin's matcher alone.
+  - **All members by district lean** (Figure 3A now): the share peaks in the closest and crossover seats and is
+    nearly flat beyond them.
+  - **Extension, the home network** (`a4/HOME_NETWORK_PLAN.md`, fixed before computing; **for Martin and Diego to
+    accept under G17**):
+    - **Hubs:** exposed members are the hubs of cross-party naming. They are 22% of members but send 35% and
+      receive 34% of cross-party ties.
+    - **Only a small preference for each other beyond that activity:** 10.8% of ties join two exposed members,
+      against 10.3% under a degree-preserving rewiring (+5%, p 0.025).
+    - **One bipartisan community of close-seat members:** Louvain finds 37 members, half of them exposed (Bacon,
+      Golden, Kaptur, LaLota, Gillen and others). The other mixed communities are state delegations.
+    - **Centrality, Holm-corrected:** exposed members have far more cross-party ties in both parties. The party
+      difference in how they bridge does not survive the correction.
+    - **Everything is documented in `a4/NETWORK_METHODS.md`:** values, formulas and steps, with the configuration
+      model as the null (not Watts–Strogatz).
+    - **Mutual ties:** ties between exposed members are more often mutual (62% against 45%). This is suggestive only;
+      it fades in the robustness rows.
+    - **Not local:** safe members' cross-party ties are no more same-state than exposed members' (about 11% each).
+    - **Three corrections, all written into the plan and README:** the planned null does not rule out the hub effect;
+      the post hoc quintile check was too coarse to remove it; and the tie-end shortcut overstated the null, so its
+      "no preference" is replaced by the degree-preserving rewiring's +5%.
+  - **Settings (Anas's choice, `G13_UPDATE.md`, for Martin and Diego to agree to by Sun 22 Nov):** swing seat =
+    `exposed_2025` (lean within 5 of the member's own party, on the district served); window = 3 Jan 2025 to
+    20 Nov 2026.
+- **For Martin (error notes, not scope):**
+  - His "state nearby" rule reads "Washington" the city as the state: up to 6 press hits to Adam Smith, and 2 on
+    the floor (one passage, apparently about the film).
+  - His untitled option has no guard after "Sen." or "Gov.": 11 press hits in 81,950, some of them correct anyway;
+    it is off for the floor.
+  - **Possessives are never matched:** "Mr. Cole’s amendment" gives no hit. One run with the possessive blanked out
+    gives **+417 floor mentions** (4.8%, 33.6% cross-party) and +1,275 titled press hits. Not hand-checked. The
+    largest of the three; the fix belongs in his matcher, so floor and press stay one matcher.
+  - All three are written up for Martin as `MATCHER_CHECKLIST.md` items 12 to 14 (section 0, row 9).
+
+### A3: from press releases to named colleagues (20 Nov; replaced by the switch above, kept as the record)
 
 Plan, decisions and traps: [`A3_PLAN.md`](A3_PLAN.md). Scripts and full numbers: [`a3/README.md`](a3/README.md).
 Martin's matcher is used unchanged; everything A3 adds is a separate layer, so both versions stay visible.
@@ -227,10 +314,20 @@ Lawler, Bacon); the page budget.
    pages come from the cache), never patched by hand, and the date and reason are logged in `collector/README.md`
    and here.
 2. Audit the text where a generic container was used (`body_selector` = `main`, `article`, `#main_column`).
-3. A3: ~~freeze, prepare, shared matcher, press layer and its precision check~~ done 20 Nov. Left: **A3.4**
-   recall check (Sun 22 Nov), **A3.5** bills and co-leads, **A3.6** flags and tie weights, **A3.7** the
-   press-mention file and named examples (Mon 23 Nov).
-4. A4 by the draft on Tue 24 Nov.
+3. ~~A3.0 to A3.7~~ **Done 20 to 21 Nov**, on Martin's 20 Nov matcher (switch 21 Nov). Rerun everything in about
+   two minutes if Martin fixes items 12 and 15 (`a3/README.md`, "If Martin's matcher changes").
+4. **A4: first run done 21 Nov** (`a4/README.md`). Left:
+   - the group's agreement on the swing seat and the window (`G13_UPDATE.md`, Sun 22 Nov);
+   - the group's answer on the network extension under G17;
+   - a better network figure (the current one is a draft; see the handoff);
+   - deciding how the extension's measures (centrality, communities, null model) enter the paper: figure, table or
+     text;
+   - the part 3 Results text for the Overleaf draft, Tue 24 Nov 20:00.
+5. **A6:** Methods and `docs/AI_METHODS.md`. The AI file has to record:
+   - the blind AI readers used in A3.3, A3.4 and A3.5, and Anas's checks of their disagreements;
+   - Claude's resolutions;
+   - that Claude wrote the code.
+6. **Confirm G17 in the group chat,** saying that the pre-registered checks count as listed tasks.
 
 ## 6. Files in this folder
 
