@@ -135,13 +135,16 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
 - **Source:** Martin, 18 Nov, while preparing the yield-rule check.
 
 ### G14. Matcher changes of 20 Nov: nicknames, lists, "State Rep." (applied before the freeze)
-- **Status:** Applied Fri 20 Nov by Martin (with Claude), from Anas's `Anas/MATCHER_CHECKLIST.md`. **Reason to be
-  confirmed by Martin; the 530 new rows are not yet hand-checked** (`Martin/m1_checks_20nov/`).
+- **Status:** Applied Fri 20 Nov by Martin (with Claude), from Anas's `Anas/MATCHER_CHECKLIST.md`. **Agreed Sat 21 Nov
+  by Martin**, including the 24-of-30 rule for untitled names. The 530 new rows are not yet hand-checked
+  (`Martin/m1_checks_20nov/`).
+- **Press side (agreed 21 Nov):** Anas switches A3 to this version of the matcher, so floor and press releases use
+  one name matcher. What his press layer still adds on top is his to record.
 - **Decision:** in `Martin/matcher.py`: (9) nicknames count as first names, so Bobby Scott, Chuy García, Chris
   Smith, Hank Johnson, Buddy Carter and Hal Rogers are no longer dropped; (1) names in a list after a plural title
   ("Reps. A, B, and C") are each a mention; (10) a title right after "State" is skipped; (5) senators stay
   unmatched, pinned by a test. Not done: (2) untitled full names stay off for the floor until a 30-row hand
-  check (proposed: at least 24 of 30 real mentions to switch on; threshold set by Claude, Martin to confirm before coding); (3) carrying a name forward in a turn.
+  check (at least 24 of 30 real mentions to switch on; threshold proposed by Claude, agreed by Martin 21 Nov, before coding); (3) carrying a name forward in a turn.
 - **Effect:** 8,092 → 8,622 floor mentions, no old row lost (Diego's 100 D2 rows checked; old row numbers map
   through `Martin/m1_checks_20nov/row_map.csv`). Headline floor map (phrase yields dropped): 3,284 → 3,573 ties,
   38.6% → **39.2%** cross-party. Without the list hits: 38.6%. So the change moves the headline by under one point.
@@ -159,7 +162,7 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
 - **Source:** `Anas/MATCHER_CHECKLIST.md` items 1, 2, 3, 5, 9, 10; `Martin/m1_checks_20nov/README.md`.
 
 ### G15. M5: how communities are found and compared
-- **Status:** Open, for Martin to confirm by Sun 22 Nov. Run 20 Nov with the choices below (`Martin/m5_communities.py`).
+- **Status:** Agreed Sat 21 Nov by Martin. Run 20 Nov with the choices below (`Martin/m5_communities.py`).
 - **Decision (proposed):** Louvain (resolution 1) on the same unweighted maps as M3, 50 seeds per map, best
   partition kept; NMI with party on members with a tie, NMI between maps on members in both; baseline = Louvain on
   degree-preserving rewirings. Committees from today's membership (unitedstates/congress-legislators), full
@@ -186,6 +189,29 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
 - **Alternative and what it would have changed:** leave it out. One fewer row; the geography objection is
   unanswered.
 - **Source:** `Martin/m3b_state_null.csv`; Anas's pilot.
+
+### G17. Scope is frozen from Sat 21 Nov
+- **Status:** Agreed Sat 21 Nov by Martin. **Anas and Diego to confirm in the chat**; record their answer here.
+- **Decision:** nothing new is added to the project: no new analysis, data source, null model, figure, check or
+  extension. The scope is what `WORK_AND_DEADLINES.md` section 2 lists and what G1 to G16 decide. From now on we
+  only:
+  1. finish the listed tasks (the hand checks and the reruns they cause, A3, A4, M6, the matcher table);
+  2. fix errors;
+  3. write, cut and rehearse.
+- **Optional items:** each owner may still finish one by **Sun 22 Nov**; if it is not finished then, it is dropped
+  and is not mentioned as planned work:
+  - A5, "bipartisan" releases (Anas);
+  - the before/after check on the redrawn states, `Anas/methods_drafts.md` check 3 (Anas);
+  - the curve of cross-party share against ties kept, from the report skeleton (Martin).
+- **New ideas** that come up while writing go into the Discussion as future work, one line each, not into the
+  analysis.
+- **Reason:** the draft is due Tue 24 Nov at 20:00 and the paper is six pages. Since 18 Nov the scope has grown
+  every day (Democrats in the close-up, G13; the state null, G16; the committee reading of M5; the press layer and
+  recall checks). Each addition is one more thing to finish, fit on the page and defend out loud, and at the
+  presentation any of us can be asked about any of it.
+- **Alternative and what it would have changed:** keep adding until the numbers freeze on Sun 22 Nov. Perhaps a
+  little more polish, but a real risk of an unfinished draft on Tuesday and less time to rehearse the defence.
+- **Source:** Martin, 21 Nov, in the group chat.
 
 ### G9. Yields stay in the labelling sample
 - **Status:** Agreed Wed 18 Nov.

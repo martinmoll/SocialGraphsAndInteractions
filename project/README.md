@@ -3,8 +3,9 @@
 Final project in **02805 Social Graphs and Interactions** (DTU, autumn 2026).
 Group: Anas Mir, Martin Møllenhus, Diego A. Mijares.
 
-**Status (13 November 2026): direction chosen, analysis not done.** The group has settled on the question
-below. One prototype has run once. No number in this file is a result yet.
+**Status (21 November 2026): scope frozen ([`DECISIONS.md`](DECISIONS.md) G17).** Nothing new is added; we finish
+the listed tasks and write. Numbers freeze on Sun 22 Nov. Current numbers are in each member's folder, not in this
+file, which still describes the design as chosen on 13 Nov (the home map is now collected for 412 members).
 
 - **What to do next and who does it:** [`WORK_AND_DEADLINES.md`](WORK_AND_DEADLINES.md)
 - **How we got here** (earlier questions, ratings, the review, pilots): [`archive/`](archive/README.md)
