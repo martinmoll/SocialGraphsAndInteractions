@@ -62,4 +62,4 @@ phrase rule were yields, and none of the 15 flagged only by the window rule were
 coding sheet and is counted as a yield in the strict reading: 1 of 15)." Fifteen rows per side catch a gross
 failure; they do not give a tight rate.
 
-**Lesson for the other sheets:** the list and untitled sheets mark only the one hit; the recall sheet has no marks.
+**Lesson for the other sheets:** the untitled sheet marks only the one hit, the list sheet names the member in `named_name`, and the recall sheet has no marks, so this ambiguity cannot recur there.
