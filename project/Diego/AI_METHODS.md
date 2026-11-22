@@ -30,12 +30,11 @@ in the repository are authored by Claude on our behalf.
 | 10 | Press-release precision (A3) | Claude resolved rows Anas could not confirm (`resolutions.csv`); three blind AI raters re-read 180 rows | Anas read 30 per rule by hand first | Agreement 179 of 180; own-surname rule rests on Claude's reading (29 of 30), reported as such |
 | 11 | District lean, redrawn states (A4) | Claude collected and cross-checked sources | Second sources for every number (The Downballot r = 0.999; official redraw pages) | All nine redraw dates agree |
 | 12 | Literature (D3) | Claude found and summarised references | Every reference looked up in Crossref; Westwood read at the publisher | 14 references, all verified to exist; summaries from abstracts, stated as such |
+| 12b | Speaker attribution (S2) | Claude extracted the Record's own speaker heading for each of 60 sampled turns, as a reading aid | Diego compared each with the assigned member and wrote y/n himself; 3 rows checked on the Record page | 60 of 60 correct (94–100%) |
 | 13 | Paper text | Claude drafted most sections from our results files | Each owner reads and revises their part; the group reads all of it (S3) | [to fill in after the 25 Nov read-through] |
 
 ## What was not checked
 
-- **Speaker attribution** (S2): whether each floor turn is assigned to the right member. 60 turns sampled, not yet
-  read. [Diego: fill in when done.]
 - **AI coders against each other** add little: the same model agrees with itself almost perfectly. We report AI
   agreement only against human codes.
 - **Analysis code** was checked by its results (hand samples, tests in the matcher, reruns that reproduce earlier

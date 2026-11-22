@@ -31,8 +31,8 @@ everything in the paper.
 | Figure 2 | `figures/figure2.pdf` | Diego | Made by `Diego/d2_labelling/figure2.py` | |
 | Results part 3, close-up | in `sections/results.tex`, `sections/from_martin_m6.tex` | Anas | Placeholder: Anas's A4 wording and Martin's M6 paragraph; Anas to revise | about 200 |
 | Figure 3 and caption | `figures/figure3.pdf` | Anas | Draft figure copied from `Anas/a4/out/`; caption missing | |
-| Discussion | `sections/discussion.tex` | Diego and Martin | First draft; Martin to revise; S2 sentence missing | 466 |
-| Methods: data, matching, maps, nulls | `sections/from_martin_methods.tex` | Martin | Generated from `Martin/methods_networks.md`; S2 result missing | 618 |
+| Discussion | `sections/discussion.tex` | Diego and Martin | First draft; Martin to revise | 466 |
+| Methods: data, matching, maps, nulls | `sections/from_martin_methods.tex` | Martin | Generated from `Martin/methods_networks.md`; S2 result filled in by `md2tex.py` | 618 |
 | Methods: labelling, classifier | in `sections/methods.tex` | Diego | Written | about 330 |
 | Methods: press releases | in `sections/methods.tex` | Anas | Placeholder with the facts to cover | |
 | Author contributions | `sections/contributions.tex` | all | Draft; each checks their own line | 145 |
@@ -42,7 +42,7 @@ everything in the paper.
 and the references, so there is little room left: cut, do not add. The Wednesday read-through (25 Nov) cuts to six
 pages.
 
-**Still missing:** the S2 speaker check (Diego; one sentence in Methods and one in the Discussion), Anas's part 3
+**Still missing:** Anas's part 3
 text, caption and Methods paragraph, `\cite` commands in Martin's Methods (Louvain `blondel2008`, NMI `danon2005`,
 modularity `newman2006`, rewiring `maslov2002`), and the repository link.
 

@@ -89,7 +89,7 @@ has not confirmed them. Confirm or change on 18 November.** Hours have not been 
 | # | Task | Delivers | Status |
 |---|---|---|---|
 | S1 | Second-code the labelling sample from D2: Martin rows 1–25, Anas rows 76–100 (Claude coded 26–75). Report κ per pair | Agreement score for part 2 | Done 18 Nov: Diego–Martin κ 0.59, Diego–Anas κ 0.69 (25 rows each) |
-| S2 | Hand-check the 60 sampled speaker turns in `data/processed/speaker_check_sample.csv` | Agreement rate for Methods | Not started |
+| S2 | Hand-check the 60 sampled speaker turns in `data/processed/speaker_check_sample.csv` | Agreement rate for Methods | Done 22 Nov (Diego): 60 of 60 turns assigned to the right speaker (95% interval 94–100%). `Diego/s2_speaker_check/` |
 | S3 | Read the full draft and comment. Explain out loud one method you did not build | Everyone can answer for the whole paper | Not started |
 
 ---
@@ -167,6 +167,9 @@ From the earlier plans in `archive/`, and since the scope freeze (G17). Listed s
 
 Newest first. One line per change.
 
+- **22 Nov 2026.** S2 done by Diego: 60 of 60 sampled turns are assigned to the member the Record names as speaker
+  (94–100%). Filled into the report's Methods (via `report/md2tex.py`; Martin: the sentence in
+  `Martin/methods_networks.md` can be replaced with it) and Discussion.
 - **22 Nov 2026.** Diego (with Claude): paper set up in `report/` for Overleaf (PNAS `main.tex`, sections,
   figures 1 to 3, `references.bib` with Blondel 2008 and Danon 2005 added as Martin asked); Martin's Results part 1
   and Methods converted by `report/md2tex.py`; Results part 2, Figure 2 and Methods for labelling and classifier
