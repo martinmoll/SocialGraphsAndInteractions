@@ -167,6 +167,8 @@ From the earlier plans in `archive/`, and since the scope freeze (G17). Listed s
 
 Newest first. One line per change.
 
+- **22 Nov 2026.** Floor recall check coded by Martin: 12 of 13 named members found (92%, 67–99%); the miss is an
+  unresolvable shared surname. Diego: this is the number for your recall sentence in part 2.
 - **22 Nov 2026.** Matcher fixes G18 (possessives, middle initials; Anas's checklist items 12 and 15): 9,058 floor
   mentions (+440, 4 wrong ones removed). M3 to M5, committee check, state null and Figure 1 rerun: headline 39.3% against
   28.6% (3,675 ties); every reading holds. Diego: rerun D5 on the new file.

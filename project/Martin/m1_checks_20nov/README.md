@@ -79,3 +79,23 @@ PYTHONPATH=Martin python Martin/build_mentions.py
 python Martin/m1_checks_20nov/compare_18nov.py
 python Martin/m1_checks_20nov/draw_checks.py       # redraws the same sheets (fixed seed): don't run after you start coding
 ```
+
+## Result 1: recall (coded by Martin, scored 22 Nov)
+
+Coded sheet: `recall_sheet.csv` (original `recall_sheet_coded.xlsx`). The matcher of 22 Nov (G18) finds the same
+members in these 30 turns as the 20 Nov one, so the key did not change.
+
+- Martin listed 12 House members in the 30 turns (most turns name none). The matcher found 11: **recall 11 of 12 = 92%
+  (95% interval 65% to 99%)**.
+- **One name the matcher found and the sheet left out:** turn 16, "Speaker Johnson is calling this a show vote".
+  That is Mike Johnson, named with his title, so by the coding rules he counts; the matcher was right (Speaker rule).
+  Counted with him: **12 of 13 = 92% (67% to 99%)**. The paper should use this reading, and say so.
+- **The one miss:** turn 24, "I am proud to lead this bipartisan bill with Congressman Evans". Two members are named
+  Evans (Gabe Evans R-CO, Dwight Evans D-PA) and nothing nearby gives a first name or a state, so the matcher drops
+  the name by design ("shared surname, dropped": 828 floor names in all). Not a fixable bug: guessing would add
+  wrong ties. Methods can say so in one sentence.
+- **Limit:** 13 names is few, so the interval is wide. It rules out a recall below about two thirds, not more. Drawing
+  30 more turns would narrow it; under the scope freeze (G17) that is optional.
+
+**For Methods / Anas's matcher table:** floor precision 98 of 100 (D2, G10); floor recall 12 of 13 on 30 hand-read
+turns; the only miss is a shared surname with no first name or state nearby.

@@ -145,6 +145,9 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
 - **Status:** Applied Fri 20 Nov by Martin (with Claude), from Anas's `Anas/MATCHER_CHECKLIST.md`. **Agreed Sat 21 Nov
   by Martin**, including the 24-of-30 rule for untitled names. The 530 new rows are not yet hand-checked
   (`Martin/m1_checks_20nov/`).
+- **Floor recall measured 22 Nov** (Martin, 30 random turns): the matcher found 12 of the 13 House members named
+  (92%, 95% interval 67% to 99%). The one miss is a shared surname with no first name or state nearby ("Congressman
+  Evans"), dropped by design. `Martin/m1_checks_20nov/README.md`, result 1.
 - **Press side (agreed 21 Nov):** Anas switches A3 to this version of the matcher, so floor and press releases use
   one name matcher. What his press layer still adds on top is his to record.
 - **Decision:** in `Martin/matcher.py`: (9) nicknames count as first names, so Bobby Scott, Chuy García, Chris
