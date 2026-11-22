@@ -167,6 +167,10 @@ From the earlier plans in `archive/`, and since the scope freeze (G17). Listed s
 
 Newest first. One line per change.
 
+- **22 Nov 2026.** Anas (with Claude): A5 nearly done (`Anas/a5/`, design fixed first in `a5/PLAN.md`). 64% of releases that say "bipartisan" have a House partner of the other party (named or on a cited bill), against 9% of other releases; of 30 without one, three blind readers find 29 name no partner (one names a senator); Anas read the 2 disagreements. One check left (Mon 23 Nov): whether the named partners are partners. Optional under G17: Martin and Diego to keep or cut.
+- **22 Nov 2026.** Anas (with Claude): Results part 3 drafted (`Anas/results_part3.tex`, about 335 words, over the ~200 budget; network paragraph first to cut). Home-map figure redesigned and the network measures put in a table (`Anas/a4/`). Disparity-filter alpha checked: 0.01 is the strictest that keeps all members connected; centrality results point the same way at six alphas (`Anas/a4/NETWORK_METHODS.md`).
+- **22 Nov 2026.** Anas (with Claude): A3 and A4 rerun on Martin's 22 Nov matcher (G18). Press mentions 129,052 → 129,473; part 3 now Republicans 13.3% against 9.2%, Democrats 11.6% against 9.0%, interaction +1.5 (p 0.36); every reading holds. Republican closeness no longer survives Holm. M6 unaffected (same bill table). `Anas/RERUN_22NOV.md`.
+
 - **22 Nov 2026.** S2 done by Diego: 60 of 60 sampled turns are assigned to the member the Record names as speaker
   (94–100%). Filled into the report's Methods (via `report/md2tex.py`; Martin: the sentence in
   `Martin/methods_networks.md` can be replaced with it) and Discussion.
