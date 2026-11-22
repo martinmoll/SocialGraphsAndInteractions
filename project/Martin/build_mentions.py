@@ -15,6 +15,8 @@ Choices, as in prototype_two_maps.ipynb unless marked NEW:
   - NEW (18 Nov, DECISIONS G1c): is_yield is the phrase rule from m3_definitions.py: "yield" (not "yield back",
     not "yield myself") earlier in the same sentence as the name, or "for yielding" later in it. It found 30 of
     30 of D1's labelled yields; not yet tested on rows it has not seen.
+  - NEW (22 Nov, DECISIONS G19): full names without a title count too ("my friend Chip Roy"), how = "full name, no
+    title", after 30 of 30 hand-checked hits were real mentions.
   - Three columns beyond the agreed seven: how (the matcher rule), is_leader_title (prototype choice 6b) and
     is_yield_window, the old flag ("yield" within 60 characters of the name), kept for comparing the rules.
 """
@@ -65,7 +67,7 @@ def main():
     rows, dropped = [], {}
     for t in turns.itertuples():
         bounds = [0] + [m.end() for m in SENT_END.finditer(t.text)]
-        for h in matcher.find(t.text):
+        for h in matcher.find(t.text, untitled=True):          # untitled names on for the floor since 22 Nov (G19)
             if h.named is None:
                 dropped[h.how] = dropped.get(h.how, 0) + 1
             elif h.named != t.bioguide:

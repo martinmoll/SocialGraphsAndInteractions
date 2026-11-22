@@ -41,6 +41,12 @@ Changes of 22 Nov, from Anas's checklist items 12 and 15 (error fixes, allowed u
   I. A single middle initial is read past: "Rep. James P. McGovern" gives McGovern, not John James, and
      "Congressman Riley M. Moore" gives Moore, not Josh Riley. The name pattern stopped at "P." before.
 
+Change of 22 Nov (DECISIONS G19), with untitled names switched on for the floor after a 30-row check (30 of 30):
+
+  J. An untitled full name right after a title that is not a House title is skipped (Anas's checklist item 14):
+     "Senator", "Sen.", "Governor", "Gov.", "Mayor", "Secretary", "President", "Judge", "Justice", "State", "Lt.",
+     "Attorney General", "Assemblyman", "Assemblywoman". "New Jersey Governor Mikie Sherrill" is not a House mention.
+
 Not added: carrying a resolved name forward within a turn (item 3; 58 of 783 dropped shared surnames).
 "Senator" and "Sen." are not titles, so senators are never matched (item 5; pinned in the self-check).
 """
@@ -69,6 +75,8 @@ PLURAL = {"Representatives", "Reps.", "Congressmen", "Congresswomen", "Chairmen"
 # after a plural title: more names, each after ", ", " and ", ", and " (change E)
 LIST_NEXT = re.compile(r"(?:\s*,\s*(?:and\s+)?|\s+and\s+)(" + NAME + ")")
 STATE_BEFORE = re.compile(r"\bState\s+$")          # "State Rep. Smith" (change F)
+OTHER_TITLE = re.compile(r"\b(?:Senator|Sen\.|Governor|Gov\.|Mayor|Secretary|President|Judge|Justice|State|Lt\."
+                         r"|Attorney General|Assemblyman|Assemblywoman)\s+$")   # before an untitled name (change J)
 NICKNAMES = Path(__file__).with_name("nicknames.csv")
 
 
@@ -164,7 +172,8 @@ class Matcher:
                 for n in (len(words), 3, 2):                  # "Chip Roy", or the last words of a longer run
                     b = self.full.get(" ".join(key(w) for w in [words[0]] + words[-(n - 1):])) if n >= 2 else None
                     if b and not any(s <= mm.start() < e or s < mm.end() <= e for s, e in taken) \
-                            and not all(in_capitals(w) for w in words[1:]):
+                            and not all(in_capitals(w) for w in words[1:]) \
+                            and not OTHER_TITLE.search(text[max(0, mm.start() - 20):mm.start()]):
                         hits.append(Hit(mm.start(), mm.end(), "", b, "full name, no title"))
                         break
             hits.sort()
@@ -217,4 +226,8 @@ if __name__ == "__main__":      # self-check: python Martin/matcher.py, from pro
     assert one("Mr. Van Drew’s motion")[0] == "Jefferson Van Drew"
     assert one("Mr. James rose.") == ("John James", "unique surname")                          # unchanged
     assert many("Reps. Lawler’s and Golden’s bill") == ["Michael Lawler", "Jared F. Golden"]
+    # 22 Nov, change J
+    assert mt.find("New Jersey Governor Mikie Sherrill said", untitled=True) == []
+    assert mt.find("I spoke with Senator Chip Roy", untitled=True) == []
+    assert len(mt.find("my good friend, Jim Clyburn, said", untitled=True)) == 1               # nickname, no title
     print("matcher self-check passed")

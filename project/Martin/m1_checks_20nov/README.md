@@ -104,13 +104,13 @@ turns; the only miss is a shared surname with no first name or state nearby.
 
 - **29 of 30 coded M (97%, 95% interval 83% to 99%)**, 0 P, 1 X. The one X is row 24, "the great [[Jim Clyburn]]
   flipped the script", said by Jeffries about Rep. James E. Clyburn; "Jim" is his official nickname, so on a second
-  reading it is M as well (30 of 30). Martin to confirm.
+  reading it is M as well. **Recoded M by Martin 22 Nov: 30 of 30 (95% interval 89% to 100%).**
 - **By the rule agreed before coding (G14: 24 or more of 30 M), untitled full names go into the floor data too.**
-  Not yet applied: see DECISIONS G19.
+  Applied 22 Nov with a title guard: see DECISIONS G19.
 
 ## Result 3: list hits (coded by Martin, scored 22 Nov)
 
 - **19 of 20 coded OK (95%, 95% interval 76% to 99%)**. The one X is row 10, "[[Dave Taylor]]" in Sam Graves's thanks
   to Transportation and Infrastructure members, with the note "Dave instead of David, unsure if Dave is a nickname".
-  It is Rep. David J. Taylor (R-OH), on that committee; on a second reading it is OK (20 of 20). Martin to confirm.
+  It is Rep. David J. Taylor (R-OH), on that committee; on a second reading it is OK. **Recoded OK by Martin 22 Nov: 20 of 20 (95% interval 84% to 100%).**
 - No sign of a wrong rule: the list hits stay as they are (G14).
