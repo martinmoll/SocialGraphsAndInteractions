@@ -30,9 +30,9 @@ need to know" down is the 16–18 Nov record, kept for the reasons behind each c
 | M4 Debate null | [`m4_debate_null.ipynb`](m4_debate_null.ipynb) | Rerun 20 Nov on the new mentions |
 | M5 Communities | [`m5_communities.py`](m5_communities.py), [`m5_table.csv`](m5_table.csv), [`m5_committees/`](m5_committees/committee_check.py) | First run 20 Nov. Choices listed at the top of each script, **not yet confirmed by Martin** |
 | M6 Close-up null | [`m6_closeup_null.py`](m6_closeup_null.py), [`m6_results.csv`](m6_results.csv) | First run 22 Nov: cross-party bills announced more (52.7% against 45.1%), mostly because co-led bills are; against same-party co-leads +3.5 points (p 0.02). See "M6" below |
-| M7 Figure 1 | [`m7_figure1.py`](m7_figure1.py) → [`figures/figure1_draft.png`](figures/figure1_draft.png) | First draft |
+| M7 Figure 1 | [`m7_figure1.py`](m7_figure1.py) → [`figures/figure1.pdf`](figures/figure1.pdf), [`.png`](figures/figure1.png) | Final version 22 Nov: maps A–B, cross-party share C, modularity against all nulls D |
 | M8 Slides | | Not started |
-| Results text, part 1 | [`results_part1_draft.md`](results_part1_draft.md) | First draft, about 420 words, numbers not frozen |
+| Results text, part 1 | [`results_part1.md`](results_part1.md) | 22 Nov, on the frozen numbers: about 560 words, Figure 1 caption, and the M6 paragraph for Anas's part 3 |
 | Scoring the hand checks | [`m1_checks_20nov/score_checks.py`](m1_checks_20nov/score_checks.py) | Ready: scores whichever sheets are filled in, with 95% intervals |
 
 **Still open before the freeze (Sun 22 Nov), Martin's:** code the three sheets in `m1_checks_20nov/` and the

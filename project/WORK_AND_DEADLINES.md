@@ -60,7 +60,7 @@ has not confirmed them. Confirm or change on 18 November.** Hours have not been 
 | M4 | Harder null: rewire while keeping who spoke in the same debate | A second null for the floor map: `Martin/m4_debate_null.ipynb` | M2 | In progress: rerun 22 Nov on the G19 mentions. Headline map Q 0.112 against 0.074 under the debate null (more divided than all 200): debates explain about two thirds |
 | M5 | Louvain communities on each map; overlap with party and between maps (NMI) | Numbers for Results: `Martin/m5_communities.py`, `Martin/m5_committees/` | M3 | Done 20 Nov (choices agreed 21 Nov, G15): working map splits into the parties (NMI 0.83); floor map into 8 cross-party communities (NMI 0.02) that follow committees (46% of floor ties inside a committee, 17.5% by chance). Reruns after the hand checks only |
 | M6 | Null for the close-up: of a member's own bills, are the cross-party ones announced more often than a random draw? | The fair baseline (fix 1): `Martin/m6_closeup_null.py` | A3 | First run 22 Nov (G20): cross-party bills announced 52.7% against 45.1%; against same-party co-leads only +3.5 points (p 0.02). Anas: use the co-led row next to the main one in part 3 |
-| M7 | Figure 1 (the two maps and their division against the nulls); network part of Results | Figure, text | M3–M5 | First draft of the figure: `Martin/figures/figure1_draft.png`. Text not started |
+| M7 | Figure 1 (the two maps and their division against the nulls); network part of Results | Figure, text | M3–M5 | Figure 1 done 22 Nov (`Martin/figures/figure1.pdf`); Results text part 1 written (`Martin/results_part1.md`), to paste into Overleaf |
 | M8 | The three slides: question and data; the main figure; what it means and how it was checked. PDF, no animations. **Due with the paper on 27 Nov** | Slides PDF | M7, A4, D2 | Not started |
 
 ### Anas: the home text (close-up)
@@ -167,6 +167,8 @@ From the earlier plans in `archive/`, and since the scope freeze (G17). Listed s
 
 Newest first. One line per change.
 
+- **22 Nov 2026.** M7: Figure 1 final (four panels) and the part 1 Results text with caption (`Martin/results_part1.md`),
+  plus a ready M6 paragraph for part 3. The optional thinning curve is dropped (G17).
 - **22 Nov 2026.** M6 first run (G20): members announce their cross-party bills more often than their other bills
   (52.7% against 45.1%), mostly because co-led bills are announced more than solo ones (+3.5 points against
   same-party co-leads, p 0.02). No control for whether a bill moved.
