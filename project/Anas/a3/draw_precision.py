@@ -55,6 +55,9 @@ if __name__ == "__main__":
     ap.add_argument("--press", required=True)
     ap.add_argument("--repo", required=True)
     ap.add_argument("--folder", default=None, help="where to write the workbook (default: precision_check/)")
+    ap.add_argument("--switch", action="store_true",
+                    help="21 Nov matcher switch: one tab of 30 counted hits whose (release, member) the 20 Nov layer "
+                         "did not have; written to switch_sheet.xlsx (A3_MATCHER_SWITCH.md, point 5)")
     a = ap.parse_args()
     d, members, *_ = load_inputs(a.press, a.repo)
     texts = dict(zip(d.url, d.text))
@@ -78,7 +81,14 @@ if __name__ == "__main__":
     L = pd.read_parquet(os.path.join(HITS, "press_hits_layer.parquet"))
     folder = a.folder or os.path.join(os.path.dirname(OUT), "precision_check")
     os.makedirs(folder, exist_ok=True)
-    path = os.path.join(folder, "precision_sheets.xlsx")
+    path = os.path.join(folder, "switch_sheet.xlsx" if a.switch else "precision_sheets.xlsx")
+    if a.switch:
+        old = pd.read_parquet(os.path.join(HITS, "press_hits_layer_75c67ae.parquet"))
+        had = set(zip(*old[old.status == "counted"][["doc_id", "named"]].values.T))
+        c = L[L.status == "counted"].drop_duplicates(["doc_id", "named"])
+        POOLS = {"new after switch": c[[p not in had for p in zip(c.doc_id, c.named)]]}
+    else:
+        POOLS = {rule: L[(L.layer_rule == rule) & (L.status == status)] for rule, status in SAMPLES.items()}
     if os.path.exists(path):
         sys.exit(f"{path} exists and may hold your reading; delete it on purpose to draw again")
 
@@ -94,8 +104,7 @@ if __name__ == "__main__":
     counted = L[L.status == "counted"].drop_duplicates(["doc_id", "named"]).groupby("doc_id").size()
     wrap = Alignment(wrap_text=True, vertical="top")
     red = InlineFont(b=True, color="C00000")
-    for rule, status in SAMPLES.items():
-        pool = L[(L.layer_rule == rule) & (L.status == status)]
+    for rule, pool in POOLS.items():
         s = pool.sample(min(N, len(pool)), random_state=SEED)
         sh = wb.create_sheet(rule[:31])
         for j, (name, width) in enumerate(COLS, 1):
@@ -110,7 +119,8 @@ if __name__ == "__main__":
             before, name, after = t[max(0, r.start - WINDOW):r.start], t[r.start:r.end], t[r.end:r.end + WINDOW]
             row = i + 1
             values = [f"{rule.replace(' ', '_')}_{i:02d}", who(r.speaker), who(r.named), None, None, None,
-                      r.doc_id, rule, status, r.start, int(counted.get(r.doc_id, 0))]
+                      r.doc_id, (r.layer_rule if isinstance(r.layer_rule, str) else "shared") if a.switch else rule,
+                      r.status, r.start, int(counted.get(r.doc_id, 0))]
             for j, v in enumerate(values, 1):
                 if v is not None:
                     sh.cell(row, j, v).alignment = wrap

@@ -3,9 +3,20 @@
 **From Anas, 18 November 2026. For `Martin/matcher.py` (M1). You decide every item. Nothing here has been
 changed in your files.**
 
-**Status 20 Nov:** no decision yet. Items 9 (nicknames), 10 (state legislators) and 11 (recall check) were added on 20 Nov. **Suggested order: 9, 11, 1, 2, 10; then the rest.** Whatever is decided for the floor, the press side (A3) will apply items 1
-and 2 to press releases: in 60 releases the current rules missed 3 names in lists and 26 colleagues named
-without a title (on top of 198 found).
+**Status 21 Nov: new items 12 to 15 for Martin (below).** Items 12 to 14 were found when A3 was switched to the
+20 Nov matcher (`A3_MATCHER_SWITCH.md`); item 15 was found by the press recall check (A3.4).
+- **Items 12 (possessives) and 15 (middle initials) are worth fixing before the freeze on Sun 22 Nov**, in one edit.
+- **Items 13 and 14 are harmless:** listed so we can answer for them if asked.
+
+Items 1 to 11 were decided on 20 Nov (DECISIONS G14):
+- **Done:** 1, 5, 9, 10.
+- **Pending a 30-row hand check:** 2, and 11.
+- **Not done (a Methods sentence instead):** 3.
+- **No change, as recommended:** 4, 6, 7.
+- **Still to write in Methods:** 8.
+
+On 20 Nov, before G14, the press side planned to apply items 1 and 2 itself. In 60 releases the matcher had
+missed 3 names in lists and 26 colleagues named without a title, on top of 198 found.
 
 The press releases (A3, A4) will use your matcher, so the press side needs to know which version it is.
 Each item below gives the proposed change, the course idea behind it, the evidence from **one run of your
@@ -41,6 +52,10 @@ Every number is one run.
 | 9 | **Nicknames as first names** (added 20 Nov) | 6 members dropped when named by nickname; about 72 such names on the floor | not yet measured | **Do it** | Before Sun 22 Nov |
 | 10 | **Skip state legislators** ("State Rep. Smith") (added 20 Nov) | not measured | likely in home-state releases | Add a test; skip on "State" before the title | Before A3 |
 | 11 | **Recall check on the floor** (added 20 Nov) | not measured: D1 and D2 measure precision only | Anas does it for press (A3) | **Do it**: 30 turns, one hour | Before Sun 22 Nov |
+| 12 | **Possessives are never matched** (added 21 Nov) | +417 mentions (4.8%), 33.6% cross-party | +1,275 titled hits | **Fix it**: strip a trailing ’s / 's before the surname lookup, plus a test | Before Sun 22 Nov |
+| 13 | **"Washington" the city counts as the state** (added 21 Nov) | 2 mentions, one passage | up to 6 hits | No fix needed; know it for the defence | — |
+| 14 | **No guard on untitled names after "Sen." or "Governor"** (added 21 Nov) | none: untitled is off for the floor | 11 of 81,950; the press layer flags them | No fix needed unless untitled goes on for the floor | — |
+| 15 | **A middle initial makes the first name the surname** (added 21 Nov, A3.4) | 4 hits, all non-members ("Mr. James R. Willis" → John James) | 364 wrong mentions, 96% cross-party | **Fix it** with item 12: read past a single initial before the surname lookup | Before Sun 22 Nov |
 
 ---
 
@@ -233,6 +248,114 @@ before the freeze. If it is fine, the number goes in Methods as it is.
 
 **What the paper can say.** *"The matcher found [x]% of named members in 30 hand-read floor turns and [y]% in
 30 press releases."* No alias list is complete, so this is reported as a measured limitation, not removed.
+
+## 12. Possessives are never matched (added 21 Nov)
+
+**Problem.**
+- "Mr. Cole’s amendment" and "Rep. Chip Roy’s bill" give no hit at all.
+- `WORD` includes the apostrophe, so "Cole’s" is read as the surname and matches no member.
+- Tested on `matcher.py` at `7bdbc18c`:
+
+```python
+mt.find("I thank Mr. Cole.")                # [C001053, unique surname]
+mt.find("I support Mr. Cole’s amendment.")  # []
+mt.find("I support Mr. Cole's amendment.")  # []
+```
+
+The same holds in both matcher versions and for every rule: titled, lists and untitled names.
+
+**Evidence.** One run each, with the possessive ’s / 's blanked out (same text length, so positions don't move),
+counting hits the unchanged matcher did not have, the speaker themselves left out. Not hand-checked.
+- **Floor** (the turns `build_mentions.py` keeps, 17,824): **+417 colleague mentions**, 4.8% on top of 8,622.
+  33.6% of them are cross-party.
+- **Press** (titled names, the shared matcher): **+1,275 hits**, 37.5% cross-party.
+
+**Does it matter?** The missed floor mentions cross the aisle about as often as the rest (about 36% of R–D
+mentions), so the headline should move little. But this is a recall gap that has a known cause and could be
+fixed, and an examiner reading "Mr. Cole's amendment" in an example will expect it to be counted. Martin's 30-turn
+recall sheet (item 11) will show it if a possessive turns up there.
+
+**Proposed change.** In `resolve`, strip a trailing ’s / 's from the last name word before the lookup, and add
+`assert one("I support Mr. Cole’s amendment.")[0] == ...` to the self-check. Then:
+- rerun `build_mentions.py` and the M3 to M5 scripts, as after G14;
+- A3 picks it up by rerunning `freeze.py`, `match_shared.py` and `press_layer.py` (about a minute).
+
+**When.** Before Sun 22 Nov, or not at all: it adds floor mentions (G7). If not fixed, one Methods sentence:
+"Possessive forms ("Mr. Cole's") are not matched; blanking them adds 417 floor mentions (4.8%)."
+
+## 13. "Washington" the city counts as the state (added 21 Nov)
+
+**Problem.**
+- The "state nearby" rule settles a shared surname by a state name within 80 characters.
+- "Washington" in "back to Washington" or "Washington, DC" therefore counts as Washington the state.
+- On 20 Nov the old matcher gave "Congressman Chris Smith (NJ-04)" to Adam Smith (WA) because the release began
+  "Washington, DC –". The nickname fix (item 9) now settles that case by first name.
+
+**Evidence.**
+- **Floor:** 2 mentions are resolved to a Washington member this way, both in one passage ("Invite Mr. Smith to
+  come back to Washington"), which on my reading is about the film *Mr. Smith Goes to Washington*, not a member.
+- **Press:** up to 6 of about 129,000 hits go to Adam Smith this way, and at least one is right ("veterans in
+  Washington State," said Rep. Smith).
+
+**Recommendation.** No fix needed. Know it for the defence: "how do you resolve shared surnames?" One possible
+answer: "first name, then a state name nearby; the state rule settles 363 of 8,622 floor mentions, and the only
+known failure is Washington the city, 2 mentions."
+
+## 14. No guard on untitled full names after a title (added 21 Nov)
+
+**Problem.** With `find(text, untitled=True)`, a "First Last" right after "Sen.", "Gov." or "Governor" still counts.
+Example: "New Jersey Governor Mikie Sherrill", who has left the House but is still in `members.csv`.
+
+**Evidence.** 11 of 81,950 untitled press hits follow such a word. Some are real errors (Sherrill as governor).
+Others are correct and only look suspicious (Mike Rogers after "The President and"; signatories after "Secretary
+Noem:").
+
+**Recommendation.**
+- **Floor:** nothing to do while untitled names are off (item 2). If the 30-row check switches them on, this guard
+  should come with them.
+- **Press:** the press layer already flags these hits ("title guard") and does not count them.
+
+## 15. A middle initial makes the first name the surname (added 21 Nov, found by the A3.4 recall check)
+
+**Problem.** After a title, `NAME` reads words of two or more letters, so it stops at a single initial.
+- "Congressman Riley M. Moore" is read as "Riley", and resolved to Josh Riley.
+- "Rep. James P. McGovern" is read as "James", and resolved to John James.
+- When the first name is no member's surname, the name is simply missed: "Representatives Alma S. Adams".
+
+**Evidence** (one run each, `7bdbc18c`):
+- **Floor:** 4 hits, all non-members, so all wrong ("Mr. James R. Willis, a marine" → John James; "Congressman
+  James J. Howard"). Negligible for the floor map.
+- **Press:** 364 counted mentions (once per release), 96% of them cross-party. John James receives 248 (from
+  McGovern, Clyburn, Walkinshaw, …) and Josh Riley 114 (from Riley Moore's own releases). That is small against
+  128,996, but it plants false cross-party ties on two members.
+
+**Proposed change.** Let the title's name continue past a single capital initial (`[A-Z]\.\s`) before the surname
+lookup, so "Riley M. Moore" resolves as Moore and "Alma S. Adams" as Adams. Add a test for each. It fits in the same
+edit as item 12, and the same reruns follow.
+
+**Press side, 21 Nov:** already corrected in the press layer (the "middle initial" rule in `a3/press_layer.py`), so
+A3 and A4 do not wait for this. Only 3 such press hits are left. Until the matcher itself is fixed, floor and press
+differ on this one rule. On the floor it touches 4 hits, all of them non-members.
+
+## For information: what the press side adds on top of this matcher (21 Nov)
+
+Nothing for Martin to do. Recorded here because G14 says the press side records what its layer adds.
+
+- **Input:** `untitled=True`, and `nicknames=` your `nicknames.csv` plus the 406 first names members use for
+  themselves in their own releases ("Don" Davis, "Val" Hoyle).
+- **Thin layer:**
+  - party-state tags settling a shared surname ("Rep. Smith (R-NJ)");
+  - a member's own shared surname as a self-mention;
+  - a guard on "Assembly" before a title;
+  - the guard in item 14.
+- **Two forms that only press releases use:**
+  - lists with tags, "Reps. Sessions (R-TX), Meuser (R-PA) and Bacon (R-NE)" (your list rule stops at the first
+    tag);
+  - quoted nicknames, Jesús G. “Chuy” García (the quote mark stops the untitled rule).
+- **Checked on the floor turns:** 0 hits of either form that the matcher misses, so the floor map loses nothing
+  to them.
+
+Details: [`A3_MATCHER_SWITCH.md`](A3_MATCHER_SWITCH.md), [`a3/README.md`](a3/README.md).
 
 ## Files
 

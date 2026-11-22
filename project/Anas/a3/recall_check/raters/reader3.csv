@@ -1,0 +1,99 @@
+sample_id,bioguide,as_written,confidence,note
+recall_01,NONE,,,
+recall_02,NONE,,,
+recall_03,NONE,,,
+recall_04,NONE,,,
+recall_05,A000370,"Adams",high,Alma S. Adams (NC-12); first named in title
+recall_05,F000462,"Frankel",high,Lois Frankel (FL-22); first named in title
+recall_05,L000273,"Leger Fernández",high,Teresa Leger Fernández (NM-03); first named in title
+recall_06,NONE,,,
+recall_07,S001201,"Congressman Suozzi",high,Tom Suozzi; Problem Solvers co-chair
+recall_08,C001066,"Castor",high,Kathy Castor (D-FL); first named in title
+recall_09,H001072,"Chairman French Hill",high,
+recall_09,W000187,"Ranking Member Waters",high,Maxine Waters; Financial Services ranking member
+recall_09,F000474,"Subcommittee Chair Flood",high,Mike Flood
+recall_09,C001061,"Subcommittee Ranking Member Cleaver",high,Emanuel Cleaver
+recall_10,S001213,"Chairman Steil",high,Bryan Steil; House Administration chair
+recall_11,NONE,,,
+recall_12,M000687,"Kweisi Mfume",high,
+recall_12,E000301,"Sarah Elfreth",high,
+recall_13,H001066,"Congressman Steven Horsford (NV-04)",high,
+recall_13,T000468,"Congresswoman Dina Titus (NV-01)",high,
+recall_14,K000389,"Ranking Member Khanna",high,Ro Khanna; first named in title
+recall_14,P000608,"Rep. Scott Peters (D-CA)",high,
+recall_14,T000469,"Rep. Paul Tonko (D-NY)",high,
+recall_14,L000593,"Rep. Mike Levin (D-CA)",high,
+recall_15,N000015,"Richard Neal (MA-01)",high,
+recall_15,M000312,"Jim McGovern (MA-02)",high,
+recall_15,T000482,"Lori Trahan (MA-03)",high,
+recall_15,A000148,"Jake Auchincloss (MA-04)",high,
+recall_15,C001101,"Katherine Clark (MA-05)",high,
+recall_15,M001196,"Seth Moulton (MA-06)",high,
+recall_15,L000562,"Stephen Lynch (MA-08)",high,
+recall_15,K000375,"Bill Keating (MA-09)",high,
+recall_15,W000187,"Ranking Member Maxine Waters",high,
+recall_16,V000129,"Valadao",high,David Valadao (R-CA-22); first named in title
+recall_17,B001281,"Beatty",high,Joyce Beatty
+recall_17,F000477,"Foushee",high,Valerie Foushee
+recall_17,C001130,"Crockett",high,Jasmine Crockett
+recall_17,M001227,"McClellan",high,Jennifer McClellan
+recall_17,?,"Lee",low,surname only; candidates Summer L. Lee L000602 and Susie Lee L000590 (Democratic women); Laurel M. Lee L000597 unlikely
+recall_17,P000610,"Plaskett",high,Stacey Plaskett
+recall_17,M001208,"McBath",high,Lucy McBath
+recall_18,NONE,,,
+recall_19,N000147,"Rep. Eleanor Holmes Norton (DC)",high,
+recall_19,C001059,"Rep. Jim Costa (CA-21)",high,
+recall_19,V000130,"Rep. Juan Vargas (CA-51)",high,text says CA-51; csv lists Juan Vargas as CA-52
+recall_19,B001313,"Rep. Shontel Brown (OH-11)",high,
+recall_19,B001292,"Rep. Don Beyer (VA-08)",high,
+recall_19,J000288,"Rep. Hank Johnson (GA-04)",high,
+recall_19,T000486,"Rep. Ritchie Torres (NY-15)",high,
+recall_19,R000305,"Rep. Deborah Ross (NC-02)",high,
+recall_20,NONE,,,
+recall_21,NONE,,,
+recall_22,NONE,,,
+recall_23,NONE,,,
+recall_24,NONE,,,
+recall_25,NONE,,,
+recall_26,G000602,"Representative Laura Gillen (NY-04)",high,
+recall_26,W000797,"Rep. Wasserman Schultz",high,Debbie Wasserman Schultz
+recall_26,C001067,"Yvette D. Clarke (NY-09)",high,
+recall_26,C001127,"Sheila Cherfilus-McCormick (FL-20)",high,
+recall_26,S001145,"Jan Schakowsky (IL-09)",high,
+recall_26,M000312,"Jim McGovern (MA-02)",high,
+recall_26,W000808,"Frederica Wilson (FL-24)",high,
+recall_26,C001080,"Judy Chu (CA-27)",high,old district number; csv lists CA-28
+recall_26,V000081,"Nydia Velázquez (NY-07)",high,
+recall_26,R000606,"Rep. Jamie Raskin (D-MD)",high,
+recall_26,T000481,"Rashida Tlaib (MI-13)",high,old district number; csv lists MI-12
+recall_26,O000172,"Alexandria Ocasio-Cortez (NY-14)",high,
+recall_27,V000131,"Congressman Marc Veasey (D-TX)",high,
+recall_27,W000821,"Bruce Westerman",high,
+recall_28,NONE,,,
+recall_29,NONE,,,
+recall_30,NONE,,,
+recall_31,T000193,"Ranking Member Thompson",high,Bennie G. Thompson; first named in title
+recall_31,C001110,"Lou Correa (CA-46)",high,J. Luis Correa
+recall_31,P000621,"Rep. Nellie Pou (NJ-09)",high,
+recall_32,H001077,"Higgins",high,Clay Higgins (R-LA-03); first named in title
+recall_32,S000250,"Sessions",high,Pete Sessions (R-TX-17); first named in title
+recall_32,M001212,"Moore",high,Barry Moore (R-AL-01); title says only Moore but the body gives full name
+recall_33,H001068,"Natural Resources Ranking Member Jared Huffman",high,
+recall_33,E000301,"Vice Ranking Member Sarah Elfreth",high,
+recall_33,N000191,"Joe Neguse",high,
+recall_33,H001094,"Val Hoyle",high,
+recall_33,L000273,"Teresa Leger Fernández",high,
+recall_33,A000381,"Yassamin Ansari",high,
+recall_33,S001226,"Andrea Salinas",high,
+recall_33,L000397,"Lofgren",high,"Ranking Members Huffman and Lofgren = Zoe Lofgren"
+recall_34,G000551,"Congressman Raul Grijalva",high,Raúl M. Grijalva (AZ-07); deceased; not Adelita Grijalva
+recall_35,NONE,,,
+recall_36,M000317,"Malliotakis",high,Nicole Malliotakis; first named in title
+recall_36,C001127,"Sheila Cherfilus-McCormick (D-FL)",high,
+recall_36,E000297,"Adriano Espaillat (D-NY)",high,
+recall_36,M001229,"Monica McIver (D-NJ)",high,written as Monica; LaMonica McIver is the only McIver
+recall_36,T000469,"Paul Tonko (D-NY)",high,
+recall_37,L000397,"Rep. Zoe Lofgren (CA-18)",high,
+recall_38,NONE,,,
+recall_39,NONE,,,
+recall_40,NONE,,,

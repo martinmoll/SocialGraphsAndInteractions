@@ -20,8 +20,12 @@ def wilson(k, n, z=1.96):
     return c - h, c + h
 
 
+import sys
+
 folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), "precision_check")
-sheets = pd.read_excel(os.path.join(folder, "precision_sheets.xlsx"), sheet_name=None, dtype={"correct": str})
+# python a3/score_precision.py switch_sheet.xlsx  scores the 21 Nov switch sample instead (A3_MATCHER_SWITCH.md)
+book = sys.argv[1] if len(sys.argv) > 1 else "precision_sheets.xlsx"
+sheets = pd.read_excel(os.path.join(folder, book), sheet_name=None, dtype={"correct": str})
 # resolutions.csv: Claude's resolution of rows Anas read n or ? where his note says "could not verify" (or, on the
 # removal tabs, where y/n was flipped). The workbook's `correct` is never changed; both versions are scored.
 res_path = os.path.join(folder, "resolutions.csv")
