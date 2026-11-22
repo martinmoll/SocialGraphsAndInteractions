@@ -1,0 +1,47 @@
+% Two maps of Congress: 02805 final project paper.
+% Built for the PNAS Overleaf template ("PNAS Template for Research Reports"). To use it: open the template in
+% Overleaf, upload sections/, figures/ and references.bib, and replace the template's main file with this one.
+% The class file pnas-new.cls comes with the template; it is not in this repository. See README.md.
+\documentclass[9pt,twocolumn,twoside]{pnas-new}
+\templatetype{pnasresearcharticle}
+
+\title{Two maps of Congress: the House is less divided in whom its members name than in whom they work with}
+
+\author[a]{Anas Mir}
+\author[a]{Martin M{\o}llenhus}
+\author[a]{Diego A. Mijares}
+\affil[a]{Technical University of Denmark, 02805 Social Graphs and Interactions}
+
+\leadauthor{Mir}
+
+\significancestatement{\input{sections/significance}}
+
+\authorcontributions{\input{sections/contributions}}
+\authordeclaration{The authors declare no competing interest.}
+\correspondingauthor{}
+
+\keywords{Congress $|$ polarization $|$ networks $|$ floor speech $|$ cosponsorship}
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\dates{Hand-in 27 November 2026.}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{firststyle}
+\ifthenelse{\boolean{shortarticle}}{\ifthenelse{\boolean{singlecolumn}}{\abscontentformatted}{\abscontent}}{}
+
+\input{sections/introduction}
+\input{sections/results}
+\input{sections/discussion}
+
+\matmethods{\input{sections/methods}}
+
+\showmatmethods{}
+
+\bibliography{references}
+
+\end{document}

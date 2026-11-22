@@ -22,12 +22,12 @@ Terms that weigh most for each code
   P: gentleman, the gentleman, speaker yield, yield, or, minutes to, yield minutes, gentleman from, minutes, to the
   X: his, service, mike, years, has, the nation, more than, has become, recognize, become
 
-Applied to 8,041 floor mentions (2,898 cross-party, 5,143 same-party)
+Applied to 9,909 floor mentions (3,630 cross-party, 6,279 same-party)
 Share of each code:
                                           P      A      D      N      X
 source                   mentions                                      
-classifier, all mentions cross-party  0.018  0.723  0.024  0.233  0.002
-                         same-party   0.140  0.726  0.004  0.129  0.001
+classifier, all mentions cross-party  0.015  0.721  0.021  0.241  0.002
+                         same-party   0.115  0.721  0.005  0.157  0.002
 hand labels, sample      cross-party  0.000  0.693  0.067  0.227  0.013
                          same-party   0.120  0.800  0.000  0.040  0.040
 

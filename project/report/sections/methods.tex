@@ -1,0 +1,42 @@
+% Methods. Budget about 1.25 pages for all of it; cut at the Wednesday read-through.
+% Data, name matching, yields, maps, nulls, communities: Martin, generated from Martin/methods_networks.md.
+% Labelling and classifier: Diego with Claude. Press releases: Anas (to write, from Anas/methods_drafts.md).
+
+\input{sections/from_martin_methods}
+
+\textbf{Labelling what a mention does.} We drew 100 floor mentions at random with a fixed seed, 75 between members
+of different parties and 25 within a party, from the mentions found on 18 November (before lists and untitled
+names were added to the matcher). Coders saw the speaker, the named member, the date and three sentences of
+context, but not the parties. Each mention got one of five codes for what the speaker did towards the named member:
+procedure (handing over or thanking for debate time), agreeing (thanks, praise, partnership, support for the
+member's bill), disagreeing (rebuttal, criticism, blame, a demand to change course), neutral (a reference that takes
+no side), or not that member (a wrong match, or Record text the speaker did not say). The rules for mixed cases were
+fixed before coding; where two codes fitted, the first in the order not that member, procedure, disagreeing,
+agreeing, neutral was used. One author coded all 100 mentions. A second author coded 25 of them each (50 in all),
+and an AI assistant (Claude) coded the other 50 following the same written rules, without seeing any human code.
+Agreement between the human coders was 82\% (Cohen's $\kappa = 0.64$; 0.59 and 0.69 for the two pairs), and between
+the first coder and the AI coder 88\% ($\kappa = 0.72$). Three further independent runs of the AI coder on all 100
+mentions agreed with each other on 99 or 100 and with the first coder on 81\% to 82\% ($\kappa$ 0.56 to 0.58); being
+the same model, they show that its coding is stable, not that it is right. Shares are reported from the first
+coder's codes with 95\% Wilson intervals. The first coder changed two codes to ``not that member'' after the AI
+coders flagged them; both were clear matcher errors (a port authority's director and a member's late husband).
+
+\textbf{Classifier.} To carry the labels to all floor mentions we trained a logistic-regression classifier (classes
+weighted by inverse frequency, $C = 1$, not tuned) on TF-IDF features of each mention's context: words and word
+pairs occurring in at least two mentions, with the named member's surname replaced by a placeholder. We tested it
+with leave-one-out cross-validation on the 100 labelled mentions and compared it with always predicting the most
+common code. It did not beat that baseline (73\% against 72\% accuracy, macro F1 0.26, no disagreement found), so
+its predictions are not used as measurements.
+
+\textbf{Press releases.} [Anas: collection (55,023 releases from 412 members, members' house.gov sites, snapshot
+20 November 2026), matching releases to bills by number and marking co-leads (A3), district lean of the seat
+served (Cook PVI 2025, with the 2024 presidential margin as a check), the definition of an exposed seat, and the
+permutation test. Sources: \texttt{Anas/methods\_drafts.md}, \texttt{Anas/a4/README.md}, \texttt{Anas/a3/README.md}.
+Martin's M6 null: own bills are sponsored H.R. and H.J.Res.; cross-party means an original cosponsor of the other
+party; the cross-party label is shuffled within each member, 10,000 shuffles.]
+
+\textbf{AI use.} Code, data checks and drafts of the text were written with an AI assistant (Claude, Anthropic).
+Every place a model touched a result, and how it was checked, is listed in \texttt{AI\_METHODS.md} in the project
+repository.
+
+\textbf{Data and code.} [repository link] \cite{fowler2006,newman2006,maslov2002,serrano2009,blondel2008,danon2005,landis1977}

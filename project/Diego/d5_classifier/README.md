@@ -21,7 +21,7 @@ python Diego/d5_classifier/classify.py
    other 99. Reported: accuracy against always guessing the most common code, macro F1, F1 per code, the
    confusion matrix, and accuracy separately for cross-party and same-party mentions.[^loo]
 4. **Apply.** Refit on all labelled mentions and predict every floor mention between two members of the two
-   parties: 8,041 mentions, 2,898 cross-party and 5,143 same-party.
+   parties: 9,909 mentions (3,630 cross-party, 6,279 same-party) in the 22 Nov file.
 5. **Output.** `results.txt`, `shares.csv` (share of each code, classifier on all mentions next to the hand
    labels on the sample), `predictions.parquet`, `figures/d5_codes.png`.
 
@@ -31,7 +31,7 @@ Trained on Diego's 100 codes (72 A, 18 N, 5 D, 3 P, 2 X). Full output in `result
 
 - Leave-one-out accuracy **73%**, against **72%** for always guessing "agreeing". Macro F1 0.26.
 - It never predicts "disagreeing" correctly (0 of 5) and finds about half of "neutral".
-- **The classifier does not beat the baseline.** Its shares over all 8,041 mentions are in `shares.csv`
+- **The classifier does not beat the baseline.** Its shares over all 9,909 mentions are in `shares.csv`
   and the figure, but they are not a measurement. The paper reports the hand-labelled shares (see
   `../d2_labelling/RESULTS.md`) and states this as the check: with 100 labels, five of them disagreement,
   a word-count model cannot tell praise from attack.

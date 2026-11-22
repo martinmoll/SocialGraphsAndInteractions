@@ -1,5 +1,8 @@
 # Anas: status, findings and proposals
 
+> **22 Nov, added by Diego (with Claude) with the group's agreement:** `AI_METHODS.md` (part of A6) has moved to
+> `Diego/AI_METHODS.md`, so Anas does not need to spend time on it. Additions welcome there.
+
 Anas, Friday 20 November 2026 (last updated **Sun 22 Nov, early morning: A3 complete, A4 first run and the home-map
 network extension**; section 3, [`a3/README.md`](a3/README.md), [`a4/README.md`](a4/README.md)). **Start here.** This
 replaces `REVISIONS_19NOV.md` and is kept up to date.

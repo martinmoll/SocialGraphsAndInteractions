@@ -1,0 +1,59 @@
+% Results. Part 1 is Martin's text, generated from Martin/results_part1.md by report/md2tex.py.
+% Part 2 is Diego's (with Claude), from Diego/d2_labelling/RESULTS.md and Diego/d5_classifier/results.txt.
+% Part 3 is Anas's: the wording from Anas/a4/README.md and Martin's M6 paragraph, to be revised by Anas.
+
+\section*{Results}
+
+\subsection*{Two maps of the same House}
+\input{sections/from_martin_results}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=17.8cm]{figures/figure1.pdf}
+\input{sections/from_martin_caption1}
+\label{fig:maps}
+\end{figure*}
+
+\subsection*{What a cross-party mention means}
+
+Naming a colleague is not working with them, and a member can name the other side to attack it. To find out what
+the floor map's cross-party ties are, we read 100 floor mentions drawn at random, 75 between parties and 25 within
+a party, and coded what the speaker was doing towards the named member (Methods). Of the cross-party mentions, 69\%
+(95\% interval 58\% to 79\%) were agreeing: thanks to a bill's co-lead or to a committee's chair, praise for joint
+work, support for the member's bill. 23\% (15\% to 33\%) were neutral references, such as the member who
+introduced a bill or whose district a constituent lives in. Only 7\% (3\% to 15\%) disagreed with the named member
+(Fig.~\ref{fig:labels}). None was procedure: handing over debate time stays within a party (12\% of same-party
+mentions). Two coders agreed on 82\% of the mentions (Cohen's $\kappa = 0.64$).
+
+A text classifier trained on these labels could not carry them to all 9,909 floor mentions. Predicting each label
+from a model trained on the other 99, it was right 73\% of the time, against 72\% for always answering
+``agreeing'', and it found none of the five disagreements. We therefore report the hand-labelled shares only.
+
+The floor map's cross-party ties are thus mostly acknowledgement, not argument. Members name the other side to
+credit it far more often than to oppose it. The labels check that each name is the right member, but not which
+members were missed: in 30 turns read in full, the matcher found 12 of the 13 members a reader found.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=8.7cm]{figures/figure2.pdf}
+\caption{What floor mentions do. Share of 100 hand-labelled mentions in each code, for mentions between parties
+(purple, $n = 75$) and within a party (grey, $n = 25$). Lines show 95\% Wilson intervals. Codes as in Methods; a
+mention was coded ``not that member'' when the matched name referred to someone else.}
+\label{fig:labels}
+\end{figure}
+
+\subsection*{Close-up: whom members name at home}
+% Anas: revise this part. Sources: Anas/a4/README.md (wording "for the paper"), Martin/results_part1.md (M6).
+Members in exposed seats named the other party in more of their releases than members in safe seats, in both
+parties (Republicans 13.2\% against 9.2\%, Democrats 11.5\% against 8.9\%; permutation $p < 0.01$ for each). The
+difference between the parties was small and not distinguishable from zero (1.4 points, $p = 0.40$), consistent
+with a seat effect rather than a president's-party effect.
+
+\input{sections/from_martin_m6}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=8.7cm]{figures/figure3.pdf}
+\caption{[Anas: caption for Figure 3. Draft figure from \texttt{Anas/a4/out/figure3\_draft.pdf}.]}
+\label{fig:home}
+\end{figure}

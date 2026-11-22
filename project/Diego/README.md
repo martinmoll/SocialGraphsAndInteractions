@@ -18,6 +18,9 @@ matter of judgement, the file carries a footnote saying so, and the choices are 
 | D4 Introduction, Discussion, reflection | [`d4_drafts.md`](d4_drafts.md) | Drafted with placeholders for every number that is not frozen |
 | D5 Classifier on the hand labels | [`d5_classifier/README.md`](d5_classifier/README.md) | Runs end to end on Claude's 50 codes as a placeholder; switches to the human labels when the D2 sheets are back |
 | Report plan | [`report_skeleton.md`](report_skeleton.md) | Skeleton of paper, reflection and slides: bullets, owners, page budget |
+| Paper, slides | [`../report/`](../report/README.md) | Set up 22 Nov for Overleaf; part 2, Figure 2, Methods (labelling, classifier) written; Intro, Discussion, abstract drafted |
+| AI methods | [`AI_METHODS.md`](AI_METHODS.md) | Required file; moved here from Anas 22 Nov; copy to `docs/` before hand-in |
+| Reflection | [`reflection_draft.md`](reflection_draft.md) | Draft for Diego to rewrite |
 
 ## What the others need to know before 18 November
 

@@ -1,6 +1,6 @@
 # Work and deadlines
 
-**Last updated: Saturday 21 November 2026.**
+**Last updated: Sunday 22 November 2026.**
 
 **Scope frozen on Sat 21 Nov (DECISIONS G17).** Nothing new is added; we finish what is listed below, fix errors
 and write. Optional items not finished by Sun 22 Nov are dropped.
@@ -61,18 +61,18 @@ has not confirmed them. Confirm or change on 18 November.** Hours have not been 
 | M5 | Louvain communities on each map; overlap with party and between maps (NMI) | Numbers for Results: `Martin/m5_communities.py`, `Martin/m5_committees/` | M3 | Done 20 Nov (choices agreed 21 Nov, G15): working map splits into the parties (NMI 0.83); floor map into 8 cross-party communities (NMI 0.02) that follow committees (46% of floor ties inside a committee, 17.5% by chance). Reruns after the hand checks only |
 | M6 | Null for the close-up: of a member's own bills, are the cross-party ones announced more often than a random draw? | The fair baseline (fix 1): `Martin/m6_closeup_null.py` | A3 | First run 22 Nov (G20): cross-party bills announced 52.7% against 45.1%; against same-party co-leads only +3.5 points (p 0.02). Anas: use the co-led row next to the main one in part 3 |
 | M7 | Figure 1 (the two maps and their division against the nulls); network part of Results | Figure, text | M3–M5 | Figure 1 done 22 Nov (`Martin/figures/figure1.pdf`); Results text part 1 written (`Martin/results_part1.md`), to paste into Overleaf |
-| M8 | The three slides: question and data; the main figure; what it means and how it was checked. PDF, no animations. **Due with the paper on 27 Nov** | Slides PDF | M7, A4, D2 | Not started |
+| M8 | The three slides: question and data; the main figure; what it means and how it was checked. PDF, no animations. **Due with the paper on 27 Nov** | Slides PDF | M7, A4, D2 | Started 22 Nov by Diego with Claude: `report/slides/slides.tex` (three frames, draft). Owner still Martin |
 
 ### Anas: the home text (close-up)
 
 | # | Task | Delivers | Needs | Status |
 |---|---|---|---|---|
-| A1 | Change the collector to store the full text and the date of every release. It does not match names: the shared matcher (M1) does that. First version by Wed 18 Nov. Starting point: `archive/Anas_Claude/pilot/press_pull.py`; new home `scripts/` | A collector that keeps the text (fix 3) | | Not started |
-| A2 | Collect the first 20 Republicans, spread over district lean. Then decide whether to go to about 60 | `data/processed/press_releases.parquet` (first part); go or no-go | A1 | Not started |
-| A3 | Match each release to its bill by bill number; mark each named colleague as co-lead or not | Release-to-bill table (fix 1) | A2, M1 | Not started |
-| A4 | Showcase ties: which Democrats each Republican names at home. Check the named examples (Roy–Cohen, Biggs–Jayapal, Lawler 1 of 10, Bacon 8 of 10) against full text | Table and figure for the close-up | A3 | Not started |
+| A1 | Change the collector to store the full text and the date of every release. It does not match names: the shared matcher (M1) does that. First version by Wed 18 Nov. Starting point: `archive/Anas_Claude/pilot/press_pull.py`; new home `scripts/` | A collector that keeps the text (fix 3) | | Done 20 Nov (per `Anas/STATUS.md`): collector keeps full text and dates |
+| A2 | Collect the first 20 Republicans, spread over district lean. Then decide whether to go to about 60 | `data/processed/press_releases.parquet` (first part); go or no-go | A1 | Done 20 Nov: 55,023 releases from 412 members, snapshot 20 Nov (`Anas/press_releases/MANIFEST.md`) |
+| A3 | Match each release to its bill by bill number; mark each named colleague as co-lead or not | Release-to-bill table (fix 1) | A2, M1 | Done 22 Nov (per `Anas/STATUS.md`): releases matched to bills and co-leads; precision and recall checks in `Anas/a3/` |
+| A4 | Showcase ties: which Democrats each Republican names at home. Check the named examples (Roy–Cohen, Biggs–Jayapal, Lawler 1 of 10, Bacon 8 of 10) against full text | Table and figure for the close-up | A3 | In progress: first run 21 Nov (`Anas/a4/README.md`): exposed seats name the other party more in both parties; Figure 3 draft |
 | A5 | Optional: does a release that says "bipartisan" name a real cross-party partner? | One panel | A3 | Not started. Dropped unless finished by Sun 22 Nov (G17) |
-| A6 | Methods; `docs/AI_METHODS.md`; final data download; final assembly | Text and the required file | Ongoing | Not started |
+| A6 | Methods; `docs/AI_METHODS.md`; final data download; final assembly | Text and the required file | Ongoing | Methods: Anas (placeholder in `report/sections/methods.tex`). **`AI_METHODS.md` moved to Diego (22 Nov, Diego's request, to save Anas's time): `Diego/AI_METHODS.md`, to copy to `docs/` before hand-in.** Final assembly: `report/` |
 
 ### Diego: validation and literature
 
@@ -81,8 +81,8 @@ has not confirmed them. Confirm or change on 18 November.** Hours have not been 
 | D1 | Count the 30 matches printed in the prototype notebook; extend to about 100; report precision | Matcher precision for Methods: `Diego/d1_matcher_precision/REPORT.md` | | In progress: 93 of 100 correct (95% interval 86 to 97%) on the prototype's matcher. Labelled by Claude, 95 of 100 checked by Diego, 5 to recheck. **New, 18 Nov: the new matcher's precision comes from code X in the D2 sample (100 rows), with Martin and Anas as second coders (DECISIONS G10). In progress** |
 | D2 | Labelling protocol for cross-party floor mentions: agreeing, disagreeing or procedural. Draw the sample from `mentions.parquet` | Protocol and sample: `Diego/d2_labelling/PROTOCOL.md` | M2 for the sample; the protocol can start now | Done: **coding complete** 18 Nov. Pooled human κ 0.64. Cross-party: 69% agreeing, 7% disagreeing, 23% neutral. `Diego/d2_labelling/RESULTS.md` |
 | D3 | Read Westwood and Harbridge: three lines on what each found. Settle Westwood's year. Find three or four more references | Note on prior work; reference list: `Diego/d3_prior_work.md`, `references.bib` | | Done: eight references verified; Westwood read at the publisher (2022, online Jan 2021) |
-| D4 | Introduction and Discussion; the half-page reflection. **The Introduction and Discussion are now written together (DECISIONS G3)** | Text: `Diego/d4_drafts.md` | D3 | In progress: drafted with placeholders for all numbers |
-| D5 | TF-IDF and logistic-regression classifier trained on the 100 hand labels (D2), checked by leave-one-out against them, applied to all floor mentions: share of P/A/D/N/X for cross-party and same-party mentions | `Diego/d5_classifier/`: results, shares table, one figure | D2 labels | Done: 73% against a 72% always-agreeing baseline, so not used as a measurement; the paper reports the hand-labelled shares |
+| D4 | Introduction and Discussion; the half-page reflection. **The Introduction and Discussion are now written together (DECISIONS G3)** | Text: `Diego/d4_drafts.md` | D3 | In progress: first drafts of Introduction, Discussion, abstract and significance statement in `report/sections/` (22 Nov); Martin to revise (G3). Reflection draft in `Diego/reflection_draft.md` |
+| D5 | TF-IDF and logistic-regression classifier trained on the 100 hand labels (D2), checked by leave-one-out against them, applied to all floor mentions: share of P/A/D/N/X for cross-party and same-party mentions | `Diego/d5_classifier/`: results, shares table, one figure | D2 labels | Done: 73% against a 72% always-agreeing baseline, so not used as a measurement. Rerun 22 Nov on the 9,988-mention file (applied to 9,909 R–D mentions); unchanged |
 
 ### Everyone
 
@@ -167,6 +167,12 @@ From the earlier plans in `archive/`, and since the scope freeze (G17). Listed s
 
 Newest first. One line per change.
 
+- **22 Nov 2026.** Diego (with Claude): paper set up in `report/` for Overleaf (PNAS `main.tex`, sections,
+  figures 1 to 3, `references.bib` with Blondel 2008 and Danon 2005 added as Martin asked); Martin's Results part 1
+  and Methods converted by `report/md2tex.py`; Results part 2, Figure 2 and Methods for labelling and classifier
+  written; first drafts of Introduction, Discussion, abstract, significance statement and contributions. D5 rerun
+  on the new mentions (unchanged). `AI_METHODS.md` moved from Anas (A6) to Diego at Diego's request. Slides draft
+  (M8) started. A1 to A4 rows updated from `Anas/STATUS.md`. S2 still not started (Diego).
 - **22 Nov 2026.** Methods text for data, name matching and networks drafted (`Martin/methods_networks.md`). Needs S2
   (speaker check, not started) and two references (Blondel 2008, Danon 2005) in `references.bib`.
 - **22 Nov 2026.** M7: Figure 1 final (four panels) and the part 1 Results text with caption (`Martin/results_part1.md`),
