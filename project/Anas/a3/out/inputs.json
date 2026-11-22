@@ -1,16 +1,16 @@
 {
- "frozen_at": "2026-11-21T20:42:08",
+ "frozen_at": "2026-11-22T21:04:05",
  "snapshot": "press releases collected 20 Nov 2026",
  "rows": 55023,
- "repo_commit": "7bdbc18ca9bc48c5d3d909545aabaf0ce67b1645",
+ "repo_commit": "bc1c234422dc9c9b28521cf4a6ff48c23e9bc1ab",
  "files": {
   "press_releases_part1of3.parquet": "fef22a6e99d6f8c9f2f03633b8922cb8e675a6f19b3ad3161919ad1ba54ac1d9",
   "press_releases_part2of3.parquet": "346755da9b878b0cdb11e554c735fa0cd0c08692dc3b642fbb05220d72a5975a",
   "press_releases_part3of3.parquet": "d57a3148f7dff222193539f47f2043eed53eac4132f207697072588feb8b1de2",
   "members.csv": "527a8a90bd81f11c117227c3f9f679ba55a8225b16fc9a6cd2cd7ecbcd99ac5d",
-  "Martin/matcher.py": "f6b02f1d71777f4cef170fe14e25729760ff0022d6d5ce3a1faa055ea5248581",
+  "Martin/matcher.py": "b48a2f67fe3a4903aaa1680161cefa8643fd33dd1b5711bf73c8f7d38c4f7e9d",
   "Martin/nicknames.csv": "870f2c978445a3867ff2af6d3b9688da6f3fa1f5d7575628de433ef30059c4fa",
-  "Martin/build_mentions.py": "21a5dfa6f76cf48a336662542df793cc5fc007b7d60e53ca100f8a00e687b229",
+  "Martin/build_mentions.py": "2449d6830fab373c2973d6b344b753da9a0035b20afb49a5f9a3afcb7bfe41b0",
   "aliases.csv": "fe0c3f73785851325ef2f0e7b10742abaa7ca713277d5dd9ddad854a24abd05f"
  }
 }

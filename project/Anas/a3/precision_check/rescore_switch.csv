@@ -1,7 +1,7 @@
 sample_id,old_rule,old_status,reading,outcome,new_rule
 untitled_full_name_01,untitled full name,counted,y,same,untitled full name
 untitled_full_name_02,untitled full name,counted,y,same,untitled full name
-untitled_full_name_03,untitled full name,counted,y,same,untitled full name
+untitled_full_name_03,untitled full name,counted,y,same,shared
 untitled_full_name_04,untitled full name,counted,y,same,untitled full name
 untitled_full_name_05,untitled full name,counted,y,same,untitled full name
 untitled_full_name_06,untitled full name,counted,y,same,untitled full name

@@ -93,7 +93,7 @@ A000379,B001296,2,Mark Alford,Brendan F. Boyle,False,False,False
 A000379,C001059,5,Mark Alford,Jim Costa,True,False,True
 A000379,C001061,5,Mark Alford,Emanuel Cleaver,True,False,False
 A000379,C001063,2,Mark Alford,Henry Cuellar,True,False,True
-A000379,C001110,9,Mark Alford,J. Luis Correa,True,False,False
+A000379,C001110,10,Mark Alford,J. Luis Correa,True,False,False
 A000379,C001112,1,Mark Alford,Salud O. Carbajal,False,False,False
 A000379,C001119,4,Mark Alford,Angie Craig,True,False,True
 A000379,C001130,1,Mark Alford,Jasmine Crockett,False,False,False
@@ -123,6 +123,7 @@ A000379,T000487,1,Mark Alford,Jill N. Tokuda,False,False,False
 A000379,T000488,1,Mark Alford,Shri Thanedar,True,False,False
 A000379,W000187,1,Mark Alford,Maxine Waters,False,False,False
 A000380,A000055,1,Gabe Amo,Robert B. Aderholt,False,False,False
+A000380,A000375,1,Gabe Amo,Jodey C. Arrington,False,False,False
 A000380,B001291,2,Gabe Amo,Brian Babin,False,False,False
 A000380,B001298,2,Gabe Amo,Don Bacon,True,False,True
 A000380,B001323,1,Gabe Amo,Nicholas J. Begich III,False,False,False
@@ -148,6 +149,7 @@ A000380,L000597,1,Gabe Amo,Laurel M. Lee,False,False,True
 A000380,L000599,4,Gabe Amo,Michael Lawler,True,False,True
 A000380,M000317,2,Gabe Amo,Nicole Malliotakis,False,False,False
 A000380,M001157,3,Gabe Amo,Michael T. McCaul,True,False,False
+A000380,M001184,1,Gabe Amo,Thomas Massie,False,False,False
 A000380,M001199,2,Gabe Amo,Brian J. Mast,False,False,False
 A000380,M001213,1,Gabe Amo,Blake D. Moore,False,False,False
 A000380,M001230,2,Gabe Amo,Ryan Mackenzie,False,False,True
@@ -184,6 +186,7 @@ A000381,H001098,1,Yassamin Ansari,Abraham J. Hamadeh,True,False,False
 A000381,L000596,1,Yassamin Ansari,Anna Paulina Luna,False,False,True
 A000381,L000599,1,Yassamin Ansari,Michael Lawler,True,False,True
 A000381,M000317,1,Yassamin Ansari,Nicole Malliotakis,False,False,False
+A000381,M001184,1,Yassamin Ansari,Thomas Massie,False,False,False
 A000381,M001215,1,Yassamin Ansari,Mariannette Miller-Meeks,False,False,True
 A000381,S000168,6,Yassamin Ansari,Maria Elvira Salazar,True,False,False
 A000381,S001183,3,Yassamin Ansari,David Schweikert,True,False,True
@@ -231,6 +234,7 @@ B000668,B001287,1,Cliff Bentz,Ami Bera,True,False,False
 B000668,G000592,1,Cliff Bentz,Jared F. Golden,True,False,True
 B000668,G000599,1,Cliff Bentz,Daniel S. Goldman,True,False,False
 B000668,H001068,1,Cliff Bentz,Jared Huffman,True,False,False
+B000668,P000197,1,Cliff Bentz,Nancy Pelosi,False,False,False
 B000668,S001216,1,Cliff Bentz,Kim Schrier,False,False,True
 B000668,T000193,1,Cliff Bentz,Bennie G. Thompson,False,False,False
 B000740,B001292,1,Stephanie I. Bice,"Donald S. Beyer, Jr.",False,False,False
@@ -424,6 +428,7 @@ B001285,I000056,1,Julia Brownley,Darrell Issa,False,False,False
 B001285,J000301,1,Julia Brownley,Dusty Johnson,True,False,False
 B001285,K000397,2,Julia Brownley,Young Kim,True,False,True
 B001285,M001177,1,Julia Brownley,Tom McClintock,False,False,False
+B001285,M001184,1,Julia Brownley,Thomas Massie,False,False,False
 B001285,M001194,1,Julia Brownley,John R. Moolenaar,True,False,False
 B001285,O000019,2,Julia Brownley,Jay Obernolte,True,False,False
 B001285,V000129,1,Julia Brownley,David G. Valadao,True,False,True
@@ -442,6 +447,7 @@ B001287,J000302,3,Ami Bera,John Joyce,True,False,False
 B001287,K000376,7,Ami Bera,Mike Kelly,True,False,False
 B001287,K000397,14,Ami Bera,Young Kim,True,False,True
 B001287,K000399,1,Ami Bera,Jennifer A. Kiggans,True,False,True
+B001287,L000596,1,Ami Bera,Anna Paulina Luna,False,False,True
 B001287,M001157,2,Ami Bera,Michael T. McCaul,True,False,False
 B001287,M001184,1,Ami Bera,Thomas Massie,False,False,False
 B001287,M001199,1,Ami Bera,Brian J. Mast,False,False,False
@@ -707,6 +713,7 @@ B001301,V000130,1,Jack Bergman,Juan Vargas,False,False,False
 B001301,W000831,1,Jack Bergman,James R. Walkinshaw,False,False,False
 B001302,A000381,2,Andy Biggs,Yassamin Ansari,True,False,False
 B001302,C001059,1,Andy Biggs,Jim Costa,False,False,True
+B001302,C001110,1,Andy Biggs,J. Luis Correa,False,False,False
 B001302,C001130,1,Andy Biggs,Jasmine Crockett,False,False,False
 B001302,G000606,1,Andy Biggs,Adelita S. Grijalva,False,False,False
 B001302,J000298,1,Andy Biggs,Pramila Jayapal,True,False,False
@@ -1108,7 +1115,7 @@ C001061,F000466,3,Emanuel Cleaver,Brian K. Fitzpatrick,False,False,True
 C001061,F000474,12,Emanuel Cleaver,Mike Flood,True,False,False
 C001061,G000546,5,Emanuel Cleaver,Sam Graves,True,False,False
 C001061,H001052,1,Emanuel Cleaver,Andy Harris,False,False,False
-C001061,H001072,7,Emanuel Cleaver,J. French Hill,False,False,False
+C001061,H001072,8,Emanuel Cleaver,J. French Hill,False,False,False
 C001061,H001086,1,Emanuel Cleaver,Diana Harshbarger,False,False,False
 C001061,H001096,1,Emanuel Cleaver,Harriet M. Hageman,True,False,False
 C001061,J000301,1,Emanuel Cleaver,Dusty Johnson,False,False,False
@@ -1259,7 +1266,7 @@ C001080,G000597,1,Judy Chu,Andrew R. Garbarino,True,False,False
 C001080,H001093,1,Judy Chu,Erin Houchin,True,False,False
 C001080,J000311,1,Judy Chu,Brian Jack,False,False,False
 C001080,K000376,1,Judy Chu,Mike Kelly,True,False,False
-C001080,K000392,4,Judy Chu,David Kustoff,True,False,False
+C001080,K000392,5,Judy Chu,David Kustoff,True,False,False
 C001080,K000397,2,Judy Chu,Young Kim,True,False,True
 C001080,L000585,2,Judy Chu,Darin LaHood,True,False,False
 C001080,L000597,1,Judy Chu,Laurel M. Lee,False,False,True
@@ -1301,7 +1308,7 @@ C001091,L000599,1,Joaquin Castro,Michael Lawler,True,False,True
 C001091,M001157,1,Joaquin Castro,Michael T. McCaul,False,False,False
 C001091,M001184,4,Joaquin Castro,Thomas Massie,False,False,False
 C001091,M001218,1,Joaquin Castro,Richard McCormick,True,False,False
-C001091,S000168,4,Joaquin Castro,Maria Elvira Salazar,True,False,False
+C001091,S000168,5,Joaquin Castro,Maria Elvira Salazar,True,False,False
 C001091,V000129,1,Joaquin Castro,David G. Valadao,False,False,True
 C001091,Y000067,1,Joaquin Castro,Rudy Yakym III,True,False,False
 C001101,C001108,1,Katherine M. Clark,James Comer,False,False,False
@@ -1380,7 +1387,7 @@ C001110,L000603,5,J. Luis Correa,Morgan Luttrell,True,False,False
 C001110,M000317,1,J. Luis Correa,Nicole Malliotakis,False,False,False
 C001110,M000871,7,J. Luis Correa,Tracey Mann,True,False,False
 C001110,M001157,1,J. Luis Correa,Michael T. McCaul,True,False,False
-C001110,M001184,2,J. Luis Correa,Thomas Massie,False,False,False
+C001110,M001184,3,J. Luis Correa,Thomas Massie,False,False,False
 C001110,M001204,1,J. Luis Correa,Daniel Meuser,True,False,False
 C001110,M001205,1,J. Luis Correa,Carol D. Miller,True,False,False
 C001110,M001216,1,J. Luis Correa,Cory Mills,False,False,True
@@ -1413,6 +1420,7 @@ C001112,H001095,1,Salud O. Carbajal,Wesley Hunt,False,False,False
 C001112,H001100,2,Salud O. Carbajal,Jeff Hurd,False,False,True
 C001112,K000388,1,Salud O. Carbajal,Trent Kelly,False,False,False
 C001112,L000599,2,Salud O. Carbajal,Michael Lawler,True,False,True
+C001112,M001184,1,Salud O. Carbajal,Thomas Massie,False,False,False
 C001112,M001199,1,Salud O. Carbajal,Brian J. Mast,False,False,False
 C001112,M001213,1,Salud O. Carbajal,Blake D. Moore,True,False,False
 C001112,N000189,4,Salud O. Carbajal,Dan Newhouse,True,False,False
@@ -1429,7 +1437,6 @@ C001117,B001309,1,Sean Casten,Tim Burchett,False,True,False
 C001117,F000466,1,Sean Casten,Brian K. Fitzpatrick,False,True,True
 C001117,F000478,1,Sean Casten,Russell Fry,False,True,False
 C001117,G000546,1,Sean Casten,Sam Graves,False,True,False
-C001117,J000307,1,Sean Casten,John James,False,True,True
 C001117,K000399,1,Sean Casten,Jennifer A. Kiggans,False,True,True
 C001117,M000871,1,Sean Casten,Tracey Mann,False,True,False
 C001117,O000019,1,Sean Casten,Jay Obernolte,False,True,False
@@ -1517,6 +1524,7 @@ C001121,K000398,1,Jason Crow,"Thomas H. Kean, Jr.",True,False,True
 C001121,K000399,1,Jason Crow,Jennifer A. Kiggans,False,False,True
 C001121,L000585,1,Jason Crow,Darin LaHood,False,False,False
 C001121,L000599,2,Jason Crow,Michael Lawler,True,False,True
+C001121,M001184,1,Jason Crow,Thomas Massie,False,False,False
 C001121,M001205,1,Jason Crow,Carol D. Miller,False,False,False
 C001121,M001215,3,Jason Crow,Mariannette Miller-Meeks,True,False,True
 C001121,N000193,1,Jason Crow,Zachary Nunn,False,False,True
@@ -1560,6 +1568,7 @@ C001125,L000595,3,Troy A. Carter,Julia Letlow,True,False,False
 C001125,L000603,1,Troy A. Carter,Morgan Luttrell,False,False,False
 C001125,M000194,2,Troy A. Carter,Nancy Mace,True,False,False
 C001125,M000871,1,Troy A. Carter,Tracey Mann,True,False,False
+C001125,M001184,1,Troy A. Carter,Thomas Massie,False,False,False
 C001125,M001210,2,Troy A. Carter,Gregory F. Murphy,False,False,False
 C001125,M001212,1,Troy A. Carter,Barry Moore,True,False,False
 C001125,M001218,8,Troy A. Carter,Richard McCormick,True,False,False
@@ -1662,6 +1671,7 @@ C001133,P000607,1,Juan Ciscomani,Mark Pocan,False,True,False
 C001133,P000608,2,Juan Ciscomani,Scott H. Peters,True,True,False
 C001133,P000613,2,Juan Ciscomani,Jimmy Panetta,True,True,False
 C001133,P000614,4,Juan Ciscomani,Chris Pappas,True,True,True
+C001133,P000620,1,Juan Ciscomani,Brittany Pettersen,True,True,False
 C001133,Q000023,1,Juan Ciscomani,Mike Quigley,True,True,False
 C001133,R000305,1,Juan Ciscomani,Deborah K. Ross,True,True,False
 C001133,R000622,2,Juan Ciscomani,Josh Riley,False,True,True
@@ -1683,6 +1693,7 @@ C001136,M001228,1,"Herbert C. Conaway, Jr.",Celeste Maloy,False,True,False
 C001136,V000133,1,"Herbert C. Conaway, Jr.",Jefferson Van Drew,False,True,True
 C001137,C001121,1,Jeff Crank,Jason Crow,True,True,False
 C001137,H001068,1,Jeff Crank,Jared Huffman,False,True,False
+C001137,N000191,1,Jeff Crank,Joe Neguse,True,True,False
 C001137,R000620,1,Jeff Crank,Luz M. Rivas,False,True,False
 D000032,A000148,1,Byron Donalds,Jake Auchincloss,False,False,False
 D000032,C001059,1,Byron Donalds,Jim Costa,False,False,True
@@ -1723,6 +1734,7 @@ D000197,C001053,2,Diana DeGette,Tom Cole,False,False,False
 D000197,C001103,1,Diana DeGette,"Earl L. ""Buddy"" Carter",True,False,False
 D000197,H001067,2,Diana DeGette,Richard Hudson,True,False,False
 D000197,J000302,1,Diana DeGette,John Joyce,False,False,False
+D000197,M001184,1,Diana DeGette,Thomas Massie,False,False,False
 D000197,M001215,2,Diana DeGette,Mariannette Miller-Meeks,True,False,True
 D000197,S001196,1,Diana DeGette,Elise M. Stefanik,False,False,False
 D000197,S001212,2,Diana DeGette,Pete Stauber,False,False,False
@@ -1766,7 +1778,7 @@ D000230,L000598,1,Donald G. Davis,Nick LaLota,True,True,True
 D000230,M000317,2,Donald G. Davis,Nicole Malliotakis,True,True,False
 D000230,M000871,1,Donald G. Davis,Tracey Mann,True,True,False
 D000230,M001199,1,Donald G. Davis,Brian J. Mast,False,True,False
-D000230,M001210,4,Donald G. Davis,Gregory F. Murphy,True,True,False
+D000230,M001210,5,Donald G. Davis,Gregory F. Murphy,True,True,False
 D000230,M001213,2,Donald G. Davis,Blake D. Moore,True,True,False
 D000230,M001215,1,Donald G. Davis,Mariannette Miller-Meeks,True,True,True
 D000230,M001218,1,Donald G. Davis,Richard McCormick,False,True,False
@@ -1987,6 +1999,7 @@ D000628,C001125,2,Neal P. Dunn,Troy A. Carter,True,False,False
 D000628,D000096,1,Neal P. Dunn,Danny K. Davis,False,False,False
 D000628,M001225,1,Neal P. Dunn,Kevin Mullin,False,False,False
 D000628,M001227,3,Neal P. Dunn,Jennifer L. McClellan,True,False,False
+D000628,P000034,1,Neal P. Dunn,"Frank Pallone, Jr.",False,False,True
 D000628,S001200,2,Neal P. Dunn,Darren Soto,True,False,True
 D000628,S001216,1,Neal P. Dunn,Kim Schrier,True,False,True
 D000629,A000379,5,Sharice Davids,Mark Alford,True,True,False
@@ -2053,6 +2066,7 @@ D000631,K000405,1,Madeleine Dean,Brad Knott,False,False,False
 D000631,L000597,2,Madeleine Dean,Laurel M. Lee,True,False,True
 D000631,L000603,1,Madeleine Dean,Morgan Luttrell,False,False,False
 D000631,M000194,2,Madeleine Dean,Nancy Mace,False,False,False
+D000631,M001184,1,Madeleine Dean,Thomas Massie,False,False,False
 D000631,M001215,1,Madeleine Dean,Mariannette Miller-Meeks,True,False,True
 D000631,M001224,3,Madeleine Dean,Nathaniel Moran,True,False,False
 D000631,N000026,1,Madeleine Dean,Troy E. Nehls,True,False,False
@@ -2145,6 +2159,7 @@ E000246,P000608,1,Chuck Edwards,Scott H. Peters,True,True,False
 E000246,R000305,2,Chuck Edwards,Deborah K. Ross,True,True,False
 E000246,T000468,2,Chuck Edwards,Dina Titus,True,True,True
 E000246,T000487,1,Chuck Edwards,Jill N. Tokuda,False,True,False
+E000294,B001281,1,Tom Emmer,Joyce Beatty,False,False,False
 E000294,C001119,4,Tom Emmer,Angie Craig,False,False,True
 E000294,D000623,1,Tom Emmer,Mark DeSaulnier,False,False,False
 E000294,M001143,1,Tom Emmer,Betty McCollum,False,False,False
@@ -2271,7 +2286,7 @@ E000299,S001224,1,Veronica Escobar,Keith Self,False,False,False
 E000299,V000129,1,Veronica Escobar,David G. Valadao,True,False,True
 E000300,C001059,1,Gabe Evans,Jim Costa,True,True,True
 E000300,C001063,1,Gabe Evans,Henry Cuellar,False,True,True
-E000300,C001066,4,Gabe Evans,Kathy Castor,True,True,True
+E000300,C001066,5,Gabe Evans,Kathy Castor,True,True,True
 E000300,C001110,1,Gabe Evans,J. Luis Correa,True,True,False
 E000300,C001119,1,Gabe Evans,Angie Craig,True,True,True
 E000300,C001121,1,Gabe Evans,Jason Crow,False,True,False
@@ -2351,6 +2366,7 @@ F000446,R000622,2,Randy Feenstra,Josh Riley,True,False,True
 F000446,S001185,1,Randy Feenstra,Terri A. Sewell,False,False,False
 F000446,S001215,1,Randy Feenstra,Haley M. Stevens,True,False,False
 F000446,S001216,1,Randy Feenstra,Kim Schrier,True,False,True
+F000446,S001225,1,Randy Feenstra,Eric Sorensen,False,False,True
 F000446,T000487,1,Randy Feenstra,Jill N. Tokuda,False,False,False
 F000450,S000185,1,Virginia Foxx,"Robert C. ""Bobby"" Scott",True,False,False
 F000454,C001087,1,Bill Foster,"Eric A. ""Rick"" Crawford",False,False,False
@@ -2624,7 +2640,7 @@ F000477,B001291,1,Valerie P. Foushee,Brian Babin,False,False,False
 F000477,B001298,1,Valerie P. Foushee,Don Bacon,False,False,True
 F000477,H001099,4,Valerie P. Foushee,Mike Haridopolos,True,False,False
 F000477,L000597,1,Valerie P. Foushee,Laurel M. Lee,True,False,True
-F000477,M001184,1,Valerie P. Foushee,Thomas Massie,False,False,False
+F000477,M001184,2,Valerie P. Foushee,Thomas Massie,False,False,False
 F000477,M001210,1,Valerie P. Foushee,Gregory F. Murphy,False,False,False
 F000477,M001213,1,Valerie P. Foushee,Blake D. Moore,True,False,False
 F000477,M001230,3,Valerie P. Foushee,Ryan Mackenzie,True,False,True
@@ -2674,7 +2690,7 @@ F000481,H001077,1,Shomari Figures,Clay Higgins,False,True,False
 F000481,H001095,1,Shomari Figures,Wesley Hunt,False,True,False
 F000481,H001096,2,Shomari Figures,Harriet M. Hageman,True,True,False
 F000481,H001099,4,Shomari Figures,Mike Haridopolos,False,True,False
-F000481,H001100,1,Shomari Figures,Jeff Hurd,True,True,True
+F000481,H001100,2,Shomari Figures,Jeff Hurd,True,True,True
 F000481,H001101,1,Shomari Figures,Pat Harrigan,True,True,False
 F000481,J000301,1,Shomari Figures,Dusty Johnson,False,True,False
 F000481,J000311,1,Shomari Figures,Brian Jack,False,True,False
@@ -2709,7 +2725,7 @@ F000482,D000230,1,Julie Fedorchak,Donald G. Davis,True,False,True
 F000482,D000629,1,Julie Fedorchak,Sharice Davids,False,False,True
 F000482,G000604,2,Julie Fedorchak,Maggie Goodlander,True,False,True
 F000482,K000009,1,Julie Fedorchak,Marcy Kaptur,False,False,True
-F000482,K000389,1,Julie Fedorchak,Ro Khanna,False,False,False
+F000482,K000389,2,Julie Fedorchak,Ro Khanna,False,False,False
 F000482,L000607,1,Julie Fedorchak,Sam T. Liccardo,False,False,False
 F000482,M001237,1,Julie Fedorchak,Kristen McDonald Rivet,False,False,True
 F000482,P000607,1,Julie Fedorchak,Mark Pocan,True,False,False
@@ -2793,7 +2809,7 @@ G000559,L000598,1,John Garamendi,Nick LaLota,False,False,True
 G000559,L000599,3,John Garamendi,Michael Lawler,True,False,True
 G000559,M000317,2,John Garamendi,Nicole Malliotakis,True,False,False
 G000559,M001177,5,John Garamendi,Tom McClintock,False,False,False
-G000559,M001184,1,John Garamendi,Thomas Massie,False,False,False
+G000559,M001184,2,John Garamendi,Thomas Massie,False,False,False
 G000559,M001213,1,John Garamendi,Blake D. Moore,False,False,False
 G000559,M001228,1,John Garamendi,Celeste Maloy,True,False,False
 G000559,O000019,3,John Garamendi,Jay Obernolte,True,False,False
@@ -2802,6 +2818,7 @@ G000559,R000619,2,John Garamendi,Michael A. Rulli,False,False,False
 G000559,V000129,4,John Garamendi,David G. Valadao,True,False,True
 G000565,T000468,1,Paul A. Gosar,Dina Titus,True,False,True
 G000568,A000148,1,H. Morgan Griffith,Jake Auchincloss,True,False,False
+G000568,D000197,1,H. Morgan Griffith,Diana DeGette,False,False,False
 G000568,G000553,1,H. Morgan Griffith,Al Green,False,False,False
 G000568,J000309,1,H. Morgan Griffith,Jonathan L. Jackson,False,False,False
 G000568,M001163,1,H. Morgan Griffith,Doris O. Matsui,True,False,False
@@ -3184,6 +3201,7 @@ G000601,V000131,2,Craig A. Goldman,Marc A. Veasey,False,False,False
 G000601,W000797,2,Craig A. Goldman,Debbie Wasserman Schultz,True,False,True
 G000601,W000822,1,Craig A. Goldman,Bonnie Watson Coleman,False,False,False
 G000602,A000055,1,Laura Gillen,Robert B. Aderholt,False,True,False
+G000602,B001291,1,Laura Gillen,Brian Babin,False,True,False
 G000602,B001298,5,Laura Gillen,Don Bacon,True,True,True
 G000602,B001321,1,Laura Gillen,Tom Barrett,False,True,True
 G000602,B001323,3,Laura Gillen,Nicholas J. Begich III,True,True,False
@@ -3206,6 +3224,7 @@ G000602,L000600,4,Laura Gillen,Nicholas A. Langworthy,False,True,False
 G000602,M000317,6,Laura Gillen,Nicole Malliotakis,False,True,False
 G000602,M000871,1,Laura Gillen,Tracey Mann,False,True,False
 G000602,M001157,1,Laura Gillen,Michael T. McCaul,False,True,False
+G000602,M001184,1,Laura Gillen,Thomas Massie,False,True,False
 G000602,M001194,1,Laura Gillen,John R. Moolenaar,False,True,False
 G000602,M001204,1,Laura Gillen,Daniel Meuser,False,True,False
 G000602,M001230,3,Laura Gillen,Ryan Mackenzie,False,True,True
@@ -3308,6 +3327,7 @@ G000605,S001188,1,Adam Gray,Marlin A. Stutzman,False,True,False
 G000605,T000467,3,Adam Gray,Glenn Thompson,False,True,False
 G000605,V000129,8,Adam Gray,David G. Valadao,True,True,True
 G000605,V000133,1,Adam Gray,Jefferson Van Drew,False,True,True
+G000605,W000821,1,Adam Gray,Bruce Westerman,False,True,False
 G000606,B001323,1,Adelita S. Grijalva,Nicholas J. Begich III,False,False,False
 G000606,C001053,1,Adelita S. Grijalva,Tom Cole,False,False,False
 G000606,C001133,1,Adelita S. Grijalva,Juan Ciscomani,True,False,True
@@ -3494,7 +3514,7 @@ H001068,L000599,4,Jared Huffman,Michael Lawler,True,False,True
 H001068,M000194,1,Jared Huffman,Nancy Mace,False,False,False
 H001068,M000317,1,Jared Huffman,Nicole Malliotakis,False,False,False
 H001068,M001177,1,Jared Huffman,Tom McClintock,False,False,False
-H001068,M001184,1,Jared Huffman,Thomas Massie,True,False,False
+H001068,M001184,2,Jared Huffman,Thomas Massie,True,False,False
 H001068,M001194,1,Jared Huffman,John R. Moolenaar,True,False,False
 H001068,M001213,1,Jared Huffman,Blake D. Moore,True,False,False
 H001068,M001228,1,Jared Huffman,Celeste Maloy,False,False,False
@@ -3694,6 +3714,7 @@ H001094,F000466,2,Val T. Hoyle,Brian K. Fitzpatrick,False,False,True
 H001094,H001093,1,Val T. Hoyle,Erin Houchin,True,False,False
 H001094,L000598,1,Val T. Hoyle,Nick LaLota,False,False,True
 H001094,L000599,2,Val T. Hoyle,Michael Lawler,True,False,True
+H001094,M001184,2,Val T. Hoyle,Thomas Massie,True,False,False
 H001094,M001199,1,Val T. Hoyle,Brian J. Mast,False,False,False
 H001094,O000019,1,Val T. Hoyle,Jay Obernolte,False,False,False
 H001094,Z000018,1,Val T. Hoyle,Ryan K. Zinke,False,False,True
@@ -3705,6 +3726,7 @@ H001096,G000602,1,Harriet M. Hageman,Laura Gillen,False,False,True
 H001096,H001090,1,Harriet M. Hageman,Josh Harder,False,False,True
 H001096,K000389,1,Harriet M. Hageman,Ro Khanna,False,False,False
 H001096,L000273,3,Harriet M. Hageman,Teresa Leger Fernandez,False,False,True
+H001096,P000197,1,Harriet M. Hageman,Nancy Pelosi,False,False,False
 H001096,P000620,2,Harriet M. Hageman,Brittany Pettersen,True,False,False
 H001096,S001218,1,Harriet M. Hageman,Melanie A. Stansbury,False,False,False
 H001096,T000468,1,Harriet M. Hageman,Dina Titus,False,False,True
@@ -3712,6 +3734,7 @@ H001098,A000381,1,Abraham J. Hamadeh,Yassamin Ansari,True,False,False
 H001098,C001123,1,Abraham J. Hamadeh,"Gilbert Ray Cisneros, Jr.",False,False,False
 H001098,D000230,7,Abraham J. Hamadeh,Donald G. Davis,False,False,True
 H001098,D000635,1,Abraham J. Hamadeh,Maxine Dexter,True,False,False
+H001098,G000592,1,Abraham J. Hamadeh,Jared F. Golden,False,False,True
 H001098,G000598,1,Abraham J. Hamadeh,Robert Garcia,False,False,False
 H001098,J000288,1,Abraham J. Hamadeh,"Henry C. ""Hank"" Johnson, Jr.",False,False,False
 H001098,J000309,1,Abraham J. Hamadeh,Jonathan L. Jackson,False,False,False
@@ -3873,7 +3896,7 @@ J000299,F000462,1,Mike Johnson,Lois Frankel,False,False,True
 J000299,G000553,1,Mike Johnson,Al Green,False,False,False
 J000299,G000592,2,Mike Johnson,Jared F. Golden,False,False,True
 J000299,H001066,1,Mike Johnson,Steven Horsford,False,False,True
-J000299,H001094,4,Mike Johnson,Val T. Hoyle,False,False,False
+J000299,H001094,5,Mike Johnson,Val T. Hoyle,False,False,False
 J000299,I000058,1,Mike Johnson,Glenn Ivey,False,False,False
 J000299,J000298,1,Mike Johnson,Pramila Jayapal,False,False,False
 J000299,K000389,2,Mike Johnson,Ro Khanna,False,False,False
@@ -3981,7 +4004,7 @@ J000304,V000131,1,Ronny Jackson,Marc A. Veasey,False,False,False
 J000304,V000138,1,Ronny Jackson,Eugene Simon Vindman,True,False,True
 J000305,B001298,2,Sara Jacobs,Don Bacon,True,False,True
 J000305,B001321,1,Sara Jacobs,Tom Barrett,True,False,True
-J000305,B001322,1,Sara Jacobs,Michael Baumgartner,False,False,True
+J000305,B001322,2,Sara Jacobs,Michael Baumgartner,False,False,True
 J000305,C001133,1,Sara Jacobs,Juan Ciscomani,False,False,True
 J000305,F000246,1,Sara Jacobs,Pat Fallon,True,False,False
 J000305,K000397,2,Sara Jacobs,Young Kim,True,False,True
@@ -4154,7 +4177,7 @@ K000389,G000607,1,Ro Khanna,James Gallagher,False,False,False
 K000389,K000388,1,Ro Khanna,Trent Kelly,False,False,False
 K000389,L000583,1,Ro Khanna,Barry Loudermilk,False,False,False
 K000389,L000596,2,Ro Khanna,Anna Paulina Luna,False,False,True
-K000389,M001184,11,Ro Khanna,Thomas Massie,True,False,False
+K000389,M001184,12,Ro Khanna,Thomas Massie,True,False,False
 K000389,M001218,2,Ro Khanna,Richard McCormick,True,False,False
 K000389,R000575,1,Ro Khanna,Mike Rogers,False,False,False
 K000389,T000480,1,Ro Khanna,William R. Timmons IV,False,False,False
@@ -4183,12 +4206,14 @@ K000391,K000399,3,Raja Krishnamoorthi,Jennifer A. Kiggans,True,True,True
 K000391,K000403,1,Raja Krishnamoorthi,Mike Kennedy,False,True,False
 K000391,L000596,1,Raja Krishnamoorthi,Anna Paulina Luna,False,True,True
 K000391,L000599,9,Raja Krishnamoorthi,Michael Lawler,True,True,True
+K000391,M000194,1,Raja Krishnamoorthi,Nancy Mace,True,True,False
 K000391,M000317,2,Raja Krishnamoorthi,Nicole Malliotakis,False,True,False
 K000391,M001184,2,Raja Krishnamoorthi,Thomas Massie,False,True,False
 K000391,M001194,1,Raja Krishnamoorthi,John R. Moolenaar,False,True,False
 K000391,M001199,1,Raja Krishnamoorthi,Brian J. Mast,False,True,False
 K000391,M001205,1,Raja Krishnamoorthi,Carol D. Miller,False,True,False
 K000391,M001210,2,Raja Krishnamoorthi,Gregory F. Murphy,True,True,False
+K000391,M001211,1,Raja Krishnamoorthi,Mary E. Miller,False,True,False
 K000391,M001213,2,Raja Krishnamoorthi,Blake D. Moore,True,True,False
 K000391,M001215,2,Raja Krishnamoorthi,Mariannette Miller-Meeks,False,True,True
 K000391,M001216,2,Raja Krishnamoorthi,Cory Mills,False,True,True
@@ -4411,7 +4436,6 @@ K000400,F000466,1,Sydney Kamlager-Dove,Brian K. Fitzpatrick,False,False,True
 K000400,F000484,1,Sydney Kamlager-Dove,Randy Fine,False,False,False
 K000400,H001058,9,Sydney Kamlager-Dove,Bill Huizenga,True,False,True
 K000400,H001093,3,Sydney Kamlager-Dove,Erin Houchin,True,False,False
-K000400,J000307,1,Sydney Kamlager-Dove,John James,False,False,True
 K000400,K000397,6,Sydney Kamlager-Dove,Young Kim,True,False,True
 K000400,L000585,1,Sydney Kamlager-Dove,Darin LaHood,False,False,False
 K000400,L000597,1,Sydney Kamlager-Dove,Laurel M. Lee,True,False,True
@@ -4609,7 +4633,7 @@ L000566,C001125,2,Robert E. Latta,Troy A. Carter,True,False,False
 L000566,D000197,2,Robert E. Latta,Diana DeGette,False,False,False
 L000566,D000624,6,Robert E. Latta,Debbie Dingell,True,False,False
 L000566,K000009,2,Robert E. Latta,Marcy Kaptur,True,False,True
-L000566,K000385,2,Robert E. Latta,Robin L. Kelly,True,False,False
+L000566,K000385,3,Robert E. Latta,Robin L. Kelly,True,False,False
 L000566,K000400,1,Robert E. Latta,Sydney Kamlager-Dove,False,False,False
 L000566,L000582,1,Robert E. Latta,Ted Lieu,True,False,False
 L000566,M001163,5,Robert E. Latta,Doris O. Matsui,True,False,False
@@ -4999,7 +5023,7 @@ M000194,C001121,1,Nancy Mace,Jason Crow,False,False,False
 M000194,C001125,1,Nancy Mace,Troy A. Carter,True,False,False
 M000194,G000598,5,Nancy Mace,Robert Garcia,True,False,False
 M000194,K000389,1,Nancy Mace,Ro Khanna,False,False,False
-M000194,K000391,2,Nancy Mace,Raja Krishnamoorthi,False,False,True
+M000194,K000391,2,Nancy Mace,Raja Krishnamoorthi,True,False,True
 M000194,L000582,1,Nancy Mace,Ted Lieu,False,False,False
 M000194,M001223,1,Nancy Mace,Seth Magaziner,True,False,True
 M000194,M001229,4,Nancy Mace,LaMonica McIver,False,False,False
@@ -5124,8 +5148,9 @@ M001143,C001053,2,Betty McCollum,Tom Cole,True,False,False
 M001143,C001103,1,Betty McCollum,"Earl L. ""Buddy"" Carter",False,False,False
 M001143,F000470,2,Betty McCollum,Michelle Fischbach,True,False,False
 M001143,F000475,2,Betty McCollum,Brad Finstad,True,False,False
+M001143,L000596,1,Betty McCollum,Anna Paulina Luna,False,False,True
 M001143,M000871,1,Betty McCollum,Tracey Mann,False,False,False
-M001143,M001184,1,Betty McCollum,Thomas Massie,False,False,False
+M001143,M001184,2,Betty McCollum,Thomas Massie,False,False,False
 M001143,M001210,1,Betty McCollum,Gregory F. Murphy,False,False,False
 M001143,M001216,1,Betty McCollum,Cory Mills,False,False,True
 M001143,R000609,1,Betty McCollum,John H. Rutherford,False,False,False
@@ -5258,7 +5283,7 @@ M001184,D000399,1,Thomas Massie,Lloyd Doggett,False,False,False
 M001184,G000586,1,Thomas Massie,"Jesús G. ""Chuy"" García",False,False,False
 M001184,G000592,1,Thomas Massie,Jared F. Golden,True,False,True
 M001184,H001068,1,Thomas Massie,Jared Huffman,True,False,False
-M001184,H001094,1,Thomas Massie,Val T. Hoyle,False,False,False
+M001184,H001094,1,Thomas Massie,Val T. Hoyle,True,False,False
 M001184,J000298,1,Thomas Massie,Pramila Jayapal,True,False,False
 M001184,K000009,1,Thomas Massie,Marcy Kaptur,True,False,True
 M001184,K000389,6,Thomas Massie,Ro Khanna,True,False,False
@@ -5270,7 +5295,7 @@ M001184,O000173,1,Thomas Massie,Ilhan Omar,True,False,False
 M001184,P000597,5,Thomas Massie,Chellie Pingree,True,False,False
 M001184,R000617,1,Thomas Massie,Delia C. Ramirez,True,False,False
 M001184,T000487,1,Thomas Massie,Jill N. Tokuda,False,False,False
-M001184,V000081,1,Thomas Massie,Nydia M. Velázquez,False,False,False
+M001184,V000081,1,Thomas Massie,Nydia M. Velázquez,True,False,False
 M001188,B001257,2,Grace Meng,Gus M. Bilirakis,True,False,False
 M001188,B001298,4,Grace Meng,Don Bacon,False,False,True
 M001188,F000466,6,Grace Meng,Brian K. Fitzpatrick,True,False,True
@@ -5288,7 +5313,7 @@ M001188,S000168,2,Grace Meng,Maria Elvira Salazar,True,False,False
 M001188,W000814,2,Grace Meng,"Randy K. Weber, Sr.",False,False,False
 M001194,B000490,1,John R. Moolenaar,"Sanford D. Bishop, Jr.",True,False,True
 M001194,B001285,1,John R. Moolenaar,Julia Brownley,True,False,False
-M001194,D000624,7,John R. Moolenaar,Debbie Dingell,True,False,False
+M001194,D000624,9,John R. Moolenaar,Debbie Dingell,True,False,False
 M001194,G000592,1,John R. Moolenaar,Jared F. Golden,True,False,True
 M001194,H001068,2,John R. Moolenaar,Jared Huffman,True,False,False
 M001194,K000375,1,John R. Moolenaar,William R. Keating,False,False,False
@@ -5587,6 +5612,7 @@ M001220,R000609,2,Morgan McGarvey,John H. Rutherford,False,False,False
 M001220,R000619,1,Morgan McGarvey,Michael A. Rulli,False,False,False
 M001220,S001212,3,Morgan McGarvey,Pete Stauber,False,False,False
 M001220,T000478,1,Morgan McGarvey,Claudia Tenney,False,False,False
+M001220,T000490,1,Morgan McGarvey,David J. Taylor,False,False,False
 M001220,W000809,1,Morgan McGarvey,Steve Womack,True,False,False
 M001223,A000369,1,Seth Magaziner,Mark E. Amodei,False,True,False
 M001223,A000375,1,Seth Magaziner,Jodey C. Arrington,False,True,False
@@ -5628,6 +5654,7 @@ M001223,P000048,2,Seth Magaziner,August Pfluger,True,True,False
 M001223,P000605,2,Seth Magaziner,Scott Perry,False,True,True
 M001223,R000614,5,Seth Magaziner,Chip Roy,True,True,False
 M001223,S000168,1,Seth Magaziner,Maria Elvira Salazar,True,True,False
+M001223,S001172,1,Seth Magaziner,Adrian Smith,False,True,False
 M001223,T000463,2,Seth Magaziner,Michael R. Turner,True,True,True
 M001223,V000129,2,Seth Magaziner,David G. Valadao,True,True,True
 M001223,V000139,1,Seth Magaziner,Matt Van Epps,False,True,False
@@ -5828,6 +5855,7 @@ M001232,K000397,1,April McClain Delaney,Young Kim,False,True,True
 M001232,K000403,1,April McClain Delaney,Mike Kennedy,True,True,False
 M001232,L000597,1,April McClain Delaney,Laurel M. Lee,False,True,True
 M001232,M000194,1,April McClain Delaney,Nancy Mace,True,True,False
+M001232,M001184,1,April McClain Delaney,Thomas Massie,False,True,False
 M001232,M001205,1,April McClain Delaney,Carol D. Miller,True,True,False
 M001232,M001215,1,April McClain Delaney,Mariannette Miller-Meeks,True,True,True
 M001232,M001230,1,April McClain Delaney,Ryan Mackenzie,False,True,True
@@ -5848,6 +5876,7 @@ M001235,B001278,1,Riley M. Moore,Suzanne Bonamici,True,False,False
 M001235,B001292,1,Riley M. Moore,"Donald S. Beyer, Jr.",False,False,False
 M001235,C001069,1,Riley M. Moore,Joe Courtney,False,False,True
 M001235,M001227,1,Riley M. Moore,Jennifer L. McClellan,True,False,False
+M001235,R000622,1,Riley M. Moore,Josh Riley,False,False,True
 M001235,S000185,1,Riley M. Moore,"Robert C. ""Bobby"" Scott",False,False,False
 M001235,S001201,1,Riley M. Moore,Thomas R. Suozzi,False,False,True
 M001235,S001230,1,Riley M. Moore,Suhas Subramanyam,False,False,False
@@ -6092,7 +6121,7 @@ N000191,B001298,2,Joe Neguse,Don Bacon,True,False,True
 N000191,B001301,1,Joe Neguse,Jack Bergman,False,False,False
 N000191,B001323,1,Joe Neguse,Nicholas J. Begich III,False,False,False
 N000191,C001133,3,Joe Neguse,Juan Ciscomani,True,False,True
-N000191,C001137,4,Joe Neguse,Jeff Crank,False,False,True
+N000191,C001137,4,Joe Neguse,Jeff Crank,True,False,True
 N000191,E000246,2,Joe Neguse,Chuck Edwards,False,False,True
 N000191,E000300,2,Joe Neguse,Gabe Evans,True,False,True
 N000191,F000459,1,Joe Neguse,"Charles J. ""Chuck"" Fleischmann",False,False,False
@@ -6101,6 +6130,7 @@ N000191,G000597,1,Joe Neguse,Andrew R. Garbarino,True,False,False
 N000191,H001100,12,Joe Neguse,Jeff Hurd,True,False,True
 N000191,K000397,2,Joe Neguse,Young Kim,False,False,True
 N000191,K000403,1,Joe Neguse,Mike Kennedy,False,False,False
+N000191,L000596,1,Joe Neguse,Anna Paulina Luna,False,False,True
 N000191,M001213,1,Joe Neguse,Blake D. Moore,True,False,False
 N000191,M001215,1,Joe Neguse,Mariannette Miller-Meeks,True,False,True
 N000191,M001228,1,Joe Neguse,Celeste Maloy,False,False,False
@@ -6140,7 +6170,7 @@ N000193,M001223,3,Zachary Nunn,Seth Magaziner,True,True,True
 N000193,M001231,2,Zachary Nunn,John W. Mannion,True,True,True
 N000193,M001237,2,Zachary Nunn,Kristen McDonald Rivet,True,True,True
 N000193,N000188,1,Zachary Nunn,Donald Norcross,False,True,False
-N000193,P000197,1,Zachary Nunn,Nancy Pelosi,False,True,False
+N000193,P000197,2,Zachary Nunn,Nancy Pelosi,False,True,False
 N000193,P000614,4,Zachary Nunn,Chris Pappas,True,True,True
 N000193,P000617,1,Zachary Nunn,Ayanna Pressley,True,True,False
 N000193,P000620,5,Zachary Nunn,Brittany Pettersen,False,True,False
@@ -6311,7 +6341,7 @@ P000597,H001052,1,Chellie Pingree,Andy Harris,False,False,False
 P000597,H001077,1,Chellie Pingree,Clay Higgins,False,False,False
 P000597,H001086,1,Chellie Pingree,Diana Harshbarger,True,False,False
 P000597,H001096,1,Chellie Pingree,Harriet M. Hageman,False,False,False
-P000597,L000596,3,Chellie Pingree,Anna Paulina Luna,True,False,True
+P000597,L000596,4,Chellie Pingree,Anna Paulina Luna,True,False,True
 P000597,L000597,1,Chellie Pingree,Laurel M. Lee,False,False,True
 P000597,L000598,1,Chellie Pingree,Nick LaLota,False,False,True
 P000597,L000599,1,Chellie Pingree,Michael Lawler,True,False,True
@@ -6599,7 +6629,6 @@ P000617,F000466,1,Ayanna Pressley,Brian K. Fitzpatrick,False,False,True
 P000617,G000603,1,Ayanna Pressley,Brandon Gill,False,False,False
 P000617,H001067,1,Ayanna Pressley,Richard Hudson,False,False,False
 P000617,H001072,2,Ayanna Pressley,J. French Hill,False,False,False
-P000617,J000307,1,Ayanna Pressley,John James,False,False,True
 P000617,K000397,1,Ayanna Pressley,Young Kim,False,False,True
 P000617,L000599,1,Ayanna Pressley,Michael Lawler,False,False,True
 P000617,M000194,1,Ayanna Pressley,Nancy Mace,True,False,False
@@ -6610,7 +6639,7 @@ P000617,P000605,1,Ayanna Pressley,Scott Perry,False,False,True
 P000617,S001196,1,Ayanna Pressley,Elise M. Stefanik,False,False,False
 P000620,B000825,2,Brittany Pettersen,Lauren Boebert,True,False,False
 P000620,C001120,1,Brittany Pettersen,Dan Crenshaw,True,False,False
-P000620,C001133,2,Brittany Pettersen,Juan Ciscomani,False,False,True
+P000620,C001133,2,Brittany Pettersen,Juan Ciscomani,True,False,True
 P000620,C001137,3,Brittany Pettersen,Jeff Crank,False,False,True
 P000620,E000246,3,Brittany Pettersen,Chuck Edwards,False,False,True
 P000620,E000300,3,Brittany Pettersen,Gabe Evans,True,False,True
@@ -6624,7 +6653,7 @@ P000620,K000397,2,Brittany Pettersen,Young Kim,True,False,True
 P000620,K000399,1,Brittany Pettersen,Jennifer A. Kiggans,False,False,True
 P000620,L000596,6,Brittany Pettersen,Anna Paulina Luna,False,False,True
 P000620,L000599,7,Brittany Pettersen,Michael Lawler,False,False,True
-P000620,M001184,5,Brittany Pettersen,Thomas Massie,False,False,False
+P000620,M001184,6,Brittany Pettersen,Thomas Massie,False,False,False
 P000620,M001194,1,Brittany Pettersen,John R. Moolenaar,False,False,False
 P000620,M001230,4,Brittany Pettersen,Ryan Mackenzie,True,False,True
 P000620,M001236,1,Brittany Pettersen,Tim Moore,True,False,False
@@ -7287,6 +7316,7 @@ S001190,K000397,1,Bradley Scott Schneider,Young Kim,True,False,True
 S001190,K000398,1,Bradley Scott Schneider,"Thomas H. Kean, Jr.",False,False,True
 S001190,L000599,1,Bradley Scott Schneider,Michael Lawler,True,False,True
 S001190,M000317,3,Bradley Scott Schneider,Nicole Malliotakis,True,False,False
+S001190,M001184,1,Bradley Scott Schneider,Thomas Massie,False,False,False
 S001190,M001210,1,Bradley Scott Schneider,Gregory F. Murphy,True,False,False
 S001190,M001213,2,Bradley Scott Schneider,Blake D. Moore,True,False,False
 S001190,N000190,1,Bradley Scott Schneider,Ralph Norman,False,False,False
@@ -7315,7 +7345,7 @@ S001196,K000389,2,Elise M. Stefanik,Ro Khanna,False,False,False
 S001196,K000402,1,Elise M. Stefanik,Timothy M. Kennedy,False,False,False
 S001196,M001206,1,Elise M. Stefanik,Joseph D. Morelle,False,False,False
 S001196,M001231,1,Elise M. Stefanik,John W. Mannion,True,False,True
-S001196,P000197,1,Elise M. Stefanik,Nancy Pelosi,False,False,False
+S001196,P000197,2,Elise M. Stefanik,Nancy Pelosi,False,False,False
 S001196,S000185,1,Elise M. Stefanik,"Robert C. ""Bobby"" Scott",False,False,False
 S001196,S001211,1,Elise M. Stefanik,Greg Stanton,False,False,True
 S001196,T000469,3,Elise M. Stefanik,Paul Tonko,False,False,False
@@ -7395,7 +7425,7 @@ S001211,B001302,3,Greg Stanton,Andy Biggs,True,True,False
 S001211,B001323,1,Greg Stanton,Nicholas J. Begich III,True,True,False
 S001211,B001327,2,Greg Stanton,"Robert P. Bresnahan, Jr.",True,True,True
 S001211,C001087,1,Greg Stanton,"Eric A. ""Rick"" Crawford",False,True,False
-S001211,C001132,1,Greg Stanton,Elijah Crane,True,True,False
+S001211,C001132,2,Greg Stanton,Elijah Crane,True,True,False
 S001211,C001133,7,Greg Stanton,Juan Ciscomani,True,True,True
 S001211,D000600,2,Greg Stanton,Mario Diaz-Balart,True,True,False
 S001211,F000466,2,Greg Stanton,Brian K. Fitzpatrick,False,True,True
@@ -7411,6 +7441,7 @@ S001211,K000399,2,Greg Stanton,Jennifer A. Kiggans,False,True,True
 S001211,L000599,3,Greg Stanton,Michael Lawler,True,True,True
 S001211,M000871,1,Greg Stanton,Tracey Mann,True,True,False
 S001211,M001157,2,Greg Stanton,Michael T. McCaul,False,True,False
+S001211,M001184,1,Greg Stanton,Thomas Massie,False,True,False
 S001211,M001194,1,Greg Stanton,John R. Moolenaar,False,True,False
 S001211,N000189,1,Greg Stanton,Dan Newhouse,True,True,False
 S001211,P000605,2,Greg Stanton,Scott Perry,False,True,True
@@ -7542,6 +7573,7 @@ S001218,C001108,1,Melanie A. Stansbury,James Comer,False,False,False
 S001218,G000591,1,Melanie A. Stansbury,Michael Guest,False,False,False
 S001218,J000302,1,Melanie A. Stansbury,John Joyce,False,False,False
 S001218,K000397,1,Melanie A. Stansbury,Young Kim,True,False,True
+S001218,M001184,1,Melanie A. Stansbury,Thomas Massie,False,False,False
 S001218,S001183,1,Melanie A. Stansbury,David Schweikert,True,False,True
 S001220,C001110,1,Dale W. Strong,J. Luis Correa,False,False,False
 S001220,D000216,2,Dale W. Strong,Rosa L. DeLauro,True,False,False
@@ -7611,7 +7643,7 @@ S001223,M001233,1,Emilia Strong Sykes,Mark B. Messmer,False,True,False
 S001223,R000619,4,Emilia Strong Sykes,Michael A. Rulli,False,True,False
 S001223,T000478,1,Emilia Strong Sykes,Claudia Tenney,False,True,False
 S001224,C001080,1,Keith Self,Judy Chu,True,False,False
-S001224,J000310,1,Keith Self,Julie Johnson,True,False,False
+S001224,J000310,2,Keith Self,Julie Johnson,True,False,False
 S001224,M001225,1,Keith Self,Kevin Mullin,True,False,False
 S001224,N000188,1,Keith Self,Donald Norcross,False,False,False
 S001224,R000579,1,Keith Self,Patrick Ryan,True,False,True
@@ -7632,7 +7664,7 @@ S001225,L000585,4,Eric Sorensen,Darin LaHood,True,True,False
 S001225,L000599,2,Eric Sorensen,Michael Lawler,True,True,True
 S001225,M000317,1,Eric Sorensen,Nicole Malliotakis,False,True,False
 S001225,M001213,1,Eric Sorensen,Blake D. Moore,True,True,False
-S001225,M001215,4,Eric Sorensen,Mariannette Miller-Meeks,True,True,True
+S001225,M001215,5,Eric Sorensen,Mariannette Miller-Meeks,True,True,True
 S001225,M001224,1,Eric Sorensen,Nathaniel Moran,True,True,False
 S001225,N000193,2,Eric Sorensen,Zachary Nunn,True,True,True
 S001225,O000019,1,Eric Sorensen,Jay Obernolte,False,True,False
@@ -7663,6 +7695,7 @@ S001226,L000585,1,Andrea Salinas,Darin LaHood,False,False,False
 S001226,L000599,1,Andrea Salinas,Michael Lawler,False,False,True
 S001226,M000871,1,Andrea Salinas,Tracey Mann,True,False,False
 S001226,M001157,1,Andrea Salinas,Michael T. McCaul,False,False,False
+S001226,M001184,1,Andrea Salinas,Thomas Massie,False,False,False
 S001226,M001194,1,Andrea Salinas,John R. Moolenaar,False,False,False
 S001226,M001215,1,Andrea Salinas,Mariannette Miller-Meeks,True,False,True
 S001226,M001218,2,Andrea Salinas,Richard McCormick,False,False,False
@@ -7747,8 +7780,10 @@ S001231,G000603,1,Lateefah Simon,Brandon Gill,False,False,False
 S001231,J000307,1,Lateefah Simon,John James,False,False,True
 S001231,K000398,1,Lateefah Simon,"Thomas H. Kean, Jr.",False,False,True
 S001231,L000599,1,Lateefah Simon,Michael Lawler,False,False,True
+S001231,S001212,1,Lateefah Simon,Pete Stauber,False,False,False
 S001231,T000467,1,Lateefah Simon,Glenn Thompson,False,False,False
 S001231,W000816,2,Lateefah Simon,Roger Williams,True,False,False
+T000165,D000624,1,Thomas P. Tiffany,Debbie Dingell,False,False,False
 T000165,M001160,1,Thomas P. Tiffany,Gwen Moore,False,False,False
 T000165,M001208,1,Thomas P. Tiffany,Lucy McBath,True,False,False
 T000165,O000173,1,Thomas P. Tiffany,Ilhan Omar,False,False,False
@@ -7769,7 +7804,7 @@ T000460,G000607,2,Mike Thompson,James Gallagher,True,False,False
 T000460,H001072,1,Mike Thompson,J. French Hill,False,False,False
 T000460,H001100,1,Mike Thompson,Jeff Hurd,False,False,True
 T000460,H001101,1,Mike Thompson,Pat Harrigan,False,False,False
-T000460,K000376,2,Mike Thompson,Mike Kelly,True,False,False
+T000460,K000376,3,Mike Thompson,Mike Kelly,True,False,False
 T000460,K000397,3,Mike Thompson,Young Kim,False,False,True
 T000460,K000399,1,Mike Thompson,Jennifer A. Kiggans,False,False,True
 T000460,L000596,1,Mike Thompson,Anna Paulina Luna,False,False,True
@@ -7778,7 +7813,7 @@ T000460,L000599,2,Mike Thompson,Michael Lawler,True,False,True
 T000460,L000600,1,Mike Thompson,Nicholas A. Langworthy,False,False,False
 T000460,M000317,2,Mike Thompson,Nicole Malliotakis,False,False,False
 T000460,M001177,1,Mike Thompson,Tom McClintock,False,False,False
-T000460,M001184,1,Mike Thompson,Thomas Massie,False,False,False
+T000460,M001184,2,Mike Thompson,Thomas Massie,False,False,False
 T000460,M001205,2,Mike Thompson,Carol D. Miller,True,False,False
 T000460,M001218,1,Mike Thompson,Richard McCormick,False,False,False
 T000460,N000189,1,Mike Thompson,Dan Newhouse,True,False,False
@@ -7874,7 +7909,7 @@ T000467,T000487,4,Glenn Thompson,Jill N. Tokuda,True,False,False
 T000467,V000131,1,Glenn Thompson,Marc A. Veasey,False,False,False
 T000467,V000138,1,Glenn Thompson,Eugene Simon Vindman,True,False,True
 T000467,W000831,2,Glenn Thompson,James R. Walkinshaw,True,False,False
-T000468,A000369,3,Dina Titus,Mark E. Amodei,True,True,False
+T000468,A000369,4,Dina Titus,Mark E. Amodei,True,True,False
 T000468,B001257,1,Dina Titus,Gus M. Bilirakis,True,True,False
 T000468,B001260,1,Dina Titus,Vern Buchanan,True,True,False
 T000468,B001301,1,Dina Titus,Jack Bergman,False,True,False
@@ -8057,7 +8092,7 @@ T000482,M001213,1,Lori Trahan,Blake D. Moore,True,False,False
 T000482,M001215,4,Lori Trahan,Mariannette Miller-Meeks,True,False,True
 T000482,M001224,1,Lori Trahan,Nathaniel Moran,True,False,False
 T000482,M001240,2,Lori Trahan,Addison P. McDowell,True,False,False
-T000482,O000019,11,Lori Trahan,Jay Obernolte,True,False,False
+T000482,O000019,12,Lori Trahan,Jay Obernolte,True,False,False
 T000482,O000177,2,Lori Trahan,"Robert F. Onder, Jr.",True,False,False
 T000482,V000129,1,Lori Trahan,David G. Valadao,True,False,True
 T000482,V000134,1,Lori Trahan,Beth Van Duyne,True,False,False
@@ -8147,6 +8182,7 @@ T000491,L000598,10,Derek Tran,Nick LaLota,True,True,True
 T000491,L000599,3,Derek Tran,Michael Lawler,False,True,True
 T000491,L000603,2,Derek Tran,Morgan Luttrell,True,True,False
 T000491,M000317,2,Derek Tran,Nicole Malliotakis,False,True,False
+T000491,M001184,1,Derek Tran,Thomas Massie,False,True,False
 T000491,M001210,1,Derek Tran,Gregory F. Murphy,False,True,False
 T000491,M001230,1,Derek Tran,Ryan Mackenzie,False,True,True
 T000491,P000622,4,Derek Tran,Jimmy Patronis,False,True,False
@@ -8174,6 +8210,7 @@ V000081,D000626,1,Nydia M. Velázquez,Warren Davidson,False,False,False
 V000081,G000597,1,Nydia M. Velázquez,Andrew R. Garbarino,True,False,False
 V000081,L000599,1,Nydia M. Velázquez,Michael Lawler,True,False,True
 V000081,M000317,1,Nydia M. Velázquez,Nicole Malliotakis,True,False,False
+V000081,M001184,1,Nydia M. Velázquez,Thomas Massie,True,False,False
 V000081,S000168,1,Nydia M. Velázquez,Maria Elvira Salazar,False,False,False
 V000129,A000148,2,David G. Valadao,Jake Auchincloss,True,True,False
 V000129,A000370,1,David G. Valadao,Alma S. Adams,False,True,False
@@ -8289,6 +8326,7 @@ V000134,W000797,1,Beth Van Duyne,Debbie Wasserman Schultz,True,False,True
 V000135,C001112,1,Derrick Van Orden,Salud O. Carbajal,False,True,False
 V000135,D000230,2,Derrick Van Orden,Donald G. Davis,False,True,True
 V000135,D000530,1,Derrick Van Orden,Christopher R. Deluzio,False,True,True
+V000135,G000553,1,Derrick Van Orden,Al Green,False,True,False
 V000135,H001090,1,Derrick Van Orden,Josh Harder,True,True,True
 V000135,L000601,2,Derrick Van Orden,Greg Landsman,True,True,True
 V000135,N000188,1,Derrick Van Orden,Donald Norcross,False,True,False
@@ -8460,7 +8498,7 @@ W000798,T000488,1,Tim Walberg,Shri Thanedar,False,False,False
 W000804,B000490,3,Robert J. Wittman,"Sanford D. Bishop, Jr.",False,True,True
 W000804,B001278,1,Robert J. Wittman,Suzanne Bonamici,True,True,False
 W000804,B001281,2,Robert J. Wittman,Joyce Beatty,False,True,False
-W000804,B001285,5,Robert J. Wittman,Julia Brownley,False,True,False
+W000804,B001285,6,Robert J. Wittman,Julia Brownley,False,True,False
 W000804,B001287,1,Robert J. Wittman,Ami Bera,True,True,False
 W000804,B001292,5,Robert J. Wittman,"Donald S. Beyer, Jr.",True,True,False
 W000804,B001296,1,Robert J. Wittman,Brendan F. Boyle,False,True,False
@@ -8756,7 +8794,7 @@ Y000067,P000614,2,Rudy Yakym III,Chris Pappas,True,False,True
 Y000067,P000620,2,Rudy Yakym III,Brittany Pettersen,True,False,False
 Y000067,R000305,1,Rudy Yakym III,Deborah K. Ross,False,False,False
 Y000067,S001156,1,Rudy Yakym III,Linda T. Sánchez,True,False,False
-Y000067,S001185,2,Rudy Yakym III,Terri A. Sewell,False,False,False
+Y000067,S001185,3,Rudy Yakym III,Terri A. Sewell,False,False,False
 Y000067,S001190,4,Rudy Yakym III,Bradley Scott Schneider,True,False,False
 Y000067,S001211,1,Rudy Yakym III,Greg Stanton,True,False,True
 Y000067,S001215,2,Rudy Yakym III,Haley M. Stevens,False,False,False

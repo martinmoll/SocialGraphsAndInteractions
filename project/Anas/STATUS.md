@@ -3,6 +3,16 @@
 > **22 Nov, added by Diego (with Claude) with the group's agreement:** `AI_METHODS.md` (part of A6) has moved to
 > `Diego/AI_METHODS.md`, so Anas does not need to spend time on it. Additions welcome there.
 
+> **22 Nov, late: A5 nearly done** ([`a5/README.md`](a5/README.md); optional under G17, for Martin and Diego to keep or
+> cut). One check left for Mon 23 Nov: whether the "named" partners are partners (see the A5 README's status).
+> 64% of releases that say "bipartisan" have a House partner of the other party (named or on a cited bill), against
+> 9% of other releases; of 30 without one, 29 name no partner from the other party (three blind readers).
+
+> **22 Nov evening: A3 and A4 rerun on Martin's 22 Nov matcher** (G18: possessives and middle initials, Anas's
+> checklist items 12 and 15). Every reading holds. Numbers in this file are updated where they are headline numbers;
+> old against new for all of them: [`RERUN_22NOV.md`](RERUN_22NOV.md). One correction: Republican closeness no
+> longer survives Holm (0.055). Martin's M6 is unaffected (the bill table is unchanged).
+
 Anas, Friday 20 November 2026 (last updated **Sun 22 Nov, early morning: A3 complete, A4 first run and the home-map
 network extension**; section 3, [`a3/README.md`](a3/README.md), [`a4/README.md`](a4/README.md)). **Start here.** This
 replaces `REVISIONS_19NOV.md` and is kept up to date.
@@ -165,8 +175,8 @@ Plan, reasons and two deviations: [`A3_MATCHER_SWITCH.md`](A3_MATCHER_SWITCH.md)
   input and in a thin layer:
   - **Input:** untitled names on, plus the first names members use for themselves.
   - **Layer:** party-state tags, own surname, title guards, lists that carry tags, quoted nicknames, middle initials.
-- **`shared` (exactly as on the floor):** 51,569 mentions once per release, 24.1% cross-party.
-  **`shared + press layer` (for A4):** 129,052 mentions, 14.4%, with the middle-initial rule (20 Nov: 123,147, 15.1%).
+- **`shared` (exactly as on the floor):** 53,625 mentions once per release, 23.0% cross-party (22 Nov rerun; 21 Nov:
+  51,569, 24.1%). **`shared + press layer` (for A4):** 129,473 mentions, 14.4% (21 Nov: 129,052; 20 Nov: 123,147, 15.1%).
 - **Against 20 Nov:** 123,013 (release, member) pairs are in both, 134 are only in the old version, and 5,983
   are only in the new one.
   - 17 hits name a different member at the same place, and the new version is right in all 17.
@@ -181,7 +191,8 @@ Plan, reasons and two deviations: [`A3_MATCHER_SWITCH.md`](A3_MATCHER_SWITCH.md)
   - **Sample:** 30 releases from the surname pool and 10 from outside it.
   - **Agreement:** all five readers agree on all 77 pairs, and the 10 outside releases name nobody.
   - **Press recall:** 0.73 (0.62–0.81) for Martin's matcher as used on the floor, and **0.97 (0.91–0.99) with the
-    press layer**. Precision in the same sample is 0.93 and 0.96.
+    press layer**. Precision in the same sample is 0.93 and 0.96. **After the 22 Nov rerun:** the matcher alone
+    0.75 recall and 0.95 precision; with the layer unchanged (0.97, 0.96).
   - **Found by it:** a middle-initial bug. "Congressman Riley M. Moore" was counted as Josh Riley, giving 364 false
     press mentions, 96% of them cross-party. It is `MATCHER_CHECKLIST.md` item 15 for Martin.
   - **Corrected in the press layer the same evening** (the "middle initial" rule). Only 3 such hits are left,
@@ -195,8 +206,8 @@ Plan, reasons and two deviations: [`A3_MATCHER_SWITCH.md`](A3_MATCHER_SWITCH.md)
   - **Precision check by 3 blind AI readers:** 30 of 30 numbers and 30 of 30 titles, unanimous, so nothing needed
     a human look.
   - **For Martin:** this is the table M6 needs.
-- **A3.6 and A3.7, done 21 Nov** (`a3/README.md`; output **`a3/out/mentions_press.parquet`**, 129,052 rows, the file
-  A4 reads):
+- **A3.6 and A3.7, done 21 Nov** (`a3/README.md`; output **`a3/out/mentions_press.parquet`**, 129,473 rows since the
+  22 Nov rerun, the file A4 reads):
   - **Flags and weights** from the plan, with the leader list and word lists fixed before A4 (`a3/leaders.csv`,
     `a3/flags.py`).
   - **Weights matter:** 14.4% of press mentions cross party, and 33.0% weighted by 1/n.
@@ -204,8 +215,9 @@ Plan, reasons and two deviations: [`A3_MATCHER_SWITCH.md`](A3_MATCHER_SWITCH.md)
     Bacon figure (8 of 10) do not: on all their releases, 19.8% and 32.5%.
   - **A3 is complete.**
 - **A4 first run, done 21 Nov** (`a4/README.md`, Figure 3 draft `a4/out/figure3_draft.png`):
-  - **Result:** exposed members name the other party more at home in **both** parties. Republicans 13.2% against
-    9.2% (+4.0 points, p 0.004); Democrats 11.5% against 8.9% (+2.6, p 0.003). The interaction is +1.4 (p 0.40).
+  - **Result:** exposed members name the other party more at home in **both** parties. Republicans 13.3% against
+    9.2% (+4.1 points, p 0.004); Democrats 11.6% against 9.0% (+2.6, p 0.004). The interaction is +1.5 (p 0.36).
+    (22 Nov rerun; 21 Nov: 13.2/9.2, 11.5/8.9, +1.4, p 0.40.)
   - **Reading fixed in advance:** a seat effect, not a president's-party effect.
   - **Robustness:** it holds in every row, including the cut-offs at 4 and 6, the second lean source, leaving one
     state out, and Martin's matcher alone.
@@ -215,10 +227,10 @@ Plan, reasons and two deviations: [`A3_MATCHER_SWITCH.md`](A3_MATCHER_SWITCH.md)
     accept under G17**):
     - **Hubs:** exposed members are the hubs of cross-party naming. They are 22% of members but send 35% and
       receive 34% of cross-party ties.
-    - **Only a small preference for each other beyond that activity:** 10.8% of ties join two exposed members,
-      against 10.3% under a degree-preserving rewiring (+5%, p 0.025).
-    - **One bipartisan community of close-seat members:** Louvain finds 37 members, half of them exposed (Bacon,
-      Golden, Kaptur, LaLota, Gillen and others). The other mixed communities are state delegations.
+    - **Only a small preference for each other beyond that activity:** 10.7% of ties join two exposed members,
+      against 10.2% under a degree-preserving rewiring (+5%, p 0.015).
+    - **One bipartisan community of close-seat members:** Louvain finds 35 members, 19 of them exposed (Bacon,
+      Golden, Kaptur, LaLota, Gillen and others; 37 before the rerun). The other mixed communities are state delegations.
     - **Centrality, Holm-corrected:** exposed members have far more cross-party ties in both parties. The party
       difference in how they bridge does not survive the correction.
     - **Everything is documented in `a4/NETWORK_METHODS.md`:** values, formulas and steps, with the configuration

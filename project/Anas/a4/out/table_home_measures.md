@@ -1,0 +1,18 @@
+# The home map: exposed against safe members
+
+| Measure | Party | Exposed | Safe | Ratio | p | Holm | Holm p < 0.05 at α |
+|---|---|---|---|---|---|---|---|
+| Cross-party ties (full map) | R | 54.2 | 27.8 | 1.95 | < 0.001 | 0.001 | all (full map) |
+| Cross-party ties (full map) | D | 45.7 | 29.9 | 1.53 | < 0.001 | 0.001 | all (full map) |
+| Ties in the backbone (degree) | R | 8.6 | 5.7 | 1.51 | 0.002 | 0.013 | all |
+| Ties in the backbone (degree) | D | 9.8 | 10.3 | 0.96 | 0.57 | 1.00 | none |
+| Betweenness in the backbone (×1,000) | R | 6.7 | 3.7 | 1.84 | 0.010 | 0.059 | all but 0.01 |
+| Betweenness in the backbone (×1,000) | D | 6.5 | 6.6 | 0.98 | 0.91 | 1.00 | none |
+| Closeness in the backbone | R | 0.316 | 0.300 | 1.05 | 0.008 | 0.055 | 0.02 and up |
+| Closeness in the backbone | D | 0.337 | 0.335 | 1.01 | 0.52 | 1.00 | none |
+| Betweenness given degree (residual) | R | -0.25 | +0.05 |  | 0.12 | 0.47 | 0.05 and up |
+| Betweenness given degree (residual) | D | +0.18 | -0.07 |  | 0.016 | 0.078 | 0.02 and up |
+| Other party in own Louvain community | R | 37% | 26% | 1.45 | 0.012 | (own test) | (full map) |
+| Other party in own Louvain community | D | 39% | 26% | 1.50 | 0.002 | (own test) | (full map) |
+
+Exposed against safe members within each party: p from 10,000 shuffles of exposure within party; Holm corrects across the 10 tests in the first five rows. Backbone: disparity filter at α = 0.01 (main); last column: the α values among 0.005, 0.01, 0.02, 0.05, 0.1, 0.2 at which the Holm p is below 0.05 (alpha_centrality.py). Preference beyond activity (degree-preserving rewiring of the cross-party ties, 1,000 rewirings): 10.7% of cross-party ties join two exposed members, against 10.2% rewired (ratio 1.05, p 0.015).

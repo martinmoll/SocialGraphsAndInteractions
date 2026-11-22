@@ -138,6 +138,12 @@ g3 = perm_gap(other_share)
 comp = pd.DataFrame([dict(community=i, size=len(c), R=sum(party[n] == "R" for n in c), D=sum(party[n] == "D" for n in c),
                           exposed=sum(exposed[n] for n in c)) for i, c in enumerate(best)]).sort_values("size", ascending=False)
 comp.to_csv(os.path.join(OUT, "home_measures_communities.csv"), index=False)
+# members of each community, read by figure_home_map.py (written here since the 22 Nov rerun; on 21 Nov this file was
+# made by hand from the same partition, so it went stale when the data changed)
+lean_names = pd.read_csv(os.path.join(ANAS, "district_lean", "member_lean.csv")).set_index("bioguide")
+pd.DataFrame([dict(community=comm[n], bioguide=n, name=lean_names.at[n, "name"], party=party[n],
+                   state=lean_names.at[n, "state"], exposed=bool(exposed[n])) for n in nodes]) \
+    .sort_values(["community", "party", "name"]).to_csv(os.path.join(OUT, "home_communities_members.csv"), index=False)
 print(f"\nN3 Louvain (50 seeds, best Q): {len(best)} communities, modularity {bestQ:.3f}; NMI with party "
       f"{nmi(pty, lab):.3f}; party split Q weighted {Qparty_w:.3f}, unweighted {Qparty_u:.3f}")
 print(comp.to_string(index=False))

@@ -1,0 +1,18 @@
+% Results, part 3: whom members name at home. Anas (with Claude), 22 Nov 2026 (late), on the 22 Nov rerun numbers.
+% Sources: a4/out/results.csv, a4/out/member_shares.csv, a4/out/leave_one_state_out.csv (A4 test, Figure 3);
+% a4/out/home_measures_centrality.csv, a4/out/home_measures_null.csv, a4/out/home_ties.csv (home map; NETWORK_METHODS.md).
+% To use: in report/sections/results.tex, replace the placeholder paragraph under "Close-up" with
+% \input{sections/results_part3} (after copying this file to report/sections/), and keep Martin's M6 paragraph after it.
+% About 335 words; part 3's budget is about 200 plus Martin's M6 paragraph, so the last paragraph is the first to cut
+% on Wednesday (it is the network extension, which still needs the group's acceptance under G17).
+
+\textbf{Members in exposed seats name the other party more often at home, in both parties.} For each of the 406 members with at least ten press releases (53,664 releases from 3 January 2025 to 20 November 2026), we measured the share of releases naming a House member of the other party who is neither a party leader nor a co-lead of a bill the release cites. A seat is exposed when the district the member served leans toward their own party by five points or less (Cook PVI 2025). Exposed Republicans named Democrats in 13.3\% of their releases, against 9.2\% for safe Republicans; exposed Democrats named Republicans in 11.6\%, against 9.0\% (permutation $p = 0.004$ for each; Fig.~\ref{fig:home}). The two gaps differ by 1.5 points ($p = 0.36$): the pattern follows the seat, and we find no sign that it depends on being in the president's party.
+
+\textbf{The difference sits in the closest seats.} Members whose district is even or leans to the other party named it most (Republicans 19.2\%, $n = 8$; Democrats 14.2\%, $n = 10$). Beyond five points of lean the share is nearly flat, between 7.9\% and 9.8\% (Fig.~\ref{fig:home}\emph{A}). Every check fixed before the analysis gives a positive gap in both parties with $p < 0.05$: other cut-offs, the 2024 presidential margin instead of Cook, leaving out the 21 members whose label changes or is unknown under the 2026 maps, leaving out releases about redistricting or caucuses, and the floor's name matcher without the press additions (Fig.~\ref{fig:home}\emph{B}). The gaps keep their sign when any one state is left out. When co-leads count too, they widen to 7.0 and 6.3 points.
+
+\textbf{Exposed members are the hubs of cross-party naming.} Tying two members when one names the other gives a home map of the same 406 members. Exposed members are 22\% of them but send 35\% and receive 34\% of its cross-party ties. On average they are tied to 1.9 times (Republicans) and 1.5 times (Democrats) as many members of the other party as safe members are (Holm-corrected $p = 0.001$). They also tie to each other slightly more than their activity predicts: 10.7\% of cross-party ties join two exposed members, against 10.2\% when ties are rewired with every member's number of ties kept ($p = 0.015$).
+
+% A5 (optional, G17; a5/README.md, a5/out/results.csv, a5/check/scored.csv). Keep or cut with the group.
+% NOT FINAL: the 64% includes "named" partners, not yet checked (planned Mon 23 Nov). If that check is not done,
+% use the on-record figure instead (36.9% against 5.3%).
+\textbf{Calling something bipartisan mostly comes with a partner.} A quarter of the releases (13,744) call something bipartisan. In 64\% of them a House member of the other party is named or co-leads a cited bill, against 9\% of other releases (means over 370 members). Three blind readers coded 30 of the rest: 29 named no partner from the other party, and one named a senator, whom our matcher does not count.

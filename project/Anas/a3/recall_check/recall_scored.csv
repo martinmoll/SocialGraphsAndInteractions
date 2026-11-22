@@ -1,5 +1,5 @@
 sample_id,bioguide,n_readers,as_written,url,group,found,counted,status,rule_set
-recall_05,A000370,5.0,Adams,https://watsoncoleman.house.gov/newsroom/press-releases/adams-frankel-leger-fernandez-watson-coleman-blunt-rochester-introduce-black-womens-equal-pay-day-resolution,pool,False,False,missed,shared
+recall_05,A000370,5.0,Adams,https://watsoncoleman.house.gov/newsroom/press-releases/adams-frankel-leger-fernandez-watson-coleman-blunt-rochester-introduce-black-womens-equal-pay-day-resolution,pool,True,True,counted,shared
 recall_05,F000462,5.0,Frankel,https://watsoncoleman.house.gov/newsroom/press-releases/adams-frankel-leger-fernandez-watson-coleman-blunt-rochester-introduce-black-womens-equal-pay-day-resolution,pool,False,False,missed,shared
 recall_05,L000273,5.0,Leger Fernández,https://watsoncoleman.house.gov/newsroom/press-releases/adams-frankel-leger-fernandez-watson-coleman-blunt-rochester-introduce-black-womens-equal-pay-day-resolution,pool,True,True,counted,shared
 recall_07,S001201,5.0,Congressman Suozzi,https://fitzpatrick.house.gov/2026/6/fitzpatrick-backed-housing-reforms-head-to-president-s-desk-marking-major-problem-solvers-caucus-affordability-win-for-pa-1-families,pool,True,True,counted,shared
@@ -57,7 +57,7 @@ recall_27,V000131,5.0,Congressman Marc Veasey (D-TX),https://blakemoore.house.go
 recall_27,W000821,5.0,Chairman Bruce Westerman,https://blakemoore.house.gov/media/press-releases/congressman-blake-moore-joins-president-trump-at-national-medal-of-honor-monument-bill-signing,pool,True,True,counted,shared
 recall_31,C001110,5.0,Lou Correa (CA-46),https://kennedy.house.gov/news/documentsingle.aspx?DocumentID=2480,pool,True,True,counted,shared
 recall_31,P000621,5.0,Rep. Nellie Pou (NJ-09),https://kennedy.house.gov/news/documentsingle.aspx?DocumentID=2480,pool,True,True,counted,shared
-recall_31,T000193,5.0,Ranking Member Thompson,https://kennedy.house.gov/news/documentsingle.aspx?DocumentID=2480,pool,False,False,missed,shared
+recall_31,T000193,5.0,Ranking Member Thompson,https://kennedy.house.gov/news/documentsingle.aspx?DocumentID=2480,pool,True,True,counted,shared
 recall_32,H001077,5.0,Higgins,https://vindman.house.gov/2025/12/19/vindman-higgins-sessions-moore-introduce-bipartisan-legislation-to-make-traffic-stops-safer-for-individuals-with-disabilities/,pool,False,False,missed,shared
 recall_32,M001212,5.0,Moore,https://vindman.house.gov/2025/12/19/vindman-higgins-sessions-moore-introduce-bipartisan-legislation-to-make-traffic-stops-safer-for-individuals-with-disabilities/,pool,False,False,missed,shared
 recall_32,S000250,5.0,Sessions,https://vindman.house.gov/2025/12/19/vindman-higgins-sessions-moore-introduce-bipartisan-legislation-to-make-traffic-stops-safer-for-individuals-with-disabilities/,pool,False,False,missed,shared
@@ -78,7 +78,6 @@ recall_36,T000469,5.0,Paul Tonko (D-NY),https://velazquez.house.gov/media-center
 recall_37,L000397,5.0,Rep. Zoe Lofgren (CA-18),https://larson.house.gov/media-center/press-releases/larson-blasts-supreme-court-decision-gutting-voting-rights-act,pool,True,True,counted,shared
 recall_26,M001218,,,https://pressley.house.gov/2026/06/19/pressley-commends-senate-partners-for-introducing-bill-to-designate-haiti-for-temporary-protected-status-following-house-passage/,,,,"counted, not in key",shared
 recall_26,L000593,,,https://pressley.house.gov/2026/06/19/pressley-commends-senate-partners-for-introducing-bill-to-designate-haiti-for-temporary-protected-status-following-house-passage/,,,,"counted, not in key",shared
-recall_06,R000622,,,https://rileymoore.house.gov/media/press-releases/congressman-moore-announces-over-2-million-recovered-west-virginians,,,,"counted, not in key",shared
 recall_17,J000289,,,https://clarke.house.gov/clarke-celebrates-the-one-hundred-thirteenth-anniversary-of-delta-sigma-theta-sorority-inc/,,,,"counted, not in key",shared
 recall_05,A000370,5.0,Adams,https://watsoncoleman.house.gov/newsroom/press-releases/adams-frankel-leger-fernandez-watson-coleman-blunt-rochester-introduce-black-womens-equal-pay-day-resolution,pool,True,True,counted,shared + press layer
 recall_05,F000462,5.0,Frankel,https://watsoncoleman.house.gov/newsroom/press-releases/adams-frankel-leger-fernandez-watson-coleman-blunt-rochester-introduce-black-womens-equal-pay-day-resolution,pool,True,True,counted,shared + press layer
@@ -157,6 +156,6 @@ recall_36,M000317,5.0,Malliotakis,https://velazquez.house.gov/media-center/press
 recall_36,M001229,5.0,Monica McIver (D-NJ),https://velazquez.house.gov/media-center/press-releases/velazquez-and-malliotakis-introduce-federal-version-mels-law,pool,True,True,counted,shared + press layer
 recall_36,T000469,5.0,Paul Tonko (D-NY),https://velazquez.house.gov/media-center/press-releases/velazquez-and-malliotakis-introduce-federal-version-mels-law,pool,True,True,counted,shared + press layer
 recall_37,L000397,5.0,Rep. Zoe Lofgren (CA-18),https://larson.house.gov/media-center/press-releases/larson-blasts-supreme-court-decision-gutting-voting-rights-act,pool,True,True,counted,shared + press layer
-recall_26,M001218,,,https://pressley.house.gov/2026/06/19/pressley-commends-senate-partners-for-introducing-bill-to-designate-haiti-for-temporary-protected-status-following-house-passage/,,,,"counted, not in key",shared + press layer
 recall_26,L000593,,,https://pressley.house.gov/2026/06/19/pressley-commends-senate-partners-for-introducing-bill-to-designate-haiti-for-temporary-protected-status-following-house-passage/,,,,"counted, not in key",shared + press layer
+recall_26,M001218,,,https://pressley.house.gov/2026/06/19/pressley-commends-senate-partners-for-introducing-bill-to-designate-haiti-for-temporary-protected-status-following-house-passage/,,,,"counted, not in key",shared + press layer
 recall_17,J000289,,,https://clarke.house.gov/clarke-celebrates-the-one-hundred-thirteenth-anniversary-of-delta-sigma-theta-sorority-inc/,,,,"counted, not in key",shared + press layer

@@ -24,7 +24,9 @@ Thin layer on top:
                        rule's error)
   middle initial       a titled name with a middle initial, "Congressman Riley M. Moore": Martin's matcher stops at
                        the initial and reads the first name as the surname (Josh Riley; MATCHER_CHECKLIST item 15,
-                       found by the A3.4 recall check). Resolved here as first name + surname; replaces his hit
+                       found by the A3.4 recall check). Resolved here as first name + surname; replaces his hit.
+                       Since 22 Nov his matcher reads past the initial itself (G18, change I), so the layer now acts
+                       only where his reading differs from this one or he found nothing
   quoted nickname      a nickname in quotes before the surname: Jesús G. “Chuy” García, Henry C. “Hank” Johnson
                        (the quote stops Martin's untitled rule; about 750 mentions, mostly García, Johnson, Scott, Carter)
 A hit the plain shared matcher (match_shared.py) also finds, at the same place for the same member, keeps
@@ -55,6 +57,7 @@ PLURAL_TITLE = re.compile(r"\b(Reps\.|Representatives|Congressmen|Congresswomen)
 LIST_WORD = r"[A-ZÀ-Þ][A-Za-zÀ-ÿ'’\-]+"
 LIST_ITEM = re.compile(r"((?:" + LIST_WORD + r"\s|[A-Z]\.\s){0,3}" + LIST_WORD + r")")
 LIST_SEP = re.compile(r"\s*,\s*and\s+|\s+and\s+|\s*,\s*|\s*&\s*")
+POSSESSIVE = re.compile(r"[’']s?$")             # the same pattern as Martin's change H (22 Nov)
 QUOTED = re.compile(r"[“\"]([A-ZÀ-Þ][A-Za-zÀ-ÿ\.]*)[”\"]\s+((?:" + LIST_WORD + r"\s){0,2}" + LIST_WORD + r")")
 
 
@@ -144,7 +147,7 @@ class Resolver:
             self.by_last[key(last)].append(b)
 
     def resolve(self, words, tag, speaker):
-        k = [key(w.rstrip(".")) for w in words]
+        k = [key(POSSESSIVE.sub("", w.rstrip("."))) for w in words]   # "Smith's (R-NJ)": as Martin's change H
         for n in (3, 2, 1):
             cands = self.by_last.get(" ".join(k[-n:])) if len(k) >= n else None
             if not cands:
@@ -183,11 +186,17 @@ if __name__ == "__main__":
     import matcher as M                          # Martin's module, on the path after load_inputs
     MI, MI_QUICK = middle_initial_rx(M), re.compile(r"\s[A-Z]\.\s")
 
-    rows, n_mi_dropped = [], 0
+    rows, n_mi_dropped, n_mi_agree = [], 0, 0
     for r in d.itertuples():
         t = r.text
         hits = [(h.start, h.end, h.title, h.named, h.how, None) for h in mt.find(t, untitled=True)]
         mi, nobody = middle_initial_hits(t, mt, MI) if MI_QUICK.search(t) else ([], set())
+        # Since 22 Nov (G18, change I) Martin's matcher reads past a middle initial itself: where it already names the
+        # same member at the same title, his hit is kept (rule_set "shared"); the layer replaces it only where the two
+        # disagree or he found nothing
+        by_start = {h[0]: h[3] for h in hits}
+        mi = [x for x in mi if by_start.get(x[0], "\0") != x[3]]
+        n_mi_agree += len(nobody) - len(nobody := {s for s in nobody if by_start.get(s)})
         if mi or nobody:                         # replaces Martin's hit at the same title, which read the first name
             starts = {s for s, *_ in mi} | nobody
             dropped = [h for h in hits if h[0] in nobody and h[3]]
@@ -252,3 +261,6 @@ if __name__ == "__main__":
           f"({xp(lc):.1%}); releases naming a colleague {sc.doc_id.nunique():,} -> {lc.doc_id.nunique():,}")
     print("still unresolved:", int((out.status == "unresolved").sum()))
     print("middle initial: hits of Martin's matcher dropped because the full name is no member:", n_mi_dropped)
+    print("middle initial: 'no member' cases where Martin's matcher already found nothing (G18):", n_mi_agree)
+    print("middle initial: layer hits that still replace or add to Martin's:",
+          int((out.layer_rule == "middle initial").sum()))

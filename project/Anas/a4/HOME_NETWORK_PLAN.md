@@ -120,7 +120,9 @@ full map most members are two steps apart.
 - **N3:** communities near the party split (high NMI) with exposed members in mixed communities would place them at
   the seam, as the layout suggests.
 
-**Result of the addendum (21 Nov, late; numbers in `a4/README.md`):**
+**Result of the addendum (21 Nov, late; numbers in `a4/README.md`).** The 22 Nov rerun on Martin's new matcher
+moves these slightly (S2 10.7% against 10.2%, p 0.015; NMI 0.20; the close-seat community 35 members, 19 exposed);
+every reading holds. Old against new: `../RERUN_22NOV.md`.
 - **N1:** S2 is above the rewired range: 10.8% against 10.3% (9.9 to 10.7%), p 0.025. By the reading fixed above,
   this is a small preference beyond activity, about 5%. It also corrects the earlier tie-end shortcut, which gave
   "no preference".

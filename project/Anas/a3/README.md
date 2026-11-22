@@ -27,8 +27,13 @@ python a3/examples.py     --press press_releases --repo <repo>     # A3.7 named 
 `score_recall.py`, `bills.py`, `flags.py` and `examples.py`, about two minutes in all. The hand and reader samples are
 stored by release and member, so they are scored again without new reading.
 
-`<repo>` must be at commit `7bdbc18c` (the matcher frozen on 21 Nov, identical on branch `claude/nice-bardeen-snc57e`
-at `5b65a830`).
+`<repo>` must be at commit `bc1c2344` (main, 22 Nov 20:28: Martin's matcher with the 22 Nov fixes G18 and G19).
+Until the 22 Nov rerun it was `7bdbc18c`.
+
+> **Rerun 22 Nov on Martin's 22 Nov matcher** (possessives and middle initials, Anas's checklist items 12 and 15).
+> The headline numbers below are updated; old against new for every number, and the one change to the press layer
+> (the middle-initial rule now acts only where Martin's reading differs): [`../RERUN_22NOV.md`](../RERUN_22NOV.md).
+> Sections describing the 20 and 21 Nov steps (the switch, the guard fix) keep their numbers of that day.
 
 ## The 21 Nov matcher switch (DECISIONS G14; plan and reasons in [`../A3_MATCHER_SWITCH.md`](../A3_MATCHER_SWITCH.md))
 
@@ -47,7 +52,10 @@ names as an option), with his code unchanged. What differs from the floor is inp
 - **`shared`:** 205,557 hits; self 123,014, counted 71,690, unresolved 10,853. Once per release: **51,569 mentions in
   19,661 releases (35.7%)**, 24.1% cross-party (R–D). Before the switch: 38,557, 29.4%. The rise is Martin's
   list and nickname rules.
-- **`shared + press layer`:** once per release **129,052 mentions in 21,672 releases**, 14.4% cross-party (20 Nov
+- **22 Nov rerun:** `shared` once per release **53,625 mentions in 19,914 releases (36.2%)**, 23.0% cross-party;
+  `shared + press layer` **129,473 mentions in 21,867 releases**, 14.4% cross-party (33.0% weighted by 1/n).
+  424 release–member pairs new (mostly possessives), 3 gone ("James P. McGovern" in lists read as John James).
+- **`shared + press layer`, 21 Nov:** once per release **129,052 mentions in 21,672 releases**, 14.4% cross-party (20 Nov
   layer: 123,147, 15.1%). These are the numbers after the middle-initial rule was added the same evening (see A3.4);
   before it, 128,996 and 14.6%, which appear in some places below.
   - **Counted hits added, by rule:**
@@ -149,14 +157,17 @@ never contain a release where it missed everyone, and that would inflate recall.
 | `shared` (Martin's matcher as on the floor) | 56 | 4 | 21 | 0.93 (0.84–0.98) | **0.73** (0.62–0.81) | 0.82 |
 | `shared + press layer`, first run | 74 | 4 | 3 | 0.95 (0.88–0.98) | 0.96 (0.89–0.99) | 0.95 |
 | **`shared + press layer` with the middle-initial rule (A4)** | **75** | **3** | **2** | **0.96** (0.89–0.99) | **0.97** (0.91–0.99) | **0.97** |
+| `shared`, 22 Nov matcher (rerun) | 58 | 3 | 19 | 0.95 (0.87–0.98) | 0.75 (0.65–0.84) | 0.84 |
+| `shared + press layer`, 22 Nov rerun (A4) | 75 | 3 | 2 | 0.96 | 0.97 | 0.97 (unchanged) |
 
-Wilson 95% intervals. Recall's bootstrap interval over releases is wider (0.56–0.88 for shared, 0.94–1.00 with the
+Wilson 95% intervals. Recall's bootstrap interval over releases is wider (0.56–0.88 for shared, 0.59–0.91 after the 22 Nov rerun; 0.94–1.00 with the
 layer), because names come in lists. Precision here is a second estimate, from 78 hits; the 30-row rule samples
 gave 0.97 or more per rule. The middle-initial rule was added after this check found the bug, so its own row is
 scored on the same sample that revealed it (a fit, not a fresh test). Its precision across all releases is
 checked below by the counts it moves.
 
-- **What the layer recovers (19 of the 21 shared misses):**
+- **What the layer recovers (19 of the 21 shared misses; after the 22 Nov rerun the shared matcher misses 19 and the
+  layer recovers 17 of them):**
   - names with a district tag in lists, "Jim McGovern (MA-02), Lori Trahan (MA-03), …";
   - untitled names, "Adriano Espaillat (D-NY)";
   - with the new rule, "Representatives **Alma S. Adams**, Ph.D."
@@ -253,7 +264,8 @@ Run `python a3/flags.py --press press_releases --repo <repo>` (about 10 s), then
 `python a3/examples.py --press press_releases --repo <repo>`.
 
 **`out/mentions_press.parquet`** (8.1 MB, zstd) is **the file A4 reads**.
-- **One row per colleague counted in a release:** 129,052 rows in 21,672 releases, 412 speakers, 451 named.
+- **One row per colleague counted in a release:** 129,473 rows in 21,867 releases, 412 speakers, 451 named (22 Nov
+  rerun; 21 Nov: 129,052 in 21,672).
 - **Columns:** the shared columns of `mentions.parquet` first (`speaker`, `named`, `source` = press, `date`,
   `doc_id`, `context`, `is_yield`), then the flags. Every flag is described at the top of `flags.py`.
 - **Fixed inputs written down before A4:**
@@ -265,17 +277,17 @@ Run `python a3/flags.py --press press_releases --repo <repo>` (about 10 s), then
 | Flag | Share of rows | Cross-party among them |
 |---|---|---|
 | all rows (R–D pairs) | 100% | 14.4%; **33.0% weighted by 1/n** (decision 8) |
-| `in_shared` (Martin's matcher alone also counts it) | 39.7% | 23.6% |
+| `in_shared` (Martin's matcher alone also counts it) | 41.4% | 23.0% |
 | `co_lead` (named member leads a bill the release cites) | 20.5% | 23.8% |
 | `same_state` | 19.3% | 11.3% |
-| `first_named` | 16.8% | 34.7% |
-| `in_list` | 11.5% | 17.0% |
+| `first_named` | 16.9% | 34.8% |
+| `in_list` | 12.5% | 16.0% |
 | `caucus` | 8.4% | 7.4% |
-| `named_is_leader` | 2.2% | 36.0% |
+| `named_is_leader` | 2.2% | 36.6% |
 | `shared_text` (joint release, 2–4 members) | 0.7% | 6.4% |
-| `redistricting` | 0.3% | 10.2% |
+| `redistricting` | 0.3% | 10.3% |
 
-Releases name a median of 2 colleagues; 12.5% name 10 or more. Weighting matters because long lists are mostly one
+Releases name a median of 2 colleagues; 12.4% name 10 or more (22 Nov rerun). Weighting matters because long lists are mostly one
 party.
 
 **Named examples and mutual pairs** (`out/named_examples.csv`), over the whole snapshot, not yet the common date

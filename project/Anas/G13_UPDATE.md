@@ -19,13 +19,13 @@ block below into G13's "Open" list, replacing open points 2 and 3. While doing s
     describes a different area.
 - **3. Date window:** the full snapshot, 3 Jan 2025 to 20 Nov 2026 (press data collected 20 Nov). Both parties are
   compared over the same days. The floor data should end on or before 20 Nov too.
-- **What the choice does** (A4 first run, `Anas/a4/README.md`):
+- **What the choice does** (A4, rerun 22 Nov on Martin's 22 Nov matcher, `Anas/a4/README.md`):
   - **Main result:** exposed members name the other party more than safe members in **both** parties (Republicans
-    +4.0 points, Democrats +2.6, each p < 0.01). The interaction is small (+1.4 points, p 0.40). The reading fixed in
+    +4.1 points, Democrats +2.6, each p < 0.01). The interaction is small (+1.5 points, p 0.36). The reading fixed in
     advance is: a seat effect, not a president's-party effect.
   - **Cut-off:** 4 and 6 points, and the 2024 presidential margin as a second source, change the size of the gaps
-    (R +3.6 to +6.3) but not their direction or the reading. The interaction comes closest to significant at 4
-    points (+3.4, p 0.06).
+    (R +3.6 to +6.4) but not their direction or the reading. The interaction comes closest to significant at 4
+    points (+3.6, p 0.051).
   - **Lean as a number, all members** (`Anas/a4/out/figure_lean.png`): the share peaks in the closest seats, above
     all in the 18 crossover seats (members in districts leaning to the other party: Republicans 19.1%, Democrats
     14.0%). Beyond 5 to 10 points it is nearly flat at 8 to 10%. So the cut-off decides how much of that peak the
