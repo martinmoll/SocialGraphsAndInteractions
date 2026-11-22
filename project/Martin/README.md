@@ -32,6 +32,7 @@ need to know" down is the 16–18 Nov record, kept for the reasons behind each c
 | M6 Close-up null | [`m6_closeup_null.py`](m6_closeup_null.py), [`m6_results.csv`](m6_results.csv) | First run 22 Nov: cross-party bills announced more (52.7% against 45.1%), mostly because co-led bills are; against same-party co-leads +3.5 points (p 0.02). See "M6" below |
 | M7 Figure 1 | [`m7_figure1.py`](m7_figure1.py) → [`figures/figure1.pdf`](figures/figure1.pdf), [`.png`](figures/figure1.png) | Final version 22 Nov: maps A–B, cross-party share C, modularity against all nulls D |
 | M8 Slides | | Not started |
+| Methods text (data, matcher, networks) | [`methods_networks.md`](methods_networks.md) | Draft 22 Nov, about 620 words; to cut to about 400 when the three Methods parts are joined |
 | Results text, part 1 | [`results_part1.md`](results_part1.md) | 22 Nov, on the frozen numbers: about 560 words, Figure 1 caption, and the M6 paragraph for Anas's part 3 |
 | Scoring the hand checks | [`m1_checks_20nov/score_checks.py`](m1_checks_20nov/score_checks.py) | Ready: scores whichever sheets are filled in, with 95% intervals |
 

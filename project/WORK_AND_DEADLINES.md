@@ -167,6 +167,8 @@ From the earlier plans in `archive/`, and since the scope freeze (G17). Listed s
 
 Newest first. One line per change.
 
+- **22 Nov 2026.** Methods text for data, name matching and networks drafted (`Martin/methods_networks.md`). Needs S2
+  (speaker check, not started) and two references (Blondel 2008, Danon 2005) in `references.bib`.
 - **22 Nov 2026.** M7: Figure 1 final (four panels) and the part 1 Results text with caption (`Martin/results_part1.md`),
   plus a ready M6 paragraph for part 3. The optional thinning curve is dropped (G17).
 - **22 Nov 2026.** M6 first run (G20): members announce their cross-party bills more often than their other bills
