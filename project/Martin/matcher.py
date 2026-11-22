@@ -34,6 +34,13 @@ Changes of 20 Nov, from Anas's MATCHER_CHECKLIST.md (item numbers are his). Each
      untitled=True) adds them with how "full name, no title". Off for the floor until a hand check of 30 hits
      says they are mostly real mentions; the press side can turn it on.
 
+Changes of 22 Nov, from Anas's checklist items 12 and 15 (error fixes, allowed under the scope freeze G17):
+
+  H. A possessive is read as the name: "Mr. Cole's amendment" and "Rep. Chip Roy’s bill" now give Cole and Roy.
+     WORD includes the apostrophe (for O'Halleran), so "Cole's" was read as an unknown surname and dropped.
+  I. A single middle initial is read past: "Rep. James P. McGovern" gives McGovern, not John James, and
+     "Congressman Riley M. Moore" gives Moore, not Josh Riley. The name pattern stopped at "P." before.
+
 Not added: carrying a resolved name forward within a turn (item 3; 58 of 783 dropped shared surnames).
 "Senator" and "Sen." are not titles, so senators are never matched (item 5; pinned in the self-check).
 """
@@ -55,7 +62,8 @@ STATES = dict(AL="Alabama", AK="Alaska", AZ="Arizona", AR="Arkansas", CA="Califo
 TITLE = r"(Mr\.|Ms\.|Mrs\.|Speaker|Leader|Whip|Representatives?|Reps?\.|Congressm[ae]n|Congresswom[ae]n|Chairm[ae]n|Chairwoman|Ranking Member)"
 LEADER_TITLES = {"Speaker", "Leader", "Whip", "Chairman", "Chairmen", "Chairwoman", "Ranking Member"}
 WORD = r"[A-ZÀ-Þ][A-Za-zÀ-ÿ'’\-]+"
-NAME = r"(?:" + WORD + r"\s){0,3}" + WORD
+NAME = r"(?:(?:" + WORD + r"|[A-Z]\.)\s){0,3}" + WORD      # a single initial may sit in between (change I)
+POSSESSIVE = re.compile(r"[’']s?$")                         # "Cole's", "Cole’s", "Davis’" (change H)
 RX = re.compile(r"\b" + TITLE + r"\s+(" + NAME + ")")
 PLURAL = {"Representatives", "Reps.", "Congressmen", "Congresswomen", "Chairmen"}
 # after a plural title: more names, each after ", ", " and ", ", and " (change E)
@@ -107,6 +115,7 @@ class Matcher:
 
     def resolve(self, title, words, text, a, b):
         """(named, how) for the name words found at text[a:b] after title, or None if no member has the surname."""
+        words = words[:-1] + [POSSESSIVE.sub("", words[-1])]  # change H
         keys = [key(w) for w in words]
         for n in (3, 2, 1):                                   # longest surname first: 'Van Drew' before 'Drew'
             cands = self.by_last.get(" ".join(keys[-n:])) if len(words) >= n else None
@@ -151,6 +160,7 @@ class Matcher:
             taken = [(h.start, h.end) for h in hits]
             for mm in self.full_rx.finditer(text):
                 words = (mm.group(1) + " " + mm.group(2)).split()
+                words = words[:-1] + [POSSESSIVE.sub("", words[-1])]
                 for n in (len(words), 3, 2):                  # "Chip Roy", or the last words of a longer run
                     b = self.full.get(" ".join(key(w) for w in [words[0]] + words[-(n - 1):])) if n >= 2 else None
                     if b and not any(s <= mm.start() < e or s < mm.end() <= e for s, e in taken) \
@@ -197,4 +207,14 @@ if __name__ == "__main__":      # self-check: python Martin/matcher.py, from pro
     assert mt.find("my colleague and friend, Chip Roy, said") == []                           # G is off by default
     assert [h.how for h in mt.find("my colleague and friend, Chip Roy, said", untitled=True)] == ["full name, no title"]
     assert len(mt.find("I thank Mr. Chip Roy.", untitled=True)) == 1                           # no double count
+    # 22 Nov changes
+    assert one("I support Mr. Cole’s amendment.") == ("Tom Cole", "unique surname")              # H: possessive
+    assert one("I support Mr. Cole's amendment.")[0] == "Tom Cole"
+    assert one("Rep. Chip Roy’s bill") == ("Chip Roy", "unique surname")
+    assert one("Rep. James P. McGovern spoke.")[0] == "James P. McGovern"                      # I: middle initial
+    assert one("Congressman Riley M. Moore spoke.")[0] == "Riley M. Moore"
+    assert one("Representative Jefferson H. Van Drew spoke.")[0] == "Jefferson Van Drew"       # initial + two-word surname
+    assert one("Mr. Van Drew’s motion")[0] == "Jefferson Van Drew"
+    assert one("Mr. James rose.") == ("John James", "unique surname")                          # unchanged
+    assert many("Reps. Lawler’s and Golden’s bill") == ["Michael Lawler", "Jared F. Golden"]
     print("matcher self-check passed")

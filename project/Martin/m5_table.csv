@@ -1,7 +1,7 @@
 map,members,ties,Louvain Q mean,Q min,Q max,communities (best),communities with 10+ members,NMI with party mean,NMI min,NMI max,"NMI with party, rewired null mean",note
-Floor: yields dropped (headline),444.0,3573.0,0.3063,0.2948,0.3158,8.0,8.0,0.0206,0.0061,0.0402,0.0062,
-Floor: all mentions,446.0,4058.0,0.2821,0.2695,0.291,9.0,8.0,0.0431,0.0118,0.084,0.0074,
+Floor: yields dropped (headline),444.0,3675.0,0.3023,0.289,0.3092,8.0,8.0,0.0196,0.0075,0.0372,0.0064,
+Floor: all mentions,446.0,4150.0,0.2801,0.2683,0.2891,7.0,7.0,0.0422,0.0203,0.0868,0.0066,
 Working: all ties,449.0,46513.0,0.2164,0.2164,0.2164,2.0,2.0,0.8341,0.8341,0.8341,,
 "Working: all ties, weighted by shared bills",449.0,46513.0,0.2912,0.2902,0.2917,3.0,2.0,0.7498,0.6927,0.8575,,
-Working: random draws at floor size (20 draws),,3573.0,0.2516,0.2423,0.2633,,,0.2578,0.2019,0.3391,,
-Between: floor headline vs working all ties,,,,,,,,,,,,NMI 0.030 on 444 members; vs working draws at floor size 0.038 (0.028-0.051); party labels vs working 0.833
+Working: random draws at floor size (20 draws),,3675.0,0.2483,0.2403,0.2615,,,0.269,0.2383,0.3291,,
+Between: floor headline vs working all ties,,,,,,,,,,,,NMI 0.028 on 444 members; vs working draws at floor size 0.037 (0.028-0.046); party labels vs working 0.833
