@@ -1,0 +1,10 @@
+check,members,bills,cross-party bills,"announced, cross-party","announced, same-party",announced cross-party bills,null mean,null 2.5%,null 97.5%,ratio to null,p one-sided,p two-sided
+"Main: sponsored hr/hjres, cross-party = an original cosponsor of the other party",388,10125,3646,0.5272,0.4513,1922,1786.0509,1746.0,1827.0,1.0761,0.0001,0.0001
+Only Republicans,201,5489,1989,0.548,0.4569,1090,1002.0956,972.0,1032.0,1.0877,0.0001,0.0001
+Only Democrats,187,4636,1657,0.5021,0.4448,832,783.6131,756.0,811.0,1.0617,0.0004,0.0008
+Only bills with at least one original cosponsor (cross- vs same-party co-leads),368,6736,3514,0.5265,0.491,1850,1815.0821,1781.0,1849.0,1.0192,0.0228,0.0459
+Members with at least 10 releases,388,10125,3646,0.5272,0.4513,1922,1786.0509,1746.0,1827.0,1.0761,0.0001,0.0001
+Announced = cited by bill number only (no title matches),388,10125,3646,0.1758,0.1525,641,574.6702,548.0,602.0,1.1154,0.0001,0.0001
+"Cross-party = any cosponsor of the other party, at any time",392,10218,4054,0.5276,0.4461,2139,1983.4989,1942.0,2025.0,1.0784,0.0001,0.0001
+All four House bill types,393,11811,4226,0.4628,0.4015,1956,1828.2436,1785.0,1872.0,1.0699,0.0001,0.0001
+Own bills = bills the member was an original cosponsor of,410,51641,18240,0.0861,0.0287,1570,1179.2803,1137.0,1221.0,1.3313,0.0001,0.0001

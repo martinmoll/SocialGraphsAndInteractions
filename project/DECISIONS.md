@@ -259,6 +259,27 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
   floor and press would count names differently, which Methods would have to explain.
 - **Source:** `Martin/m1_checks_20nov/README.md`, results 2 and 3.
 
+### G20. M6: how the close-up null is built
+- **Status:** Agreed Sun 22 Nov by Martin (own bills = sponsored; original-cosponsored as robustness), the rest as
+  proposed with the script.
+- **Decision:** a member's own bills are the hr and hjres bills they sponsored; a bill is cross-party if an original
+  cosponsor (not withdrawn) is from the other party; announced = cited in at least one of the member's releases
+  (Anas's A3.5 table, by number or exact title). Window: all releases collected, 3 Jan 2025 to 20 Nov 2026. Null:
+  within each member, shuffle which bills are cross-party (10,000 shuffles), keeping how many bills each member
+  announces. Members with at least 3 own bills, one cross-party and one not.
+- **Result (first run):** cross-party bills are announced more, 52.7% against 45.1% (observed 1.08 times the null,
+  p < 0.001), in both parties. Against same-party co-led bills only: 52.6% against 49.1% (p 0.023 one-sided). So most
+  of the gap is co-leads against solo bills, and a smaller part is the other party. As an original cosponsor, 8.6%
+  against 2.9%.
+- **Reason:** the question in the README (fix 1) is whether a member shows the cross-party bills more than their own
+  baseline. Shuffling within members removes members who simply announce a lot.
+- **Alternatives and what they would change:** original-cosponsored bills as the main unit (a much bigger ratio, 1.33,
+  but those bills belong to someone else); a pooled comparison without the within-member shuffle (members who
+  announce everything would dominate).
+- **Limits:** no control for whether a bill moved (no status in our data). The planned "at least 10 releases" check
+  is empty: every member in the test has 10 or more.
+- **Source:** `Martin/m6_closeup_null.py`, `Martin/m6_results.csv`, `Martin/README.md` section M6.
+
 ### G9. Yields stay in the labelling sample
 - **Status:** Agreed Wed 18 Nov.
 - **Decision:** Diego's labelling sample (100 rows, already drawn) keeps the yields among them.

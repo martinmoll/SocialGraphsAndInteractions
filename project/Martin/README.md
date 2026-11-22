@@ -29,7 +29,7 @@ need to know" down is the 16–18 Nov record, kept for the reasons behind each c
 | M3 Definitions | [`m3_definitions.py`](m3_definitions.py), [`m3_table.csv`](m3_table.csv), [`m3_random_draws.csv`](m3_random_draws.csv) | Decided 18 Nov (G1a–G1c), applied. Yield check not yet coded ([`m3_yield_check/`](m3_yield_check/README.md)). [`M3_PROPOSAL.md`](M3_PROPOSAL.md) is the 16 Nov proposal, partly overruled |
 | M4 Debate null | [`m4_debate_null.ipynb`](m4_debate_null.ipynb) | Rerun 20 Nov on the new mentions |
 | M5 Communities | [`m5_communities.py`](m5_communities.py), [`m5_table.csv`](m5_table.csv), [`m5_committees/`](m5_committees/committee_check.py) | First run 20 Nov. Choices listed at the top of each script, **not yet confirmed by Martin** |
-| M6 Close-up null | | Not started: needs Anas's release-to-bill table (A3) |
+| M6 Close-up null | [`m6_closeup_null.py`](m6_closeup_null.py), [`m6_results.csv`](m6_results.csv) | First run 22 Nov: cross-party bills announced more (52.7% against 45.1%), mostly because co-led bills are; against same-party co-leads +3.5 points (p 0.02). See "M6" below |
 | M7 Figure 1 | [`m7_figure1.py`](m7_figure1.py) → [`figures/figure1_draft.png`](figures/figure1_draft.png) | First draft |
 | M8 Slides | | Not started |
 | Results text, part 1 | [`results_part1_draft.md`](results_part1_draft.md) | First draft, about 420 words, numbers not frozen |
@@ -46,6 +46,38 @@ bills. That fits part 2 (cross-party mentions are mostly credit): crossing the a
 committee work being thanked in public. Limits: committee membership is today's
 (unitedstates/congress-legislators, downloaded 20 Nov), and committee managers name each other partly because
 House procedure puts them in the same debates, which the M4 null already partly holds fixed.
+
+## M6: the close-up null (first run, 22 Nov)
+
+[`m6_closeup_null.py`](m6_closeup_null.py) → [`m6_results.csv`](m6_results.csv). Choices at the top of the script and in
+DECISIONS G20. **Question:** of a member's own bills, are the cross-party ones announced in press releases more often
+than a random draw of that member's bills would be? The null shuffles, within each member, which of their bills are
+cross-party (10,000 shuffles), so each member keeps how many bills they announce.
+
+| Check | Members | Bills | Announced: cross-party | Announced: same-party | Observed / null | p (one-sided) |
+|---|---|---|---|---|---|---|
+| **Main:** sponsored bills, cross-party = an original cosponsor of the other party | 388 | 10,125 | **52.7%** | **45.1%** | 1.08 | < 0.001 |
+| Republicans only | 201 | 5,489 | 54.8% | 45.7% | 1.09 | < 0.001 |
+| Democrats only | 187 | 4,636 | 50.2% | 44.5% | 1.06 | < 0.001 |
+| **Only co-led bills** (cross-party against same-party co-leads, no solo bills) | 368 | 6,736 | **52.6%** | **49.1%** | 1.02 | 0.023 |
+| Cited by bill number only | 388 | 10,125 | 17.6% | 15.2% | 1.12 | < 0.001 |
+| Cross-party = any cosponsor of the other party | 392 | 10,218 | 52.8% | 44.6% | 1.08 | < 0.001 |
+| All four House bill types | 393 | 11,811 | 46.3% | 40.1% | 1.07 | < 0.001 |
+| Own bills = bills the member was an original cosponsor of | 410 | 51,641 | 8.6% | 2.9% | 1.33 | < 0.001 |
+
+**How to read it (the honest version):**
+- Members do announce their cross-party bills more often than their other bills: 52.7% against 45.1%, in both parties.
+- **Most of that gap is about having co-leads at all, not about the other party.** Against same-party co-led bills
+  only, the gap shrinks to 3.5 points (52.6% against 49.1%, p 0.023 one-sided, 0.046 two-sided). Solo bills are
+  announced least. The paper should give this row next to the main one.
+- As an original cosponsor, a member announces a cross-party bill about three times as often as a same-party one
+  (8.6% against 2.9%). Joining another member's bill is mostly announced when it is a bipartisan one.
+- "Members with at least 10 releases" was planned as a check but changes nothing: every member in the test already
+  has 10 or more. It is left out of the table above.
+- **Not controlled:** whether a bill moved. Bills that pass are announced more, and bipartisan bills may pass more
+  often; the data has no bill status. This is the main limitation of M6.
+- About two thirds of announcements are found by the bill's exact title rather than its number (Anas's A3.5,
+  checked by hand there); the number-only row gives the same direction.
 
 ## What the others need to know (16–18 Nov)
 
