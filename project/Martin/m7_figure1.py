@@ -43,7 +43,7 @@ assert int(T.loc[head, "ties"]) == floor.number_of_edges(), "m3_table.csv is not
 
 fig = plt.figure(figsize=(7.0, 5.6))
 top = fig.add_gridspec(1, 2, left=0.01, right=0.99, top=0.93, bottom=0.52, wspace=0.04)
-bot = fig.add_gridspec(1, 2, left=0.20, right=0.985, top=0.40, bottom=0.075, wspace=0.62)
+bot = fig.add_gridspec(1, 2, left=0.20, right=0.985, top=0.40, bottom=0.075, wspace=0.72)
 
 def network(ax, G, title, note=""):
     pos = nx.spring_layout(G, seed=SEED, k=0.12, iterations=200)
@@ -91,12 +91,12 @@ sn = SN.loc["Floor: yields dropped (headline)"]
 q = D["party Q"]
 items = [  # label, value, (low, high) or None, filled?, colour
     ("Floor map", T.loc[head, "party Q"], None, True, FLOOR),
-    ("Floor, null: shuffled in debates", deb["null mean"], (deb["null min"], deb["null max"]), False, FLOOR),
-    ("Floor, null: same-state ties kept", sn["state null Q mean"], (sn["state null Q mean"], sn["state null Q max"]), False, FLOOR),
-    ("Floor, null: degrees kept", degf["null mean"], (degf["null min"], degf["null max"]), False, FLOOR),
-    ("Working, random draws (200)", q.mean(), (q.min(), q.max()), True, WORK),
+    ("Floor null:\nshuffled in debates", deb["null mean"], (deb["null min"], deb["null max"]), False, FLOOR),
+    ("Floor null:\nsame-state ties kept", sn["state null Q mean"], (sn["state null Q mean"], sn["state null Q max"]), False, FLOOR),
+    ("Floor null:\ndegrees kept", degf["null mean"], (degf["null min"], degf["null max"]), False, FLOOR),
+    ("Working, random\ndraws (200)", q.mean(), (q.min(), q.max()), True, WORK),
     ("Working, all ties", T.loc["Working: all ties", "party Q"], None, True, WORK),
-    ("Working, null: degrees kept", T.loc["Working: all ties", "null Q mean"], (T.loc["Working: all ties", "null Q mean"], T.loc["Working: all ties", "null Q max"]), False, WORK)]
+    ("Working null:\ndegrees kept", T.loc["Working: all ties", "null Q mean"], (T.loc["Working: all ties", "null Q mean"], T.loc["Working: all ties", "null Q max"]), False, WORK)]
 y = np.arange(len(items))[::-1]
 for yi, (lab, v, r, filled, col) in zip(y, items):
     if r:
@@ -109,5 +109,11 @@ ax.set_xlabel("party modularity Q (0 = no division by party)")
 ax.set_title("D  Party division against the nulls", loc="left")
 ax.spines[["top", "right"]].set_visible(False)
 
+# no text of panel D may reach into panel C (labels, value labels): checked on the drawn figure
+fig.canvas.draw(); rend = fig.canvas.get_renderer()
+axC, axD = fig.axes[-2], fig.axes[-1]
+c_right = max([axC.get_window_extent(rend).x1] + [t.get_window_extent(rend).x1 for t in axC.texts])
+d_left = min(t.get_window_extent(rend).x0 for t in axD.get_yticklabels())
+assert d_left > c_right + 4, f"panel D labels overlap panel C ({d_left:.0f} <= {c_right:.0f} px)"
 fig.savefig("Martin/figures/figure1.png", dpi=300); fig.savefig("Martin/figures/figure1.pdf")
 print("written Martin/figures/figure1.png and .pdf")
