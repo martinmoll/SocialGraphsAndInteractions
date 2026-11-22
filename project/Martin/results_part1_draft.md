@@ -1,6 +1,6 @@
 # Results, part 1: the two maps (DRAFT)
 
-Martin with Claude, 20 November 2026. **Draft for the Overleaf text due Tue 24 Nov, 20:00.** Every number is from
+Martin with Claude, 20 November 2026; numbers updated 22 Nov (G18). **Draft for the Overleaf text due Tue 24 Nov, 20:00.** Every number is from
 the files named in brackets. **Numbers are not frozen**: they can still move with the hand checks before Sun 22 Nov
 (yield rule, G1c; matcher, G14). Rerun the scripts and update the numbers here after the freeze. About 420 words;
 the budget is about one page with Figure 1. Brackets [ ] are notes for us, to delete.
@@ -10,31 +10,31 @@ the budget is about one page with Figure 1. Brackets [ ] are notes for us, to de
 **Two maps of the same House.** We built two networks over the same 450 Republicans and Democrats of the 119th
 House. In the *working map*, two members are tied if one cosponsored a bill or joint resolution the other
 sponsored (46,513 ties). In the *floor map*, two members are tied if one named the other in a floor speech, with
-yields of debate time left out (3,573 ties from 7,134 mentions; Methods). [m3_table.csv]
+yields of debate time left out (3,675 ties from 7,570 mentions; Methods). [m3_table.csv]
 
-**The floor map is less divided by party than the working map.** 39.2% of floor ties cross the aisle. Because the
+**The floor map is less divided by party than the working map.** 39.3% of floor ties cross the aisle. Because the
 floor map is thirteen times sparser, we compare it with working ties drawn at random at the same size: across 200
-draws, 28.6% of working ties cross the aisle (range 26.5% to 30.4%), and no draw comes within eight points of the
-floor map (Fig. 1C). Party modularity tells the same story: 0.106 for the floor map against 0.211 (0.193 to 0.233)
+draws, 28.6% of working ties cross the aisle (range 26.6% to 30.3%), and no draw comes within eight points of the
+floor map (Fig. 1C). Party modularity tells the same story: 0.106 for the floor map against 0.210 (0.193 to 0.231)
 for the draws. The difference is not a by-product of leaving out yields: with yields kept, the floor map is still
-at 35.1% against 28.7%. Members' strongest working partnerships are far more partisan still: of the 3,573 pairs who
-share the most bills, 12.5% cross the aisle. [m3_table.csv, m3_random_draws.csv]
+at 35.3% against 28.7%. Members' strongest working partnerships are far more partisan still: of the 3,675 pairs who
+share the most bills, 12.6% cross the aisle. [m3_table.csv, m3_random_draws.csv]
 
 **Both maps are more divided than chance.** If ties were rewired at random with every member keeping their number
 of ties, about half would cross the aisle and modularity would be near zero, in both maps. [m3_table.csv] Floor
 debate has its own structure, though: each debate has a cast, often with a manager from each party. When we shuffle
-who is named only within each debate, modularity under the shuffle is 0.071 (0.061 to 0.084 over 200 shuffles),
+who is named only within each debate, modularity under the shuffle is 0.069 (0.059 to 0.078 over 200 shuffles),
 against 0.106 observed. The debates explain about two thirds of the floor map's party division; the rest, members naming
 their own side beyond what the debate forces, is larger than in every shuffle. [m4_debate_null.ipynb] Keeping each
 member's number of ties to their own state's delegation explains almost none of it (Q 0.002 under that null, at
-most 0.026 over 200 draws). [m3b_state_null.csv]
+most 0.020 over 200 draws). [m3b_state_null.csv]
 
 **Communities follow party on one map and committees on the other.** Louvain's communities on the working map are
 the two parties (normalised mutual information with party 0.83). On the floor map they cut across party (NMI 0.02,
-against 0.26 for working draws of the same size): eight communities of 24 to 77 members, each mixing both parties.
-In seven of them one House committee is 2.8 to 7.6 times as common as in the House, among them Appropriations (79%
-of the community's members), Ways and Means (76%) and Energy and Commerce (69%); the eighth holds the party leaders.
-46% of floor ties join two members of the same committee, against 17.5% when ties are rewired at random, and 53% of
+against 0.27 for working draws of the same size): eight communities of 25 to 85 members, each mixing both parties.
+In seven of them one House committee is 2.9 to 8.8 times as common as in the House, among them Ways and Means (88%
+of the community's members), Financial Services (77%) and Appropriations (76%); the eighth holds the party leaders.
+46% of floor ties join two members of the same committee, against 17.5% when ties are rewired at random, and 52% of
 cross-party floor ties do. On the working map the share barely exceeds chance (22% against 18.7%). [m5_table.csv,
 m5_committees/]
 

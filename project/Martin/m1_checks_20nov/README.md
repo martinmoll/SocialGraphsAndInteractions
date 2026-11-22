@@ -14,12 +14,13 @@ Martin working with Claude, Friday 20 November 2026. Claude wrote the code. The 
 | 2 | Full names without a title: **optional, off for the floor** (`find(text, untitled=True)`) | Not in `mentions.parquet`. 904 such hits on the floor; the hand check below decides |
 | 3 | Carry a resolved name forward within a turn | **Not done.** Methods sentence instead |
 
-**Total: 8,092 → 8,622 mentions; 4,610 → 4,931 directed pairs. No 18 Nov row was lost.** The rows are in turn
+**Total: 8,092 → 8,622 mentions; 4,610 → 4,931 directed pairs. No 18 Nov row was lost.** (22 Nov, G18: possessives and
+middle initials fixed, 9,058 mentions and 5,039 pairs; 4 wrong rows removed, all D2 and yield-check rows kept.) The rows are in turn
 order, so row numbers moved: [`row_map.csv`](row_map.csv) maps every 18 Nov row to its new row.
 [`compare_18nov.py`](compare_18nov.py) checks that all 100 rows of Diego's `full_key.csv`, the 20 of
 `sample_key.csv` and the 30 of `m3_yield_check/yield_check_key.csv` are still there with the same speaker,
 named member and context. **Diego:** your codes still apply; use `row_map.csv` if you look up a row by
-`mention_row`. D5 reads `mentions.parquet` and will now apply to 8,622 mentions.
+`mention_row`. D5 reads `mentions.parquet` and will now apply to 9,058 mentions (22 Nov).
 
 **Not yet validated by a human:** the 530 new rows. Claude read 25 of them at random on 20 Nov and found no
 wrong member. A later audit the same day found a double count (a list running into a titled name, "Representatives

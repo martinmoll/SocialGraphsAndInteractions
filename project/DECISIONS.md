@@ -92,6 +92,8 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
   (range 26.5% to 30.4%), party Q 0.211. Headline floor map 39.2%, Q 0.106: a gap of **10.6 points**, and no draw
   reaches the floor's share. With yields: 35.1% against 28.7% (26.9% to 30.7%) at 4,058 ties. Still subject to
   the G1c yield check and the G14 hand checks. `Martin/m3_table.csv`, `Martin/m3_random_draws.csv`.
+- **Updated 22 Nov (after G18):** 3,675 ties, floor 39.3% against 28.6% (26.6% to 30.3%), Q 0.106 against 0.210:
+  a gap of **10.7 points**; no draw reaches the floor. With yields: 35.3% against 28.7% at 4,150 ties.
 - **Source:** meeting, 18 Nov; `Martin/M3_PROPOSAL.md`, decision 2.
 
 ### G1c. Yield rule: the phrase rule, tested on fresh rows before the freeze
@@ -179,7 +181,7 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
   structure); committee membership at the start of the term (not in our data; today's lists misplace members who
   moved).
 - **What it found (first run):** working map = the two parties (NMI 0.83); floor map = 8 communities across party
-  (NMI 0.02); in 7 of them one committee is 2.8 to 7.6 times as common as in the House. 46% of floor ties join committee colleagues, 17.5% under rewiring.
+  (NMI 0.02); in 7 of them one committee is 2.9 to 8.8 times as common as in the House (22 Nov run). 46% of floor ties join committee colleagues, 17.5% under rewiring.
 - **Source:** `Martin/m5_table.csv`, `Martin/m5_committees/committee_table.csv`.
 
 ### G16. The state null is one robustness row in part 1
@@ -188,7 +190,7 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
   (`Martin/m3b_state_null.py`, Anas's function, 200 draws for the floor maps and 20 for the working map). One row
   in the robustness table and one sentence in Results.
 - **Reason:** many state delegations are mostly one party, so a reader can ask whether the division is geography.
-  The answer is no: Q 0.002 under the null (max 0.026) against 0.106 for the headline floor map, and 0.006
+  The answer is no: Q 0.002 under the null (max 0.020, 22 Nov run) against 0.106 for the headline floor map, and 0.006
   against 0.210 for the working map. Same-state ties are over-represented (floor 9.0% against 3.7% by chance) but
   are not what makes the maps divided.
 - **Alternative and what it would have changed:** leave it out. One fewer row; the geography objection is
@@ -217,6 +219,24 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
 - **Alternative and what it would have changed:** keep adding until the numbers freeze on Sun 22 Nov. Perhaps a
   little more polish, but a real risk of an unfinished draft on Tuesday and less time to rehearse the defence.
 - **Source:** Martin, 21 Nov, in the group chat.
+
+### G18. Matcher fixes of 22 Nov: possessives and middle initials (error fixes before the freeze)
+- **Status:** Agreed Sun 22 Nov by Martin, from Anas's `MATCHER_CHECKLIST.md` items 12 and 15. Error fixes, allowed
+  under G17.
+- **Decision:** (H) a possessive is read as the name: "Mr. Cole's amendment" now gives Cole; (I) a single middle
+  initial is read past: "Rep. James P. McGovern" gives McGovern, not John James. Tests added to `matcher.py`.
+- **Effect:** 8,622 → 9,058 floor mentions: +440 (375 with a possessive), and 4 removed that were wrong (non-members
+  such as "Mr. James R. Willis" read as John James). Headline map 3,573 → 3,675 ties, 39.2% → **39.3%** cross-party;
+  random working draws 28.6% (26.6% to 30.3%). M4, M5, the committee check and the state null rerun; every reading
+  holds. Diego's 100 rows and the yield-check rows are all still there (`row_map.csv`). Claude read 15 new rows at
+  random: all right.
+- **Reason:** both were errors with a known cause, and "Mr. Cole's amendment" is the kind of example an examiner
+  reads. The added mentions are about as cross-party as the rest, so the headline barely moves.
+- **Alternative and what it would have changed:** leave them and write a Methods sentence. Numbers frozen as on
+  20 Nov; 4 wrong mentions kept; recall lower by about 5%.
+- **Not fixed (known, harmless):** "Washington" the city can settle a shared surname as the state (2 floor
+  mentions); untitled names have no guard after "Sen." (off for the floor). Checklist items 13 and 14.
+- **Source:** `Anas/MATCHER_CHECKLIST.md`; commit of 22 Nov.
 
 ### G9. Yields stay in the labelling sample
 - **Status:** Agreed Wed 18 Nov.
