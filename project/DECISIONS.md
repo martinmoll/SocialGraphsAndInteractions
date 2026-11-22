@@ -92,8 +92,8 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
   (range 26.5% to 30.4%), party Q 0.211. Headline floor map 39.2%, Q 0.106: a gap of **10.6 points**, and no draw
   reaches the floor's share. With yields: 35.1% against 28.7% (26.9% to 30.7%) at 4,058 ties. Still subject to
   the G1c yield check and the G14 hand checks. `Martin/m3_table.csv`, `Martin/m3_random_draws.csv`.
-- **Updated 22 Nov (after G18):** 3,675 ties, floor 39.3% against 28.6% (26.6% to 30.3%), Q 0.106 against 0.210:
-  a gap of **10.7 points**; no draw reaches the floor. With yields: 35.3% against 28.7% at 4,150 ties.
+- **Updated 22 Nov (after G18 and G19):** 3,970 ties, floor **38.7%** against 28.6% (26.8% to 30.6%), Q 0.112 against
+  0.211: a gap of **10.1 points**; no draw reaches the floor. With yields: 35.2% against 28.7% at 4,423 ties.
 - **Source:** meeting, 18 Nov; `Martin/M3_PROPOSAL.md`, decision 2.
 
 ### G1c. Yield rule: the phrase rule, tested on fresh rows before the freeze
@@ -184,7 +184,7 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
   structure); committee membership at the start of the term (not in our data; today's lists misplace members who
   moved).
 - **What it found (first run):** working map = the two parties (NMI 0.83); floor map = 8 communities across party
-  (NMI 0.02); in 7 of them one committee is 2.9 to 8.8 times as common as in the House (22 Nov run). 46% of floor ties join committee colleagues, 17.5% under rewiring.
+  (NMI 0.03); in 7 of them one committee is 3.0 to 7.9 times as common as in the House (22 Nov run, after G19). 46% of floor ties join committee colleagues, 17.5% under rewiring.
 - **Source:** `Martin/m5_table.csv`, `Martin/m5_committees/committee_table.csv`.
 
 ### G16. The state null is one robustness row in part 1
@@ -193,7 +193,7 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
   (`Martin/m3b_state_null.py`, Anas's function, 200 draws for the floor maps and 20 for the working map). One row
   in the robustness table and one sentence in Results.
 - **Reason:** many state delegations are mostly one party, so a reader can ask whether the division is geography.
-  The answer is no: Q 0.002 under the null (max 0.020, 22 Nov run) against 0.106 for the headline floor map, and 0.006
+  The answer is no: Q 0.001 under the null (max 0.023, 22 Nov run after G19) against 0.112 for the headline floor map, and 0.006
   against 0.210 for the working map. Same-state ties are over-represented (floor 9.0% against 3.7% by chance) but
   are not what makes the maps divided.
 - **Alternative and what it would have changed:** leave it out. One fewer row; the geography objection is
@@ -240,6 +240,24 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
 - **Not fixed (known, harmless):** "Washington" the city can settle a shared surname as the state (2 floor
   mentions); untitled names have no guard after "Sen." (off for the floor). Checklist items 13 and 14.
 - **Source:** `Anas/MATCHER_CHECKLIST.md`; commit of 22 Nov.
+
+### G19. Untitled full names count on the floor too, with a title guard
+- **Status:** Agreed Sun 22 Nov by Martin, by the rule fixed before coding (G14: 24 or more of 30 real mentions).
+- **Decision:** floor mentions include full names without a title ("my colleague and friend, Chip Roy"),
+  `how = "full name, no title"`. A name right after a non-House title is skipped ("Senator", "Governor", "Mayor",
+  "Secretary", "State" and others; Anas's checklist item 14).
+- **The check:** Martin coded 30 random untitled hits: 30 are mentions of that member (two after a second reading:
+  "Jim Clyburn" and, in the list check, "Dave Taylor" are the members, by nickname), none procedural, none another
+  person. 95% interval 89% to 100%. The list check: 20 of 20 right.
+- **Effect:** 9,058 → 9,988 floor mentions (+930), no row lost. Headline map 3,675 → 3,970 ties, 39.3% → **38.7%**
+  cross-party, Q 0.106 → 0.112, against 28.6% (26.8% to 30.6%) for random working draws: a gap of 10.1 points. The
+  untitled mentions are 35% cross-party, like the rest; half of them make floor ties that did not exist before.
+  Recall in Martin's 30 turns is unchanged (12 of 13). All of M3 to M5, the committee check and the state null rerun;
+  every reading holds.
+- **Reason:** floor and press now count the same name forms, and the check found no errors in the new form.
+- **Alternative and what it would have changed:** titled names only on the floor. 39.3% instead of 38.7%, and the
+  floor and press would count names differently, which Methods would have to explain.
+- **Source:** `Martin/m1_checks_20nov/README.md`, results 2 and 3.
 
 ### G9. Yields stay in the labelling sample
 - **Status:** Agreed Wed 18 Nov.

@@ -6,26 +6,26 @@ Martin Møllenhus working with Claude (Anthropic's AI assistant). Claude wrote t
 Martin's to defend. **Start here: this top part is the current state (20 Nov). Everything from "What the others
 need to know" down is the 16–18 Nov record, kept for the reasons behind each choice.**
 
-## Where things stand, 22 November (after the possessive and middle-initial fixes, G18)
+## Where things stand, 22 November (after G18 and G19: possessives, middle initials, untitled names)
 
 **Headline numbers (draft, not frozen; see "Still open" below):**
 
 | What | Number | Where |
 |---|---|---|
-| Floor map, yields dropped (headline, G1b) | 3,675 ties, **39.3%** cross-party, party Q 0.106 | `m3_table.csv` |
-| Working ties, 200 random draws of the same size (G1a; the single-draw row in `m3_table.csv`, 27.0%, is one draw, use this) | **28.6%** (26.6% to 30.3%), Q 0.210; no draw reaches the floor | `m3_random_draws.csv` |
-| Gap | **10.7 points** | |
-| Floor map with yields | 4,150 ties, 35.3%, against 28.7% (26.9% to 30.6%) | `m3_table.csv` |
-| Strongest working ties (second comparison, G1a) | 12.6% | `m3_table.csv` |
-| Debate null (M4), headline map | Q 0.106 observed, 0.069 (0.059 to 0.078) under the null: debates explain about two thirds of the division; observed beyond all 200 | `m4_debate_null.ipynb` |
-| Communities (M5) | Working map: Louvain finds the two parties (NMI with party 0.83). Floor map: 8 communities that cut across party (NMI 0.02; 0.27 for working draws of the same size) | `m5_table.csv` |
-| State null (G16, accepted 20 Nov) | Q 0.002 under the null (max 0.020, 200 draws) against 0.106: state explains almost none of the floor map's division. Same-state ties 9.0% against 3.7% by chance | `m3b_state_null.csv` |
-| What the floor communities are (M5) | **Committees.** 46% of floor ties join two members of one committee, against 17.5% under rewiring (working: 22% against 18.7%); 52% of cross-party floor ties. In 7 of 8 communities one committee is 2.9 to 8.8 times as common as in the House (Ways and Means 88% of members, Financial Services 77%, Appropriations 76%, …); the 8th has none and holds the party leaders | `m5_committees/` |
+| Floor map, yields dropped (headline, G1b) | 3,970 ties, **38.7%** cross-party, party Q 0.112 | `m3_table.csv` |
+| Working ties, 200 random draws of the same size (G1a; the single-draw row in `m3_table.csv`, 27.0%, is one draw, use this) | **28.6%** (26.8% to 30.6%), Q 0.211; no draw reaches the floor | `m3_random_draws.csv` |
+| Gap | **10.1 points** | |
+| Floor map with yields | 4,423 ties, 35.2%, against 28.7% (26.9% to 30.3%) | `m3_table.csv` |
+| Strongest working ties (second comparison, G1a) | 12.8% | `m3_table.csv` |
+| Debate null (M4), headline map | Q 0.112 observed, 0.074 (0.065 to 0.082) under the null: debates explain about two thirds of the division; observed beyond all 200 | `m4_debate_null.ipynb` |
+| Communities (M5) | Working map: Louvain finds the two parties (NMI with party 0.83). Floor map: 8 communities that cut across party (NMI 0.03; 0.29 for working draws of the same size) | `m5_table.csv` |
+| State null (G16, accepted 20 Nov) | Q 0.001 under the null (max 0.023, 200 draws) against 0.112: state explains almost none of the floor map's division. Same-state ties 9.6% of floor ties | `m3b_state_null.csv` |
+| What the floor communities are (M5) | **Committees.** 44% of floor ties join two members of one committee, against 17.1% under rewiring (working: 22% against 18.7%); 50% of cross-party floor ties. In 7 of 8 communities one committee is 3.0 to 7.9 times as common as in the House (Appropriations 82% of members, Ways and Means 79%, Energy and Commerce 67%, …); the 8th (80 members) has none and holds the party leaders | `m5_committees/` |
 
 | Task | Files | State |
 |---|---|---|
 | M1 Shared name matcher | [`matcher.py`](matcher.py), [`nicknames.csv`](nicknames.csv) | 20 Nov changes (G14). Hand checks open: [`m1_checks_20nov/`](m1_checks_20nov/README.md) |
-| M2 Floor mentions | [`build_mentions.py`](build_mentions.py) → [`mentions.parquet`](mentions.parquet), [`named_ties.csv`](named_ties.csv) | 9,058 mentions, 5,039 directed pairs (22 Nov). 18 Nov rows all kept; row numbers moved ([`row_map.csv`](m1_checks_20nov/row_map.csv)) |
+| M2 Floor mentions | [`build_mentions.py`](build_mentions.py) → [`mentions.parquet`](mentions.parquet), [`named_ties.csv`](named_ties.csv) | 9,988 mentions, 5,400 directed pairs (22 Nov, G19). 18 Nov rows all kept; row numbers moved ([`row_map.csv`](m1_checks_20nov/row_map.csv)) |
 | M3 Definitions | [`m3_definitions.py`](m3_definitions.py), [`m3_table.csv`](m3_table.csv), [`m3_random_draws.csv`](m3_random_draws.csv) | Decided 18 Nov (G1a–G1c), applied. Yield check not yet coded ([`m3_yield_check/`](m3_yield_check/README.md)). [`M3_PROPOSAL.md`](M3_PROPOSAL.md) is the 16 Nov proposal, partly overruled |
 | M4 Debate null | [`m4_debate_null.ipynb`](m4_debate_null.ipynb) | Rerun 20 Nov on the new mentions |
 | M5 Communities | [`m5_communities.py`](m5_communities.py), [`m5_table.csv`](m5_table.csv), [`m5_committees/`](m5_committees/committee_check.py) | First run 20 Nov. Choices listed at the top of each script, **not yet confirmed by Martin** |
