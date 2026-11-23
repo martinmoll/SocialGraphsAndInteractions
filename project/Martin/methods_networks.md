@@ -12,7 +12,7 @@ to go or to move to the SI. Square brackets name the source of each number or ch
 govinfo.gov, 6 January 2025 to 9 November 2026, split into speaker turns; we keep the 17,824 House-floor turns of at
 least 50 words spoken by a member. Bills and cosponsorships come from govinfo's BILLSTATUS bulk data for the same
 Congress. [scripts/01, 02, 04] Whether each turn is attributed to the right speaker was checked by hand on 60 turns drawn at
-random: all 60 were assigned to the member the Record names as speaker (95% Wilson interval 94% to 100%) [S2, Diego].
+random: all 60 were assigned to the member the Record names as speaker (95% Wilson interval {cite:wilson1927}, 94% to 100%) [S2, Diego].
 
 **Finding names.** A rule-based matcher finds each member named in a turn: a House title followed by a surname ("Mr.
 Cole", "Chairman Cole", "Speaker Johnson"), names in lists after a plural title ("Representatives Lawler, Golden, and
