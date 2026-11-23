@@ -42,9 +42,10 @@ everything in the paper.
 and the references, so there is little room left: cut, do not add. The Wednesday read-through (25 Nov) cuts to six
 pages.
 
-**Still missing:** Anas's part 3
-text, caption and Methods paragraph, `\cite` commands in Martin's Methods (Louvain `blondel2008`, NMI `danon2005`,
-modularity `newman2006`, rewiring `maslov2002`), and the repository link.
+**Still missing:** a `\cite` for the disparity filter (`serrano2009`) where part 3 uses the home map's backbone
+(Anas). Done 23 Nov (Martin with Claude): `\cite` commands in Martin's Methods (written `{cite:key}` in his markdown;
+`md2tex.py` converts them), Cohen and Wilson cited in the labelling paragraph, the repository link, and the ideology
+caveat in the Discussion.
 
 ## Moving it to Overleaf
 

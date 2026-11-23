@@ -14,11 +14,11 @@ no side), or not that member (a wrong match, or Record text the speaker did not 
 fixed before coding; where two codes fitted, the first in the order not that member, procedure, disagreeing,
 agreeing, neutral was used. One author coded all 100 mentions. A second author coded 25 of them each (50 in all),
 and an AI assistant (Claude) coded the other 50 following the same written rules, without seeing any human code.
-Agreement between the human coders was 82\% (Cohen's $\kappa = 0.64$; 0.59 and 0.69 for the two pairs), and between
+Agreement between the human coders was 82\% (Cohen's $\kappa = 0.64$ \cite{cohen1960}; 0.59 and 0.69 for the two pairs), and between
 the first coder and the AI coder 88\% ($\kappa = 0.72$). Three further independent runs of the AI coder on all 100
 mentions agreed with each other on 99 or 100 and with the first coder on 81\% to 82\% ($\kappa$ 0.56 to 0.58); being
 the same model, they show that its coding is stable, not that it is right. Shares are reported from the first
-coder's codes with 95\% Wilson intervals. The first coder changed two codes to ``not that member'' after the AI
+coder's codes with 95\% Wilson intervals \cite{wilson1927}. The first coder changed two codes to ``not that member'' after the AI
 coders flagged them; both were clear matcher errors (a port authority's director and a member's late husband).
 
 \textbf{Classifier.} To carry the labels to all floor mentions we trained a logistic-regression classifier (classes
@@ -34,4 +34,8 @@ its predictions are not used as measurements.
 Every place a model touched a result, and how it was checked, is listed in \texttt{AI\_METHODS.md} in the project
 repository.
 
-\textbf{Data and code.} [repository link] \cite{fowler2006,newman2006,maslov2002,serrano2009,blondel2008,danon2005,landis1977}
+% Citations now sit in the text where each method is used (Martin's Methods via md2tex.py; Cohen and Wilson below).
+% Still to place: serrano2009 (disparity filter, the home map's backbone: Anas, results_part3/methods_press) and
+% landis1977 (only if the text interprets kappa as 'moderate' or 'substantial').
+\textbf{Data and code.} Code, derived data and the hand-check sheets are at
+\url{https://github.com/martinmoll/SocialGraphsAndInteractions} (folder \texttt{project/}).
