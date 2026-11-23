@@ -3,7 +3,7 @@
 Anas's own folder. Each member writes only in their own folder (`Diego/`, `Martin/`, `Anas/`) and never edits or deletes another's.
 
 **Start here: [`STATUS.md`](STATUS.md)** (updated 22 Nov). **A3 and A4 are complete (rerun 22 Nov on the new
-matcher); A5 is one check from done.** What needs Martin and Diego is listed first.
+matcher); A5 done 23 Nov.** What needs Martin and Diego is listed first.
 
 **New, 22 Nov evening: A3 and A4 rerun on Martin's 22 Nov matcher** ([`RERUN_22NOV.md`](RERUN_22NOV.md)).
 - **Why:** Martin adopted checklist items 12 and 15 (G18), so floor and press now count the same name forms again.
@@ -25,9 +25,9 @@ matcher); A5 is one check from done.** What needs Martin and Diego is listed fir
   (`a4/alpha_sweep.py`). Backbone centrality at six α values (`a4/alpha_centrality.py`): every result points the
   same way; Republican betweenness and closeness and the Democrats' "brokering" pass Holm from α 0.02 up, not at 0.01.
   `a4/NETWORK_METHODS.md` §1 and §3d.
-- **A5, nearly done** ([`a5/README.md`](a5/README.md)): 64% of releases that say "bipartisan" have a House partner of
-  the other party, against 9% of other releases; of 30 without one, 29 name no partner. One check left (Mon 23 Nov).
-  Optional under G17: please keep or cut.
+- **A5, done 23 Nov** ([`a5/README.md`](a5/README.md)): 64% of releases that say "bipartisan" have a House partner of
+  the other party, against 9% of other releases; of 30 with a named member, 28 name a partner and none an opponent;
+  of 30 without one, 29 name no partner. Optional under G17: please keep or cut.
 
 **For Martin and Diego (please read):**
 
@@ -84,7 +84,7 @@ matcher); A5 is one check from done.** What needs Martin and Diego is listed fir
 | File or folder | What | Date |
 |---|---|---|
 | [`STATUS.md`](STATUS.md) | Status, findings, proposed revisions to parts 1 to 3, priority list | updated 22 Nov 2026 |
-| [`a5/README.md`](a5/README.md) | A5: "bipartisan" releases and real partners (design `a5/PLAN.md` fixed first; blind-reader check). One check left, 23 Nov | 22 Nov 2026 |
+| [`a5/README.md`](a5/README.md) | A5: "bipartisan" releases and real partners (design `a5/PLAN.md` fixed first; two blind-reader checks). Done | 23 Nov 2026 |
 | [`results_part3.tex`](results_part3.tex) | Results part 3 draft for the paper (A4 and the home map), to `\input` in `report/sections/results.tex` | 22 Nov 2026 |
 | [`RERUN_22NOV.md`](RERUN_22NOV.md) | A3 and A4 rerun on Martin's 22 Nov matcher: old against new for every number | 22 Nov 2026 |
 | [`a4/`](a4/README.md) | **A4:** the test (`analysis.py`), Figure 3 draft, the all-members lean plot, the home-map network extension (plan, tests, null model, centrality, communities, figures) and [`NETWORK_METHODS.md`](a4/NETWORK_METHODS.md) with every value and formula | 21 to 22 Nov 2026 |

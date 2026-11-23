@@ -1,10 +1,10 @@
-"""Figure 3 (draft): exposed members name the other party more at home, in both parties.
+"""Figure 3 (draft, two panels side by side): exposed members name the other party more at home, in both parties.
+Superseded for the paper by a4/figure3_column.py (one column, 23 Nov); kept for the record.
 
 Run from Anas/ after a4/analysis.py:  python a4/figure3.py
-A: each member's share of releases naming the other party (co-leads and leaders left out), by party and seat,
-   with the group mean and a 95% bootstrap interval. B: the exposed - safe gap per party under every robustness row,
-   with the main row on top. Colours: party (validated pair, dataviz palette); exposed = filled, safe = hollow, so
-   seat is never shown by colour alone. Writes a4/out/figure3_draft.png and .pdf.
+A: every member's share of releases naming the other party (co-leads and leaders left out) against the lean of the
+   district served, with the mean per 5-point band (bands with >= 5 members). B: the exposed - safe gap per party
+   under every robustness row, main row on top. Colour = party. Writes a4/out/figure3_draft.png and .pdf.
 """
 import os
 

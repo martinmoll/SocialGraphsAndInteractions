@@ -1,6 +1,7 @@
 % Results. Part 1 is Martin's text, generated from Martin/results_part1.md by report/md2tex.py.
 % Part 2 is Diego's (with Claude), from Diego/d2_labelling/RESULTS.md and Diego/d5_classifier/results.txt.
-% Part 3 is Anas's: the wording from Anas/a4/README.md and Martin's M6 paragraph, to be revised by Anas.
+% Part 3 is Anas's (with Claude): sections/results_part3.tex, a copy of Anas/results_part3.tex (edit there and copy),
+% followed by Martin's M6 paragraph. Full length on purpose for the 25 Nov read-through.
 
 \section*{Results}
 
@@ -43,17 +44,13 @@ mention was coded ``not that member'' when the matched name referred to someone 
 \end{figure}
 
 \subsection*{Close-up: whom members name at home}
-% Anas: revise this part. Sources: Anas/a4/README.md (wording "for the paper"), Martin/results_part1.md (M6).
-Members in exposed seats named the other party in more of their releases than members in safe seats, in both
-parties (Republicans 13.2\% against 9.2\%, Democrats 11.5\% against 8.9\%; permutation $p < 0.01$ for each). The
-difference between the parties was small and not distinguishable from zero (1.4 points, $p = 0.40$), consistent
-with a seat effect rather than a president's-party effect.
+\input{sections/results_part3}
 
 \input{sections/from_martin_m6}
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=8.7cm]{figures/figure3.pdf}
-\caption{[Anas: caption for Figure 3. Draft figure from \texttt{Anas/a4/out/figure3\_draft.pdf}.]}
+\caption{\textbf{Members in exposed seats name the other party more often in their press releases.} (\emph{A}) Each dot is one of 406 House members (198 Democrats, 208 Republicans; 53,664 releases, 3 January 2025 to 20 November 2026): the share of their releases that name a House member of the other party who is neither a party leader nor a co-lead of a bill the release cites, against the lean of the district they served (Cook PVI 2025). Lines join the mean share in 5-point bands of lean (bands with at least five members). Shading marks districts within five points of even; a member counts as exposed when the district leans toward their own party by five points or less, which includes seats leaning to the other party. (\emph{B}) Exposed minus safe mean share, by party, for the main definition (top) and for each check fixed before the analysis: other cut-offs, the 2024 presidential margin as lean, leaving out the 21 members relabelled or unplaced under the 2026 maps, leaving out releases about redistricting or caucuses, counting co-leads, and the floor's matcher without the press additions. Every gap is positive with $p < 0.05$ (labels shuffled within party, 10,000 shuffles).}
 \label{fig:home}
 \end{figure}

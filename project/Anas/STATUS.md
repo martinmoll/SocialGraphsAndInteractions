@@ -3,10 +3,10 @@
 > **22 Nov, added by Diego (with Claude) with the group's agreement:** `AI_METHODS.md` (part of A6) has moved to
 > `Diego/AI_METHODS.md`, so Anas does not need to spend time on it. Additions welcome there.
 
-> **22 Nov, late: A5 nearly done** ([`a5/README.md`](a5/README.md); optional under G17, for Martin and Diego to keep or
-> cut). One check left for Mon 23 Nov: whether the "named" partners are partners (see the A5 README's status).
+> **23 Nov: A5 done** ([`a5/README.md`](a5/README.md); optional under G17, for Martin and Diego to keep or cut).
 > 64% of releases that say "bipartisan" have a House partner of the other party (named or on a cited bill), against
-> 9% of other releases; of 30 without one, 29 name no partner from the other party (three blind readers).
+> 9% of other releases. Three blind readers checked both sides: of 30 with a named member, 28 name a partner and
+> none an opponent; of 30 without one, 29 name no partner from the other party.
 
 > **22 Nov evening: A3 and A4 rerun on Martin's 22 Nov matcher** (G18: possessives and middle initials, Anas's
 > checklist items 12 and 15). Every reading holds. Numbers in this file are updated where they are headline numbers;

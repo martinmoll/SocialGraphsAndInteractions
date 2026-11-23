@@ -55,3 +55,27 @@ it, by name in the release or on the record of a bill the release cites? Prior w
 
 `a5/analysis.py` → `a5/out/results.csv`, `a5/out/member_shares.csv`; `a5/check/` (packet, readers' answers, scores);
 `a5/README.md`.
+
+## Addendum, Mon 23 Nov 2026: the mirror check (written before anything was drawn or read)
+
+Anas approved the design in the chat ("Yes, start it"), as proposed in `HANDOFF_2026-11-23.md`.
+
+**Why:** "named" counts any House member of the other party named in a "bipartisan" release as a partner. A release
+can name one as an opponent ("my bipartisan bill, which Rep. X blocked"). The 63.9% (either) leans on this; the
+on-record 36.9% does not.
+
+- **Sample:** 30 random "bipartisan" releases of the A4 members with a named partner (`a5/out/release_flags.parquet`,
+  `says & named`; pool 7,192 releases), seed 2805. For each, the named other-party House members that make it count
+  (`a3/out/mentions_press.parquet`, `cross_party`, not `named_is_leader`), with the sentence they are named in.
+- **Question, per release:** is a named other-party member a partner in what the release calls bipartisan? One code
+  per release, the first that applies in this order (the measure needs only one partner):
+  - **P** partner: co-lead, co-sponsor, co-signer, joint letter, event or caucus, thanked for joint work;
+  - **C** criticised or opposed;
+  - **M** mentioned without partnership (a neutral reference);
+  - **N** not that member (the text means someone else: a wrong match).
+- **Readers:** three blind sub-agents (two Opus, one Sonnet), packet only (`a5/mirror/packet/`), forbidden to write
+  any other file; the example row uses a made-up id.
+- **Anas** reads only the releases where the readers differ, in `a5/mirror/DIFFERENCES.md` (excerpt, link, tick
+  boxes); the codes Anas gives go in `a5/mirror/anas_codes.csv`.
+- **Decision rule, fixed now:** if P is 27 or more of 30, the named and either figures stand, reported with the P
+  share as their check. If not, the paper leads with the on-record figure and gives the named one with its P share.

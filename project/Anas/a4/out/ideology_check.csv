@@ -1,0 +1,7 @@
+party,null,bands,observed,null_mean,beyond,p,exposed,safe,note
+R,A: within party (A4),1,0.040766833059033544,0.00015776319640899752,0.040609069862624546,0.0037,37,171,
+R,B: within party and ideology quintiles,5,0.040766833059033544,0.02940302374086616,0.011363809318167384,0.3927,37,171,"exposed/members per band, moderate to extreme: 22/43, 6/40, 4/42, 2/41, 3/42"
+R,B: within party and ideology terciles,3,0.040766833059033544,0.027799845150506337,0.012966987908527208,0.3355,37,171,"exposed/members per band, moderate to extreme: 28/70, 6/70, 3/68"
+D,A: within party (A4),1,0.025783313128791063,-7.794542315977693e-05,0.02586125855195084,0.0041,54,144,
+D,B: within party and ideology quintiles,5,0.025783313128791063,0.023603269112565346,0.0021800440162257177,0.756,54,144,"exposed/members per band, moderate to extreme: 27/40, 17/39, 7/40, 1/40, 2/39"
+D,B: within party and ideology terciles,3,0.025783313128791063,0.0215052205495055,0.004278092579285565,0.5554,54,144,"exposed/members per band, moderate to extreme: 41/66, 11/66, 2/66"

@@ -56,9 +56,24 @@ Sections:
 | District lean | How Republican or Democratic a district votes, compared with the country as a whole. In our files it is the 2025 Cook PVI, as a signed number: positive leans Republican, negative leans Democratic. Alaska's `6` means R+6. There are two columns: `lean_2026` (the 2026 map, from the 2026 House election page on Wikipedia, in `districts.csv` as `lean`) and `lean_2025` (the map members served, from `Anas/district_lean/`). They differ only in redrawn states. |
 | Cook PVI (Partisan Voting Index) | A widely used measure of lean published by the Cook Political Report. It compares how a district voted for president in the last two elections with the national result. R+6 means the district voted about 6 points more Republican than the country. EVEN means it voted like the country. |
 | Safe seat | A seat the member's party is very likely to keep, because the district leans strongly their way. |
-| Exposed seat, swing seat | A seat the member could lose, because the district is close or leans to the other party. **The group has not fixed a definition yet (G13, open point 2).** The scope scan used a working rule only to size the samples: a Republican in a district with lean ≤ 5 (R+5 or bluer), or a Democrat with lean ≥ −5 (D+5 or redder). |
+| Exposed seat, swing seat | A seat the member could lose, because the district is close or leans to the other party. **For the rule A4 uses, see the next row but one** (19 Nov text kept below). The scope scan used a working rule only to size the samples: a Republican in a district with lean ≤ 5 (R+5 or bluer), or a Democrat with lean ≥ −5 (D+5 or redder). |
 | Crossover district, "Trump district" | A district that leans to the other party: a Democrat holding an R-leaning seat, or a Republican holding a D-leaning seat. The most exposed seats. |
+| Exposed seat, as used in A4 (added 23 Nov) | The rule A4 uses (`exposed_2025`): the district the member served leans toward their own party by 5 points or less, which includes crossover districts. 91 of the 406 members in the A4 test are exposed (37 R, 54 D). G13 still has to confirm it in `DECISIONS.md`. |
 | Lean in redrawn states | In a redrawn state `lean_2026` describes a district the member did not serve in. Cohen's TN-9 is D+23 as he served it and R+9 on the 2026 map. 12 members get a different exposed/safe label in the district they served and the 2026 district they ran in, and 9 more have no 2026 contest in our data. Proposed: label by `lean_2025`, the district served, and check the result without those 21. Use `Anas/district_lean/member_lean.csv`, never `districts.csv` joined by district number. |
+
+### Ideology: a second, separate property of a member (added 23 Nov)
+
+Seat and ideology describe different things. **The seat is about the district's voters** (how the district voted
+for president). **Ideology is about the member's own votes** in the House. A member can be in an exposed seat and
+vote like a hardliner, or in a safe seat and vote like a centrist. In practice the two go together, which is why
+check I (`a4/README.md`) was needed.
+
+| Term | Meaning |
+|---|---|
+| DW-NOMINATE (first dimension) | A score for each member computed from all their roll-call votes, placing them on a left–right line from about −1 (most liberal) to +1 (most conservative). From Voteview (`members.csv`, column `nominate_dim1`; all 406 A4 members have one). It measures how a member votes, not what they believe or say. |
+| Extremity | How far a member's score is from the centre, in their own party's direction: the score itself for Republicans, minus the score for Democrats. Higher = further from the centre. Used to rank members within their own party. |
+| Moderate, extreme (within a party) | Our shorthand for members at the low or high end of extremity **within their own party**. "Moderate Republican" means a Republican whose votes are closer to the centre than most Republicans'. It is relative: a moderate Republican is still to the right of nearly every Democrat. Not the same as an exposed seat, though most exposed members are moderates: 22 of 37 exposed Republicans and 27 of 54 exposed Democrats are in their party's most moderate fifth. |
+| Ideology band | One fifth (quintile) of a party's members, ranked by extremity. Check I shuffles the exposed label only among members of the same party and band, to see how large a gap ideology alone would produce. |
 
 ## 2. Bills and cosponsorship (the working map)
 

@@ -9,7 +9,8 @@ analysed. Everything below follows it; nothing in the test was chosen after seei
 
 ```bash
 python a4/analysis.py --press press_releases --repo <repo>   # about 10 s; writes a4/out/
-python a4/figure3.py                                         # Figure 3 draft
+python a4/figure3.py                                         # Figure 3 draft (two panels side by side)
+python -I a4/figure3_column.py                               # Figure 3 for the paper: one column, out/figure3.pdf
 ```
 
 **Settings, as proposed for the Sunday freeze** (STATUS; `G13_UPDATE.md`):
@@ -96,7 +97,65 @@ hint of a president's-party effect, and it should be reported as a hint, not a f
 This plot shows every member instead of two groups, so it may serve better as Figure 3A than the current panel A.
 That is a choice for the group.
 
-## Figure 3 (draft): `out/figure3_draft.png`, `.pdf`
+## Check I, 23 Nov: is "exposed" just "moderate"? (`ideology_check.py`, `out/ideology_check.csv`)
+
+Design fixed and approved before computing: [`CHECKS_PLAN_23NOV.md`](CHECKS_PLAN_23NOV.md). The week 3 logic ("the
+part of your effect that degree already explained"), with ideology (DW-NOMINATE dim1, all 406 members) in place of
+degree: the exposed label is shuffled only among members of the same party and ideology band. One run, 10,000
+shuffles, seed 2805. Null A, rerun here, reproduces A4 (p 0.0037 and 0.0041 against 0.0035 and 0.0036).
+
+| Party | Observed gap | Gap expected from ideology alone (null B, quintiles) | Beyond ideology | p | Terciles: expected, beyond, p |
+|---|---|---|---|---|---|
+| Republicans | +4.08 points | +2.94 | +1.14 | 0.39 | +2.78, +1.30, 0.34 |
+| Democrats | +2.58 | +2.36 | +0.22 | 0.76 | +2.15, +0.43, 0.56 |
+
+- **Reading, by the rule fixed in advance:** "not distinguishable in either party". Exposure and moderation cannot
+  be separated with these data. About three quarters of the Republican gap and nine tenths of the Democratic gap
+  is what ideology alone would give.
+- **Why:** exposure and moderation nearly coincide. 22 of the 37 exposed Republicans and 27 of the 54 exposed
+  Democrats are in their party's most moderate fifth; the most extreme fifth holds 3 and 2. Within a band there
+  are few exposed members to compare, so the test has little power, and the remaining gap (+1.1 and +0.2 points)
+  is small.
+- **What it does not say:** that ideology *causes* the naming. NOMINATE comes from roll-call votes, and members in
+  swing seats may vote moderately *because* of the seat, so holding it fixed can remove part of a real seat effect
+  (known in advance; this test is the strict one). The honest statement is that seat and ideology go together and
+  this design cannot tell which one drives the naming.
+- **For part 3:** "consistent with a seat effect, which we cannot separate from ideology" (the fixed wording), and
+  the Discussion names it as a limitation.
+
+## Check T, 23 Nov: what do the counted names do? (`make_tone.py`, `score_tone.py`, `check_tone/`)
+
+Design fixed and approved before the draw: [`CHECKS_PLAN_23NOV.md`](CHECKS_PLAN_23NOV.md). 60 of the exact
+mentions A4 counts (other party, not a co-lead, not a leader), 15 per party × seat cell, member drawn first; three
+blind AI readers (two Opus, one Sonnet) who never saw the seat or the cell. Agreement 56 of 60 (pairwise 93–98%).
+
+| | P partner or praise | C criticised | M mentioned only | N wrong match |
+|---|---|---|---|---|
+| Exposed (30) | 24 (80%) | 0 | 4 | 2 |
+| Safe (30) | 22 (73%) | 1 | 5 | 2 |
+| **All 60** | **46 (77%, 95% 65–86%)** | **1 (2%, 0–9%)** | 9 (15%) | 4 (7%) |
+
+- **Reading, by the rule fixed in advance:** C is 25% or less in every cell (at most 1 of 15), so the names A4
+  counts are mostly partnership: "name" stands, and the Discussion can say most named members are partners.
+  Exposed and safe seats do not differ in C (R −6.7 points, D 0; p 1.00).
+- **The one C:** Biggs (R, safe) on Raskin's remarks. Closest calls to C, coded M by all three: two Democratic
+  letters to Republican committee chairs quoting their past words (t_02, t_45).
+- **N, 4 of 60:** "Hudson Valley", a veteran named Tim Kennedy, "James R. Walkinshaw", the statesman Daniel Webster.
+  A second precision estimate for the A4 outcome: 56 of 60 right (0.93, 95% 0.84–0.97), against 0.96 in A3's check.
+- **Disagreements:** 4, all P against M (`check_tone/DIFFERENCES.md`). **Anas read all four on 23 Nov**
+  (`check_tone/anas_codes.csv`): t_50 P, t_52 M, t_58 P, t_60 P. Two moved (t_50 M → P, t_52 P → M, both
+  exposed Republicans), so every count in the table above is unchanged. Final codes: Anas's for these four, the
+  readers' unanimous code for the other 56.
+
+## Figure 3: `out/figure3.pdf` (paper), `out/figure3_draft.pdf` (earlier draft)
+
+**23 Nov:** remade for one PNAS column (`figure3_column.py`, 8.7 × 15 cm, panel A above B, fonts 6–7.5 pt at print
+size, checked for overlapping labels), because the paper places Figure 3 in one column, where the side-by-side draft
+below would print its text at about 3 pt. Same data and encodings. Caption: `../figure3_caption.tex`.
+
+![Figure 3](out/figure3.png)
+
+The earlier side-by-side draft:
 
 ![Figure 3 draft](out/figure3_draft.png)
 
@@ -294,3 +353,14 @@ sentences in Results, with the figure in the repository or the slides.
   (`../a3/README.md`).
 - **The window and the swing-seat definition** are the proposals for the Sunday freeze. If the group changes them,
   rerun these two scripts (seconds).
+
+## Pending for Wednesday 25 Nov (decided 23 Nov)
+
+- **Untested explanation in part 3's network paragraph** (exposed Republicans bridge by volume, exposed Democrats by
+  position; "the majority's control of committees and the floor agenda gives exposed Republicans more occasions").
+  Anas chose to wait until the group decides whether the network paragraph stays (G17). If it stays: sort the counted
+  cross-party names by route (same committee, release about a bill, other) and compare exposed and safe members by
+  party (`Martin/m5_committees/committee-membership-current.yaml`, `a3/out/release_bills.csv`). Write the design first; label it
+  exploratory, since the pattern is borderline (Democrats' brokering is Holm 0.08 at α = 0.01) and was seen before
+  the test. Committee data is the November 2026 snapshot, not membership at each release's date. About 1.5 hours.
+  A second test (do chairs explain exposed Republicans' ties?) is likely too small to tell.

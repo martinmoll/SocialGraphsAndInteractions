@@ -1,6 +1,6 @@
 % Methods. Budget about 1.25 pages for all of it; cut at the Wednesday read-through.
 % Data, name matching, yields, maps, nulls, communities: Martin, generated from Martin/methods_networks.md.
-% Labelling and classifier: Diego with Claude. Press releases: Anas (to write, from Anas/methods_drafts.md).
+% Labelling and classifier: Diego with Claude. Press releases: Anas (with Claude), sections/methods_press.tex, a copy of Anas/methods_press.tex.
 
 \input{sections/from_martin_methods}
 
@@ -28,12 +28,7 @@ with leave-one-out cross-validation on the 100 labelled mentions and compared it
 common code. It did not beat that baseline (73\% against 72\% accuracy, macro F1 0.26, no disagreement found), so
 its predictions are not used as measurements.
 
-\textbf{Press releases.} [Anas: collection (55,023 releases from 412 members, members' house.gov sites, snapshot
-20 November 2026), matching releases to bills by number and marking co-leads (A3), district lean of the seat
-served (Cook PVI 2025, with the 2024 presidential margin as a check), the definition of an exposed seat, and the
-permutation test. Sources: \texttt{Anas/methods\_drafts.md}, \texttt{Anas/a4/README.md}, \texttt{Anas/a3/README.md}.
-Martin's M6 null: own bills are sponsored H.R. and H.J.Res.; cross-party means an original cosponsor of the other
-party; the cross-party label is shuffled within each member, 10,000 shuffles.]
+\input{sections/methods_press}
 
 \textbf{AI use.} Code, data checks and drafts of the text were written with an AI assistant (Claude, Anthropic).
 Every place a model touched a result, and how it was checked, is listed in \texttt{AI\_METHODS.md} in the project

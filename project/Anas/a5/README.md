@@ -1,19 +1,17 @@
-# A5: does a release that says "bipartisan" name a real cross-party partner? (22 Nov, late)
+# A5: does a release that says "bipartisan" name a real cross-party partner? (22–23 Nov)
 
-Anas with Claude. Design fixed first: [`PLAN.md`](PLAN.md). Optional item under G17; Martin and Diego decide whether it
-stays in.
+Anas with Claude. Design fixed first: [`PLAN.md`](PLAN.md) (mirror check: its addendum of 23 Nov). Optional item
+under G17; Martin and Diego decide whether it stays in.
 
-> **Status, 22 Nov, late: not finished.** Done: the numbers and the check of releases with *no* partner. **Still to
-> do (Mon 23 Nov):** the mirror check. The "named" measure counts any House member of the other party named in a
-> "bipartisan" release as a partner, but a release can name one as an opponent. Three blind readers will code 30
-> random "bipartisan" releases with a named partner (is the named member a partner?), and Anas reads the
-> disagreements. Until then the safe figure is **36.9% (on record)**; the 63.9% (either) leans on the unchecked
-> "named" part.
+> **Status, 23 Nov: done.** Both checks finished. The mirror check (below) found 28 of 30 named members to be
+> partners and none an opponent, which meets the rule fixed beforehand (27 or more), so the **63.9% (either)** stands.
 
 ```bash
-python a5/analysis.py --press press_releases --repo <repo>   # about 5 s; a5/out/, a5/check/draw.csv
-python a5/make_packet.py                                     # the readers' packet, a5/check/packet/
-python a5/score_check.py                                     # after the readers' CSVs are in a5/check/readers/
+python -I a5/analysis.py --press press_releases --repo <repo>     # about 5 s; a5/out/, a5/check/draw.csv
+python -I a5/make_packet.py                                       # the readers' packet, a5/check/packet/
+python -I a5/score_check.py                                       # after the readers' CSVs are in a5/check/readers/
+python -I a5/make_mirror.py --press press_releases --repo <repo>  # mirror draw and packet, a5/mirror/
+python -I a5/score_mirror.py                                      # after the readers' CSVs are in a5/mirror/readers/
 ```
 
 ## Result (`out/results.csv`, one run, 22 Nov)
@@ -68,13 +66,48 @@ unanimous code for the other 28.
   both stay "no partner of the member's own". **Anas read both on 22 Nov: X and X** (`check/anas_codes.csv`), so
   a5_01 moves from the majority's V to X; a5_02 stays X.
 
+## The mirror check (`mirror/`, 23 Nov)
+
+Does a named other-party member in a "bipartisan" release work with the member, or is that member named as an
+opponent? 30 random "bipartisan" releases with a named partner (`says & named`, pool 7,192, seed 2805), with the
+named members and the sentences they are named in, coded by three blind AI readers (two Claude Opus, one Claude
+Sonnet) from the packet alone (`mirror/packet/`): P partner, C criticised or opposed, M mentioned without
+partnership, N not that member.
+
+**Result (`score_mirror.py`, `mirror/scored.csv`):** the readers agree on all 30 items.
+
+| Code | Items | Share (95% interval) |
+|---|---|---|
+| P: partner | 28 | 93% (79% to 98%) |
+| C: criticised or opposed | 0 | 0% (0% to 11%) |
+| M: mentioned, no partnership | 1 | 3% (1% to 17%) |
+| N: not that member (wrong match) | 1 | 3% (1% to 17%) |
+
+- **Reading:** named members of the other party in a "bipartisan" release are partners; none of the 30 is named as an
+  opponent. The rule fixed in `PLAN.md` (P 27 or more) is met, so "named" and "either" stand, with 28 of 30 as
+  their check.
+- **Members beyond the first:** the code is per release (P first), and 10 releases name two or more other-party
+  members. Claude read the others on 23 Nov (not blind): co-leads, co-signers or neutral mentions (Tom Cole
+  questioned as Appropriations chair, the late David Scott honoured in a bill). None of the 45 named members is
+  named as an opponent.
+- **The two non-P items:** m_24 (M), French Hill named only as the chair a letter is addressed to; m_28 (N), the
+  release names Ron Allen, a tribal chairman, matched to Rep. Rick Allen.
+- **Close calls:** all three readers flagged the same two P codes as uncertain (m_20, Judy Chu quoted in a coalition
+  letter release without saying she signed; m_22, Van Drew credited only in an outside group's quote). Both
+  together decide the rule (26 would fail it), so Anas read both on 23 Nov: **P and P** (`mirror/DIFFERENCES.md`,
+  `mirror/anas_codes.csv`).
+
 **For the paper (one short paragraph, in `../results_part3.tex`, marked optional):** a quarter of releases call
 something bipartisan; in 64% of them a House member of the other party is named or co-leads a cited bill, against
-9% of other releases; of 30 without one, 29 name no partner from the other party.
+9% of other releases. Of 30 with a named member, 28 name a partner and none an opponent; of 30 without one, 29 name
+no partner from the other party.
 
 ## Limits
 
 - **Senators and Senate bills are invisible** to both measures; the check measures how often that hides a partner.
 - **On record uses original cosponsors;** later cosponsors are not counted.
 - **Named counts co-leads,** on purpose: a co-lead is the partner.
-- **AI readers:** same model family, so not independent of each other; Anas reads every disagreement.
+- **AI readers:** same model family, so not independent of each other; Anas reads every disagreement, and in the
+  mirror check also the close calls that decide the rule.
+- **The mirror packet shows the readers who was matched,** so it checks the matcher's hits, not the ones it missed
+  (the first check covers those).
