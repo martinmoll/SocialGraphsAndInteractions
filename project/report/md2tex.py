@@ -25,6 +25,7 @@ def tex(md):
     s = re.sub(r"Fig\. 1([A-D])(?:, ([A-D]))?",
                lambda m: "Fig.~1\\emph{" + m.group(1) + "}" + (" and \\emph{" + m.group(2) + "}" if m.group(2) else ""), s)
     s = s.replace("Fig. 1", "Fig.~1")
+    s = re.sub(r"\{cite:([\w,]+)\}", r"\\cite{\1}", s)       # {cite:key} in the markdown -> \cite{key}
     paras = [" ".join(l.strip() for l in p.splitlines()) for p in re.split(r"\n\s*\n", s)]
     return "\n\n".join(p for p in paras if p)
 
