@@ -2,6 +2,12 @@
 
 Anas, Sat 21 Nov 2026. **For Martin and Diego to agree to or change by the freeze on Sun 22 Nov.**
 
+> **23 Nov 2026: Martin agreed to the swing-seat definition (point 2)**, as Anas reports. Diego's answer is not
+> recorded here yet. The reading under "What the choice does" ("a seat effect") was qualified on 23 Nov by check I:
+> exposed members are mostly their party's moderates, and seat and ideology cannot be separated
+> (`a4/README.md`, "Check I"). Counts: 38 and 59 exposed among all members with a lean; 37 and 54 among the 406 in
+> the A4 test (at least 10 releases).
+
 This is written here rather than in `DECISIONS.md` itself because Martin's newest `DECISIONS.md` is on his branch
 (`claude/nice-bardeen-snc57e`) and not on `main` yet. An upload from this folder would risk overwriting it. Paste the
 block below into G13's "Open" list, replacing open points 2 and 3. While doing so, please remove the draft headings
