@@ -241,8 +241,8 @@ reliable labels for every mention, the floor map could be signed, positive for c
 and tested for whether the House splits into two camps that praise inward and criticize outward.
 
 % ============================================================================ METHODS
-\section*{Materials and Methods}
-
+% As in the PNAS template (v2025): \matmethods{...} then \showmatmethods{}, set in the template's smaller methods type.
+\matmethods{
 \textbf{Data.} Members are the 450 Republicans and Democrats who served in the 119th House, identified by Bioguide
 ID (Voteview, with the congress-legislators project for names). Floor speech is the Congressional Record (govinfo),
 6 January 2025 to 9 November 2026, downloaded 11 November 2026 and split into speaker turns; we keep the 17,824
@@ -313,9 +313,14 @@ H.J.Res.\ they sponsored, a bill is cross-party when it has an original cosponso
 cites a bill by its number or a title unique to it (30 of 30 correct), and the cross-party label is shuffled among
 each member's own bills (10,000 shuffles).
 
-\textbf{AI use, data and code.} Code and drafts of the text were written with an AI assistant (Claude, Anthropic);
-every place a model touched a result, and how it was checked, is listed in AI\_METHODS.md. Code, derived data and
-the hand-check sheets are at \url{https://github.com/martinmoll/SocialGraphsAndInteractions}.
+\textbf{AI use.} Code and drafts of the text were written with an AI assistant (Claude, Anthropic); every place a
+model touched a result, and how it was checked, is listed in AI\_METHODS.md in the repository below.
+
+\subsection*{Data, Materials, and Software Availability}
+Code, derived data and the hand-check sheets are at \url{https://github.com/martinmoll/SocialGraphsAndInteractions}.
+}
+
+\showmatmethods{}
 
 \bibliography{references}
 

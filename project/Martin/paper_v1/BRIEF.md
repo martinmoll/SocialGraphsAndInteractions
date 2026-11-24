@@ -33,6 +33,25 @@ From week 8, sections 2, 6 and 7, and the front page's project box.
 - **Not yet seen:** the lecturer's video on the anatomy of a paper (youtube.com/watch?v=vtppZ3wDVGs), which he says to
   watch before writing. Martin to watch.
 
+## What the PNAS template itself says (template PDF, LaTeX v2025, given by Martin 24 Nov)
+
+- **Abstract:** at most 250 words, one paragraph; references cited in full. The course's 150 words is stricter, so 150.
+- **Significance statement:** 50 to 120 words, for "an undergraduate educated scientist outside their field".
+- **Introduction:** no "Introduction" heading; it is implied.
+- **Order:** introduction, results, discussion, materials and methods, acknowledgments, references.
+- **Length:** "a standard 6-page article is approximately 4,000 words, 50 references, and 4 medium-size graphical
+  elements".
+- **Figures:**
+  - 8.7 cm wide (one column), or 11.4 or 17.8 cm;
+  - text in figures 6 to 12 pt at final size;
+  - captions under the figure, or beside it with `SCfigure*`.
+- **Methods:** written in `\matmethods{...}` and shown with `\showmatmethods{}`, set in a smaller sans type, with run-in
+  subsections and a "Data, Materials, and Software Availability" subsection.
+- **Front matter:**
+  - the significance box sits at the top of the right column on page 1;
+  - author contributions and affiliations go in the page 1 footnotes;
+  - at most 13 footnotes.
+
 ## Martin's choices for V1 (asked and answered 24 Nov)
 
 | Question | Choice |
@@ -62,7 +81,6 @@ From week 8, sections 2, 6 and 7, and the front page's project box.
   captions, Discussion 490, Methods 1,160). Each number has its source file in a `%` comment.
 - `figures/` and `references.bib`: copies from `../../report/`, so the folder uploads to Overleaf as it is.
 - In Overleaf: open the PNAS template, replace its main file with `main.tex`, upload `figures/` and `references.bib`.
-- Checked 24 Nov with a stand-in for `pnas-new.cls` (same page size, columns and type size; not the real class): no
-  errors or undefined references, 6 pages with about four fifths of the last page free. The shared draft in
-  `../../report/` gives 7 pages on the same stand-in. Methods uses a plain `\section*`, not `\matmethods`, so it
-  works with either version of the template.
+- Checked 24 Nov with a stand-in for `pnas-new.cls` (same page size, columns, type size, page 1 layout and methods
+  type; not the real class): no errors or undefined references, 5 full pages. The shared draft in
+  `../../report/` gives 7 pages on the same stand-in. Methods uses the template's `\matmethods` block.
