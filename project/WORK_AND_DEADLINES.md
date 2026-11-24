@@ -167,6 +167,10 @@ From the earlier plans in `archive/`, and since the scope freeze (G17). Listed s
 
 Newest first. One line per change.
 
+- **24 Nov 2026.** Martin (with Claude): paper V1 in `Martin/paper_v1/`, Martin's own full draft for the 25 Nov
+  read-through, written to a brief from the course's week 8 guidance and Martin's answers (`BRIEF.md`): one story
+  ("the record decides"), six pages, the existing three figures, part 3 about half a page with the ideology caveat.
+  Compiles on a stand-in PNAS class at 6 pages (the shared draft: 7). It does not replace `report/`.
 - **23 Nov 2026.** Martin (with Claude), in `report/`: citations placed in the text of the Methods (Martin's: Fowler,
   Newman, Maslov–Sneppen, Blondel, Danon; Diego's paragraph: Cohen, Wilson) instead of a bare list at the end;
   repository link added; S2 result written into `Martin/methods_networks.md`. Discussion: the home-map sentence now
