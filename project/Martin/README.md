@@ -1,190 +1,176 @@
-# Martin: the two maps (network and nulls)
+# Martin: the two maps (name matcher, networks, nulls, Figure 1)
 
-Martin's own folder. Each member writes only in their own folder (`Diego/`, `Martin/`, `Anas/`) and never edits or deletes another's.
+Martin Møllenhus's part of the project "Two maps of Congress", done with Claude (Anthropic's AI assistant; Claude
+wrote the code, every choice is Martin's to defend). This folder holds **only Martin's own work**: each part, its
+data, its code and what it found. The shared paper is in [`../report/`](../report/README.md); this folder explains
+the pieces of it that come from Martin, so that anyone, or any teammate's Claude, can use them in the paper and
+answer questions about them at the presentation.
 
-Martin Møllenhus working with Claude (Anthropic's AI assistant). Claude wrote the code; every choice is
-Martin's to defend. **Start here: this top part is the current state (20 Nov). Everything from "What the others
-need to know" down is the 16–18 Nov record, kept for the reasons behind each choice.**
+Each member writes only in their own folder (`Diego/`, `Martin/`, `Anas/`). Every decision and its reason is in
+[`../DECISIONS.md`](../DECISIONS.md) (Martin's: G1a–G1c, G14–G20); who did what and when is in
+[`../WORK_AND_DEADLINES.md`](../WORK_AND_DEADLINES.md).
 
-## Where things stand, 22 November (after G18 and G19: possessives, middle initials, untitled names)
+## The project in two sentences
 
-**Headline numbers (draft, not frozen; see "Still open" below):**
+We draw the 119th US House twice on the same 450 Republicans and Democrats: a **working map** (A is tied to B when
+A cosponsors B's bill) and a **floor map** (A is tied to B when A names B in a floor speech), and ask whether the
+floor map is less divided by party. It is: 38.7% of floor ties cross the aisle, against 28.6% of working ties
+drawn at random at the same size, and that part (part 1 of Results, Figure 1, and the Methods for data, matching
+and networks) is Martin's.
 
-| What | Number | Where |
+## Martin's text in the paper (final versions)
+
+| Text | Source here | In the paper |
 |---|---|---|
-| Floor map, yields dropped (headline, G1b) | 3,970 ties, **38.7%** cross-party, party Q 0.112 | `m3_table.csv` |
-| Working ties, 200 random draws of the same size (G1a; the single-draw row in `m3_table.csv`, 27.0%, is one draw, use this) | **28.6%** (26.8% to 30.6%), Q 0.211; no draw reaches the floor | `m3_random_draws.csv` |
+| Results part 1, "the two maps", and the Figure 1 caption | [`results_part1.md`](results_part1.md) | `report/sections/from_martin_results.tex`, `from_martin_caption1.tex` |
+| The M6 paragraph for Anas's part 3 | [`results_part1.md`](results_part1.md), last section | `report/sections/from_martin_m6.tex` |
+| Methods: data, name matching, yields, the two maps, nulls, communities | [`methods_networks.md`](methods_networks.md) | `report/sections/from_martin_methods.tex` |
+| Figure 1 | [`figures/figure1.pdf`](figures/figure1.pdf), made by [`m7_figure1.py`](m7_figure1.py) | `report/figures/figure1.pdf` |
+
+The `.tex` files are generated from the two markdown files by `python report/md2tex.py` (run from `project/`;
+checked 25 Nov: the generated files match). Edit the markdown, not the `.tex`. Square brackets in the markdown name
+the source of each number and are dropped in the paper. Each markdown file ends with "Notes for us (not for the
+paper)": the limits to say out loud and what was cut.
+
+## The headline numbers (frozen 22 Nov, after G19)
+
+| What | Number | File |
+|---|---|---|
+| Floor map, yields dropped (headline) | 3,970 ties from 8,469 mentions, **38.7%** cross-party, party modularity Q 0.112 | `m3_table.csv` |
+| Working map, 200 random draws of 3,970 ties | **28.6%** (26.8% to 30.6%), Q 0.211 (0.193 to 0.230); no draw reaches the floor map | `m3_random_draws.csv` |
 | Gap | **10.1 points** | |
-| Floor map with yields | 4,423 ties, 35.2%, against 28.7% (26.9% to 30.3%) | `m3_table.csv` |
-| Strongest working ties (second comparison, G1a) | 12.8% | `m3_table.csv` |
-| Debate null (M4), headline map | Q 0.112 observed, 0.074 (0.065 to 0.082) under the null: debates explain about two thirds of the division; observed beyond all 200 | `m4_debate_null.ipynb` |
-| Communities (M5) | Working map: Louvain finds the two parties (NMI with party 0.83). Floor map: 8 communities that cut across party (NMI 0.03; 0.29 for working draws of the same size) | `m5_table.csv` |
-| State null (G16, accepted 20 Nov) | Q 0.001 under the null (max 0.023, 200 draws) against 0.112: state explains almost none of the floor map's division. Same-state ties 9.6% of floor ties | `m3b_state_null.csv` |
-| What the floor communities are (M5) | **Committees.** 44% of floor ties join two members of one committee, against 17.1% under rewiring (working: 22% against 18.7%); 50% of cross-party floor ties. In 7 of 8 communities one committee is 3.0 to 7.9 times as common as in the House (Appropriations 82% of members, Ways and Means 79%, Energy and Commerce 67%, …); the 8th (80 members) has none and holds the party leaders | `m5_committees/` |
+| Floor map with yields kept | 4,423 ties, 35.2%, against 28.7% (26.9% to 30.3%) | `m3_table.csv` |
+| Strongest 3,970 working ties | 12.8% | `m3_table.csv` |
+| Full working map | 46,513 ties, 28.7%, Q 0.210 | `m3_table.csv` |
+| Degree-preserving rewiring (both maps) | about 50% cross-party, Q about 0 | `m3_table.csv`, `m4_results.csv` |
+| Debate null (M4), headline map | Q 0.074 (0.065 to 0.082) against 0.112: debates explain about two thirds of the division; observed beyond all 200 | `m4_results.csv` |
+| State null (G16) | Q 0.001 (at most 0.023) against 0.112: state explains almost none | `m3b_state_null.csv` |
+| Communities (M5) | Working map: the two parties (NMI with party 0.83). Floor map: 8 communities across party (NMI 0.03; 0.29 for working draws of the same size) | `m5_table.csv` |
+| What the floor communities are | Committees: 44% of floor ties join two members of one committee, against 17.1% under rewiring (working map 22% against 18.7%); 50% of cross-party floor ties | `m5_committees/committee_table.csv` |
+| Close-up null (M6) | Cross-party sponsored bills announced in press releases 52.7% against 45.1% (p < 0.001); against same-party co-led bills only 52.6% against 49.1% (p 0.02) | `m6_results.csv` |
+| Matcher checks | Precision 98 of 100 (Diego's D2 sample); recall 12 of 13 (92%, 67% to 99%); untitled names 30 of 30; list hits 20 of 20; yield rule 15 of 15 | `m1_checks_20nov/`, `m3_yield_check/` |
 
-| Task | Files | State |
-|---|---|---|
-| M1 Shared name matcher | [`matcher.py`](matcher.py), [`nicknames.csv`](nicknames.csv) | 20 Nov changes (G14). Hand checks open: [`m1_checks_20nov/`](m1_checks_20nov/README.md) |
-| M2 Floor mentions | [`build_mentions.py`](build_mentions.py) → [`mentions.parquet`](mentions.parquet), [`named_ties.csv`](named_ties.csv) | 9,988 mentions, 5,400 directed pairs (22 Nov, G19). 18 Nov rows all kept; row numbers moved ([`row_map.csv`](m1_checks_20nov/row_map.csv)) |
-| M3 Definitions | [`m3_definitions.py`](m3_definitions.py), [`m3_table.csv`](m3_table.csv), [`m3_random_draws.csv`](m3_random_draws.csv) | Decided 18 Nov (G1a–G1c), applied. Yield check not yet coded ([`m3_yield_check/`](m3_yield_check/README.md)). [`M3_PROPOSAL.md`](M3_PROPOSAL.md) is the 16 Nov proposal, partly overruled |
-| M4 Debate null | [`m4_debate_null.ipynb`](m4_debate_null.ipynb) | Rerun 20 Nov on the new mentions |
-| M5 Communities | [`m5_communities.py`](m5_communities.py), [`m5_table.csv`](m5_table.csv), [`m5_committees/`](m5_committees/committee_check.py) | First run 20 Nov. Choices listed at the top of each script, **not yet confirmed by Martin** |
-| M6 Close-up null | [`m6_closeup_null.py`](m6_closeup_null.py), [`m6_results.csv`](m6_results.csv) | First run 22 Nov: cross-party bills announced more (52.7% against 45.1%), mostly because co-led bills are; against same-party co-leads +3.5 points (p 0.02). See "M6" below |
-| M7 Figure 1 | [`m7_figure1.py`](m7_figure1.py) → [`figures/figure1.pdf`](figures/figure1.pdf), [`.png`](figures/figure1.png) | Final version 22 Nov: maps A–B, cross-party share C, modularity against all nulls D |
-| M8 Slides | | Not started |
-| Methods text (data, matcher, networks) | [`methods_networks.md`](methods_networks.md) | Draft 22 Nov, about 620 words; to cut to about 400 when the three Methods parts are joined |
-| Results text, part 1 | [`results_part1.md`](results_part1.md) | 22 Nov, on the frozen numbers: about 560 words, Figure 1 caption, and the M6 paragraph for Anas's part 3 |
-| Scoring the hand checks | [`m1_checks_20nov/score_checks.py`](m1_checks_20nov/score_checks.py) | Ready: scores whichever sheets are filled in, with 95% intervals |
+## The parts, in the order they were done
 
-**Still open before the freeze (Sun 22 Nov), Martin's:** code the three sheets in `m1_checks_20nov/` and the
-yield check; confirm G14 and the M5 choices (G15). Then run `python Martin/m1_checks_20nov/score_checks.py`. When a hand check changes a rule,
-rerun in this order: `build_mentions.py`, `m3_definitions.py`, `m4_debate_null.ipynb`, `m5_communities.py`,
-`m5_committees/committee_check.py`, `m7_figure1.py`.
+| Part | Question it answers | Main result | Where |
+|---|---|---|---|
+| **M1** Shared name matcher | Which member does "Mr. Cole" in a speech or press release mean? | One rule-based matcher used by floor and press; checked by hand (above) | [`matcher.py`](matcher.py), [`nicknames.csv`](nicknames.csv), [`m1_checks_20nov/`](m1_checks_20nov/README.md) |
+| **M2** Floor mentions | Who names whom on the floor? | 9,988 mentions, 5,400 directed pairs | [`build_mentions.py`](build_mentions.py) → [`mentions.parquet`](mentions.parquet), [`named_ties.csv`](named_ties.csv) |
+| **M3** Definitions | How are the two maps made comparable, and do yields count? | Random working draws at the floor map's size as headline; yields dropped by a phrase rule | [`m3_definitions.py`](m3_definitions.py), [`m3_table.csv`](m3_table.csv), [`m3_random_draws.csv`](m3_random_draws.csv), [`m3_yield_check/`](m3_yield_check/README.md); [`M3_PROPOSAL.md`](M3_PROPOSAL.md) is the 16 Nov proposal, partly overruled on 18 Nov |
+| **M3b** State null | Is the division just geography? | No (Q 0.001 against 0.112) | [`m3b_state_null.py`](m3b_state_null.py), [`m3b_state_null.csv`](m3b_state_null.csv) |
+| **M4** Debate null | Is the floor map divided only because debates have casts? | Two thirds of it, yes; the rest is beyond every shuffle | [`m4_debate_null.ipynb`](m4_debate_null.ipynb), [`m4_results.csv`](m4_results.csv), [`figures/m4_debate_null.png`](figures/m4_debate_null.png) |
+| **M5** Communities | What groups does each map fall into? | Working: parties. Floor: committees | [`m5_communities.py`](m5_communities.py), [`m5_communities.csv`](m5_communities.csv), [`m5_table.csv`](m5_table.csv), [`m5_committees/`](m5_committees/committee_check.py) |
+| **M6** Close-up null | Do members announce their cross-party bills more than their other bills? | A little, mostly because co-led bills are announced more | [`m6_closeup_null.py`](m6_closeup_null.py), [`m6_results.csv`](m6_results.csv) |
+| **M7** Figure 1 and Results part 1 | | Four panels: maps A–B, cross-party share C, modularity against all nulls D | [`m7_figure1.py`](m7_figure1.py), [`figures/`](figures/), [`results_part1.md`](results_part1.md) |
+| **Methods** | Enough to redo part 1 | About 620 words | [`methods_networks.md`](methods_networks.md) |
 
-**What the committee result could mean for the paper (an idea, not a decision):** the floor map is less divided
-than the working map, and its cross-party ties sit mostly inside committees, between members who manage the same
-bills. That fits part 2 (cross-party mentions are mostly credit): crossing the aisle on the floor is largely
-committee work being thanked in public. Limits: committee membership is today's
-(unitedstates/congress-legislators, downloaded 20 Nov), and committee managers name each other partly because
-House procedure puts them in the same debates, which the M4 null already partly holds fixed.
+M8 (the three slides) is in `../report/slides/`, shared.
 
-## M6: the close-up null (first run, 22 Nov)
+## Each part in plain words, with what to say if asked
 
-[`m6_closeup_null.py`](m6_closeup_null.py) → [`m6_results.csv`](m6_results.csv). Choices at the top of the script and in
-DECISIONS G20. **Question:** of a member's own bills, are the cross-party ones announced in press releases more often
-than a random draw of that member's bills would be? The null shuffles, within each member, which of their bills are
-cross-party (10,000 shuffles), so each member keeps how many bills they announce.
+**M1, the matcher.** Code that finds members' names in text. It reads a House title before a surname ("Mr. Cole",
+"Chairman Cole", "Speaker Johnson"), lists after a plural title ("Representatives Lawler, Golden, and
+Fitzpatrick"), and full names without a title ("my friend, Chip Roy"). A shared surname is settled by first name
+(official or nickname), then by a state name within 80 characters, else dropped. Possessives ("Mr. Cole's
+amendment") and middle initials are read through; names after "Senator", "Governor", "State" and similar are
+skipped; a member naming themselves does not count. Surnames are compared without case or accents (the prototype
+missed 18 members stored in capitals and every accented name); names printed in capitals are dropped, because they
+are speaker headings and vote-change lines, not speech. *If asked "how do you know the names are right?":* Diego
+read 100 random mentions (98 right); Martin read 30 random turns and the matcher found 12 of the 13 members a
+reader found (the miss is a shared surname with nothing nearby to settle it); each new name form was checked
+separately (untitled 30 of 30, lists 20 of 20) by a rule fixed before coding (G14, G19). Anas uses the same matcher
+on press releases (`from Martin.matcher import Matcher`).
 
-| Check | Members | Bills | Announced: cross-party | Announced: same-party | Observed / null | p (one-sided) |
+**M2, floor mentions.** The Congressional Record, 6 Jan 2025 to 9 Nov 2026, split into speaker turns; House-floor
+turns of at least 50 words spoken by a member (17,824). One row of `mentions.parquet` is one name found in one turn:
+`speaker`, `named` (Bioguide IDs), `source`, `date`, `doc_id` (the Record item, used as "a debate"), `context`
+(the sentence with the name and one either side, at most 1,000 characters), `is_yield`, plus `how` (the rule
+that found it), `is_leader_title` and `is_yield_window` (the old yield rule). `named_ties.csv` has one row per
+directed (speaker, named) pair. 18 Nov row numbers map to today's through `m1_checks_20nov/row_map.csv`.
+
+**M3, definitions.** Two choices make the maps comparable. *Thinning (G1a):* the working map has 46,513 ties, the
+floor map 3,970, and a sparse map can look different just by being sparse, so the floor map is compared with 200
+random draws of 3,970 working ties; the 3,970 strongest working ties (pairs sharing the most bills) are a second
+comparison and are far more partisan (12.8%). *Yields (G1b, G1c):* "I yield two minutes to the gentleman from
+Texas" is procedure, not a choice to name someone, so yields are left out of the headline. A mention is a yield
+when "yield" (not "yield back") comes before the name in the same sentence, or "for yielding" after it. On the 30
+mentions where this rule and the older 60-character window disagreed, Martin found all 15 that only the phrase rule
+flagged were yields, and 14 of the 15 that only the window flagged were not. *If asked "does dropping yields make
+the gap?":* no, with yields kept it is 35.2% against 28.7%.
+
+**M3b and M4, the nulls.** *Degree-preserving rewiring* (double-edge swaps, five per tie) keeps how many ties each
+member has: then about half of ties cross the aisle and Q is about zero, so both maps are far more divided than
+chance. *The debate null* shuffles, within each Record item, which member is named, so each speaker keeps the
+mentions they made there and each member the mentions they received there: Q falls from 0.112 to 0.074, so debate
+structure (a manager from each party, a cast per bill) explains about two thirds of the floor map's division, and
+members still name their own side more than all 200 shuffles. *The state null* (Anas's proposal, G16) also keeps
+each member's number of same-state ties: Q 0.001, so state delegations are not the explanation. Seed 2805
+throughout; 200 draws each (20 for the full working map, which is slow).
+
+**M5, communities.** Louvain (the course's method, week 4), resolution 1, 50 random starts, best partition kept,
+compared with party by normalised mutual information (G15). The working map splits into the two parties; the floor
+map into 8 communities of 28 to 80 members that each hold both parties. Joined with today's House committee lists
+(unitedstates/congress-legislators): in 7 of the 8, one committee is 3.0 to 7.9 times as common as in the House
+(Appropriations 82% of members, Ways and Means 79%, Energy and Commerce 67%, …); the 8th holds the party leaders.
+*If asked what it means:* crossing the aisle on the floor is largely committee work named in public, which fits
+part 2 (cross-party mentions are mostly credit). *Limits:* committee lists are today's, not the start of the term;
+committee managers share debates, which the debate null holds fixed but not the committee.
+
+**M6, close-up null (for part 3).** Of each member's own sponsored House bills and joint resolutions, a bill is
+cross-party if an original cosponsor is from the other party, and announced if it is cited in the member's press
+releases (Anas's A3.5 table). The null shuffles, within each member, which bills are cross-party (10,000 shuffles),
+so members who announce everything do not dominate (G20).
+
+| Check | Members | Bills | Announced: cross-party | Announced: other | Observed / null | p (one-sided) |
 |---|---|---|---|---|---|---|
-| **Main:** sponsored bills, cross-party = an original cosponsor of the other party | 388 | 10,125 | **52.7%** | **45.1%** | 1.08 | < 0.001 |
+| **Main:** sponsored bills | 388 | 10,125 | **52.7%** | **45.1%** | 1.08 | < 0.001 |
 | Republicans only | 201 | 5,489 | 54.8% | 45.7% | 1.09 | < 0.001 |
 | Democrats only | 187 | 4,636 | 50.2% | 44.5% | 1.06 | < 0.001 |
-| **Only co-led bills** (cross-party against same-party co-leads, no solo bills) | 368 | 6,736 | **52.6%** | **49.1%** | 1.02 | 0.023 |
+| **Co-led bills only** (against same-party co-leads) | 368 | 6,736 | **52.6%** | **49.1%** | 1.02 | 0.023 |
 | Cited by bill number only | 388 | 10,125 | 17.6% | 15.2% | 1.12 | < 0.001 |
 | Cross-party = any cosponsor of the other party | 392 | 10,218 | 52.8% | 44.6% | 1.08 | < 0.001 |
 | All four House bill types | 393 | 11,811 | 46.3% | 40.1% | 1.07 | < 0.001 |
-| Own bills = bills the member was an original cosponsor of | 410 | 51,641 | 8.6% | 2.9% | 1.33 | < 0.001 |
+| Bills the member was an original cosponsor of | 410 | 51,641 | 8.6% | 2.9% | 1.33 | < 0.001 |
 
-**How to read it (the honest version):**
-- Members do announce their cross-party bills more often than their other bills: 52.7% against 45.1%, in both parties.
-- **Most of that gap is about having co-leads at all, not about the other party.** Against same-party co-led bills
-  only, the gap shrinks to 3.5 points (52.6% against 49.1%, p 0.023 one-sided, 0.046 two-sided). Solo bills are
-  announced least. The paper should give this row next to the main one.
-- As an original cosponsor, a member announces a cross-party bill about three times as often as a same-party one
-  (8.6% against 2.9%). Joining another member's bill is mostly announced when it is a bipartisan one.
-- "Members with at least 10 releases" was planned as a check but changes nothing: every member in the test already
-  has 10 or more. It is left out of the table above.
-- **Not controlled:** whether a bill moved. Bills that pass are announced more, and bipartisan bills may pass more
-  often; the data has no bill status. This is the main limitation of M6.
-- About two thirds of announcements are found by the bill's exact title rather than its number (Anas's A3.5,
-  checked by hand there); the number-only row gives the same direction.
+*The honest reading:* most of the gap separates co-led bills from solo bills; the other party adds 3.5 points.
+*Main limit:* no control for whether a bill moved (our data has no bill status), and bipartisan bills may pass more.
 
-## What the others need to know (16–18 Nov)
+**M7, Figure 1.** (A) the floor map, (B) one random draw of the working map at the same size, (C) the share of
+ties that cross the aisle, with the range over 200 draws and the rewiring level, (D) party modularity of each map
+against its nulls. Full PNAS width (17.8 cm); rebuilt from the result files by `m7_figure1.py`, which also checks
+that no labels overlap.
 
-1. **Diego (D2):** draw the sample with
-   `python Diego/d2_labelling/draw_labelling_sample.py Martin/mentions.parquet`. `context` is the sentence
-   with the name plus one sentence either side, as you asked. The median is 349 characters. Where the
-   Record has no sentence break (184 of 8,092 mentions) the context is cut to 1,000 characters centred on
-   the name, with … at each cut end.
-2. **Anas (A3):** from `project/`, `from Martin.matcher import Matcher`; the docstring in `matcher.py`
-   shows the three lines needed. It takes any text, so it runs on press releases as it is.
-3. **Everyone:** `mentions.parquet` has three columns beyond the agreed seven: `how` (the rule that resolved
-   the name), `is_leader_title` and `is_yield_window`. **Since 18 Nov `is_yield` is the phrase rule** (1,427 of the
-   8,041 R–D mentions; the window rule flagged 1,406; they disagree on 285). Rows, their order and every other
-   column are unchanged, so `mention_row` in Diego's D2 keys still points at the same mentions (checked).
-   **Since 20 Nov the file has 530 more rows from the new matcher and the row numbers moved:** look up an
-   18 Nov `mention_row` through [`m1_checks_20nov/row_map.csv`](m1_checks_20nov/row_map.csv). All 100 D2 rows are still there. `named_ties.csv` is directed: one row per (speaker, named).
+## Choices made here and why (the full record is in DECISIONS)
 
-## Choices made here
-
-Martin confirmed all six on 16 November, after reading the numbers behind each. The group can still change
-them on 18 November. Two go to that meeting as open questions: the yield rule (choice 5, part of M3) and
-whether the shared files move to `scripts/` and `data/processed/` as the work plan says.
-
-| # | Choice | Alternative and what it would change |
-|---|---|---|
-| 1 | Surnames are compared without case or accents | The prototype compared exactly: 18 members stored in capitals were invisible, their namesakes took their mentions, and unaccented spellings were lost |
-| 2 | A name printed in capitals is dropped (93 hits) | Keeping them counts speaker headings and vote-change lines as speech (3 of the 7 errors in D1) |
-| 3 | The independent (Kiley) stays in the file | The prototype dropped him. Filter on party where two sides are needed |
-| 4 | Context is three sentences, from a simple splitter, cut to 1,000 characters centred on the name when longer (184 mentions) | 60 characters either side, as in the prototype: too short to label tone. Without the cap the longest context was 7,192 characters |
-| 5 | **Changed 18 Nov (DECISIONS G1c):** `is_yield` is the phrase rule. The old flag, "yield" within 60 characters, is kept as `is_yield_window` | The window rule: 87% recall, 90% precision in D1. The phrase rule found 30 of 30 on the same rows, not yet tested on unseen ones |
-| 6 | Everything else as in the prototype (its choices 2 to 5): House floor turns of 50 words or more, a title before the surname, shared surnames resolved by first name, then state within 80 characters, else dropped | See section 0 of `../prototype_two_maps.ipynb` |
-
-## M3: what the group has to decide on 18 November
-
-The full proposal, with the table and the alternatives, is in [`M3_PROPOSAL.md`](M3_PROPOSAL.md). In short:
-
-1. **Thinning the working map:** compare the floor map with working ties drawn at random at the same size
-   (29.5% cross-party), and report the strongest ties (12.6%) as a second comparison. The floor map is at
-   34.2%.
-2. **Yields:** keep them in the headline, show the map without them (38.6%) below.
-3. **Yield rule:** replace the 60-character window with a phrase rule (30 of 30 labelled yields found, no
-   false flags, against 26 of 30 and three false flags).
-
-Under this proposal the headline gap is 5 points, small enough that matcher errors could close it. The new
-matcher's precision has not been measured.
-
-## M4: the floor map against a null that keeps the debates
-
-**One run, 16 November 2026. Observations, not results.** Inside each debate the named ends of the mentions
-are shuffled; nothing moves between debates.
-
-| Mentions | Measure | Observed | Degree-preserving null | Debate null (smallest to largest) |
-|---|---|---|---|---|
-| All (8,041) | Party modularity Q | 0.156 | -0.003 | 0.077 (0.061 to 0.090) |
-| | Cross-party share of ties | 34.2% | 50.1% | 42.2% (40.9% to 43.8%) |
-| | Cross-party share of mentions | 36.0% | | 43.8% (42.8% to 44.9%) |
-| Yields dropped (6,635) | Party modularity Q | 0.116 | -0.001 | 0.068 (0.058 to 0.083) |
-| | Cross-party share of ties | 38.2% | 49.9% | 42.9% (41.4% to 43.9%) |
-| | Cross-party share of mentions | 41.5% | | 45.5% (44.7% to 46.4%) |
-
-- The debate structure explains about half of the floor map's party division: shuffled inside debates, the
-  map still has Q = 0.077, against about zero for plain rewiring.
-- The other half is not explained by it. The observed map is more divided than every one of the 200
-  rewirings, on all three measures, with and without yields.
-- It does not test the gap to the working map, which has no debates, and it says nothing about tone.
-
-The null's choices, confirmed by Martin before the run:
-
-| # | Choice | Alternative and what it would change |
-|---|---|---|
-| 1 | A debate is one Congressional Record item (`doc_id`) | All items of one day: about 39 unrelated items mixed, a null nearly as easy as plain rewiring |
-| 2 | Inside a debate the named ends are shuffled. Each speaker keeps the mentions made there, each member the mentions received there | Redraw targets from those who spoke in the debate: loses the 30% of mentions that name an absent member |
-| 3 | Two mentions of a debate swap their named member; a swap that makes a member name themselves is rejected. 5 swaps per mention, 200 rewirings, seed 2805 | Fewer swaps leave the null close to the data |
-| 4 | Mentions in a debate with one named member (12%; 15% without yields) stay in the map, fixed | Dropping them changes the observed map too. Keeping them makes the null harder to beat |
-| 5 | Measured: party modularity and cross-party share of the map, and cross-party share per mention | Per tie only, as in the prototype |
-| 6 | Run on all mentions and with yields dropped | One of the two, before the group has decided whether yields count |
-| 7 | Nodes are the 450 Republicans and Democrats (8,041 of the 8,092 mentions) | Keeping the independent, who has no party side |
-
-Limits: after shuffling only about half of the mentions point at a different member, so the null is
-conservative. A long debate split over several Record items counts as several debates. A rewired map does
-not have exactly the observed number of ties.
-
-## What changed against the prototype
-
-| | Prototype (13 Nov) | This version |
-|---|---|---|
-| Mentions | 7,931 | 8,092 |
-| Shared-surname mentions dropped | 717 | 783 |
-| Printed in capitals, dropped | counted as mentions | 93 |
-| Ties between Republicans and Democrats | 3,718 | 3,777 |
-| Cross-party share of those ties | 34.5% | 34.2% |
-
-More shared-surname drops is expected: Green, Turner, Scott, Grijalva and García now have a visible
-namesake and go through the shared-surname rules. The 17 formerly invisible members now receive 203
-mentions. **Not re-validated:** the 93% precision in D1 was measured on the prototype's matcher, not this one.
+| Choice | Alternative and what it would change |
+|---|---|
+| Surnames compared without case or accents | Exact comparison: 18 members invisible, their namesakes take their mentions |
+| Names printed in capitals dropped (93 hits) | Counts speaker headings and vote-change lines as speech |
+| The one independent (Kiley) kept in `mentions.parquet`, left out of the two-party maps | Dropping him loses his mentions for anyone using the file |
+| Context = three sentences, cut to 1,000 characters | 60 characters either side, as in the prototype: too short to label tone (Diego's D2) |
+| Shared surname with no first name or state nearby: dropped (828 titled names) | Guessing would add cross-party errors |
+| Maps undirected and unweighted | Weighted ties: one pair named fifty times would dominate; the reason the thinning is random (G1a) |
+| A debate = one Record item (`doc_id`) | All items of one day: about 39 unrelated items mixed, a null nearly as easy as plain rewiring |
+| Debate null swaps named members within a debate; self-mentions rejected; single-name debates kept fixed | Redrawing from the debate's speakers loses the 30% of mentions naming an absent member |
+| Louvain with 50 starts, best kept | One run is random; a forced two-way split would hide the committees |
+| M6: own bills = sponsored; within-member shuffle | Original-cosponsored bills as the main unit (ratio 1.33, but the bills are someone else's); a pooled comparison |
 
 ## To rerun
 
-From `project/`, with pandas and pyarrow:
+From `project/`, with pandas, pyarrow, networkx and matplotlib. If a matcher rule changes, rerun in this order:
 
 ```
-python Martin/matcher.py           # self-check: 20 known cases
-python Martin/build_mentions.py    # writes mentions.parquet and named_ties.csv, prints the counts above
-PYTHONPATH=Martin python Martin/m3_definitions.py   # the M3 table and the yield-rule test; about a quarter of an hour
+python Martin/matcher.py                          # self-check on known cases
+python Martin/build_mentions.py                   # mentions.parquet, named_ties.csv
+PYTHONPATH=Martin python Martin/m3_definitions.py # M3 table; about a quarter of an hour
+# Martin/m4_debate_null.ipynb (run from Martin/; a few minutes)
+python Martin/m3b_state_null.py
+python Martin/m5_communities.py
+python Martin/m5_committees/committee_check.py
+python Martin/m6_closeup_null.py
+python Martin/m7_figure1.py
+python Martin/m1_checks_20nov/score_checks.py     # scores the coded hand-check sheets
+python report/md2tex.py                           # regenerates Martin's sections of the paper
 ```
 
-Then run `m4_debate_null.ipynb` from this folder (it also needs networkx and matplotlib; a few minutes).
-
-Run on 16 November with Python 3.14 and pandas 3.0.3.
+Run with Python 3.14 and pandas 3.0.3.
