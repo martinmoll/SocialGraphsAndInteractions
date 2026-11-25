@@ -175,6 +175,8 @@ From the earlier plans in `archive/`, and since the scope freeze (G17). Listed s
 
 Newest first. One line per change.
 
+- **25 Nov 2026.** Martin (with Claude): the six-page paper rebuilt from v2's wording (the version the group printed), with the 8 printed comments applied and the delegation check as one sentence (DECISIONS G22 revised, G23). `main.pdf` and the Overleaf zip rebuilt.
+- **25 Nov 2026.** Martin (with Claude): a post-hoc delegation check (`Martin/delegation_check/`, plan written before running): the home delegation's party mix does not explain part 3's exposure gap in either party; for Democrats, about 1.1 of the 2.6 points are names of home-state Republicans. Not in the paper; for the group.
 - **25 Nov 2026.** Martin (with Claude): the paper cut to 6 pages from the printed comments (DECISIONS G22), in
   `Martin/final_report/two_maps_full_draft_overleaf/` with `main.pdf` next to `main.tex` and an Overleaf zip beside
   the folder. `AI_METHODS.md` moved to `docs/`. Figure 4 for the paper without the note under panel B
