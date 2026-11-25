@@ -1,7 +1,7 @@
 # A5: does a release that says "bipartisan" name a real cross-party partner? (22–23 Nov)
 
 Anas with Claude. Design fixed first: [`PLAN.md`](PLAN.md) (mirror check: its addendum of 23 Nov). Optional item
-under G17; Martin and Diego decide whether it stays in.
+under G17, **accepted into the paper by Martin and Diego (25 Nov)**: the last paragraph of `../results_part3.tex`.
 
 > **Status, 23 Nov: done.** Both checks finished. The mirror check (below) found 28 of 30 named members to be
 > partners and none an opponent, which meets the rule fixed beforehand (27 or more), so the **63.9% (either)** stands.
@@ -97,7 +97,7 @@ partnership, N not that member.
   together decide the rule (26 would fail it), so Anas read both on 23 Nov: **P and P** (`mirror/DIFFERENCES.md`,
   `mirror/anas_codes.csv`).
 
-**For the paper (one short paragraph, in `../results_part3.tex`, marked optional):** a quarter of releases call
+**In the paper (the last paragraph of `../results_part3.tex`; accepted 25 Nov):** a quarter of releases call
 something bipartisan; in 64% of them a House member of the other party is named or co-leads a cited bill, against
 9% of other releases. Of 30 with a named member, 28 name a partner and none an opponent; of 30 without one, 29 name
 no partner from the other party.

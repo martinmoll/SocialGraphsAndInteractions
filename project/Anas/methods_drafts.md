@@ -1,5 +1,9 @@
 # Methods drafts (A6)
 
+> **25 Nov:** the final Methods text is [`methods_press.tex`](methods_press.tex). This file is kept because it holds
+> the **A4 analysis plan written on 20 Nov before any release was analysed** (`a4/analysis.py` implements it) and
+> the checks fixed in advance; the draft sentences below are superseded.
+
 Anas. Sentences for the paper's Methods and limitations, written before the results so the choices are fixed
 first. Text in [brackets] is filled in after A4. Each draft says where it would go and why.
 

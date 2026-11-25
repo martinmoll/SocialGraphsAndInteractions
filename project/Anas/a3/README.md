@@ -108,7 +108,7 @@ written to `out/` (left out by `.gitignore`), or, on Anas's machine, to `press_r
 2. Rerun every step above, starting with `freeze.py`: **under a minute** for A3.0 to A3.2.
 3. Hand-read samples (precision, recall) are stored by release URL and named member, so they are scored again
    automatically; only releases whose text changed need reading again.
-4. Log the date and the reason in `../collector/README.md` and `../STATUS.md`.
+4. Log the date and the reason in `../collector/README.md` and `../../WORK_AND_DEADLINES.md`.
 
 ## A3.4 recall check (drawn 21 Nov; reading open)
 

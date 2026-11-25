@@ -1,9 +1,10 @@
 # Methods from outside the course: inventory, references and why each one is needed
 
-Anas with Claude, Mon 23 Nov 2026. **Status, 23 Nov evening:** Anas's part done (`\cite{holm1979}` with its reason in
-`methods_press.tex`). Martin and Diego's parts are sent as messages (`MESSAGES_23NOV.md`): the Wilson sentence for
-Martin, `cohen1960` for Diego. Still open: copy the three entries to `report/references.bib`; web references for Cook
-PVI and The Downballot. Nothing in Martin's or Diego's files has been changed.
+Anas with Claude, Mon 23 Nov 2026. **Status, 25 Nov: done.** `holm1979`, `wilson1927`, `cohen1960`, `cook2025pvi`,
+`wikipedia2025pvi` and `downballot2024` are in `report/references.bib` and cited in the text (Holm in
+`methods_press.tex`; Wilson at its first use in Martin's Methods; Cohen at Diego's κ). The home map and A5 are in the
+paper (25 Nov), so Holm stays. The "Cited?" column and the to-do list at the end describe 23 Nov and are kept as the
+record. Use this file as the answer to "why did you use X?".
 Purpose: every method we use that the course pages do not teach should be (1) cited, (2) documented, and (3) argued
 for, as a complement to a course method, not as something added for its own sake.
 
@@ -81,7 +82,8 @@ share (which would be partly caused by what they do at home, including their pre
 presidential votes in the district, so it is fixed before the member acts. The 2024 presidential margin (The
 Downballot) is the independent check (r = 0.999). *Proposed:* cite the Cook Political Report's 2025 PVI and the
 Wikipedia revision we used (25 May 2025) as a web reference, and The Downballot's 2024 results by district.
-[UNVERIFIED: exact web-reference details not yet collected; source pages listed in `methods_drafts.md`.]
+(Done 23 Nov: `cook2025pvi`, `wikipedia2025pvi`, `downballot2024` in `report/references.bib`. Cook's date, 3 Apr
+2025, comes from Wikipedia's citation only: Cook's own page is behind a subscription.)
 
 ## B. Course methods we adapted: say what changed, and why (no new citation needed)
 
@@ -102,7 +104,7 @@ Wikipedia revision we used (25 May 2025) as a web reference, and The Downballot'
 | Bootstrap interval over releases | A3 recall (`a3/README.md`) | Names come in lists, so pairs in one release are not independent; resampling whole releases gives the honest (wider) interval. If it ever goes into the paper: Efron, B. (1979). Bootstrap methods: another look at the jackknife. *Ann. Statist.* 7(1), 1–26. doi:10.1214/aos/1176344552 (Crossref; resolves) |
 | Bonferroni | `NETWORK_METHODS.md`, only to explain Holm | — |
 
-## What to do (proposed, in order; nothing done yet)
+## What to do (proposed 23 Nov; all done by 25 Nov, see the status at the top)
 
 1. **Add four checked entries to `references.bib`:** `wilson1927`, `holm1979`, `cohen1960`, and the Cook PVI and
    Downballot web references (once their details are taken from the pages themselves). Draft entries for the first

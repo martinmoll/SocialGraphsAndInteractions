@@ -167,6 +167,12 @@ From the earlier plans in `archive/`, and since the scope freeze (G17). Listed s
 
 Newest first. One line per change.
 
+- **25 Nov 2026.** Anas (with Claude): `Anas/` holds only the final state of part 3. The home map and A5 are
+  accepted into the paper and the analysis is closed (the committee test of the network twist is not run).
+  `Anas/README.md` rewritten so a teammate's Claude can use and explain each part (text in the paper, headline
+  numbers, where the methods disagree, findings not in the paper). Removed: `STATUS.md`, `REVISIONS_19NOV.md`,
+  `references_additions.bib` (all in `report/references.bib`), the Figure 3 and home-map figure drafts, `state_seats/`.
+  Status lines updated in place; in `report/sections/` only `%` comment lines of part 3 changed. No number changed.
 - **25 Nov 2026.** Martin (with Claude): `Martin/` holds only Martin's own parts. No whole-paper draft is on `main`
   in `Martin/`; Martin's full draft (`Martin/paper_v1/`, 24 Nov) exists only on the unmerged branch
   `claude/nice-bardeen-snc57e` and is not to be merged. `Martin/README.md` rewritten so a teammate's Claude can use

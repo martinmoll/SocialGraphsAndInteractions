@@ -93,8 +93,7 @@ state's members 2.4 times more often than chance, and those mentions are more of
 
 - It says nothing about exposure. District lean stays in part 3 (close-up), as agreed.
 - It doesn't test the gap between the two maps, only each map's division.
-- States are a coarse grouping. Large states (California 52 seats) contribute most same-state pairs; see
-  `../state_seats/` for seats per state.
+- States are a coarse grouping. Large states (California 52 seats) contribute most same-state pairs.
 
 ## Files
 

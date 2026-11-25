@@ -7,7 +7,7 @@ close-up is possible. It does not collect release text. That is A1/A2.
 Decision G4 (18 Nov) said Republicans only, because both parties would mean "roughly twice the collection".
 After the meeting on 18 Nov the group agreed to include the Democrats in a small role, using these numbers.
 That decision is drafted as G13 (replacing G4) and will be pasted into `DECISIONS.md`. What it changes for
-A1 to A6 is in [`../STATUS.md`](../STATUS.md).
+A1 to A6 is in the folder overview, [`../README.md`](../README.md).
 
 ## Results
 

@@ -1,5 +1,9 @@
 # A4: do exposed members name the other party more at home? (first run 21 Nov; rerun 22 Nov)
 
+> **25 Nov: final.** The group accepted the home map (and A5) into the paper, and the analysis is closed: no new
+> analyses from here on. Part 3's text is `../results_part3.tex`; the folder overview is `../README.md`. Status
+> lines below were updated in place on 25 Nov; the analyses and numbers are unchanged.
+
 > **Rerun 22 Nov on Martin's 22 Nov matcher** (possessives, middle initials): every number below is the rerun's.
 > Old against new, and what changed: [`../RERUN_22NOV.md`](../RERUN_22NOV.md). Every reading holds; one correction
 > (Republican closeness no longer survives Holm).
@@ -9,11 +13,10 @@ analysed. Everything below follows it; nothing in the test was chosen after seei
 
 ```bash
 python a4/analysis.py --press press_releases --repo <repo>   # about 10 s; writes a4/out/
-python a4/figure3.py                                         # Figure 3 draft (two panels side by side)
 python -I a4/figure3_column.py                               # Figure 3 for the paper: one column, out/figure3.pdf
 ```
 
-**Settings, as proposed for the Sunday freeze** (STATUS; `G13_UPDATE.md`):
+**Settings** (Anas's G13 proposal, agreed by Martin 23 Nov; text for `DECISIONS.md` in `../G13_UPDATE.md`):
 - **Swing seat ("exposed"):** `exposed_2025`. A member is exposed when the district they served leans toward their
   own party by 5 points or less (Cook PVI 2025), which includes seats leaning to the other party. **Republican:
   lean ≤ R+5. Democrat: lean ≤ D+5.**
@@ -94,8 +97,7 @@ hint of a president's-party effect, and it should be reported as a hint, not a f
 
 ![Share against district lean, all members](out/figure_lean.png)
 
-This plot shows every member instead of two groups, so it may serve better as Figure 3A than the current panel A.
-That is a choice for the group.
+This plot is now Figure 3A (decided 21 Nov).
 
 ## Check I, 23 Nov: is "exposed" just "moderate"? (`ideology_check.py`, `out/ideology_check.csv`)
 
@@ -147,29 +149,21 @@ blind AI readers (two Opus, one Sonnet) who never saw the seat or the cell. Agre
   exposed Republicans), so every count in the table above is unchanged. Final codes: Anas's for these four, the
   readers' unanimous code for the other 56.
 
-## Figure 3: `out/figure3.pdf` (paper), `out/figure3_draft.pdf` (earlier draft)
+## Figure 3: `out/figure3.pdf` (in the paper as `report/figures/figure3.pdf`)
 
 **23 Nov:** remade for one PNAS column (`figure3_column.py`, 8.7 × 15 cm, panel A above B, fonts 6–7.5 pt at print
-size, checked for overlapping labels), because the paper places Figure 3 in one column, where the side-by-side draft
-below would print its text at about 3 pt. Same data and encodings. Caption: `../figure3_caption.tex`.
+size, checked for overlapping labels), because the paper places Figure 3 in one column, where the earlier
+side-by-side draft would print its text at about 3 pt. Same data and encodings. Caption: `../figure3_caption.tex`.
+The side-by-side draft (`figure3.py`, `figure3_draft.*`) was removed on 25 Nov; it is in the git history.
 
 ![Figure 3](out/figure3.png)
-
-The earlier side-by-side draft:
-
-![Figure 3 draft](out/figure3_draft.png)
 
 **Panel A replaced 21 Nov (Anas):** it now shows every member against district lean (`figure_lean.py`'s view),
 not two groups. The exposed–safe strip plot is in the repository history.
 
-**Caption draft.** *Members in the closest seats name the other party most in their press releases, in both
-parties. (A) Each dot is one member (n = 406), placed by the Cook PVI 2025 of the district they served. The value is
-the share of their releases naming a House member of the other party who is neither a co-lead of a bill the release
-cites nor a party leader. Lines join the means of 5-point bands with at least 5 members. Shaded: within 5 points of
-even, where both parties' members count as exposed. (B) The exposed minus safe gap for each party under the main definition and each robustness check; every
-gap is significant at p < 0.05 by a permutation test that shuffles exposure within party.*
+**Caption:** the final one is `../figure3_caption.tex` (23 Nov), the same as in `report/sections/results.tex`.
 
-Not yet in it: the mutual pairs from A3.7 (Golden–Fitzpatrick, Kaptur–Fitzpatrick, Golden–Lawler). They work
+Not in it: the mutual pairs from A3.7 (Golden–Fitzpatrick, Kaptur–Fitzpatrick, Golden–Lawler). They work
 better as one sentence in the text than as a third panel on a half page.
 
 ## Extension: the home network of cross-party naming (21 Nov)
@@ -177,7 +171,8 @@ better as one sentence in the text than as a third panel on a half page.
 The design was fixed before computing: [`HOME_NETWORK_PLAN.md`](HOME_NETWORK_PLAN.md). Scripts:
 - `home_network.py`: the planned tests;
 - `home_network_posthoc.py`: a degree-matched check, **post hoc**;
-- `figure_network.py`: the figure.
+- `figure_home_map.py`: the figure (below; the earlier drafts `figure_network.py` and `figure_network_groups.py`
+  were removed on 25 Nov and are in the git history).
 
 **The network:**
 - **Nodes:** the 406 members of the A4 test.
@@ -262,7 +257,8 @@ party (`out/home_measures_centrality.csv`):
 - **A community of their own:** the community detection finds one, a 35-member bipartisan community that is more
   than half exposed members (19).
 - **The parties may bridge differently** (exposed Republicans by volume, exposed Democrats by position), but this
-  does not survive the Holm correction. Mention it as a hint, or leave it out.
+  does not survive the Holm correction at α 0.01. **In the paper (23 Nov text, kept 25 Nov):** part 3 reports it as
+  the network's twist, with its Holm values and "we did not test why".
 - **The other mixed communities follow geography:** state delegations. But at the level of single ties, safe
   members are no more local than exposed ones (S4).
 - **In one line:** "The vulnerable are the bridges, and a few of them form a bipartisan cluster of their own."
@@ -312,8 +308,9 @@ within a party. (B) Members of the other party each member names or is named by,
 (Democrats) and 1.9 (Republicans) times as many as safe members (p = 0.001 by shuffling exposure within party,
 Holm-corrected). Other network measures: Table X.*
 
-**Group view (an earlier draft, kept for the slides).** Feedback: its densities ("36% of pairs") read as
-contradicting the tie counts next to them. It is kept only as a simpler slide version, `figure_network_groups.py`.
+**Group-level numbers** (first shown in the group-view draft, removed 25 Nov with its script; recomputed 25 Nov from
+`out/home_ties.csv` and `out/member_shares.csv`, same values: 3,016 of 171 × 144 safe–safe pairs, 1,743 exposed D–safe R,
+1,283 safe D–exposed R, 723 of 37 × 54 exposed–exposed):
 - **Ties per member:** exposed Democrats and Republicans have 46 and 54 cross-party ties each; safe Democrats and
   Republicans 30 and 28.
 - **Share of possible pairs that are tied** (unchanged by the 22 Nov rerun): 12% between two safe groups, 19% and 24% with one exposed group, 36%
@@ -321,28 +318,13 @@ contradicting the tie counts next to them. It is kept only as a simpler slide ve
 - **How to read the 36%:** most of it is the two groups' activity. The degree-preserving null puts the
   preference beyond that at about 5% (see above).
 
-**Caption draft (group view).** *Who names whom across the aisle in press releases. Circles: exposed (filled) and
-safe (hollow) members of each party; circle area follows the number of members. The percentage on each link is the
-share of possible member pairs between the two groups where one named the other at least once; link width follows
-it. Members in exposed seats have about 1.6 times as many cross-party ties as members in safe seats, and the chance
-that two members are tied rises with each exposed end, mostly because of that activity.*
-
 **For the Discussion (an interpretation, not a finding):** the gap is consistent with different electoral
 incentives. Members in close seats face a general election where swing voters may reward naming the other side;
 members in safe seats face mainly primaries, where it may cost them. We do not measure motives.
 
-**Detailed version (members as dots), kept for the slides or appendix:**
-
-![Home network](out/figure_network.png)
-
-**Caption draft (detailed view).** *Cross-party press ties among the 406 members: a line joins two members of different parties
-when one named the other in at least two releases (2,504 ties). Members are placed by how safe their seat is
-(crossover and close seats at the top, shaded: exposed). Filled dots are exposed members and hollow dots safe
-members; dot size is the number of cross-party ties. Exposed members are a fifth of the members but take part in
-more than a third of the ties.*
-
-**Space:** part 3 has about half a page. Figure 3 fits; this figure most likely does not. The extension is two
-sentences in Results, with the figure in the repository or the slides.
+**In the paper (25 Nov):** the home map is part 3's network paragraph (text only). The figure above and
+`out/table_home_measures.tex` are ready for the slides or an appendix if the split makes room; the paper has
+three figures now.
 
 ## Limits to state
 
@@ -351,16 +333,13 @@ sentences in Results, with the figure in the repository or the slides.
 - **The matcher.** Press recall is 0.97 and precision 0.96 (A3.4), and the result holds with Martin's matcher alone.
 - **AI checks.** The recall and bill checks used blind AI readers, with Anas checking every disagreement
   (`../a3/README.md`).
-- **The window and the swing-seat definition** are the proposals for the Sunday freeze. If the group changes them,
-  rerun these two scripts (seconds).
+- **The window and the swing-seat definition** are Anas's G13 proposal (agreed by Martin 23 Nov; to paste into
+  `DECISIONS.md` from `../G13_UPDATE.md`). If they ever changed, rerun `analysis.py` and the scripts after it.
 
-## Pending for Wednesday 25 Nov (decided 23 Nov)
+## Not done, and not to be done (25 Nov)
 
-- **Untested explanation in part 3's network paragraph** (exposed Republicans bridge by volume, exposed Democrats by
-  position; "the majority's control of committees and the floor agenda gives exposed Republicans more occasions").
-  Anas chose to wait until the group decides whether the network paragraph stays (G17). If it stays: sort the counted
-  cross-party names by route (same committee, release about a bill, other) and compare exposed and safe members by
-  party (`Martin/m5_committees/committee-membership-current.yaml`, `a3/out/release_bills.csv`). Write the design first; label it
-  exploratory, since the pattern is borderline (Democrats' brokering is Holm 0.08 at α = 0.01) and was seen before
-  the test. Committee data is the November 2026 snapshot, not membership at each release's date. About 1.5 hours.
-  A second test (do chairs explain exposed Republicans' ties?) is likely too small to tell.
+- **The committee test of the network twist** (sorting counted cross-party names by route: same committee, release
+  about a bill, other). It was planned on 23 Nov to wait for the group's decision on the home map. On 25 Nov the
+  group closed the analysis (no new analyses), so it is not run. Part 3 says "We did not test why" and names the
+  majority's control of committees only as one possibility.
+- **Check 3** (before and after the new maps) was dropped under G17 on 22 Nov.

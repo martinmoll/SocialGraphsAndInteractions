@@ -10,7 +10,8 @@ corrections). Discussion: [`README.md`](README.md). Every number comes from one 
 > the tie counts at other α (section 1), the swaps-per-tie check (3a) and the shortcut product (3a correction).
 > **Correction:** Republican closeness no longer survives Holm (0.055).
 
-**Status:** all of this is new analysis after the G17 scope freeze, for Martin and Diego to accept or cut.
+**Status:** new analysis after the G17 scope freeze, **accepted into the paper by Martin and Diego (25 Nov)**;
+part 3's network paragraph rests on sections 1 and 3. The analysis is closed: nothing here will be added to.
 
 ---
 

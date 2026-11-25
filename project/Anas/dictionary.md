@@ -34,7 +34,7 @@ Sections:
 | At-large district | A state with only one district. It is stored as district `0` (Alaska, for example). |
 | Delegate | A non-voting House member for DC, Puerto Rico, Guam, the US Virgin Islands, American Samoa or the Northern Mariana Islands. All six are in `members.csv`, with `current = False`. They speak, sponsor and cosponsor, but have no district lean. |
 | Why 450 or 451 members, not 435 | `members.csv` has 451 people: 433 current members, one in each voting seat (2 seats, FL-20 and TX-23, were vacant when the file was made), plus 18 marked not current: the 6 delegates and 12 members who left during the term (resigned, died, or took another office). We usually say "450 members". |
-| State delegation | All the House members from one state. Delegations range from 1 seat (6 states) to 52 (California). The four largest (CA, TX, FL, NY) hold a third of all seats. See `state_seats/`. |
+| State delegation | All the House members from one state. Delegations range from 1 seat (6 states) to 52 (California). The four largest (CA, TX, FL, NY) hold a third of all seats. |
 | Party | R (Republican), D (Democrat), I (independent). `members.csv`: 226 R, 224 D, 1 I. The one independent stays in the files; filter on party when you need two sides. |
 | Majority, minority | The party with more seats controls the House: it elects the Speaker, chairs every committee and decides which bills reach the floor. In the 119th Congress the Republicans are the majority. |
 | Speaker | The leader of the House, elected by the majority. Currently Mike Johnson (R). Named very often, mostly for procedural reasons. |

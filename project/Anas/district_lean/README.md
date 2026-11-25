@@ -1,6 +1,6 @@
 # District lean on the map members served in
 
-Anas, 19 November 2026. Fixes the gap noted in `../STATUS.md`: we had the lean of each district on the
+Anas, 19 November 2026. Fixes the gap noted in the 19 Nov status notes (`STATUS.md`, removed 25 Nov; in the git history): we had the lean of each district on the
 2026 map only, but nine states redrew their districts for 2026, so in those states the 2026 lean describes a
 different area from the one the member represented in 2025 and 2026.
 
