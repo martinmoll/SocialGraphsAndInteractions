@@ -29,6 +29,10 @@ in the repository are authored by Claude on our behalf.
 | 9 | Press-release recall (A3) | Five blind AI readers (Claude Opus and Sonnet) listed members named in 40 releases | Anas read all 7 cases where readers and matcher differed and agreed with the readers | Reported in `Anas/a3/README.md`; same model family, so not independent |
 | 10 | Press-release precision (A3) | Claude resolved rows Anas could not confirm (`resolutions.csv`); three blind AI raters re-read 180 rows | Anas read 30 per rule by hand first | Agreement 179 of 180; own-surname rule rests on Claude's reading (29 of 30), reported as such |
 | 11 | District lean, redrawn states (A4) | Claude collected and cross-checked sources | Second sources for every number (The Downballot r = 0.999; official redraw pages) | All nine redraw dates agree |
+| 11b | Bill links (A3.5) | Three blind AI readers (2 Opus, 1 Sonnet) judged 30 number links and 30 title links | No human reading: they agreed on all 60, so nothing went to a person | 30 of 30 and 30 of 30, unanimous |
+| 11c | "Bipartisan" releases with no partner (A5) | Three blind AI readers coded 30 releases | Anas read the 2 where they differed | 29 of 30 name no partner of the other party; 1 a senator |
+| 11d | Named partners in "bipartisan" releases (A5, 23 Nov) | Three blind AI readers coded 30 releases | Unanimous; Anas read the 2 close calls that decided the threshold fixed first; Claude read the extra names in 10 multi-name releases (not blind) | 28 of 30 partners, none an opponent |
+| 11e | What counted press names do (check T, 23 Nov) | Three blind AI readers coded 60 counted cross-party names, blind to seat | Agreed on 56; Anas read the 4 others (two codes changed, counts unchanged) | 46 partner or praise, 9 neutral, 4 wrong match, 1 criticism |
 | 12 | Literature (D3) | Claude found and summarised references | Every reference looked up in Crossref; Westwood read at the publisher | 14 references, all verified to exist; summaries from abstracts, stated as such |
 | 12b | Speaker attribution (S2) | Claude extracted the Record's own speaker heading for each of 60 sampled turns, as a reading aid | Diego compared each with the assigned member and wrote y/n himself; 3 rows checked on the Record page | 60 of 60 correct (94–100%) |
 | 13 | Paper text | Claude drafted most sections from our results files | Each owner reads and revises their part; the group reads all of it (S3) | [to fill in after the 25 Nov read-through] |
@@ -46,4 +50,4 @@ in the repository are authored by Claude on our behalf.
 - Matcher checks: `Diego/d1_matcher_precision/`, `Martin/m1_checks_20nov/`, `Martin/m3_yield_check/`
 - Labelling: `Diego/d2_labelling/RESULTS.md`, `PROTOCOL.md`
 - Classifier: `Diego/d5_classifier/README.md`
-- Press-release checks: `Anas/a3/README.md`
+- Press-release checks: `Anas/a3/README.md`; check T: `Anas/a4/README.md`; A5: `Anas/a5/README.md` (rows 11b to 11e added by Anas with Claude, 25 Nov)

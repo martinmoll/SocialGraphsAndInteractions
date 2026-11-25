@@ -258,11 +258,8 @@ All of this is documented and checked; none of it is in `results_part3.tex` now.
 
 ## Still open (not analysis)
 
-- **`\cite{serrano2009}`** for the disparity filter is not yet placed in part 3 (noted in `report/README.md` and
-  `report/sections/methods.tex`).
-- **Voteview:** `methods_press.tex` names it for DW-NOMINATE; a checked reference is still to be added if the group
-  cites it.
-- **`report/README.md`** still describes part 3 as a placeholder with no caption (shared file, not edited here).
+Nothing in this folder. `\cite{serrano2009}` (part 3) and the Voteview reference (`voteview2026`, Methods) were
+placed on 25 Nov. What is left is shared: the split of the report and the cuts (`../WORK_AND_DEADLINES.md`).
 
 ## To rerun
 

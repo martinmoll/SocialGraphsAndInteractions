@@ -5,10 +5,10 @@ moved from `Anas/` to the project folder, so any of us can answer "why did you u
 method in the paper that the course pages do not teach should be (1) cited, (2) described in Methods, and (3)
 argued for as a complement to a course method, not added for its own sake.
 
-**State on 25 Nov:** every method from outside the course that the paper uses is cited and described (table A).
-Two references sit in `report/references.bib` without a `\cite` in the text: `serrano2009` (the disparity filter,
-part 3: still to be placed) and `landis1977` (no longer needed: the text does not use the Landis–Koch words).
-One data source, Voteview, is named without a reference.
+**State on 25 Nov:** every method from outside the course that the paper uses is cited and described (table A),
+and so is every data source. `serrano2009` (the disparity filter) is cited in part 3 and `voteview2026` in the
+press-release Methods since 25 Nov. Only `landis1977` sits in `report/references.bib` without a `\cite`: the text
+does not use the Landis and Koch words, and BibTeX leaves an uncited entry out.
 
 ## How this was checked
 
@@ -28,7 +28,7 @@ One data source, Voteview, is named without a reference.
 | A3 | **Cohen's κ** | Labelling agreement (Diego). κ itself is on the curriculum (week 8); its origin is cited | Yes, `cohen1960` |
 | A4 | **Leave-one-out cross-validation, macro F1, majority baseline** | Classifier check D5 (Diego, `methods.tex`) | Described, not cited (Diego's call; standard) |
 | A5 | **Cook PVI, The Downballot, a pinned Wikipedia revision** (data sources for district lean) | Exposure (Anas) | Yes, `cook2025pvi`, `downballot2024`, `wikipedia2025pvi` |
-| A6 | **DW-NOMINATE from Voteview** (data source for ideology and the member list) | Check I (Anas); Martin's Methods names Voteview for members | Named, no reference yet [UNVERIFIED: no checked Voteview entry in `references.bib`] |
+| A6 | **DW-NOMINATE from Voteview** (data source for ideology and the member list) | Check I (Anas); Martin's Methods names Voteview for members | Yes, `voteview2026` (the citation printed on voteview.com/data, read 25 Nov), in `methods_press.tex` |
 
 ### Why each one is needed, and how it complements the course
 
@@ -82,8 +82,9 @@ Downballot) is the independent check (r = 0.999). Cook's own page is behind a su
 **A6. DW-NOMINATE.** A data source: each member's score from all their roll-call votes, from Voteview (also our
 source for the member list). *Why it is needed:* check I asks whether "exposed" is just "moderate", which needs a
 measure of how members vote that is separate from their district. *Limit, stated in the paper:* votes may themselves
-follow the seat, so holding ideology fixed can remove part of a real seat effect. *Open:* a checked Voteview
-reference is to be looked up and added if the group cites it.
+follow the seat, so holding ideology fixed can remove part of a real seat effect. *Reference:* the
+citation Voteview asks for on its data page (read 25 Nov): Lewis, Poole, Rosenthal, Boche, Rudkin and Sonnet (2026),
+*Voteview: Congressional Roll-Call Votes Database*, https://voteview.com/.
 
 ## B. Course methods we adapted: what changed, and why (no new citation needed)
 
@@ -114,4 +115,4 @@ reference is to be looked up and added if the group cites it.
 Degree-preserving rewiring, party modularity, Louvain communities and NMI, betweenness and closeness, the disparity
 filter and ForceAtlas2 (weeks 2 to 4); TF-IDF and logistic regression (weeks 6 and 7); hand-labelled checks with
 precision, recall and κ (week 8). Original papers are cited where the paper uses the method (Maslov–Sneppen,
-Newman, Blondel, Danon, Fowler); the disparity filter's (`serrano2009`) is still to be placed.
+Newman, Blondel, Danon, Fowler, Serrano).

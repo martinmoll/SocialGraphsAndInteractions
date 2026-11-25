@@ -18,34 +18,35 @@ Checked against the course pages (front page `#project`, week 8, "The new way of
 Presentation Wed 2 Dec: three slides, three minutes, then questions to any of us. Everyone must be able to explain
 everything in the paper.
 
-## State of each part, 22 Nov
+## State of each part, 25 Nov
+
+All parts are written on the frozen numbers. The analysis is closed (DECISIONS G21); what is left is the split of
+the six pages, the cuts, and the hand-in. Words are counted without LaTeX commands and comments.
 
 | Part | File | Owner (DECISIONS G3) | State | Words |
 |---|---|---|---|---|
-| Abstract | `sections/abstract.tex` | Diego, all | First draft on frozen numbers | 148 of 150 |
-| Significance statement | `sections/significance.tex` | Diego, all | First draft | 117 of 120 |
-| Introduction | `sections/introduction.tex` | Diego and Martin | First draft (Diego with Claude); Martin to revise | 418 |
-| Results part 1, two maps | `sections/from_martin_results.tex` | Martin | Generated from `Martin/results_part1.md` | 528 |
-| Figure 1 and caption | `figures/figure1.pdf`, `sections/from_martin_caption1.tex` | Martin | Final, copied from `Martin/figures/` | |
-| Results part 2, what a mention means | in `sections/results.tex` | Diego | Written | about 250 |
-| Figure 2 | `figures/figure2.pdf` | Diego | Made by `Diego/d2_labelling/figure2.py` | |
-| Results part 3, close-up | in `sections/results.tex`, `sections/from_martin_m6.tex` | Anas | Placeholder: Anas's A4 wording and Martin's M6 paragraph; Anas to revise | about 200 |
-| Figure 3 and caption | `figures/figure3.pdf` | Anas | Draft figure copied from `Anas/a4/out/`; caption missing | |
-| Discussion | `sections/discussion.tex` | Diego and Martin | First draft; Martin to revise | 466 |
-| Methods: data, matching, maps, nulls | `sections/from_martin_methods.tex` | Martin | Generated from `Martin/methods_networks.md`; S2 result filled in by `md2tex.py` | 618 |
-| Methods: labelling, classifier | in `sections/methods.tex` | Diego | Written | about 330 |
-| Methods: press releases | in `sections/methods.tex` | Anas | Placeholder with the facts to cover | |
-| Author contributions | `sections/contributions.tex` | all | Draft; each checks their own line | 145 |
-| References | `references.bib` | all | 14 entries, all checked in Crossref | |
+| Abstract | `sections/abstract.tex` | Diego, all | Draft; does not mention the home map or A5 | 148 of 150 |
+| Significance statement | `sections/significance.tex` | Diego, all | Draft | 117 of 120 |
+| Introduction | `sections/introduction.tex` | Diego and Martin | Drafted by Diego, revised with Martin | 411 |
+| Results part 1, two maps | `sections/from_martin_results.tex` | Martin | Final; generated from `Martin/results_part1.md` | 536 |
+| Figure 1 and caption | `figures/figure1.pdf`, `sections/from_martin_caption1.tex` | Martin | Final | caption 139 |
+| Results part 2, what a mention means | in `sections/results.tex` | Diego | Final | 265 |
+| Figure 2 and caption | `figures/figure2.pdf`, in `results.tex` | Diego | Final; made by `Diego/d2_labelling/figure2.py` | caption 50 |
+| Results part 3, close-up | `sections/results_part3.tex` (copy of `Anas/results_part3.tex`) | Anas | Full length on purpose: six paragraphs (main result, closest seats and checks, check T, check I, home map, A5); to be cut at the split | 916 |
+| Close-up null (M6) | `sections/from_martin_m6.tex` | Martin | Final | 139 |
+| Figure 3 and caption | `figures/figure3.pdf`, in `results.tex` (copy of `Anas/figure3_caption.tex`) | Anas | Final (one column) | caption 197 |
+| Discussion | `sections/discussion.tex` | Diego and Martin | Drafted, revised with Martin; mentions check I, not the home map or A5 | 547 |
+| Methods: data, matching, maps, nulls | `sections/from_martin_methods.tex` | Martin | Final; generated from `Martin/methods_networks.md` | 639 |
+| Methods: labelling, classifier | in `sections/methods.tex` | Diego | Final | 400 |
+| Methods: press releases | `sections/methods_press.tex` (copy of `Anas/methods_press.tex`) | Anas | Final at full length, with Martin's M6 sentence (41 words) | 660 |
+| Methods: AI use, data and code | in `sections/methods.tex` | all | Final | 57 |
+| Author contributions | `sections/contributions.tex` | all | Each checks their own line | 146 |
+| References | `references.bib` | all | 21 entries, 20 cited; `landis1977` unused (BibTeX leaves it out) | |
 
-**Length.** About 3,100 words of text plus three figures. Six PNAS pages hold roughly 4,000 words with three figures
-and the references, so there is little room left: cut, do not add. The Wednesday read-through (25 Nov) cuts to six
-pages.
-
-**Still missing:** a `\cite` for the disparity filter (`serrano2009`) where part 3 uses the home map's backbone
-(Anas). Done 23 Nov (Martin with Claude): `\cite` commands in Martin's Methods (written `{cite:key}` in his markdown;
-`md2tex.py` converts them), Cohen and Wilson cited in the labelling paragraph, the repository link, and the ideology
-caveat in the Discussion.
+**Length.** About 5,400 words of text and captions plus three figures. The estimate below is that six PNAS pages
+hold roughly 4,000 words with three figures and the references, so about 1,400 words have to go
+[UNVERIFIED: the 4,000-word estimate has not been checked by compiling]. Nobody has compiled the paper yet, so the
+first Overleaf compile is the real test.
 
 ## Moving it to Overleaf
 
@@ -67,7 +68,7 @@ No LaTeX is installed on Diego's laptop, so this has not been compiled yet. Expe
   `sections/results.tex` and stop regenerating it. Say which in the log.
 - **Course style:** plain, understated, no claim stronger than its check. "Consistent with", not "because". Every
   model-made number reported with its check.
-- **Budget:** front matter 0.5 page, Introduction 0.75, Results 2.25 with figures, Discussion 0.75, Methods 1.25,
-  references and contributions 0.5 (from `../Diego/report_skeleton.md`).
+- **Budget** (planned 22 Nov, from Diego's report skeleton, since removed): front matter 0.5 page, Introduction
+  0.75, Results 2.25 with figures, Discussion 0.75, Methods 1.25, references and contributions 0.5.
 - **Log every change** that affects the paper in `../WORK_AND_DEADLINES.md`, and every new choice in
   `../DECISIONS.md` with its reason.

@@ -156,9 +156,9 @@ pandas 3.0.3 (Anas: Anaconda, `python -I`).
 
 ## 10. Literature
 
-The paper's 20 references are in [`report/references.bib`](report/references.bib). The literature was compiled
+The paper's 21 references are in [`report/references.bib`](report/references.bib). The literature was compiled
 and checked in Crossref by Diego (D3, [`Diego/d3_prior_work.md`](Diego/d3_prior_work.md)); the methods references
-were checked in Crossref or OpenAlex and the three web references (Cook PVI, Wikipedia, The Downballot) looked up
-on 23 Nov ([`OFF_CURRICULUM.md`](OFF_CURRICULUM.md)). The closest study is Westwood (2022): a member's bipartisan rhetoric on the floor is unrelated to
+were checked in Crossref or OpenAlex, the three web references (Cook PVI, Wikipedia, The Downballot) looked up
+on 23 Nov, and Voteview's own requested citation copied from its data page on 25 Nov ([`OFF_CURRICULUM.md`](OFF_CURRICULUM.md)). The closest study is Westwood (2022): a member's bipartisan rhetoric on the floor is unrelated to
 their bipartisan votes. That nobody has compared named colleagues with cosponsorship ties is claimed only "to our
 knowledge".

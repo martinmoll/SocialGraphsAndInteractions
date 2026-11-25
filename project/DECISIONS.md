@@ -7,7 +7,7 @@ be asked to defend any choice, so this file is what we read before then.
 who does what, add an entry here the same day. A decision without a reason is not finished: write
 **Reason: not recorded** and fill it in. Status changes and dates still go in
 [`WORK_AND_DEADLINES.md`](WORK_AND_DEADLINES.md). A definition changed after the freeze on Sun 22 Nov also
-goes in `docs/AI_METHODS.md` (README, section 9).
+goes in `AI_METHODS.md` (kept in `Diego/`, copied to `docs/` before hand-in).
 
 Status words: **Agreed**, **Open** (say when it is decided), **Replaced** (say by which entry).
 
@@ -201,7 +201,9 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
 - **Source:** `Martin/m3b_state_null.csv`; Anas's pilot.
 
 ### G17. Scope is frozen from Sat 21 Nov
-- **Status:** Agreed Sat 21 Nov by Martin. **Anas and Diego to confirm in the chat**; record their answer here.
+- **Status:** Agreed Sat 21 Nov by Martin; confirmed by Anas and Diego (reported by Anas, 25 Nov). Of the optional
+  items, A5 was finished and kept; check 3 and Martin's curve were dropped. On 25 Nov the group closed the analysis
+  altogether (G21).
 - **Decision:** nothing new is added to the project: no new analysis, data source, null model, figure, check or
   extension. The scope is what `WORK_AND_DEADLINES.md` section 2 lists and what G1 to G16 decide. From now on we
   only:
@@ -279,6 +281,25 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
 - **Limits:** no control for whether a bill moved (no status in our data). The planned "at least 10 releases" check
   is empty: every member in the test has 10 or more.
 - **Source:** `Martin/m6_closeup_null.py`, `Martin/m6_results.csv`, `Martin/README.md` section M6.
+
+### G21. The home map and A5 are in the paper; the analysis is closed
+- **Status:** Agreed Wed 25 Nov by all three (reported by Anas).
+- **Decision:**
+  1. The home map (the network of press-release mentions, part 3) and A5 ("bipartisan" releases) stay in the
+     paper. They were new or optional work under G17.
+  2. The analysis is closed: no new analysis, data, check or figure. Existing text and figures are only cut or
+     refined.
+  3. The committee test of why exposed Republicans and Democrats connect across the aisle differently in the home
+     map is not run. Part 3 says "we did not test why" and names the majority's control of committees only as one
+     possibility.
+- **Reason:** the draft deadline (Tue 24 Nov) has passed and the hand-in is Fri 27 Nov; the numbers have been
+  frozen since 22 Nov, and the time left goes to the split of the report, writing and rehearsing. Both kept parts
+  were finished and checked by 23 Nov. Why the group chose to keep them rather than cut them: not recorded.
+- **Alternative and what it would have changed:** cut both. Part 3 would shrink to the text count and checks T
+  and I (about 530 of its 930 words), and Holm's correction and the A5 checks would leave the Methods.
+- **Consequences:** part 3 stays at full length until the group decides the split; `Anas/README.md` lists what
+  is in the paper and what is documented only.
+- **Source:** group, 25 Nov; `Anas/a4/README.md`, `Anas/a5/README.md`.
 
 ### G9. Yields stay in the labelling sample
 - **Status:** Agreed Wed 18 Nov.
@@ -414,7 +435,9 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
 - **Decision:** (1) the two networks; (2) what a cross-party mention means; (3) example ties.
 - **Reason:** not recorded. They match parts 1, 2 and 3 of the paper (README, section 2).
 - **Open dependency:** figure 3 comes from the close-up. If G5 drops the close-up, figure 3 has to come from
-  the floor map or be replaced. **Not decided.**
+  the floor map or be replaced. **Settled:** G5 was passed on 20 Nov, so the close-up stayed. Figure 3 became
+  "naming the other party by district lean" (Anas, 21 to 23 Nov: every member against lean, and the exposed
+  minus safe gap under each check) instead of example ties; the named pairs are documented in `Anas/README.md`.
 - **Source:** meeting plan, 18 Nov.
 
 ### G7. Definitions are locked after Sunday
