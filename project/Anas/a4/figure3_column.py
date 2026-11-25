@@ -8,8 +8,11 @@ A: every member's share of releases naming the other party (co-leads and leaders
    under every robustness row, main row on top. Colour = party only. Saved at its print size (no tight bbox), so
    fonts print at their set size (6.5-7.5 pt; PNAS minimum 6 pt). Checks that no two text labels overlap.
 Writes a4/out/figure3.png and a4/out/figure3.pdf.
+With --wide (25 Nov, a trial to save space): A and B side by side at full page width (17.8 cm), same encodings;
+writes a4/out/figure3_wide.png and .pdf.
 """
 import os
+import sys
 
 import matplotlib
 matplotlib.use("Agg")
@@ -21,18 +24,25 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "out")
 COL = {"R": "#e34948", "D": "#2a78d6"}
 INK, INK2, GRID = "#0b0b0b", "#52514e", "#e6e5e1"
-W, H = 8.7 / 2.54, 5.9                       # inches: one PNAS column wide
-plt.rcParams.update({"font.family": "sans-serif", "font.size": 7, "axes.edgecolor": INK2, "axes.labelcolor": INK,
-                     "xtick.color": INK2, "ytick.color": INK2, "xtick.labelsize": 6.5, "ytick.labelsize": 6.5,
-                     "axes.spines.top": False, "axes.spines.right": False, "axes.linewidth": 0.6,
-                     "xtick.major.width": 0.6, "ytick.major.width": 0.6, "pdf.fonttype": 42})
+WIDE = "--wide" in sys.argv
+W, H = (17.8 / 2.54, 2.35) if WIDE else (8.7 / 2.54, 5.18)  # inches: full page width, or one PNAS column wide
+# 25 Nov: axes, ticks and tick labels in near-black and 0.8 pt (were grey, 0.6 pt), so they read when printed small
+plt.rcParams.update({"font.family": "sans-serif", "font.size": 7, "axes.edgecolor": INK, "axes.labelcolor": INK,
+                     "xtick.color": INK, "ytick.color": INK, "xtick.labelsize": 6.5, "ytick.labelsize": 6.5,
+                     "axes.spines.top": False, "axes.spines.right": False, "axes.linewidth": 0.8,
+                     "xtick.major.width": 0.8, "ytick.major.width": 0.8, "pdf.fonttype": 42})
 
 t = pd.read_csv(os.path.join(OUT, "member_shares.csv"), index_col=0)
 R = pd.read_csv(os.path.join(OUT, "results.csv"))
 
 fig = plt.figure(figsize=(W, H))
-a = fig.add_axes([0.17, 0.565, 0.79, 0.385])   # [left, bottom, width, height] in figure fractions
-b = fig.add_axes([0.42, 0.075, 0.54, 0.385])
+if WIDE:                                       # [left, bottom, width, height] in figure fractions
+    a = fig.add_axes([0.085, 0.16, 0.40, 0.72])
+    b = fig.add_axes([0.70, 0.16, 0.285, 0.72])
+else:
+    # 25 Nov: panel B 2.27 -> 1.55 in tall (A unchanged at 2.27 in), so the figure is 0.72 in shorter
+    a = fig.add_axes([0.17, 2.61 / H, 0.79, 2.27 / H])
+    b = fig.add_axes([0.42, 0.44 / H, 0.54, 1.55 / H])
 
 # A
 a.axvspan(-5, 5, color="#efeeea", zorder=0)
@@ -58,7 +68,7 @@ a.set_xlabel("Lean of the district served (Cook PVI 2025)", labelpad=2)
 a.set_ylabel("Releases naming the\nother party (%)", labelpad=2)
 a.yaxis.grid(True, color=GRID, lw=0.5)
 a.set_axisbelow(True)
-a.set_title("A  Every member, by district lean", loc="left", fontsize=7.5, color=INK, weight="bold", x=-0.19)
+a.set_title("A  Every member, by district lean", loc="left", fontsize=7.5, color=INK, weight="bold", x=-0.17 if WIDE else -0.19)
 
 # B
 labels = {"main: exposed_2025 (own-party lean <= 5)": "Main: lean within 5",
@@ -92,7 +102,7 @@ b.xaxis.grid(True, color=GRID, lw=0.5)
 b.set_axisbelow(True)
 b.legend(frameon=False, fontsize=6.5, loc="lower right", bbox_to_anchor=(1.02, 1.0), ncol=2, handletextpad=0.1,
          columnspacing=0.8, borderaxespad=0.2, markerscale=1.2)   # above the plot area: never covers a point
-b.set_title("B  The gap under each check", loc="left", fontsize=7.5, color=INK, weight="bold", x=-0.72)
+b.set_title("B  The gap under each check", loc="left", fontsize=7.5, color=INK, weight="bold", x=-0.66 if WIDE else -0.72)
 
 # overlap check: every pair of visible text labels (titles, tick labels, axis labels, annotations, legend)
 fig.canvas.draw()
@@ -104,6 +114,7 @@ assert not clash, f"overlapping labels: {clash}"
 off = [s for s, e in boxes if e.x0 < 0 or e.y0 < 0 or e.x1 > fig.bbox.width or e.y1 > fig.bbox.height]
 assert not off, f"labels outside the figure: {off}"
 
+NAME = "figure3_wide" if WIDE else "figure3"
 for ext in ("png", "pdf"):
-    fig.savefig(os.path.join(OUT, f"figure3.{ext}"), dpi=600 if ext == "png" else None, facecolor="white")
-print(f"-> {os.path.join(OUT, 'figure3.pdf')}  ({W * 2.54:.1f} x {H * 2.54:.1f} cm); {len(boxes)} labels, no overlaps")
+    fig.savefig(os.path.join(OUT, f"{NAME}.{ext}"), dpi=600 if ext == "png" else None, facecolor="white")
+print(f"-> {os.path.join(OUT, NAME + '.pdf')}  ({W * 2.54:.1f} x {H * 2.54:.1f} cm); {len(boxes)} labels, no overlaps")

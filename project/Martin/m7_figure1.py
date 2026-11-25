@@ -9,7 +9,10 @@ m4_results.csv (debate null), m3b_state_null.csv (state null). The two network d
   C  Cross-party share of ties in each map; the bar for the random draws shows the range of 200 draws.
   D  Party modularity Q of each map against its nulls (degree-preserving, debate, state).
 Size: PNAS full width (17.8 cm). The drawings use a spring layout and are for the eye only; positions mean nothing.
+With --side (25 Nov): the same panels at 11.4 cm wide, for a PNAS side-caption figure (SCfigure*): drawings A and B
+stacked on the left, C and D stacked on the right. Writes Martin/figures/figure1_side.png and .pdf.
 """
+import sys
 import numpy as np, pandas as pd, networkx as nx
 import matplotlib
 matplotlib.use("Agg")
@@ -41,9 +44,18 @@ SN = pd.read_csv("Martin/m3b_state_null.csv").set_index("map")
 head = "Floor: yields dropped, phrase rule"
 assert int(T.loc[head, "ties"]) == floor.number_of_edges(), "m3_table.csv is not from the current mentions.parquet"
 
-fig = plt.figure(figsize=(7.0, 5.6))
-top = fig.add_gridspec(1, 2, left=0.01, right=0.99, top=0.93, bottom=0.52, wspace=0.04)
-bot = fig.add_gridspec(1, 2, left=0.20, right=0.985, top=0.40, bottom=0.075, wspace=0.72)
+# 25 Nov: 5.6 -> 4.9 in tall, to cut whitespace in the paper. The drawings lose height (positions mean nothing),
+# the bar panels keep theirs.
+SIDE = "--side" in sys.argv
+if SIDE:   # 11.4 cm wide; the caption sits beside the figure
+    fig = plt.figure(figsize=(11.4 / 2.54, 4.7))
+    top = fig.add_gridspec(2, 1, left=0.0, right=0.33, top=0.90, bottom=0.10, hspace=0.36)
+    bot = fig.add_gridspec(2, 1, left=0.635, right=0.985, top=0.95, bottom=0.125, hspace=0.42,
+                           height_ratios=[5.6, 7])
+else:
+    fig = plt.figure(figsize=(7.0, 4.9))
+    top = fig.add_gridspec(1, 2, left=0.01, right=0.99, top=0.925, bottom=0.565, wspace=0.04)
+    bot = fig.add_gridspec(1, 2, left=0.20, right=0.985, top=0.45, bottom=0.085, wspace=0.72)
 
 def network(ax, G, title, note=""):
     pos = nx.spring_layout(G, seed=SEED, k=0.12, iterations=200)
@@ -53,15 +65,20 @@ def network(ax, G, title, note=""):
     nx.draw_networkx_edges(G, pos, edgelist=cross, ax=ax, width=0.15, alpha=0.30, edge_color=X_COL)
     nx.draw_networkx_nodes(G, pos, ax=ax, node_size=4, node_color=[R_COL if party[v] == "R" else D_COL for v in G], linewidths=0)
     ax.set_title(f"{title}\n{note}{G.number_of_edges():,} ties, {len(cross) / G.number_of_edges():.1%} cross-party", loc="left", fontsize=7.5)
-    ax.axis("off")
+    ax.margins(0.01); ax.axis("off")
 
-network(fig.add_subplot(top[0, 0]), floor, "A  Floor: who names whom in floor speeches")
-network(fig.add_subplot(top[0, 1]), draw, "B  Working: who cosponsors with whom", "random draw, floor's size: ")
+if SIDE:    # narrow column: the same titles, broken over more lines
+    network(fig.add_subplot(top[0, 0]), floor, "A  Floor: who names whom\nin floor speeches")
+    network(fig.add_subplot(top[1, 0]), draw, "B  Working: who cosponsors\nwith whom", "random draw, floor's size:\n")
+else:
+    network(fig.add_subplot(top[0, 0]), floor, "A  Floor: who names whom in floor speeches")
+    network(fig.add_subplot(top[0, 1]), draw, "B  Working: who cosponsors with whom", "random draw, floor's size: ")
 fig.legend(handles=[Line2D([], [], marker="o", ls="", color=R_COL, ms=4, label="Republican"),
                     Line2D([], [], marker="o", ls="", color=D_COL, ms=4, label="Democrat"),
                     Line2D([], [], color=X_COL, lw=1.2, label="cross-party tie"),
                     Line2D([], [], color=SAME_COL, lw=1.2, label="same-party tie")],
-           loc="center", ncol=4, frameon=False, bbox_to_anchor=(0.5, 0.485), fontsize=6.5)
+           loc="center", ncol=2 if SIDE else 4, frameon=False, bbox_to_anchor=(0.185, 0.045) if SIDE else (0.5, 0.535),
+           fontsize=6.5, columnspacing=0.8 if SIDE else 2.0, handlelength=1.5 if SIDE else 2.0)
 
 # ---- C: cross-party share
 ax = fig.add_subplot(bot[0, 0])
@@ -80,11 +97,13 @@ for yi, (lab, v, r, col) in zip(y, rows):
 ax.axvline(50, color=X_COL, ls="--", lw=0.8)
 ax.text(49, y[0] + 0.5, "ties rewired at random ≈ 50%", ha="right", fontsize=6, color=X_COL)
 ax.set_yticks(y, [r[0] for r in rows]); ax.set_xlim(0, 56); ax.set_ylim(-0.6, len(rows) - 0.2)
-ax.set_xlabel("cross-party share of ties (%)"); ax.set_title("C  How often ties cross the aisle", loc="left")
+ax.set_xticks(range(0, 51, 10))   # the ticks matplotlib showed; set so no hidden tick sits past the axis
+ax.set_xlabel("cross-party share of ties (%)")
+ax.set_title("C  How often ties cross the aisle", loc="left", x=-0.62 if SIDE else 0)
 ax.spines[["top", "right"]].set_visible(False)
 
 # ---- D: party modularity against the nulls
-ax = fig.add_subplot(bot[0, 1])
+ax = fig.add_subplot(bot[1, 0] if SIDE else bot[0, 1])
 deb = M4.loc[("Yields dropped", "debate", "party Q")]
 degf = M4.loc[("Yields dropped", "degree", "party Q")]
 sn = SN.loc["Floor: yields dropped (headline)"]
@@ -105,15 +124,24 @@ for yi, (lab, v, r, filled, col) in zip(y, items):
     ax.text(max(v, r[1] if r else v) + 0.008, yi, f"{v:.3f}", va="center", fontsize=6)
 ax.axvline(0, color="#cccccc", lw=0.6)
 ax.set_yticks(y, [i[0] for i in items]); ax.set_xlim(-0.03, 0.27); ax.set_ylim(-0.6, len(items) - 0.4)
-ax.set_xlabel("party modularity Q (0 = no division by party)")
-ax.set_title("D  Party division against the nulls", loc="left")
+ax.set_xticks(np.arange(0, 0.26, 0.05))   # as above
+ax.set_xlabel("party modularity Q\n(0 = no division by party)" if SIDE else "party modularity Q (0 = no division by party)")
+ax.set_title("D  Party division against the nulls", loc="left", x=-0.62 if SIDE else 0)
 ax.spines[["top", "right"]].set_visible(False)
 
-# no text of panel D may reach into panel C (labels, value labels): checked on the drawn figure
 fig.canvas.draw(); rend = fig.canvas.get_renderer()
-axC, axD = fig.axes[-2], fig.axes[-1]
-c_right = max([axC.get_window_extent(rend).x1] + [t.get_window_extent(rend).x1 for t in axC.texts])
-d_left = min(t.get_window_extent(rend).x0 for t in axD.get_yticklabels())
-assert d_left > c_right + 4, f"panel D labels overlap panel C ({d_left:.0f} <= {c_right:.0f} px)"
-fig.savefig("Martin/figures/figure1.png", dpi=300); fig.savefig("Martin/figures/figure1.pdf")
-print("written Martin/figures/figure1.png and .pdf")
+if SIDE:   # no two visible labels may overlap, and none may leave the figure
+    texts = [t for t in fig.findobj(matplotlib.text.Text) if t.get_visible() and t.get_text().strip()]
+    boxes = [(t.get_text().replace("\n", " "), t.get_window_extent(rend)) for t in texts]
+    clash = [(a, b) for i, (a, ea) in enumerate(boxes) for b, eb in boxes[i + 1:] if ea.overlaps(eb)]
+    assert not clash, f"overlapping labels: {clash}"
+    off = [a for a, e in boxes if e.x0 < 0 or e.y0 < 0 or e.x1 > fig.bbox.width or e.y1 > fig.bbox.height]
+    assert not off, f"labels outside the figure: {off}"
+else:      # no text of panel D may reach into panel C (labels, value labels): checked on the drawn figure
+    axC, axD = fig.axes[-2], fig.axes[-1]
+    c_right = max([axC.get_window_extent(rend).x1] + [t.get_window_extent(rend).x1 for t in axC.texts])
+    d_left = min(t.get_window_extent(rend).x0 for t in axD.get_yticklabels())
+    assert d_left > c_right + 4, f"panel D labels overlap panel C ({d_left:.0f} <= {c_right:.0f} px)"
+name = "figure1_side" if SIDE else "figure1"
+fig.savefig(f"Martin/figures/{name}.png", dpi=300); fig.savefig(f"Martin/figures/{name}.pdf")
+print(f"written Martin/figures/{name}.png and .pdf")

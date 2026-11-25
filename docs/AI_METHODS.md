@@ -3,7 +3,7 @@
 Required by the course ("The new way of working": the project repository contains an `AI_METHODS.md` documenting
 every place a model touched the results and how it was checked). Written by Diego with Claude on 22 November 2026
 from the repository itself. Task A6 was Anas's; the group moved this file to Diego's folder to save Anas's time.
-**Before hand-in, copy it to the repository's `docs/AI_METHODS.md`**, where the work plan says it lives.
+Moved here, to `docs/AI_METHODS.md` where the work plan says it lives, on 25 November 2026 (Martin, with Diego's agreement).
 
 ## How we used AI, in one paragraph
 

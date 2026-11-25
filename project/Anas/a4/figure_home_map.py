@@ -13,8 +13,11 @@ B: plain numbers: cross-party ties per member, by party and seat.
 Also prints a readout of the picture: for each member, the share of their 10 nearest neighbours in the layout who
 belong to the other party (exposed against safe). It describes the drawing; it is not a test.
 Writes a4/out/figure_home_map.png and .pdf.
+With --side (25 Nov): the same figure at 11.4 cm wide for a PNAS side-caption figure (SCfigure*): the ties legend
+under the map, B, its note and the members legend on the right. Writes a4/out/figure_home_map_side.png and .pdf.
 """
 import os
+import sys
 
 import matplotlib
 matplotlib.use("Agg")
@@ -80,9 +83,22 @@ for sd in (SEED, 12, 13):
     print(f"seed {sd}: other-party share of 10 nearest drawn neighbours: exposed {o[ex].mean():.3f}, "
           f"safe {o[~ex].mean():.3f}")
 
-fig = plt.figure(figsize=(7.6, 4.7))
-gs = fig.add_gridspec(1, 2, width_ratios=[1.6, 1], wspace=0.18)
-a = fig.add_subplot(gs[0, 0])
+# 25 Nov: the two legends of A moved under B (right column), which was empty there; the figure loses the legend strip
+# below the map. Right column, top to bottom: B, its note, the legends.
+SIDE = "--side" in sys.argv
+if SIDE:
+    fig = plt.figure(figsize=(11.4 / 2.54, 3.4))
+    gs = fig.add_gridspec(1, 2, width_ratios=[1.25, 1], wspace=0.22)
+    lcol = gs[0, 0].subgridspec(2, 1, height_ratios=[3.0, 1.2], hspace=0.02)
+    right = gs[0, 1].subgridspec(3, 1, height_ratios=[1.5, 0.7, 0.8], hspace=0.35)
+    a = fig.add_subplot(lcol[0])
+else:
+    fig = plt.figure(figsize=(7.6, 4.1))
+    gs = fig.add_gridspec(1, 2, width_ratios=[1.6, 1], wspace=0.12)
+    right = gs[0, 1].subgridspec(3, 1, height_ratios=[1.3, 0.02 if "--no-note" in sys.argv else 0.3, 1.0],
+                                 hspace=0.45)
+    a = fig.add_subplot(gs[0, 0])
+TITLE = 7 if SIDE else 8.5
 from scipy.stats import gaussian_kde
 P = np.array([pos[n] for n in nodes])
 W, H = np.ptp(P[:, 0]), np.ptp(P[:, 1])
@@ -145,11 +161,13 @@ medD = np.median(P[[party[n] == "D" for n in nodes], 0])
 for p, nm, med in [("R", "Republicans", medR), ("D", "Democrats", medD)]:
     left = med < (medR + medD) / 2                   # put each name on its own side of the map
     a.text(P[:, 0].min() if left else P[:, 0].max(), P[:, 1].max() + 0.06 * H, nm,
-           ha="left" if left else "right", fontsize=8.5, weight="bold", color=COL[p])
+           ha="left" if left else "right", fontsize=6.3 if SIDE else 8.5, weight="bold", color=COL[p])
 a.set_aspect("equal")
+if SIDE:
+    a.set_anchor("NW")                               # map in the top-left corner, so A's title starts at the left
 a.set_xlim(x_left - 0.17 * W, x_right + 0.17 * W)
 a.axis("off")
-a.set_title("A  Who names whom in press releases", loc="left", fontsize=8.5, weight="bold", color=INK)
+a.set_title("A  Who names whom in press releases", loc="left", fontsize=TITLE, weight="bold", color=INK)
 from matplotlib.lines import Line2D
 nodes_h = [Line2D([], [], ls="", marker="o", ms=5, mfc=COL[p], mec="white", label=f"{nm}, exposed seat") for p, nm in
            (("D", "Democrat"), ("R", "Republican"))] + \
@@ -157,17 +175,33 @@ nodes_h = [Line2D([], [], ls="", marker="o", ms=5, mfc=COL[p], mec="white", labe
            (("D", "Democrat"), ("R", "Republican"))]
 ties_h = [Line2D([], [], color=TIE[k][0], lw=max(1.2, 1.6 * TIE[k][1]), label=f"{TIE[k][3]} ({len(kinds[k]):,})")
           for k in ("cross11", "cross01", "cross00", "same")]
-lg1 = a.legend(handles=nodes_h, frameon=False, fontsize=6.2, loc="upper left", bbox_to_anchor=(0.0, 0.02), ncol=1,
-               handletextpad=0.2, title="Members (dot size: cross-party ties)", title_fontsize=6.2, alignment="left")
-a.add_artist(lg1)
-a.legend(handles=ties_h, frameon=False, fontsize=6.2, loc="upper left", bbox_to_anchor=(0.52, 0.02), ncol=1,
-         handletextpad=0.4, title="Ties in the backbone", title_fontsize=6.2, alignment="left")
+lgax = fig.add_subplot(right[2])
+lgax.axis("off")
+if SIDE:                                             # members legend under the map, ties legend under B's note
+    max_ = fig.add_subplot(lcol[1])
+    max_.axis("off")
+    max_.legend(handles=nodes_h, frameon=False, fontsize=6.2, loc="upper left", bbox_to_anchor=(0, 1.0), ncol=1,
+                handletextpad=0.2, title="Members (dot size: cross-party ties)", title_fontsize=6.2, alignment="left",
+                borderaxespad=0, columnspacing=0.8)
+    lgax.legend(handles=ties_h, frameon=False, fontsize=6.2, loc="upper left", bbox_to_anchor=(0, 1.0), ncol=1,
+                handletextpad=0.4, title="Ties in the backbone", title_fontsize=6.2, alignment="left", borderaxespad=0,
+                handlelength=1.4)
+else:
+    lg1 = lgax.legend(handles=nodes_h, frameon=False, fontsize=6.2, loc="upper left", bbox_to_anchor=(0, 1.0), ncol=2,
+                      handletextpad=0.2, title="Members (dot size: cross-party ties)", title_fontsize=6.2,
+                      alignment="left", borderaxespad=0, columnspacing=1.0)
+    lgax.add_artist(lg1)
+    fig.canvas.draw()                                # the ties legend starts just under the members legend
+    y_under = lg1.get_window_extent().transformed(lgax.transAxes.inverted()).y0 - 0.06
+    lgax.legend(handles=ties_h, frameon=False, fontsize=6.2, loc="upper left", bbox_to_anchor=(0, y_under), ncol=1,
+                handletextpad=0.4, title="Ties in the backbone", title_fontsize=6.2, alignment="left", borderaxespad=0,
+                handlelength=1.6)
 
 # B (22 Nov late, third version, Anas's choice "simple bars + table"): one measure, plain bars. Cross-party ties per member,
 # the result that holds in both parties, after Holm and at every alpha. The other measures are in the table
 # (table_home_measures.py). Values and Holm p straight from the result file.
 cen = pd.read_csv(os.path.join(OUT, "home_measures_centrality.csv")).set_index(["measure", "party"])
-b = fig.add_subplot(gs[0, 1].subgridspec(3, 1, height_ratios=[0.55, 1, 0.75])[1])
+b = fig.add_subplot(right[0])
 grp = [("D", True, "Exposed Democrats"), ("D", False, "Safe Democrats"),
        ("R", True, "Exposed Republicans"), ("R", False, "Safe Republicans")]
 ns = {(p, e): sum(1 for n in t.index if party[n] == p and exposed[n] == e) for p, e, _ in grp}
@@ -175,29 +209,38 @@ ypos = [3.9, 2.6, 1.3, 0.0]                           # a gap between the two pa
 for yi, (p, e, lab) in zip(ypos, grp):
     v = cen.at[("cross-party degree (full map)", p), "exposed_mean" if e else "safe_mean"]
     b.barh(yi, v, height=0.6, color=COL[p] if e else "white", edgecolor=COL[p], linewidth=1.2)
-    b.text(v + 1.2, yi, f"{v:.0f}", va="center", fontsize=8, color=INK, weight="bold" if e else "normal")
-    b.text(0, yi + 0.42, f"{lab} ({ns[(p, e)]})", va="bottom", ha="left", fontsize=6.6, color=COL[p])
+    b.text(v + 1.2, yi, f"{v:.0f}", va="center", fontsize=7 if SIDE else 8, color=INK, weight="bold" if e else "normal")
+    b.text(0, yi + 0.42, f"{lab} ({ns[(p, e)]})", va="bottom", ha="left", fontsize=6.2 if SIDE else 6.6, color=COL[p])
 for p, (y_e, y_s) in (("D", (3.9, 2.6)), ("R", (1.3, 0.0))):   # one bracket per party: exposed against safe
     hp = cen.at[("cross-party degree (full map)", p), "p_holm"]
     xb = max(cen.at[("cross-party degree (full map)", p), k] for k in ("exposed_mean", "safe_mean")) + 9
-    b.plot([xb - 1.2, xb, xb, xb - 1.2], [y_e, y_e, y_s, y_s], color=INK2, lw=0.7)
+    b.plot([xb - 1.2, xb, xb, xb - 1.2], [y_e, y_e, y_s, y_s], color=INK, lw=0.8)
     b.text(xb + 1.2, (y_e + y_s) / 2, f"×{cen.at[('cross-party degree (full map)', p), 'ratio']:.1f}\n"
-           + ("p < 0.001" if hp < 0.001 else f"p {hp:.3f}"), va="center", fontsize=6.4, color=INK2, linespacing=1.3)
+           + ("p < 0.001" if hp < 0.001 else f"p {hp:.3f}"), va="center", fontsize=6 if SIDE else 6.4, color=INK, linespacing=1.3)
 b.set_yticks([])
 b.set_xlim(0, 80)
 b.set_ylim(-0.45, 4.55)
 b.set_xticks([0, 20, 40, 60])
-b.tick_params(axis="x", labelsize=6.5, length=2)
+b.tick_params(axis="x", labelsize=6.5, length=2, width=0.8, colors=INK)   # 25 Nov: B's axis in near-black, 0.8 pt
 for s_ in ("top", "right", "left"):
     b.spines[s_].set_visible(False)
 b.spines["bottom"].set_bounds(0, 60)
-b.set_xlabel("Members of the other party each one\nnames or is named by (mean)", fontsize=6.8)
-b.set_title("B  Cross-party ties per member", loc="left", fontsize=8.5, weight="bold", color=INK, pad=8)
-fig.text(0.985, 0.25, "×: exposed members' mean as a multiple of safe members'. p: shuffling exposure within party\n"
-         "(10,000 shuffles), Holm-corrected across the 10 network tests. Other measures: table.",
-         fontsize=5.6, color=INK2, ha="right", va="top")
+b.spines["bottom"].set(color=INK, linewidth=0.8)
+b.set_xlabel("Members of the other party each one\nnames or is named by (mean)", fontsize=6.3 if SIDE else 6.8)
+b.set_title("B  Cross-party ties per member", loc="left", fontsize=TITLE, weight="bold", color=INK, pad=8)
+fig.canvas.draw()                                    # the note starts just under B's axis label (right[1] is its room)
+y_note = b.xaxis.label.get_window_extent().transformed(fig.transFigure.inverted()).y0 - 0.015
+NOTE = ("×: exposed members' mean as a multiple of\nsafe members'. p: shuffling exposure within\nparty "
+        "(10,000 shuffles), Holm-corrected across\nthe 10 network tests. Other measures: table." if SIDE else
+        "×: exposed members' mean as a multiple of safe members'.\np: shuffling exposure "
+        "within party (10,000 shuffles), Holm-corrected\nacross the 10 network tests. Other measures: table.")
+NO_NOTE = "--no-note" in sys.argv   # 25 Nov, for the paper: the caption says what the note says, and it printed < 6 pt
+if not NO_NOTE:
+    fig.text(b.get_position().x0, y_note, NOTE, fontsize=5.6, color=INK, ha="left", va="top")
 
+NAME = ("figure_home_map_side" if SIDE else "figure_home_map") + ("_paper" if NO_NOTE else "")
 for ext in ("png", "pdf"):
-    fig.savefig(os.path.join(OUT, f"figure_home_map.{ext}"), dpi=300, bbox_inches="tight", facecolor="white")
+    fig.savefig(os.path.join(OUT, f"{NAME}.{ext}"), dpi=300, bbox_inches="tight", facecolor="white",
+                bbox_extra_artists=[] if SIDE else [lg1])   # a legend added with add_artist is not in the tight box
 ro.to_csv(os.path.join(OUT, "home_map_layout_readout.csv"), index=False)
-print("->", os.path.join(OUT, "figure_home_map.png"))
+print("->", os.path.join(OUT, f"{NAME}.png"))

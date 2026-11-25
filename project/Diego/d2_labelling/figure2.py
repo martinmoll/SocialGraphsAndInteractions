@@ -2,7 +2,10 @@
 
 Run from project/:  python Diego/d2_labelling/figure2.py
 Writes report/figures/figure2.pdf and .png (PNAS single column, 8.7 cm wide).
+With --short (25 Nov, to save space in the paper): 4.4 cm tall instead of 5.6; writes figure2_short.pdf and .png,
+so the slides keep figure2.pdf.
 """
+import sys
 from math import sqrt
 from pathlib import Path
 import matplotlib
@@ -24,7 +27,8 @@ def wilson(k, n, z=1.96):
 
 
 plt.rcParams.update({"font.size": 7, "font.family": "sans-serif"})
-fig, ax = plt.subplots(figsize=(8.7 / 2.54, 5.6 / 2.54))
+SHORT = "--short" in sys.argv
+fig, ax = plt.subplots(figsize=(8.7 / 2.54, (4.4 if SHORT else 5.6) / 2.54))
 y = np.arange(len(CODES))
 for k, (cross, colour, label) in enumerate([(True, "#7D3C98", "Cross-party (n = 75)"), (False, "#999999", "Same-party (n = 25)")]):
     g = L[L.cross == cross]
@@ -38,5 +42,6 @@ ax.spines[["top", "right"]].set_visible(False)
 ax.legend(frameon=False, loc="lower right")
 fig.tight_layout()
 OUT.mkdir(parents=True, exist_ok=True)
-fig.savefig(OUT / "figure2.pdf"); fig.savefig(OUT / "figure2.png", dpi=300)
-print("wrote", OUT / "figure2.pdf")
+NAME = "figure2_short" if SHORT else "figure2"
+fig.savefig(OUT / f"{NAME}.pdf"); fig.savefig(OUT / f"{NAME}.png", dpi=300)
+print("wrote", OUT / f"{NAME}.pdf")

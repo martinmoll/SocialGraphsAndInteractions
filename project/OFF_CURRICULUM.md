@@ -108,7 +108,7 @@ citation Voteview asks for on its data page (read 25 Nov): Lewis, Poole, Rosenth
 |---|---|---|
 | Bootstrap interval over releases | Press recall (`Anas/a3/README.md`) | Names come in lists, so pairs in one release are not independent; resampling whole releases gives the honest (wider) interval. If it ever goes into the paper: Efron, B. (1979). Bootstrap methods: another look at the jackknife. *Ann. Statist.* 7(1), 1–26. doi:10.1214/aos/1176344552 |
 | Bonferroni | `Anas/a4/NETWORK_METHODS.md`, only to explain Holm | — |
-| Blind AI readers and AI coders | Diego's D2, Anas's A3, T and A5 checks | An AI method, not a statistical one: every use and its check is in `Diego/AI_METHODS.md` |
+| Blind AI readers and AI coders | Diego's D2, Anas's A3, T and A5 checks | An AI method, not a statistical one: every use and its check is in `docs/AI_METHODS.md` |
 
 ## Course methods used as taught (for reference)
 
