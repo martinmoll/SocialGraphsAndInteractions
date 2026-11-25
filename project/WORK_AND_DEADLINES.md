@@ -167,6 +167,11 @@ From the earlier plans in `archive/`, and since the scope freeze (G17). Listed s
 
 Newest first. One line per change.
 
+- **25 Nov 2026.** Martin (with Claude): `Martin/` holds only Martin's own parts. No whole-paper draft is on `main`
+  in `Martin/`; Martin's full draft (`Martin/paper_v1/`, 24 Nov) exists only on the unmerged branch
+  `claude/nice-bardeen-snc57e` and is not to be merged. `Martin/README.md` rewritten so a teammate's Claude can use
+  and explain each part (M1–M7, Methods, Figure 1); the final texts stay in `results_part1.md` and
+  `methods_networks.md` (checked: `report/md2tex.py` output matches the paper's sections).
 - **23 Nov 2026.** Martin (with Claude), in `report/`: citations placed in the text of the Methods (Martin's: Fowler,
   Newman, Maslov–Sneppen, Blondel, Danon; Diego's paragraph: Cohen, Wilson) instead of a bare list at the end;
   repository link added; S2 result written into `Martin/methods_networks.md`. Discussion: the home-map sentence now
