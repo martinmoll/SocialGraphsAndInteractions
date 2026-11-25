@@ -7,7 +7,7 @@ be asked to defend any choice, so this file is what we read before then.
 who does what, add an entry here the same day. A decision without a reason is not finished: write
 **Reason: not recorded** and fill it in. Status changes and dates still go in
 [`WORK_AND_DEADLINES.md`](WORK_AND_DEADLINES.md). A definition changed after the freeze on Sun 22 Nov also
-goes in `AI_METHODS.md` (kept in `Diego/`, copied to `docs/` before hand-in).
+goes in `AI_METHODS.md` (`docs/AI_METHODS.md`; kept in `Diego/` until 25 Nov).
 
 Status words: **Agreed**, **Open** (say when it is decided), **Replaced** (say by which entry).
 
@@ -300,6 +300,34 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
 - **Consequences:** part 3 stays at full length until the group decides the split; `Anas/README.md` lists what
   is in the paper and what is documented only.
 - **Source:** group, 25 Nov; `Anas/a4/README.md`, `Anas/a5/README.md`.
+
+### G22. The paper is cut to six pages: what was cut and why
+- **Status:** Decided Wed 25 Nov by Martin (with Claude), from the group's printed comments on the full draft
+  (`Martin/final_report/v2_comments_SGAI_PAPER.pdf`). For the group to read before hand-in.
+- **Decision:** the full draft (`Martin/final_report/two_maps_full_draft_overleaf/main.tex`, 7 pages) is cut to
+  6 pages. No number changed and no analysis was added (G21). Cut from the paper, still documented in the
+  repository:
+  1. The home map's community paragraph (NMI 0.20, the mixed New York and Michigan community, exposed members in
+     more mixed communities). It was new, not in `report/sections/`, and its NMI is not comparable with the
+     other two maps.
+  2. The borderline betweenness and closeness p-values for exposed Republicans (Holm 0.059 and 0.055), and the
+     closing guess about the majority's agenda control (G21.3 already said "not tested").
+  3. The hint of a president's-party effect at the four-point cut-off (3.6 points, p = 0.051).
+  4. The share of cross-party bills members cite as original cosponsors (8.6% against 2.9%), and the senator
+     found by the AI readers in the A5 check.
+  5. The Discussion paragraph on how the three press-release measures differ by party, cut to one sentence.
+  6. In Methods, step-by-step detail: each validation is kept as one sentence with its result.
+- **Changed, not cut:** literature stated as other authors' findings; "procedure" explained where it is named;
+  the ideology check rewritten in three steps; limits framed as what we were limited by; roll-call votes and
+  exposed seats defined in the Introduction; contributions rewritten from the owners in `WORK_AND_DEADLINES.md`;
+  the AI-use paragraph expanded; `AI_METHODS.md` moved to `docs/`.
+- **Reason:** the course allows six pages including references and figures; the printed comments asked for a
+  shorter Methods, a fuller AI-use paragraph and plainer wording in four places. Items 1 to 4 are the parts the
+  paper's three claims do not rest on, each borderline, untested or not comparable.
+- **Alternative and what it would have changed:** cut whole subsections instead (A5, or the home map). Six pages
+  with less rewriting, but it would reverse G21.
+- **Consequences:** about 60 lines are free on page 6. They can take back any item above if the group wants it.
+- **Source:** printed comments, 25 Nov; `Martin/final_report/TEXT_TAKEAWAYS.md`.
 
 ### G9. Yields stay in the labelling sample
 - **Status:** Agreed Wed 18 Nov.

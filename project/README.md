@@ -14,8 +14,7 @@ slides, reflection), presentation Wed 2 Dec. This file describes the project as 
 - **Every decision, its reason and the alternative:** [`DECISIONS.md`](DECISIONS.md)
 - **Every term we use, in plain words** (final versions of all three parts, 25 Nov): [`DICTIONARY.md`](DICTIONARY.md)
 - **Methods from outside the course**, with references and why each fits: [`OFF_CURRICULUM.md`](OFF_CURRICULUM.md)
-- **Where a model touched the results, and how it was checked:** [`Diego/AI_METHODS.md`](Diego/AI_METHODS.md)
-  (copied to `docs/AI_METHODS.md` before hand-in)
+- **Where a model touched the results, and how it was checked:** [`docs/AI_METHODS.md`](../docs/AI_METHODS.md)
 - **How we got here** (earlier questions, ratings, the review, pilots): [`archive/`](archive/README.md)
 
 ---
@@ -130,7 +129,7 @@ project/
   OFF_CURRICULUM.md          methods from outside the course, with references
   Martin/                    part 1: matcher, floor mentions, the two maps, nulls, communities, Figure 1, M6
   Diego/                     part 2: precision, labelling, classifier, literature, Introduction and Discussion
-                             drafts, speaker check, AI_METHODS.md, reflection draft
+                             drafts, speaker check, reflection draft
   Anas/                      part 3: press releases, district lean, names and bills, the close-up, home map, A5
   report/                    the paper (PNAS, for Overleaf), figures, references, slides
   scripts/                   01–04 download and parse the data; roster.py is the member list
@@ -151,7 +150,7 @@ pandas 3.0.3 (Anas: Anaconda, `python -I`).
   them is logged in `WORK_AND_DEADLINES.md`.
 - Definitions were fixed before results were looked at; every later change is a decision in `DECISIONS.md`.
 - Every claim has a check: a null, a second method or a hand-labelled sample.
-- Model output is not a measurement until a person has checked a sample of it (`Diego/AI_METHODS.md`).
+- Model output is not a measurement until a person has checked a sample of it (`docs/AI_METHODS.md`).
 - Numbers in the paper come from result files, never from memory.
 
 ## 10. Literature

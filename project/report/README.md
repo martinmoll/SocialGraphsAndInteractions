@@ -13,7 +13,7 @@ Checked against the course pages (front page `#project`, week 8, "The new way of
 | 1. **Paper**, PDF | PNAS template, LaTeX only (Overleaf). At most **6 pages including figures and references**. Sections: Abstract, Significance Statement, Introduction, Results, Discussion, Methods, References, Author contributions. Abstract 150 words. Captions readable on their own. Author contributions specific ("contributed equally" is not accepted). Methods states for the data what, from where, collected when, how many. Every number a model produced is checked on examples we read ourselves, with agreement reported | `main.tex`, `sections/`, `figures/`, `references.bib` |
 | 2. **Slides**, PDF | Three pages, one per slide, no animations. Handed in with the paper; the teachers merge all groups' slides, so they cannot change after 27 Nov | `slides/slides.tex` (draft) |
 | 3. **Reflection**, PDF | Ungraded. Half a page (week 8: one page at most). Question: did the "From an AI-drafted report" boxes change how you read your own draft, and where did you use them, or not? | `../Diego/reflection_draft.md` (draft, Diego rewrites) |
-| In the repository, not uploaded | `AI_METHODS.md`: every place a model touched the results and how it was checked | `../Diego/AI_METHODS.md`; copy to `docs/AI_METHODS.md` before hand-in |
+| In the repository, not uploaded | `AI_METHODS.md`: every place a model touched the results and how it was checked | `../../docs/AI_METHODS.md` |
 
 Presentation Wed 2 Dec: three slides, three minutes, then questions to any of us. Everyone must be able to explain
 everything in the paper.

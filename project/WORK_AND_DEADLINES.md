@@ -41,7 +41,7 @@ Status words: **Not started**, **In progress**, **Done**, **Blocked** (say by wh
    slides cannot be changed after the deadline.
 3. **Reflection:** half a page, ungraded.
 
-`docs/AI_METHODS.md` must also be in the repository: copy `Diego/AI_METHODS.md` there before hand-in.
+`docs/AI_METHODS.md` must also be in the repository: done, moved there from `Diego/` on 25 Nov.
 
 ---
 
@@ -175,6 +175,18 @@ From the earlier plans in `archive/`, and since the scope freeze (G17). Listed s
 
 Newest first. One line per change.
 
+- **25 Nov 2026.** Martin (with Claude): the paper cut to 6 pages from the printed comments (DECISIONS G22), in
+  `Martin/final_report/two_maps_full_draft_overleaf/` with `main.pdf` next to `main.tex` and an Overleaf zip beside
+  the folder. `AI_METHODS.md` moved to `docs/`. Figure 4 for the paper without the note under panel B
+  (`figure_home_map.py --no-note`). No number changed.
+- **25 Nov 2026.** Martin (with Claude), layout pass on the full draft (`Martin/final_report/two_maps_full_draft_overleaf/`),
+  no text changed: tighter float spacing; Figure 1 (`m7_figure1.py`) 0.7 in shorter; Figure 4 (`Anas/a4/figure_home_map.py`)
+  legends moved under panel B; a side-by-side Figure 3 (`figure3_column.py --wide`, switch in `main.tex`); Figure 4 placed
+  on page 5. Then: Figure 1 a side-caption figure (SCfigure*, 11.4 cm, `m7_figure1.py --side` writes
+  `figure1_side.pdf`; the full-width file stays for the slides); Figure 4 kept full width so the purple ties show;
+  Figure 3 one column with panel B 0.7 in shorter and near-black axes; Figure 4 panel B axes near-black; Figure 2
+  4.4 cm tall (`figure2.py --short`). Still 7 pages; page 7 has 52 free lines in its right column. Text take-aways from Sekara et al. (PNAS 2016) saved in `Martin/final_report/TEXT_TAKEAWAYS.md`
+  for the pruning pass, which waits for the group's printed feedback.
 - **25 Nov 2026.** Anas (with Claude): G17 confirmed by Anas and Diego; new G21 (home map and A5 kept, analysis
   closed, committee test not run); G6's open dependency settled. This file brought to the final state (deadlines,
   task statuses, owners note, sections 3 to 5). `DICTIONARY.md` rewritten in plain language with an A to Z index.

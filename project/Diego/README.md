@@ -25,7 +25,7 @@ part), and Diego's checks say what that number can and cannot carry.
 | **D4** Introduction and Discussion | How the paper opens and what the result means | Drafted by Diego with Claude, revised with Martin (G3) | [`d4_introduction_discussion/`](d4_introduction_discussion/) |
 | **D5** Text classifier | Can a model carry the 100 hand labels to all 9,909 mentions? | No: 73% right against 72% for always guessing "agreeing" | [`d5_classifier/`](d5_classifier/README.md) |
 | **S2** Speaker check | Is each speech credited to the member who gave it? | 60 of 60 right | [`s2_speaker_check/`](s2_speaker_check/) |
-| **AI methods** | Where did a model touch a result, and how was it checked? | 14 places, each with its check | [`AI_METHODS.md`](AI_METHODS.md) |
+| **AI methods** | Where did a model touch a result, and how was it checked? | 14 places, each with its check | [`AI_METHODS.md`](../../docs/AI_METHODS.md) |
 | **Reflection** | Did the course's "AI-drafted report" boxes change how we read our draft? | Draft for Diego to rewrite in his own words | [`reflection_draft.md`](reflection_draft.md) |
 
 ## Each part in plain words, with what to say if asked
@@ -72,9 +72,9 @@ and 100 labels with 5 disagreements are too few for a word-count model.
 the assigned member with the name the Congressional Record prints before the speech. All 60 were right (95%
 interval 94% to 100%). Claude extracted the printed names to save time; Diego compared them and wrote every y/n.
 
-**AI methods.** [`AI_METHODS.md`](AI_METHODS.md) is required by the course to be in the repository. It lists every
+**AI methods.** [`AI_METHODS.md`](../../docs/AI_METHODS.md) is required by the course to be in the repository. It lists every
 place a model touched a result in the project (all three members), and how it was checked. It moved here from
-Anas's task list on 22 November. Before hand-in it is copied to `docs/AI_METHODS.md`.
+Anas's task list on 22 November. Moved to `docs/AI_METHODS.md` on 25 November.
 
 ## Files that are not obvious
 

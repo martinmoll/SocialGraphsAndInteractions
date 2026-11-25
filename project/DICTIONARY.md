@@ -312,7 +312,7 @@ go together, which is why we ran check I.
 | Shared files | Ours | `mentions.parquet`, `named_ties.csv` and the press release files. Their columns are fixed. |
 | Own folder | Ours | `Anas/`, `Martin/` and `Diego/`. Each person writes only in their own folder. The files at the project level (this one, `DECISIONS.md`, `WORK_AND_DEADLINES.md`, `OFF_CURRICULUM.md`) and `report/` are shared. |
 | robots.txt | General | A file on each website that says what automated programs may download. On the members' sites it allows press release pages, and the collector follows it. |
-| `AI_METHODS.md` | Course | The file the course requires, listing every place a model touched a result and how we checked it. Diego keeps it (`Diego/AI_METHODS.md`), and it is copied to `docs/AI_METHODS.md` before hand-in. |
+| `AI_METHODS.md` | Course | The file the course requires, listing every place a model touched a result and how we checked it. Diego keeps it; it lives in `docs/AI_METHODS.md` before hand-in. |
 | `OFF_CURRICULUM.md` | Ours | Every method we use that the course does not teach, with its reference and why it fits. |
 
 ## A to Z index
