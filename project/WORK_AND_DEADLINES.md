@@ -167,6 +167,10 @@ From the earlier plans in `archive/`, and since the scope freeze (G17). Listed s
 
 Newest first. One line per change.
 
+- **25 Nov 2026.** Anas (with Claude): the glossary and the list of methods from outside the course moved from
+  `Anas/` to the project folder (`DICTIONARY.md`, `OFF_CURRICULUM.md`) and updated to the final versions of all three
+  parts; linked from `README.md`. Open in them: `serrano2009` not yet cited in part 3, `landis1977` unused, no
+  Voteview reference. Martin confirmed G13 (swing seat) on 23 Nov; Diego's answer is still needed before pasting it.
 - **25 Nov 2026.** Anas (with Claude): `Anas/` holds only the final state of part 3. The home map and A5 are
   accepted into the paper and the analysis is closed (the committee test of the network twist is not run).
   `Anas/README.md` rewritten so a teammate's Claude can use and explain each part (text in the paper, headline

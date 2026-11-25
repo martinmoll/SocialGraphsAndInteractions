@@ -93,7 +93,7 @@ None of it is causal: "consistent with", never "because".
 | **Check I** | Is "exposed" just "moderate"? | Cannot be separated | `a4/ideology_check.py` |
 | **Home map** | Who names whom: where do exposed members sit in the network? | Hubs in both parties; bridge by volume (R) and by position (D) | `a4/home_network.py`, `home_measures.py`, `alpha_*.py`, `figure_home_map.py`, [`a4/NETWORK_METHODS.md`](a4/NETWORK_METHODS.md) |
 | **A5** "Bipartisan" | Does a release that says "bipartisan" name a real partner? | Two times in three; a seat difference among Democrats only | [`a5/`](a5/README.md) |
-| **A6** Methods | Enough to redo part 3 | About 490 words with Martin's M6 sentence | [`methods_press.tex`](methods_press.tex); outside-course methods argued in [`OFF_CURRICULUM.md`](OFF_CURRICULUM.md) |
+| **A6** Methods | Enough to redo part 3 | About 490 words with Martin's M6 sentence | [`methods_press.tex`](methods_press.tex); outside-course methods argued in [`../OFF_CURRICULUM.md`](../OFF_CURRICULUM.md) |
 | **Rerun** (22 Nov) | Does anything change on Martin's G18 matcher? | Every reading holds; R closeness no longer passes Holm | [`RERUN_22NOV.md`](RERUN_22NOV.md) |
 
 ## Each part in plain words, with what to say if asked
@@ -161,7 +161,7 @@ ties in both parties, and exposed Republicans more backbone ties. *What is borde
 closeness (Holm 0.059, 0.055) and the Democrats' brokering given their ties (0.08 at α 0.01, below 0.05 at every α
 from 0.02 to 0.2). The text reports these as the twist, with their Holm values. Ties between two exposed members
 are compared with a rewiring that keeps every member's number of cross-party ties: 10.7% against 10.2%, a real but
-small preference. *If asked why Holm, which the course does not teach:* see `OFF_CURRICULUM.md` (without it all five
+small preference. *If asked why Holm, which the course does not teach:* see `../OFF_CURRICULUM.md` (without it all five
 raw p < 0.05 would have been reported).
 
 **A5, "bipartisan".** A release *says* "bipartisan" when the word appears outside sentences the member repeats in
@@ -232,7 +232,7 @@ All of this is documented and checked; none of it is in `results_part3.tex` now.
 | Second coder for Diego's D2 rows 76 to 100 | Part 2 (S1) | `../Diego/d2_labelling/sheets/` |
 | Release-to-bill table | Martin's M6 close-up null (reads `a3/out/release_bills.csv` and `press_releases/`) | [`a3/`](a3/README.md) |
 | Swing-seat definition and window for G13 | DECISIONS | [`G13_UPDATE.md`](G13_UPDATE.md) |
-| The project's glossary | Everyone | [`dictionary.md`](dictionary.md) |
+| The project's glossary (moved to the project folder 25 Nov) | Everyone | [`../DICTIONARY.md`](../DICTIONARY.md) |
 
 ## Files that are not obvious
 

@@ -9,6 +9,8 @@ file, which still describes the design as chosen on 13 Nov (the home map is now 
 
 - **What to do next and who does it:** [`WORK_AND_DEADLINES.md`](WORK_AND_DEADLINES.md)
 - **How we got here** (earlier questions, ratings, the review, pilots): [`archive/`](archive/README.md)
+- **Every term we use, in plain words** (final versions of all three parts, 25 Nov): [`DICTIONARY.md`](DICTIONARY.md)
+- **Methods from outside the course**, with references and why each fits: [`OFF_CURRICULUM.md`](OFF_CURRICULUM.md)
 
 ---
 
