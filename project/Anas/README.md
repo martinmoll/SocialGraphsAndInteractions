@@ -7,7 +7,7 @@ that come from Anas, so that anyone, or any teammate's Claude, can use them in t
 them at the presentation.
 
 Each member writes only in their own folder (`Diego/`, `Martin/`, `Anas/`). Every decision and its reason is in
-[`../DECISIONS.md`](../DECISIONS.md) (Anas's: G13; G14, G16 and G18 came from Anas's proposals); who did what and when
+[`../DECISIONS.md`](../DECISIONS.md) (Anas's: G13, the swing seat and window, agreed by all three; G14, G16 and G18 came from Anas's proposals); who did what and when
 is in [`../WORK_AND_DEADLINES.md`](../WORK_AND_DEADLINES.md).
 
 **Cleaned up on 25 Nov 2026**, after the group accepted the home map and A5 into the paper and closed the analysis
@@ -231,7 +231,7 @@ All of this is documented and checked; none of it is in `results_part3.tex` now.
 | State null: shuffles ties within states | Part 1: Martin's M3b, G16 (state explains almost none of the division) | [`state_null/`](state_null/README.md) |
 | Second coder for Diego's D2 rows 76 to 100 | Part 2 (S1) | `../Diego/d2_labelling/sheets/` |
 | Release-to-bill table | Martin's M6 close-up null (reads `a3/out/release_bills.csv` and `press_releases/`) | [`a3/`](a3/README.md) |
-| Swing-seat definition and window for G13 | DECISIONS | [`G13_UPDATE.md`](G13_UPDATE.md) |
+| Swing-seat definition and window | `DECISIONS.md` G13 (agreed by Martin and Diego; entered 25 Nov) | [`../DECISIONS.md`](../DECISIONS.md) |
 | The project's glossary (moved to the project folder 25 Nov) | Everyone | [`../DICTIONARY.md`](../DICTIONARY.md) |
 
 ## Files that are not obvious
@@ -258,8 +258,6 @@ All of this is documented and checked; none of it is in `results_part3.tex` now.
 
 ## Still open (not analysis)
 
-- **G13 in `DECISIONS.md`** is still the draft. [`G13_UPDATE.md`](G13_UPDATE.md) has the text to paste once Diego
-  agrees (Martin agreed on 23 Nov).
 - **`\cite{serrano2009}`** for the disparity filter is not yet placed in part 3 (noted in `report/README.md` and
   `report/sections/methods.tex`).
 - **Voteview:** `methods_press.tex` names it for DW-NOMINATE; a checked reference is still to be added if the group
@@ -316,3 +314,5 @@ Outdated working files, removed so the folder shows only the final state. They a
 | `a4/figure_network.py`, `a4/figure_network_groups.py` and their figures | Earlier drafts of the home-map figure, replaced by `figure_home_map.py` |
 | `state_seats/` | Seats per state (19 Nov), descriptive; no result or number in the paper comes from it |
 | `.gitkeep` | The folder is not empty |
+| `G13_UPDATE.md` | Entered into `DECISIONS.md` G13 on 25 Nov, after Martin and Diego agreed |
+| `dictionary.md`, `OFF_CURRICULUM.md` | Moved to the project folder (`../DICTIONARY.md`, `../OFF_CURRICULUM.md`) and updated for all three parts |

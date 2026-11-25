@@ -167,6 +167,11 @@ From the earlier plans in `archive/`, and since the scope freeze (G17). Listed s
 
 Newest first. One line per change.
 
+- **25 Nov 2026.** Anas (with Claude): G13 entered in `DECISIONS.md` (swing seat and window, agreed by Martin on
+  23 Nov and Diego; draft scaffolding removed; `Anas/G13_UPDATE.md` removed). `README.md` rewritten to the project's
+  final state (question and answer, the three networks, the parts, limits, data, layout). `DICTIONARY.md`: a kind for
+  every term (general, politics, course, statistics, data, ours) and a new section 0 on words we use more narrowly
+  than usual (moderate, exposed, name, partner, divided, bipartisan, ...). No number changed.
 - **25 Nov 2026.** Anas (with Claude): the glossary and the list of methods from outside the course moved from
   `Anas/` to the project folder (`DICTIONARY.md`, `OFF_CURRICULUM.md`) and updated to the final versions of all three
   parts; linked from `README.md`. Open in them: `serrano2009` not yet cited in part 3, `landis1977` unused, no

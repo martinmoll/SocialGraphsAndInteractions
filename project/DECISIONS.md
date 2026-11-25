@@ -315,6 +315,8 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
 - **Source:** meeting plan, 18 Nov.
 
 ### ~~G4. Press releases: Republicans only, swing seats against safe seats~~ Overwritten by G13
+- **Status:** Replaced by G13 (Wed 18 Nov): Democrats are now included, with a smaller role.
+
 <del>
 - **Status:** Agreed in the meeting plan, Wed 18 Nov.
 - **Decision:** collect press releases from Republicans only, and compare members in swing seats with
@@ -329,24 +331,11 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
 - **Source:** meeting plan, 18 Nov.
 </del>
 
-### Draft for G13
-
-Two edits:
-
-1. In **G4**, replace the Status line with the one under "Edit 1".
-2. Insert **G13** directly after G4, before G5.
-
----
-
-#### Edit 1: the Status line of G4
-- **Status:** Replaced by G13 (Wed 18 Nov): Democrats are now included, with a smaller role.
-
----
-
-#### Edit 2: new entry G13, after G4
-
-##### G13. Press releases: both parties, the Democrats as a small second side of the close-up
-- **Status:** Agreed Wed 18 Nov, by the group (after the meeting). Replaces G4. Three details are open (below).
+### G13. Press releases: both parties, the Democrats as a small second side of the close-up
+- **Status:** Agreed Wed 18 Nov, by the group (after the meeting). Replaces G4. Its three open details were settled
+  20 to 25 Nov ("Settled", below): the swing-seat definition and the window proposed by Anas on 21 Nov, agreed by
+  Martin on 23 Nov and by Diego (reported by Anas on 25 Nov). Entered here by Anas (with Claude) on 25 Nov from
+  Anas's 21 Nov draft (`Anas/G13_UPDATE.md`, now removed; in the git history).
 - **Decision:** the press-release close-up covers Democrats as well as Republicans. The Republicans stay the
   main case. The Democrats get one role: a comparison that shows whether naming the other side at home goes
   with an exposed seat, or with belonging to the president's party in a midterm year. They do not get their
@@ -384,15 +373,30 @@ Two edits:
     compared over one common date window.
   - 31 of the counted exposed members (21 D, 10 R) are in redrawn states, where the 2026 lean describes a
     district they did not serve in.
-- **Open, to decide by Fri 20 Nov:**
-  1. **The first 20 members.** Proposed: 12 Republicans and 8 Democrats, each spread over exposed and safe
-     seats.
-  2. **The swing-seat definition** G4 left open, now needed for both parties. It must work in redrawn states
-     (old district, not 2026 lean).
-  3. **The date window** both parties are compared over.
-- **Consequences for other files (not yet changed):** the work plan's A2 and A4 still say Republicans only;
-  its open question 3 is answered by this entry; "mutual showing" and "Democrats in Trump districts" in its
-  section 5 are partly back. README section 2, part 3, still reads "which Democrats a Republican names".
+- **Settled (originally open, to decide by Fri 20 Nov):**
+  1. **The first 20 members** were the collector's go/no-go test (G5), passed on 20 Nov; then every countable member
+     was collected: 55,023 releases from 412 members (`Anas/press_releases/`).
+  2. **Swing seat ("exposed"):** `exposed_2025` in `Anas/district_lean/member_lean.csv`. A member is exposed when the
+     district they **served** leans toward their own party by 5 points or less (Cook PVI 2025, read from the Wikipedia
+     revision of 25 May 2025): Republican lean ≤ R+5, Democrat lean ≤ D+5, which includes seats leaning to the other
+     party. 38 R and 59 D among all members with a lean; 37 R and 54 D among the 406 members of part 3 (at least 10
+     releases). *Why the district served:* the releases were written for its voters; in the nine redrawn states the
+     2026 lean describes a different area.
+  3. **Date window:** 3 Jan 2025 to 20 Nov 2026, the press-release snapshot, for both parties.
+- **What the choice does** (part 3, 22 Nov rerun; `Anas/a4/README.md`):
+  - Exposed members name the other party more than safe members in **both** parties (Republicans 13.3% against
+    9.2%, Democrats 11.6% against 9.0%; p 0.004 each); the interaction is +1.5 points (p 0.36). Read by the rule
+    fixed in advance as a seat effect, not a president's-party effect, and qualified by check I (23 Nov): exposed
+    members are mostly their party's moderates, and seat and ideology cannot be separated.
+  - The gap sits in the closest seats, above all the 18 crossover seats (Republicans 19.2%, Democrats 14.2%), and is
+    nearly flat beyond them. So the cut-off moves its size, not its direction.
+- **Alternative and what it would change (swing seat):** cut-off 4 points makes the Republican gap larger (+6.4) and
+  gives the only near-significant interaction (+3.6, p 0.051); cut-off 6 shrinks both gaps a little; the 2024
+  presidential margin gives the same reading. The 2026 district instead of the one served would relabel 12 members;
+  without them and the 9 with no 2026 contest, the result holds. All are robustness rows in Figure 3B.
+- **Consequences for other files:** the work plan's A2 and A4 rows were written for Republicans only and are kept
+  as the record; README (updated 25 Nov) describes part 3 with both parties. Mutual pairs were checked in A3.7
+  (documented in `Anas/README.md`, not in the paper).
 - **Source:** group discussion, Wed 18 Nov, after the meeting; numbers from `Anas/press_scope/README.md`.
 
 

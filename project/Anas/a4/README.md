@@ -16,7 +16,7 @@ python a4/analysis.py --press press_releases --repo <repo>   # about 10 s; write
 python -I a4/figure3_column.py                               # Figure 3 for the paper: one column, out/figure3.pdf
 ```
 
-**Settings** (Anas's G13 proposal, agreed by Martin 23 Nov; text for `DECISIONS.md` in `../G13_UPDATE.md`):
+**Settings** (`DECISIONS.md` G13: Anas's proposal, agreed by Martin and Diego):
 - **Swing seat ("exposed"):** `exposed_2025`. A member is exposed when the district they served leans toward their
   own party by 5 points or less (Cook PVI 2025), which includes seats leaning to the other party. **Republican:
   lean ≤ R+5. Democrat: lean ≤ D+5.**
@@ -333,8 +333,7 @@ three figures now.
 - **The matcher.** Press recall is 0.97 and precision 0.96 (A3.4), and the result holds with Martin's matcher alone.
 - **AI checks.** The recall and bill checks used blind AI readers, with Anas checking every disagreement
   (`../a3/README.md`).
-- **The window and the swing-seat definition** are Anas's G13 proposal (agreed by Martin 23 Nov; to paste into
-  `DECISIONS.md` from `../G13_UPDATE.md`). If they ever changed, rerun `analysis.py` and the scripts after it.
+- **The window and the swing-seat definition** are G13 in `DECISIONS.md` (Anas's proposal, agreed by Martin and Diego). If they ever changed, rerun `analysis.py` and the scripts after it.
 
 ## Not done, and not to be done (25 Nov)
 
