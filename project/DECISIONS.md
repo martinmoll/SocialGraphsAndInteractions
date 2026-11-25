@@ -327,7 +327,25 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
 - **Alternative and what it would have changed:** cut whole subsections instead (A5, or the home map). Six pages
   with less rewriting, but it would reverse G21.
 - **Consequences:** about 60 lines are free on page 6. They can take back any item above if the group wants it.
+- **Revised the same evening (Martin):** the first cut started from Anas's full draft and lost v2's wording, its
+  subsections and run-in headings. The paper was rebuilt from v2 (`report/sections/`, the version the group printed),
+  keeping its sentences wherever no comment asked for a change, with a humanizer pass that matches v2's voice. Items 2
+  and 4 above are back (they were in v2); items 1, 3 and 5 stay cut. Still 6 pages, about 34 lines free.
 - **Source:** printed comments, 25 Nov; `Martin/final_report/TEXT_TAKEAWAYS.md`.
+
+### G23. The delegation check enters the paper as one sentence
+- **Status:** Decided Wed 25 Nov by Martin (with Claude). Post-hoc: run after G21 closed the analysis. For the group
+  to confirm.
+- **Decision:** part 3 says that the exposure gap does not come from the party mix of members' home delegations
+  (exposure shuffled within party and band of the other party's share of the state delegation: the whole gap remains,
+  p < 0.01), and that about 1.1 of the Democrats' 2.6 points are names of Republicans from their own state. Methods
+  names the check and says it was run after the analysis was closed.
+- **Reason:** Martin asked whether exposed members name the other party more only because close districts sit in
+  states with mixed delegations, which give them more colleagues of the other party to name. The plan
+  (`Martin/delegation_check/PLAN.md`) was written before running; the check reuses A4's own code on the frozen inputs.
+- **Alternative and what it would have changed:** state the worry as an untested limit. The paper would carry a second
+  untested confound next to ideology.
+- **Source:** `Martin/delegation_check/` (plan with results, `delegation_check.py`, `results.csv`, `readout.txt`).
 
 ### G9. Yields stay in the labelling sample
 - **Status:** Agreed Wed 18 Nov.

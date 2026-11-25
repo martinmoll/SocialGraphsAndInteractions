@@ -1,0 +1,46 @@
+test 0: reproduced A4: 406 members, R gap 4.08, D gap 2.58 points
+
+test 1: other-party colleagues from the same state (mean)
+  R exposed (n= 37): opp_n   8.9, opp_share 0.45, with none at home 5
+  R safe    (n=171): opp_n   6.6, opp_share 0.34, with none at home 23
+  D exposed (n= 54): opp_n   6.8, opp_share 0.37, with none at home 8
+  D safe    (n=144): opp_n   7.1, opp_share 0.34, with none at home 19
+
+test 2: releases that count only because they name an other-party member from the same state
+  R exposed: 14.8% of counted releases
+  R safe   : 15.2% of counted releases
+  D exposed: 17.6% of counted releases
+  D safe   : 13.7% of counted releases
+
+test 3: outcome without same-state names (within-party shuffle, 10,000)
+  R: exposed 11.4%, safe 7.7%, gap 3.74 points (was 4.08), p = 0.0028
+  D: exposed 9.3%, safe 7.9%, gap 1.44 points (was 2.58), p = 0.0667
+
+tests 4 and 5: exposure shuffled within party and delegation band (10,000)
+  (points; 'from delegation' = mean gap the bands alone give; 'beyond' = observed minus that)
+  4 main outcome              opp_share         k=5 (5 bands) R: observed  4.08, from delegation -0.28, beyond  4.36, p = 0.0010   [exposed/members per band, few to many at home: 5/45, 7/39, 3/50, 9/36, 13/38]
+  4 main outcome              opp_share         k=5 (5 bands) D: observed  2.58, from delegation -0.04, beyond  2.62, p = 0.0023   [exposed/members per band, few to many at home: 16/74, 4/13, 11/37, 10/40, 13/34]
+  4 main outcome              opp_share         k=3 (3 bands) R: observed  4.08, from delegation  0.32, beyond  3.76, p = 0.0057   [exposed/members per band, few to many at home: 12/84, 3/63, 22/61]
+  4 main outcome              opp_share         k=3 (3 bands) D: observed  2.58, from delegation -0.13, beyond  2.71, p = 0.0015   [exposed/members per band, few to many at home: 16/74, 19/59, 19/65]
+  4 main outcome              opp_n             k=5 (5 bands) R: observed  4.08, from delegation -0.06, beyond  4.14, p = 0.0021   [exposed/members per band, few to many at home: 5/51, 9/53, 5/24, 11/38, 7/42]
+  4 main outcome              opp_n             k=5 (5 bands) D: observed  2.58, from delegation -0.12, beyond  2.69, p = 0.0017   [exposed/members per band, few to many at home: 13/42, 11/39, 11/39, 7/41, 12/37]
+  4 main outcome              opp_n             k=3 (3 bands) R: observed  4.08, from delegation -0.03, beyond  4.10, p = 0.0026   [exposed/members per band, few to many at home: 8/79, 17/65, 12/64]
+  4 main outcome              opp_n             k=3 (3 bands) D: observed  2.58, from delegation -0.23, beyond  2.81, p = 0.0015   [exposed/members per band, few to many at home: 23/72, 19/89, 12/37]
+  4 main outcome              opp_share_current k=5 (5 bands) R: observed  4.08, from delegation -0.28, beyond  4.36, p = 0.0010   [exposed/members per band, few to many at home: 5/45, 7/39, 3/50, 9/36, 13/38]
+  4 main outcome              opp_share_current k=5 (5 bands) D: observed  2.58, from delegation -0.04, beyond  2.62, p = 0.0023   [exposed/members per band, few to many at home: 16/74, 4/13, 11/37, 10/40, 13/34]
+  4 main outcome              opp_share_current k=3 (3 bands) R: observed  4.08, from delegation -0.07, beyond  4.14, p = 0.0027   [exposed/members per band, few to many at home: 9/72, 8/68, 20/68]
+  4 main outcome              opp_share_current k=3 (3 bands) D: observed  2.58, from delegation -0.13, beyond  2.71, p = 0.0015   [exposed/members per band, few to many at home: 16/74, 19/59, 19/65]
+  5 without same-state names  opp_share         k=5 (5 bands) R: observed  3.74, from delegation -0.55, beyond  4.28, p = 0.0002   [exposed/members per band, few to many at home: 5/45, 7/39, 3/50, 9/36, 13/38]
+  5 without same-state names  opp_share         k=5 (5 bands) D: observed  1.44, from delegation -0.11, beyond  1.56, p = 0.0432   [exposed/members per band, few to many at home: 16/74, 4/13, 11/37, 10/40, 13/34]
+  5 without same-state names  opp_share         k=3 (3 bands) R: observed  3.74, from delegation  0.01, beyond  3.72, p = 0.0023   [exposed/members per band, few to many at home: 12/84, 3/63, 22/61]
+  5 without same-state names  opp_share         k=3 (3 bands) D: observed  1.44, from delegation -0.17, beyond  1.61, p = 0.0370   [exposed/members per band, few to many at home: 16/74, 19/59, 19/65]
+  5 without same-state names  opp_n             k=5 (5 bands) R: observed  3.74, from delegation -0.18, beyond  3.92, p = 0.0008   [exposed/members per band, few to many at home: 5/51, 9/53, 5/24, 11/38, 7/42]
+  5 without same-state names  opp_n             k=5 (5 bands) D: observed  1.44, from delegation -0.08, beyond  1.52, p = 0.0471   [exposed/members per band, few to many at home: 13/42, 11/39, 11/39, 7/41, 12/37]
+  5 without same-state names  opp_n             k=3 (3 bands) R: observed  3.74, from delegation -0.13, beyond  3.86, p = 0.0016   [exposed/members per band, few to many at home: 8/79, 17/65, 12/64]
+  5 without same-state names  opp_n             k=3 (3 bands) D: observed  1.44, from delegation -0.13, beyond  1.57, p = 0.0420   [exposed/members per band, few to many at home: 23/72, 19/89, 12/37]
+  5 without same-state names  opp_share_current k=5 (5 bands) R: observed  3.74, from delegation -0.55, beyond  4.28, p = 0.0002   [exposed/members per band, few to many at home: 5/45, 7/39, 3/50, 9/36, 13/38]
+  5 without same-state names  opp_share_current k=5 (5 bands) D: observed  1.44, from delegation -0.11, beyond  1.56, p = 0.0432   [exposed/members per band, few to many at home: 16/74, 4/13, 11/37, 10/40, 13/34]
+  5 without same-state names  opp_share_current k=3 (3 bands) R: observed  3.74, from delegation -0.25, beyond  3.99, p = 0.0011   [exposed/members per band, few to many at home: 9/72, 8/68, 20/68]
+  5 without same-state names  opp_share_current k=3 (3 bands) D: observed  1.44, from delegation -0.17, beyond  1.61, p = 0.0370   [exposed/members per band, few to many at home: 16/74, 19/59, 19/65]
+
+-> E:\Coding\School\SocialGraphsAndInteractions\project\Martin\delegation_check\results.csv
