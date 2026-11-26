@@ -1,7 +1,7 @@
 # Martin's comments on the final report (26 Nov): suggested changes
 
 Source: Martin's annotated PDF of `two_maps_full_draft_overleaf/main.pdf` (13 notes and two hand-drawn marks).
-Line numbers refer to `two_maps_full_draft_overleaf/main.tex` as of 26 Nov. **Nothing is applied yet.** No number
+Line numbers refer to `two_maps_full_draft_overleaf/main.tex` as of 26 Nov. **Applied on 26 Nov (DECISIONS G24)**, with option a for item 4 and the reader models as in item 8. No number
 changes; every new sentence uses numbers or facts already in the paper or the repository.
 
 The rewrites follow the humanizer rules by hand: plain words, no em dashes, no inflated vocabulary, no padding lists,

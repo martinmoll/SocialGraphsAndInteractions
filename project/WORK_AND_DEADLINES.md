@@ -175,6 +175,7 @@ From the earlier plans in `archive/`, and since the scope freeze (G17). Listed s
 
 Newest first. One line per change.
 
+- **26 Nov 2026.** Martin (with Claude): the ten suggestions applied to the final report's `main.tex` (DECISIONS G24); compiled at 6 pages, `main.pdf` and the Overleaf zip rebuilt. No number changed. Open: Anas to confirm the AI readers' model versions.
 - **26 Nov 2026.** Martin (with Claude): Martin's 13 comments on the final report's PDF read and answered with suggested rewrites in `report/final_report/FEEDBACK_26NOV_SUGGESTIONS.md`; not applied to `main.tex` yet. Anas to confirm the AI readers' model versions (records say two Opus, one Sonnet).
 - **26 Nov 2026.** Martin (with Claude): the near-final paper moved from `Martin/final_report/` to `report/final_report/` (the group's paper, not one member's part); paths updated here and in DECISIONS, pointer added to `report/README.md`. `Martin/README.md` now lists the delegation check and `figure1_side`. Martin is giving feedback on `main.pdf`; next revision follows from it. No text or number changed.
 - **25 Nov 2026.** Martin (with Claude): the six-page paper rebuilt from v2's wording (the version the group printed), with the 8 printed comments applied and the delegation check as one sentence (DECISIONS G22 revised, G23). `main.pdf` and the Overleaf zip rebuilt.
