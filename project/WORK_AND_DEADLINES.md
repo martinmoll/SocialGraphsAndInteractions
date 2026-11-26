@@ -175,19 +175,20 @@ From the earlier plans in `archive/`, and since the scope freeze (G17). Listed s
 
 Newest first. One line per change.
 
+- **26 Nov 2026.** Martin (with Claude): the near-final paper moved from `Martin/final_report/` to `report/final_report/` (the group's paper, not one member's part); paths updated here and in DECISIONS, pointer added to `report/README.md`. `Martin/README.md` now lists the delegation check and `figure1_side`. Martin is giving feedback on `main.pdf`; next revision follows from it. No text or number changed.
 - **25 Nov 2026.** Martin (with Claude): the six-page paper rebuilt from v2's wording (the version the group printed), with the 8 printed comments applied and the delegation check as one sentence (DECISIONS G22 revised, G23). `main.pdf` and the Overleaf zip rebuilt.
 - **25 Nov 2026.** Martin (with Claude): a post-hoc delegation check (`Martin/delegation_check/`, plan written before running): the home delegation's party mix does not explain part 3's exposure gap in either party; for Democrats, about 1.1 of the 2.6 points are names of home-state Republicans. Not in the paper; for the group.
 - **25 Nov 2026.** Martin (with Claude): the paper cut to 6 pages from the printed comments (DECISIONS G22), in
-  `Martin/final_report/two_maps_full_draft_overleaf/` with `main.pdf` next to `main.tex` and an Overleaf zip beside
+  `report/final_report/two_maps_full_draft_overleaf/` with `main.pdf` next to `main.tex` and an Overleaf zip beside
   the folder. `AI_METHODS.md` moved to `docs/`. Figure 4 for the paper without the note under panel B
   (`figure_home_map.py --no-note`). No number changed.
-- **25 Nov 2026.** Martin (with Claude), layout pass on the full draft (`Martin/final_report/two_maps_full_draft_overleaf/`),
+- **25 Nov 2026.** Martin (with Claude), layout pass on the full draft (`report/final_report/two_maps_full_draft_overleaf/`),
   no text changed: tighter float spacing; Figure 1 (`m7_figure1.py`) 0.7 in shorter; Figure 4 (`Anas/a4/figure_home_map.py`)
   legends moved under panel B; a side-by-side Figure 3 (`figure3_column.py --wide`, switch in `main.tex`); Figure 4 placed
   on page 5. Then: Figure 1 a side-caption figure (SCfigure*, 11.4 cm, `m7_figure1.py --side` writes
   `figure1_side.pdf`; the full-width file stays for the slides); Figure 4 kept full width so the purple ties show;
   Figure 3 one column with panel B 0.7 in shorter and near-black axes; Figure 4 panel B axes near-black; Figure 2
-  4.4 cm tall (`figure2.py --short`). Still 7 pages; page 7 has 52 free lines in its right column. Text take-aways from Sekara et al. (PNAS 2016) saved in `Martin/final_report/TEXT_TAKEAWAYS.md`
+  4.4 cm tall (`figure2.py --short`). Still 7 pages; page 7 has 52 free lines in its right column. Text take-aways from Sekara et al. (PNAS 2016) saved in `report/final_report/TEXT_TAKEAWAYS.md`
   for the pruning pass, which waits for the group's printed feedback.
 - **25 Nov 2026.** Anas (with Claude): G17 confirmed by Anas and Diego; new G21 (home map and A5 kept, analysis
   closed, committee test not run); G6's open dependency settled. This file brought to the final state (deadlines,
