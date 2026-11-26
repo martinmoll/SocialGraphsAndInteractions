@@ -303,8 +303,8 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
 
 ### G22. The paper is cut to six pages: what was cut and why
 - **Status:** Decided Wed 25 Nov by Martin (with Claude), from the group's printed comments on the full draft
-  (`Martin/final_report/v2_comments_SGAI_PAPER.pdf`). For the group to read before hand-in.
-- **Decision:** the full draft (`Martin/final_report/two_maps_full_draft_overleaf/main.tex`, 7 pages) is cut to
+  (`report/final_report/v2_comments_SGAI_PAPER.pdf`). For the group to read before hand-in.
+- **Decision:** the full draft (`report/final_report/two_maps_full_draft_overleaf/main.tex`, 7 pages) is cut to
   6 pages. No number changed and no analysis was added (G21). Cut from the paper, still documented in the
   repository:
   1. The home map's community paragraph (NMI 0.20, the mixed New York and Michigan community, exposed members in
@@ -331,7 +331,7 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
   subsections and run-in headings. The paper was rebuilt from v2 (`report/sections/`, the version the group printed),
   keeping its sentences wherever no comment asked for a change, with a humanizer pass that matches v2's voice. Items 2
   and 4 above are back (they were in v2); items 1, 3 and 5 stay cut. Still 6 pages, about 34 lines free.
-- **Source:** printed comments, 25 Nov; `Martin/final_report/TEXT_TAKEAWAYS.md`.
+- **Source:** printed comments, 25 Nov; `report/final_report/TEXT_TAKEAWAYS.md`.
 
 ### G23. The delegation check enters the paper as one sentence
 - **Status:** Decided Wed 25 Nov by Martin (with Claude). Post-hoc: run after G21 closed the analysis. For the group

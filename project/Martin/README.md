@@ -62,9 +62,11 @@ paper)": the limits to say out loud and what was cut.
 | **M5** Communities | What groups does each map fall into? | Working: parties. Floor: committees | [`m5_communities.py`](m5_communities.py), [`m5_communities.csv`](m5_communities.csv), [`m5_table.csv`](m5_table.csv), [`m5_committees/`](m5_committees/committee_check.py) |
 | **M6** Close-up null | Do members announce their cross-party bills more than their other bills? | A little, mostly because co-led bills are announced more | [`m6_closeup_null.py`](m6_closeup_null.py), [`m6_results.csv`](m6_results.csv) |
 | **M7** Figure 1 and Results part 1 | | Four panels: maps A–B, cross-party share C, modularity against all nulls D | [`m7_figure1.py`](m7_figure1.py), [`figures/`](figures/), [`results_part1.md`](results_part1.md) |
+| **Delegation check** (25 Nov, post-hoc, G23) | Do exposed members name the other party at home only because their state delegation is mixed? | No: shuffling exposure within party and band of the delegation's other-party share leaves the whole gap (p < 0.01); for Democrats about 1.1 of the 2.6 points are names of home-state Republicans | [`delegation_check/`](delegation_check/PLAN.md) (plan written before running, `delegation_check.py`, `results.csv`, `readout.txt`) |
 | **Methods** | Enough to redo part 1 | About 620 words | [`methods_networks.md`](methods_networks.md) |
 
-M8 (the three slides) is in `../report/slides/`, shared.
+M8 (the three slides) is in `../report/slides/`, shared. The near-final paper is in
+[`../report/final_report/`](../report/final_report/) (moved there from this folder on 26 Nov; it is the group's paper).
 
 ## Each part in plain words, with what to say if asked
 
@@ -138,7 +140,8 @@ so members who announce everything do not dominate (G20).
 **M7, Figure 1.** (A) the floor map, (B) one random draw of the working map at the same size, (C) the share of
 ties that cross the aisle, with the range over 200 draws and the rewiring level, (D) party modularity of each map
 against its nulls. Full PNAS width (17.8 cm); rebuilt from the result files by `m7_figure1.py`, which also checks
-that no labels overlap.
+that no labels overlap. `m7_figure1.py --side` writes `figures/figure1_side.pdf`, the 11.4 cm side-caption version
+used in the near-final paper; the full-width file stays for the slides.
 
 ## Choices made here and why (the full record is in DECISIONS)
 

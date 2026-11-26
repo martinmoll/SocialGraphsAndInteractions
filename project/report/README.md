@@ -4,6 +4,17 @@ Set up by Diego with Claude on 22 November 2026 so that the paper is written in 
 then moved to Overleaf. **Anyone, and any of our Claude sessions, may add to it.** Read the rules at the bottom
 first.
 
+## The near-final paper: `final_report/`
+
+**Start here.** [`final_report/two_maps_full_draft_overleaf/`](final_report/two_maps_full_draft_overleaf/) is the
+near-final six-page paper (25 Nov, DECISIONS G22 and G23): `main.tex` with `main.pdf` beside it, the PNAS class
+files, `figures/` and `references.bib`, so the folder compiles in Overleaf as it is
+(`final_report/two_maps_full_draft_overleaf.zip` is the same folder zipped for upload). Next to it:
+`v2_comments_SGAI_PAPER.pdf` (the group's printed comments on v2, which the cut applied) and `TEXT_TAKEAWAYS.md`
+(how much space each section gets, from Sekara et al., PNAS 2016). Martin is giving feedback on `main.pdf`; that
+feedback is the next revision. Moved here from `Martin/final_report/` on 26 Nov: it is the group's paper, not one
+member's part. The tables below describe the earlier section files in `sections/`, which v2 was built from.
+
 ## What is handed in, and where it is here
 
 Checked against the course pages (front page `#project`, week 8, "The new way of working") on 18 November 2026.
