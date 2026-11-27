@@ -49,6 +49,12 @@ function bullets(s, x, y, w, h, items, size = 8.5) {
   tb(s, runs, { x, y, w, h, valign: "top" });
 }
 // Tinted number tile.
+// Low number tile: number left, sentence beside it, both centred (slide 1, as \htile in slides.tex).
+function htile(s, x, y, w, h, num, color, label) {
+  s.addShape(pres.shapes.RECTANGLE, { x, y, w, h, fill: { color: BAND }, line: { color: BAND } });
+  tb(s, num, { x: x + 0.15, y, w: 1.15, h, fontSize: 20, bold: true, color, align: "right", valign: "middle" });
+  tb(s, label, { x: x + 1.4, y, w: w - 1.5, h, fontSize: 8, valign: "middle" });
+}
 function tile(s, x, y, w, h, numRuns, label, size = 24) {
   s.addShape(pres.shapes.RECTANGLE, { x, y, w, h, fill: { color: BAND }, line: { color: BAND } });
   const runs = (typeof numRuns === "string" ? [t(numRuns, {})] : numRuns).map(r => ({ text: r.text, options: { fontFace: FONT, color: INK, bold: true, fontSize: size, ...r.options } }));
@@ -91,8 +97,8 @@ const foot = (s, checked, sources) => tb(s, [
   heading(s, X2, 1.0, W, "Working: who cosponsors with whom");
   s.addImage({ path: P("net_floor.png"), x: X1, y: 1.27, w: W, h: W / 2.17, altText: "Floor map network, Bacon ringed" });
   s.addImage({ path: P("net_work.png"), x: X2, y: 1.27, w: W, h: W / 2.17, altText: "Working map network, Bacon ringed" });
-  tile(s, X1, 2.76, W, 0.45, [{ text: "38.7%", options: { color: PURPLE } }], "of ties cross the aisle");
-  tile(s, X2, 2.76, W, 0.45, "28.6%", "at the same number of ties (mean of 200 draws)");
+  htile(s, X1, 2.76, W, 0.45, "38.7%", PURPLE, "of ties cross the aisle");
+  htile(s, X2, 2.76, W, 0.45, "28.6%", INK, "cross at the same number of ties (mean of 200 draws)");
   tb(s, [t("● ", { color: REP }), t("Republican   "), t("● ", { color: DEM }), t("Democrat   "), t("— ", { color: PURPLE, bold: true }), t("cross-party tie   ○ "),
     t("Don Bacon", { bold: true }), t(" (R, NE)    Working map: one draw, 29.3% cross")], { x: X1, y: 3.25, w: 6.45, h: 0.18, fontSize: 7 });
   by = bandbox(s, X1, 3.47, W, 1.32, "Not chance, not thinning");

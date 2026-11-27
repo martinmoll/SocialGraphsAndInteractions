@@ -55,6 +55,10 @@
 % Tinted number tile: width, height, number, label.
 \newcommand{\tile}[4]{{\setlength{\fboxsep}{0pt}\colorbox{band}{\parbox[c][#2][c]{#1}{\centering
   {\fontsize{\bigsize}{19}\selectfont\bfseries #3}\\[0pt]{\scriptsize #4}}}}}
+% Low number tile: number on the left, its sentence beside it, both centred in the tint (for short tiles).
+\newcommand{\htile}[4]{{\setlength{\fboxsep}{0pt}\colorbox{band}{\parbox[c][#2][c]{#1}{\centering
+  \begin{tabular}{@{}c@{\hspace{5pt}}l@{}}$\vcenter{\hbox{\fontsize{15}{16}\selectfont\bfseries #3}}$ &
+  \begin{minipage}[c]{2.3cm}\raggedright\scriptsize #4\end{minipage}\end{tabular}}}}}
 % Label tile: purple block with a white label, white box with the detail (fixed height 0.66 cm).
 \newcommand{\labeltile}[2]{{\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{0.5pt}%
   \colorbox{cross}{\parbox[c][0.66cm][c]{1.45cm}{\centering\color{white}\bfseries\scriptsize #1}}%
@@ -85,12 +89,12 @@ the House is \textbf{less divided in whom it names than in whom it works with}}
 \begin{minipage}[t]{0.49\linewidth}
   \coltitle{Floor: who names whom}\\
   \includegraphics[width=\linewidth]{figures/net_floor.pdf}\\[2pt]
-  \tile{\linewidth}{0.72cm}{\textcolor{cross}{38.7\%}}{of ties cross the aisle}
+  \htile{\linewidth}{0.72cm}{\textcolor{cross}{38.7\%}}{of ties cross the aisle}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.49\linewidth}
   \coltitle{Working: who cosponsors with whom}\\
   \includegraphics[width=\linewidth]{figures/net_work.pdf}\\[2pt]
-  \tile{\linewidth}{0.72cm}{28.6\%}{at the same number of ties (mean of 200 draws)}
+  \htile{\linewidth}{0.72cm}{28.6\%}{cross at the same number of ties (mean of 200 draws)}
 \end{minipage}\par\vspace{2pt}
 {\tiny\textcolor{rep}{$\bullet$} Republican \quad \textcolor{dem}{$\bullet$} Democrat \quad \textcolor{cross}{---}
 cross-party tie \quad $\bigcirc$ \textbf{Don Bacon} (R, NE) \quad Working map: one draw, 29.3\% cross\par}\vspace{4pt}
