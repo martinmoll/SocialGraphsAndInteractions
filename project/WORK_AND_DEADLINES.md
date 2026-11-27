@@ -175,6 +175,7 @@ From the earlier plans in `archive/`, and since the scope freeze (G17). Listed s
 
 Newest first. One line per change.
 
+- **27 Nov 2026.** Martin (with Claude): draft of a more readable Results in the style of Sekara et al. (PNAS 2016): short run-in headings, one or two key numbers per paragraph, ranges and secondary p-values moved to Methods. In `report/final_report/two_maps_full_draft_overleaf/main_results_draft.tex`, with a highlighted PDF beside it; `main.tex` unchanged until the group decides. No number changed; still 6 pages.
 - **26 Nov 2026.** Martin (with Claude): the ten suggestions applied to the final report's `main.tex` (DECISIONS G24); compiled at 6 pages, `main.pdf` and the Overleaf zip rebuilt. No number changed. Open: Anas to confirm the AI readers' model versions.
 - **26 Nov 2026.** Martin (with Claude): Martin's 13 comments on the final report's PDF read and answered with suggested rewrites in `report/final_report/FEEDBACK_26NOV_SUGGESTIONS.md`; not applied to `main.tex` yet. Anas to confirm the AI readers' model versions (records say two Opus, one Sonnet).
 - **26 Nov 2026.** Martin (with Claude): the near-final paper moved from `Martin/final_report/` to `report/final_report/` (the group's paper, not one member's part); paths updated here and in DECISIONS, pointer added to `report/README.md`. `Martin/README.md` now lists the delegation check and `figure1_side`. Martin is giving feedback on `main.pdf`; next revision follows from it. No text or number changed.
