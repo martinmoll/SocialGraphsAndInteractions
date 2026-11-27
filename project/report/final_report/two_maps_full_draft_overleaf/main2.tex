@@ -101,18 +101,17 @@ strategic presentation of their work \cite{grimmer2013}. That presentation need 
 that floor speeches calling a bill bipartisan mostly concern bills with trivial support from the other party, and
 that a member's bipartisan rhetoric is unrelated to their bipartisan votes \cite{westwood2022}.
 
-We compare two records of the same 450 members of the House in the 119th Congress (2025 to 2026). The first is the
-cosponsorship network \cite{fowler2006}: two members are tied when one signs a bill the other sponsors. The second
-is, to our knowledge, new: two members are tied when one names the other in a floor speech. Both are networks on
+We compare two records of the same 450 members of the House in the 119th Congress (2025 to 2026). The first, the \emph{working map}, is the cosponsorship network \cite{fowler2006}: two members are tied when one
+signs a bill the other sponsors. The second, the \emph{floor map}, is to our knowledge new: two members are tied when
+one names the other in a floor speech. Both are networks on
 identical nodes, so the same measures of party division apply to each and both can be tested against the same
 null models. A word such as ``bipartisan'' costs nothing to say. A name points at a specific colleague, and what is
 said about that colleague can be read.
 
 Whether naming is more or less partisan than working cannot be guessed in advance. Members might attack the other
-side in public and cooperate quietly, or display the few cross-party partners they have. We find that the floor map
-is less divided by party than the working map at equal size, that debate procedure accounts for much, but not all,
-of the floor map's own party division, and that cross-party mentions are mostly acknowledgement rather than
-argument. At home, in press releases, members\Parasplit
+side in public and cooperate quietly, or display the few cross-party partners they have. We find that members name colleagues of the other party more readily than they cosponsor with them, that debate procedure accounts for much, but not all, of the\Parasplit
+floor map's own party division, and that cross-party mentions are mostly acknowledgement rather than
+argument. At home, in press releases, members
 in exposed seats, whose district leans toward their own party by five points or less, name the other party more often
 than members in safe seats, and mostly name partners.
 
@@ -134,18 +133,17 @@ sponsor--cosponsor ties, thinned to the floor map's 3,970 ties. Nodes are member
 purple ties cross the aisle. Positions come from a spring layout and carry no meaning. (\emph{C}) Share of ties that
 cross the aisle; the bar for the random draws shows the range over 200 draws, and the dashed line the level expected
 if ties were rewired at random. (\emph{D}) Party modularity of each map (filled) against its nulls (open; lines show
-the range over the draws). The floor map is less divided than the working map at every comparison, and more divided
-than every null.}
+the range over the draws). At every comparison a larger share of floor ties than of working ties crosses the aisle, and the floor map is still more
+divided than every null.}
 \label{fig:maps}
 \end{SCfigure*}
 
-We built two networks on the same 450 Republicans and Democrats of the 119th House. In the \emph{working map}, two
-members are tied when one cosponsored a bill that the other sponsored. In the \emph{floor map}, they are tied when
+We built two networks on the same 450 Republicans and Democrats of the 119th House. In the \emph{working map}, built from cosponsorship, two members are tied when one cosponsored a bill that the other sponsored. In the \emph{floor map}, they are tied when
 one named the other in a floor speech. We leave out yields, the moments when the member managing a debate hands
 speaking time to a colleague by name (``I yield 2 minutes to the gentleman from Texas''), because they are procedure
 rather than a choice to name someone (Methods).
 
-\textbf{Less divided on the floor.} On the floor, 38.7\% of ties join a Republican and a Democrat
+\textbf{More naming than cosponsoring.} On the floor, 38.7\% of ties join a Republican and a Democrat
 (Fig.~\ref{fig:maps}\emph{A} and \emph{C}). The working map is twelve times denser, so we compare like with like by
 drawing working ties at random until both maps have the same size. Then 28.6\% of working ties cross the aisle, and
 none of 200 draws comes close to the floor map (Fig.~\ref{fig:maps}\emph{B} and \emph{C}). Party modularity tells the
@@ -185,7 +183,8 @@ to credit it far more often than to oppose it.
 \includegraphics[width=8.7cm]{figures/figure2.pdf}
 \caption{What floor mentions do. Share of 100 hand-labelled mentions in each code, for mentions between parties
 (purple, $n = 75$) and within a party (grey, $n = 25$). Lines show 95\% Wilson intervals. Codes as in Methods; a
-mention was coded ``not that member'' when the matched name referred to someone else. Cross-party mentions are mostly
+mention was coded ``not that member'' when the matcher gave the name to the wrong person (for example the wrong
+Wilson, or a constituent). Cross-party mentions are mostly
 agreeing and rarely disagreeing; procedure appears only within a party.}
 \label{fig:labels}
 \end{figure}
@@ -213,8 +212,8 @@ the member's own party by five points or less (Cook PVI 2025 \cite{cook2025pvi})
 name the other side more: 13.3\% of releases against 9.2\% for safe Republicans, and 11.6\% against 9.0\% for
 Democrats ($p = 0.004$ for each; Fig.~\ref{fig:home}).
 
-\textbf{Closest seats.} The difference comes from the closest seats. Members whose district is even or leans to the
-other party name it most, in about one release in five for Republicans; beyond five points of lean the share is
+\textbf{Closest seats.} The difference comes from the closest seats. The closest of the exposed seats, where the district is even or leans to the other party (8 of the 37 exposed
+Republicans and 10 of the 54 exposed Democrats), name it most, in about one release in five for Republicans; beyond five points of lean the share is
 nearly flat (Fig.~\ref{fig:home}\emph{A}). The gap survives every check we fixed before the analysis
 (Fig.~\ref{fig:home}\emph{B}). It also does not come from members simply having more colleagues of the other party
 in their home state's delegation (Methods).
@@ -228,7 +227,7 @@ measure ideology with DW-NOMINATE, a standard score that places each member from
 roll-call votes; a moderate is a member whose votes place them close to the other party. About half of the exposed
 members are in their party's most moderate fifth. Comparing exposed and safe members of similar ideology leaves
 little of the gap: 1.1 of 4.1 points for Republicans and 0.2 of 2.6 for Democrats (Methods). This check may ask too
-much, though. A close seat may itself push a member to vote more moderately, and then holding ideology fixed also
+much, though. An exposed seat may itself push a member to vote more moderately, and then holding ideology fixed also
 removes part of the seat's own effect.
 
 \begin{figure*}[!t]
@@ -299,7 +298,7 @@ comes with a named partner. In their press releases, members in exposed seats, w
 party by five points or less, name the other party more often than members in safe seats, in both parties, and
 mostly name partners. Why, our data cannot say. Exposed members are also their party's moderates, and among members of
 similar ideology little of the gap remains (1.1 of 4.1 points for Republicans, 0.2 of 2.6 for Democrats). Ideology
-is measured from roll-call votes, the published yes or no of each member, and a close seat may itself make a member
+is measured from roll-call votes, the published yes or no of each member, and an exposed seat may itself make a member
 vote more moderately, so the seat and the ideology cannot be separated with these data. In this House the president's
 party is also the majority, so a president's-party effect cannot be told from a majority effect either. We were also limited to one Congress and one
 chamber, which cannot say whether these patterns are stable, and to press releases, which miss newsletters and social
@@ -381,16 +380,17 @@ press layer that adds, among other rules, the first names members use in their o
 (``R-NY''). On 40 releases, five AI readers (three Claude Opus, two Claude Sonnet) listed every House member named and agreed on all 77, and
 one author checked the seven entries flagged for a human look; the matcher found 75 (recall 0.97, precision 0.96). A
 release is linked to a House bill by its number or by an official title that belongs to that bill alone (30 of 30
-correct for each, three AI readers). A co-lead is the bill's sponsor or an original cosponsor; party leaders are
-the seven in the House leadership list.
+correct for each, three AI readers). A co-lead is the bill's sponsor or an original cosponsor; party leaders are the seven in the House leadership list. Both are left out of the main count because naming them is
+expected rather than chosen: releases name the leaders in routine statements, and a bill's announcement names its
+co-leads, so neither shows a member choosing to name the other party.
 
 \subsection*{Exposure and tests}
 District lean is the 2025 Cook PVI \cite{cook2025pvi} of the district a member served, read from Wikipedia
 \cite{wikipedia2025pvi}; it agrees with the 2024 presidential margin by district \cite{downballot2024} ($r = 0.999$).
 In the nine states that redrew for 2026, we keep the served district because releases were written for its voters.
 Exposure gaps are tested by shuffling the exposed label among the members of each party (10,000 shuffles,
-two-sided). The two parties' gaps differ by 1.5 points ($p = 0.36$). Members whose district is even or leans to the other party
-name it in 19.2\% (Republicans, $n = 8$) and 14.2\% (Democrats, $n = 10$) of releases; beyond five points of lean the
+two-sided). The two parties' gaps differ by 1.5 points ($p = 0.36$). The closest exposed seats, where the district is even or leans to the other party, name it in 19.2\% (8 of the 37
+exposed Republicans) and 14.2\% (10 of the 54 exposed Democrats) of releases; beyond five points of lean the
 share lies between 7.9\% and 10.1\%. The gaps keep their sign when any one state is left out, and widen to 7.0 and
 6.3 points when co-leads count. The checks fixed before the analysis are cut-offs of four and six points, the 2024 presidential margin as
 lean, leaving out the 21 members relabelled or unplaced under the 2026 maps, leaving out releases about redistricting
@@ -413,8 +413,7 @@ ties predict (Holm $p = 0.08$ at $\alpha = 0.01$, below 0.05 at every looser lev
 two exposed members, against 10.2\% under degree-preserving rewiring ($p = 0.015$). \emph{``Bipartisan'':} a release has a partner when it names a House member of the other party (not a
 party leader) or cites a bill with one as co-lead. 13,744 releases say ``bipartisan''; shares are means over 370 members. Of 30 such releases naming a member of the
 other party, the readers found 28 partners and no opponent; of 30 naming none, 29 named no partner and one a senator,
-whom the matcher does not count. Exposed and safe Republicans: 72.1\% against 69.1\% ($p = 0.40$), both above
-Democrats (not tested). \emph{Cited bills:} a member's own bills are the H.R. and H.J.Res.
+whom the matcher does not count. Exposed and safe Republicans: 72.1\% against 69.1\% ($p = 0.40$), both above the Democratic shares. \emph{Cited bills:} a member's own bills are the H.R. and H.J.Res.
 they sponsored, a bill is cross-party when it has an original cosponsor of the other party, and that label is shuffled
 among each member's own bills (10,000 shuffles). Over 388 members and 10,125 bills the observed count is 1.08 times the null. Against same-party co-leads only:
 52.6\% against 49.1\%. As original cosponsors, members cite the cross-party bills they join about three times as

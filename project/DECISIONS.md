@@ -404,6 +404,27 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
   of 200 draws, and the slide now says both. One speaker per slide is in `STORY.md`. A PowerPoint copy
   (`slides.pptx`, built by `build_pptx.js`) has the same text, numbers and figures; the PDF is what is handed in.
 
+### G25. Anas's 27 Nov text comments applied to both versions of the paper
+- **Status:** Decided Fri 27 Nov by Martin (with Claude), from Anas's Overleaf notes. The notes that are presentation
+  preparation, not text changes, are not in the paper.
+- **Decision:** in both `main.tex` and `main2.tex` (`report/final_report/two_maps_full_draft_overleaf/`):
+  1. The Introduction names the two networks where it defines them ("the working map, ... the cosponsorship network";
+     "the floor map"), and Results says "built from cosponsorship".
+  2. The headline is framed positively: members name the other party more readily than they cosponsor with it (run-in
+     heading, Introduction, Figure 1 caption). The title, abstract and Discussion keep "less divided".
+  3. Figure 2's caption gives an example of "not that member" (the wrong Wilson, or a constituent).
+  4. Methods says why party leaders and co-leads are left out of the press-release count: naming them is expected
+     rather than chosen.
+  5. "Close seat" replaced by "exposed seat", so one term is used throughout.
+  6. "(not tested)" removed: "both are above the Democratic shares".
+  7. The closest seats are named as a subset of the exposed ones (8 of 37 Republicans, 10 of 54 Democrats).
+  No number changed. The page-1 split (`\Parasplit`) moved to the new last word on page 1.
+- **Reason:** each point was a place where a careful reader misread or stumbled; Anas's reading is the test.
+- **Alternative and what it would have changed:** also rewrite the title and abstract around the positive framing. A
+  larger change on hand-in day; the group can still do it.
+- **Check:** both versions compile at 6 pages with page 1 intact.
+- **Source:** Anas's Overleaf notes, 27 Nov.
+
 ### G9. Yields stay in the labelling sample
 - **Status:** Agreed Wed 18 Nov.
 - **Decision:** Diego's labelling sample (100 rows, already drawn) keeps the yields among them.
