@@ -5,7 +5,7 @@
 % Story: (1) same 450 people, two pictures; (2) why the floor is less divided: credit and committees;
 % (3) at home, members in risky seats are the bridges. Takeaway: how divided Congress looks depends on the record.
 % Style (Martin, 27 Nov, after a consulting-deck example): title states the finding, a subtitle carries the so-what;
-% plain bold headings over figures; text boxes have a purple header band and bullets with bold lead-ins; label tiles
+% plain bold headings over figures; text boxes have a navy header band and bullets with bold lead-ins; label tiles
 % and tinted number tiles; everything left-aligned to its column; Checked and Sources lines at the foot.
 % Compiles in Overleaf as a plain Beamer file with the folder figures/ beside it.
 \documentclass[aspectratio=169,8pt]{beamer}
@@ -22,13 +22,18 @@
 \definecolor{cross}{HTML}{7D3C98}
 \definecolor{ink}{HTML}{222222}
 \definecolor{mute}{HTML}{666666}
-\definecolor{band}{HTML}{F3EEF7}
+% Colour roles: theme = bands, box headers, bullets, label tiles; accent = highlighted numbers; band = tile tint;
+% cross = cross-party ties only (purple, matches the figures). Navy theme chosen 27 Nov (DECISIONS G25), colours
+% sampled from Martin's example deck: navy 183A68, tint E6EEF3. The earlier purple theme was 7D3C98 / F3EEF7.
+\definecolor{theme}{HTML}{183A68}
+\definecolor{accent}{HTML}{183A68}
+\definecolor{band}{HTML}{E6EEF3}
 \setbeamercolor{normal text}{fg=ink}
 
 % Headline band (number and finding), then the subtitle line with the so-what.
 \newcommand{\headline}[3]{%
   \begin{tikzpicture}[remember picture,overlay]
-    \fill[cross] (current page.north west) rectangle ([yshift=-0.85cm]current page.north east);
+    \fill[theme] (current page.north west) rectangle ([yshift=-0.85cm]current page.north east);
     \node[anchor=west,text=white,font=\bfseries\Large] at ([xshift=0.45cm,yshift=-0.425cm]current page.north west)
       {#1\quad #2};
   \end{tikzpicture}\par\vspace{0.42cm}
@@ -45,12 +50,12 @@
 % Plain bold heading over a figure or a group (left-aligned, fixed height so columns line up).
 \newcommand{\coltitle}[1]{\parbox[t][0.40cm][t]{\linewidth}{\small\bfseries #1}}
 % Text box with a purple header band. Optional argument: extra options (height).
-\newtcolorbox{bandbox}[2][]{enhanced,arc=1mm,boxrule=0.5pt,colframe=cross,colback=white,colbacktitle=cross,
+\newtcolorbox{bandbox}[2][]{enhanced,arc=1mm,boxrule=0.5pt,colframe=theme,colback=white,colbacktitle=theme,
   coltitle=white,fonttitle=\scriptsize\bfseries,halign title=center,title={#2},toptitle=1.2pt,bottomtitle=1.2pt,
   left=3pt,right=3pt,top=2.5pt,bottom=2pt,fontupper=\scriptsize,before upper=\raggedright,valign=top,
   nobeforeafter,width=\linewidth,#1}
 % Bullet with a bold lead-in.
-\newcommand{\bl}[2]{\par\hangindent=7pt\hangafter=1\noindent\makebox[7pt][l]{\textcolor{cross}{\textbullet}}%
+\newcommand{\bl}[2]{\par\hangindent=7pt\hangafter=1\noindent\makebox[7pt][l]{\textcolor{theme}{\textbullet}}%
   \textbf{#1} #2\par\vspace{1.6pt}}
 % Tinted number tile: width, height, number, label.
 \newcommand{\tile}[4]{{\setlength{\fboxsep}{0pt}\colorbox{band}{\parbox[c][#2][c]{#1}{\centering
@@ -61,8 +66,8 @@
   \begin{minipage}[c]{2.3cm}\raggedright\scriptsize #4\end{minipage}\end{tabular}}}}}
 % Label tile: purple block with a white label, white box with the detail (fixed height 0.66 cm).
 \newcommand{\labeltile}[2]{{\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{0.5pt}%
-  \colorbox{cross}{\parbox[c][0.66cm][c]{1.45cm}{\centering\color{white}\bfseries\scriptsize #1}}%
-  \fcolorbox{cross}{white}{\parbox[c][\dimexpr0.66cm-1pt][c]{\dimexpr\linewidth-1.45cm-1pt}{\scriptsize
+  \colorbox{theme}{\parbox[c][0.66cm][c]{1.45cm}{\centering\color{white}\bfseries\scriptsize #1}}%
+  \fcolorbox{theme}{white}{\parbox[c][\dimexpr0.66cm-1pt][c]{\dimexpr\linewidth-1.45cm-1pt}{\scriptsize
   \hspace{4pt}\begin{minipage}{\dimexpr\linewidth-8pt}\raggedright#2\end{minipage}}}}\par\vspace{3pt}}
 
 \begin{document}
@@ -89,7 +94,7 @@ the House is \textbf{less divided in whom it names than in whom it works with}}
 \begin{minipage}[t]{0.49\linewidth}
   \coltitle{Floor: who names whom}\\
   \includegraphics[width=\linewidth]{figures/net_floor.pdf}\\[2pt]
-  \htile{\linewidth}{0.72cm}{\textcolor{cross}{38.7\%}}{of ties cross the aisle}
+  \htile{\linewidth}{0.72cm}{\textcolor{accent}{38.7\%}}{of ties cross the aisle}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.49\linewidth}
   \coltitle{Working: who cosponsors with whom}\\
@@ -125,7 +130,7 @@ lists from Voteview.}
 \coltitle{What does a cross-party mention say?}\\
 \parbox[t][2.35cm][t]{\linewidth}{\includegraphics[height=2.3cm]{figures/figure2.pdf}}\\[3pt]
 \begin{bandbox}[height=3.15cm]{Mostly credit, rarely attack}
-\bignum{0.48\linewidth}{\textcolor{cross}{69\%}}{thanks \& credit}\hfill
+\bignum{0.48\linewidth}{\textcolor{accent}{69\%}}{thanks \& credit}\hfill
 \bignum{0.48\linewidth}{7\%}{disagreement}\par\vspace{4pt}
 \bl{Method:}{100 random floor mentions, each coded by hand.}
 \bl{Example:}{\emph{``I also thank my friend and subcommittee ranking member, Mr.\ Ro Khanna, for his collaboration
@@ -150,10 +155,10 @@ drops party modularity from 0.112 to 0.074.}
 \bl{Working map:}{Louvain finds \textbf{2} communities, the two parties.}
 \bl{Floor map:}{\textbf{8} communities, each bipartisan.}\vspace{3pt}
 \tile{0.48\linewidth}{1.0cm}{0.83}{overlap with party, working (NMI)}\hfill
-\tile{0.48\linewidth}{1.0cm}{\textcolor{cross}{0.03}}{overlap with party, floor (NMI)}\par\vspace{5pt}
+\tile{0.48\linewidth}{1.0cm}{\textcolor{accent}{0.03}}{overlap with party, floor (NMI)}\par\vspace{5pt}
 \bl{Committees:}{seven floor communities gather around one committee (Appropriations, Ways and Means, \ldots); the
 eighth is the party leaders.}\vspace{3pt}
-\tile{0.48\linewidth}{1.0cm}{\textcolor{cross}{44\%}}{of floor ties join committee colleagues}\hfill
+\tile{0.48\linewidth}{1.0cm}{\textcolor{accent}{44\%}}{of floor ties join committee colleagues}\hfill
 \tile{0.48\linewidth}{1.0cm}{17\%}{if ties were placed at random}
 \end{bandbox}
 \end{columns}
@@ -194,7 +199,7 @@ advance.}
     \draw[black,line width=1.3pt] (bacon) circle (0.14cm);
     \node[inner sep=0,anchor=north west] (call) at (1.04,1.0) {\begin{bandbox}[width=2.7cm,
         before upper=\centering]{Don Bacon (R, NE)}
-      {\fontsize{12}{13}\selectfont\bfseries\textcolor{cross}{1 in 3}}\\
+      {\fontsize{12}{13}\selectfont\bfseries\textcolor{accent}{1 in 3}}\\
       releases names a Democrat\\[1pt]
       {\tiny\textcolor{mute}{53 of 163; district leans D+3}}
       \end{bandbox}};
@@ -202,8 +207,8 @@ advance.}
   \end{scope}
 \end{tikzpicture}}\\[3pt]
 \begin{bandbox}[height=2.2cm]{Exposed members are the bridges}
-\tile{0.32\linewidth}{1.35cm}{22\%\,{\normalsize$\to$}\,\textcolor{cross}{1/3}}{of members, of cross-party ties}\hfill
-\tile{0.32\linewidth}{1.35cm}{\textcolor{cross}{46 of 60}}{names read: a partner or praise (1 criticised)}\hfill
+\tile{0.32\linewidth}{1.35cm}{22\%\,{\normalsize$\to$}\,\textcolor{accent}{1/3}}{of members, of cross-party ties}\hfill
+\tile{0.32\linewidth}{1.35cm}{\textcolor{accent}{46 of 60}}{names read: a partner or praise (1 criticised)}\hfill
 \tile{0.32\linewidth}{1.35cm}{64\%\,{\normalsize vs}\,9\%}{``bipartisan'' releases vs others name a partner}
 \end{bandbox}
 \end{columns}

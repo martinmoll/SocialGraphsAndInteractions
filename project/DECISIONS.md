@@ -403,6 +403,10 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
   faded; it asserts the cross-party shares. The drawn working map is one draw (29.3% cross), the 28.6% is the mean
   of 200 draws, and the slide now says both. One speaker per slide is in `STORY.md`. A PowerPoint copy
   (`slides.pptx`, built by `build_pptx.js`) has the same text, numbers and figures; the PDF is what is handed in.
+- **Theme colour, later 27 Nov (Martin):** navy (#183A68, tile tint #E6EEF3, sampled from Martin's example deck)
+  replaces purple as the slides' theme. Purple (#7D3C98) stays only where it means a cross-party tie, as in the
+  figures and the legend. Reason: Martin preferred the example's navy after seeing both side by side.
+  Alternative: purple throughout, which matched the figures' ties but used one colour for both theme and data.
 
 ### G9. Yields stay in the labelling sample
 - **Status:** Agreed Wed 18 Nov.

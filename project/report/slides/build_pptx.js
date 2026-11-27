@@ -2,14 +2,15 @@
 // Run in a scratch folder holding this script, pptxgenjs (npm install pptxgenjs), figures/net_*.png and the crops
 // made by pptx_crops.py:  python pptx_crops.py <report/slides/figures> . ; node build_pptx.js <out.pptx>
 // Edit the text in slides.tex first; this file repeats it and must be kept in step by hand.
-// Style (27 Nov): title band + subtitle; plain bold headings over figures; boxes with a purple header band and
+// Style (27 Nov): title band + subtitle; plain bold headings over figures; boxes with a navy header band and
 // bullets with bold lead-ins; label tiles; tinted number tiles; Checked/Sources lines at the foot.
 const pptxgen = require("pptxgenjs");
 const path = require("path");
 const OUT = process.argv[2];
 const P = (f) => path.join(__dirname, f);
 
-const PURPLE = "7D3C98", BAND = "F3EEF7", INK = "222222", MUTE = "666666", REP = "D62728", DEM = "1F77B4", WHITE = "FFFFFF";
+// Navy theme (27 Nov, from the example deck); CROSS = cross-party ties only, as in the figures.
+const NAVY = "183A68", CROSS = "7D3C98", BAND = "E6EEF3", INK = "222222", MUTE = "666666", REP = "D62728", DEM = "1F77B4", WHITE = "FFFFFF";
 const FONT = "Arial";
 const pres = new pptxgen();
 pres.layout = "LAYOUT_16x9"; // 10 x 5.625 in
@@ -21,7 +22,7 @@ const tb = (s, runs, o) => s.addText(runs, { margin: 0, isTextBox: true, fontFac
 
 function frame(s, n, title, subtitle, notes) {
   s.background = { color: WHITE };
-  s.addShape(pres.shapes.RECTANGLE, { x: 0, y: 0, w: 10, h: 0.53, fill: { color: PURPLE }, line: { color: PURPLE }, objectName: "Headline band" });
+  s.addShape(pres.shapes.RECTANGLE, { x: 0, y: 0, w: 10, h: 0.53, fill: { color: NAVY }, line: { color: NAVY }, objectName: "Headline band" });
   tb(s, `${n}   ${title}`, { x: 0.3, y: 0, w: 9.4, h: 0.53, fontSize: 19, bold: true, color: WHITE, valign: "middle", objectName: "Title" });
   tb(s, subtitle, { x: 0.3, y: 0.64, w: 9.4, h: 0.26, fontSize: 11, valign: "middle", objectName: "Subtitle" });
   tb(s, "Two maps of Congress | Anas Mir, Martin Møllenhus, Diego A. Mijares | 02805, DTU", { x: 0.3, y: 5.4, w: 6, h: 0.18, fontSize: 7, color: MUTE });
@@ -29,10 +30,10 @@ function frame(s, n, title, subtitle, notes) {
   s.addNotes(notes);
 }
 const heading = (s, x, y, w, text) => tb(s, text, { x, y, w, h: 0.24, fontSize: 11, bold: true, valign: "top" });
-// Box with a purple header band. Returns the y where the body starts.
+// Box with a navy header band. Returns the y where the body starts.
 function bandbox(s, x, y, w, h, title) {
-  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y, w, h, rectRadius: 0.04, fill: { color: WHITE }, line: { color: PURPLE, width: 0.75 }, objectName: `Box: ${title}` });
-  s.addShape(pres.shapes.RECTANGLE, { x, y, w, h: 0.22, fill: { color: PURPLE }, line: { color: PURPLE } });
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y, w, h, rectRadius: 0.04, fill: { color: WHITE }, line: { color: NAVY, width: 0.75 }, objectName: `Box: ${title}` });
+  s.addShape(pres.shapes.RECTANGLE, { x, y, w, h: 0.22, fill: { color: NAVY }, line: { color: NAVY } });
   tb(s, title, { x, y, w, h: 0.22, fontSize: 8.5, bold: true, color: WHITE, align: "center", valign: "middle" });
   return y + 0.3;
 }
@@ -61,11 +62,11 @@ function tile(s, x, y, w, h, numRuns, label, size = 24) {
   tb(s, runs, { x, y: y + 0.03, w, h: h * 0.55, align: "center", valign: "bottom" });
   tb(s, label, { x: x + 0.05, y: y + h * 0.58, w: w - 0.1, h: h * 0.4, fontSize: 8, align: "center", valign: "top" });
 }
-// Label tile: purple block + white box with detail.
+// Label tile: navy block + white box with detail.
 function labeltile(s, x, y, w, h, label, main, sub) {
-  s.addShape(pres.shapes.RECTANGLE, { x, y, w: 0.9, h, fill: { color: PURPLE }, line: { color: PURPLE } });
+  s.addShape(pres.shapes.RECTANGLE, { x, y, w: 0.9, h, fill: { color: NAVY }, line: { color: NAVY } });
   tb(s, label, { x, y, w: 0.9, h, fontSize: 8.5, bold: true, color: WHITE, align: "center", valign: "middle" });
-  s.addShape(pres.shapes.RECTANGLE, { x: x + 0.9, y, w: w - 0.9, h, fill: { color: WHITE }, line: { color: PURPLE, width: 0.75 } });
+  s.addShape(pres.shapes.RECTANGLE, { x: x + 0.9, y, w: w - 0.9, h, fill: { color: WHITE }, line: { color: NAVY, width: 0.75 } });
   tb(s, [t(main, { bold: true, fontSize: 8.5, breakLine: true }), t(sub, { fontSize: 8, color: MUTE })], { x: x + 0.98, y, w: w - 1.02, h, valign: "middle" });
 }
 const foot = (s, checked, sources) => tb(s, [
@@ -97,9 +98,9 @@ const foot = (s, checked, sources) => tb(s, [
   heading(s, X2, 1.0, W, "Working: who cosponsors with whom");
   s.addImage({ path: P("net_floor.png"), x: X1, y: 1.27, w: W, h: W / 2.17, altText: "Floor map network, Bacon ringed" });
   s.addImage({ path: P("net_work.png"), x: X2, y: 1.27, w: W, h: W / 2.17, altText: "Working map network, Bacon ringed" });
-  htile(s, X1, 2.76, W, 0.45, "38.7%", PURPLE, "of ties cross the aisle");
+  htile(s, X1, 2.76, W, 0.45, "38.7%", NAVY, "of ties cross the aisle");
   htile(s, X2, 2.76, W, 0.45, "28.6%", INK, "cross at the same number of ties (mean of 200 draws)");
-  tb(s, [t("● ", { color: REP }), t("Republican   "), t("● ", { color: DEM }), t("Democrat   "), t("— ", { color: PURPLE, bold: true }), t("cross-party tie   ○ "),
+  tb(s, [t("● ", { color: REP }), t("Republican   "), t("● ", { color: DEM }), t("Democrat   "), t("— ", { color: CROSS, bold: true }), t("cross-party tie   ○ "),
     t("Don Bacon", { bold: true }), t(" (R, NE)    Working map: one draw, 29.3% cross")], { x: X1, y: 3.25, w: 6.45, h: 0.18, fontSize: 7 });
   by = bandbox(s, X1, 3.47, W, 1.32, "Not chance, not thinning");
   bullets(s, X1 + 0.08, by, W - 0.14, 1.0, [
@@ -126,7 +127,7 @@ const foot = (s, checked, sources) => tb(s, [
   s.addImage({ path: P("fig1_D.png"), x: X[1], y: 1.3, w: 2.3, h: 1.44, altText: "Party modularity against the nulls" });
 
   let by = bandbox(s, X[0], BY, W, BH, "Mostly credit, rarely attack");
-  tb(s, "69%", { x: X[0], y: by - 0.04, w: W / 2, h: 0.38, fontSize: 24, bold: true, color: PURPLE, align: "center", valign: "bottom" });
+  tb(s, "69%", { x: X[0], y: by - 0.04, w: W / 2, h: 0.38, fontSize: 24, bold: true, color: NAVY, align: "center", valign: "bottom" });
   tb(s, "7%", { x: X[0] + W / 2, y: by - 0.04, w: W / 2, h: 0.38, fontSize: 24, bold: true, align: "center", valign: "bottom" });
   tb(s, "thanks & credit", { x: X[0], y: by + 0.34, w: W / 2, h: 0.14, fontSize: 8, align: "center" });
   tb(s, "disagreement", { x: X[0] + W / 2, y: by + 0.34, w: W / 2, h: 0.14, fontSize: 8, align: "center" });
@@ -152,11 +153,11 @@ const foot = (s, checked, sources) => tb(s, [
     ["Floor map:", [{ text: "8", options: { bold: true } }, { text: " communities, each bipartisan." }]],
   ], 8);
   tile(s, X[2] + 0.1, by + 0.55, W / 2 - 0.15, 0.7, "0.83", "overlap with party, working (NMI)");
-  tile(s, X[2] + W / 2 + 0.05, by + 0.55, W / 2 - 0.15, 0.7, [{ text: "0.03", options: { color: PURPLE } }], "overlap with party, floor (NMI)");
+  tile(s, X[2] + W / 2 + 0.05, by + 0.55, W / 2 - 0.15, 0.7, [{ text: "0.03", options: { color: NAVY } }], "overlap with party, floor (NMI)");
   bullets(s, X[2] + 0.08, by + 1.35, W - 0.14, 0.6, [
     ["Committees:", "seven floor communities gather around one committee (Appropriations, Ways and Means, …); the eighth is the party leaders."],
   ], 8);
-  tile(s, X[2] + 0.1, by + 2.05, W / 2 - 0.15, 0.7, [{ text: "44%", options: { color: PURPLE } }], "of floor ties join committee colleagues");
+  tile(s, X[2] + 0.1, by + 2.05, W / 2 - 0.15, 0.7, [{ text: "44%", options: { color: NAVY } }], "of floor ties join committee colleagues");
   tile(s, X[2] + W / 2 + 0.05, by + 2.05, W / 2 - 0.15, 0.7, "17%", "if ties were placed at random");
   foot(s, "two human coders agree 82% (κ = 0.64), a blind AI coder 88%; a text classifier did not beat the baseline, so only hand codes are reported.",
     "Congressional Record (govinfo.gov); 100 hand-labelled mentions; committee assignments, Nov 2026.");
@@ -180,7 +181,7 @@ const foot = (s, checked, sources) => tb(s, [
   const CX = 7.75, CY = 1.3, CW = 1.9, CH = 1.0;
   s.addShape(pres.shapes.LINE, { x: bx + 0.08, y: CY + 0.5, w: CX - bx - 0.08, h: by0 - CY - 0.5 - 0.04, flipH: true, line: { color: "000000", width: 1 }, objectName: "Bacon pointer" });
   const cy = bandbox(s, CX, CY, CW, CH, "Don Bacon (R, NE)");
-  tb(s, [t("1 in 3", { bold: true, fontSize: 18, color: PURPLE, breakLine: true }), t("releases names a Democrat", { fontSize: 8, breakLine: true }), t("53 of 163; district leans D+3", { fontSize: 7, color: MUTE })],
+  tb(s, [t("1 in 3", { bold: true, fontSize: 18, color: NAVY, breakLine: true }), t("releases names a Democrat", { fontSize: 8, breakLine: true }), t("53 of 163; district leans D+3", { fontSize: 7, color: MUTE })],
     { x: CX, y: cy - 0.06, w: CW, h: CH - 0.28, align: "center", valign: "middle", objectName: "Bacon callout text" });
 
   let by = bandbox(s, X[0], BY, W, BH, "Exposed seats name the other party more");
@@ -197,8 +198,8 @@ const foot = (s, checked, sources) => tb(s, [
 
   by = bandbox(s, X[1], BY, W, BH, "Exposed members are the bridges");
   const tw = (W - 0.4) / 3;
-  tile(s, X[1] + 0.1, by + 0.02, tw, 1.15, [{ text: "22%" }, { text: " → ", options: { fontSize: 11 } }, { text: "1/3", options: { color: PURPLE } }], "of members, of cross-party ties", 20);
-  tile(s, X[1] + 0.2 + tw, by + 0.02, tw, 1.15, [{ text: "46 of 60", options: { color: PURPLE } }], "names read: a partner or praise (1 criticised)", 20);
+  tile(s, X[1] + 0.1, by + 0.02, tw, 1.15, [{ text: "22%" }, { text: " → ", options: { fontSize: 11 } }, { text: "1/3", options: { color: NAVY } }], "of members, of cross-party ties", 20);
+  tile(s, X[1] + 0.2 + tw, by + 0.02, tw, 1.15, [{ text: "46 of 60", options: { color: NAVY } }], "names read: a partner or praise (1 criticised)", 20);
   tile(s, X[1] + 0.3 + 2 * tw, by + 0.02, tw, 1.15, [{ text: "64%" }, { text: " vs ", options: { fontSize: 10 } }, { text: "9%" }], "“bipartisan” releases vs others name a partner", 20);
   foot(s, "exposed members are also their party's moderates; comparing members of similar ideology leaves little of the gap, so seat and moderation cannot be separated here. One Congress, one chamber.",
     "55,023 press releases from house.gov (3 Jan 2025–20 Nov 2026); Cook PVI 2025; names read by three blind AI readers, disagreements by one author.");

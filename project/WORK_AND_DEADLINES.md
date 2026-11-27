@@ -175,6 +175,7 @@ From the earlier plans in `archive/`, and since the scope freeze (G17). Listed s
 
 Newest first. One line per change.
 
+- **27 Nov 2026.** Martin (with Claude): slides switched to a navy theme (DECISIONS G25), in the PDF and the PowerPoint; purple kept for cross-party ties only. No number changed.
 - **27 Nov 2026.** Martin (with Claude): bigger networks on the slides. Slide 1's maps re-drawn on a column-shaped canvas with the frame fitted to the 1st-99th percentile of node positions (11 of 445 floor and 12 of 448 working nodes fall outside; positions carry no meaning); slide 3's home map cropped to the map itself (Figure 4A without its panel title), Bacon's ring moved to match. No number changed.
 - **27 Nov 2026.** Martin (with Claude): slides restyled after a consulting-deck example Martin supplied: subtitle line with the so-what under each title (replaces the bottom bands), purple header bands on every text box, bullets with bold lead-ins, label tiles for the three records, tinted number tiles, Checked and Sources lines; frames top-aligned and columns left-aligned with equal bottoms. PDF and PowerPoint rebuilt; ArcDeck's deck (report/slides/arcdeck_comparison/) was tried and not used. No number changed.
 - **27 Nov 2026.** Martin (with Claude): slide 3 now rings Bacon's dot on the home map (position read from his leader line in Anas's figure) with a callout, "1 in 3 releases names a Democrat" (53 of 163, `Anas/a4/out/member_shares.csv`), in the PDF and the PowerPoint.
