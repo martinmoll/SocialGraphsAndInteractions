@@ -12,7 +12,9 @@ files, `figures/` and `references.bib`, so the folder compiles in Overleaf as it
 (`final_report/two_maps_full_draft_overleaf.zip` is the same folder zipped for upload). Next to it:
 `v2_comments_SGAI_PAPER.pdf` (the group's printed comments on v2, which the cut applied) and `TEXT_TAKEAWAYS.md`
 (how much space each section gets, from Sekara et al., PNAS 2016). Martin is giving feedback on `main.pdf`; that
-feedback is the next revision. Moved here from `Martin/final_report/` on 26 Nov: it is the group's paper, not one
+feedback is the next revision. `main2.tex` (with `main2.pdf`) is the same paper with the Results rewritten
+for readability (27 Nov draft); the group compares the two in Overleaf and keeps one. To compile it there, set
+`main2.tex` as the main document (Menu, Main document). Moved here from `Martin/final_report/` on 26 Nov: it is the group's paper, not one
 member's part. The tables below describe the earlier section files in `sections/`, which v2 was built from.
 
 ## What is handed in, and where it is here
