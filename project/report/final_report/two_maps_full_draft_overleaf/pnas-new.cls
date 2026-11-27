@@ -264,7 +264,7 @@
 \pagestyle{fancy}          % Enables the custom headers/footers
 
 \fancypagestyle{firststyle}{
-   \fancyfoot[L]{\footerfont \textbf{PNAS}\hspace{7pt}\today\hspace{7pt}LaTex v2025\hspace{7pt}Vol. XXX\hspace{7pt}No. XX\hspace{7pt}eXXXXXXXXXX}
+   \fancyfoot[L]{\footerfont \textbf{PNAS}\hspace{7pt}\today\hspace{7pt}LaTex v2025}
    \fancyfoot[R]{\footerfont\@ifundefined{@doi}{}{\@doi}\hspace{7pt}\textbf{\thepage of \pageref*{LastPage}}}
 
 \newsavebox{\PNAS@linecount@bx}
@@ -370,7 +370,7 @@
 \fancyfoot[RO]{\footerfont\@ifundefined{@doi}{}{\@doi}\hspace{7pt}\textbf{\thepage} \textbf{of} \textbf{\pageref*{LastPage}}}
 %\fancyfoot[RE,LO]{\footerfont\@ifundefined{@leadauthor}{}{\@leadauthor}\ifnum \value{authors} > 1\hspace{5pt}\textit{et al.}\fi}
 \fancyfoot[RE]{\footerfont pnas.org}
-\fancyfoot[LO]{\footerfont \textbf{PNAS}\hspace{7pt}\today\hspace{7pt}LaTex v2025 \hspace{7pt}Vol. XXX\hspace{7pt}No. XX\hspace{7pt} eXXXXXXXXXX}
+\fancyfoot[LO]{\footerfont \textbf{PNAS}\hspace{7pt}\today\hspace{7pt}LaTex v2025}
 
 \renewcommand{\headrulewidth}{0pt}% % No header rule
 \renewcommand{\footrulewidth}{0pt}% % No footer rule
