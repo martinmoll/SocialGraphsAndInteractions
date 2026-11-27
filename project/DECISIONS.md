@@ -347,6 +347,30 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
   untested confound next to ideology.
 - **Source:** `Martin/delegation_check/` (plan with results, `delegation_check.py`, `results.csv`, `readout.txt`).
 
+### G24. Martin's 26 Nov comments applied to the final report
+- **Status:** Decided Thu 26 Nov by Martin (with Claude). For the group to read before hand-in.
+- **Decision:** all ten suggestions in `report/final_report/FEEDBACK_26NOV_SUGGESTIONS.md` applied to
+  `report/final_report/two_maps_full_draft_overleaf/main.tex`. No number changed and no analysis was added.
+  1. Abstract: the last sentence names the records (bills, floor speeches, press releases); still 150 words.
+  2. Significance statement rewritten to open on the finding (105 words).
+  3. Page 1's empty right column: partly filled by the longer statement; the rest is the template's.
+  4. Figure 1: more width to the figure (12.4 cm) and less to the side caption, so less blank space beside it.
+  5. "Yields" explained at first use in Results and in the Figure 1 caption.
+  6. Part 3's bold run-in heading under its subsection heading dropped, as in parts 1 and 2.
+  7. "Two coders" now says it was two of us, on 50 mentions.
+  8. The AI readers named: Claude models from Anthropic, two Claude Opus and one Claude Sonnet (three Opus and two
+     Sonnet for the press recall check), each a separate session with only a packet. Not "Opus 5.5" for all, as the
+     comment asked: Anas's records say two Opus and one Sonnet, and the versions are not recorded.
+  9. "Moderate" defined (votes close to the other party on DW-NOMINATE) before the numbers.
+  10. "Blind" spelled out in AI use: a separate session, only the packet, no party, seat or other coders' answers.
+- **Reason:** Martin's printed comments asked for plainer wording at first use, clear credit to the authors as coders,
+  a named model and a more striking significance statement.
+- **Alternative and what it would have changed:** Figure 1 back at full width with the caption underneath. It removes
+  the blank space entirely but costs about four lines of text.
+- **Check:** compiled with TeX Live and the PNAS class in the folder: 6 pages, no errors. `main.pdf` and the Overleaf
+  zip rebuilt. **Open:** Anas to confirm the model versions of the AI readers.
+- **Source:** Martin's annotated PDF, 26 Nov; `report/final_report/FEEDBACK_26NOV_SUGGESTIONS.md`.
+
 ### G9. Yields stay in the labelling sample
 - **Status:** Agreed Wed 18 Nov.
 - **Decision:** Diego's labelling sample (100 rows, already drawn) keeps the yields among them.
