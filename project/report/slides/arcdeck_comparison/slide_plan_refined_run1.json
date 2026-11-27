@@ -1,0 +1,22 @@
+{
+ "_agent": "A12 Design Refiner",
+ "metadata": {"title": "Two maps of Congress: less divided in whom they name", "author": "Anas Mir, Martin Møllenhus, Diego A. Mijares", "organization": "DTU 02805 Social Graphs and Interactions, 2026"},
+ "slides": [
+  {"template_id": "T2_ImageRight", "title": "Less divided when naming", "section": "results",
+   "bullets": ["Same 450 members, 119th House, drawn twice", "Floor: \\textbf{38.7%} of ties cross the aisle", "Cosponsoring, same size: \\textbf{28.6%}", "No random draw of 200 comes close"],
+   "images": ["image_1.png"], "tables": [], "visual_element": null, "paragraph": ""},
+  {"template_id": "T1_TextOnly", "title": "Mostly credit, not attack", "section": "results",
+   "bullets": ["100 floor mentions read by hand", "Communities follow committees: NMI \\textbf{0.03} (floor) vs 0.83 (working)"],
+   "images": [], "tables": [], "paragraph": "",
+   "visual_element": {"type": "stats_callout", "items": [
+     {"label": "69%", "sublabel": "of cross-party mentions are thanks and credit"},
+     {"label": "7%", "sublabel": "disagree with the named member"},
+     {"label": "~2/3", "sublabel": "of floor division comes from how debates are run"}]}},
+  {"template_id": "T2_ImageRight", "title": "Close seats name across", "section": "results",
+   "bullets": ["55,023 press releases, 406 members", "Exposed Republicans: \\textbf{13.3%} vs 9.2% safe", "Exposed Democrats: \\textbf{11.6%} vs 9.0% safe", "Named members are mostly partners (46 of 60)", "Exposed members are also moderates: not separable"],
+   "images": ["image_3.png"], "tables": [], "visual_element": null, "paragraph": ""},
+  {"template_id": "T8_Conclusion", "title": "It depends on the record", "section": "conclusion",
+   "bullets": ["How divided Congress looks depends on the record you read", "A name, unlike the word \"bipartisan\", can be checked"],
+   "images": [], "tables": [], "visual_element": null, "paragraph": ""}
+ ]
+}

@@ -1,0 +1,35 @@
+{
+ "_agent": "A12 Design Refiner, run 2 (3 pages, dense). Run 1 is in report/slides/arcdeck_comparison/slide_plan_refined_run1.json",
+ "metadata": {"title": "Two maps of Congress: less divided in whom they name", "author": "Anas Mir, Martin Møllenhus, Diego A. Mijares", "organization": "DTU 02805 Social Graphs and Interactions, 2026"},
+ "slides": [
+  {"template_id": "T3_ImageWide", "title": "They vote in two camps. Do they name in two?", "section": "results",
+   "bullets": [
+     "Same 450 House members (2025-26) drawn twice: \\textbf{working} = A cosponsors B's bill (46,513 ties); \\textbf{floor} = A names B in a speech (17,824 speeches)",
+     "Floor: \\textcolor{blue}{38.7%} of ties cross the aisle; working, cut to the same 3,970 ties: \\textbf{28.6%} (mean of 200 draws, none close)",
+     "Party modularity 0.112 (floor) vs 0.211 (working); closest working partnerships cross only 12.8%",
+     "Both far more divided than chance: random rewiring gives about 50% cross-party",
+     "Checked: name matcher right in 98 of 100 hand-read mentions; holds with or without procedural yields"],
+   "images": ["image_1ab.png"], "tables": [], "visual_element": null, "paragraph": ""},
+  {"template_id": "T1_TextOnly", "title": "You'd expect attacks. Mostly it's credit", "section": "results",
+   "bullets": [
+     "We read 100 random floor mentions and coded each by hand (two coders agree 82%, kappa 0.64)",
+     "\"I also thank my friend and subcommittee ranking member, Mr. Ro Khanna, for his collaboration this year\" (Bacon, R)",
+     "Shuffling who is named \\textbf{within each debate} drops modularity 0.112 to 0.074: procedure explains about two thirds",
+     "Louvain: working map splits into the \\textbf{2 parties} (NMI 0.83); floor map into \\textbf{8 bipartisan committee groups} (NMI 0.03)",
+     "A text classifier did not beat the baseline, so only hand codes are reported"],
+   "images": [], "tables": [], "paragraph": "",
+   "visual_element": {"type": "stats_callout", "items": [
+     {"label": "69%", "sublabel": "of cross-party mentions are thanks and credit"},
+     {"label": "7%", "sublabel": "disagree with the named member"},
+     {"label": "~2/3", "sublabel": "of floor division comes from how debates are run"},
+     {"label": "44%", "sublabel": "of floor ties join committee colleagues (17% at random)"}]}},
+  {"template_id": "T3_ImageWide", "title": "At home, close seats name across the aisle", "section": "results",
+   "bullets": [
+     "55,023 press releases, 406 members. Exposed = district leans to own party by 5 points or less",
+     "Exposed vs safe: \\textcolor{red}{13.3%} vs 9.2% (Republicans), \\textcolor{blue}{11.6%} vs 9.0% (Democrats), p = 0.004 each; closest seats about 1 in 5",
+     "Exposed members are 22% of members but take part in about 1/3 of cross-party ties; 46 of 60 names read are partners or praise",
+     "Caveat: exposed members are also their party's moderates; seat and moderation cannot be separated",
+     "\\textbf{How divided Congress looks depends on the record you read. A name, unlike \"bipartisan\", can be checked}"],
+   "images": ["image_3wide.png"], "tables": [], "visual_element": null, "paragraph": ""}
+ ]
+}

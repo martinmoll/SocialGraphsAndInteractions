@@ -371,6 +371,39 @@ are in [`Martin/M3_PROPOSAL.md`](Martin/M3_PROPOSAL.md).
   zip rebuilt. **Open:** Anas to confirm the model versions of the AI readers.
 - **Source:** Martin's annotated PDF, 26 Nov; `report/final_report/FEEDBACK_26NOV_SUGGESTIONS.md`.
 
+### G25. The slides tell the main2 story, one finding per slide, dense
+- **Status:** Mock-up Fri 27 Nov by Martin (with Claude). For the group to react to before hand-in.
+- **Decision:** `report/slides/slides.tex` rewritten (PDF beside it). Three slides, each headed by its finding:
+  (1) same 450 members, two pictures: the floor and working networks side by side, 38.7% against 28.6%;
+  (2) why the floor is less divided: 69% credit and 7% disagreement, debates explain about two thirds, communities
+  follow committees (NMI 0.03 against 0.83); (3) at home, members in close seats name the other party most and are
+  the hubs of the home map; closes on "how divided Congress looks depends on the record you read". Wording follows
+  `main2.tex`. Every slide ends with a grey "Checked:" line, and slide 3 states the moderates caveat. A footer names
+  the group, because the teachers merge all groups' slides. One real quote from the labelled sample (id 2,
+  Guthrie on Pallone, coded agreeing by all coders). Figures are crops of the paper's figures, copied to
+  `report/slides/figures/`. No number is new.
+- **Reason:** the course asks for three slides in three minutes, and the group wants a lot of information per slide;
+  main2's plain wording carries the story better than main's.
+- **Alternative and what it would have changed:** the 24 Nov draft (slide 3 as bullets on what it means and how we
+  checked). Less on screen, but the press-release close-up, the strongest "wow" figure, was one bullet.
+- **Source:** Martin's request, 27 Nov; `report/final_report/two_maps_full_draft_overleaf/main2.tex`.
+- **Layout, later 27 Nov (Martin):** each section is a column with its title, its figure and a rounded box
+  underneath holding its numbers and text; slide 1's setup text is one tall box, and slide 2's committee column has
+  no figure, so its box runs the full height. Agreed in the same session, not yet applied: open on the puzzle
+  ("you'd expect an attack; 69% of the time it's a thank-you"), one real member followed through all three slides
+  (pending a data check), slide 1's networks re-drawn for projection with only cross-party ties bold, and one
+  slide per author (Martin 1, Diego 2, Anas 3). Rejected: one oversized hero number per slide (Martin keeps the
+  current density). Story text in `report/slides/STORY.md`.
+- **Applied, later 27 Nov:** headlines open on the puzzle (slide 1 "They vote in two camps. Do they also name each
+  other in two camps?", slide 2 "You would expect attacks. Most of the time, it's a thank-you"). Thread member: Don
+  Bacon (R, NE-2), chosen because he is the only labelled home-map member who is the speaker in a hand-coded
+  cross-party floor mention (mention 58, thanks Ro Khanna, coded agreeing) and is exposed (lean D+3; 53 of 163
+  releases name a Democrat, `Anas/a4/out/member_shares.csv`). He is one example, not evidence. Slide 1's networks
+  are re-drawn by `report/slides/make_slide_networks.py` from the same ties and seed as Figure 1, same-party ties
+  faded; it asserts the cross-party shares. The drawn working map is one draw (29.3% cross), the 28.6% is the mean
+  of 200 draws, and the slide now says both. One speaker per slide is in `STORY.md`. A PowerPoint copy
+  (`slides.pptx`, built by `build_pptx.js`) has the same text, numbers and figures; the PDF is what is handed in.
+
 ### G9. Yields stay in the labelling sample
 - **Status:** Agreed Wed 18 Nov.
 - **Decision:** Diego's labelling sample (100 rows, already drawn) keeps the yields among them.

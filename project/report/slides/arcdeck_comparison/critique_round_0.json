@@ -1,0 +1,10 @@
+{
+ "agent": "A6 Narrative Critic, round 0",
+ "issues": [
+  {"slide": 1, "severity": "high", "issue": "Opens on the method (two maps) instead of the tension. Commitments spine step 1 is 'two camps'; the slide title should carry the puzzle, not the data source."},
+  {"slide": 2, "severity": "medium", "issue": "Three ideas (credit, procedure, committees) compete; the Solutionhood nucleus (69% credit) must lead, procedure and committees as its Concession/Elaboration."},
+  {"slide": 3, "severity": "high", "issue": "Six paragraphs on one slide; home map, 'bipartisan' and cited bills dilute the Evidence nucleus. Cited bills is out of scope per commitments."},
+  {"slide": 3, "severity": "medium", "issue": "Takeaway (division depends on the record) is the talk's thesis and should close the slide visibly, not sit in the paragraph list."},
+  {"slide": "all", "severity": "low", "issue": "Moderates caveat must stay (must-avoid: causal claims)."}
+ ]
+}
