@@ -175,6 +175,7 @@ From the earlier plans in `archive/`, and since the scope freeze (G17). Listed s
 
 Newest first. One line per change.
 
+- **27 Nov 2026.** Martin (with Claude): the grey DRAFT watermark removed from the paper (`displaywatermark` set to false in `pnas-new.cls`); `main.pdf`, `main2.pdf` and the Overleaf zip rebuilt, still 6 pages.
 - **27 Nov 2026.** Martin (with Claude): the page footer in `report/final_report/.../pnas-new.cls` shortened to "PNAS, date, LaTex v2025" (the placeholder Vol. XXX, No. XX and eXXXXXXXXXX removed, on the first page and on odd pages). Paper still compiles at 6 pages.
 - **27 Nov 2026.** Martin (with Claude): the AI reflection's final text as a one-page LaTeX file, `report/reflection/reflection.tex` (about 365 words), for Overleaf and hand-in. Text by Anas, Martin and Diego; replaces the draft in `Diego/reflection_draft.md`.
 - **27 Nov 2026.** Martin (with Claude): Anas's text comments applied to both `main.tex` and `main2.tex` (DECISIONS G25); both compile at 6 pages; PDFs and the Overleaf zip rebuilt. The highlighted PDF of `main2` predates this change. Anas's other notes are presentation preparation.

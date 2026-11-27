@@ -103,7 +103,7 @@
 
 %% Watermark
 \newboolean{displaywatermark}
-\setboolean{displaywatermark}{true} % Set to false to remove the watermark
+\setboolean{displaywatermark}{false} % Set to false to remove the watermark
 \AtBeginDocument{%
   \ifthenelse{\boolean{displaywatermark}}{%
   \RequirePackage{draftwatermark}
