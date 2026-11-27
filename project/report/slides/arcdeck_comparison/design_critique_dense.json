@@ -1,0 +1,13 @@
+{
+ "_agent": "A11 Design Critic (CARP+), run 2: contract changed to exactly 3 pages, information dense",
+ "on": "slide_plan_refined.json (run 1)",
+ "scores": {"contrast": 7, "alignment": 8, "repetition": 8, "proximity": 6, "content_visual_alignment": 5, "variety": 7, "information_design": 5},
+ "overall": 6.6,
+ "decision": "refine",
+ "issues": [
+  {"slide": "deck", "severity": "high", "issue": "6 pages; contract is 3. Title, conclusion and Thank-You pages carry no evidence.", "fix": "Drop bookends (ARCDECK_NO_BOOKENDS); fold the thesis into slide 3 as its last, bold bullet."},
+  {"slide": 1, "severity": "high", "issue": "Four-panel side figure is unreadable at slide size; half the slide is empty.", "fix": "Use the wide crop of Figure 1A-B (AR 2.5) so the renderer puts it full width under the bullets; 5-6 bullets above."},
+  {"slide": 2, "severity": "medium", "issue": "Only 3 stats and 2 bullets; the committee finding and the method check are thin.", "fix": "4 stats (69%, 7%, ~2/3, 44%) and 5 bullets: method, a real quote, the shuffle, communities, the coder check."},
+  {"slide": 3, "severity": "high", "issue": "Tall Figure 3 forces bullets into a narrow column; thesis is on a separate page.", "fix": "Wide Figure 3 (AR 3.0) full width; 6 bullets including the home-map hub result, the caveat and the thesis."}
+ ]
+}

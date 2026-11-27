@@ -1,66 +1,217 @@
-% Three slides for the 3-minute presentation, handed in as a 3-page PDF with the paper (no animations).
-% Started by Diego with Claude, 22 Nov. Owner: Martin (M8). Compiles in Overleaf as a plain Beamer file:
-% upload this file and ../figures/figure1.pdf, figure2.pdf (fix the paths below if you put them elsewhere).
-\documentclass[aspectratio=169,11pt]{beamer}
-\usetheme{default}
+% Three slides for the 3-minute talk (Wed 2 Dec), handed in as a 3-page PDF with the paper on 27 Nov. No animations:
+% the teachers merge every group's slides into one deck. Rewritten 27 Nov by Martin with Claude as a mock-up that
+% follows main2.tex (the plain-language Results). Every number is from main2.tex or the result files named in
+% STORY.md; no new analysis.
+% Story: (1) same 450 people, two pictures; (2) why the floor is less divided: credit and committees;
+% (3) at home, members in risky seats are the bridges. Takeaway: how divided Congress looks depends on the record.
+% Style (Martin, 27 Nov, after a consulting-deck example): title states the finding, a subtitle carries the so-what;
+% plain bold headings over figures; text boxes have a purple header band and bullets with bold lead-ins; label tiles
+% and tinted number tiles; everything left-aligned to its column; Checked and Sources lines at the foot.
+% Compiles in Overleaf as a plain Beamer file with the folder figures/ beside it.
+\documentclass[aspectratio=169,8pt]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
 \setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{footline}{}
-\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamersize{text margin left=0.45cm,text margin right=0.45cm}
+
+\definecolor{rep}{HTML}{D62728}
+\definecolor{dem}{HTML}{1F77B4}
 \definecolor{cross}{HTML}{7D3C98}
+\definecolor{ink}{HTML}{222222}
+\definecolor{mute}{HTML}{666666}
+\definecolor{band}{HTML}{F3EEF7}
+\setbeamercolor{normal text}{fg=ink}
+
+% Headline band (number and finding), then the subtitle line with the so-what.
+\newcommand{\headline}[3]{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[cross] (current page.north west) rectangle ([yshift=-0.85cm]current page.north east);
+    \node[anchor=west,text=white,font=\bfseries\Large] at ([xshift=0.45cm,yshift=-0.425cm]current page.north west)
+      {#1\quad #2};
+  \end{tikzpicture}\par\vspace{0.42cm}
+  {\small\color{ink}#3\par}\vspace{5pt}}
+% Footer on every slide, because the slides are merged with every other group's.
+\setbeamertemplate{footline}{\hspace{0.45cm}\textcolor{mute}{\tiny Two maps of Congress \textbar{} Anas Mir, Martin
+  M{\o}llenhus, Diego A. Mijares \textbar{} 02805, DTU \hfill 119th US House, Jan 2025--Nov 2026\hspace{0.45cm}}\vspace{0.15cm}}
+% Checked and Sources lines at the foot of each slide.
+\newcommand{\foot}[2]{{\tiny\color{mute}\textbf{Checked:} #1\par\textbf{Sources:} #2\par}}
+% A big number with a small label under it (used inside tiles).
+\newcommand{\bigsize}{17}
+\newcommand{\bignum}[3]{\begin{minipage}[t]{#1}\centering{\fontsize{\bigsize}{19}\selectfont\bfseries #2}\\[-1pt]
+  {\scriptsize #3}\end{minipage}}
+% Plain bold heading over a figure or a group (left-aligned, fixed height so columns line up).
+\newcommand{\coltitle}[1]{\parbox[t][0.40cm][t]{\linewidth}{\small\bfseries #1}}
+% Text box with a purple header band. Optional argument: extra options (height).
+\newtcolorbox{bandbox}[2][]{enhanced,arc=1mm,boxrule=0.5pt,colframe=cross,colback=white,colbacktitle=cross,
+  coltitle=white,fonttitle=\scriptsize\bfseries,halign title=center,title={#2},toptitle=1.2pt,bottomtitle=1.2pt,
+  left=3pt,right=3pt,top=2.5pt,bottom=2pt,fontupper=\scriptsize,before upper=\raggedright,valign=top,
+  nobeforeafter,width=\linewidth,#1}
+% Bullet with a bold lead-in.
+\newcommand{\bl}[2]{\par\hangindent=7pt\hangafter=1\noindent\makebox[7pt][l]{\textcolor{cross}{\textbullet}}%
+  \textbf{#1} #2\par\vspace{1.6pt}}
+% Tinted number tile: width, height, number, label.
+\newcommand{\tile}[4]{{\setlength{\fboxsep}{0pt}\colorbox{band}{\parbox[c][#2][c]{#1}{\centering
+  {\fontsize{\bigsize}{19}\selectfont\bfseries #3}\\[0pt]{\scriptsize #4}}}}}
+% Low number tile: number on the left, its sentence beside it, both centred in the tint (for short tiles).
+\newcommand{\htile}[4]{{\setlength{\fboxsep}{0pt}\colorbox{band}{\parbox[c][#2][c]{#1}{\centering
+  \begin{tabular}{@{}c@{\hspace{5pt}}l@{}}$\vcenter{\hbox{\fontsize{15}{16}\selectfont\bfseries #3}}$ &
+  \begin{minipage}[c]{2.3cm}\raggedright\scriptsize #4\end{minipage}\end{tabular}}}}}
+% Label tile: purple block with a white label, white box with the detail (fixed height 0.66 cm).
+\newcommand{\labeltile}[2]{{\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{0.5pt}%
+  \colorbox{cross}{\parbox[c][0.66cm][c]{1.45cm}{\centering\color{white}\bfseries\scriptsize #1}}%
+  \fcolorbox{cross}{white}{\parbox[c][\dimexpr0.66cm-1pt][c]{\dimexpr\linewidth-1.45cm-1pt}{\scriptsize
+  \hspace{4pt}\begin{minipage}{\dimexpr\linewidth-8pt}\raggedright#2\end{minipage}}}}\par\vspace{3pt}}
 
 \begin{document}
 
-% ---------------------------------------------------------------- 1. Question and data
-\begin{frame}{Two maps of the same House}
-\begin{columns}[T]
-\column{0.55\textwidth}
-\textbf{Question.} Is the House less divided by party in whom members \emph{name} than in whom they \emph{work
-with}?
+% ================================================================ 1. Same people, two pictures
+\begin{frame}[t]
+\headline{1}{They vote in two camps. Do they also name each other in two camps?}{No: drawn from the same 450 members,
+the House is \textbf{less divided in whom it names than in whom it works with}}
 
-\vspace{0.6em}
-\textbf{Same 450 members, 119th House (2025--26), two records:}
-\begin{itemize}
-\item \textbf{Working map:} A cosponsors B's bill (govinfo, 46,513 ties)
-\item \textbf{Floor map:} A names B in a floor speech (Congressional Record, 9,988 mentions)
-\item \textbf{Close-up:} whom members name at home (55,023 press releases)
-\end{itemize}
-\column{0.42\textwidth}
-\vspace{1em}
-\textit{Votes and words say Congress is two camps. Does it look the same in who credits whom?}
+\begin{columns}[T,totalwidth=\textwidth]
+\column{0.30\textwidth}
+\begin{bandbox}[height=2.62cm]{The puzzle}
+\bl{Two camps:}{members vote apart and talk apart.}
+\bl{So expect attacks:}{when one names a colleague of the other party on the floor.}
+\bl{Our question:}{is the House as divided in \emph{whom members name} as in \emph{whom they work with}?}
+\bl{Our approach:}{draw the same members twice, as two networks, and compare them.}
+\end{bandbox}\par\vspace{6pt}
+\coltitle{Same 450 members, three records}\\
+\labeltile{Working map}{\textbf{A cosponsors B's bill}\\\textcolor{mute}{46,513 ties, govinfo bill data}}
+\labeltile{Floor map}{\textbf{A names B in a floor speech}\\\textcolor{mute}{17,824 speeches, Congressional Record}}
+\labeltile{At home}{\textbf{A names B in a press release}\\\textcolor{mute}{55,023 releases from house.gov}}
+
+\column{0.68\textwidth}
+\begin{minipage}[t]{0.49\linewidth}
+  \coltitle{Floor: who names whom}\\
+  \includegraphics[width=\linewidth]{figures/net_floor.pdf}\\[2pt]
+  \htile{\linewidth}{0.72cm}{\textcolor{cross}{38.7\%}}{of ties cross the aisle}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.49\linewidth}
+  \coltitle{Working: who cosponsors with whom}\\
+  \includegraphics[width=\linewidth]{figures/net_work.pdf}\\[2pt]
+  \htile{\linewidth}{0.72cm}{28.6\%}{cross at the same number of ties (mean of 200 draws)}
+\end{minipage}\par\vspace{2pt}
+{\tiny\textcolor{rep}{$\bullet$} Republican \quad \textcolor{dem}{$\bullet$} Democrat \quad \textcolor{cross}{---}
+cross-party tie \quad $\bigcirc$ \textbf{Don Bacon} (R, NE) \quad Working map: one draw, 29.3\% cross\par}\vspace{4pt}
+\begin{minipage}[t]{0.49\linewidth}
+\begin{bandbox}[height=2.05cm]{Not chance, not thinning}
+\bl{None close:}{no random draw of working ties reaches the floor map.}
+\bl{Closest partners:}{only \textbf{12.8\%} of the strongest working ties cross.}
+\bl{Far from random:}{rewired ties cross $\approx$\textbf{50\%}.}
+\end{bandbox}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.49\linewidth}
+\includegraphics[height=2.0cm,trim=2 2 252 196,clip]{figures/figure1.pdf}
+\end{minipage}
 \end{columns}
+\vfill
+\foot{name matcher right in 98 of 100 hand-read mentions; the result holds with or without procedural yields
+(``I yield to\ldots'').}{Congressional Record and BILLSTATUS bulk data (govinfo.gov), Jan 2025--Nov 2026; member
+lists from Voteview.}
 \end{frame}
 
-% ---------------------------------------------------------------- 2. The main figure
-\begin{frame}{Members name across the aisle more than they work across it}
-\centering
-\includegraphics[height=0.68\textheight]{../figures/figure1.pdf}
+% ================================================================ 2. Why: credit and committees
+\begin{frame}[t]
+\headline{2}{You would expect attacks. Most of the time, it's a thank-you}{Naming across the aisle is
+\textbf{committee work made public}: mostly credit, rarely argument}
 
-\vspace{0.3em}
-{\Large \textcolor{cross}{\textbf{38.7\%}} of floor ties cross parties, against \textbf{28.6\%} of working ties
-of the same size}
+\begin{columns}[T,totalwidth=\textwidth]
+\column{0.325\textwidth}
+\coltitle{What does a cross-party mention say?}\\
+\parbox[t][2.35cm][t]{\linewidth}{\includegraphics[height=2.3cm]{figures/figure2.pdf}}\\[3pt]
+\begin{bandbox}[height=3.15cm]{Mostly credit, rarely attack}
+\bignum{0.48\linewidth}{\textcolor{cross}{69\%}}{thanks \& credit}\hfill
+\bignum{0.48\linewidth}{7\%}{disagreement}\par\vspace{4pt}
+\bl{Method:}{100 random floor mentions, each coded by hand.}
+\bl{Example:}{\emph{``I also thank my friend and subcommittee ranking member, Mr.\ Ro Khanna, for his collaboration
+this year.''} \textcolor{mute}{Bacon (\textcolor{rep}{R}) on Khanna (\textcolor{dem}{D}), 21 Jul 2026.}}
+\bl{Procedure:}{handing over debate time never crosses the aisle.}
+\end{bandbox}
+
+\column{0.325\textwidth}
+\coltitle{How much is just procedure?}\\
+\parbox[t][2.35cm][t]{\linewidth}{\includegraphics[height=2.3cm,trim=258 2 2 198,clip]{figures/figure1.pdf}}\\[3pt]
+\begin{bandbox}[height=3.15cm]{About two thirds is how debates run}
+\bignum{\linewidth}{$\approx$\,2/3}{of the floor map's division comes from debate procedure}\par\vspace{4pt}
+\bl{Shuffle within debates:}{each debate brings both parties' managers; shuffling who is named inside each debate
+drops party modularity from 0.112 to 0.074.}
+\bl{The last third is real:}{members name their own side more than in any of 200 shuffles.}
+\bl{Not states:}{state delegations explain almost none.}
+\end{bandbox}
+
+\column{0.325\textwidth}
+\coltitle{Which groups does each map form?}\\
+\begin{bandbox}[height=5.55cm]{Organised by committee, not party}
+\bl{Working map:}{Louvain finds \textbf{2} communities, the two parties.}
+\bl{Floor map:}{\textbf{8} communities, each bipartisan.}\vspace{3pt}
+\tile{0.48\linewidth}{1.0cm}{0.83}{overlap with party, working (NMI)}\hfill
+\tile{0.48\linewidth}{1.0cm}{\textcolor{cross}{0.03}}{overlap with party, floor (NMI)}\par\vspace{5pt}
+\bl{Committees:}{seven floor communities gather around one committee (Appropriations, Ways and Means, \ldots); the
+eighth is the party leaders.}\vspace{3pt}
+\tile{0.48\linewidth}{1.0cm}{\textcolor{cross}{44\%}}{of floor ties join committee colleagues}\hfill
+\tile{0.48\linewidth}{1.0cm}{17\%}{if ties were placed at random}
+\end{bandbox}
+\end{columns}
+\vfill
+\foot{two human coders agree 82\% ($\kappa=0.64$), a blind AI coder 88\%; a text classifier did not beat the
+baseline, so only hand codes are reported.}{Congressional Record (govinfo.gov); 100 hand-labelled mentions;
+committee assignments, Nov 2026.}
 \end{frame}
 
-% ---------------------------------------------------------------- 3. What it means and how we checked
-\begin{frame}{Mostly credit, not argument; partly procedure}
-\begin{columns}[T]
-\column{0.5\textwidth}
-\includegraphics[width=\textwidth]{../figures/figure2.pdf}
+% ================================================================ 3. At home: risky seats are the bridges
+\begin{frame}[t]
+\headline{3}{At home, members in close races name the other party most}{How divided Congress looks
+\textbf{depends on the record you read}; a name, unlike the word ``bipartisan'', can be checked}
+\renewcommand{\bigsize}{14}
 
-\small Cross-party mentions: \textbf{69\% agreeing}, 7\% disagreeing (100 read by hand)
-\column{0.48\textwidth}
-\textbf{What it means}
-\begin{itemize}
-\item Members credit colleagues of the other party in public
-\item Debate procedure explains about two thirds of the floor map's party division; its communities are committees
-\item At home, members in close seats name the other party more (both parties)
-\end{itemize}
-\textbf{How we checked}
-\begin{itemize}
-\item Three null models; maps compared at equal size
-\item Name matcher: 98/100 right, recall 12/13
-\item Two human coders, $\kappa = 0.64$; text classifier did not beat the baseline, so not used
-\end{itemize}
+\begin{columns}[T,totalwidth=\textwidth]
+\column{0.49\textwidth}
+\coltitle{Press releases naming the other party, by how safe the seat is}\\
+\parbox[t][3.0cm][t]{\linewidth}{\includegraphics[height=2.95cm,trim=0 0 0 20,clip]{figures/figure_lean.pdf}}\\[3pt]
+\begin{bandbox}[height=2.2cm]{Exposed seats name the other party more}
+\bignum{0.48\linewidth}{\textcolor{rep}{13.3\%}\,{\normalsize vs}\,9.2\%}{Republicans, exposed vs safe}\hfill
+\bignum{0.48\linewidth}{\textcolor{dem}{11.6\%}\,{\normalsize vs}\,9.0\%}{Democrats, exposed vs safe}\par\vspace{3pt}
+\bl{Exposed:}{district leans to own party by $\le$5 points; $p=0.004$ in each party, survives every check fixed in
+advance.}
+\bl{Closest seats:}{about \textbf{1 release in 5} names the other party (Republicans).}
+\end{bandbox}
+
+\column{0.49\textwidth}
+\coltitle{The home map: exposed members are the hubs}\\
+% Crop: panel A of Figure 4 without its panel title and bottom margin (map rows 140-901 of the 300-dpi crop), so
+% the map fills the row. Bacon's dot sits at (0.4554, 0.5375) of this crop (found by following his leader line).
+% The callout is an overlay, so the map stays left-aligned to the heading.
+\parbox[t][3.0cm][t]{\linewidth}{\begin{tikzpicture}
+  \node[inner sep=0,anchor=south west] (img) at (0,0)
+    {\includegraphics[height=2.95cm,trim=0 38.16 220 35.6,clip]{figures/figure4.pdf}};
+  \begin{scope}[x={(img.south east)},y={(img.north west)},overlay]
+    \coordinate (bacon) at (0.4554,0.5375);
+    \draw[black,line width=1.3pt] (bacon) circle (0.14cm);
+    \node[inner sep=0,anchor=north west] (call) at (1.04,1.0) {\begin{bandbox}[width=2.7cm,
+        before upper=\centering]{Don Bacon (R, NE)}
+      {\fontsize{12}{13}\selectfont\bfseries\textcolor{cross}{1 in 3}}\\
+      releases names a Democrat\\[1pt]
+      {\tiny\textcolor{mute}{53 of 163; district leans D+3}}
+      \end{bandbox}};
+    \draw[black,line width=0.7pt] (call.west) -- ([shift={(0.1cm,0.08cm)}]bacon);
+  \end{scope}
+\end{tikzpicture}}\\[3pt]
+\begin{bandbox}[height=2.2cm]{Exposed members are the bridges}
+\tile{0.32\linewidth}{1.35cm}{22\%\,{\normalsize$\to$}\,\textcolor{cross}{1/3}}{of members, of cross-party ties}\hfill
+\tile{0.32\linewidth}{1.35cm}{\textcolor{cross}{46 of 60}}{names read: a partner or praise (1 criticised)}\hfill
+\tile{0.32\linewidth}{1.35cm}{64\%\,{\normalsize vs}\,9\%}{``bipartisan'' releases vs others name a partner}
+\end{bandbox}
 \end{columns}
+\vfill
+\foot{exposed members are also their party's moderates; comparing members of similar ideology leaves little of
+the gap, so seat and moderation cannot be separated here. One Congress, one chamber.}{55,023 press releases from
+house.gov (3 Jan 2025--20 Nov 2026); Cook PVI 2025; names read by three blind AI readers, disagreements by one
+author.}
 \end{frame}
 
 \end{document}

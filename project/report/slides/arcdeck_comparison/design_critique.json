@@ -1,0 +1,12 @@
+{
+ "_agent": "A11 Design Critic (CARP+)",
+ "scores": {"contrast": 7, "alignment": 8, "repetition": 8, "proximity": 7, "content_visual_alignment": 6, "variety": 7, "information_design": 6},
+ "overall": 7.0,
+ "decision": "refine",
+ "issues": [
+  {"slide": 1, "severity": "high", "issue": "Figure 1 side version is tall with four panels; at slide size the networks are thumbnails and panels C/D unreadable.", "fix": "Keep the image but make the title the finding; bullets carry the two numbers in bold so the eye lands without reading the figure."},
+  {"slide": 2, "severity": "high", "issue": "Stats callout mixes two questions (tone 69/7, committees 44/17); the 2/3 procedure number is missing though commitments list it as must-include.", "fix": "Callout: 69% credit, 7% disagree, about 2/3 from debate procedure; committees as a bullet with NMI 0.03 vs 0.83."},
+  {"slide": 3, "severity": "medium", "issue": "Caveat bullet sits at the same weight as the finding.", "fix": "Bold the finding numbers; keep the caveat last and plain."},
+  {"slide": "all", "severity": "medium", "issue": "Titles describe topics, not findings.", "fix": "Finding titles of at most 5 words."}
+ ]
+}
